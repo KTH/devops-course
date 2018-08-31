@@ -14,6 +14,12 @@ What are the most relevant ones in 2018? What technology should be mentioned or 
 
 If you have an opinion about this, please open an issue with the tool name and purpose as issue title, together with a brief explanation of its relevance as issue body.
 
+## Material
+
+Books:
+
+* [Effective DevOps : Building a Culture of Collaboration, Affinity, and Tooling at Scale (Jennifer Davis and Katherine Daniels)](https://ebookcentral-proquest-com.focus.lib.kth.se/lib/kth/detail.action?docID=4537261)
+
 ## Related courses
 
 * [Devops Course at North Carolina State University, by Chris Parnin](https://github.com/CSC-DevOps/Course)
