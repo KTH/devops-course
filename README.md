@@ -5,7 +5,7 @@ This repository contains the material and content of the DevOps course at KTH Ro
 **When to register?**: You must register to this course between Nov 1 and Nov 15 2018.  
 **How to register?**: Through the Swedish registration system <https://www.antagning.se>
 
-Next course start: March 2019.
+Next course start: March 2019 (Period 2019-03-18 - 2019-06-04).
 
 --Benoit Baudry, Martin Monperrus
 
