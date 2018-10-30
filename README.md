@@ -9,6 +9,8 @@ Next course start: March 2019 (Period 2019-03-18 - 2019-06-04).
 
 --Benoit Baudry, Martin Monperrus
 
+[<img src="docs/slide-thumbnail.png"/>](https://docs.google.com/presentation/d/1VBgsCAknAx3_OIFSxeIvstpfUJcnb1JV3hlCfOY_RII/edit?usp=sharing)
+
 ## Content
 
 DevOps is a huge galaxy of technology and concepts. We cannot teach them all within a single course.
