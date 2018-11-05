@@ -1,6 +1,6 @@
 # KTH DevOps Course
 
-This repository contains the material and content of the DevOps course at KTH Royal Institute of Technology: <https://www.kth.se/student/kurser/kurs/DD2482?l=en>
+This repository contains the material and content of the DevOps course at KTH Royal Institute of Technology
 
 **When to register?**: You must register to this course between Nov 1 and Nov 15 2018.  
 **How to register?**: Through the Swedish registration system <https://www.antagning.se>
@@ -10,6 +10,10 @@ Next course start: March 2019 (Period 2019-03-18 - 2019-06-04).
 --Benoit Baudry, Martin Monperrus
 
 [<img src="docs/slide-thumbnail.png"/>](https://docs.google.com/presentation/d/1VBgsCAknAx3_OIFSxeIvstpfUJcnb1JV3hlCfOY_RII/edit?usp=sharing)
+
+Other URLs:
+* KTH Social: <https://www.kth.se/social/course/DD2482/>
+* Kopps: <https://www.kth.se/student/kurser/kurs/DD2482?l=en>
 
 ## Content
 
