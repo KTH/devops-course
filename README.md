@@ -17,6 +17,7 @@ The date, time and rooms are at <https://cloud.timeedit.net/kth/web/public01/ri1
   * Team
   * Agenda
   * Grading
+  * Communication (watch this repo!)
   * Infrastructure
   * Relation to Research in Testing & DevOps 
 * Setup of CI presentation?
