@@ -28,8 +28,8 @@ The date, time and rooms are at <https://cloud.timeedit.net/kth/web/public01/ri1
 ### Week 2: March 25 13h
 * Preparatory reading: TBA
 * Lecture: automatic testing, CI (Benoit Baudry, KTH)
-* Introduction to the Grand Fuzzing Challenge
-* Student presentations
+* Introduction to the Grand Fuzzing Challenge (Martin Monperrus, KTH)
+* Student presentations (Panel: Martin Monperrus, Benoit Baudry)
   * [Topic suggestions](https://github.com/KTH/devops-course/issues/9)
   * Add title / name in a pull-request 
 	
