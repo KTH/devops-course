@@ -95,6 +95,9 @@ Books:
 * [The DevOps Handbook (Gene Kim, Jez Humble, Patrick Debois, John Willis, and John Allspaw)](https://ebookcentral-proquest-com.focus.lib.kth.se/lib/kth/detail.action?docID=4717635)
 * [Site Reliability Engineering : How Google Runs Production Systems (Betsy Beyer, Chris Jones, Jennifer Petoff, and Niall Richard Murphy)](https://ebookcentral-proquest-com.focus.lib.kth.se/lib/kth/detail.action?docID=4543978)
 
+## Communication
+
+All communication for the course DD2482 should be sent to dd2482@eecs.kth.se
 
 ## See also
 
