@@ -23,10 +23,9 @@ The date, time and rooms are at <https://cloud.timeedit.net/kth/web/public01/ri1
   * Communication (watch this repo!)
   * Infrastructure
   * Relation to Research in Testing & DevOps 
-* Setup of CI presentation?
 * Student Presentations
-  * For today
-  * Planning for March 25
+  * Goal: prepare one slide and register one work
+  * Goal: Full planning for March 25
 
 ### Week 2: March 25 13h
 * Preparatory reading: TBA
