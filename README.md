@@ -73,7 +73,7 @@ The date, time and rooms are at <https://cloud.timeedit.net/kth/web/public01/ri1
 
 * Preparatory reading: TBA
 * 13h15 Wrap-up & Feedback
-* 14h15 Lecture: Massive-Scale QA for multi-player video games [(David King - DICE)](https://www.linkedin.com/in/david-king-83b9765b), [Mark Baker - DICE](https://www.linkedin.com/in/markltbaker/)
+* 14h15 Lecture: Massive-Scale QA for multi-player video games ([David King - DICE](https://www.linkedin.com/in/david-king-83b9765b), [Mark Baker - DICE](https://www.linkedin.com/in/markltbaker/))
 * Final Course [Potluck](https://en.wikipedia.org/wiki/Potluck)
 
 ## Grading
