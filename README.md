@@ -53,7 +53,7 @@ The date, time and rooms are at <https://cloud.timeedit.net/kth/web/public01/ri1
 * Preparatory reading: TBA
 * Lecture: Human Aspects of Devops [Jaana Nyfjord, SAAB](https://se.linkedin.com/in/jaananyfjord)
 * Student presentations for the Grand Fuzzing Challenge (Panel: Amir Gaber (SAAB), Musard Balliu (KTH))
-  * 
+  * Recall: the competition submissions must be sent before April 23, noon, Stockholm time, to dd2482@eecs.kth.se
 
 ### Week 6: May 2 13h
 * Preparatory reading: TBA
