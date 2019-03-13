@@ -83,7 +83,8 @@ To pass the course, the student has to collect 4 grades:
 * the student proposes a category and a topic, which is discussed and accepted by the TA. The proposal is made as a pull-request on this repository.
 * in each category, there are suggested topics, listed on issues in this repository (for instance [#9](https://github.com/KTH/devops-course/issues/9) lists topics about testing)
 * each grading category, there is a grading form, which explains how to pass / pass with distinction.
-* 4 Pass means a final E, 3 Pass / 1 Distinction means a final D, 2 Pass / 2 Distinction means a final C, 1 Pass / 3 Distinction means a final B, 4 Distinction means a final A 
+* 4 Pass means a final E, 3 Pass / 1 Distinction means a final D, 2 Pass / 2 Distinction means a final C, 1 Pass / 3 Distinction means a final B, 4 Distinction means a final A
+  * for the competition, the distinction is given to the top-25% best performing teams
 * Group work is encouraged (max 3 persons) but you cannot be with the same persons for more than 2 projects.
 
 ## Material
