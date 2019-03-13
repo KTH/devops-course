@@ -17,6 +17,9 @@ The date, time and rooms are at <https://cloud.timeedit.net/kth/web/public01/ri1
   * Team
   * Agenda
   * Grading
+    * General rules
+    * Group management (Ye, Long)
+    * Registration of works as pull-request (Ye, Long)
   * Communication (watch this repo!)
   * Infrastructure
   * Relation to Research in Testing & DevOps 
