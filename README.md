@@ -46,7 +46,7 @@ The date, time and rooms are at <https://cloud.timeedit.net/kth/web/public01/ri1
 * Preparatory reading: TBA
 * Introduction to research and collaborative projects (Benoit Baudry)
 * Lecture: Pipelines and Jenkins ([Vincent Massol - XWiki](http://massol.myxwiki.org))
-* Student presentations (Panel: Vincent Massol, Laurent Ploix):
+* Student presentations (Panel: [Vincent Massol - XWiki](http://massol.myxwiki.org), [Laurent Ploix - Spotify](https://www.linkedin.com/in/laurentploix)):
   * [Topic suggestion CI](https://github.com/KTH/devops-course/issues/3), [Topic suggestion CD](https://github.com/KTH/devops-course/issues/12)
 
 ### Week 5: April 25 13h
