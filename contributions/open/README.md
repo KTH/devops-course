@@ -16,4 +16,4 @@ TA will review the PR. If it is accepted, you could begin your work on this topi
 
 You should make another pull-request with the following files structure:
 
-**TODO: ** specify what students should submit
+**TODO:** specify what students should submit
