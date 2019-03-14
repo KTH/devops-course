@@ -6,7 +6,7 @@ Pull-requests are welcome! (and even necessary to register a work item).
 
 ## Schedule
 
-The date, time and rooms are at <https://cloud.timeedit.net/kth/web/public01/ri105v5y1850Z6QY3QQ49YgXZQ000397Y4703.html> ([ICS version](https://www.kth.se/social/course/DD2482/subgroup/vt-2019-devops19/calendar/ical/?lang=en)). The schedule and content may change over time.
+The date, time and rooms are at <https://cloud.timeedit.net/kth/web/public01/ri105v5y1850Z6QY3QQ49YgXZQ000397Y4703.html> ([ICS version](https://www.kth.se/social/course/DD2482/subgroup/vt-2019-devops19/calendar/ical/?lang=en)). The schedule and content may change over time. Lab slots do not require mandatory presence.
 
 ### Week 1: March 20 13h
 
