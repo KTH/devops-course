@@ -36,7 +36,7 @@ The date, time and rooms are at <https://cloud.timeedit.net/kth/web/public01/ri1
   * Add title / name in a pull-request 
 	
 ### Week 3: April 1st 8h
-* Preparatory reading: <https://medium.com/venngage-engineering/engineering-immutable-infrastructure-using-docker-with-minimal-overhead-at-venngage-6b76f52548b1>
+* Preparatory reading: <https://medium.com/@nagarwal/understanding-the-docker-internals-7ccb052ce9fe>
 * Lecture: Container, microservice and orchestration ([Julien Bisconti](https://www.linkedin.com/in/julienbisconti/))
 * Student presentations (Panel: Julien Bisconti, [Jens Tinglev, Lead DevOps Engineer at KTH](https://www.kth.se/profile/tinglev)):
   * [Topic suggestions](https://github.com/KTH/devops-course/issues/6)
