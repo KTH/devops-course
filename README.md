@@ -43,7 +43,7 @@ The date, time and rooms are at <https://cloud.timeedit.net/kth/web/public01/ri1
   * Add title / name in a pull-request 
 
 ### Week 4: April 8 13h
-* Preparatory reading: TBA
+* Preparatory reading: [XWiki: a use case for advanced CI](https://www.slideshare.net/vmassol/developing-xwiki-75667041)
 * Introduction to research and collaborative projects (Benoit Baudry)
 * Lecture: Pipelines and Jenkins ([Vincent Massol - XWiki](http://massol.myxwiki.org))
 * Student presentations (Panel: [Vincent Massol - XWiki](http://massol.myxwiki.org), [Laurent Ploix - Spotify](https://www.linkedin.com/in/laurentploix)):
