@@ -28,7 +28,7 @@ The date, time and rooms are at <https://cloud.timeedit.net/kth/web/public01/ri1
   * Goal: Full planning for March 25
 
 ### Week 2: March 25 13h
-* Preparatory reading: TBA
+* Preparatory reading: [Mutation analysis](https://medium.com/@almyre/short-circuiting-method-executions-to-assess-test-quality-2d3fda45bc7f), [Clean unit tests](https://blog.usejournal.com/3-easy-ways-to-write-cleaner-unit-tests-2ec04ca6b9df)
 * Lecture: automatic testing, CI (Benoit Baudry, KTH)
 * Introduction to the Grand Fuzzing Challenge (Martin Monperrus, KTH)
 * Student presentations (Panel: Martin Monperrus, Benoit Baudry)
