@@ -35,6 +35,6 @@ The students prepare a 5 minutes live demonstration on a topic that is relevant 
 Make a pull-request based on the following steps:
 
 - create a folder with your group name (like `T1G1`)
-- in your folder, create a READEME.md file and put your topic information there
+- in your folder, create a README.md file and put your topic information there
 
 TA will review the PR. If it is accepted, you could begin your work on this topic, and make another pull-request to submit your work in the future.

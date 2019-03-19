@@ -40,7 +40,7 @@ Make an archive which follows this structure:
 
 ```
 A folder with your group name (like T1G1)
-├─ READEME.md / READEME.pdf (2 page document explaining what you did)
+├─ README.md / README.pdf (2 page document explaining what you did)
 ├─ ls.txt
 ├─ mkdir.txt
 └─ ...

@@ -36,7 +36,7 @@ The students prepare a 7-9 minute presentation on a topic that is relevant to De
 Make a pull-request based on the following steps:
 
 - create a folder with your group name (like `T1G1`)
-- in your folder, create a READEME.md file and put your topic information there
+- in your folder, create a README.md file and put your topic information there
 
 TA will review the PR. If it is accepted, you could begin your work on this topic, and make another pull-request to submit your work in the future.
 
@@ -46,7 +46,7 @@ You should make another pull-request with the following files structure:
 
 ```
 Your group folder
-├─ READEME.md (should already exist, update it if necessary, e.g. a link to your slides, links to relevant materials)
+├─ README.md (should already exist, update it if necessary, e.g. a link to your slides, links to relevant materials)
 ├─ ***.pdf (the pdf version of your slides)
 └─ other files you want to share as well
 ```
