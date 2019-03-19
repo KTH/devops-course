@@ -1,10 +1,10 @@
 This folder contains students work on essays.
 
-## Introduction
+## Main Requirement
+
+The students write 2000+ word essay on a topic relevant to the course.
 
 ## Grading Criteria
-
-Main Requirement: The students write 2000+ word essay on a topic relevant to the course.
 
 Example of essays: 
 
@@ -34,6 +34,7 @@ Example of essays:
 | <br/><br/><br/>|
 
 ## How to Register Your Topic
+
 Make a pull-request based on the following steps:
 
 - create a folder with your group name (like `T1G1`)

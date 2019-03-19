@@ -1,10 +1,10 @@
 This folder contains students work on demos.
 
-## Introduction
+## Main Requirement
+
+The students prepare a 5 minutes live demonstration on a topic that is relevant to DevOps, together with a 1-3 minute screencast.
 
 ## Grading Criteria
-
-Main Requirement: The students prepare a 5 minutes live demonstration on a topic that is relevant to DevOps, together with a 1-3 minute screencast.
 
 **Topic:**  
 **Demoers:**
@@ -31,6 +31,7 @@ Main Requirement: The students prepare a 5 minutes live demonstration on a topic
 | <br/><br/><br/>|
 
 ## How to Submit
+
 Make a pull-request based on the following steps:
 
 - create a folder with your group name (like `T1G1`)

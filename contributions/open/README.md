@@ -1,6 +1,6 @@
 This folder contains students work on open topics.
 
-## Introduction
+## Main Requirement
 
 The students do something which is relevant to the course, novel, and well presented. 
 
