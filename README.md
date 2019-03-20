@@ -63,7 +63,7 @@ The date, time and rooms are at <https://cloud.timeedit.net/kth/web/public01/ri1
 
 ### Week 7: May 6 8h
 
-* Preparatory reading: TBA
+* Preparatory reading: [Volvo Trucks - The Epic Split](https://www.youtube.com/watch?v=M7FIvfx5J10)
 * MDDD: Michelin Devops Demo Day 
   * Location: TBA (off the wall)
   * Make sure you have a screen and a power outlet
