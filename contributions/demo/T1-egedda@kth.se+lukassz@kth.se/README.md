@@ -1,6 +1,6 @@
 # Demo: Test amplification
 
-[https://github.com/KTH/devops-course/issues/9#issuecomment-470866599](Relevant comment in issue)
+[Relevant comment in issue](https://github.com/KTH/devops-course/issues/9#issuecomment-470866599)
 
 Group T1G18
 
