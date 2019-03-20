@@ -103,7 +103,7 @@ Books:
 
 ## Communication
 
-All communication for the course DD2482 should be sent to dd2482@eecs.kth.se
+All communication for the course DD2482 should be sent to dd2482@eecs.kth.se You are also welcome to create issues here if you think the question is good to be discussed publicly.
 
 ## Team
 
