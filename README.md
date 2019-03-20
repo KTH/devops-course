@@ -88,7 +88,7 @@ To pass the course, the student has to collect 4 grades:
 * Group work is encouraged (max 3 persons) but you cannot be with the same persons for more than 2 projects. You can do a work alone for one or at most two projects.
 
 ## Group Rules
-* We have pre-generated 4 sheets of random groups correspondent to 4 tasks. Each group can choose one of six categories.
+* We have pre-generated 4 sheets of random groups correspondent to 4 tasks. Each group can choose one of five categories.
 * As the students are allowed to choose at most once in the same category, in case of the task conflict, the groups are allowed to change if the original group cannot achieve consensus. But this MUST be done in pull request to update the original group sheets.
 * We recommend 2 students. Three is also possible for ambitious essays, demos or development.
 
