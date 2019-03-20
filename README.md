@@ -105,6 +105,13 @@ Books:
 
 All communication for the course DD2482 should be sent to dd2482@eecs.kth.se
 
+## Team
+
+* [Prof. Martin Monperrus](http://www.monperrus.net/martin/)
+* [Prof. Benoit Baudry](https://softwarediversity.eu/)
+* [He Ye (TA)](https://www.kth.se/profile/heye)
+* [Long Zhang (TA)](http://gluckzhang.com/)
+
 ## See also
 
 * KTH Social URL: <https://www.kth.se/social/course/DD2482/>
