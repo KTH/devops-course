@@ -116,7 +116,8 @@ All communication for the course DD2482 should be sent to dd2482@eecs.kth.se
 
 * KTH Social URL: <https://www.kth.se/social/course/DD2482/>
 * Kopps URL: <https://www.kth.se/student/kurser/kurs/DD2482?l=en>
-
-Related courses:
-
 * [Devops Course at North Carolina State University, by Chris Parnin](https://github.com/CSC-DevOps/Course)
+
+## Acknowledgements
+
+This course is designed with great inputs from Julien Bisconti, Simone Stefani, Jaana Nyfjord, Amir Gaber, Göran Paues, Lowe Schmidt, Laurent Ploix, Diarmuid Corcoran, Jonathan Grahl, Mattias Wildeman, Tomas Ekholm, Vincent Massol, David King and others. We are very grateful for their contributions!
