@@ -24,7 +24,7 @@ The date, time and rooms are at <https://cloud.timeedit.net/kth/web/public01/ri1
   * Infrastructure
   * Relation to Research in Testing & DevOps 
 * Student Presentations
-  * Goal: prepare one slide and register one work
+  * Goal: register one work
   * Goal: Full planning for March 25
 
 ### Week 2: March 25 13h
