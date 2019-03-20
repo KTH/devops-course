@@ -10,7 +10,7 @@ The date, time and rooms are at <https://cloud.timeedit.net/kth/web/public01/ri1
 
 ### Week 1: March 20 13h
 
-* Preparatory reading: TBA
+* Preparatory reading: <https://youtu.be/qcm0rG8EKXI>
 * Course introduction (Martin Monperrus, KTH)
   * Your/Our expectations
   * Teaching philosophy, teaching values
