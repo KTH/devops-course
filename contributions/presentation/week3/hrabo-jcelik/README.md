@@ -1,5 +1,6 @@
 # Managing Event Driven Architectures
-Task 1
+Task 1: Presentation
+Topic:  Container, microservice and orchestration
 
 By Hannes Rabo <hrabo@kth.se> and Julius Celik <jcelik@kth.se>
 
