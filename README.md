@@ -38,7 +38,7 @@ The date, time and rooms are at <https://cloud.timeedit.net/kth/web/public01/ri1
 * Introduction to the Grand Fuzzing Challenge (Martin Monperrus, KTH)
 * Student presentations (Panel: Martin Monperrus, Benoit Baudry)
   * [Topic suggestions](https://github.com/KTH/devops-course/issues/9)
-  * Add title / name in a pull-request 
+  * [Presentation Agenda](https://github.com/KTH/devops-course/blob/master/contributions/presentation/week2/README.md)
 	
 ### Week 3: April 1st 8h
 * Preparatory reading: <https://medium.com/@nagarwal/understanding-the-docker-internals-7ccb052ce9fe>
