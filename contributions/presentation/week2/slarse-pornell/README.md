@@ -5,11 +5,8 @@
   common. However, this is most often centered on how the test suite performs
   right now, and does not take the long-term into account. An often neglected
   point is maintainability, which may be just as important as current
-  performance. A real-world example of hard-to-maintain test suites are
-  Ericsson's enormous legacy test suites, that few people understand and even
-  fewer dare touch (we know this by word-of-mouth from Karl Meinke). This
-  subject is especially interesting in light of recent trends to automatically
-  generate test suites, where the effectiveness of such suites often seems to
-  be measured purely from a current-performance point-of-view.
+  performance. This subject is especially interesting in light of recent trends
+  to automatically generate test suites, where the effectiveness of such suites
+  often seems to be measured purely from a current-performance point-of-view.
 * **Takeaway:** There is more to the quality of a test suite than the amount of
   bugs that it can uncover.
