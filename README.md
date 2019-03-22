@@ -57,7 +57,7 @@ The date, time and rooms are at <https://cloud.timeedit.net/kth/web/public01/ri1
 
 ### Week 5: April 25 13h
 * Preparatory reading: TBA
-* Lecture: Human Aspects of Devops [Jaana Nyfjord, SAAB](https://se.linkedin.com/in/jaananyfjord)
+* Lecture 13h15-14h: Human and organizational Aspects of Devops [Jaana Nyfjord, SAAB](https://se.linkedin.com/in/jaananyfjord)
 * Student presentations for the Grand Fuzzing Challenge (Panel: Amir Gaber (SAAB), Musard Balliu (KTH))
   * Recall: the competition submissions must be sent before April 23, noon, Stockholm time, to dd2482@eecs.kth.se
 
