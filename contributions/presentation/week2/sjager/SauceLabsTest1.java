@@ -19,8 +19,8 @@ public class InstantSauceTestNGTest1 {
         /**
          * In this section, we will configure our SauceLabs credentials in order to run our tests on saucelabs.com
          */
-        String sauceUserName = "simonjaeger";
-        String sauceAccessKey = "46f7bf5c-a31b-4134-97b0-902635fea";
+        String sauceUserName = "";
+        String sauceAccessKey = "";
  
         /**
          * In this section, we will configure our test to run a specific
@@ -45,28 +45,28 @@ public class InstantSauceTestNGTest1 {
  
         WebDriverWait wait = new WebDriverWait(driver, 5);
  
-        //wait for the user name field to be visible and store that element into a variable
-        By userNameFieldLocator = By.cssSelector("[type='text']");
-        wait.until(ExpectedConditions.visibilityOfElementLocated(userNameFieldLocator));
+        // //wait for the user name field to be visible and store that element into a variable
+        // By userNameFieldLocator = By.cssSelector("[type='text']");
+        // wait.until(ExpectedConditions.visibilityOfElementLocated(userNameFieldLocator));
  
-        //type the user name string into the user name field
-        driver.findElement(userNameFieldLocator).sendKeys("standard_user");
+        // //type the user name string into the user name field
+        // driver.findElement(userNameFieldLocator).sendKeys("standard_user");
  
-        //type the password into the password field
-        driver.findElement(By.cssSelector("[type='password']")).sendKeys("secret_sauce");
+        // //type the password into the password field
+        // driver.findElement(By.cssSelector("[type='password']")).sendKeys("secret_sauce");
  
-        //hit Login button
-        driver.findElement(By.cssSelector("[type='submit']")).click();
+        // //hit Login button
+        // driver.findElement(By.cssSelector("[type='submit']")).click();
  
-        //Synchronize on the next page and make sure it loads
-        By inventoryPageLocator = By.id("inventory_container");
-        wait.until(ExpectedConditions.visibilityOfElementLocated(inventoryPageLocator));
+        // //Synchronize on the next page and make sure it loads
+        // By inventoryPageLocator = By.id("inventory_container");
+        // wait.until(ExpectedConditions.visibilityOfElementLocated(inventoryPageLocator));
  
-        /**
-         * In this section, we confirm the test ran correctly, howerver we don't post the results to saucelabs.com
-         */
-        //Assert that the inventory page displayed appropriately
-        Assert.assertTrue(driver.findElement(inventoryPageLocator).isDisplayed());
+        // /**
+        //  * In this section, we confirm the test ran correctly, howerver we don't post the results to saucelabs.com
+        //  */
+        // //Assert that the inventory page displayed appropriately
+        // Assert.assertTrue(driver.findElement(inventoryPageLocator).isDisplayed());
  
         //Here we tear down the WebDriver session
         driver.quit();
