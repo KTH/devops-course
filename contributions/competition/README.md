@@ -27,6 +27,8 @@ Binaries to be fuzzed: the following 20 commands from GNU coreutils 8.25
 - /bin/uname
 - /bin/vdir
 
+Note that you have a one hour execution time budget, i.e. the grader spends at most one hour to execute your input. If two submissions have the same coverage, the one with less execution time gets the higher score.
+
 Regarding coreutils 8.25, it is integrated in Ubuntu 16.04 LTS. However, the binaries in Ubuntu don't contain debugging information, you might need to build coreutils by yourself to analyze the fuzzing coverage. We provide the following resource for your convenience:
 
 - [The official Git repo of GNV coreutils](http://git.savannah.gnu.org/gitweb/?p=coreutils.git) (clone the repo and checkout tag `v8.25`)
