@@ -31,7 +31,7 @@ Regarding coreutils 8.25, it is integrated in Ubuntu 16.04 LTS. However, the bin
 
 - [The official Git repo of GNV coreutils](http://git.savannah.gnu.org/gitweb/?p=coreutils.git) (clone the repo and checkout tag `v8.25`)
 - Use our [fuzzing-competition-reference-build](https://hub.docker.com/r/kthassert/fuzzing-competition-reference-build) docker image, you will find source code in `/root/coreutils`, all coreutils binaries in `/bin` have been rebuilt with debugging info.
-- Download `coreutils-v8.25-static-build.tar` [from KTH box](https://kth.box.com/s/qrjxfv8qps1gwwlmif395pvemda9yj2j). It contains all statically linked binaries, but note that we could only guarantee these binaries work correctly in Ubuntu 16.04.
+- Download `coreutils-v8.25-static-build.tar` [from KTH box](https://kth.box.com/s/qrjxfv8qps1gwwlmif395pvemda9yj2j) (sha1sum value `01ed7186b937fbb316eedcb622f391a12b771a55`). It contains all statically linked binaries, but note that we could only guarantee these binaries work correctly in Ubuntu 16.04.
 
 ## Grading Criteria
 
