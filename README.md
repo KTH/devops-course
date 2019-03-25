@@ -4,6 +4,10 @@ This repository contains the material and content of the DevOps course at KTH Ro
 
 Pull-requests are welcome! (and even necessary to register a work item).
 
+## Announcements
+
+- [Short summary after the first lecture](https://github.com/KTH/devops-course/tree/master/announcement)
+
 ## Schedule
 
 The date, time and rooms are at <https://cloud.timeedit.net/kth/web/public01/ri105v5y1850Z6QY3QQ49YgXZQ000397Y4703.html> ([ICS version](https://www.kth.se/social/course/DD2482/subgroup/vt-2019-devops19/calendar/ical/?lang=en)). The schedule and content may change over time. Lab slots do not require mandatory presence.
@@ -27,13 +31,15 @@ The date, time and rooms are at <https://cloud.timeedit.net/kth/web/public01/ri1
   * Goal: register one work
   * Goal: Full planning for March 25
 
+
 ### Week 2: March 25 13h
 * Preparatory reading: [Mutation analysis](https://medium.com/@almyre/short-circuiting-method-executions-to-assess-test-quality-2d3fda45bc7f), [Clean unit tests](https://blog.usejournal.com/3-easy-ways-to-write-cleaner-unit-tests-2ec04ca6b9df)
 * Lecture: automatic testing, CI (Benoit Baudry, KTH)
 * Introduction to the Grand Fuzzing Challenge (Martin Monperrus, KTH)
+  * Reference material: [The Fuzzing Book](https://www.fuzzingbook.org/)
 * Student presentations (Panel: Martin Monperrus, Benoit Baudry)
   * [Topic suggestions](https://github.com/KTH/devops-course/issues/9)
-  * Add title / name in a pull-request 
+  * [Presentation Agenda](https://github.com/KTH/devops-course/blob/master/contributions/presentation/week2/README.md)
 	
 ### Week 3: April 1st 8h
 * Preparatory reading: <https://medium.com/@nagarwal/understanding-the-docker-internals-7ccb052ce9fe>
@@ -50,8 +56,10 @@ The date, time and rooms are at <https://cloud.timeedit.net/kth/web/public01/ri1
   * [Topic suggestion CI](https://github.com/KTH/devops-course/issues/3), [Topic suggestion CD](https://github.com/KTH/devops-course/issues/12)
 
 ### Week 5: April 25 13h
-* Preparatory reading: TBA
-* Lecture: Human Aspects of Devops [Jaana Nyfjord, SAAB](https://se.linkedin.com/in/jaananyfjord)
+* Preparatory reading:
+  * [An Exploratory Study of DevOps Extending the Dimensions of DevOps with Practices](https://jira.dimecc.com/secure/attachment/14989/ICSEA_Lwakatare_Final.pdf)
+  * [Towards DevOps in the Embedded Systems Domain: Why is It so Hard?](https://ieeexplore.ieee.org/document/7427859/) (accessible at KTH or through KTH's VPN)
+* Lecture 13h15-14h: Human and organizational Aspects of Devops [Jaana Nyfjord, SAAB](https://se.linkedin.com/in/jaananyfjord)
 * Student presentations for the Grand Fuzzing Challenge (Panel: Amir Gaber (SAAB), Musard Balliu (KTH))
   * Recall: the competition submissions must be sent before April 23, noon, Stockholm time, to dd2482@eecs.kth.se
 
@@ -88,8 +96,9 @@ To pass the course, the student has to collect 4 grades:
 * Group work is encouraged (max 3 persons) but you cannot be with the same persons for more than 2 projects. You can do a work alone for one or at most two projects.
 
 ## Group Rules
-* We have pre-generated 4 sheets of random groups correspondent to 4 tasks. Each group can choose one of six categories.
-* As the students are allowed to choose at most once in the same category, in case of the task conflict, the groups are allowed to change if the original group cannot achieve consensus. But this MUST be done in pull request to update the original group sheets.
+* The pre-generated group sheets are the suggestion instead of the mandatory.
+* We have decided to drop the numbering of the groups due to poor maintainable. So there is no need to create an issue to update the group sheet.
+* When you send a pull for registration, please follow the name convention of using email addresses of two members: email-email instead of the group number.
 * We recommend 2 students. Three is also possible for ambitious essays, demos or development.
 
 
@@ -103,7 +112,7 @@ Books:
 
 ## Communication
 
-All communication for the course DD2482 should be sent to dd2482@eecs.kth.se You are also welcome to create issues here if you think the question is good to be discussed publicly.
+All communication for the course DD2482 should be sent to dd2482@eecs.kth.se You are also welcome to create issues here if you think the question is good to be discussed publicly. Check the announcement [here](https://github.com/KTH/devops-course/tree/master/announcement). 
 
 ## Team
 
