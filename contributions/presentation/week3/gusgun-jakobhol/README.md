@@ -1,8 +1,8 @@
-# Presentation Week 3
+# Docker Swarm V.S. Kubernetes
 
 Gustaf Gunér <gusgun@kth.se>
 Jakob Holm <jakobhol@kth.se>
 
 **Topics:** Containerization, microservices, orchestration.
 
-We will talk about what containerization and orchestration is and what its advantages are. We will cover its applications and what technologies are avaliable today.
+We will compare the two of the leading orchestraction platforms; Docker Swarm and Kubernetes. We will compare different aspects of orchestration, such as scalability, load balancing, self healing etc.
