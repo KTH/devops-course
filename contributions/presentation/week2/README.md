@@ -5,5 +5,5 @@
 * Automatic test generator EVOSUITE by Jesper	Larsson	and Benjamin Tellström
 * Cross Browser Testing, Selenium Testing, and Mobile Testing by Kartik Kandavel Mudaliar and Yi-Pei Tu
 * Automated Cross Browser Testing by Simon Jäger
-* What makes a good test suite? by Simon Larsén and Philippa Örnell
+* Are automatically generated test suites "good"? by Simon Larsén and Philippa Örnell
 * Property-based testing in Java by Henry Luong and Saha Parumitas
