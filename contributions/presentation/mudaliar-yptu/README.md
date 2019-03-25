@@ -1,7 +1,7 @@
 ## Cross Browser Testing, Selenium Testing and Mobile Testing
 ### Speakers:
-    - Kartik Kandavel Mudaliar
-    - Yi-Pei Tu
+    - Kartik Kandavel Mudaliar(mudaliar@kth.se)
+    - Yi-Pei Tu(yptu@kth.se)
 
 ### Agenda
     - Why Testing is important
