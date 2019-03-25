@@ -1,5 +1,5 @@
-### What makes a good test suite?
-* **Topic:** What makes a good test suite?
+### Are automatically generated tests "good"?
+* **Title:** Are automatically generated tests "good"?
 * **Description:** There are many proposed ways of measuring how "good" a test
   suite is, where mutation testing and code coverage are some of the most
   common. However, this is most often centered on how the test suite performs
