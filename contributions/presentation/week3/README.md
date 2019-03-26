@@ -6,4 +6,3 @@
 * Containerized Applications by Felix Eder and Erik Johansson
 * Docker Swarm V.S. Kubernetes by Gustaf Gunér and Jakob Holm
 * Managing Event Driven Architectures by Hannes Rabo and Julius Celik
-* Git Branching Strategies by Toni Karppi and Anders Fredrik Åhs
