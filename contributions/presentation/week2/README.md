@@ -5,4 +5,3 @@
 * Cross Browser Testing, Selenium Testing, and Mobile Testing by Kartik Kandavel Mudaliar and Yi-Pei Tu
 * Automated Cross Browser Testing by Simon Jäger
 * Are automatically generated test suites "good"? by Simon Larsén and Philippa Örnell
-* Property-based testing in Java by Henry Luong and Saha Parumitas
