@@ -66,7 +66,7 @@ The date, time and rooms are at <https://cloud.timeedit.net/kth/web/public01/ri1
 ### Week 6: May 2 13h
 * Preparatory reading: TBA
 * Lecture: Monitoring, tracing, fault injection (Martin Monperrus) + Monitoring and tracing in Kubernetes (Long Zhang)
-* Student presentations
+* Student presentations (Panel: Martin Monperrus, Benoit Baudry)
   * Topic suggestions: [#8](https://github.com/KTH/devops-course/issues/8) [#21](https://github.com/KTH/devops-course/issues/21)
 
 ### Week 7: May 6 8h
