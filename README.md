@@ -6,7 +6,8 @@ Pull-requests are welcome! (and even necessary to register a work item).
 
 ## Announcements
 
-- [Short summary after the first lecture](https://github.com/KTH/devops-course/tree/master/announcement)
+- [Short summary after the first lecture](announcement/summary-after-week1.md)
+- [Deadlines for different tasks](announcement/deadlines.md)
 
 ## Schedule
 
