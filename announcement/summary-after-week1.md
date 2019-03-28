@@ -1,4 +1,4 @@
-# Week 1
+# Short Summary after The First Lecture
 
 we are happy to spend 4 intensive hours with you to discuss DevOps. Here is some update for those who did not come to the course. 
 *  The pre-generated group sheets are the suggestion instead of the mandatory.
