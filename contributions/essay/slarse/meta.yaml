@@ -1,0 +1,22 @@
+---
+title: 'A Comprehensive Introduction to Graph Databases'
+author:
+- Simon Larsén
+date: \today
+numbersections: true
+csl: ieee.csl
+colorlinks: true
+link-citations: true
+citecolor: black
+linkcolor: black
+urlcolor: black
+toccolor: black
+bibliography: ref.bib
+header-includes:
+- \usepackage{graphicx}
+- \usepackage{amsfonts}
+- \usepackage{booktabs}
+- \usepackage{float}
+- \usepackage{multicol}
+---
+
