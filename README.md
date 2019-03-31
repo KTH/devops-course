@@ -6,7 +6,8 @@ Pull-requests are welcome! (and even necessary to register a work item).
 
 ## Announcements
 
-- [Short summary after the first lecture](https://github.com/KTH/devops-course/tree/master/announcement)
+- [Short summary after the first lecture](announcement/README.md)
+- [Deadlines for different tasks](announcement/README.md)
 
 ## Schedule
 
@@ -56,15 +57,17 @@ The date, time and rooms are at <https://cloud.timeedit.net/kth/web/public01/ri1
   * [Topic suggestion CI](https://github.com/KTH/devops-course/issues/3), [Topic suggestion CD](https://github.com/KTH/devops-course/issues/12)
 
 ### Week 5: April 25 13h
-* Preparatory reading: TBA
+* Preparatory reading:
+  * [An Exploratory Study of DevOps Extending the Dimensions of DevOps with Practices](https://jira.dimecc.com/secure/attachment/14989/ICSEA_Lwakatare_Final.pdf)
+  * [Towards DevOps in the Embedded Systems Domain: Why is It so Hard?](https://ieeexplore.ieee.org/document/7427859/) (accessible at KTH or through KTH's VPN)
 * Lecture 13h15-14h: Human and organizational Aspects of Devops [Jaana Nyfjord, SAAB](https://se.linkedin.com/in/jaananyfjord)
 * Student presentations for the Grand Fuzzing Challenge (Panel: Amir Gaber (SAAB), Musard Balliu (KTH))
-  * Recall: the competition submissions must be sent before April 23, noon, Stockholm time, to dd2482@eecs.kth.se
+  * Recall: the competition submissions must be sent before April 23, 23:59, Stockholm time, to dd2482@eecs.kth.se
 
 ### Week 6: May 2 13h
 * Preparatory reading: TBA
 * Lecture: Monitoring, tracing, fault injection (Martin Monperrus) + Monitoring and tracing in Kubernetes (Long Zhang)
-* Student presentations
+* Student presentations (Panel: Martin Monperrus, Benoit Baudry)
   * Topic suggestions: [#8](https://github.com/KTH/devops-course/issues/8) [#21](https://github.com/KTH/devops-course/issues/21)
 
 ### Week 7: May 6 8h
