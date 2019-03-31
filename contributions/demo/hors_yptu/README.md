@@ -1,10 +1,10 @@
-A CICD pipeline wiht automatic deplyoment 
+#CI/CD pipeline with automatic deplyoment 
 
-In this demo, we'' use kubernetes on AWS(EC2 or ECS service) to design a CICD pipeline.
-This pipeline includes git repositories management, auto tested before pushing to the cloud, build new image, the server pulls the new images, and finally the images deploys and run container.
-It also incldues the issue about
--Autoscale the pods/containers easily over kubernets
--HTTPS load balancer over kubernetes
+In this demo, we want to use kubernetes on AWS(https://aws.amazon.com/eks/) to design a CI/CD pipeline.
+This pipeline connects to git repositories, tests automatically and builds new images in case of successfull tests. New images are automatically deployed in the cluster. Ultimately we want to have a setup in which we only push a change to the master of the repository and, in case the code is alright, the new version will automatically run in the cluster.
+
+To reach this we want to first evaluate some CI/CD tools like travis(https://travis-ci.org/) and circleCI (https://circleci.com/) to then create the demo with our favorite solution.
+
 
 source:
 https://kubernetes.io/docs/setup/turnkey/aws/
