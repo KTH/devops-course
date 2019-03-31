@@ -1,4 +1,4 @@
-# CI/CD pipeline with automatic deplyoment 
+# CI/CD pipeline with automatic deployment 
 
 In this demo, we want to use kubernetes on AWS(https://aws.amazon.com/eks/) to design a CI/CD pipeline.
 This pipeline connects to git repositories, tests automatically and builds new images in case of successfull tests. New images are automatically deployed in the cluster. Ultimately we want to have a setup in which we only push a change to the master of the repository and, in case the code is alright, the new version will automatically run in the cluster.
