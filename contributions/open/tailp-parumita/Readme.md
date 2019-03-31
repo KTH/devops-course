@@ -1,4 +1,4 @@
-Opentask: CI, CD pipeline design with kubernetes
+Opentask: CI, CD pipeline design with Kubernetes
 
 Members: Henry Luong and Saha parumita
 
