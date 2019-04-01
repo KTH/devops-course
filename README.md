@@ -115,6 +115,7 @@ Books:
 
 All communication for the course DD2482 should be sent to dd2482@eecs.kth.se You are also welcome to create issues here if you think the question is good to be discussed publicly. Check the announcement [here](https://github.com/KTH/devops-course/tree/master/announcement). 
 
+
 ## Team
 
 * [Prof. Martin Monperrus](http://www.monperrus.net/martin/)
@@ -127,6 +128,11 @@ All communication for the course DD2482 should be sent to dd2482@eecs.kth.se You
 * KTH Social URL: <https://www.kth.se/social/course/DD2482/>
 * Kopps URL: <https://www.kth.se/student/kurser/kurs/DD2482?l=en>
 * [Devops Course at North Carolina State University, by Chris Parnin](https://github.com/CSC-DevOps/Course)
+
+## Prerequisites
+
+* A software engineering course (eg [DD2480](https://www.kth.se/student/kurser/kurs/DD2480))
+* A networking course (eg [IK2218](https://www.kth.se/student/kurser/kurs/IK2218?l=en))
 
 ## Acknowledgements
 
