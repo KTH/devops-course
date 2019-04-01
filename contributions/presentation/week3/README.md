@@ -5,4 +5,4 @@
 * Open Container Initiative by Anders Sjöbom and Valtteri Lehtinen
 * Containerized Applications by Felix Eder and Erik Johansson
 * Docker Swarm V.S. Kubernetes by Gustaf Gunér and Jakob Holm
-* Managing Event Driven Architectures by Hannes Rabo and Julius Celik
+* Event Sourcing by Hannes Rabo and Julius Celik
