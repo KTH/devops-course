@@ -33,8 +33,13 @@ def main():
 def print_stat_category(stat_info):
     stat_table = PrettyTable()
     stat_table.field_names = ["Category name", "Submissions"]
+
+    total = 0
     for category in stat_info:
         stat_table.add_row([category, stat_info[category]["task_count"]])
+        total = total + stat_info[category]["task_count"]
+    stat_table.add_row(["TOTAL", total])
+
     print(stat_table)
 
 def print_stat_student(stat_info):
@@ -45,6 +50,7 @@ def print_stat_student(stat_info):
     for student in stat_info:
         stat_table.add_row([index, student, len(stat_info[student]), " ".join(stat_info[student])])
         index = index + 1
+
     print(stat_table)
 
 def stat_categories(path):
