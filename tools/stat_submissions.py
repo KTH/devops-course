@@ -58,7 +58,7 @@ def print_stat_student(stat_info):
 
     print("Summary")
     for count in summary:
-        print("Students with %s registered tasks: %s"%(count, ", ".join(summary[count])))
+        print("%s students with %s registered tasks: %s"%(len(summary[count]), count, ", ".join(summary[count])))
 
 def stat_categories(path):
     categories = dict()
