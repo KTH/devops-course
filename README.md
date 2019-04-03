@@ -78,7 +78,7 @@ The date, time and rooms are at <https://cloud.timeedit.net/kth/web/public01/ri1
   * Make sure you have a screen and a power outlet
   * Session 1 / Session 2 (presenters / attendees switch)
   
-### Week 8: May 13 13h
+### Week 8: May 13 8h
 
 * Preparatory reading: TBA
 * 13h15 Wrap-up & Feedback
