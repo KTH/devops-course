@@ -47,11 +47,18 @@ def print_stat_student(stat_info):
     stat_table.field_names = ["Index", "Student name", "Submissions Count", "Categories"]
 
     index = 1
+    summary = {4:[], 3:[], 2:[], 1:[]}
     for student in stat_info:
-        stat_table.add_row([index, student, len(stat_info[student]), " ".join(stat_info[student])])
+        task_count = len(stat_info[student])
+        stat_table.add_row([index, student, task_count, " ".join(stat_info[student])])
+        summary[task_count].append(student)
         index = index + 1
 
     print(stat_table)
+
+    print("Summary")
+    for count in summary:
+        print("%s students with %s registered tasks: %s"%(len(summary[count]), count, ", ".join(summary[count])))
 
 def stat_categories(path):
     categories = dict()

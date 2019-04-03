@@ -78,7 +78,7 @@ The date, time and rooms are at <https://cloud.timeedit.net/kth/web/public01/ri1
   * Make sure you have a screen and a power outlet
   * Session 1 / Session 2 (presenters / attendees switch)
   
-### Week 8: May 13 13h
+### Week 8: May 13 8h
 
 * Preparatory reading: TBA
 * 13h15 Wrap-up & Feedback
@@ -95,6 +95,7 @@ To pass the course, the student has to collect 4 grades:
 * 4 Pass means a final E, 3 Pass / 1 Distinction means a final D, 2 Pass / 2 Distinction means a final C, 1 Pass / 3 Distinction means a final B, 4 Distinction means a final A
   * for the competition, the distinction is given to the top-25% best performing teams
 * Group work is encouraged (max 3 persons) but you cannot be with the same persons for more than 2 projects. You can do a work alone for one or at most two projects.
+* A failed task requires to pass it again at the end of the course, based on the feedback from the failure. A repeated task cannot be passed with distinction. A task can only be repeated once.
 
 ## Group Rules
 * The pre-generated group sheets are the suggestion instead of the mandatory.
