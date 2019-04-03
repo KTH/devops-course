@@ -6,7 +6,8 @@ Pull-requests are welcome! (and even necessary to register a work item).
 
 ## Announcements
 
-- [Short summary after the first lecture](https://github.com/KTH/devops-course/tree/master/announcement)
+- [Short summary after the first lecture](announcement/README.md)
+- [Deadlines for different tasks](announcement/README.md)
 
 ## Schedule
 
@@ -61,23 +62,23 @@ The date, time and rooms are at <https://cloud.timeedit.net/kth/web/public01/ri1
   * [Towards DevOps in the Embedded Systems Domain: Why is It so Hard?](https://ieeexplore.ieee.org/document/7427859/) (accessible at KTH or through KTH's VPN)
 * Lecture 13h15-14h: Human and organizational Aspects of Devops [Jaana Nyfjord, SAAB](https://se.linkedin.com/in/jaananyfjord)
 * Student presentations for the Grand Fuzzing Challenge (Panel: Amir Gaber (SAAB), Musard Balliu (KTH))
-  * Recall: the competition submissions must be sent before April 23, noon, Stockholm time, to dd2482@eecs.kth.se
+  * Recall: the competition submissions must be sent before April 23, 23:59, Stockholm time, to dd2482@eecs.kth.se
 
 ### Week 6: May 2 13h
 * Preparatory reading: TBA
 * Lecture: Monitoring, tracing, fault injection (Martin Monperrus) + Monitoring and tracing in Kubernetes (Long Zhang)
-* Student presentations
+* Student presentations (Panel: Martin Monperrus, Benoit Baudry)
   * Topic suggestions: [#8](https://github.com/KTH/devops-course/issues/8) [#21](https://github.com/KTH/devops-course/issues/21)
 
 ### Week 7: May 6 8h
 
 * Preparatory reading: [Volvo Trucks - The Epic Split](https://www.youtube.com/watch?v=M7FIvfx5J10)
-* MDDD: Michelin Devops Demo Day 
+* MDDD: [Michelin Devops Demo Day](https://github.com/KTH/devops-course/tree/master/contributions/demo) 
   * Location: TBA (off the wall)
   * Make sure you have a screen and a power outlet
   * Session 1 / Session 2 (presenters / attendees switch)
   
-### Week 8: May 13 13h
+### Week 8: May 13 8h
 
 * Preparatory reading: TBA
 * 13h15 Wrap-up & Feedback
@@ -94,6 +95,7 @@ To pass the course, the student has to collect 4 grades:
 * 4 Pass means a final E, 3 Pass / 1 Distinction means a final D, 2 Pass / 2 Distinction means a final C, 1 Pass / 3 Distinction means a final B, 4 Distinction means a final A
   * for the competition, the distinction is given to the top-25% best performing teams
 * Group work is encouraged (max 3 persons) but you cannot be with the same persons for more than 2 projects. You can do a work alone for one or at most two projects.
+* A failed task requires to pass it again at the end of the course, based on the feedback from the failure. A repeated task cannot be passed with distinction. A task can only be repeated once.
 
 ## Group Rules
 * The pre-generated group sheets are the suggestion instead of the mandatory.
@@ -114,6 +116,7 @@ Books:
 
 All communication for the course DD2482 should be sent to dd2482@eecs.kth.se You are also welcome to create issues here if you think the question is good to be discussed publicly. Check the announcement [here](https://github.com/KTH/devops-course/tree/master/announcement). 
 
+
 ## Team
 
 * [Prof. Martin Monperrus](http://www.monperrus.net/martin/)
@@ -126,6 +129,11 @@ All communication for the course DD2482 should be sent to dd2482@eecs.kth.se You
 * KTH Social URL: <https://www.kth.se/social/course/DD2482/>
 * Kopps URL: <https://www.kth.se/student/kurser/kurs/DD2482?l=en>
 * [Devops Course at North Carolina State University, by Chris Parnin](https://github.com/CSC-DevOps/Course)
+
+## Prerequisites
+
+* A software engineering course (eg [DD2480](https://www.kth.se/student/kurser/kurs/DD2480))
+* A networking course (eg [IK2218](https://www.kth.se/student/kurser/kurs/IK2218?l=en))
 
 ## Acknowledgements
 

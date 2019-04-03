@@ -82,4 +82,4 @@ A folder with your group name (like T1G1)
 └─ ...
 ```
 
-The competition submissions must be sent before **April 23, noon, Stockholm time**, to dd2482@eecs.kth.se
+The competition submissions must be sent before **April 23, 23:59, Stockholm time**, to dd2482@eecs.kth.se
