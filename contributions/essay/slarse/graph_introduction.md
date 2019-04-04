@@ -39,15 +39,57 @@ emergence of other technologies such as XML. It is not until recently that
 graph databases have seen a resurgence in popularity, and much due to this fact,
 there are a whole lot of different types of graph database models
 around. Angles et al. provides a fairly comprehensive but slightly dated
-overview of several different models and their origins~[@angles2008survey].
+overview of several different models and their origins [@angles2008survey].
 As there is such a large amount of different models, I will make no claim that
 this article exhaustively covers graph databases. Rather, I will introduce two
 models that are common in production use today: RDF-based models and property
-graph models [@hartig2014reconciliation]. The following two sections outline the
-principles behind these models.
+graph models [@hartig2014reconciliation;@angles2018g]. The following two
+sections outline the principles behind these models.
 
-## RDF
+## Resource Description Framework (RDF) Databases
+The _Resource Description Framework_ is a language for expressing metadata for
+websites, and is a key part of the WWW Consortium's (W3C) effort to standardize
+a Semantic Web that a machine can not only navigate, but also understand
+[@rdf;@semanticweb]. Lately, it has also seen use as general purpose data
+storage in several products, including
+AllegroGraph\footnote{\url{https://franz.com/agraph/allegrograph/}},
+GraphDB\footnote{\url{http://graphdb.ontotext.com/}} and
+BlazeGraph\footnote{\url{https://www.blazegraph.com/}}. Such databases are
+often called RDF triplestores or semantic databases [SOURCE NEEDED]. An RDF
+graph is a set of triples of _subject_, _predicate_ and _object_. The subject
+is that which we want to say something about, the predicate is what kind of
+statement we are making, and the object the value of that statement.  For
+example, the triples in Table\ref{tab:rdf-example} is an RDF encoding of the
+data "The Mule is a movie", "Clint is a person", "Clint acted in The Mule", and
+"The Mule was directed by Clint" .
 
+Table: RDF triples example \label{tab:rdf-example}
+
+| Subject  | Predicate  | Object   |
+| ------   | --------   | -----    |
+| The Mule | type       | Movie    |
+| Clint    | type       | Human    |
+| Clint    | actedIn    | The Mule |
+| The Mule | directedBy | Clint    |
+
+There is an interesting observation to be made regarding the triples presented
+in Table \ref{tab:rdf-example}: it is not immediately apparent that they
+constitute a graph, and there are those who consider RDF triple stores not to be
+graphs in the traditional sense [@hayes2004bipartite]. However, viewing the set
+union of subjects and objects as nodes, and the set of predicates as labeled
+edges, it is clear that the triples of Table \ref{tab:rdf-example} induce the
+graph in Fig. \ref{fig:rdf-example}. 
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=.7\columnwidth]{images/rdf-example.pdf}
+    \caption{Visualisation of Table \ref{tab:rdf-example}}\label{fig:rdf-example}
+\end{figure}
+
+Another interesting observation is that Table \ref{tab:rdf-example} looks
+similar to a traditional relational database table, and indeed, there are ways
+to implement RDF stores on top of a relational database system
+[@bornea2013building].
 
 ## Property graphs
 Unlike RDF graphs, Property Graphs (PG) are not formally defined
