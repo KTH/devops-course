@@ -8,7 +8,7 @@ An animation that symbolises flaky tests.
 
 We would like to create an art project representing flaky tests as our open project.
 
-Our idea is to create an animation of an ECG that works most of the time, but sometimes for no reason flatlines for a short while before it returns to normal.
+Our idea is to create an animation of an ECG that works most of the time, but sometimes for no reason weirds out (like flatlines for a short while or take a double beat) before it returns to normal.
 
 Our idea is to create a small webpage to hold this animation.
 
