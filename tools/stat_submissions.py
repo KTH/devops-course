@@ -8,6 +8,7 @@ from prettytable import PrettyTable
 
 SUBMISSIONS_PATH = ''
 PRINT_STUDENT_STAT = False
+PRINT_IN_MARKDOWN = False
 
 def main():
     handle_args(sys.argv[1:])
@@ -22,17 +23,21 @@ def main():
                 stat_per_student.update({name:[category]})
             else:
                 stat_per_student[name].append(category)
-    
+    print("*Automatically genereated at %s*"%time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+
     print("Statistic Information for Each Category")
-    print_stat_category(stat_per_category)
+    print("")
+    print_stat_category_markdown(stat_per_category) if PRINT_IN_MARKDOWN else print_stat_category(stat_per_category)
+    print("")
 
     if PRINT_STUDENT_STAT:
         print("Statistic Information for Each Student")
-        print_stat_student(stat_per_student)
+        print("")
+        print_stat_student_markdown(stat_per_student) if PRINT_IN_MARKDOWN else print_stat_student(stat_per_student)
 
 def print_stat_category(stat_info):
     stat_table = PrettyTable()
-    stat_table.field_names = ["Category name", "Submissions"]
+    stat_table.field_names = ["Category name", "Registrations"]
 
     total = 0
     for category in stat_info:
@@ -42,23 +47,58 @@ def print_stat_category(stat_info):
 
     print(stat_table)
 
+def print_stat_category_markdown(stat_info):
+    print("|Category name | Registrations|")
+    print("|--------------|--------------|")
+    total = 0
+    for category in stat_info:
+        print("|%s|%s|"%(category, stat_info[category]["task_count"]))
+        total = total + stat_info[category]["task_count"]
+    print("|--------------|------------|")
+    print("|TOTAL|%s|"%total)
+
+
 def print_stat_student(stat_info):
     stat_table = PrettyTable()
-    stat_table.field_names = ["Index", "Student name", "Submissions Count", "Categories"]
+    stat_table.field_names = ["Index", "Student name", "Registrations Count", "Categories"]
 
     index = 1
-    summary = {4:[], 3:[], 2:[], 1:[]}
+    summary = {5:[], 4:[], 3:[], 2:[], 1:[]}
     for student in stat_info:
         task_count = len(stat_info[student])
         stat_table.add_row([index, student, task_count, " ".join(stat_info[student])])
         summary[task_count].append(student)
         index = index + 1
+        
+        if task_count >= 4:
+            logging.warn("%s's task_count >= 4"%student)
 
     print(stat_table)
 
+    print("")
     print("Summary")
     for count in summary:
         print("%s students with %s registered tasks: %s"%(len(summary[count]), count, ", ".join(summary[count])))
+
+def print_stat_student_markdown(stat_info):
+    print("|Index | Student name | Registrations Count | Categories|")
+    print("|------|--------------|---------------------|-----------|")
+
+    index = 1
+    summary = {5:[], 4:[], 3:[], 2:[], 1:[]}
+    for student in stat_info:
+        task_count = len(stat_info[student])
+        print("|%s|%s|%s|%s|"%(index, student, task_count, " ".join(stat_info[student])))
+        summary[task_count].append(student)
+        index = index + 1
+
+        # if task_count >= 4:
+        #     logging.warn("%s's task_count >= 4"%student)
+
+    print("")
+    print("Summary")
+    for count in summary:
+        print("**%s students with %s registered tasks:** %s"%(len(summary[count]), count, ", ".join(summary[count])))
 
 def stat_categories(path):
     categories = dict()
@@ -101,9 +141,10 @@ def stat_students(category, path):
 def handle_args(argv):
     global SUBMISSIONS_PATH
     global PRINT_STUDENT_STAT
+    global PRINT_IN_MARKDOWN
 
     try:
-        opts, args = getopt.getopt(argv, "p:", ["path=", "printStudentStat", "help"])
+        opts, args = getopt.getopt(argv, "p:m", ["path=", "printStudentStat", "printInMarkdown", "help"])
     except getopt.GetoptError as error:
         logging.error(error)
         print_help_info()
@@ -117,6 +158,8 @@ def handle_args(argv):
             SUBMISSIONS_PATH = arg
         elif opt in ("--printStudentStat"):
             PRINT_STUDENT_STAT = True
+        elif opt in ("-m", "--printInMarkdown"):
+            PRINT_IN_MARKDOWN = True
 
     if SUBMISSIONS_PATH == '':
         logging.error("You should use -p or --path= to specify the path to students submissions")
@@ -131,6 +174,7 @@ def print_help_info():
     print('')
     print('optional:')
     print('    --printStudentStat print statistic data per student')
+    print('    -m or --printInMarkdown print statistic data in markdown syntax')
     print('stat_submissions.py --help to display this help info')
 
 if __name__ == "__main__":
