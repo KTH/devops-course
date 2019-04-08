@@ -1,1 +1,8 @@
-This is a folder for the demo of the project by Adam Hasselberg and Aigars Tumanis.
+## Members
+Adam Hasselberg (adamhas@kth.se)
+Aigars Tumanis (tumanis@kth.se)
+
+
+## Topic: Automated UI Testing
+
+Demonstration of automated UI testing tools through use of Happo.io
