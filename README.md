@@ -55,6 +55,7 @@ The date, time and rooms are at <https://cloud.timeedit.net/kth/web/public01/ri1
 * Lecture: Pipelines and Jenkins ([Vincent Massol - XWiki](http://massol.myxwiki.org))
 * Student presentations (Panel: [Vincent Massol - XWiki](http://massol.myxwiki.org), [Laurent Ploix - Spotify](https://www.linkedin.com/in/laurentploix)):
   * [Topic suggestion CI](https://github.com/KTH/devops-course/issues/3), [Topic suggestion CD](https://github.com/KTH/devops-course/issues/12)
+  * [Presentation Agenda](https://github.com/KTH/devops-course/blob/master/contributions/presentation/week4/README.md)
 
 ### Week 5: April 25 13h
 * Preparatory reading:
@@ -72,13 +73,14 @@ The date, time and rooms are at <https://cloud.timeedit.net/kth/web/public01/ri1
 
 ### Week 7: May 6 8h
 
+* Location: [Room U21](https://www.kth.se/places/room/id/de8a7fa7-90dc-4ae7-ab75-282b6020d8a5)
 * Preparatory reading: [Volvo Trucks - The Epic Split](https://www.youtube.com/watch?v=M7FIvfx5J10)
 * MDDD: [Michelin Devops Demo Day](https://github.com/KTH/devops-course/tree/master/contributions/demo) 
   * Location: TBA (off the wall)
   * Make sure you have a screen and a power outlet
   * Session 1 / Session 2 (presenters / attendees switch)
   
-### Week 8: May 13 13h
+### Week 8: May 13 8h
 
 * Preparatory reading: TBA
 * 13h15 Wrap-up & Feedback
@@ -95,6 +97,7 @@ To pass the course, the student has to collect 4 grades:
 * 4 Pass means a final E, 3 Pass / 1 Distinction means a final D, 2 Pass / 2 Distinction means a final C, 1 Pass / 3 Distinction means a final B, 4 Distinction means a final A
   * for the competition, the distinction is given to the top-25% best performing teams
 * Group work is encouraged (max 3 persons) but you cannot be with the same persons for more than 2 projects. You can do a work alone for one or at most two projects.
+* A failed task requires to pass it again at the end of the course, based on the feedback from the failure. A repeated task cannot be passed with distinction. A task can only be repeated once.
 
 ## Group Rules
 * The pre-generated group sheets are the suggestion instead of the mandatory.
