@@ -35,7 +35,7 @@ The date, time and rooms are at <https://cloud.timeedit.net/kth/web/public01/ri1
 
 ### Week 2: March 25 13h
 * Preparatory reading: [Mutation analysis](https://medium.com/@almyre/short-circuiting-method-executions-to-assess-test-quality-2d3fda45bc7f), [Clean unit tests](https://blog.usejournal.com/3-easy-ways-to-write-cleaner-unit-tests-2ec04ca6b9df)
-* Lecture: automatic testing, CI (Benoit Baudry, KTH)
+* Lecture: automatic testing, CI (Benoit Baudry, KTH). The wrap-up [video](https://archive.org/details/devops-dylan).
 * Introduction to the Grand Fuzzing Challenge (Martin Monperrus, KTH)
   * Reference material: [The Fuzzing Book](https://www.fuzzingbook.org/)
 * Student presentations (Panel: Martin Monperrus, Benoit Baudry)
