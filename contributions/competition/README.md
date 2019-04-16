@@ -71,7 +71,7 @@ files/file1
 You submit by email an archive which follows this structure:
 
 ```
-A folder with your group name (like T1G1)
+A folder with your group name (like email1-email2)
 ├─ README.md / README.pdf (2 page document explaining what you did)
 ├─ files (you might use files as parameters)
 ├──┼─file1
