@@ -5,7 +5,9 @@ Members: Henry Luong and Saha parumita
 
 Task: We want to try setting up a pipeline using Jenkins(CI with Maven and Junit), Prometheus&Grafana(Monitoring), Google cloud builder plugin & Google cloud registry(build and push containers) and Kubernetes(Orchestration). 
 
-IMPORTANT!! Our application for deployment and instruction for setting up the pipeline is in this [repo](https://github.com/Tailp/CI)  
+IMPORTANT!! 
+ * Our application for deployment and instruction for setting up the pipeline is in this [repo](https://github.com/Tailp/CI) 
+ * Youtube link to see our pipeline in action [Youtubelink](https://www.youtube.com/watch?v=kEL1E0Bih_0&feature=youtu.beO) 
 ## Description & idea presentation
 Our idea is to create a Jenkins CI/CD pipeline with the aim of minizing the budget cost of deploying to Kubernetes. While there are many guides and good information out there in the internet about setting up a Jenkins master inside the cluster together with slave virtual machine, there are still very little and also fragmented information about a setup of CI/CD pipeline for smooth deployments from Jenkins outside the cluster. 
 
