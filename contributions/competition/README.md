@@ -42,8 +42,8 @@ Regarding coreutils 8.25, it is integrated in Ubuntu 16.04 LTS. However, the bin
 
 |                                             | Yes | No | Outstanding |
 |-------------------------------------------- | ----|----|-------------|
-|All binaries are fuzzed  | Yes | No | Outstanding |
-|All binaries are covered more than 0.75 * Average over all entries | Yes | No | Outstanding |
+|All binaries are fuzzed | Yes | No | Outstanding |
+|The coverage on average of all binaries is higher than 50% | Yes | No | Outstanding |
 |The solution is correctly formatted | Yes | No | Outstanding |
 |The document well explains the used tools  | Yes | No | Outstanding |
 |The document well explains the employed search and meta-optimization  | Yes | No | Outstanding |
