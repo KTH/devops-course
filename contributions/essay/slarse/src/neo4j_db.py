@@ -1,36 +1,49 @@
-def main():
-    person_tag = lambda fullname: fullname.split()[0]
-    movie_tag = lambda title: title.replace(" ", "")
+import csv
 
+person_tag = lambda fullname: fullname.split()[0]
+movie_tag = lambda title: title.replace(" ", "")
+
+
+def movie_formatter(row):
+    title = row[0]
+    return f'CREATE ({movie_tag(title)}:Movie {{title: "{title}"}})'
+
+
+def person_formatter(row):
+    fullname = row[0]
+    return f'CREATE ({person_tag(fullname)}:Person {{name: "{fullname}"}})'
+
+
+def acted_in_formatter(row):
+    actor, character, movie = row
+    return f'CREATE ({person_tag(actor)})-[:ACTED_IN {{played: "{character}"}}]->({movie_tag(movie)})'
+
+
+def directed_by_formatter(row):
+    director, movie = row
+    return f"CREATE ({movie_tag(movie)})-[:DIRECTED_BY]->({person_tag(director)})"
+
+
+def convert(filepath, formatter):
+    """Convert CSV file to a list of strings by applying the provided formatter
+    to each line.
+    """
     output = []
-    with open("movies", "r") as f:
-        for line in f.readlines():
-            title = line.strip()
-            output.append(f'CREATE ({movie_tag(title)}:Movie {{title: "{title}"}})')
+    with open(filepath, "r", encoding="utf-8") as file:
+        reader = csv.reader(file)
+        for row in reader:
+            output.append(formatter(row))
+    return output
 
-    with open("people", "r") as f:
-        for line in f.readlines():
-            fullname = line.strip()
-            output.append(
-                f'CREATE ({person_tag(fullname)}:Person {{name: "{fullname}"}})'
-            )
 
-    with open("acted_in", "r") as f:
-        for line in f.readlines():
-            actor, character, movie = line.strip().split(",")
-            output.append(
-                f'CREATE ({person_tag(actor)})-[:ACTED_IN {{played: "{character}"}}]->({movie_tag(movie)})'
-            )
-
-    with open("directed", "r") as f:
-        for line in f.readlines():
-            director, movie = line.strip().split(",")
-            output.append(
-                f"CREATE ({movie_tag(movie)})-[:DIRECTED_BY]->({person_tag(director)})"
-            )
-
+def main():
+    output = (
+        convert("movies.csv", movie_formatter)
+        + convert("people.csv", person_formatter)
+        + convert("acted_in.csv", acted_in_formatter)
+        + convert("directed.csv", directed_by_formatter)
+    )
     print("\n".join(output))
-
 
 if __name__ == "__main__":
     main()

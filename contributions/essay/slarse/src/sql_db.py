@@ -1,3 +1,5 @@
+import csv
+
 CREATE_PERSON = """CREATE TABLE Person (
     id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(128) NOT NULL
@@ -33,18 +35,18 @@ def main():
     person_id = lambda name: f"SELECT id FROM Person WHERE name='{name}'"
     movie_id = lambda title: f"SELECT id FROM Movie WHERE title='{title}'"
 
-    with open("movies", "r") as f:
+    with open("movies.csv", "r") as f:
         movie_values = ",\n".join([f"    ('{line.strip()}')" for line in f.readlines()])
         output.append(f"INSERT INTO Movie(title) VALUES \n{movie_values};")
 
-    with open("people", "r") as f:
+    with open("people.csv", "r") as f:
         person_values = ",\n".join([f"   ('{line.strip()}')" for line in f.readlines()])
         output.append(f"INSERT INTO Person(name) VALUES \n{person_values};")
 
-    with open("acted_in", "r") as f:
+    with open("acted_in.csv", "r") as f:
         acted_in_values = []
-        for line in f.readlines():
-            actor, role, movie = line.strip().split(",")
+        for row in csv.reader(f):
+            actor, role, movie = row
             acted_in_values.append(
                 f"    (({person_id(actor)}), ({movie_id(movie)}), '{role}')"
             )
@@ -54,10 +56,10 @@ def main():
             f"INSERT INTO ActedIn(person_id, movie_id, role) VALUES \n{acted_in_values};"
         )
 
-    with open("directed", "r") as f:
+    with open("directed.csv", "r") as f:
         directed_by_values = []
-        for line in f.readlines():
-            director, movie = line.strip().split(",")
+        for row in csv.reader(f):
+            director, movie = row
             directed_by_values.append(
                 f"    (({person_id(director)}), ({movie_id(movie)}))"
             )
