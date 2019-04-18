@@ -2,6 +2,37 @@
 
 * **Group members:** Joakim Croona (jcroona@kth.se), Simon Larsén
   (slarse@kth.se)
+
+## Finished prototype: Labelbot
+* **Repo URL:** [https://github.com/slarse/labelbot](https://github.com/slarse/labelbot)
+    - See the README there for details!
+* **Demo repo URL:** [https://github.com/jcroona/labelbot-demo](https://github.com/jcroona/labelbot-demo)
+    - See [Example usage](https://github.com/slarse/labelbot#example-usage) for
+      how to interact with the bot in the demo repo.
+* **Group member contributions:**
+    - slarse: Almost all contributions are visible in the Labelbot repo, so
+      there is no need to list them here.
+    - jcroona: Some contributions visible in the Labelbot repo. Has also done
+      almost all of the work with getting AWS Lambda and the demo GitHub app up
+      and running, which is not visible in the repo.
+* **DevOpsy stuff about the project (apart from the product):**
+    - Designed for AWS Lambda (i.e. "serverless", and only static state)!
+    - TravisCI running the test suite with multiple versions of Python
+      ([view on Travis](https://travis-ci.com/slarse/labelbot)).
+    - Continuous deployment with Travis to AWS Lambda on specifically tagged
+      commits (see the
+      [end of this log](https://travis-ci.com/slarse/labelbot/jobs/193963421)
+      for a deployment example). We just tag with e.g. `v0.0.6` and the demo
+      bot automatically is deployed after passing tests.
+    - [Release notes](https://github.com/slarse/labelbot/releases) generated
+      from markup in commits (e.g. `[docs]` or `[feat]`). The quality of these
+      notes is maybe questionable, as they essentially just reiterate commits,
+      but at least they are sorted by category!
+    - [Codecov](https://codecov.io/gh/slarse/labelbot) for coverage monitoring.
+    - Automatically deployed documentation to
+      [ReadTheDocs](https://labelbot.readthedocs.io)
+
+## Original Proposal
 * **Concept:** A GitHub App (bot) that labels issues based on explicit markup
   in the issue body.
 * **Use case:** The idea is to allow any user to label an issue with a set of
