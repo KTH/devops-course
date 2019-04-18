@@ -22,8 +22,8 @@
     - Continuous deployment with Travis to AWS Lambda on specifically tagged
       commits (see the
       [end of this log](https://travis-ci.com/slarse/labelbot/jobs/193963421)
-      for a deployment example). We just tag with e.g. `v0.0.6` and the demo
-      bot automatically is deployed after passing tests.
+      for a deployment example). Any tag that matches a version number regex
+      will be deployed to the AWS Lambda function that operates the demo bot.
     - [Release notes](https://github.com/slarse/labelbot/releases) generated
       from markup in commits (e.g. `[docs]` or `[feat]`). The quality of these
       notes is maybe questionable, as they essentially just reiterate commits,
