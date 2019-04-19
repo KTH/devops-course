@@ -209,6 +209,46 @@ tested to work with MySQL 5.6.
 \label{sec:neo4j-def}
 
 ## Property graph database definition
+Let us now try to model the data as a property graph instead. I will use Neo4j
+and its query language Cypher because it is easy to get started with, and Cypher
+is easy to briefly explain. Do however keep in mind that there is no one query
+language for property graphs, as described in Sec. \ref{sec:pg}, so this section
+is not representative of property graphs as a whole. I do however think that it
+illustrates the idea of graph-based queries well.
+
+As Neo4j is a schemaless database system, there is no need to first _define_ the
+database, as was the case for the SQL database in Sec. \ref{seq:sql-def}. It is
+simply a matter of entering values into the database. Cypher is concise, so
+entering the same data about Ben Affleck that was entered in Sec.
+\ref{sec:sql-def} is a matter of four statements.
+
+```sql
+CREATE (TheTown:Movie {title: "The Town"})
+CREATE (Ben:Person {name: "Ben Affleck"})
+CREATE (Ben)-[:ACTED_IN {role: "Doug MacRay"}]->(TheTown)
+CREATE (TheTown)-[:DIRECTED_BY]->(Ben)
+```
+
+The first two `CREATE` statements create Person and Movie nodes, while to two last
+create `ACTED_IN` and `DIRECTED_BY` edges (or relations). The syntax for the
+`CREATE` statement is rather straightforward. Creating a node is as simple as
+`CREATE (<NODE_DEFINITION>)`. Looking specifically at the first statement,
+`TheTown:Movie` denotes that the label on this node is `Movie`, and that the
+node should be assigned to a variable called `TheTown`. The variable can be
+used throughout the query to reference the node. Finally, everything within
+curly braces are simply properties on the form `key: value`.
+
+The definition of a relationship is similarly straightforward, and generally
+looks like `CREATE (<NODE>)-[<EDGE_DEFINITION>]->[<NODE>]`. The
+`<EDGE_DEFINITION>` is written precisely the same as `<NODE_DEFINITION>`,
+including property declarations. Looking more closely at the last `CREATE`
+statement, it is plain to see how the variables `TheTown` and `Ben` are reused
+to denote the nodes which the edge connects. Also note how no variable name is
+declared for the edge. There is no need for it, as it is not reused. The full
+database declaration can be found in Appendix B.
+
+
+
 
 \label{sec:rdf-def}
 
