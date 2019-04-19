@@ -91,6 +91,8 @@ similar to a traditional relational database table, and indeed, there are ways
 to implement RDF stores on top of a relational database system
 [@bornea2013building].
 
+\label{sec:pg}
+
 ## Property graphs
 Unlike RDF graphs, Property Graphs (PG) are not formally defined
 [@hartig2014reconciliation]. The term also seems to be fairly new; the earliest
@@ -117,9 +119,100 @@ query language\footnote{\url{https://neo4j.com/developer/cypher/}}, and
 JanusGraph\footnote{\url{https://janusgraph.org/}}, which uses the Gremlin query
 language\footnote{\url{https://docs.janusgraph.org/latest/gremlin.html}}.
 
+\label{sec:usage}
+
 # Usage examples (same DB, same operation, relational vs graph)
 In this section, I present a simple movie database modeled with an RDF graph
-database, a property graph database and a standard relational database.
+database, a property graph database and a standard relational database. The
+database should model the following:
+
+* People
+* Movies
+* Which movies any given person has acted in
+    - And the which role he or she performed as
+* Which movies any given person has directed
+
+Modeling this data represents a few, common tasks databases have to fulfill,
+namely representing concrete entities (here, movies and people) and their
+attributes (names and titles), as well as relationships between such entities
+(acted in and directed by). The rest of this section is laid out in the
+following way. TODO: explain rest of layout
+
+Let us start out with the plain SQL database, as
+that will probably be the most familiar to readers. 
+
+\label{sec:sql-def}
+
+## SQL database definition
+This is the part of this article that assumes some prior knowledge of relational
+databases, as concepts such as tables and foreign keys will not be explained in
+detail. To model the data Sec. \ref{sec:usage}, a typical SQL database will need
+four tables: two tables to represent the base entities _Person_ and _Movie_, as
+well as two association tables to model the _ActedIn_ and _DirectedBy_
+relationships between these. The reason that the two association tables are
+required is that both _ActedIn_ and _DirectedBy_ are many-to-many relationships,
+which cannot be expressed in a relational database with only the concrete entity
+tables. For example, an actor typically has acted in more than one movie, and
+most movies are acted in by more than one actor. As an example, the Person table
+could be defined with the following statement:
+
+```sql
+CREATE TABLE Person (
+    id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(128) NOT NULL
+);
+```
+The Movie table is almost identical. Then, the ActedIn table could be defined
+with the following statement:
+
+```sql
+CREATE TABLE ActedIn (
+    id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+    person_id INT UNSIGNED NOT NULL,
+    movie_id INT UNSIGNED NOT NULL,
+    role VARCHAR(128) NOT NULL,
+    FOREIGN KEY(person_id) REFERENCES Person(id) ON UPDATE CASCADE ON DELETE CASCADE,
+    FOREIGN KEY(movie_id) REFERENCES Movie(id) ON UPDATE CASCADE ON DELETE CASCADE
+);
+```
+
+The DirectedBy table is, again, almost identical. The database whole schema is
+presented schematically in Fig. \ref{fig:slq-schema}. For the sake of brevity, I
+have omitted details such as `UNSIGNED` and `NOT NULL`. Note the multiplicities
+on the relations between the tables. For example, each 
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\columnwidth]{images/sql_schema.pdf}
+    \caption{SQL schema for the movie database}\label{fig:sql-schema}
+\end{figure}
+
+With the schema defined, the database can be filled with data using queries that
+look something like the following:
+
+```sql
+INSERT INTO Movie(title) VALUES
+    ('The Town');
+INSERT INTO Person(name) VALUES
+   ('Ben Affleck');
+INSERT INTO ActedIn(person_id, movie_id, role) VALUES
+    ((SELECT id FROM Person WHERE name='Ben Affleck'), (SELECT id FROM Movie WHERE title='The Town'), 'Doug MacRay');
+INSERT INTO DirectedBy(person_id, movie_id) VALUES
+    ((SELECT id FROM Person WHERE name='Ben Affleck'), (SELECT id FROM Movie WHERE title='The Town'));
+```
+
+Note how the insertions into the association tables have nested SELECT queries
+to find the correct primary keys of the related tables. The full definition of
+the database, including data insertions, can be found in appendix A. It has been
+tested to work with MySQL 5.6.
+
+\label{sec:neo4j-def}
+
+## Property graph database definition
+
+\label{sec:rdf-def}
+
+## RDF database definition
 
 # Other Types of NoSQL Databases (possibly!)
 
