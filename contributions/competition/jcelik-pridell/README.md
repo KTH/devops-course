@@ -1,7 +1,7 @@
 # Grand Fuzzing Challenge
 
 <p align="center">
-	<img alt="Monkey doing fuzzy testing" src="doc/fuzz-testing-monkey-img.jpg">
+	<img alt="Monkey doing fuzzy testing" src="fuzz-testing-monkey-img.jpg">
 </p>
 
 This report covers the solution to a school assignment. It was executed by Julius Celik ([juliuscc](https://github.com/juliuscc)) and Patric Ridell ([pridell](https://github.com/patricr)) The assignment was to perform fuzzing on the binary files from 20 commands from GNU coreutils 8.25:
