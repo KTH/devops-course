@@ -12,6 +12,7 @@ linkcolor: black
 urlcolor: black
 toccolor: black
 bibliography: ref.bib
+geometry: "left=2cm,right=2cm,top=2cm,bottom=2cm"
 header-includes:
 - \usepackage{graphicx}
 - \usepackage{amsfonts}

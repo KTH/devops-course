@@ -82,7 +82,7 @@ graph in Fig. \ref{fig:rdf-example}.
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=.7\columnwidth]{images/rdf-example.pdf}
+    \includegraphics[width=.4\columnwidth]{images/rdf-example.pdf}
     \caption{Visualisation of Table \ref{tab:rdf-example}}\label{fig:rdf-example}
 \end{figure}
 
@@ -177,13 +177,14 @@ CREATE TABLE ActedIn (
 ```
 
 The DirectedBy table is, again, almost identical. The whole database schema is
-presented schematically in Fig. \ref{fig:slq-schema}. For the sake of brevity, I
-have omitted details such as `UNSIGNED` and `NOT NULL`. Note the multiplicities
-on the relations between the tables. For example, each 
+presented schematically in Fig. \ref{fig:sql-schema}. Note the multiplicities on
+the relations between the tables. For example, each `ActedIn` row is associated
+with precisely one `Person` row, while each `Person` row is associated with zero
+(because not every person is an actor) or more `ActedIn` rows.
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=\columnwidth]{images/sql_schema.pdf}
+    \includegraphics[width=.9\columnwidth]{images/sql_schema.pdf}
     \caption{SQL schema for the movie database}\label{fig:sql-schema}
 \end{figure}
 
@@ -236,7 +237,16 @@ create `ACTED_IN` and `DIRECTED_BY` edges (or relations). The syntax for the
 `TheTown:Movie` denotes that the label on this node is `Movie`, and that the
 node should be assigned to a variable called `TheTown`. The variable can be
 used throughout the query to reference the node. Finally, everything within
-curly braces are simply properties on the form `key: value`.
+curly braces are simply properties on the form `key: value`. Neo4j has an
+excellent visualisation tool built-in, and the visualisation of this particular
+database can be found in Fig. \ref{fig:neo4j-visualisation}.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=.8\columnwidth]{images/neo4j-db.pdf}
+    \caption{Graph visualisation of the example database. Orange nodes represent
+    people, and blue nodes represent movies.}\label{fig:neo4j-visualisation}
+\end{figure}
 
 The definition of a relationship is similarly straightforward, and generally
 looks like `CREATE (<NODE>)-[<EDGE_DEFINITION>]->[<NODE>]`. The
@@ -305,32 +315,87 @@ RETURN actor.name, acted.played_role, movie.title
 
 Again, both queries will yield identical results.
 
-### Query \#3: Find all actors somehow related to Ben Affleck
-This is the final query, and where it gets very interesting. I found it very
-difficult to state the intention of this query entirely in natural language, so
-I define this helper function.
+### Query \#3: Rumors about Ben
+This is the final query, which is meant to clearly demonstrate the benefit of
+reasoning about data as a graph. The idea is to find any actor that may have
+heard a rumor about what it is like acting together with Ben Affleck. This
+includes any actor A who has acted in the same movie as Ben, or any actor B
+who has acted with actor A, or any actor C who has acted with actor B, and so
+on. The astute reader may have noticed that this is a slightly more complicated
+version of traversing a social graph to find a person's friends, friends of
+friends, and so on\footnote{This is closely related to the transitive closure
+of a binary relation R on some set S. Wikipedia has a nice page on the subject:
+\url{https://en.wikipedia.org/wiki/Transitive_closure}}. The problem can however
+be somewhat simplified if by considering the `DIRECTED_BY` and `ACTED_IN` edges
+visualised in Fig. \ref{fig:neo4j-visualisation} as bi-directional. Then, it is
+simply a matter of finding every actor that can be reached from Ben's node by
+traversing `ACTED_IN` edges. While it does not make much sense for a movie to
+have acted in an actor, it makes the problem easier to visualise.
 
-```python
-def related_actor(actor):
-    if actor.visited:
-        return False
-    if actor.directedByBen or actor.actedWithBen:
-        return True
-    else:
-        for related_actor in actor.actedWith:
-            if related_actor(actor)
-            
+To solve such a problem in SQL, we need to issue a so called _hierarchical
+query_\footnote{Again, Wikipedia has a nice page on the subject:
+\url{https://en.wikipedia.org/wiki/Hierarchical_and_recursive_queries_in_SQL}}.
+The query is written below. It is important not to get stuck on trying to
+understand the query, the point of showing it is mostly to exemplify that it is
+complicated.
 
+```sql
+WITH RECURSIVE acted_in(person_id, movie_id) AS (
+  /* Initial start query */
+  SELECT person_id, movie_id
+  FROM ActedIn, Person
+  WHERE Person.id = ActedIn.person_id AND 
+        Person.name = 'Ben Affleck'
+UNION
+  /* The recursive query */
+  SELECT ActedIn.person_id, ActedIn.movie_id FROM acted_in, ActedIn
+  WHERE acted_in.movie_id = ActedIn.movie_id OR
+        acted_in.person_id = ActedIn.person_id
+)
+/* selecting from the result */
+SELECT DISTINCT Person.name
+FROM acted_in, Person
+WHERE acted_in.person_id = Person.id
+AND Person.name != 'Ben Affleck'
+```
 
-1. Acted beside Ben Affleck
-2. Been directed by Ben Affleck
-3. 
+I will only briefly explain what is actually happening here. On the first line,
+the `acted_in` pseudo-entity is defined. Then, an initial "start" query is
+issued to find all of Ben's `(person_id, movie_id)` tuples. What happens next is
+fairly unintuitive. The results of the "recursive" query is unioned with the
+initial query, the result of which is then unioned with the recursive query
+again, and again, until the result set is no longer expanding. It is essentially
+a breadth first search over the `ActedIn` relations, where the movies are
+discarded in the final result. The Cypher equivalent of this SQL query
+is a good example of why representing data as graphs can be advantageous.
+
+```sql
+MATCH (Ben:Person {name: "Ben Affleck"}),
+      (Ben)-[:ACTED_IN*]-(movie:Movie),
+      (actor:Person)-[:ACTED_IN]->(movie)
+RETURN actor
+```
+
+The query can be broken down as follows.
+
+1. `MATCH (Ben:Person {name: "Ben affleck"})`
+   - Find the Ben Affleck node and store it in `Ben`
+2. `(Ben)-[:ACTED_IN*]-(movie:Movie)`
+   - Find all `Movie` nodes reachable by traversing any amount of `ACTED_IN`
+     edges, starting from `Ben`
+   - Note the `*` for "any amount"
+   - Note the lack of an arrowhead on the edge, which instructs Neo4j to consider
+     all edges bi-directional
+3. `(actor:Person)-[:ACTED_IN]->(movie)`
+   - Find every actor who acted in any of the found `movie` nodes
+4. `RETURN actor`
+   - Return every actor that matched the constraints
+
+Fetching the Ben Affleck and storing it in the `Ben` variable is not strictly
+necessary, and could be done inline on the second line, but I found this more
+readable. 
 
 \label{sec:rdf-def}
-
-## RDF database definition
-
-# Other Types of NoSQL Databases (possibly!)
 
 # Pros and cons
 
