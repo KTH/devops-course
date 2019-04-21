@@ -15,8 +15,8 @@ def person_formatter(row):
 
 
 def acted_in_formatter(row):
-    actor, character, movie = row
-    return f'CREATE ({person_tag(actor)})-[:ACTED_IN {{played: "{character}"}}]->({movie_tag(movie)})'
+    actor, played_role, movie = row
+    return f'CREATE ({person_tag(actor)})-[:ACTED_IN {{played_role: "{played_role}"}}]->({movie_tag(movie)})'
 
 
 def directed_by_formatter(row):
@@ -44,6 +44,7 @@ def main():
         + convert("directed.csv", directed_by_formatter)
     )
     print("\n".join(output))
+
 
 if __name__ == "__main__":
     main()

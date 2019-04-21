@@ -129,7 +129,7 @@ database should model the following:
 * People
 * Movies
 * Which movies any given person has acted in
-    - And the which role he or she performed as
+    - And which role he or she performed as
 * Which movies any given person has directed
 
 Modeling this data represents a few, common tasks databases have to fulfill,
@@ -170,13 +170,13 @@ CREATE TABLE ActedIn (
     id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
     person_id INT UNSIGNED NOT NULL,
     movie_id INT UNSIGNED NOT NULL,
-    role VARCHAR(128) NOT NULL,
+    played_role VARCHAR(128) NOT NULL,
     FOREIGN KEY(person_id) REFERENCES Person(id) ON UPDATE CASCADE ON DELETE CASCADE,
     FOREIGN KEY(movie_id) REFERENCES Movie(id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 ```
 
-The DirectedBy table is, again, almost identical. The database whole schema is
+The DirectedBy table is, again, almost identical. The whole database schema is
 presented schematically in Fig. \ref{fig:slq-schema}. For the sake of brevity, I
 have omitted details such as `UNSIGNED` and `NOT NULL`. Note the multiplicities
 on the relations between the tables. For example, each 
@@ -195,7 +195,7 @@ INSERT INTO Movie(title) VALUES
     ('The Town');
 INSERT INTO Person(name) VALUES
    ('Ben Affleck');
-INSERT INTO ActedIn(person_id, movie_id, role) VALUES
+INSERT INTO ActedIn(person_id, movie_id, played_role) VALUES
     ((SELECT id FROM Person WHERE name='Ben Affleck'), (SELECT id FROM Movie WHERE title='The Town'), 'Doug MacRay');
 INSERT INTO DirectedBy(person_id, movie_id) VALUES
     ((SELECT id FROM Person WHERE name='Ben Affleck'), (SELECT id FROM Movie WHERE title='The Town'));
@@ -247,8 +247,84 @@ to denote the nodes which the edge connects. Also note how no variable name is
 declared for the edge. There is no need for it, as it is not reused. The full
 database declaration can be found in Appendix B.
 
+## Querying the databases
+In this section, I present a series of increasingly complex queries. Keep in
+mind that these queries play to the strengths of a graph database, and as such
+are not meant to show that graph databases are always better than.
+
+\label{sec:query1}
+
+### Query \#1: Find all actors and the roles they have played
+For the first query, we want to list all actors and they roles they have played,
+as well as in which movies. This is a straightforward three-way join with SQL.
+
+```sql
+SELECT Person.name, Movie.title, ActedIn.played_role
+FROM Person, Movie, ActedIn
+WHERE
+  Person.id = ActedIn.person_id AND
+  Movie.id = ActedIn.movie_id;
+```
+
+With Cypher, it gets slightly simpler, using the `MATCH` statement. A `MATCH`
+statement looks much like a `CREATE` statement, but instead of declaring a
+structure to create, it declares a structure to search for.
+
+```sql
+MATCH (actor:Person)-[acted:ACTED_IN]->(movie:Movie)
+RETURN actor.name, movie.title, acted.played_role
+```
+
+Note the use of variables to enable accessing specific properties in the return
+statement. The results of these queries would be identical, apart from
+potentially different ordering of the results.
+
+### Query \#2: Find all self-directed actors
+This query is meant to find all actors that have acted in a movie that they have
+also directed. For SQL, this results in a slight extension of the three-way
+join in Sec. \ref{sec:query1}, making it a four-way join.
+
+```sql
+SELECT Person.name, Movie.title, ActedIn.played_role
+FROM Person, Movie, ActedIn, DirectedBy
+WHERE
+  Person.id = ActedIn.person_id AND
+  Person.id = DirectedBy.person_id AND
+  Movie.id = ActedIn.movie_id AND
+  Movie.id = DirectedBy.movie_id;
+```
+
+The Cypher query also needs an extension, but it is done in a fairly different
+way.
+
+```sql
+MATCH (actor:Person)-[acted:ACTED_IN]->(movie:Movie),
+      (movie)-[directed:DIRECTED_BY]->(actor)
+RETURN actor.name, acted.played_role, movie.title
+```
+
+Again, both queries will yield identical results.
+
+### Query \#3: Find all actors somehow related to Ben Affleck
+This is the final query, and where it gets very interesting. I found it very
+difficult to state the intention of this query entirely in natural language, so
+I define this helper function.
+
+```python
+def related_actor(actor):
+    if actor.visited:
+        return False
+    if actor.directedByBen or actor.actedWithBen:
+        return True
+    else:
+        for related_actor in actor.actedWith:
+            if related_actor(actor)
+            
 
 
+1. Acted beside Ben Affleck
+2. Been directed by Ben Affleck
+3. 
 
 \label{sec:rdf-def}
 

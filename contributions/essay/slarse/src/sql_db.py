@@ -22,7 +22,7 @@ CREATE_ACTED_IN = """CREATE TABLE ActedIn (
     id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
     person_id INT UNSIGNED NOT NULL,
     movie_id INT UNSIGNED NOT NULL,
-    role VARCHAR(128) NOT NULL,
+    played_role VARCHAR(128) NOT NULL,
     FOREIGN KEY(person_id) REFERENCES Person(id) ON UPDATE CASCADE ON DELETE CASCADE,
     FOREIGN KEY(movie_id) REFERENCES Movie(id) ON UPDATE CASCADE ON DELETE CASCADE
 );
@@ -46,14 +46,14 @@ def main():
     with open("acted_in.csv", "r") as f:
         acted_in_values = []
         for row in csv.reader(f):
-            actor, role, movie = row
+            actor, played_role, movie = row
             acted_in_values.append(
-                f"    (({person_id(actor)}), ({movie_id(movie)}), '{role}')"
+                f"    (({person_id(actor)}), ({movie_id(movie)}), '{played_role}')"
             )
 
         acted_in_values = ",\n".join(acted_in_values)
         output.append(
-            f"INSERT INTO ActedIn(person_id, movie_id, role) VALUES \n{acted_in_values};"
+            f"INSERT INTO ActedIn(person_id, movie_id, played_role) VALUES \n{acted_in_values};"
         )
 
     with open("directed.csv", "r") as f:
