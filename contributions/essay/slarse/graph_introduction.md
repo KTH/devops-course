@@ -41,10 +41,20 @@ there are a whole lot of different types of graph database models
 around. Angles et al. provides a fairly comprehensive but slightly dated
 overview of several different models and their origins [@angles2008survey].
 As there is such a large amount of different models, I will make no claim that
-this article exhaustively covers graph databases. Rather, I will introduce two
-models that are common in production use today: RDF-based models and property
-graph models [@hartig2014reconciliation;@angles2018g]. The following two
-sections outline the principles behind these models.
+this article exhaustively covers graph databases. Rather, I will introduce the
+_property graph_ database, and show by practical example how such using such a
+database compares to the use of a traditional SQL database. For completeness, I
+will also present the concepts of a different kind of graph database based
+on the RDF-standard, as such databases frequently appeared during my background
+research of the subject [@hartig2014reconciliation;@angles2018g]. The rest of
+the article is structured as follows. Sections \ref{sec:rdf} and \ref{sec:pg}
+present the concepts behind RDF and property graph databases, respectively.
+Section \ref{sec:usage} compares creation and subsequent querying of a movie
+database using the relational PostgreSQL database, and the progerty graph Neo4j
+database. Finally, section \ref{sec:discussion} presents a discussion of the
+potential pros and cons of using a graph database over a relational database.
+
+\label{sec:rdf}
 
 ## Resource Description Framework (RDF) Databases
 The _Resource Description Framework_ is a language for expressing metadata for
@@ -60,25 +70,27 @@ graph is a set of triples of _subject_, _predicate_ and _object_. The subject
 is that which we want to say something about, the predicate is what kind of
 statement we are making, and the object the value of that statement.  For
 example, the triples in Table\ref{tab:rdf-example} is an RDF encoding of the
-data "The Mule is a movie", "Clint is a person", "Clint acted in The Mule", and
-"The Mule was directed by Clint" .
+data "The Town is a movie", "Ben is a person", "Ben acted in The Town", and
+"The Town was directed by Ben" .
 
 Table: RDF triples example \label{tab:rdf-example}
 
 | Subject  | Predicate  | Object   |
 | ------   | --------   | -----    |
-| The Mule | type       | Movie    |
-| Clint    | type       | Human    |
-| Clint    | actedIn    | The Mule |
-| The Mule | directedBy | Clint    |
+| The Town | type       | Movie    |
+| Ben      | type       | Person   |
+| Ben      | actedIn    | The Town |
+| The Town | directedBy | Ben      |
 
 There is an interesting observation to be made regarding the triples presented
 in Table \ref{tab:rdf-example}: it is not immediately apparent that they
-constitute a graph, and there are those who consider RDF triple stores not to be
-graphs in the traditional sense [@hayes2004bipartite]. However, viewing the set
-union of subjects and objects as nodes, and the set of predicates as labeled
-edges, it is clear that the triples of Table \ref{tab:rdf-example} induce the
-graph in Fig. \ref{fig:rdf-example}. 
+constitute a graph. In fact, it is possible to have for example the object of
+one triple be the predicate of another, so the triples do not by themselves 
+represent a graph in the traditional sense [@hayes2004bipartite]. In the
+case of Table \ref{tab:rdf-example} however, viewing the set union of subjects
+and objects as nodes, and the set of predicates as labeled edges, it is clear
+that the triples of Table \ref{tab:rdf-example} induce the graph in Fig.
+\ref{fig:rdf-example}. 
 
 \begin{figure}[ht]
     \centering
@@ -110,14 +122,24 @@ sensible considering the important role that labels play in a PG model. Labels
 are used to categorize nodes and edges, and are roughly equivalent to type
 assignments [@srinivasa2012data]. For example, a node representing a person
 could have the label "Person", which makes it very easy to query for Person
-node. Another important difference between RDF graphs and PG is that the latter
-has no standardized query language, although it should be noted that efforts are
-underway to standardize a Graph Query Language (GQL)
-[@gqlstandard;@gqlmanifesto;@w3c2019workshop;@angles2018g]. Examples of current
-PG databases are Neo4j\footnote{\url{https://neo4j.com}}, which uses the Cypher
-query language\footnote{\url{https://neo4j.com/developer/cypher/}}, and
+node. Figure \ref{fig:pg} shows a PG graph example of the same data as was
+presented in Fig. \ref{sec:rdf-example}. Another important difference between
+RDF graphs and PG is that the latter has no standardized query language,
+although it should be noted that efforts are underway to standardize a Graph
+Query Language (GQL) [@gqlstandard;@gqlmanifesto;@w3c2019workshop;@angles2018g].
+Examples of current PG databases are Neo4j\footnote{\url{https://neo4j.com}},
+which uses the Cypher query
+language\footnote{\url{https://neo4j.com/developer/cypher/}} (open-sourced as
+openCypher\footnote{http://www.opencypher.org/}), and
 JanusGraph\footnote{\url{https://janusgraph.org/}}, which uses the Gremlin query
 language\footnote{\url{https://docs.janusgraph.org/latest/gremlin.html}}.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=.4\columnwidth]{images/pg.pdf}
+    \caption{Visualisation of a property graph. Labels are in bold and
+    properties are written `key: value`}\label{fig:pg}
+\end{figure}
 
 \label{sec:usage}
 
@@ -205,7 +227,7 @@ INSERT INTO DirectedBy(person_id, movie_id) VALUES
 Note how the insertions into the association tables have nested SELECT queries
 to find the correct primary keys of the related tables. The full definition of
 the database, including data insertions, can be found in appendix A. It has been
-tested to work with MySQL 5.6.
+tested to work with PostreSQL 9.6.
 
 \label{sec:neo4j-def}
 
@@ -243,7 +265,7 @@ database can be found in Fig. \ref{fig:neo4j-visualisation}.
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=.8\columnwidth]{images/neo4j-db.pdf}
+    \includegraphics[width=.6\columnwidth]{images/neo4j-db.pdf}
     \caption{Graph visualisation of the example database. Orange nodes represent
     people, and blue nodes represent movies.}\label{fig:neo4j-visualisation}
 \end{figure}
@@ -376,7 +398,9 @@ MATCH (Ben:Person {name: "Ben Affleck"}),
 RETURN actor
 ```
 
-The query can be broken down as follows.
+Fetching the Ben Affleck node and storing it in the `Ben` variable is not
+strictly necessary, and could be done inline on the second line, but I found
+this more readable. The query can be broken down as follows.
 
 1. `MATCH (Ben:Person {name: "Ben affleck"})`
    - Find the Ben Affleck node and store it in `Ben`
@@ -391,15 +415,33 @@ The query can be broken down as follows.
 4. `RETURN actor`
    - Return every actor that matched the constraints
 
-Fetching the Ben Affleck and storing it in the `Ben` variable is not strictly
-necessary, and could be done inline on the second line, but I found this more
-readable. 
-
-\label{sec:rdf-def}
-
-# Pros and cons
-
 # Discussion
+PG databases show some clear advantages over traditional relational databases.
+The queries in Cypher are shorter throughout, yet remain readable. The final
+query exemplified how a non-trivial but still realistic search query required
+use of advanced SQL constructs, with quite a lot of boilerplate, while the
+Cypher equivalent only made use of some of the most rudimentary features of the
+language and remained concise. While shorter is not always better, shorter _and_
+more readable surely has to count as better from a maintainability point of
+view. Another stark contrast between SQL and Cypher is the former's reliance on
+a pre-defined schema, and the latter's lack of such. A schemaless approach is a
+great boon to quick iteration development practices, as many minor alterations
+to the abstract schema of a schemaless database may not require any production
+database maintenance. On the other hand, _any_ alteration in a SQL schema
+requires a database migration in production environments, which from personal
+experience can be a hassle even for relatively simple databases.
+
+There are some major caveats to these comparisons, however. First, I
+specifically modeled the database and queries to play to the strengths of a
+graph representation. In other words, these are by no means general conclusions
+about graph databases being superior to relational databases, but rather that
+they can be given the right circumstances. Furthermore, Cypher is not _the_
+graph database language, so results are not even generalizable over graph
+database query languages as a whole. Time will tell if GQL ends up becoming a
+widely adopted standard, but as it stands, there is nothing resembling a
+standard for property graph databases. Adopting a database such as Neo4j may
+therefore lead to more lock-in than risk averse managers may be willing to
+accept.
 
 \clearpage
 
