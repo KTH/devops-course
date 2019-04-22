@@ -55,17 +55,25 @@ The available endpoints are:
 | GET  | `/health`| Health check route|
 | GET  | `/crash` |Crashes the backend|
 
-
-
 If you decide to crash the backend, it can easily be restarted with the following command:
 ```bash
 $ docker-compose restart backend
 ```
-# Slack Alarms
+# Deploying this stack
+
+Make sure that you are on a swarm manager node and then deploy it with 
+```bash
+$ docker stack deploy -c open-stack.yml open-stack
+```
+To verify the deploy, follow the steps above but note that the services wont be available on the same adresses. 
+
+# Grafana Alert Notifications
+When Grafana alerts changes status, it sends out notifcations. Each alert can have mulitplice notifications. Grafana have support to send out alert notifications using Email, Slack, PagerDuty, Kafka, Google Hangouts Chats and more. 
+
+## Grafana Slack alert notifcation
 To set up slack you need to configure an incoming webhook url at slack. You can follow their guide on how to do that [here](https://api.slack.com/incoming-webhooks). 
 
-
-## Connect Slack with Grafana using your webhook
+### Connect Slack with Grafana using your webhook
 1. Go to `Alerting` page, then choose  `Notifcation Channels` tab.
 2. Press `Add Channel`
 3. Set a name for for your new notifcation channel.
@@ -81,8 +89,17 @@ You can test it by pressing `Send Test`.
 ### Test notification
 <img src="images/grafana-slack.png">
 
-### Alert notifcation
-<img src="images/grafana-slack-test.png">
+#### Testing the Slack Integration locally
+After setting up the Slack integration, test it with theese following instructions:
 
-### Verify alert notifcation
+1. Make sure the stack is running.
+2. Crash the backend using the [crash endpoint.](http://localhost:4004/crash)
+3. Wait until Grafana starts to alert.
+4. Go to your Slack to make sure you have recieved an alert. It should look like this:
+<img src="images/grafana-slack-test.png">
+5. Restart the backend using `$ docker-compose restart backend`
+6. Wait until Grafana stops alerting
+7. Go to your Slack to make sure you have recieved a second alert. It should look like this:
 <img src="images/grafana-slack-ok.png">
+
+
