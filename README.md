@@ -35,7 +35,7 @@ The date, time and rooms are at <https://cloud.timeedit.net/kth/web/public01/ri1
 
 ### Week 2: March 25 13h
 * Preparatory reading: [Mutation analysis](https://medium.com/@almyre/short-circuiting-method-executions-to-assess-test-quality-2d3fda45bc7f), [Clean unit tests](https://blog.usejournal.com/3-easy-ways-to-write-cleaner-unit-tests-2ec04ca6b9df)
-* Lecture: automatic testing, CI (Benoit Baudry, KTH)
+* Lecture: automatic testing, CI (Benoit Baudry, KTH). The wrap-up [video](https://archive.org/details/devops-dylan).
 * Introduction to the Grand Fuzzing Challenge (Martin Monperrus, KTH)
   * Reference material: [The Fuzzing Book](https://www.fuzzingbook.org/)
 * Student presentations (Panel: Martin Monperrus, Benoit Baudry)
@@ -55,6 +55,7 @@ The date, time and rooms are at <https://cloud.timeedit.net/kth/web/public01/ri1
 * Lecture: Pipelines and Jenkins ([Vincent Massol - XWiki](http://massol.myxwiki.org))
 * Student presentations (Panel: [Vincent Massol - XWiki](http://massol.myxwiki.org), [Laurent Ploix - Spotify](https://www.linkedin.com/in/laurentploix)):
   * [Topic suggestion CI](https://github.com/KTH/devops-course/issues/3), [Topic suggestion CD](https://github.com/KTH/devops-course/issues/12)
+  * [Presentation Agenda](https://github.com/KTH/devops-course/blob/master/contributions/presentation/week4/README.md)
 
 ### Week 5: April 25 13h
 * Preparatory reading:
@@ -72,9 +73,10 @@ The date, time and rooms are at <https://cloud.timeedit.net/kth/web/public01/ri1
 
 ### Week 7: May 6 8h
 
+* Location: [Room U21](https://www.kth.se/places/room/id/de8a7fa7-90dc-4ae7-ab75-282b6020d8a5)
 * Preparatory reading: [Volvo Trucks - The Epic Split](https://www.youtube.com/watch?v=M7FIvfx5J10)
 * MDDD: [Michelin Devops Demo Day](https://github.com/KTH/devops-course/tree/master/contributions/demo) 
-  * Location: TBA (off the wall)
+* Location: [Room U21](https://www.kth.se/places/room/id/de8a7fa7-90dc-4ae7-ab75-282b6020d8a5), [U21 Break-out](https://www.kth.se/places/room/id/b7f34dc7-be16-4e37-a339-1e9f048b1772) and [U-Utställningssal](https://www.kth.se/places/room/id/cc4a63e9-62f9-4181-9e4d-c44a21c18c73)
   * Make sure you have a screen and a power outlet
   * Session 1 / Session 2 (presenters / attendees switch)
   
