@@ -6,6 +6,7 @@
 
 \clearpage
 \pagenumbering{arabic}
+
 # Foreword
 This article presents an introduction to graph databases, intended to be read by
 those already somewhat familiar with relational databases. Readers are also
@@ -29,8 +30,8 @@ optimizations that paved the way for relational databases in the world outside
 of academia [@selinger1979access]. Adoption rose sharply in the 1980s, and since
 relational databases have been the de-facto standard [@vicknair2010comparison].
 In the past few years, there has been an increase in interest for non-relational
-database systems, collectively known as NoSQL [@vicknair2010comparison;TODO:
-MORE SOURCES]. It is important to note that NoSQL is not _one_ technology, but
+database systems, collectively known as NoSQL [@vicknair2010comparison].
+It is important to note that NoSQL is not _one_ technology, but
 rather denotes a collection of storage technologies that are not based on
 the relational database model. Graph databases is one such technology
 [@buerli2012current]. The concept of graph databases has been around since the
@@ -47,16 +48,14 @@ database compares to the use of a traditional SQL database. For completeness, I
 will also present the concepts of a different kind of graph database based
 on the RDF-standard, as such databases frequently appeared during my background
 research of the subject [@hartig2014reconciliation;@angles2018g]. The rest of
-the article is structured as follows. Sections \ref{sec:rdf} and \ref{sec:pg}
+the article is structured as follows. Sections @sec:rdf and @sec:pg
 present the concepts behind RDF and property graph databases, respectively.
-Section \ref{sec:usage} compares creation and subsequent querying of a movie
+Section @sec:usage compares creation and subsequent querying of a movie
 database using the relational PostgreSQL database, and the progerty graph Neo4j
-database. Finally, section \ref{sec:discussion} presents a discussion of the
+database. Finally, section @sec:discussion presents a discussion of the
 potential pros and cons of using a graph database over a relational database.
 
-\label{sec:rdf}
-
-## Resource Description Framework (RDF) Databases
+## Resource Description Framework (RDF) Databases {#sec:rdf}
 The _Resource Description Framework_ is a language for expressing metadata for
 websites, and is a key part of the WWW Consortium's (W3C) effort to standardize
 a Semantic Web that a machine can not only navigate, but also understand
@@ -69,11 +68,11 @@ often called RDF triplestores or semantic databases [SOURCE NEEDED]. An RDF
 graph is a set of triples of _subject_, _predicate_ and _object_. The subject
 is that which we want to say something about, the predicate is what kind of
 statement we are making, and the object the value of that statement.  For
-example, the triples in Table\ref{tab:rdf-example} is an RDF encoding of the
+example, the triples in Table @tbl:rdf-example is an RDF encoding of the
 data "The Town is a movie", "Ben is a person", "Ben acted in The Town", and
 "The Town was directed by Ben" .
 
-Table: RDF triples example \label{tab:rdf-example}
+Table: RDF triples example. {#tbl:rdf-example}
 
 | Subject  | Predicate  | Object   |
 | ------   | --------   | -----    |
@@ -83,29 +82,24 @@ Table: RDF triples example \label{tab:rdf-example}
 | The Town | directedBy | Ben      |
 
 There is an interesting observation to be made regarding the triples presented
-in Table \ref{tab:rdf-example}: it is not immediately apparent that they
+in Table @tbl:rdf-example: it is not immediately apparent that they
 constitute a graph. In fact, it is possible to have for example the object of
 one triple be the predicate of another, so the triples do not by themselves 
 represent a graph in the traditional sense [@hayes2004bipartite]. In the
-case of Table \ref{tab:rdf-example} however, viewing the set union of subjects
+case of Table @tbl:rdf-example however, viewing the set union of subjects
 and objects as nodes, and the set of predicates as labeled edges, it is clear
-that the triples of Table \ref{tab:rdf-example} induce the graph in Fig.
-\ref{fig:rdf-example}. 
+that the triples of Table @tbl:rdf-example induce the graph in Fig.
+@fig:rdf-example. 
 
-\begin{figure}[ht]
-    \centering
-    \includegraphics[width=.4\columnwidth]{images/rdf-example.pdf}
-    \caption{Visualisation of Table \ref{tab:rdf-example}}\label{fig:rdf-example}
-\end{figure}
+![Visualisation of Table 1](images/rdf-example.pdf)
 
-Another interesting observation is that Table \ref{tab:rdf-example} looks
+Another interesting observation is that Table @tbl:rdf-example looks
 similar to a traditional relational database table, and indeed, there are ways
 to implement RDF stores on top of a relational database system
 [@bornea2013building].
 
-\label{sec:pg}
 
-## Property graphs
+## Property graphs {#sec:pg}
 Unlike RDF graphs, Property Graphs (PG) are not formally defined
 [@hartig2014reconciliation]. The term also seems to be fairly new; the earliest
 mention that I can find is from 2010 [@rodriguez2010constructions], while
@@ -122,8 +116,8 @@ sensible considering the important role that labels play in a PG model. Labels
 are used to categorize nodes and edges, and are roughly equivalent to type
 assignments [@srinivasa2012data]. For example, a node representing a person
 could have the label "Person", which makes it very easy to query for Person
-node. Figure \ref{fig:pg} shows a PG graph example of the same data as was
-presented in Fig. \ref{sec:rdf-example}. Another important difference between
+node. Figure @fig:pg shows a PG graph example of the same data as was
+presented in Fig. @sec:rdf-example. Another important difference between
 RDF graphs and PG is that the latter has no standardized query language,
 although it should be noted that efforts are underway to standardize a Graph
 Query Language (GQL) [@gqlstandard;@gqlmanifesto;@w3c2019workshop;@angles2018g].
@@ -134,16 +128,9 @@ openCypher\footnote{http://www.opencypher.org/}), and
 JanusGraph\footnote{\url{https://janusgraph.org/}}, which uses the Gremlin query
 language\footnote{\url{https://docs.janusgraph.org/latest/gremlin.html}}.
 
-\begin{figure}[ht]
-    \centering
-    \includegraphics[width=.4\columnwidth]{images/pg.pdf}
-    \caption{Visualisation of a property graph. Labels are in bold and
-    properties are written `key: value`}\label{fig:pg}
-\end{figure}
+![Visualisation of a property graph. Labels are in bold and properties are written `key: value`](images/pg.pdf){width=40% #fig:pg}
 
-\label{sec:usage}
-
-# Usage examples (same DB, same operation, relational vs graph)
+# Usage examples (same DB, same operation, relational vs graph) {#sec:usage}
 In this section, I present a simple movie database modeled with an RDF graph
 database, a property graph database and a standard relational database. The
 database should model the following:
@@ -163,12 +150,10 @@ following way. TODO: explain rest of layout
 Let us start out with the plain SQL database, as
 that will probably be the most familiar to readers. 
 
-\label{sec:sql-def}
-
-## SQL database definition
+## SQL database definition {#sec:sql-def}
 This is the part of this article that assumes some prior knowledge of relational
 databases, as concepts such as tables and foreign keys will not be explained in
-detail. To model the data Sec. \ref{sec:usage}, a typical SQL database will need
+detail. To model the data Sec. @sec:usage, a typical SQL database will need
 four tables: two tables to represent the base entities _Person_ and _Movie_, as
 well as two association tables to model the _ActedIn_ and _DirectedBy_
 relationships between these. The reason that the two association tables are
@@ -199,16 +184,12 @@ CREATE TABLE ActedIn (
 ```
 
 The DirectedBy table is, again, almost identical. The whole database schema is
-presented schematically in Fig. \ref{fig:sql-schema}. Note the multiplicities on
+presented schematically in Fig. @fig:sql-schema. Note the multiplicities on
 the relations between the tables. For example, each `ActedIn` row is associated
 with precisely one `Person` row, while each `Person` row is associated with zero
 (because not every person is an actor) or more `ActedIn` rows.
 
-\begin{figure}[ht]
-    \centering
-    \includegraphics[width=.9\columnwidth]{images/sql_schema.pdf}
-    \caption{SQL schema for the movie database}\label{fig:sql-schema}
-\end{figure}
+![SQL schema for the movie database](images/sql_schema.pdf){width=90% #fig:sql-schema}
 
 With the schema defined, the database can be filled with data using queries that
 look something like the following:
@@ -229,21 +210,23 @@ to find the correct primary keys of the related tables. The full definition of
 the database, including data insertions, can be found in appendix A. It has been
 tested to work with PostreSQL 9.6.
 
-\label{sec:neo4j-def}
+## Property graph database definition {#sec:neo4j-def}
 
-## Property graph database definition
+![Graph visualisation of the example database. Orange nodes represent people, and blue nodes represent movies.](images/neo4j-db.pdf){width=60% #fig:neo4j-visualisation}
+
+
 Let us now try to model the data as a property graph instead. I will use Neo4j
 and its query language Cypher because it is easy to get started with, and Cypher
 is easy to briefly explain. Do however keep in mind that there is no one query
-language for property graphs, as described in Sec. \ref{sec:pg}, so this section
+language for property graphs, as described in Sec. @sec:pg, so this section
 is not representative of property graphs as a whole. I do however think that it
 illustrates the idea of graph-based queries well.
 
 As Neo4j is a schemaless database system, there is no need to first _define_ the
-database, as was the case for the SQL database in Sec. \ref{seq:sql-def}. It is
+database, as was the case for the SQL database in Sec. @sec:sql-def. It is
 simply a matter of entering values into the database. Cypher is concise, so
 entering the same data about Ben Affleck that was entered in Sec.
-\ref{sec:sql-def} is a matter of four statements.
+@sec:sql-def is a matter of four statements.
 
 ```sql
 CREATE (TheTown:Movie {title: "The Town"})
@@ -261,14 +244,7 @@ node should be assigned to a variable called `TheTown`. The variable can be
 used throughout the query to reference the node. Finally, everything within
 curly braces are simply properties on the form `key: value`. Neo4j has an
 excellent visualisation tool built-in, and the visualisation of this particular
-database can be found in Fig. \ref{fig:neo4j-visualisation}.
-
-\begin{figure}[ht]
-    \centering
-    \includegraphics[width=.6\columnwidth]{images/neo4j-db.pdf}
-    \caption{Graph visualisation of the example database. Orange nodes represent
-    people, and blue nodes represent movies.}\label{fig:neo4j-visualisation}
-\end{figure}
+database can be found in Fig. @fig:neo4j-visualisation.
 
 The definition of a relationship is similarly straightforward, and generally
 looks like `CREATE (<NODE>)-[<EDGE_DEFINITION>]->[<NODE>]`. The
@@ -284,9 +260,7 @@ In this section, I present a series of increasingly complex queries. Keep in
 mind that these queries play to the strengths of a graph database, and as such
 are not meant to show that graph databases are always better than.
 
-\label{sec:query1}
-
-### Query \#1: Find all actors and the roles they have played
+### Query \#1: Find all actors and the roles they have played {#sec:query1}
 For the first query, we want to list all actors and they roles they have played,
 as well as in which movies. This is a straightforward three-way join with SQL.
 
@@ -314,7 +288,7 @@ potentially different ordering of the results.
 ### Query \#2: Find all self-directed actors
 This query is meant to find all actors that have acted in a movie that they have
 also directed. For SQL, this results in a slight extension of the three-way
-join in Sec. \ref{sec:query1}, making it a four-way join.
+join in Sec. @sec:query1, making it a four-way join.
 
 ```sql
 SELECT Person.name, Movie.title, ActedIn.played_role
@@ -349,7 +323,7 @@ friends, and so on\footnote{This is closely related to the transitive closure
 of a binary relation R on some set S. Wikipedia has a nice page on the subject:
 \url{https://en.wikipedia.org/wiki/Transitive_closure}}. The problem can however
 be somewhat simplified if by considering the `DIRECTED_BY` and `ACTED_IN` edges
-visualised in Fig. \ref{fig:neo4j-visualisation} as bi-directional. Then, it is
+visualised in Fig. @fig:neo4j-visualisation as bi-directional. Then, it is
 simply a matter of finding every actor that can be reached from Ben's node by
 traversing `ACTED_IN` edges. While it does not make much sense for a movie to
 have acted in an actor, it makes the problem easier to visualise.
