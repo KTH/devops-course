@@ -48,11 +48,11 @@ database compares to the use of a traditional SQL database. For completeness, I
 will also present the concepts of a different kind of graph database based
 on the RDF-standard, as such databases frequently appeared during my background
 research of the subject [@hartig2014reconciliation;@angles2018g]. The rest of
-the article is structured as follows. Sections @sec:rdf and @sec:pg
+the article is structured as follows. Sections \ref{sec:rdf} and \ref{sec:pg}
 present the concepts behind RDF and property graph databases, respectively.
-Section @sec:usage compares creation and subsequent querying of a movie
+Section \ref{sec:usage} compares creation and subsequent querying of a movie
 database using the relational PostgreSQL database, and the progerty graph Neo4j
-database. Finally, section @sec:discussion presents a discussion of the
+database. Finally, section \ref{sec:discussion} presents a discussion of the
 potential pros and cons of using a graph database over a relational database.
 
 ## Resource Description Framework (RDF) Databases {#sec:rdf}
@@ -117,7 +117,7 @@ are used to categorize nodes and edges, and are roughly equivalent to type
 assignments [@srinivasa2012data]. For example, a node representing a person
 could have the label "Person", which makes it very easy to query for Person
 node. Figure @fig:pg shows a PG graph example of the same data as was
-presented in Fig. @sec:rdf-example. Another important difference between
+presented in Fig. \ref{sec:rdf-example}. Another important difference between
 RDF graphs and PG is that the latter has no standardized query language,
 although it should be noted that efforts are underway to standardize a Graph
 Query Language (GQL) [@gqlstandard;@gqlmanifesto;@w3c2019workshop;@angles2018g].
@@ -153,7 +153,7 @@ that will probably be the most familiar to readers.
 ## SQL database definition {#sec:sql-def}
 This is the part of this article that assumes some prior knowledge of relational
 databases, as concepts such as tables and foreign keys will not be explained in
-detail. To model the data Sec. @sec:usage, a typical SQL database will need
+detail. To model the data Sec. \ref{sec:usage}, a typical SQL database will need
 four tables: two tables to represent the base entities _Person_ and _Movie_, as
 well as two association tables to model the _ActedIn_ and _DirectedBy_
 relationships between these. The reason that the two association tables are
@@ -218,15 +218,15 @@ tested to work with PostreSQL 9.6.
 Let us now try to model the data as a property graph instead. I will use Neo4j
 and its query language Cypher because it is easy to get started with, and Cypher
 is easy to briefly explain. Do however keep in mind that there is no one query
-language for property graphs, as described in Sec. @sec:pg, so this section
+language for property graphs, as described in Sec. \ref{sec:pg}, so this section
 is not representative of property graphs as a whole. I do however think that it
 illustrates the idea of graph-based queries well.
 
 As Neo4j is a schemaless database system, there is no need to first _define_ the
-database, as was the case for the SQL database in Sec. @sec:sql-def. It is
+database, as was the case for the SQL database in Sec. \ref{sec:sql-def}. It is
 simply a matter of entering values into the database. Cypher is concise, so
 entering the same data about Ben Affleck that was entered in Sec.
-@sec:sql-def is a matter of four statements.
+\ref{sec:sql-def} is a matter of four statements.
 
 ```sql
 CREATE (TheTown:Movie {title: "The Town"})
@@ -288,7 +288,7 @@ potentially different ordering of the results.
 ### Query \#2: Find all self-directed actors
 This query is meant to find all actors that have acted in a movie that they have
 also directed. For SQL, this results in a slight extension of the three-way
-join in Sec. @sec:query1, making it a four-way join.
+join in Sec. \ref{sec:query1}, making it a four-way join.
 
 ```sql
 SELECT Person.name, Movie.title, ActedIn.played_role
