@@ -430,8 +430,125 @@ accept.
 
 <div id="refs"></div>
 
+\clearpage
+
 # Appendix
 
 ## Appendix A {#sec:appendix-a}
 
+```sql
+CREATE TABLE Person (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(128) NOT NULL
+);
+
+CREATE TABLE Movie (
+    id SERIAL PRIMARY KEY,
+    title VARCHAR(128) NOT NULL
+);
+
+CREATE TABLE DirectedBy (
+    id SERIAL PRIMARY KEY,
+    person_id INT NOT NULL REFERENCES Person(id),
+    movie_id INT NOT NULL REFERENCES Movie(id)
+);
+
+CREATE TABLE ActedIn (
+    id SERIAL PRIMARY KEY,
+    person_id INT NOT NULL REFERENCES Person(id),
+    movie_id INT NOT NULL REFERENCES Movie(id),
+    played_role VARCHAR(128) NOT NULL
+);
+
+INSERT INTO Movie(title) VALUES 
+    ('The Avengers'),
+    ('The Town'),
+    ('Justice League'),
+    ('The Prestige'),
+    ('The Dark Knight');
+
+INSERT INTO Person(name) VALUES 
+   ('Amy Adams'),
+   ('Ben Affleck'),
+   ('Chris Hemsworth'),
+   ('Scarlett Johansson'),
+   ('Rebecca Hall'),
+   ('Christian Bale'),
+   ('Christopher Nolan'),
+   ('Zack Snyder'),
+   ('Joss Whedon');
+
+INSERT INTO ActedIn(person_id, movie_id, played_role) VALUES 
+    ((SELECT id FROM Person WHERE name='Amy Adams'),
+     (SELECT id FROM Movie WHERE title='Justice League'),
+     'Lois Lane'),
+    ((SELECT id FROM Person WHERE name='Ben Affleck'),
+     (SELECT id FROM Movie WHERE title='The Town'),
+     'Doug MacRay'),
+    ((SELECT id FROM Person WHERE name='Ben Affleck'),
+     (SELECT id FROM Movie WHERE title='Justice League'),
+     'Batman'),
+    ((SELECT id FROM Person WHERE name='Chris Hemsworth'),
+     (SELECT id FROM Movie WHERE title='The Avengers'),
+     'Thor'),
+    ((SELECT id FROM Person WHERE name='Christian Bale'),
+     (SELECT id FROM Movie WHERE title='The Prestige'),
+     'Alfred Borden'),
+    ((SELECT id FROM Person WHERE name='Christian Bale'),
+     (SELECT id FROM Movie WHERE title='The Dark Knight'),
+     'Batman'),
+    ((SELECT id FROM Person WHERE name='Rebecca Hall'),
+     (SELECT id FROM Movie WHERE title='The Prestige'),
+     'Sarah'),
+    ((SELECT id FROM Person WHERE name='Rebecca Hall'),
+     (SELECT id FROM Movie WHERE title='The Town'),
+     'Claire Keesey'),
+    ((SELECT id FROM Person WHERE name='Scarlett Johansson'),
+     (SELECT id FROM Movie WHERE title='The Avengers'),
+     'Black Widow');
+
+INSERT INTO DirectedBy(person_id, movie_id) VALUES 
+    ((SELECT id FROM Person WHERE name='Ben Affleck'),
+     (SELECT id FROM Movie WHERE title='The Town')),
+    ((SELECT id FROM Person WHERE name='Christopher Nolan'),
+     (SELECT id FROM Movie WHERE title='The Prestige')),
+    ((SELECT id FROM Person WHERE name='Christopher Nolan'),
+     (SELECT id FROM Movie WHERE title='The Dark Knight')),
+    ((SELECT id FROM Person WHERE name='Zack Snyder'),
+     (SELECT id FROM Movie WHERE title='Justice League')),
+    ((SELECT id FROM Person WHERE name='Joss Whedon'),
+     (SELECT id FROM Movie WHERE title='The Avengers'));
+```
+
 ## Appendix B {#sec:appendix-b}
+
+```sql
+CREATE (TheAvengers:Movie {title: "The Avengers"})
+CREATE (TheTown:Movie {title: "The Town"})
+CREATE (JusticeLeague:Movie {title: "Justice League"})
+CREATE (ThePrestige:Movie {title: "The Prestige"})
+CREATE (TheDarkKnight:Movie {title: "The Dark Knight"})
+CREATE (Amy:Person {name: "Amy Adams"})
+CREATE (Ben:Person {name: "Ben Affleck"})
+CREATE (Chris:Person {name: "Chris Hemsworth"})
+CREATE (Scarlett:Person {name: "Scarlett Johansson"})
+CREATE (Rebecca:Person {name: "Rebecca Hall"})
+CREATE (Christian:Person {name: "Christian Bale"})
+CREATE (Christopher:Person {name: "Christopher Nolan"})
+CREATE (Zack:Person {name: "Zack Snyder"})
+CREATE (Joss:Person {name: "Joss Whedon"})
+CREATE (Amy)-[:ACTED_IN {played_role: "Lois Lane"}]->(JusticeLeague)
+CREATE (Ben)-[:ACTED_IN {played_role: "Doug MacRay"}]->(TheTown)
+CREATE (Ben)-[:ACTED_IN {played_role: "Batman"}]->(JusticeLeague)
+CREATE (Chris)-[:ACTED_IN {played_role: "Thor"}]->(TheAvengers)
+CREATE (Christian)-[:ACTED_IN {played_role: "Alfred Borden"}]->(ThePrestige)
+CREATE (Christian)-[:ACTED_IN {played_role: "Batman"}]->(TheDarkKnight)
+CREATE (Rebecca)-[:ACTED_IN {played_role: "Sarah"}]->(ThePrestige)
+CREATE (Rebecca)-[:ACTED_IN {played_role: "Claire Keesey"}]->(TheTown)
+CREATE (Scarlett)-[:ACTED_IN {played_role: "Black Widow"}]->(TheAvengers)
+CREATE (TheTown)-[:DIRECTED_BY]->(Ben)
+CREATE (ThePrestige)-[:DIRECTED_BY]->(Christopher)
+CREATE (TheDarkKnight)-[:DIRECTED_BY]->(Christopher)
+CREATE (JusticeLeague)-[:DIRECTED_BY]->(Zack)
+CREATE (TheAvengers)-[:DIRECTED_BY]->(Joss)
+```
