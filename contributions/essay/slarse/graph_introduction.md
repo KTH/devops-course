@@ -91,7 +91,7 @@ and objects as nodes, and the set of predicates as labeled edges, it is clear
 that the triples of Table @tbl:rdf-example induce the graph in Fig.
 @fig:rdf-example. 
 
-![Visualisation of Table 1](images/rdf-example.pdf)
+![Visualisation of Table 1](images/rdf-example.png){#fig:rdf-example width=40%}
 
 Another interesting observation is that Table @tbl:rdf-example looks
 similar to a traditional relational database table, and indeed, there are ways
@@ -128,7 +128,7 @@ openCypher\footnote{http://www.opencypher.org/}), and
 JanusGraph\footnote{\url{https://janusgraph.org/}}, which uses the Gremlin query
 language\footnote{\url{https://docs.janusgraph.org/latest/gremlin.html}}.
 
-![Visualisation of a property graph. Labels are in bold and properties are written `key: value`](images/pg.pdf){width=40% #fig:pg}
+![Visualisation of a property graph. Labels are in bold and properties are written `key: value`](images/pg.png){width=40% #fig:pg}
 
 # Usage examples (same DB, same operation, relational vs graph) {#sec:usage}
 In this section, I present a simple movie database modeled with an RDF graph
@@ -189,7 +189,7 @@ the relations between the tables. For example, each `ActedIn` row is associated
 with precisely one `Person` row, while each `Person` row is associated with zero
 (because not every person is an actor) or more `ActedIn` rows.
 
-![SQL schema for the movie database](images/sql_schema.pdf){width=90% #fig:sql-schema}
+![SQL schema for the movie database](images/sql-schema.png){width=90% #fig:sql-schema}
 
 With the schema defined, the database can be filled with data using queries that
 look something like the following:
@@ -212,7 +212,7 @@ tested to work with PostreSQL 9.6.
 
 ## Property graph database definition {#sec:neo4j-def}
 
-![Graph visualisation of the example database. Orange nodes represent people, and blue nodes represent movies.](images/neo4j-db.pdf){width=60% #fig:neo4j-visualisation}
+![Graph visualisation of the example database. Orange nodes represent people, and blue nodes represent movies.](images/neo4j-db.png){width=60% #fig:neo4j-visualisation}
 
 
 Let us now try to model the data as a property graph instead. I will use Neo4j
