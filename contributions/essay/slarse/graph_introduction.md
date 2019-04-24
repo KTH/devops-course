@@ -48,12 +48,13 @@ database compares to the use of a traditional SQL database. For completeness, I
 will also present the concepts of a different kind of graph database based
 on the RDF-standard, as such databases frequently appeared during my background
 research of the subject [@hartig2014reconciliation;@angles2018g]. The rest of
-the article is structured as follows. Sections \ref{sec:rdf} and \ref{sec:pg}
-present the concepts behind RDF and property graph databases, respectively.
-Section \ref{sec:usage} compares creation and subsequent querying of a movie
-database using the relational PostgreSQL database, and the progerty graph Neo4j
-database. Finally, section \ref{sec:discussion} presents a discussion of the
-potential pros and cons of using a graph database over a relational database.
+the article is structured as follows. [Section @sec:rdf] presents the concepts
+behind RDF databases, while and [Sec. @sec:pg] does the same for progerty graph
+databases. [Section @sec:usage] compares creation and subsequent querying
+of a movie database using the relational PostgreSQL system, and the property
+graph Neo4j system. Finally, [Section @sec:discussion] presents a discussion of
+the potential pros and cons of using a graph database over a relational
+database.
 
 ## Resource Description Framework (RDF) Databases {#sec:rdf}
 The _Resource Description Framework_ is a language for expressing metadata for
@@ -68,7 +69,7 @@ often called RDF triplestores or semantic databases [SOURCE NEEDED]. An RDF
 graph is a set of triples of _subject_, _predicate_ and _object_. The subject
 is that which we want to say something about, the predicate is what kind of
 statement we are making, and the object the value of that statement.  For
-example, the triples in Table @tbl:rdf-example is an RDF encoding of the
+example, the triples in [Table @tbl:rdf-example] is an RDF encoding of the
 data "The Town is a movie", "Ben is a person", "Ben acted in The Town", and
 "The Town was directed by Ben" .
 
@@ -82,18 +83,17 @@ Table: RDF triples example. {#tbl:rdf-example}
 | The Town | directedBy | Ben      |
 
 There is an interesting observation to be made regarding the triples presented
-in Table @tbl:rdf-example: it is not immediately apparent that they
+in [Table @tbl:rdf-example]: it is not immediately apparent that they
 constitute a graph. In fact, it is possible to have for example the object of
 one triple be the predicate of another, so the triples do not by themselves 
 represent a graph in the traditional sense [@hayes2004bipartite]. In the
-case of Table @tbl:rdf-example however, viewing the set union of subjects
+case of [Table @tbl:rdf-example] however, viewing the set union of subjects
 and objects as nodes, and the set of predicates as labeled edges, it is clear
-that the triples of Table @tbl:rdf-example induce the graph in Fig.
-@fig:rdf-example. 
+that the triples of [Table @tbl:rdf-example] induce the graph in [Fig. @fig:rdf-example].
 
 ![Visualisation of Table 1](images/rdf-example.png){#fig:rdf-example width=40%}
 
-Another interesting observation is that Table @tbl:rdf-example looks
+Another interesting observation is that [Table @tbl:rdf-example] looks
 similar to a traditional relational database table, and indeed, there are ways
 to implement RDF stores on top of a relational database system
 [@bornea2013building].
@@ -116,8 +116,8 @@ sensible considering the important role that labels play in a PG model. Labels
 are used to categorize nodes and edges, and are roughly equivalent to type
 assignments [@srinivasa2012data]. For example, a node representing a person
 could have the label "Person", which makes it very easy to query for Person
-node. Figure @fig:pg shows a PG graph example of the same data as was
-presented in Fig. \ref{sec:rdf-example}. Another important difference between
+node. [Figure @fig:pg] shows a PG graph example of the same data as was
+presented in [Fig. @fig:rdf-example]. Another important difference between
 RDF graphs and PG is that the latter has no standardized query language,
 although it should be noted that efforts are underway to standardize a Graph
 Query Language (GQL) [@gqlstandard;@gqlmanifesto;@w3c2019workshop;@angles2018g].
@@ -153,7 +153,7 @@ that will probably be the most familiar to readers.
 ## SQL database definition {#sec:sql-def}
 This is the part of this article that assumes some prior knowledge of relational
 databases, as concepts such as tables and foreign keys will not be explained in
-detail. To model the data Sec. \ref{sec:usage}, a typical SQL database will need
+detail. To model the data [Sec. @sec:usage], a typical SQL database will need
 four tables: two tables to represent the base entities _Person_ and _Movie_, as
 well as two association tables to model the _ActedIn_ and _DirectedBy_
 relationships between these. The reason that the two association tables are
@@ -161,18 +161,19 @@ required is that both _ActedIn_ and _DirectedBy_ are many-to-many relationships,
 which cannot be expressed in a relational database with only the concrete entity
 tables. For example, an actor typically has acted in more than one movie, and
 most movies are acted in by more than one actor. As an example, the Person table
-could be defined with the following statement:
+could be created as shown in [Listing @lst:create-person-table], with the Movie
+table being almost identical. The ActedIn table could then be defined as shown in
+[Listing @lst:create-actedin-table], with the DirectedBy table being almost
+identical to that.
 
-```sql
+```{#lst:create-person-table .sql caption="DDL for the Person table"}
 CREATE TABLE Person (
     id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(128) NOT NULL
 );
 ```
-The Movie table is almost identical. Then, the ActedIn table could be defined
-with the following statement:
 
-```sql
+```{#lst:create-actedin-table .sql caption="DDL for the ActedIn association table"}
 CREATE TABLE ActedIn (
     id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
     person_id INT UNSIGNED NOT NULL,
@@ -183,18 +184,22 @@ CREATE TABLE ActedIn (
 );
 ```
 
-The DirectedBy table is, again, almost identical. The whole database schema is
-presented schematically in Fig. @fig:sql-schema. Note the multiplicities on
+The whole database schema is
+presented schematically in [Fig. @fig:sql-schema]. Note the multiplicities on
 the relations between the tables. For example, each `ActedIn` row is associated
 with precisely one `Person` row, while each `Person` row is associated with zero
 (because not every person is an actor) or more `ActedIn` rows.
 
 ![SQL schema for the movie database](images/sql-schema.png){width=90% #fig:sql-schema}
 
-With the schema defined, the database can be filled with data using queries that
-look something like the following:
+With the schema defined, the database can be filled with data using queries
+like those shown in [Listing @insert-sql-values]. Note how the insertions into
+the association tables have nested SELECT queries to find the correct primary
+keys of the related tables. The full definition of the database, including data
+insertions, can be found in appendix A. It has been tested to work with
+PostreSQL 9.6.
 
-```sql
+```{#lst:insert-sql-values .sql caption="Sample of value insertions into the SQL database"}
 INSERT INTO Movie(title) VALUES
     ('The Town');
 INSERT INTO Person(name) VALUES
@@ -205,11 +210,6 @@ INSERT INTO DirectedBy(person_id, movie_id) VALUES
     ((SELECT id FROM Person WHERE name='Ben Affleck'), (SELECT id FROM Movie WHERE title='The Town'));
 ```
 
-Note how the insertions into the association tables have nested SELECT queries
-to find the correct primary keys of the related tables. The full definition of
-the database, including data insertions, can be found in appendix A. It has been
-tested to work with PostreSQL 9.6.
-
 ## Property graph database definition {#sec:neo4j-def}
 
 ![Graph visualisation of the example database. Orange nodes represent people, and blue nodes represent movies.](images/neo4j-db.png){width=60% #fig:neo4j-visualisation}
@@ -218,17 +218,17 @@ tested to work with PostreSQL 9.6.
 Let us now try to model the data as a property graph instead. I will use Neo4j
 and its query language Cypher because it is easy to get started with, and Cypher
 is easy to briefly explain. Do however keep in mind that there is no one query
-language for property graphs, as described in Sec. \ref{sec:pg}, so this section
+language for property graphs, as described in [Sec. @sec:pg], so this section
 is not representative of property graphs as a whole. I do however think that it
 illustrates the idea of graph-based queries well.
 
 As Neo4j is a schemaless database system, there is no need to first _define_ the
-database, as was the case for the SQL database in Sec. \ref{sec:sql-def}. It is
+database, as was the case for the SQL database in [Sec. @sec:sql-def]. It is
 simply a matter of entering values into the database. Cypher is concise, so
-entering the same data about Ben Affleck that was entered in Sec.
-\ref{sec:sql-def} is a matter of four statements.
+entering the same data about Ben Affleck that was entered in [Sec. @sec:sql-def]
+is a matter of the four statements shown in [Listing @lst:create-neo4j-values].
 
-```sql
+```{#lst:create-neo4j-values .sql caption="Sample CREATE statements for the Neo4j database"}
 CREATE (TheTown:Movie {title: "The Town"})
 CREATE (Ben:Person {name: "Ben Affleck"})
 CREATE (Ben)-[:ACTED_IN {role: "Doug MacRay"}]->(TheTown)
@@ -244,7 +244,7 @@ node should be assigned to a variable called `TheTown`. The variable can be
 used throughout the query to reference the node. Finally, everything within
 curly braces are simply properties on the form `key: value`. Neo4j has an
 excellent visualisation tool built-in, and the visualisation of this particular
-database can be found in Fig. @fig:neo4j-visualisation.
+database can be found in [Fig. @fig:neo4j-visualisation].
 
 The definition of a relationship is similarly straightforward, and generally
 looks like `CREATE (<NODE>)-[<EDGE_DEFINITION>]->[<NODE>]`. The
@@ -288,7 +288,7 @@ potentially different ordering of the results.
 ### Query \#2: Find all self-directed actors
 This query is meant to find all actors that have acted in a movie that they have
 also directed. For SQL, this results in a slight extension of the three-way
-join in Sec. \ref{sec:query1}, making it a four-way join.
+join in [Sec. @sec:query1], making it a four-way join.
 
 ```sql
 SELECT Person.name, Movie.title, ActedIn.played_role
@@ -323,7 +323,7 @@ friends, and so on\footnote{This is closely related to the transitive closure
 of a binary relation R on some set S. Wikipedia has a nice page on the subject:
 \url{https://en.wikipedia.org/wiki/Transitive_closure}}. The problem can however
 be somewhat simplified if by considering the `DIRECTED_BY` and `ACTED_IN` edges
-visualised in Fig. @fig:neo4j-visualisation as bi-directional. Then, it is
+visualised in [Fig. @fig:neo4j-visualisation] as bi-directional. Then, it is
 simply a matter of finding every actor that can be reached from Ben's node by
 traversing `ACTED_IN` edges. While it does not make much sense for a movie to
 have acted in an actor, it makes the problem easier to visualise.
@@ -389,7 +389,7 @@ this more readable. The query can be broken down as follows.
 4. `RETURN actor`
    - Return every actor that matched the constraints
 
-# Discussion
+# Discussion {#sec:discussion}
 PG databases show some clear advantages over traditional relational databases.
 The queries in Cypher are shorter throughout, yet remain readable. The final
 query exemplified how a non-trivial but still realistic search query required
@@ -420,3 +420,9 @@ accept.
 \clearpage
 
 # References
+
+<div id="refs"></div>
+
+# Appendix
+
+## Appendix A
