@@ -5,8 +5,6 @@
 """
 import logging
 
-from selenium.webdriver.common.keys import Keys
-
 from utility.services import Services
 
 logging.basicConfig(format='%(asctime)s - %(levelname)s: %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p',
@@ -21,7 +19,6 @@ class HorizontalSliderPage:
         self.services = Services(self.driver)
         self.header = "Horizontal Slider"
         self.xpath_heading = "//h3"
-        # self.xpath_slider_class = "//div[@class='sliderContainer']"
         self.xpath_slider = "//input[@type='range']"
         self.xpath_slider_output = "//span[@id='range']"
 
