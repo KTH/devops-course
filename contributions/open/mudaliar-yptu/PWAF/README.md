@@ -66,7 +66,7 @@ e.g: self.driver = webdriver.Firefox(executable_path="geckodriver path") # in ca
 |                           | File Upload                     | Done   |
 |                           | Floating Menu                   |        |
 |                           | Frames                          | Done   |
-|                           | Horizontal Slider               |        |
+|                           | Horizontal Slider               | Kartik |
 |                           | Hovers                          | Done   |
 |                           | Infinite Scroll                 |        |
 |                           | JQuery UI Menus                 |        |
