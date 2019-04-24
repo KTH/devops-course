@@ -139,3 +139,18 @@ class Services:
         logging.info("# Verifying Element visibility.")
         assert is_visible == self.is_element_visible(locator), "Element '%s' visibility should be %s." % (
             locator, is_visible)
+
+    def get_src_by_xpath(self, locator):
+        """
+        This method is get the src present within given web element.
+        param locator: XPATH of given element
+        param_type: string
+        """
+
+        return self.driver.find_element_by_xpath(locator).get_attribute("src")
+
+    def reload_page(self):
+        """
+        This method is to reload current web page
+        """
+        self.driver.refresh()

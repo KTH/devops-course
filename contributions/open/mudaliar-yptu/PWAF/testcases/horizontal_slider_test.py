@@ -5,8 +5,9 @@
 from pages.welcome_page import WelcomePage
 from utility.drivermanager import DriverManager
 from pages.horizontal_slider_page import HorizontalSliderPage
+from nose.plugins.attrib import attr
 
-
+@attr(group=['kth'])
 class HorizontalSliderPageTest(DriverManager):
     def test_horizontal_slider_page(self):
         welcome_page = WelcomePage(self.driver)

@@ -5,8 +5,9 @@
 from pages.welcome_page import WelcomePage
 from utility.drivermanager import DriverManager
 from pages.infinite_scroll_page import InfiniteScrollPage
+from nose.plugins.attrib import attr
 
-
+@attr(group=['kth'])
 class InfiniteScrollPageTest(DriverManager):
     def test_infinite_scroll_page(self):
         welcome_page = WelcomePage(self.driver)
