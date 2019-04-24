@@ -62,14 +62,13 @@ websites, and is a key part of the WWW Consortium's (W3C) effort to standardize
 a Semantic Web that a machine can not only navigate, but also understand
 [@rdf;@semanticweb]. Lately, it has also seen use as general purpose data
 storage in several products, including
-AllegroGraph\footnote{\url{https://franz.com/agraph/allegrograph/}},
-GraphDB\footnote{\url{http://graphdb.ontotext.com/}} and
-BlazeGraph\footnote{\url{https://www.blazegraph.com/}}. Such databases are
-often called RDF triplestores or semantic databases [SOURCE NEEDED]. An RDF
-graph is a set of triples of _subject_, _predicate_ and _object_. The subject
-is that which we want to say something about, the predicate is what kind of
-statement we are making, and the object the value of that statement.  For
-example, the triples in [Table @tbl:rdf-example] is an RDF encoding of the
+AllegroGraph^[https://franz.com/agraph/allegrograph/](https://franz.com/agraph/allegrograph/),
+GraphDB^[http://graphdb.ontotext.com/](http://graphdb.ontotext.com/) and
+BlazeGraph^[https://www.blazegraph.com/](https://www.blazegraph.com/).
+An RDF graph is a set of triples of _subject_, _predicate_ and _object_. The
+subject is that which we want to say something about, the predicate is what
+kind of statement we are making, and the object the value of that statement.
+For example, the triples in [Table @tbl:rdf-example] is an RDF encoding of the
 data "The Town is a movie", "Ben is a person", "Ben acted in The Town", and
 "The Town was directed by Ben" .
 
@@ -121,12 +120,12 @@ presented in [Fig. @fig:rdf-example]. Another important difference between
 RDF graphs and PG is that the latter has no standardized query language,
 although it should be noted that efforts are underway to standardize a Graph
 Query Language (GQL) [@gqlstandard;@gqlmanifesto;@w3c2019workshop;@angles2018g].
-Examples of current PG databases are Neo4j\footnote{\url{https://neo4j.com}},
+Examples of current PG databases are Neo4j^[https://neo4j.com](https://neo4j.com),
 which uses the Cypher query
-language\footnote{\url{https://neo4j.com/developer/cypher/}} (open-sourced as
-openCypher\footnote{http://www.opencypher.org/}), and
-JanusGraph\footnote{\url{https://janusgraph.org/}}, which uses the Gremlin query
-language\footnote{\url{https://docs.janusgraph.org/latest/gremlin.html}}.
+language^[https://neo4j.com/developer/cypher/](https://neo4j.com/developer/cypher/)
+(open-sourced as openCypher^[http://www.opencypher.org/](http://www.opencypher.org/)), and
+JanusGraph^[https://janusgraph.org/](https://janusgraph.org/), which uses the Gremlin query
+language^[https://docs.janusgraph.org/latest/gremlin.html](https://docs.janusgraph.org/latest/gremlin.html).
 
 ![Visualisation of a property graph. Labels are in bold and properties are written `key: value`](images/pg.png){width=60% #fig:pg}
 
@@ -291,7 +290,7 @@ RETURN actor.name, movie.title, acted.played_role
 ### Query \#2: Find all self-directed actors
 This query is meant to find all actors that have acted in a movie that they have
 also directed. For SQL, this results in a slight extension of the three-way
-join in [Sec. @sec:query1], making it the four-way joint shown in
+join in [Sec. @sec:query1], making it the four-way join shown in
 [Listing @lst:sql-query-2].
 
 ```{#lst:sql-query-2 .sql caption="SQL query #2"}
@@ -324,9 +323,10 @@ includes any actor A who has acted in the same movie as Ben, or any actor B
 who has acted with actor A, or any actor C who has acted with actor B, and so
 on. The astute reader may have noticed that this is a slightly more complicated
 version of traversing a social graph to find a person's friends, friends of
-friends, and so on\footnote{This is closely related to the transitive closure
+friends, and so on^[This is closely related to the transitive closure
 of a binary relation R on some set S. Wikipedia has a nice page on the subject:
-\url{https://en.wikipedia.org/wiki/Transitive_closure}}. The problem can however
+[https://en.wikipedia.org/wiki/Transitive_closure](https://en.wikipedia.org/wiki/Transitive_closure)].
+The problem can however
 be somewhat simplified if by considering the `DIRECTED_BY` and `ACTED_IN` edges
 visualised in [Fig. @fig:neo4j-visualisation] as bi-directional. Then, it is
 simply a matter of finding every actor that can be reached from Ben's node by
@@ -335,8 +335,8 @@ have acted in an actor, it makes the problem easier to visualise. It is
 important not to get stuck on trying to understand the query, the point of
 showing it is mostly to exemplify that it is complicated. To solve such a
 problem in SQL, we need to issue a so called _hierarchical
-query_\footnote{Again, Wikipedia has a nice page on the subject:
-\url{https://en.wikipedia.org/wiki/Hierarchical_and_recursive_queries_in_SQL}},
+query_^[Again, Wikipedia has a nice page on the subject:
+[https://en.wikipedia.org/wiki/Hierarchical_and_recursive_queries_in_SQL](https://en.wikipedia.org/wiki/Hierarchical_and_recursive_queries_in_SQL)],
 shown in [Listing @lst:sql-query-3].
 
 ```{#lst:sql-query-3 .sql caption="SQL query #3"}
