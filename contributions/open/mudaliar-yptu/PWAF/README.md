@@ -76,7 +76,7 @@ e.g: self.driver = webdriver.Firefox(executable_path="geckodriver path") # in ca
 |                           | Infinite Scroll                 | Kartik |
 |                           | JQuery UI Menus                 |        |
 |                           | JavaScript Alerts               |        |
-|                           | Key Presses                     |        |
+|                           | Key Presses                     | Yi-Pei |
 |                           | Large & Deep DOM                |        |
 |                           | Multiple Windows                | Done   |
 |                           | Nested Frames                   | Done   |
