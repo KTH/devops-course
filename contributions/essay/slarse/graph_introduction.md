@@ -62,15 +62,19 @@ websites, and is a key part of the WWW Consortium's (W3C) effort to standardize
 a Semantic Web that a machine can not only navigate, but also understand
 [@rdf;@semanticweb]. Lately, it has also seen use as general purpose data
 storage in several products, including
-AllegroGraph^[https://franz.com/agraph/allegrograph/](https://franz.com/agraph/allegrograph/),
-GraphDB^[http://graphdb.ontotext.com/](http://graphdb.ontotext.com/) and
-BlazeGraph^[https://www.blazegraph.com/](https://www.blazegraph.com/).
+AllegroGraph[^allegro],
+GraphDB[^graphdb] and
+BlazeGraph[^blaze].
 An RDF graph is a set of triples of _subject_, _predicate_ and _object_. The
 subject is that which we want to say something about, the predicate is what
 kind of statement we are making, and the object the value of that statement.
 For example, the triples in [Table @tbl:rdf-example] is an RDF encoding of the
 data "The Town is a movie", "Ben is a person", "Ben acted in The Town", and
 "The Town was directed by Ben" .
+
+[^allegro]: [https://franz.com/agraph/allegrograph/](https://franz.com/agraph/allegrograph/)
+[^graphdb]: [http://graphdb.ontotext.com/](http://graphdb.ontotext.com/)
+[^blaze]: [https://www.blazegraph.com/](https://www.blazegraph.com/)
 
 Table: RDF triples example. {#tbl:rdf-example}
 
@@ -120,12 +124,18 @@ presented in [Fig. @fig:rdf-example]. Another important difference between
 RDF graphs and PG is that the latter has no standardized query language,
 although it should be noted that efforts are underway to standardize a Graph
 Query Language (GQL) [@gqlstandard;@gqlmanifesto;@w3c2019workshop;@angles2018g].
-Examples of current PG databases are Neo4j^[https://neo4j.com](https://neo4j.com),
+Examples of current PG databases are Neo4j[^neo4j],
 which uses the Cypher query
-language^[https://neo4j.com/developer/cypher/](https://neo4j.com/developer/cypher/)
-(open-sourced as openCypher^[http://www.opencypher.org/](http://www.opencypher.org/)), and
-JanusGraph^[https://janusgraph.org/](https://janusgraph.org/), which uses the Gremlin query
-language^[https://docs.janusgraph.org/latest/gremlin.html](https://docs.janusgraph.org/latest/gremlin.html).
+language[^cypher]
+(open-sourced as openCypher[^opencypher]), and
+JanusGraph[^janus], which uses the Gremlin query
+language[^gremlin-janus].
+
+[^neo4j]: [https://neo4j.com](https://neo4j.com)
+[^cypher]: [https://neo4j.com/developer/cypher/](https://neo4j.com/developer/cypher/)
+[^opencypher]: [http://www.opencypher.org/](http://www.opencypher.org/)
+[^janus]: [https://janusgraph.org/](https://janusgraph.org/)
+[^gremlin-janus]: [https://docs.janusgraph.org/latest/gremlin.html](https://docs.janusgraph.org/latest/gremlin.html)
 
 ![Visualisation of a property graph. Labels are in bold and properties are written `key: value`](images/pg.png){width=60% #fig:pg}
 
