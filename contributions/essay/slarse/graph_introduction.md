@@ -178,8 +178,8 @@ CREATE TABLE ActedIn (
     person_id INT UNSIGNED NOT NULL,
     movie_id INT UNSIGNED NOT NULL,
     played_role VARCHAR(128) NOT NULL,
-    FOREIGN KEY(person_id) REFERENCES Person(id) ON UPDATE CASCADE ON DELETE CASCADE,
-    FOREIGN KEY(movie_id) REFERENCES Movie(id) ON UPDATE CASCADE ON DELETE CASCADE
+    FOREIGN KEY(person_id) REFERENCES Person(id),
+    FOREIGN KEY(movie_id) REFERENCES Movie(id)
 );
 ```
 
