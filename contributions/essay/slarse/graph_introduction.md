@@ -49,7 +49,7 @@ will also present the concepts of a different kind of graph database based
 on the RDF-standard, as such databases frequently appeared during my background
 research of the subject [@hartig2014reconciliation;@angles2018g]. The rest of
 the article is structured as follows. [Section @sec:rdf] presents the concepts
-behind RDF databases, while and [Sec. @sec:pg] does the same for progerty graph
+behind RDF databases, while and [Sec. @sec:pg] does the same for property graph
 databases. [Section @sec:usage] compares creation and subsequent querying
 of a movie database using the relational PostgreSQL system, and the property
 graph Neo4j system. Finally, [Section @sec:discussion] presents a discussion of
@@ -91,7 +91,7 @@ case of [Table @tbl:rdf-example] however, viewing the set union of subjects
 and objects as nodes, and the set of predicates as labeled edges, it is clear
 that the triples of [Table @tbl:rdf-example] induce the graph in [Fig. @fig:rdf-example].
 
-![Visualisation of Table 1](images/rdf-example.png){#fig:rdf-example width=40%}
+![Visualisation of [Table @tbl:rdf-example]](images/rdf-example.png){#fig:rdf-example width=60%}
 
 Another interesting observation is that [Table @tbl:rdf-example] looks
 similar to a traditional relational database table, and indeed, there are ways
@@ -128,7 +128,7 @@ openCypher\footnote{http://www.opencypher.org/}), and
 JanusGraph\footnote{\url{https://janusgraph.org/}}, which uses the Gremlin query
 language\footnote{\url{https://docs.janusgraph.org/latest/gremlin.html}}.
 
-![Visualisation of a property graph. Labels are in bold and properties are written `key: value`](images/pg.png){width=40% #fig:pg}
+![Visualisation of a property graph. Labels are in bold and properties are written `key: value`](images/pg.png){width=60% #fig:pg}
 
 # Usage examples (same DB, same operation, relational vs graph) {#sec:usage}
 In this section, I present a simple movie database modeled with an RDF graph
@@ -193,21 +193,24 @@ with precisely one `Person` row, while each `Person` row is associated with zero
 ![SQL schema for the movie database](images/sql-schema.png){width=90% #fig:sql-schema}
 
 With the schema defined, the database can be filled with data using queries
-like those shown in [Listing @insert-sql-values]. Note how the insertions into
+like those shown in [Listing @lst:insert-sql]. Note how the insertions into
 the association tables have nested SELECT queries to find the correct primary
 keys of the related tables. The full definition of the database, including data
-insertions, can be found in appendix A. It has been tested to work with
-PostreSQL 9.6.
+insertions, can be found in [Sec. @sec:appendix-a]. It has been tested to work
+with PostreSQL 9.6.
 
-```{#lst:insert-sql-values .sql caption="Sample of value insertions into the SQL database"}
+```{#lst:insert-sql .sql caption="Sample of value insertions into the SQL database"}
 INSERT INTO Movie(title) VALUES
     ('The Town');
 INSERT INTO Person(name) VALUES
    ('Ben Affleck');
 INSERT INTO ActedIn(person_id, movie_id, played_role) VALUES
-    ((SELECT id FROM Person WHERE name='Ben Affleck'), (SELECT id FROM Movie WHERE title='The Town'), 'Doug MacRay');
+    ((SELECT id FROM Person WHERE name='Ben Affleck'),
+     (SELECT id FROM Movie WHERE title='The Town'),
+     'Doug MacRay');
 INSERT INTO DirectedBy(person_id, movie_id) VALUES
-    ((SELECT id FROM Person WHERE name='Ben Affleck'), (SELECT id FROM Movie WHERE title='The Town'));
+    ((SELECT id FROM Person WHERE name='Ben Affleck'),
+     (SELECT id FROM Movie WHERE title='The Town'));
 ```
 
 ## Property graph database definition {#sec:neo4j-def}
@@ -243,17 +246,17 @@ create `ACTED_IN` and `DIRECTED_BY` edges (or relations). The syntax for the
 node should be assigned to a variable called `TheTown`. The variable can be
 used throughout the query to reference the node. Finally, everything within
 curly braces are simply properties on the form `key: value`. Neo4j has an
-excellent visualisation tool built-in, and the visualisation of this particular
-database can be found in [Fig. @fig:neo4j-visualisation].
-
-The definition of a relationship is similarly straightforward, and generally
-looks like `CREATE (<NODE>)-[<EDGE_DEFINITION>]->[<NODE>]`. The
-`<EDGE_DEFINITION>` is written precisely the same as `<NODE_DEFINITION>`,
-including property declarations. Looking more closely at the last `CREATE`
-statement, it is plain to see how the variables `TheTown` and `Ben` are reused
-to denote the nodes which the edge connects. Also note how no variable name is
-declared for the edge. There is no need for it, as it is not reused. The full
-database declaration can be found in Appendix B.
+excellent visualisation tool built-in to its web interface, and the
+visualisation of this particular database can be found in
+[Fig.  @fig:neo4j-visualisation]. The definition of a relationship is similarly
+straightforward, and generally looks like `CREATE
+(<NODE>)-[<EDGE_DEFINITION>]->[<NODE>]`. The `<EDGE_DEFINITION>` is written
+precisely the same as `<NODE_DEFINITION>`, including property declarations.
+Looking more closely at the last `CREATE` statement, it is plain to see how the
+variables `TheTown` and `Ben` are reused to denote the nodes which the edge
+connects. Also note how no variable name is declared for the edge. There is no
+need for it, as it is not reused. The full database declaration can be found in
+[Sec. @sec:appendix-b].
 
 ## Querying the databases
 In this section, I present a series of increasingly complex queries. Keep in
@@ -262,9 +265,10 @@ are not meant to show that graph databases are always better than.
 
 ### Query \#1: Find all actors and the roles they have played {#sec:query1}
 For the first query, we want to list all actors and they roles they have played,
-as well as in which movies. This is a straightforward three-way join with SQL.
+as well as in which movies. This is a straightforward three-way join with SQL,
+as shown in [Listing @lst:sql-query-1].
 
-```sql
+```{#lst:sql-query-1 .sql caption="SQL query #1"}
 SELECT Person.name, Movie.title, ActedIn.played_role
 FROM Person, Movie, ActedIn
 WHERE
@@ -272,25 +276,25 @@ WHERE
   Movie.id = ActedIn.movie_id;
 ```
 
-With Cypher, it gets slightly simpler, using the `MATCH` statement. A `MATCH`
-statement looks much like a `CREATE` statement, but instead of declaring a
-structure to create, it declares a structure to search for.
+With Cypher, it gets slightly simpler, using the `MATCH` statement shown
+in [Listing @lst:cypher-query-1]. A `MATCH` statement looks much like a `CREATE`
+statement, but instead of declaring a structure to create, it declares a
+structure to search for. Note the use of variables to enable accessing specific properties in the return
+statement. The results of these queries would be identical, apart from
+potentially different ordering of the results.
 
-```sql
+```{#lst:cypher-query-1 .sql caption="Cypher query #1"}
 MATCH (actor:Person)-[acted:ACTED_IN]->(movie:Movie)
 RETURN actor.name, movie.title, acted.played_role
 ```
 
-Note the use of variables to enable accessing specific properties in the return
-statement. The results of these queries would be identical, apart from
-potentially different ordering of the results.
-
 ### Query \#2: Find all self-directed actors
 This query is meant to find all actors that have acted in a movie that they have
 also directed. For SQL, this results in a slight extension of the three-way
-join in [Sec. @sec:query1], making it a four-way join.
+join in [Sec. @sec:query1], making it the four-way joint shown in
+[Listing @lst:sql-query-2].
 
-```sql
+```{#lst:sql-query-2 .sql caption="SQL query #2"}
 SELECT Person.name, Movie.title, ActedIn.played_role
 FROM Person, Movie, ActedIn, DirectedBy
 WHERE
@@ -301,9 +305,10 @@ WHERE
 ```
 
 The Cypher query also needs an extension, but it is done in a fairly different
-way.
+way by simply adding another structure to match against, as shown in
+[Listing @lst:cypher-query-2].
 
-```sql
+```{#lst:cypher-query-2 .sql caption="Cypher query #2"}
 MATCH (actor:Person)-[acted:ACTED_IN]->(movie:Movie),
       (movie)-[directed:DIRECTED_BY]->(actor)
 RETURN actor.name, acted.played_role, movie.title
@@ -326,16 +331,15 @@ be somewhat simplified if by considering the `DIRECTED_BY` and `ACTED_IN` edges
 visualised in [Fig. @fig:neo4j-visualisation] as bi-directional. Then, it is
 simply a matter of finding every actor that can be reached from Ben's node by
 traversing `ACTED_IN` edges. While it does not make much sense for a movie to
-have acted in an actor, it makes the problem easier to visualise.
-
-To solve such a problem in SQL, we need to issue a so called _hierarchical
+have acted in an actor, it makes the problem easier to visualise. It is
+important not to get stuck on trying to understand the query, the point of
+showing it is mostly to exemplify that it is complicated. To solve such a
+problem in SQL, we need to issue a so called _hierarchical
 query_\footnote{Again, Wikipedia has a nice page on the subject:
-\url{https://en.wikipedia.org/wiki/Hierarchical_and_recursive_queries_in_SQL}}.
-The query is written below. It is important not to get stuck on trying to
-understand the query, the point of showing it is mostly to exemplify that it is
-complicated.
+\url{https://en.wikipedia.org/wiki/Hierarchical_and_recursive_queries_in_SQL}},
+shown in [Listing @lst:sql-query-3].
 
-```sql
+```{#lst:sql-query-3 .sql caption="SQL query #3"}
 WITH RECURSIVE acted_in(person_id, movie_id) AS (
   /* Initial start query */
   SELECT person_id, movie_id
@@ -344,7 +348,8 @@ WITH RECURSIVE acted_in(person_id, movie_id) AS (
         Person.name = 'Ben Affleck'
 UNION
   /* The recursive query */
-  SELECT ActedIn.person_id, ActedIn.movie_id FROM acted_in, ActedIn
+  SELECT ActedIn.person_id, ActedIn.movie_id
+  FROM acted_in, ActedIn
   WHERE acted_in.movie_id = ActedIn.movie_id OR
         acted_in.person_id = ActedIn.person_id
 )
@@ -355,17 +360,18 @@ WHERE acted_in.person_id = Person.id
 AND Person.name != 'Ben Affleck'
 ```
 
-I will only briefly explain what is actually happening here. On the first line,
-the `acted_in` pseudo-entity is defined. Then, an initial "start" query is
-issued to find all of Ben's `(person_id, movie_id)` tuples. What happens next is
-fairly unintuitive. The results of the "recursive" query is unioned with the
-initial query, the result of which is then unioned with the recursive query
-again, and again, until the result set is no longer expanding. It is essentially
-a breadth first search over the `ActedIn` relations, where the movies are
-discarded in the final result. The Cypher equivalent of this SQL query
-is a good example of why representing data as graphs can be advantageous.
+I will only briefly explain what is actually happening in the query. On the
+first line, the `acted_in` pseudo-entity is defined. Then, an initial "start"
+query is issued to find all of Ben's `(person_id, movie_id)` tuples. What
+happens next is fairly unintuitive. The results of the "recursive" query is
+unioned with the initial query, the result of which is then unioned with the
+recursive query again, and again, until the result set is no longer expanding.
+It is essentially a breadth first search over the `ActedIn` relations, where
+the movies are discarded in the final result. The Cypher equivalent of this SQL
+query shown in [Listing @lst:cypher-query-3] is a good example of why
+representing data as graphs can be advantageous.
 
-```sql
+```{#lst:cypher-query-3 .sql caption="Cypher query #3"}
 MATCH (Ben:Person {name: "Ben Affleck"}),
       (Ben)-[:ACTED_IN*]-(movie:Movie),
       (actor:Person)-[:ACTED_IN]->(movie)
@@ -374,7 +380,8 @@ RETURN actor
 
 Fetching the Ben Affleck node and storing it in the `Ben` variable is not
 strictly necessary, and could be done inline on the second line, but I found
-this more readable. The query can be broken down as follows.
+this more readable. [Listing @lst:cypher-query-3] can be broken down as
+follows.
 
 1. `MATCH (Ben:Person {name: "Ben affleck"})`
    - Find the Ben Affleck node and store it in `Ben`
@@ -425,4 +432,6 @@ accept.
 
 # Appendix
 
-## Appendix A
+## Appendix A {#sec:appendix-a}
+
+## Appendix B {#sec:appendix-b}

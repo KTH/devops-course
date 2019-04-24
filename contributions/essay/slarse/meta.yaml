@@ -1,8 +1,9 @@
 ---
 title: 'An Introduction to Graph Databases'
 author:
-- Simon Larsén
-date: \today
+- Simon Larsén - slarse@kth.se
+- DD2481 DevOps and Automated Testing
+date: 2019-04-24
 numbersections: true
 csl: ieee.csl
 colorlinks: true
