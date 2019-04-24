@@ -142,7 +142,7 @@ class Services:
 
     def get_src_by_xpath(self, locator):
         """
-        This method is get the src present within given web element.
+        This method is to get the src present within given web element.
         param locator: XPATH of given element
         param_type: string
         """
@@ -154,3 +154,22 @@ class Services:
         This method is to reload current web page
         """
         self.driver.refresh()
+
+    def get_css_by_xpath(self, locator, css_attr):
+        """
+        This method is to get the css attribute from locator
+        param locator: XPATH of given element
+        param css_attr: attribute name
+        param_type: string
+        """
+        return self.driver.find_element_by_xpath(locator).value_of_css_property(css_attr)
+
+    def get_position_by_xpath(self, locator):
+        """
+        This method is to get the position of locator
+        param locator: XPATH of given element
+        param_type: string
+        """
+        return self.driver.find_element_by_xpath(locator).location
+
+
