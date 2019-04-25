@@ -22,6 +22,7 @@ class JQueryUIMenuPage:
         self.xpath_enabled = "//ul[@id='menu']//li/a[text()='Enabled']"
         self.xpath_downloads = "//li/a[text()='Downloads']"
         self.xpath_file_option = "//li/a[text()='%s']"
+        # self.xpath_file_option = "//*[@href='/download/jqueryui/menu/menu.%s']"
 
     def verify_jquery_menu_page(self):
         """
@@ -38,17 +39,20 @@ class JQueryUIMenuPage:
         assert actual_heading == self.header, "Actual header (%s), should be same as expected header (%s)." % (
             actual_heading, self.header)
 
-    def verify_jquery_menu(self, file_option="PDF"):
+    def verify_jquery_menu(self, file_option="Excel"):
+
         enabled = self.driver.find_element_by_xpath(self.xpath_enabled)
 
         action_chains = ActionChains(self.driver)
         action_chains.move_to_element(enabled).perform()
         self.services.wait_for_element_visible(self.xpath_downloads)
-
+        
         download = self.driver.find_element_by_xpath(self.xpath_downloads)
         action_chains.move_to_element(download).perform()
         self.services.wait_for_element_visible(self.xpath_file_option % file_option)
-
+        
         option = self.driver.find_element_by_xpath(self.xpath_file_option % file_option)
         action_chains.move_to_element(option).perform()
+        # it might go fail if file_option is not Excel because 
+        # another element <div class="large-4 large-centered columns"> obscures it
         self.services.assert_and_click_by_xpath(self.xpath_file_option % file_option)

@@ -6,8 +6,9 @@
 from pages.jquery_ui_menu_page import JQueryUIMenuPage
 from pages.welcome_page import WelcomePage
 from utility.drivermanager import DriverManager
+from nose.plugins.attrib import attr
 
-
+@attr(group=['kth'])
 class JQueryUIMenuTest(DriverManager):
     def test_jquery_menu(self):
         welcome_page = WelcomePage(self.driver)
