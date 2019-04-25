@@ -11,6 +11,7 @@ Semantic release is a "must have" for a propper automated devops workflow when c
 We would like to create a plugin for semantic release that notifies the user about any errors or possibly successful releases, on Slack. There are [very few plugins](https://github.com/semantic-release/semantic-release/blob/master/docs/extending/plugins-list.md) (only two that we know of) that utilize the `success` and `fail` step of semantic release. We hope that our small contribution could improve the usability of semantic release for teams that require frequent build notifications.
 
 Our aims are:
+
 1. To improve the semantic release ecosystem.
 2. To learn more about semantic release and how to create plugins for semantic release, enabling us to solve more complicated problems with semantic release in the future.
 3. To learn more about how Slack bots work to be able to use them in the future.
@@ -22,7 +23,7 @@ Semantic release parses commit-messages to determince the purpose of every commi
 Plugins in semantic release can plug into any of the steps that semantic release executes (presented below). We would like to plug in to the `success` and `fail` step.
 
 | Step               | Description                                                                                                                                                                                                          |
-|--------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `verifyConditions` | Responsible for verifying conditions necessary to proceed with the release: configuration is correct, authentication token are valid, etc...                                                                         |
 | `analyzeCommits`   | Responsible for determining the type of the next release (`major`, `minor` or `patch`). If multiple plugins with a `analyzeCommits` step are defined, the release type will be the highest one among plugins output. |
 | `verifyRelease`    | Responsible for verifying the parameters (version, type, dist-tag etc...) of the release that is about to be published.                                                                                              |
