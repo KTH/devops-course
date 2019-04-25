@@ -6,6 +6,6 @@ Connected to issue #118, CI hackathon.
 
 We define the preliminary structure of the hackathon repo to be one main repo and all teams fork from this repo.
 
-Visualize the activity across all the forks and main repo used at the hackathon. Display contributions of all participants and the languages used in each fork.
+Visualize the activity across all the forks and main repo used at the hackathon in real time. Display contributions of all participants and the languages used in each fork.
 
 If we find more interesting statistics we will add them to the visualization.
