@@ -173,3 +173,12 @@ class Services:
         return self.driver.find_element_by_xpath(locator).location
 
 
+    def get_href_by_xpath(self, locator):
+        """
+        This method is to get the href present within given web element.
+        param locator: XPATH of given element
+        param_type: string
+        """
+
+        return self.driver.find_element_by_xpath(locator).get_attribute("href")
+

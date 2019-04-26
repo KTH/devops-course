@@ -81,5 +81,5 @@ e.g: self.driver = webdriver.Firefox(executable_path="geckodriver path") # in ca
 |                           | Multiple Windows                | Done   |
 |                           | Nested Frames                   | Done   |
 |                           | Notification Messages           | Kartik |
-|                           | Redirect Link                   |        |
+|                           | Redirect Link                   | Yi-Pei |
 |                           | Shifting Content                |        |

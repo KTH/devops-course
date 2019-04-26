@@ -15,4 +15,5 @@ class JQueryUIMenuTest(DriverManager):
         welcome_page.verify_welcome_page().click_on_link("JQuery UI Menus")
 
         jquery_menu_page = JQueryUIMenuPage(self.driver)
+        jquery_menu_page.verify_jquery_menu_page()
         jquery_menu_page.verify_jquery_menu()
