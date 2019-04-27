@@ -1,7 +1,7 @@
 import csv
 
-person_tag = lambda fullname: fullname.split()[0]
-movie_tag = lambda title: title.replace(" ", "")
+person_tag = lambda fullname: fullname.split()[0].lower()
+movie_tag = lambda title: "".join(title.split()).lower()
 
 
 def movie_formatter(row):
