@@ -3,10 +3,6 @@
 IMAGE_SRC = $(wildcard images/*.svg)
 IMAGE_OUT = $(patsubst images/%.svg, images/%.png, $(IMAGE_SRC))
 
-all: clean build
-
-build: $(IMAGE_OUT) graph_introduction.pdf
-	
 images/%.pdf: images/%.svg
 	inkscape -D -z --file=$< --export-pdf $@
 
