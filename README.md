@@ -76,7 +76,7 @@ The date, time and rooms are at <https://cloud.timeedit.net/kth/web/public01/ri1
 * Location: [Room U21](https://www.kth.se/places/room/id/de8a7fa7-90dc-4ae7-ab75-282b6020d8a5)
 * Preparatory reading: [Volvo Trucks - The Epic Split](https://www.youtube.com/watch?v=M7FIvfx5J10)
 * MDDD: [Michelin Devops Demo Day](https://github.com/KTH/devops-course/tree/master/contributions/demo) 
-  * Location: TBA (off the wall)
+* Location: [Room U21](https://www.kth.se/places/room/id/de8a7fa7-90dc-4ae7-ab75-282b6020d8a5), [U21 Break-out](https://www.kth.se/places/room/id/b7f34dc7-be16-4e37-a339-1e9f048b1772) and [U-Utställningssal](https://www.kth.se/places/room/id/cc4a63e9-62f9-4181-9e4d-c44a21c18c73)
   * Make sure you have a screen and a power outlet
   * Session 1 / Session 2 (presenters / attendees switch)
   
