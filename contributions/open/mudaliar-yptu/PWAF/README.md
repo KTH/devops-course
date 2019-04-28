@@ -54,21 +54,21 @@ e.g: self.driver = webdriver.Firefox(executable_path="geckodriver path") # in ca
 | Framework level           | Page Object Model               | Done   |
 |                           | Profiles                        | Done   |
 |                           | Grids                           |        |
-|                           | Cross browsers & cross platform |        |
+|                           | Cross browsers & cross platform | Yi-Pei |
 |                           |                                 |        |
 | Locators                  | Learning how to get locators.   |        |
 |                           |                                 |        |
 | Functionality To Automate | Challenging DOM                 | Done   |
 |                           | Checkboxes                      | Done   |
-|                           | Context Menu                    | Done   |
+|                           | Context Menu                    | Buggy  |
 |                           | Disappearing Elements           | Done   |
 |                           | Drag and Drop                   | Done   |
 |                           | Dropdown                        | Done   |
 |                           | Dynamic Content                 | Yi-Pei |
 |                           | Dynamic Controls                | Done   |
 |                           | Dynamic Loading                 | Done   |
-|                           | File Download                   | Done   |
-|                           | File Upload                     | Done   |
+|                           | File Download                   | Buggy  |
+|                           | File Upload                     | Bugg   |
 |                           | Floating Menu                   | Yi-Pei |
 |                           | Frames                          | Done   |
 |                           | Horizontal Slider               | Kartik |

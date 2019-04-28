@@ -14,7 +14,7 @@ logging.basicConfig(format='%(asctime)s - %(levelname)s: %(message)s', datefmt='
 import sys, os
 
 
-class DriverManager(unittest.TestCase):
+class DriverManagerFirefox(unittest.TestCase):
     """
     This class is for instantiating web driver instances.
     """
@@ -25,13 +25,13 @@ class DriverManager(unittest.TestCase):
         """
         logging.info("## SETUP METHOD ##")
         logging.info("# Initializing the webdriver.")
+        
         self.ffprofile = self.create_ffprofile()
         self.driver = webdriver.Firefox(self.ffprofile)
-        # self.driver = webdriver.Chrome(executable_path="E:\\automation\drivers\chromedriver.exe")
         self.driver.maximize_window()
         self.driver.implicitly_wait(5)
         self.driver.get("http://the-internet.herokuapp.com/")
-
+    
     def tearDown(self):
         """
         This is teardown method.
@@ -44,6 +44,7 @@ class DriverManager(unittest.TestCase):
             logging.info("# Taking screenshot.")
             test_method_name = self._testMethodName
             self.driver.save_screenshot("./../screenshots/%s.png" % test_method_name)
+
 
         if self.driver is not None:
             logging.info("# Removing the webdriver.")
@@ -65,6 +66,59 @@ class DriverManager(unittest.TestCase):
 
         return profile
 
+    def create_chprofile(self):
+        """
+        This function is to create chrome profile
+        :return: chrome option, driver path
+        """
+        logging.info("# Setting up chrome profile.")
+        driver_path = "../drivers/chromedriver"
+        return driver_path
+
+
+class DriverManagerChrome(unittest.TestCase):
+    """
+    This class is for instantiating web driver instances.
+    """
+
+    def setUp(self):
+        """
+        This method is to instantiate the web driver instance.
+        """
+        logging.info("## SETUP METHOD ##")
+        logging.info("# Initializing the webdriver.")
+        self.chprofile = self.create_chprofile()
+        self.driver = webdriver.Chrome(self.chprofile)
+        self.driver.maximize_window()
+        self.driver.implicitly_wait(5)
+        self.driver.get("http://the-internet.herokuapp.com/")
+    
+    def tearDown(self):
+        """
+        This is teardown method.
+        It is to capture the screenshots for failed test cases,
+        & to remove web driver object.
+        """
+        logging.info("## TEARDOWN METHOD ##")
+
+        if sys.exc_info()[0]:
+            logging.info("# Taking screenshot.")
+            test_method_name = self._testMethodName
+            self.driver.save_screenshot("./../screenshots/%s.png" % test_method_name)
+
+
+        if self.driver is not None:
+            logging.info("# Removing the webdriver.")
+            self.driver.quit()
+
+    def create_chprofile(self):
+        """
+        This function is to create chrome profile
+        :return: chrome option, driver path
+        """
+        logging.info("# Setting up chrome profile.")
+        driver_path = "../drivers/chromedriver"
+        return driver_path
 
 if __name__ == '__main__':
     unittest.main()
