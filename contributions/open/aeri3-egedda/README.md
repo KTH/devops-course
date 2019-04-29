@@ -123,6 +123,7 @@ Here, any results of this project are presented. This includes any issues and pu
 
 ## Final Thoughts
 
-# References
+# Bibliography
 
-- [Bohme, Marcel & Pham, Thuan & Roychoudhury, Abhik. (2017). *Coverage-based Greybox Fuzzing as Markov Chain*. IEEE Transactions on Software Engineering. PP. 1-1. 10.1109/TSE.2017.2785841. ](https://www.researchgate.net/publication/321987454_Coverage-based_Greybox_Fuzzing_as_Markov_Chain)
+- [Böhme, Marcel & Pham, Thuan & Roychoudhury, Abhik. (2017). *Coverage-based Greybox Fuzzing as Markov Chain*. IEEE Transactions on Software Engineering. PP. 1-1. 10.1109/TSE.2017.2785841. ](https://www.researchgate.net/publication/321987454_Coverage-based_Greybox_Fuzzing_as_Markov_Chain)
+- [Langdale, Geoff & Lemire, Daniel. (2019). *Parsing Gigabytes of JSON per Second*. Computing Research Repository. arXiv:1902.08318](https://arxiv.org/abs/1902.08318)
