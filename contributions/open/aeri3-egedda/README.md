@@ -109,6 +109,18 @@ Every unique JSON-string output by AFLFast that caused a crash was saved to a fi
 
 ## Results
 
+Here, any results of this project are presented. This includes any issues and pull requests made as a result of this project, whether found due to the fuzzing or otherwise.
+
+### Pull Requests Made During Set-up of *simdjson*
+
+- [Fix parsing success check for simdjson's json_parse in allparserscheckfile.cpp and minor cleanup #141 **[MERGED]**](https://github.com/lemire/simdjson/pull/141)
+- [Allows additional C(XX)FLAGS to be passed through command line #142 **[MERGED]**](https://github.com/lemire/simdjson/pull/142)
+- [Fix syntax error introduced by 772919 #138 **[MERGED]**](https://github.com/lemire/simdjson/pull/138)
+
+### Issues Created Based on Fuzzing Results
+
+### Pull Requests Created Based on Fuzzing Results
+
 ## Final Thoughts
 
 # References
