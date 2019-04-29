@@ -8,8 +8,7 @@ from time import sleep
 
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.alert import Alert
-from selenium.webdriver.common.keys import Keys
-
+import win32com.client as comclt
 from utility.services import Services
 
 
@@ -42,8 +41,15 @@ class ContextMenuPage:
         logging.info('## Find element on which right click need to perform. ##')
         hot_spot_ele = self.driver.find_element_by_xpath(self.hot_spot)
 
+        wsh = comclt.Dispatch("WScript.Shell")
         actions = ActionChains(self.driver)
-        actions.context_click(hot_spot_ele).send_keys(Keys.ARROW_DOWN).send_keys(Keys.ARROW_DOWN).send_keys(Keys.ARROW_DOWN).send_keys(Keys.ARROW_DOWN).send_keys(Keys.ARROW_DOWN).send_keys(Keys.ENTER).perform()
-        sleep(2)
+        actions.move_to_element(hot_spot_ele).context_click().perform()
+        wsh.SendKeys("{DOWN}")
+        wsh.SendKeys("{DOWN}")
+        wsh.SendKeys("{DOWN}")
+        wsh.SendKeys("{DOWN}")
+        wsh.SendKeys("{DOWN}")
+        wsh.SendKeys("{ENTER}")
+        sleep(3)
         alert = Alert(self.driver)
         alert.accept()
