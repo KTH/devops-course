@@ -4,7 +4,7 @@
 - Fredrik Flovén - baarsoe@kth.se
 
 ## Topic
-Immutability: Changing to unchangeable
+Immutability: Changing to the unchangeable
 
-## Link
+## Link to Medium
 https://medium.com/@ffloven/immutability-4c8e0077fe9a
