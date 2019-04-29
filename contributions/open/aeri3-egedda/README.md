@@ -76,7 +76,7 @@ An example JSON-file exhibiting all language features of JSON was created to see
 A docker image was set up with AFLFast and all the JSON parsing libraries compiled and deployed to Google Compute Engine. To reduce the overhead of process instantiation and forking, we bundled all JSON parsing libraries into one single executable based on [the benchmark used in the simdjson source repo](https://github.com/lemire/simdjson/blob/master/tests/allparserscheckfile.cpp).
 
 #### Fuzzing Dockerfile (Excerpt)
-```docker
+```dockerfile
 FROM archlinux/base
 
 LABEL maintainer=emil.gedda@emilgedda.se
