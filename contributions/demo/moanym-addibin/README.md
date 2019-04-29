@@ -5,4 +5,4 @@
 Moa Nyman moanym@kth.se<br>
 Addibin Haider adibbin@kth.se
 
-We will use Terraform to setup the necessary infrastructure at AWS to host a webapp, backend and frontend.
+We will use Terraform to setup the necessary infrastructure at AWS to host a backend for a potential webapp.
