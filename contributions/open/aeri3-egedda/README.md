@@ -1,11 +1,11 @@
 # Fuzzing of JSON parsing libraries /w Open-Source Contributions
 
-## Introduction !!!TODO!!!
+## Introduction ***!!!TODO!!!***
 This project aims to detect and possibly resolve bugs in a range of JSON parsing libraries using fuzzing.
 
 Any bugs found during fuzzing will be reported as an issue to the corresponding FOSS-project. If the bugs are of a simple nature, we would like to resolve them and issue pull requests on GitHub.
 
-### Goal !!!TODO!!!
+### Goal ***!!!TODO!!!***
 
 Ideally, we would like this project to result in one or more pull requests on GitHub resolving bugs found during fuzzing. If no bugs discovered are of a reasonably simple nature for this project to resolve, we will at least report any bugs we discover to aid the development of our chosen libraries.
 
@@ -13,6 +13,8 @@ Ideally, we would like this project to result in one or more pull requests on Gi
 
 - Emil Gedda (egedda@kth.se)
 - Anders Eriksson (aeri3@kth.se)
+
+## Usage ***!!!TODO!!!***
 
 ## JSON Parsing Libraries
 The libraries fuzzed as part of this project are listed below:
@@ -111,4 +113,4 @@ Every unique JSON-string output by AFLFast that caused a crash was saved to a fi
 
 # References
 
-- [Bohme, Marcel & Pham, Thuan & Roychoudhury, Abhik. (2017). Coverage-based Greybox Fuzzing as Markov Chain. IEEE Transactions on Software Engineering. PP. 1-1. 10.1109/TSE.2017.2785841. ](https://www.researchgate.net/publication/321987454_Coverage-based_Greybox_Fuzzing_as_Markov_Chain)
+- [Bohme, Marcel & Pham, Thuan & Roychoudhury, Abhik. (2017). *Coverage-based Greybox Fuzzing as Markov Chain*. IEEE Transactions on Software Engineering. PP. 1-1. 10.1109/TSE.2017.2785841. ](https://www.researchgate.net/publication/321987454_Coverage-based_Greybox_Fuzzing_as_Markov_Chain)
