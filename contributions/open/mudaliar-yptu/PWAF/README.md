@@ -67,7 +67,7 @@ e.g: self.driver = webdriver.Firefox(executable_path="geckodriver path") # in ca
 |                           | Dynamic Content                 | Yi-Pei |
 |                           | Dynamic Controls                | Done   |
 |                           | Dynamic Loading                 | Done   |
-|                           | File Download                   | Buggy  |
+|                           | File Download                   | Fixed  |
 |                           | File Upload                     | Bugg   |
 |                           | Floating Menu                   | Yi-Pei |
 |                           | Frames                          | Done   |
