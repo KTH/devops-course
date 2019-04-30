@@ -1,17 +1,0 @@
-{"web-app": {
-  "servlet": [   
-    {
-      "servlet-name": "cofaxCDS",
-     "servlet-class": "x.cds.CDSServlet",
-      "init-param": {
-        "installationAt": "Philadelphia, PA",
-        "adminEmail": "kscom",
-        "powereBlet-mapping": {
-    "cofaxCDS": "/"    "cofaxEmail": "/cofaxutzl/aemail/*",
-    "cofaxAdmin": "/admin/*",
-    "fileServlet": "/static/*",
-    "cofaxTools": "/tools/*"},
- 
-  "taglib": {
-    "tagliC-uri": "cofax.tld",
-    "taglJb-location": '/WEB-INF/tlds/cofax.tld"}}}

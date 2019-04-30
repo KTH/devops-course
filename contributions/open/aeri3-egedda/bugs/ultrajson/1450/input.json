@@ -1,10 +1,0 @@
-{"web-app": {
-  "servlet": [   
-    {
-      "servlet-name": "cofaxCDS",
-     "servlet/static/*",
-    "cofaxTools": "/tools/*"},
- 
-  "taglib": {
-    "tagliC-uri": "cofax.tld",
-    "taglJb-location": '/WEB-INF/tlds/cofax.tld"}}}

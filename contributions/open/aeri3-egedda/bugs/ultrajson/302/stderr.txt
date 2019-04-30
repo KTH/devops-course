@@ -1,8 +1,0 @@
-dependencies/ujson4c/src/ujdecode.c:219:11: runtime error: member access within misaligned address 0x6290000009c4 for type 'struct ArrayEntry', which requires 8 byte alignment
-0x6290000009c4: note: pointer points here
-  00 00 00 00 be be be be  be be be be be be be be  be be be be be be be be  be be be be be be be be
-              ^ 
-dependencies/ujson4c/src/ujdecode.c:220:11: runtime error: member access within misaligned address 0x6290000009c4 for type 'struct ArrayEntry', which requires 8 byte alignment
-0x6290000009c4: note: pointer points here
-  00 00 00 00 be be be be  be be be be 00 00 00 00  00 00 00 00 be be be be  be be be be be be be be
-              ^ 
