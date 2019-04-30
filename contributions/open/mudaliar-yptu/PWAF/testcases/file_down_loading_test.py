@@ -6,8 +6,10 @@
 from pages.file_down_loading_page import FileDownLoadingPage
 from pages.welcome_page import WelcomePage
 from utility.drivermanager import DriverManager
+from nose.plugins.attrib import attr
 
 
+@attr(group=['kth'])
 class FileDownLoadingTest(DriverManager):
     def test_file_downloading_functionality(self):
         welcome_page = WelcomePage(self.driver)
