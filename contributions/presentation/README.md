@@ -17,6 +17,7 @@ The students prepare a 7-9 minute presentation on a topic that is relevant to De
 |The presentation is well structured  | Yes | No | Outstanding |
 |The presentation contains a good, motivating introduction  | Yes | No | Outstanding |
 |The presentation contains one part that is deeply technical  | Yes | No | Outstanding |
+|The presentation contains one part that is original | Yes | No | Outstanding |
 |The speakers talk loudly and  clearly  | Yes | No | Outstanding |
 |The speakers engage with the audience, with eye-contact  | Yes | No | Outstanding |
 |The speakers are fun, have humour  | Yes | No | Outstanding |
