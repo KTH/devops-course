@@ -8,6 +8,7 @@ Task: We want to try setting up a pipeline using Jenkins(CI with Maven and Junit
 IMPORTANT!! 
  * Our application for deployment and instruction for setting up the pipeline is in this [repo](https://github.com/Tailp/CI) 
  * Youtube link to see our pipeline in action [Youtubelink](https://www.youtube.com/watch?v=kEL1E0Bih_0&feature=youtu.beO) 
+ * Tutorial videos [Tutorial 1](https://www.youtube.com/watch?v=LeLxMfYsqa8&t=116s) [Tutorial 2](https://www.youtube.com/watch?v=XswaeGfCBvw&t=171s). For more details what they are about please check out our [repo](https://github.com/Tailp/CI)
 
 ## Description & idea presentation
 Our idea is to create a Jenkins CI/CD pipeline with the aim of minimizing the budget cost of deploying to Kubernetes. While there are many guides and good information out there on the internet about setting up a Jenkins master inside the cluster together with slave virtual machine, there is still very little and also fragmented information about the setup of CI/CD pipeline for smooth deployments from Jenkins outside the cluster.

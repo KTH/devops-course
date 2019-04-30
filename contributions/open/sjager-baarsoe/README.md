@@ -5,3 +5,6 @@ We will build a (HTML based) widget that shows information about a repository th
 
 ## Members: 
 Simon Jäger, Fredrik Flovén
+
+## Link to repo:
+https://github.com/fredrikfloven/repo-monitor
