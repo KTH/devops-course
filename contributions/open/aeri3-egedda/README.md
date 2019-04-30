@@ -102,7 +102,7 @@ Every unique JSON-string output by AFLFast that caused a crash was saved to a fi
 
 ### Classifying
 
-The classification of what input crashed which library was done automatically by a script written in Python. The script was a wrapper around standalone executables we wrote for each of the JSON-libraries.
+The classification of what input crashed which library was done automatically by [a script written in Python](classify.py). The script was a wrapper around standalone executables we wrote for each of the JSON-libraries.
 The Python script also served as a purpose to verify that the JSON-libraries crashed independently of each other, and that AFLFast did not influence the crash.
 The classifier created a folder for every crashing input it discovered, recording the crashing library's stdout and stderr, aswell as a AddressSanitizer log.
 
@@ -156,7 +156,7 @@ ENTRYPOINT python classify.py crashes bugs /parsers/*
 ## Usage
 
 There are two main Docker images which were written and used in this project.
-For finding crashes in all libraries with AFLFast, the docker image `gedda/json-fuzzing` was set up easily spin up containers fully prepared with AFLFast instrumentation compiled into the JSON-libraries.
+For finding crashes in all libraries with AFLFast, [the docker image](Dockerfile.fuzzing) `gedda/json-fuzzing` was set up easily spin up containers fully prepared with AFLFast instrumentation compiled into the JSON-libraries.
 ```
 $ docker pull gedda/json-fuzzing
 $ docker run -it gedda/json-fuzzing
@@ -169,7 +169,7 @@ This docker container will populate the `/fuzz/output` directory inside the cont
 
 
 To classify the crashes which resulted from the above step, the classifier must be used.
-As the previous step, a Docker image have been prepared `gedda/json-classify` have been prepared to provide a reproducible execution environment.
+As the previous step, [a Docker image](Dockerfile.classify) have been prepared `gedda/json-classify` have been prepared to provide a reproducible execution environment.
 ```
 $ git clone https://github.com/EmilGedda/kth-devops
 $ cd kth-devops/open
@@ -220,7 +220,7 @@ dependencies/ujson4c/src/ujdecode.c:273:11: runtime error: member access within 
               ^ 
 ```
 
-`ultrajson` is written in C but comes with bindings for Python. It is clear from the `stderr` outputs that the error lies in the more user friendly layer of `ultrajson`, `ujson4c`. A Python scipt using the bindings was written aiming to recreate the crashes discovered during fuzzing:
+`ultrajson` is written in C but comes with bindings for Python. It is clear from the `stderr` outputs that the error lies in the more user friendly layer of `ultrajson`, `ujson4c`. [A Python script](ultrajson_verify_crashes.py) using the bindings was written aiming to recreate the crashes discovered during fuzzing:
 
 ##### ultrajson Bug Recreation Script
 ```python
