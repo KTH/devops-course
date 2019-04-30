@@ -21,6 +21,8 @@ The standard workflow when merging code into master (or develop if you'd like) i
 
 By further integrating those two, among the most used, tools for developers, our ambition is that the app will streamline the coding workflow and take code into production at a faster rate while minimizing delays.
 
+You can read more about the project in the [repository](<[asd](https://github.com/gustafguner/review-collector)>). Since the bot as of today is hosted on a free dyno on Heroku, timeouts do occur when for example executing a command. However, when you try it again it should be working fine since the dyno should have kicked in by then.
+
 For this task we have applied pair programming, a principle perhaps on the softer side of DevOps rather than the hardcore tech side. Pair programming means that each programmer in the pair takes turns either writing or reviewing the code and coming up with suggestions along the way. The idea of pair programming is to give both programmers deeper understanding of the code and minimize mistakes before the standard code review.
 
 ## The app
