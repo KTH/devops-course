@@ -13,4 +13,4 @@ Legacy systems are notorious for being tightly coupled to their environments, an
 
 ## Submission
 
-**Status**: Unfinished
+[Link to document](legacy_systems_and_devops.pdf)
