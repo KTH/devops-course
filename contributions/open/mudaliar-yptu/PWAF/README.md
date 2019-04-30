@@ -1,17 +1,24 @@
-# PWAF (Python Webdriver Automation Framework)
+# Simple Selenium framework for Python 
+
+Based on Anuj Kumar's work - "PWAF", we want to continue his work to complete the rest work to make the open source become more concrete and sound.
+
+Thus, this open project could benefit web developers/QA engineers with their projects.
 
 This is web automation framework, implemented using Python & Webdriver. 
 Page Object Model (POM) is used to  make the code more readable, maintainable, and reusable.
 
 ## _Prerequisite:_
 
-1. Python
-2. pip
-3. Selenium/WebDriver
-4. nosetests & nose-html-reporting
-5. Browsers (Firefox, Chrome, IE)
-6. Respective Browser drivers
-7. Pycharm
+1. Python2.7
+2. Run to install virtual env: **python -m pip install --user virtualenv**
+3. Run to create virtual env: **python -m virtualenv env**
+4. Run to activate virtual env: **source env/bin/activate**
+5. Run to install dependent packages: **pip install** -r **requirements**.**txt**
+6. Selenium/WebDriver
+7. nosetests & nose-html-reporting
+8. Browsers (Firefox, Chrome, IE)
+9. Respective Browser drivers
+10. Pycharm
 
 ### How to run?
 
@@ -43,43 +50,45 @@ Page Object Model (POM) is used to  make the code more readable, maintainable, a
 
 e.g: self.driver = webdriver.Firefox(executable_path="geckodriver path") # in case of Firefox browser.
 
-
 ***
 
 ## _Coverage Plan:_
 
 | Contents                  |                                 | Status |
-|---------------------------|---------------------------------|--------|
+| ------------------------- | ------------------------------- | ------ |
 |                           |                                 |        |
 | Framework level           | Page Object Model               | Done   |
 |                           | Profiles                        | Done   |
-|                           | Grids                           |        |
-|                           | Cross browsers & cross platform | Yi-Pei |
+|                           | Cross browsers & cross platform | Done   |
 |                           |                                 |        |
-| Locators                  | Learning how to get locators.   |        |
+| Locators                  | Learning how to get locators.   | Done   |
 |                           |                                 |        |
 | Functionality To Automate | Challenging DOM                 | Done   |
 |                           | Checkboxes                      | Done   |
-|                           | Context Menu                    | Fixed  |
+|                           | Context Menu                    | Done   |
 |                           | Disappearing Elements           | Done   |
 |                           | Drag and Drop                   | Done   |
 |                           | Dropdown                        | Done   |
-|                           | Dynamic Content                 | Yi-Pei |
+|                           | Dynamic Content                 | Done   |
 |                           | Dynamic Controls                | Done   |
 |                           | Dynamic Loading                 | Done   |
-|                           | File Download                   | Fixed  |
-|                           | File Upload                     | Fixed  |
-|                           | Floating Menu                   | Yi-Pei |
+|                           | File Download                   | Done   |
+|                           | File Upload                     | Done   |
+|                           | Floating Menu                   | Done   |
 |                           | Frames                          | Done   |
-|                           | Horizontal Slider               | Kartik |
+|                           | Horizontal Slider               | Done   |
 |                           | Hovers                          | Done   |
-|                           | Infinite Scroll                 | Kartik |
-|                           | JQuery UI Menus                 | Yi-Pei |
-|                           | JavaScript Alerts               | Kartik |
-|                           | Key Presses                     | Yi-Pei |
-|                           | Large & Deep DOM                | Yi-Pei |
+|                           | Infinite Scroll                 | Done   |
+|                           | JQuery UI Menus                 | Done   |
+|                           | JavaScript Alerts               | Done   |
+|                           | Key Presses                     | Done   |
+|                           | Large & Deep DOM                | Done   |
 |                           | Multiple Windows                | Done   |
 |                           | Nested Frames                   | Done   |
-|                           | Notification Messages           | Kartik |
-|                           | Redirect Link                   | Yi-Pei |
-|                           | Shifting Content                | Kartik |
+|                           | Notification Messages           | Done   |
+|                           | Redirect Link                   | Done   |
+|                           | Shifting Content                | Done   |
+
+## Contributors:
+	- Kartik Kandavel Mudaliar(mudaliar@kth.se)
+	- Yi-Pei Tu(yptu@kth.se)
