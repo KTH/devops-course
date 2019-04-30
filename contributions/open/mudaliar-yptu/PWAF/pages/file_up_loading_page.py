@@ -38,10 +38,13 @@ class FileUpLoadingPage:
             actual_heading, self.header)
 
     def verify_uploaded_file(self):
+        """To test this, use a file present in the local system
+         So change the path according to that
+         """
         self.driver.find_element_by_xpath(self.xpathChooseFile).send_keys(
-            "E:\\eclipse\\selLearning\\download\\menu.pdf")
+            "D:\\Culture.ppt")
 
         sleep(2)
         self.services.assert_and_click_by_xpath(self.xpathUploadBtn)
         self.services.wait_for_element(self.xpathUploadedFiles)
-        assert "menu.pdf" == self.services.get_text_by_xpath(self.xpathUploadedFiles)
+        assert "Culture.ppt" == self.services.get_text_by_xpath(self.xpathUploadedFiles)
