@@ -83,8 +83,9 @@ RUN pacman -Syu --noconfirm gcc git make diffutils wget tmux
 RUN git clone -j8 https://github.com/mboehme/aflfast.git \
     && cd aflfast && make install -j8
 
-RUN git clone -j8 --recurse-submodules https://github.com/EmilGedda/simdjson.git \
+RUN git clone --recurse-submodules -j8 https://github.com/EmilGedda/simdjson.git \
     && cd simdjson \
+    && git checkout 7c8404eaf95b2cde087cc131bea42a429fdab8cb \
     && make CXX=afl-g++ allparserscheckfile -j8 \
     && install allparserscheckfile /json-parsers
 
