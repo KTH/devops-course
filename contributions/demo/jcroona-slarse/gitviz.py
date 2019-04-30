@@ -16,15 +16,20 @@ ENCODING = sys.getdefaultencoding()
 
 class Ref(namedtuple("Ref", "name value".split())):
     def to_graphviz(self):
-        return "\n".join([f'"{self.name}";', f'"{self.name}" -> "{self.value}";'])
+        return "\n".join(
+            [f'"{self.name}" [shape=rect];', f'"{self.name}" -> "{self.value}";']
+        )
+
 
 class Child(namedtuple("Child", "name obj".split())):
     def __getattr__(self, key):
         return self.__dict__.get(key, getattr(self.obj, key))
 
+
 class GitObject:
     ORDER = {"blob": 0, "tree": 1, "commit": 2}
     COLOR = {"blob": "azure", "tree": "darkolivegreen1", "commit": "darkslategray1"}
+    SHAPES = {"blob": "egg", "tree": "folder", "commit": "rect"}
 
     def __init__(self, sha, type_, children=None, parents=None):
         self.sha = sha
@@ -35,7 +40,6 @@ class GitObject:
     @property
     def short_sha(self):
         return short_sha(self.sha)
-
 
     @property
     def children(self):
@@ -55,7 +59,10 @@ class GitObject:
         return self._to_graphviz_node() + "\n" + self._to_graphviz_edges()
 
     def _to_graphviz_node(self):
-        return f'"{self.short_sha}" [label="{self.type_}\n{self.short_sha}"fillcolor={self.COLOR[self.type_]}];'
+        return (
+            f'"{self.short_sha}" [label="{self.type_}\n{self.short_sha}"'
+            f",fillcolor={self.COLOR[self.type_]},shape={self.SHAPES[self.type_]}];"
+        )
 
     def _to_graphviz_edges(self):
         output = ""
