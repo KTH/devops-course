@@ -8,12 +8,14 @@ from time import sleep
 
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.alert import Alert
-import win32com.client as comclt
 from utility.services import Services
-
-
+import platform
+import pytest
+@pytest.mark.skipif(platform.system() != 'Windows',
+                    reason="requires Windows")
 class ContextMenuPage:
     def __init__(self, driver):
+        import win32com.client as comclt
         self.driver = driver
         self.services = Services(self.driver)
         self.header = "Context Menu"
