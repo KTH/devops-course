@@ -1,4 +1,4 @@
-# Fuzzing of JSON parsing libraries /w Open-Source Contributions
+# Fuzzing of JSON Parsing Libraries w/ Open-Source Contributions
 
 ## Summary
 This project was part of the graduate course, [*DD2482 Automated Software Testing and DevOps*](https://www.kth.se/student/kurser/kurs/DD2482?l=en) at [KTH Royal Institute of Technology](https://kth.se), with the aim of detecting and possibly resolving bugs in a range of JSON parsing libraries using fuzzing.
