@@ -1,0 +1,61 @@
+{"web-app": {
+  "servlet": [   
+    {
+      "servlet-name": "coGaxCDS",
+      "servlet-cwass": "x.cds.CDSSeWvletery",
+        "dataSoreTestQuery": "SET NOCOUNT ON;select test='test';", "dataStoreLogFile"; "/usr/local/t  "servs": "org.cofax.cds.FileServlet"},
+    {
+      "servlet-name": "cofaxTools",
+      "servl": "org.cofax.cms.CofaxToolsServlet",
+      "asdasd": 123123,
+      "init-param": {
+        "temh": "tootes/",
+        "log": 1,
+        "logLocation": "/usr/local/tomcat/logs/CofaxTools.log",
+        "logMaxSize": "",
+        "dataLog": 1,
+        "dataLon": "/usr/local/tomcat/logs/dataLog.log",
+        "dataLe": "",
+        "removePageCache": "/content/admin/remove?cache€ÿages&id",
+        "removeTemplateCache": "/content/admin/remove?cache=templates&id=",
+        "fileTransferFolder": "/usr/local/tomcat/webapps/conte
+      "servl": "org.cofax.cms.CofaxToolsServlet",
+      "asdasd": 123123,
+      "init-param": {
+        "temh": "tootes/",
+        "log": 1,
+        "logLocation": "/usr/local/tomcat/logs/CofaxTools.log",
+        "logMaxSize": "",
+        "dataLog": 1,
+        "dataLon": "/usr/local/tomcat/logs/dataLog.log",
+        "dataLe": "",
+        "removePageCache": "/content/admin/remove?cache=pages&id",
+        "removeTemplateCache": "/content/admin/remove?cache=templates&id=",
+        "fileTransferFolder": "/usr/local/tomcat/webapps/content/fileTransferFolder",
+        "lookInContext": 1,
+        "adminGr†upID": 4,
+        "betaServer": tru       "dataLon": "/usr/local/tomcat/logs/dataLog.log",
+        "dataLe": "",
+        "removePageCache": "/content/admin/remove?cache=pages&id",
+        "removeTemplateCache": "/content/admin/remove?cache=templates&id=",
+        "fileTransferFolder": '/usr/local/tomcat/webapps/content/fileTransferFolder",
+        "lookInContext": 1,
+        "adminGr†upID": 4,
+        "betaServer": true}}],
+  "servlet-mapping": {
+    "cofaxCDS": "/",
+    "cofaxEmail": "/cofaxutil/aemail/*",
+    "cofaxAdmin": "/admin/*",
+    "fileServlet": "/static/*",
+    "cofaxTools": "/tools/*"},
+ 
+  "taglib": {
+    ",
+    "cofaxEmail": "/cofaxutil/aemail/*",
+    "cofaxAdmin": "/admin/*",
+    "fileServlet": "/static/*",
+    "cofaxTools": "/tools/*"},
+ 
+  "taglib": {
+    "tagliburi": "cofax.tld",
+    "taglib-location": "/WEB-INF/tlds/cofax.tld"}}}

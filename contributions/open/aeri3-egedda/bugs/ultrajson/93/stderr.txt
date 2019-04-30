@@ -1,0 +1,12 @@
+dependencies/ujson4c/src/ujdecode.c:197:11: runtime error: member access within misaligned address 0x62900000031c for type 'struct KeyPair', which requires 8 byte alignment
+0x62900000031c: note: pointer points here
+  be be be be be be be be  be be be be be be be be  be be be be be be be be  be be be be be be be be
+              ^ 
+dependencies/ujson4c/src/ujdecode.c:199:11: runtime error: member access within misaligned address 0x62900000031c for type 'struct KeyPair', which requires 8 byte alignment
+0x62900000031c: note: pointer points here
+  be be be be be be be be  be be be be be be be be  be be be be 00 00 00 00  00 00 00 00 be be be be
+              ^ 
+dependencies/ujson4c/src/ujdecode.c:200:12: runtime error: member access within misaligned address 0x62900000031c for type 'struct KeyPair', which requires 8 byte alignment
+0x62900000031c: note: pointer points here
+  be be be be c0 02 00 00  90 62 00 00 be be be be  be be be be 00 00 00 00  00 00 00 00 be be be be
+              ^ 

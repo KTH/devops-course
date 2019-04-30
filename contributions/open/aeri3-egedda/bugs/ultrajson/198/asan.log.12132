@@ -1,0 +1,49 @@
+=================================================================
+==12132==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x607000000221 at pc 0x5596d3f5350c bp 0x7ffc95378720 sp 0x7ffc95378710
+READ of size 1 at 0x607000000221 thread T0
+    #0 0x5596d3f5350b in SkipWhitespace dependencies/ujson4c/3rdparty/ultrajsondec.c:370
+    #1 0x5596d3f57838 in JSON_DecodeObject dependencies/ujson4c/3rdparty/ultrajsondec.c:882
+    #2 0x5596d4104d8b in UJDecode dependencies/ujson4c/src/ujdecode.c:828
+    #3 0x5596d3f8753c in main tests/ultrajsoncheckfile.cpp:86
+    #4 0x7f8b2177fce2 in __libc_start_main (/usr/lib/libc.so.6+0x23ce2)
+    #5 0x5596d3f0990d in _start (/parsers/ultrajson+0x37990d)
+
+0x607000000221 is located 0 bytes to the right of 65-byte region [0x6070000001e0,0x607000000221)
+allocated by thread T0 here:
+    #0 0x7f8b22827389 in __interceptor_malloc /build/gcc/src/gcc/libsanitizer/asan/asan_malloc_linux.cc:86
+    #1 0x5596d3f87124 in main tests/ultrajsoncheckfile.cpp:82
+    #2 0x7f8b2177fce2 in __libc_start_main (/usr/lib/libc.so.6+0x23ce2)
+
+SUMMARY: AddressSanitizer: heap-buffer-overflow dependencies/ujson4c/3rdparty/ultrajsondec.c:370 in SkipWhitespace
+Shadow bytes around the buggy address:
+  0x0c0e7fff7ff0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x0c0e7fff8000: fa fa fa fa 00 00 00 00 00 00 00 00 00 fa fa fa
+  0x0c0e7fff8010: fa fa 00 00 00 00 00 00 00 00 00 fa fa fa fa fa
+  0x0c0e7fff8020: 00 00 00 00 00 00 00 00 00 fa fa fa fa fa 00 00
+  0x0c0e7fff8030: 00 00 00 00 00 00 00 fa fa fa fa fa 00 00 00 00
+=>0x0c0e7fff8040: 00 00 00 00[01]fa fa fa fa fa fa fa fa fa fa fa
+  0x0c0e7fff8050: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c0e7fff8060: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c0e7fff8070: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c0e7fff8080: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c0e7fff8090: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+==12132==ABORTING

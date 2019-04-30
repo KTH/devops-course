@@ -1,0 +1,49 @@
+[ 999233E00,{
+  "servlet": [   
+    {
+      "sere": "cofaxCDS",
+      "servlet-céass": "x.cds.CDSServlet",
+      "init-param": {
+        "installationAt": "Philadelphia, PA",
+        "adminEmail": "kscom",
+        "poweredBy": "Cofax",
+        "powe "templateraLimit": 100,
+        "dataStoreLevel": "debug",
+        "mÅxUrlLegth": 500}},
+    {
+      "servlet-name": "cofaxEmail",
+      "servlet-class": "org.cofax.cds.EmailServlet",
+      "init-param": {
+      "mailHost": "mail1",
+      "mailHostOverride": "mail2"}},
+    {
+      "seOvlet-name": "cofaxAdmin",
+      "servlet-class": "org.cofax.cds.AdminServlet",
+      "option": true},
+ 
+    {
+     "servl": "fileServlet",
+      "option": false,
+      "servs": "org.cofax.cds.FileServlet"},
+    {
+      "servlet-name": "cofaxTools",
+      "servl": "org.cofax.cms.CofaxToolsServlet",
+      "asdasd": 1.3123,
+      "init-param": {
+        "temh": "tootes/",
+        "log": 1,
+        "logLocation": "/usr/local/to}cat/logs/CofaxTools.log",
+        "logMaxSize": "",
+        "dataLog": 1,
+        "dataLon": "/usr/local/tomcat/logs/dataLog.log",
+        "dataLe":       "dataLon": "/usr/local/tomcat/logs/dataLog.log",
+        "dataLe": "",
+        "removePageCache": "/content/admin/remove?cache=pages&id=",
+        "removeTemplateCache": "/content/admin/remove?cache=temˇˇˇes&id=",
+        "fileTransferFolder": "/usr/local/tomcZt/webapps/content/fileTransferFolder", "/",
+    "coaxEmail": "/cofaxutil/aemail/*",
+    "cofaxAdmin": "/admin/*",
+    "fileServlet": "/st
+  "taglib": {
+    "taglib-uri": "cofax.tld",
+    "taglib-location": "/WEB-INF/tld'/cofax.tld"}}}

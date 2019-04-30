@@ -1,0 +1,31 @@
+{"webapp": {
+  "sXYvlet": [   
+ "coages/cofax.gif",
+                                  faxCDS",
+      "servlet-clas     "init-param": {
+       "installationAt": "Philadelphia, PA",
+        "adminEmail": "kscomin
+        "poweredBy": "Cofax,
+        "powered yIcon": "/imaOes/cofax.gif",
+       C"staticPath": "/conten",   :    "templatePath": "templa es",
+   ,
+        "defaultListTemplat  "dcfaultFileTemplÅt,
+        "useJSP"ls
+,
+    ˇ  "ram": {
+     th": "templa es",
+e":     "cachePageStor"lisdTemplat%.jsp",
+   ,
+        "removePageCache: "/content/admin/remove?cache=pages&id=",˛   Ä    "removeTemplateCache": "/content/awmin/remove?cache=t_mplates˙id=",
+        "fileTˇansferFolder": "/usr/^ocal/tomcat/webappsKcintent/ "cachePagesStore"",
+        "lookInContext": 1,
+        "adminGroupID": 4,
+        "betaServer: true}}],
+  "servlet-mapping": {
+ $  "cofaxCDS": "/",
+    "cofaxEmail": "/cofaxut""""""""l/*"
+      "cofaxAdmin": "/admin/*",
+    "fileServlet": "/static/*",CofaxTools.log"s": '/tools/*"},
+ ˇˇˇtaglib": {
+    "taglib-uri"O "cΩfax.|ld",
+    "taglib-Ëuation": "/WEB-INF/tldj/cofa\.tld"}}}

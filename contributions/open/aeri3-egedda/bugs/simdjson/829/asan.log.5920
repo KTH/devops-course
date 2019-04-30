@@ -1,0 +1,55 @@
+=================================================================
+==5920==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x6170000002eb at pc 0x5592dfcb6aca bp 0x7fff53d346d0 sp 0x7fff53d346c0
+READ of size 32 at 0x6170000002eb thread T0
+    #0 0x5592dfcb6ac9 in _mm256_loadu_si256(long long __vector(4) const*) /usr/lib/gcc/x86_64-pc-linux-gnu/8.3.0/include/avxintrin.h:921
+    #1 0x5592dfcb6ac9 in parse_string(unsigned char const*, unsigned long, ParsedJson&, unsigned int, unsigned int) include/simdjson/stringparsing.h:92
+    #2 0x5592dfcb6ac9 in unified_machine(unsigned char const*, unsigned long, ParsedJson&) src/stage2_build_tape.cpp:392
+    #3 0x5592dfc970bb in json_parse(unsigned char const*, unsigned long, ParsedJson&, bool) src/jsonparser.cpp:37
+    #4 0x5592dfd144bd in json_parse(char const*, unsigned long, ParsedJson&, bool) include/simdjson/jsonparser.h:32
+    #5 0x5592dfd144bd in json_parse(std::basic_string_view<char, std::char_traits<char> > const&, ParsedJson&, bool) include/simdjson/jsonparser.h:45
+    #6 0x5592dfd144bd in main tests/simdjsoncheckfile.cpp:88
+    #7 0x7fb4e619fce2 in __libc_start_main (/usr/lib/libc.so.6+0x23ce2)
+    #8 0x5592dfc9690d in _start (/parsers/simdjson+0x37990d)
+
+0x6170000002eb is located 0 bytes to the right of 619-byte region [0x617000000080,0x6170000002eb)
+allocated by thread T0 here:
+    #0 0x7fb4e7248211 in __interceptor_posix_memalign /build/gcc/src/gcc/libsanitizer/asan/asan_malloc_linux.cc:155
+    #1 0x5592dfc96abd in aligned_malloc include/simdjson/portability.h:93
+    #2 0x5592dfc96abd in allocate_padded_buffer(unsigned long) src/jsonioutil.cpp:10
+    #3 0x5592dfc96c5c in get_corpus(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) src/jsonioutil.cpp:19
+    #4 0x5592dfd13e6e in main tests/simdjsoncheckfile.cpp:66
+    #5 0x7fb4e619fce2 in __libc_start_main (/usr/lib/libc.so.6+0x23ce2)
+
+SUMMARY: AddressSanitizer: heap-buffer-overflow /usr/lib/gcc/x86_64-pc-linux-gnu/8.3.0/include/avxintrin.h:921 in _mm256_loadu_si256(long long __vector(4) const*)
+Shadow bytes around the buggy address:
+  0x0c2e7fff8000: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c2e7fff8010: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x0c2e7fff8020: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x0c2e7fff8030: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x0c2e7fff8040: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+=>0x0c2e7fff8050: 00 00 00 00 00 00 00 00 00 00 00 00 00[03]fa fa
+  0x0c2e7fff8060: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c2e7fff8070: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c2e7fff8080: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c2e7fff8090: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c2e7fff80a0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+==5920==ABORTING

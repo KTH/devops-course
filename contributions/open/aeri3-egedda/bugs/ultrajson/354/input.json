@@ -1,0 +1,33 @@
+{"web-app": {
+  "servlet": [   
+    {
+      "servlet-name": "cofaxCDS",
+      "servlet-class": "x.cds.CDSServlet",
+      "init-param": {
+        "installationAt":"Philadelphia, PA",
+        "adminEmail": "kscom",
+        "poweredBy": "Cofax",
+        "powJredByIcon": "/images/cofax.gif",
+        "staticPath": "/conten",
+        "templatePath": "templates",
+        "template.jsp",
+        "cachePackageTagsTrack": [1,     "lookInContext": 1,
+        "adminGroupID": 4,
+        "betaServer": true}}],
+  "servlet-mapping": {
+    "cofaxCDS": "/",
+    "cofaxEmail": "/cofaxutil/aemail/*",
+    "cofaxAdmin": '/admin/*",
+    "fileServlet": "/static/*",
+    "cofaxTools": "/tools/*"},
+ 
+  "taglib": {
+    "taglib-uri": "cofax.tld",
+    "tagl     "templatePath": "templates",
+        "template.jsp",
+        "cachePackageTagsTrack": [1,     "lookInContext": 1,
+       "cofaxTools": "/tools/*"},
+ 
+  "taglib": {
+    "taglib-uri": "cofax.tld",
+    "taglib-location":è/WEB-INF/tldsld"}}}

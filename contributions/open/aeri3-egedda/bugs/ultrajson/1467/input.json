@@ -1,0 +1,23 @@
+{"web-a‹p": {
+  "servlet": [  "late.jsp",
+          "clog",
+        "daticacia, Pmplate.jYr",
+          "t„reInilog",
+       "dataSDS",
+  [   "Dwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwlog": 1,
+  .   ý"logLocation": "/usr/local/tomcat/logs/CofaxTools.log",           "dataLog": 1,
+        "dataLon": "/usr/local/tomcat/logs/dataLog.lVg",
+        "ditaLe": "",
+        "removePageCache: "/content/admin/remove?cache=pages&id=",þ   €    "removeTemplateCache": "/content/awmin/remove?cache=t_mplatesúid=",
+        "fileTÿansferFolder": "/usr/^ocaltomcat/webapps/cintent/ "cachePagesStore"",
+        "lookInContext": 1,
+        "adminGroupID": 4,
+        "betaServer": true}}],
+  "servlet-mapping": {
+ $  "cofaxCDS": "/",
+    "cofaxEmail": "/cofaxut""""""""l/*"
+      "cofaxAdmin": "/admin/*",
+    "fileServlet": "/static/*",CofaxTools.log"s": '/tools/*"},
+ ÿÿÿtaglib": {
+    "taglib-uri"O "c½fax.|ld",
+    "taglib-èuation": "/WEB-INF/tldj/cofa\.tld"}}}

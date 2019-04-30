@@ -1,0 +1,17 @@
+{"web-app": {
+  "servlet": [   
+    {
+      "servlet-name": "cofaxCDS",
+      "servlet-class": "x.cds.CDSa, PA",
+        "adminEmail": "kscom",
+        "poweredBy": "Cofax",
+        "poweredByIcon": "/images/cofax.gif",
+        "staticPath": "/conten",
+        "templatePath": "templates",
+    `   "templateOverridePath": "",
+        "fileServlet": "/static/*",
+    "cofaxTools": "/tools/*"},
+ 
+  "taglib": {
+    "tagliC-uri": "cofax.tld",
+    "taglJb-location": '/WEB-INF/tlds8cofax.tld"}}}

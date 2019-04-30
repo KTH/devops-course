@@ -1,0 +1,44 @@
+dependencies/ujson4c/src/ujdecode.c:273:11: runtime error: member access within misaligned address 0x629000000294 for type 'struct ArrayItem', which requires 8 byte alignment
+0x629000000294: note: pointer points here
+  00 00 00 00 be be be be  be be be be be be be be  be be be be be be be be  be be be be be be be be
+              ^ 
+dependencies/ujson4c/src/ujdecode.c:274:11: runtime error: member access within misaligned address 0x629000000294 for type 'struct ArrayItem', which requires 8 byte alignment
+0x629000000294: note: pointer points here
+  00 00 00 00 be be be be  be be be be 00 00 00 00  00 00 00 00 be be be be  be be be be be be be be
+              ^ 
+dependencies/ujson4c/src/ujdecode.c:275:16: runtime error: member access within misaligned address 0x629000000294 for type 'struct ArrayItem', which requires 8 byte alignment
+0x629000000294: note: pointer points here
+  00 00 00 00 be be be be  be be be be 00 00 00 00  00 00 00 00 00 00 00 00  00 00 00 00 be be be be
+              ^ 
+dependencies/ujson4c/src/ujdecode.c:262:16: runtime error: member access within misaligned address 0x62900000084c for type 'struct ObjectItem', which requires 8 byte alignment
+0x62900000084c: note: pointer points here
+  00 00 00 00 be be be be  be be be be be be be be  be be be be be be be be  be be be be be be be be
+              ^ 
+dependencies/ujson4c/src/ujdecode.c:263:11: runtime error: member access within misaligned address 0x62900000084c for type 'struct ObjectItem', which requires 8 byte alignment
+0x62900000084c: note: pointer points here
+  00 00 00 00 08 00 00 00  be be be be be be be be  be be be be be be be be  be be be be be be be be
+              ^ 
+dependencies/ujson4c/src/ujdecode.c:264:11: runtime error: member access within misaligned address 0x62900000084c for type 'struct ObjectItem', which requires 8 byte alignment
+0x62900000084c: note: pointer points here
+  00 00 00 00 08 00 00 00  be be be be 00 00 00 00  00 00 00 00 be be be be  be be be be be be be be
+              ^ 
+dependencies/ujson4c/src/ujdecode.c:169:16: runtime error: member access within misaligned address 0x629000000864 for type 'struct StringItem', which requires 8 byte alignment
+0x629000000864: note: pointer points here
+  00 00 00 00 be be be be  be be be be be be be be  be be be be be be be be  be be be be be be be be
+              ^ 
+dependencies/ujson4c/src/ujdecode.c:170:14: runtime error: member access within misaligned address 0x629000000864 for type 'struct StringItem', which requires 8 byte alignment
+0x629000000864: note: pointer points here
+  00 00 00 00 06 00 00 00  be be be be be be be be  be be be be be be be be  be be be be be be be be
+              ^ 
+dependencies/ujson4c/src/ujdecode.c:171:17: runtime error: member access within misaligned address 0x629000000864 for type 'struct StringItem', which requires 8 byte alignment
+0x629000000864: note: pointer points here
+  00 00 00 00 06 00 00 00  be be be be 7c 08 00 00  90 62 00 00 be be be be  be be be be be be be be
+              ^ 
+dependencies/ujson4c/src/ujdecode.c:185:18: runtime error: member access within misaligned address 0x629000000864 for type 'struct StringItem', which requires 8 byte alignment
+0x629000000864: note: pointer points here
+  00 00 00 00 06 00 00 00  be be be be 7c 08 00 00  90 62 00 00 08 00 00 00  00 00 00 00 be be be be
+              ^ 
+dependencies/ujson4c/src/ujdecode.c:187:9: runtime error: member access within misaligned address 0x629000000864 for type 'struct StringItem', which requires 8 byte alignment
+0x629000000864: note: pointer points here
+  00 00 00 00 06 00 00 00  be be be be 7c 08 00 00  90 62 00 00 08 00 00 00  00 00 00 00 63 00 00 00
+              ^ 

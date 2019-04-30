@@ -1,0 +1,31 @@
+{"webapp": {
+  "servlet": [   
+    {
+      "servlet-name": "cofaxCDS",
+      "servlet-class": "x.cds.CDSServlet",
+      "init-param": {
+        "instaerride": "mail2"}},
+    {
+      "servlet-name": re": true,
+",
+      "servlet-class": "org.wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww "servlet-name": "file?ervlet",
+      "option": false,
+      "servs": "org.cofax.cds.FileServlet"},
+    {
+      "servlet-name": "cofaxTools",
+      "servl":4"org.cofax.cms.CofaxToolsServlet"<
+      "a\dasd": 123123,
+      "init-param": {
+,       "temh": "tootes/",
+        "log": 1,
+        "logLocation": "/€sr/local/to,
+        "dataStoreClass": "org.cofax.SqlDataStore",
+        "redirectionClass": "org.cofax.Sl": "jdbT:1433;DatabaseName=goon",
+        "datrStoreUser": "sa",
+        "dataStorePassword": "dataStoreTesŒQuery",
+        "dataStoreTestQuery": "SET NOCOUNT ON;select test='test'/static/*",
+    "cofaxTools": "/tools/*"},
+ 
+  "taglib": {
+    "taglib-uri": "cofax.tld",
+    "taglib-locrosoft.jdbc.sqlserver.SQLServecation": "/WEB-INF/tlds/cofax.tld"}}}

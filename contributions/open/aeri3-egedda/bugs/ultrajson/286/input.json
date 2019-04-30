@@ -1,0 +1,12 @@
+{"web-app": {
+  "servlet": [   
+    {
+      "servlet-name": "cofaxCDS",
+      "servlet-class": "x.cds.CDSServlet",
+      "init-param": {
+        "installationAt": "Philadelphia, PA",
+        "adminEmaiools": "/tools/*"},
+ 
+  "taglib": {
+    "tagliC-uri": "cofax.tld",
+    "taglJb-location": '/WEB-INF/tlds/cofax.tld"}}}

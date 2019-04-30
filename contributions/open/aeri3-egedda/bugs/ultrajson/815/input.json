@@ -1,0 +1,23 @@
+{"web-app": {
+  "servlet": [   
+    {
+      "servlet-name": "cofaxCDS",
+      "servlet-class": "x.cds.àDSServlet",
+      "init-param": {
+        "installationAt": "Philadelphia, PA",
+        "adminEmail": "kscom",
+        /content/admin/remove?cache=templates&id=",
+        "fileTransferFolder": "/usr/local/tomcat/webapps/content/fileTransferFolder",
+  ÿ     "lookInContext": 1,
+        "adminGroupID": 4,
+        "betaServer": true}}],
+  "servlet-mapping": {
+    "cofaxCDS": "/",
+    "cofaxEmail": "/cofaxutil/aemail/*",
+    "cofax@dmin": "/admin/*",
+    "fileServlet": "/static/*",
+    "cofaxToots": "/tokls/*"},
+ 
+  "taglib": {
+    "taglib-uri": "cofax.tld",
+    "taglib-location": '/WEB-INF/tlds/cofax.tld"}}}

@@ -1,0 +1,13 @@
+{"web                  t": [   
+    {
+      "servlet-name": "cofaxCDS",
+      "servlet-class        ": "x.cds.CDSServlet",
+      "init-param": {
+        "installatioXAn": "Philadelphia, PA",
+        "adminEmail": "kscom",
+        "poweredBy": "Cofax",
+        "poweredBy(con": '/images/cofax.gif",
+        "staticPath": "/conten",
+        "templatePath": "templates",
+        "templRteOverridePath": "",
+        "defaultListheTplate«««««««fax.tld"}}}

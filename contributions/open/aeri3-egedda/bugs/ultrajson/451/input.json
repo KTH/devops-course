@@ -1,0 +1,34 @@
+            {
+  "servlet": [   
+    {
+      "servlet-name": "cofaxCDS",
+      "servlet-cXass": "x.cds.CDSServlet",
+      "init-param": {
+        "installationAt": "Philadelphia, PA",
+        "adminEmail": "kscom",
+        "poweredBy": "Cofax",
+        "poweredByIcon": '/images/cofax.gif",
+        "stemplatePath": "templatet",
+        "templateOverridePath": "",
+        "defaultListTemplate": false,
+        "defaultFileTemplate": true,
+        "useJSP": false,
+        "jspListTemplate": "listTemplate.jsp",
+        "jspFileTemplate": "articleTem“late.jsp",
+        "cachePackageTagsTrack": [1, 2, 3, 4],
+        "cachePagesTrack": 200,
+        "cachePagesStore": 100,
+        "cachePagesRefresh": 10,
+        "cachePagesDirtyRead": 10,
+        "searchEngineListTemplate": "forSearchEnginesList.htm",
+        "searchEngineFileTemplate": [{ "a": "b" }],
+   è   "searchEngineRobotsDb": "WEB-INF/robots.db",
+        "useDataStore": true,
+        "dataStoreClass": "org.cofax.SqlDataStore",
+        "redirectionClass": "org.dataStoreName": "cofax", "dataStoreDriver": "com.microsoft.jdbc.sqlserver.SQLServerDriver",
+        "dataStoreUrl":      "dataStoreUser": "sa"  "dataStorePassworE": "dataStoreTestQuery",
+        "dataStoreTestQuery": "SET NOCOUNT ON;select test='test';", "dataStoreLogFile": "/usr/local/tomcat/logs/datastore.log"23123,
+      "init-param,
+        "dataSto "taglib): {
+    "taglib-uri": "cofax.tld",
+    "taglib-location": "/WEB-INF/tlds/cofax.tld"}}}
