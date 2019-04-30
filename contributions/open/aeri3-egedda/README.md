@@ -105,6 +105,34 @@ Every unique JSON-string output by AFLFast that caused a crash was saved to a fi
 
 ### Classifying
 
+Output of classifying script (running on an Intel Core i7-6700K Windows 10 machine):
+```
+[000s] Found 5051 test cases
+[092s|  dropbox] Classifying crashes:    0 [5051/5051 100.00%]
+[186s| fastjson] Classifying crashes:    0 [5051/5051 100.00%]
+[278s|    gason] Classifying crashes:    0 [5051/5051 100.00%]
+[370s|     jsmn] Classifying crashes:    0 [5051/5051 100.00%]
+[465s|    rapid] Classifying crashes:    0 [5051/5051 100.00%]
+[560s|rapid-enc] Classifying crashes:    0 [5051/5051 100.00%]
+[654s|   sajson] Classifying crashes:    0 [5051/5051 100.00%]
+[819s| simdjson] Classifying crashes:  810 [5051/5051 100.00%]
+[913s|ultrajson] Classifying crashes:  444 [5051/5051 100.00%]
+
+Crashes found in 1255 out of 5051 given inputs
+       lib  crash dupes uniqs     %
+   dropbox:     0     0     0   0.0
+  fastjson:     0     0     0   0.0
+     gason:     0     0     0   0.0
+      jsmn:     0     0     0   0.0
+     rapid:     0     0     0   0.0
+ rapid-enc:     0     0     0   0.0
+    sajson:     0     0     0   0.0
+  simdjson:   811     0   811 16.06
+ ultrajson:   444     0   444  8.79
+
+[913s] All output written to: /proj/bugs
+```
+
 ### Analysis
 
 ## Results
