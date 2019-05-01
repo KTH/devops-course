@@ -69,9 +69,9 @@ def print_stat_student(stat_info):
         stat_table.add_row([index, student, task_count, " ".join(stat_info[student])])
         summary[task_count].append(student)
         index = index + 1
-        
-        if task_count >= 4:
-            logging.warn("%s's task_count >= 4"%student)
+
+        if task_count > 4:
+            logging.warn("%s's task_count is: %d (> 4)"%(student, task_count))
 
     print(stat_table)
 
@@ -85,7 +85,7 @@ def print_stat_student_markdown(stat_info):
     print("|------|--------------|---------------------|-----------|")
 
     index = 1
-    summary = {5:[], 4:[], 3:[], 2:[], 1:[]}
+    summary = {4:[], 3:[], 2:[], 1:[]}
     for student in stat_info:
         task_count = len(stat_info[student])
         print("|%s|%s|%s|%s|"%(index, student, task_count, " ".join(stat_info[student])))
@@ -107,7 +107,7 @@ def stat_categories(path):
         for category in dirnames:
             categories[category] = {"path":os.path.join(dirpath, category), "task_count":0}
         break
-    
+
     for category in categories:
         for dirpath, dirnames, filenames in os.walk(categories[category]["path"], topdown=True):
             if (category == "presentation"):
@@ -135,7 +135,7 @@ def stat_students(category, path):
                 for x in folder.split("-"):
                     student_names.append(x)
             break
-    
+
     return student_names
 
 def handle_args(argv):
