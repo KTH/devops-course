@@ -10,3 +10,6 @@ We're inspired by the [build scans](https://gradle.com/build-scans/) that Gradle
 
 ![Components](diagram.png)
 
+## Submission URL
+
+URL to our repository for the project: https://github.com/jqhan/bsca
