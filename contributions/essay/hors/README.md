@@ -5,3 +5,7 @@ First I would note down my journey to integrate Helm into a simple gitlab reposi
 
 ## Member
 * Stephan Horsthemke - hors@kth.se
+
+## Document
+I decided to write it in markdown and have it as a README for the accompanying project. The repository is here:
+https://gitlab.com/stephan.horsthemke/50-days-cncf/blob/master/README.md
