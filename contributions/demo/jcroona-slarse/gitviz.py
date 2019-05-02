@@ -20,6 +20,10 @@ class Ref(namedtuple("Ref", "name value".split())):
             [f'"{self.name}" [shape=rect];', f'"{self.name}" -> "{self.value}";']
         )
 
+    @property
+    def graphviz_tag(self):
+        return self.name
+
 
 class Child(namedtuple("Child", "name obj".split())):
     def __getattr__(self, key):
@@ -58,6 +62,10 @@ class GitObject:
     def to_graphviz(self):
         return self._to_graphviz_node() + "\n" + self._to_graphviz_edges()
 
+    @property
+    def graphviz_tag(self):
+        return self.short_sha
+
     def _to_graphviz_node(self):
         return (
             f'"{self.short_sha}" [label="{self.type_}\n{self.short_sha}"'
@@ -68,10 +76,12 @@ class GitObject:
         output = ""
         if self.children:
             for child in self.children:
-                output += f'"{self.short_sha}" -> "{child.short_sha}" [label="{child.name}"];\n'
+                output += f'"{self.graphviz_tag}" -> "{child.graphviz_tag}" [label="{child.name}"];\n'
         if self._parents:
             for parent in self._parents:
-                output += f'"{parent.short_sha}" -> "{self.short_sha}" [dir=back];\n'
+                output += (
+                    f'"{parent.graphviz_tag}" -> "{self.graphviz_tag}" [dir=back];\n'
+                )
         return output.strip()
 
     def __repr__(self):
@@ -150,9 +160,9 @@ def add_parents_and_tree(commit, git_objects):
 
 def to_cluster(git_objects, label):
     """Return a string with a graphviz cluster of the provided git objects."""
-    content = "\n".join(list(map(GitObject.to_graphviz, git_objects)))
+    content = "\n".join([obj.to_graphviz() for obj in git_objects])
     return f"""subgraph cluster_{label} {{
-label="{label}"
+label="{label}";
 style="rounded";
 bgcolor=beige;
 {content}
@@ -201,12 +211,13 @@ def to_graphviz(git_objects, refs):
     if "commit" in groups:
         output += to_cluster(groups["commit"], "Commits")
     if refs:
-        output += "\n".join([""] + list(map(Ref.to_graphviz, refs)))
+        output += "\n".join([ref.to_graphviz() for ref in refs])
 
     return f"""digraph G {{
-nodesep=.7;
-ranksep=.7;
+nodesep=.3;
+ranksep=.5;
 node [style=filled];
+rankdir=LR;
 {output}
 }}"""
 
