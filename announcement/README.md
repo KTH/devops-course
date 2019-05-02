@@ -11,7 +11,7 @@ Note that the following time duration is for critiques to come and grade your de
 | Group Number | Group Name | Topic |
 | ------------ | ---------- | ----- |
 | #1 | adamhas-tumanis | Automated UI Testing |
-| #2 | asjobom | CD Pipeline with GitLab Auto Devops deploying to a Kubernetes cluster on GKE |
+| #2 | asjobom | CD Pipeline with GitLab Auto Devops deploying to a K8s cluster on GKE |
 | #3 | erikjo9 | Dynamic Jenkins build agents using AWS |
 | #4 | harisa | Automatic repair of faulty code using SPOON and SonarQube |
 | #5 | jcroona-slarse | Git plumbing - What is a commit? |
