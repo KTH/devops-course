@@ -2,6 +2,8 @@
 
 ## Schedule of Michelin Devops Demo Day
 
+Location: [Room U21](https://www.kth.se/places/room/id/de8a7fa7-90dc-4ae7-ab75-282b6020d8a5), [U21 Break-out](https://www.kth.se/places/room/id/b7f34dc7-be16-4e37-a339-1e9f048b1772) and [U-Utställningssal](https://www.kth.se/places/room/id/cc4a63e9-62f9-4181-9e4d-c44a21c18c73) (Please use `U21` and `U21 Break-out` as priority.)
+
 Note that the following time duration is for critiques to come and grade your demos. Please come earlier and prepare for your booth before 09:15/10:15.
 
 **Session 1: 09:15 - 10:00**
