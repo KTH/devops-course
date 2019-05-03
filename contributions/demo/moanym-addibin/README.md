@@ -1,8 +1,8 @@
-# Set up intrastructure at AWS with Terraform to host webapp
+# Automate iOS development workflow
 
 #### Group members
 
 Moa Nyman moanym@kth.se<br>
 Addibin Haider adibbin@kth.se
 
-We will use Terraform to setup the necessary infrastructure at AWS to host a backend for a potential webapp.
+Our suggestion is to automate an iOS developer workflow, including pre-commit linting, testing on push and if the tests are successful publishing beta apps to a distributor with Fastlane.
