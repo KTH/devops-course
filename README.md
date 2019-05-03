@@ -67,7 +67,7 @@ The date, time and rooms are at <https://cloud.timeedit.net/kth/web/public01/ri1
   * Recall: the competition submissions must be sent before April 23, 23:59, Stockholm time, to dd2482@eecs.kth.se
 
 ### Week 6: May 2 13h
-* Preparatory reading: TBA
+* Preparatory reading: [Course notes](https://www.monperrus.net/martin/monitoring.pdf)
 * Lecture: Monitoring, tracing, fault injection (Martin Monperrus) + [Monitoring and tracing in Kubernetes](https://docs.google.com/presentation/d/1BKhdIU8aXJB7qE2CRn6RjmXKxd0J1N4B2-DTU9OtQPs/edit?usp=sharing) (Long Zhang)
 * Student presentations (Panel: Martin Monperrus, Benoit Baudry)
   * Topic suggestions: [#8](https://github.com/KTH/devops-course/issues/8) [#21](https://github.com/KTH/devops-course/issues/21)
@@ -84,9 +84,8 @@ The date, time and rooms are at <https://cloud.timeedit.net/kth/web/public01/ri1
   
 ### Week 8: May 13 8h
 
-* Preparatory reading: TBA
-* 13h15 Wrap-up & Feedback
-* 14h15 Lecture: Massive-Scale QA for multi-player video games ([David King - DICE](https://www.linkedin.com/in/david-king-83b9765b), [Mark Baker - DICE](https://www.linkedin.com/in/markltbaker/))
+* 9h15 Wrap-up & Feedback
+* 10h15 Lecture: Massive-Scale QA for multi-player video games ([David King - DICE](https://www.linkedin.com/in/david-king-83b9765b), [Mark Baker - DICE](https://www.linkedin.com/in/markltbaker/))
 * Final Course [Potluck](https://en.wikipedia.org/wiki/Potluck)
 
 ## Grading
