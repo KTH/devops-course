@@ -2,8 +2,8 @@ Demo proposal
 
 Demoers: Henry Luong(talip@kth.se) and Kartik Kandavel Mudaliar(mudaliar@kth.se)
 
-Topic: Infrastructure as code and monitoring 
+Topic: Infrastructure as code with Terraform 
 
-Description: For this demo we would like to demonstrate Terraform for Infrastructure as code and Humio for monitoring our 
+Description: For this demo we would like to demonstrate Terraform together with Jenkins and Kubernetes to Deploy our apps in [this repo](https://github.com/Tailp/DemoTerraForm) to construct a cluster called Game Center for other to connect and play any game we have deployed. For more details please watch the screencast.
 
-Jenkins pipeline
+
