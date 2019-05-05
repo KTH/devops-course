@@ -19,6 +19,8 @@ Note that the following time duration is for critiques to come and grade your de
 | #7 | mudaliar-tailp | Infrastructure as code and monitoring |
 | #8 | pridell-pornell | App deployment with Dokku and DigitalOcean |
 | #18 | sjager-baarsoe | CI/CD pipeline with Azure DevOps |
+| #20 | lcjna-nacarter | Virtual File System For Git |
+| #22 | axellaru | Introduction to Snort - DevOps tool for security |
 
 **Session 2: 10:15 - 11:00**
 
@@ -34,6 +36,7 @@ Note that the following time duration is for critiques to come and grade your de
 | #16 | saraers-egood-fnorr | CI/CD pipeline using Docker and Microsoft Azure |
 | #17 | tonik-krijor | Automatic Static Site Redeploys |
 | #19 | gaborn | A/B Testing using Wasabi |
+| #21 | ajjo | Manage secrets and protect sensitive data using HashiCorp Vault |
 
 ## Deadlines for different tasks
 
