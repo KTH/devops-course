@@ -14,11 +14,11 @@ To reach this we want to first evaluate some CI/CD tools like travis(https://tra
 In the end, we chose Gitlab with kubernetes as our final solution. We build an automatic CICD pipeline to deploy to Google Cloud in different environments such as staging and production .
 
 source:
-https://kubernetes.io/docs/setup/turnkey/aws/
-https://kubernetes.io/
+- https://kubernetes.io/docs/setup/turnkey/aws/
+- https://kubernetes.io/
 
 Screencast:
-https://www.youtube.com/watch?v=Ziy7Fz2tr_0
+- https://www.youtube.com/watch?v=Ziy7Fz2tr_0
 
 Gitlab:
-https://gitlab.com/stephan.horsthemke/awesome-ci
+- https://gitlab.com/stephan.horsthemke/awesome-ci
