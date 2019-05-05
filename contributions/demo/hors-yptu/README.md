@@ -4,7 +4,7 @@
 Stephan Horsthemke (hors@kth.se)
 Yi-Pei Tu (yptu@kth.se)
 
-##AwesomeCI
+## AwesomeCI
 
 In this demo, we want to use kubernetes on AWS(https://aws.amazon.com/eks/) to design a CI/CD pipeline.
 This pipeline connects to git repositories, tests automatically and builds new images in case of successfull tests. New images are automatically deployed in the cluster. Ultimately we want to have a setup in which we only push a change to the master of the repository and, in case the code is alright, the new version will automatically run in the cluster. We will also consider development, testing, and production enviroment to fit the real process in industry.
