@@ -11,11 +11,12 @@ This pipeline connects to git repositories, tests automatically and builds new i
 
 To reach this we want to first evaluate some CI/CD tools like travis(https://travis-ci.org/) and circleCI (https://circleci.com/) to then create the demo with our favorite solution.
 
-In the end, we chose Gitlab with kubernetes as our final solution. We build an automatic CICD pipeline to deploy to Google Cloud in different environments such as staging and production .
-
 source:
 - https://kubernetes.io/docs/setup/turnkey/aws/
 - https://kubernetes.io/
+
+## Submission
+In the end, we chose Gitlab with kubernetes as our final solution. We build an automatic CICD pipeline to deploy to Google Cloud in different environments such as staging and production .
 
 Screencast:
 - https://www.youtube.com/watch?v=Ziy7Fz2tr_0
