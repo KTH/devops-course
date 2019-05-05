@@ -4,6 +4,7 @@
 
 - Axel Larusson <axellaru@kth.se>
 
+<<<<<<< HEAD
 ## Screencast 
 https://www.youtube.com/watch?v=-TI0XCAxtds&feature=youtu.be
 
