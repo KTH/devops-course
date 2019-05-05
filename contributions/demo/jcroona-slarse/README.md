@@ -2,6 +2,7 @@
 
 * **Group members:** Joakim Croona (jcroona@kth.se), Simon Larsén
   (slarse@kth.se)
+* **Screencast:** [Under the hood of Git: Objects and branches in 3 minuts](https://www.youtube.com/watch?v=_rLuz9gzDVQ)
 
 ### Background
 Version control is a fundamental part of DevOps. Without VCS, we think DevOps
@@ -24,3 +25,24 @@ visualising the `.git/objects` directory to facilitate understanding. The goal
 is that people who come in with a basic of understanding of how to use Git,
 leave with a basic understanding of what a commit actually is in terms of files
 and their relations to each other.
+
+### Using `gitviz.py`
+The [gitviz.py](gitviz.py) is the script that was used to generate the
+graphical representation of the Git objects and branches in the screencast. It
+has only been tested to run on Arch Linux, but should run on most any Linux
+distribution, and probably macOS as well.
+
+* **Requirements:** Python 3.6+, Evince and the `dot` command line program (from
+  `inkscape`).
+  - You can replace Evince and `dot` with any comparable programs and edit the
+    script. The document viewer (replacing Evince) must be able to automatically
+    refresh when a document is updated, and the replacement for `dot` must be
+    able to compile graphviz to a PDF.
+* **Usage:** Just run the script in the root directory of a _fresh_ Git
+  repository.
+  - That is to say, run `python3 gitviz.py`!
+  - The script cannot handle
+    [Packfiles](https://git-scm.com/book/en/v2/Git-Internals-Packfiles), so if
+    the repo has ever been pushed or pulled, the script will probably crash.
+  - Large repositories take a very long time to render with `dot`. Don't use
+    this on large repositories.
