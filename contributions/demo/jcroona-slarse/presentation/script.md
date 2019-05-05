@@ -28,3 +28,5 @@ three things to look at here. The terminal down here is
 where we will run commands. The terminal over here shows the
 directory structure of .git/objects, and the image here will
 show a visualization of the Git objects.
+
+**Begin live demo (largely follows the screencast) :)**
