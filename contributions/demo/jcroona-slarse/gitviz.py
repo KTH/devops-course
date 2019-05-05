@@ -104,7 +104,7 @@ class GitObject:
 
 
 def short_sha(sha):
-    return sha[:6]
+    return sha[:7]
 
 
 def git_cat_file(sha, *options):
@@ -179,7 +179,7 @@ def get_refs(git_root):
     refs = []
     if ref_heads.exists():
         refs += [
-            Ref(f.name, f.read_text(encoding=ENCODING).strip()[:6])
+            Ref(f.name, short_sha(f.read_text(encoding=ENCODING).strip()))
             for f in ref_heads.iterdir()
         ]
 
@@ -188,7 +188,7 @@ def get_refs(git_root):
         symb_value = (
             symb_contents[-1].split("/")[-1]
             if len(symb_contents) > 1
-            else symb_contents[-1][:6]
+            else short_sha(symb_contents[-1])
         )
         refs.append(Ref("HEAD", symb_value))
 
