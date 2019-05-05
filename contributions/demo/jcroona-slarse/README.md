@@ -2,7 +2,7 @@
 
 * **Group members:** Joakim Croona (jcroona@kth.se), Simon Larsén
   (slarse@kth.se)
-* **Screencast:** [Under the hood of Git: Objects and branches in 3 minuts](https://www.youtube.com/watch?v=_rLuz9gzDVQ)
+* **Screencast:** [Under the hood of Git: Objects and branches in 3 minutes](https://www.youtube.com/watch?v=_rLuz9gzDVQ)
 
 ### Background
 Version control is a fundamental part of DevOps. Without VCS, we think DevOps
