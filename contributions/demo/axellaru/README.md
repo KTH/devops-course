@@ -4,7 +4,6 @@
 
 - Axel Larusson <axellaru@kth.se>
 
-<<<<<<< HEAD
 ## Screencast 
 https://www.youtube.com/watch?v=-TI0XCAxtds&feature=youtu.be
 
@@ -13,7 +12,7 @@ https://www.youtube.com/watch?v=-TI0XCAxtds&feature=youtu.be
 Snort - DevOps tool for security https://www.snort.org/
 
 Link to short presentation:
-https://docs.google.com/presentation/d/1JO_0Fn_uvw-IKPwkHewa7W1JqsXzygO8JJSQP7YDEQ0/edit#slide=id.p
+https://docs.google.com/presentation/d/1JO_0Fn_uvw-IKPwkHewa7W1JqsXzygO8JJSQP7YDEQ0/edit?usp=sharing
 
 What is Snort? 
 An open source, cross-platform, intrusion prevention system developed by Cisco Systems.
