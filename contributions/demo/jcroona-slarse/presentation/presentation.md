@@ -1,12 +1,13 @@
 ## Git under the hood
 
 ```bash
+$ git init
 $ echo "important" > file.txt
 $ git add file.txt
 $ git commit -m "Add file"
 ```
 
-![Visualization of the .git/objects directory](gitviz.pdf)
+![Visualization of the .git/objects directory](gitviz.pdf){width=85%}
 
 \begin{multicols}{2}
 
