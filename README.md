@@ -8,6 +8,7 @@ Pull-requests are welcome! (and even necessary to register a work item).
 
 - [Short summary after the first lecture](announcement/README.md)
 - [Deadlines for different tasks](announcement/README.md)
+- [Schedule of Michelin Devops Demo Day](announcement/README.md)
 
 ## Schedule
 
@@ -66,10 +67,11 @@ The date, time and rooms are at <https://cloud.timeedit.net/kth/web/public01/ri1
   * Recall: the competition submissions must be sent before April 23, 23:59, Stockholm time, to dd2482@eecs.kth.se
 
 ### Week 6: May 2 13h
-* Preparatory reading: TBA
-* Lecture: Monitoring, tracing, fault injection (Martin Monperrus) + Monitoring and tracing in Kubernetes (Long Zhang)
+* Preparatory reading: [Course notes](https://www.monperrus.net/martin/monitoring.pdf)
+* Lecture: Monitoring, tracing, fault injection (Martin Monperrus) + [Monitoring and tracing in Kubernetes](https://docs.google.com/presentation/d/1BKhdIU8aXJB7qE2CRn6RjmXKxd0J1N4B2-DTU9OtQPs/edit?usp=sharing) (Long Zhang)
 * Student presentations (Panel: Martin Monperrus, Benoit Baudry)
   * Topic suggestions: [#8](https://github.com/KTH/devops-course/issues/8) [#21](https://github.com/KTH/devops-course/issues/21)
+  * [Presentation Agenda](https://github.com/KTH/devops-course/tree/master/contributions/presentation/week6)
 
 ### Week 7: May 6 8h
 
@@ -78,13 +80,12 @@ The date, time and rooms are at <https://cloud.timeedit.net/kth/web/public01/ri1
 * MDDD: [Michelin Devops Demo Day](https://github.com/KTH/devops-course/tree/master/contributions/demo) 
 * Location: [Room U21](https://www.kth.se/places/room/id/de8a7fa7-90dc-4ae7-ab75-282b6020d8a5), [U21 Break-out](https://www.kth.se/places/room/id/b7f34dc7-be16-4e37-a339-1e9f048b1772) and [U-Utställningssal](https://www.kth.se/places/room/id/cc4a63e9-62f9-4181-9e4d-c44a21c18c73)
   * Make sure you have a screen and a power outlet
-  * Session 1 / Session 2 (presenters / attendees switch)
+  * [Session 1 / Session 2](announcement/README.md) (presenters / attendees switch)
   
 ### Week 8: May 13 8h
 
-* Preparatory reading: TBA
-* 13h15 Wrap-up & Feedback
-* 14h15 Lecture: Massive-Scale QA for multi-player video games ([David King - DICE](https://www.linkedin.com/in/david-king-83b9765b), [Mark Baker - DICE](https://www.linkedin.com/in/markltbaker/))
+* 9h15 Wrap-up & Feedback
+* 10h15 Lecture: Massive-Scale QA for multi-player video games ([David King - DICE](https://www.linkedin.com/in/david-king-83b9765b), [Mark Baker - DICE](https://www.linkedin.com/in/markltbaker/))
 * Final Course [Potluck](https://en.wikipedia.org/wiki/Potluck)
 
 ## Grading
