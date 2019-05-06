@@ -1,39 +1,23 @@
 # Semantic Release Slack Notification Plugin
 
-[Semantic release](https://github.com/semantic-release/semantic-release) is an intelligent automation tool, simplifying package release flows. A typical usage is to use semantic-release to determine the next version number, autogenerate release notes and publish packages.
+We created a plugin for [semantic-release](https://github.com/semantic-release/semantic-release) that notifies the user about any failed or possibly successful releases, on Slack. The finalized project is now avaliable publicly and open source at GitHub and NPM as [semantic-release-slack-bot](https://github.com/juliuscc/semantic-release-slack-bot). The bot can automatically publish messages upon both failure and success when running semantic release in your projects. The proposal is [here](Proposal.md).
 
-Semantic release is a "must have" for a propper automated devops workflow when creating npm-packages (and others). It is the only way to automate human error.
+## Group members
 
-> This removes the immediate connection between human emotions and version numbers, strictly following the Semantic Versioning specification.
+-   Julius Celik [jcelik@kth.se](mailto:jcelik@kth.se)
+-   Hannes Rabo [hrabo@kth.se](mailto:hrabo@kth.se)
 
-## What we want to do
+## DevOps in the project
 
-We would like to create a plugin for semantic release that notifies the user about any errors or possibly successful releases, on Slack. There are [very few plugins](https://github.com/semantic-release/semantic-release/blob/master/docs/extending/plugins-list.md) (only two that we know of) that utilize the `success` and `fail` step of semantic release. We hope that our small contribution could improve the usability of semantic release for teams that require frequent build notifications.
+The project itself uses _Continuous Delivery_ (CD) with [git-cz](https://github.com/commitizen/cz-cli), [semantic-release](https://github.com/semantic-release/semantic-release), and [CircleCI](https://circleci.com/gh/juliuscc/semantic-release-slack-bot). To maintain code quality for future development we also used [husky](https://github.com/typicode/husky), [lint-staged](https://github.com/okonet/lint-staged), [prettier](https://prettier.io/), [eslint](https://eslint.org/). This ensured that all code uploaded followed a common code standard, and used static analysis to reduce bugs.
 
-Our aims are:
-1. To improve the semantic release ecosystem.
-2. To learn more about semantic release and how to create plugins for semantic release, enabling us to solve more complicated problems with semantic release in the future.
-3. To learn more about how Slack bots work to be able to use them in the future.
+## Challenges
 
-## How does semantic release work?
+The most difficult hurdle was to publish a working app to the Slack App Directory. To create an app and make it public and easily installable, a server wich can integrate using OAuth is required.
 
-Semantic release parses commit-messages to determince the purpose of every commit. After categorizing the commits (into categories like fix, feat, docs, BREAKING CHANGE) different plugins can use that information to execute automated scripts, like generating release notes from the commit messages, or bumping version numbers according to [Semantic Versioning](https://semver.org/).
+A simples server was published using an AWS Lambda function to perform this basic task of integrating with slack.
 
-Plugins in semantic release can plug into any of the steps that semantic release executes (presented below). We would like to plug in to the `success` and `fail` step.
+## Links
 
-| Step               | Description                                                                                                                                                                                                          |
-|--------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `verifyConditions` | Responsible for verifying conditions necessary to proceed with the release: configuration is correct, authentication token are valid, etc...                                                                         |
-| `analyzeCommits`   | Responsible for determining the type of the next release (`major`, `minor` or `patch`). If multiple plugins with a `analyzeCommits` step are defined, the release type will be the highest one among plugins output. |
-| `verifyRelease`    | Responsible for verifying the parameters (version, type, dist-tag etc...) of the release that is about to be published.                                                                                              |
-| `generateNotes`    | Responsible for generating the content of the release note. If multiple plugins with a `generateNotes` step are defined, the release notes will be the result of the concatenation of each plugin output.            |
-| `prepare`          | Responsible for preparing the release, for example creating or updating files such as `package.json`, `CHANGELOG.md`, documentation or compiled assets and pushing a commit.                                         |
-| `publish`          | Responsible for publishing the release.                                                                                                                                                                              |
-| `success`          | Responsible for notifying of a new release.                                                                                                                                                                          |
-| `fail`             | Responsible for notifying of a failed release.                                                                                                                                                                       |
-
-## Does there already exist a plugin for this?
-
-There exists only two plugins that we know of that hooks into the `success` or `fail` step. The first is [@semantic-release/github](https://github.com/semantic-release/github) and it can not be used to send Slack messages. At a successful build it adds a comment in every issue and pull request resolved in the release.
-
-The other plugin is [@semantic-release/exec](https://github.com/semantic-release/exec) which can be used to run any shell command in any step. In theory no other plugin is necessary as every plugin can be implemented as a shell command executed by [@semantic-release/exec](https://github.com/semantic-release/exec). That is however not very practical. We still believe that we contribute a lot by adding a specific plugin that sends build notifications through Slack as it is not trivial to implement. Another problem with [@semantic-release/exec](https://github.com/semantic-release/exec) is that it can present compatibility issues with different shells (like bash vs powershell), which is a problem that a plugin written in Node.js would be able prevent.
+-   [Source code on GitHub](https://github.com/juliuscc/semantic-release-slack-bot)
+-   [Plugin on NPM](https://www.npmjs.com/package/semantic-release-slack-bot)

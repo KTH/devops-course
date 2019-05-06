@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Day In The Life - DevOps</title>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script src="data.js"></script>
+
+<style>
+
+    #scenario_panel {
+        box-shadow: 2px 2px 6px 6px rgb(172, 172, 172);
+        margin-top: 10%;
+    }
+
+    .btn {
+        width: 100%;
+        white-space: normal;
+    }
+
+    #headings {
+        text-align: center;
+        font-family:'Courier New', Courier, monospace;
+        margin-top: 5%;
+        
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="headings">
+            <p style="font-size: 50pt;">Day In The Life</p>
+            <p style="font-size: 25pt;">A DevOps Choose-Your-Own-Adventure Story</p>
+        </div>
+        <div class="p-3 mb-5 bg-white rounded" id="scenario_panel">
+            <div id="actualScenario">
+                <div id="scenario"></div>
+                <div id="paths" style="display:none; align-items: center;">
+                    <img src="flowchart.jpg" alt="Paths">
+                </div>
+                </br>
+                <div class="row" id="defaultOptions">
+                    <div class="col-md-6">
+                        <button class="btn btn-primary" id="option_1" onclick="option_selected(0)"></button>
+                    </div>
+                    <div class="col-md-6">
+                        <button class="btn btn-primary" id="option_2" onclick="option_selected(1)"></button>
+                    </div>
+                </div>
+            </div>
+            <div class="row" id="successOptions" style="display:none">
+                <div class="col-md-6">
+                    <button class="btn btn-primary" onclick="restartDay()")>
+                        Restart Day..
+                    </button>
+                </div>
+                <div class="col-md-6">
+                    <button class="btn btn-primary" onclick="showPaths()">
+                        View Other Potential Paths..
+                    </button>
+                </div>
+            </div>
+            <div class="row" id="failOptions" style="display:none">
+                <div class="col-md-6">
+                    <button class="btn btn-primary" onclick="restartDay()")>
+                            Restart Day..
+                    </button>
+                </div>
+            </div>
+            <div class="row" id="continue" style="display:none">
+                <div class="col-md-6">
+                    <button class="btn btn-primary" onclick="continueDay()")>
+                            Continue With Day..
+                    </button>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+<script>
+    
+    var current_step = 0;
+    
+    var step_number = data[current_step].id;
+    var scenario = data[current_step].text;
+    var option_1 = data[current_step].responses[0].text;
+    var option_2 = data[current_step].responses[1].text;
+
+    var automatedTesting = false;
+
+    $( document ).ready(function() {
+        displayValues();
+    });
+
+    function option_selected(number) {
+
+        if (data[current_step].responses[number].type == "end") {
+            current_step = data[current_step].responses[number].goto;
+            setEndValues(current_step);
+            displayValues();
+
+        } else if (data[current_step].responses[number].type == "continue") {
+
+            console.log(current_step)
+            if (current_step == 3 && number == 1) {
+
+                automatedTesting = true
+                console.log("variable changed")
+                console.log(automatedTesting);
+                current_step = data[current_step].responses[number].goto;
+            } else if (current_step == 4 && number == 1) {
+                console.log("variable checked")
+                console.log(automatedTesting);
+                current_step = checkConditional();
+            } else {
+                current_step = data[current_step].responses[number].goto;
+            }
+
+            setValues();
+            displayValues();
+
+        } else if (data[current_step].responses[number].type == "moreInfo") {
+            showMoreInfo(data[current_step].responses[number].moreInfoText);
+            console.log("in more info: " + current_step)
+            if (current_step == 4 && number == 0) {
+                current_step = checkConditional();
+            } else {
+                current_step = data[current_step].responses[number].goto;
+            }
+        }
+    }
+
+    function checkConditional() {
+        if (automatedTesting) {
+            return 6;
+        } else {
+            return 5;
+        }
+    }
+    function setValues() {
+        scenario = data[current_step].text;
+        option_1 = data[current_step].responses[0].text;
+        option_2 = data[current_step].responses[1].text;
+    }
+
+    function setEndValues(current_step) {
+        scenario = endCases[current_step].text;
+
+        if (endCases[current_step].successfulPath) {
+            $("#defaultOptions").css("display", "none");
+            $("#successOptions").css("display", "flex");
+            $("#actualScenario").prepend("<h1 style='color: green; text-align: center;'>Success</h1>")
+
+        } else {
+            $("#defaultOptions").css("display", "none");
+            $("#failOptions").css("display", "flex");
+            $("#actualScenario").prepend("<h1 style='color: red; text-align: center;'>Fail</h1>")
+        }
+    }
+
+    function displayValues() {
+        $("#scenario").html(scenario);
+        $("#option_1").html(option_1);
+        $("#option_2").html(option_2);
+    }
+
+    function showMoreInfo(index) {
+        $("#scenario").html(moreInfo[index]);
+        $("#continue").css("display", "flex");
+        $("#defaultOptions").css("display", "none");
+    }
+
+    function continueDay() {
+        $("#continue").css("display", "none");
+        $("#defaultOptions").css("display", "flex");
+        setValues();
+        displayValues();
+    }
+
+    function showPaths() {
+        $("#defaultOptions").css("display", "none");
+        $("#scenario").css("display", "none");
+        $("#successOptions").css("display", "none");
+        $("#failOptions").css("display", "flex");
+        $("#paths").css("display", "flex");
+    }
+
+    function restartDay() {
+        $("#successOptions").css("display", "none");
+        $("#failOptions").css("display", "none");
+        $("#paths").css("display", "none");
+        $("#defaultOptions").css("display", "flex");
+        $("#scenario").css("display", "flex");
+        $("h1").remove();
+
+        current_step = 0;
+        automatedTesting = false;
+        setValues();
+        displayValues();
+    }
+
+</script>
+</body>
+</html>

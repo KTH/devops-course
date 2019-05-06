@@ -1,9 +1,6 @@
-# Essay: Chaos Monkey and Designing for Failure
-
-[https://github.com/netflix/chaosmonkey](Chaos Monkey)
-
+# Essay: Chaos Engineering
 
 * Anders Eriksson (aeri3@kth.se)
 * Lukas Szerszen (lukassz@kth.se)
 
-Essay about desigining for failure and the resillience tool Chaos Monkey.
+An exploration of chaos engineering in general, and tools [Chaos Monkey](https://github.com/Netflix/chaosmonkey) and [Gremlin](https://www.gremlin.com/) in particular.
