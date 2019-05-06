@@ -33,7 +33,7 @@ Note that the following time duration is for critiques to come and grade your de
 | #13 | jespel-felixed | Distributed Systems Tracing |
 | #14 | moanym-addibin | Automate iOS development workflow |
 | #15 | phistr-miguelmu | DevOps with OpenShift |
-| #16 | saraers-egood-fnorr | CI/CD pipeline using Docker and Microsoft Azure |
+| #16 | saraers-egood | CI/CD pipeline using Docker and Microsoft Azure |
 | #17 | tonik-krijor | Automatic Static Site Redeploys |
 | #19 | gaborn | A/B Testing using Wasabi |
 | #21 | ajjo | Manage secrets and protect sensitive data using HashiCorp Vault |
