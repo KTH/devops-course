@@ -27,7 +27,7 @@ Note that the following time duration is for critiques to come and grade your de
 | Group Number | Group Name | Topic |
 | ------------ | ---------- | ----- |
 | #9 | anapro-parumita | Exploring ELK and present possible usage by Developers and Ops |
-| #10 | egedda-lukassz | Test amplification |
+| #10 | egedda-lukassz | Monitoring and Chaos Engineering |
 | #11 | gusgun-jakobhol | Automatic site deploys in K8s |
 | #12 | hors-yptu | CI/CD pipeline with automatic deployment |
 | #13 | jespel-felixed | Distributed Systems Tracing |
