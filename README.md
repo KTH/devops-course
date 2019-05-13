@@ -82,10 +82,10 @@ The date, time and rooms are at <https://cloud.timeedit.net/kth/web/public01/ri1
   * Make sure you have a screen and a power outlet
   * [Session 1 / Session 2](announcement/README.md) (presenters / attendees switch)
   
-### Week 8: May 13 8h
+### Week 8: May 13 9h
 
 * 9h15 Wrap-up & Feedback
-* 10h15 Lecture: Massive-Scale QA for multi-player video games ([David King - DICE](https://www.linkedin.com/in/david-king-83b9765b), [Mark Baker - DICE](https://www.linkedin.com/in/markltbaker/))
+* 10h15 Lecture: [Massive-Scale QA for multi-player video games](https://youtu.be/ffgphqKrb2M) ([David King - DICE](https://www.linkedin.com/in/david-king-83b9765b), [Mark Baker - DICE](https://www.linkedin.com/in/markltbaker/))
 * Final Course [Potluck](https://en.wikipedia.org/wiki/Potluck)
 
 ## Grading
