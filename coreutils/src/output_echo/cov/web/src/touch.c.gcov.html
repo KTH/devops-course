@@ -1,0 +1,513 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - trace.lcov_info_final - src/touch.c</title>
+  <link rel="stylesheet" type="text/css" href="../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">src</a> - touch.c<span style="font-size: 80%;"> (source / <a href="touch.c.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">trace.lcov_info_final</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">139</td>
+            <td class="headerCovTableEntryLo">0.0 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2019-04-22 20:19:38</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">4</td>
+            <td class="headerCovTableEntryLo">0.0 %</td>
+          </tr>
+          <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>            : /* touch -- change modification and access times of files</a>
+<span class="lineNum">       2 </span>            :    Copyright (C) 1987-2016 Free Software Foundation, Inc.
+<span class="lineNum">       3 </span>            : 
+<span class="lineNum">       4 </span>            :    This program is free software: you can redistribute it and/or modify
+<span class="lineNum">       5 </span>            :    it under the terms of the GNU General Public License as published by
+<span class="lineNum">       6 </span>            :    the Free Software Foundation, either version 3 of the License, or
+<span class="lineNum">       7 </span>            :    (at your option) any later version.
+<span class="lineNum">       8 </span>            : 
+<span class="lineNum">       9 </span>            :    This program is distributed in the hope that it will be useful,
+<span class="lineNum">      10 </span>            :    but WITHOUT ANY WARRANTY; without even the implied warranty of
+<span class="lineNum">      11 </span>            :    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+<span class="lineNum">      12 </span>            :    GNU General Public License for more details.
+<span class="lineNum">      13 </span>            : 
+<span class="lineNum">      14 </span>            :    You should have received a copy of the GNU General Public License
+<span class="lineNum">      15 </span>            :    along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.  */
+<span class="lineNum">      16 </span>            : 
+<span class="lineNum">      17 </span>            : /* Written by Paul Rubin, Arnold Robbins, Jim Kingdon, David MacKenzie,
+<span class="lineNum">      18 </span>            :    and Randy Smith. */
+<span class="lineNum">      19 </span>            : 
+<span class="lineNum">      20 </span>            : #include &lt;config.h&gt;
+<span class="lineNum">      21 </span>            : #include &lt;stdio.h&gt;
+<span class="lineNum">      22 </span>            : #include &lt;getopt.h&gt;
+<span class="lineNum">      23 </span>            : #include &lt;sys/types.h&gt;
+<span class="lineNum">      24 </span>            : #include &lt;assert.h&gt;
+<span class="lineNum">      25 </span>            : 
+<span class="lineNum">      26 </span>            : #include &quot;system.h&quot;
+<span class="lineNum">      27 </span>            : #include &quot;argmatch.h&quot;
+<span class="lineNum">      28 </span>            : #include &quot;error.h&quot;
+<span class="lineNum">      29 </span>            : #include &quot;fd-reopen.h&quot;
+<span class="lineNum">      30 </span>            : #include &quot;parse-datetime.h&quot;
+<span class="lineNum">      31 </span>            : #include &quot;posixtm.h&quot;
+<span class="lineNum">      32 </span>            : #include &quot;posixver.h&quot;
+<span class="lineNum">      33 </span>            : #include &quot;quote.h&quot;
+<span class="lineNum">      34 </span>            : #include &quot;stat-time.h&quot;
+<span class="lineNum">      35 </span>            : #include &quot;utimens.h&quot;
+<span class="lineNum">      36 </span>            : 
+<span class="lineNum">      37 </span>            : /* The official name of this program (e.g., no 'g' prefix).  */
+<span class="lineNum">      38 </span>            : #define PROGRAM_NAME &quot;touch&quot;
+<span class="lineNum">      39 </span>            : 
+<span class="lineNum">      40 </span>            : #define AUTHORS \
+<span class="lineNum">      41 </span>            :   proper_name (&quot;Paul Rubin&quot;), \
+<span class="lineNum">      42 </span>            :   proper_name (&quot;Arnold Robbins&quot;), \
+<span class="lineNum">      43 </span>            :   proper_name (&quot;Jim Kingdon&quot;), \
+<span class="lineNum">      44 </span>            :   proper_name (&quot;David MacKenzie&quot;), \
+<span class="lineNum">      45 </span>            :   proper_name (&quot;Randy Smith&quot;)
+<span class="lineNum">      46 </span>            : 
+<span class="lineNum">      47 </span>            : /* Bitmasks for 'change_times'. */
+<span class="lineNum">      48 </span>            : #define CH_ATIME 1
+<span class="lineNum">      49 </span>            : #define CH_MTIME 2
+<span class="lineNum">      50 </span>            : 
+<span class="lineNum">      51 </span>            : /* Which timestamps to change. */
+<span class="lineNum">      52 </span>            : static int change_times;
+<span class="lineNum">      53 </span>            : 
+<span class="lineNum">      54 </span>            : /* (-c) If true, don't create if not already there.  */
+<span class="lineNum">      55 </span>            : static bool no_create;
+<span class="lineNum">      56 </span>            : 
+<span class="lineNum">      57 </span>            : /* (-r) If true, use times from a reference file.  */
+<span class="lineNum">      58 </span>            : static bool use_ref;
+<span class="lineNum">      59 </span>            : 
+<span class="lineNum">      60 </span>            : /* (-h) If true, change the times of an existing symlink, if possible.  */
+<span class="lineNum">      61 </span>            : static bool no_dereference;
+<span class="lineNum">      62 </span>            : 
+<span class="lineNum">      63 </span>            : /* If true, the only thing we have to do is change both the
+<span class="lineNum">      64 </span>            :    modification and access time to the current time, so we don't
+<span class="lineNum">      65 </span>            :    have to own the file, just be able to read and write it.
+<span class="lineNum">      66 </span>            :    On some systems, we can do this if we own the file, even though
+<span class="lineNum">      67 </span>            :    we have neither read nor write access to it.  */
+<span class="lineNum">      68 </span>            : static bool amtime_now;
+<span class="lineNum">      69 </span>            : 
+<span class="lineNum">      70 </span>            : /* New access and modification times to use when setting time.  */
+<span class="lineNum">      71 </span>            : static struct timespec newtime[2];
+<span class="lineNum">      72 </span>            : 
+<span class="lineNum">      73 </span>            : /* File to use for -r. */
+<span class="lineNum">      74 </span>            : static char *ref_file;
+<span class="lineNum">      75 </span>            : 
+<span class="lineNum">      76 </span>            : /* For long options that have no equivalent short option, use a
+<span class="lineNum">      77 </span>            :    non-character as a pseudo short option, starting with CHAR_MAX + 1.  */
+<span class="lineNum">      78 </span>            : enum
+<span class="lineNum">      79 </span>            : {
+<span class="lineNum">      80 </span>            :   TIME_OPTION = CHAR_MAX + 1
+<span class="lineNum">      81 </span>            : };
+<span class="lineNum">      82 </span>            : 
+<span class="lineNum">      83 </span>            : static struct option const longopts[] =
+<span class="lineNum">      84 </span>            : {
+<span class="lineNum">      85 </span>            :   {&quot;time&quot;, required_argument, NULL, TIME_OPTION},
+<span class="lineNum">      86 </span>            :   {&quot;no-create&quot;, no_argument, NULL, 'c'},
+<span class="lineNum">      87 </span>            :   {&quot;date&quot;, required_argument, NULL, 'd'},
+<span class="lineNum">      88 </span>            :   {&quot;reference&quot;, required_argument, NULL, 'r'},
+<span class="lineNum">      89 </span>            :   {&quot;no-dereference&quot;, no_argument, NULL, 'h'},
+<span class="lineNum">      90 </span>            :   {GETOPT_HELP_OPTION_DECL},
+<span class="lineNum">      91 </span>            :   {GETOPT_VERSION_OPTION_DECL},
+<span class="lineNum">      92 </span>            :   {NULL, 0, NULL, 0}
+<span class="lineNum">      93 </span>            : };
+<span class="lineNum">      94 </span>            : 
+<span class="lineNum">      95 </span>            : /* Valid arguments to the '--time' option. */
+<span class="lineNum">      96 </span>            : static char const* const time_args[] =
+<span class="lineNum">      97 </span>            : {
+<span class="lineNum">      98 </span>            :   &quot;atime&quot;, &quot;access&quot;, &quot;use&quot;, &quot;mtime&quot;, &quot;modify&quot;, NULL
+<span class="lineNum">      99 </span>            : };
+<span class="lineNum">     100 </span>            : 
+<span class="lineNum">     101 </span>            : /* The bits in 'change_times' that those arguments set. */
+<span class="lineNum">     102 </span>            : static int const time_masks[] =
+<span class="lineNum">     103 </span>            : {
+<span class="lineNum">     104 </span>            :   CH_ATIME, CH_ATIME, CH_ATIME, CH_MTIME, CH_MTIME
+<span class="lineNum">     105 </span>            : };
+<span class="lineNum">     106 </span>            : 
+<span class="lineNum">     107 </span>            : /* Store into *RESULT the result of interpreting FLEX_DATE as a date,
+<span class="lineNum">     108 </span>            :    relative to NOW.  If NOW is null, use the current time.  */
+<a name="109"><span class="lineNum">     109 </span>            : </a>
+<span class="lineNum">     110 </span>            : static void
+<span class="lineNum">     111 </span><span class="lineNoCov">          0 : get_reldate (struct timespec *result,</span>
+<span class="lineNum">     112 </span>            :              char const *flex_date, struct timespec const *now)
+<span class="lineNum">     113 </span>            : {
+<span class="lineNum">     114 </span><span class="lineNoCov">          0 :   if (! parse_datetime (result, flex_date, now))</span>
+<span class="lineNum">     115 </span><span class="lineNoCov">          0 :     error (EXIT_FAILURE, 0, _(&quot;invalid date format %s&quot;), quote (flex_date));</span>
+<span class="lineNum">     116 </span><span class="lineNoCov">          0 : }</span>
+<span class="lineNum">     117 </span>            : 
+<span class="lineNum">     118 </span>            : /* Update the time of file FILE according to the options given.
+<span class="lineNum">     119 </span>            :    Return true if successful.  */
+<a name="120"><span class="lineNum">     120 </span>            : </a>
+<span class="lineNum">     121 </span>            : static bool
+<span class="lineNum">     122 </span><span class="lineNoCov">          0 : touch (const char *file)</span>
+<span class="lineNum">     123 </span>            : {
+<span class="lineNum">     124 </span>            :   bool ok;
+<span class="lineNum">     125 </span><span class="lineNoCov">          0 :   int fd = -1;</span>
+<span class="lineNum">     126 </span><span class="lineNoCov">          0 :   int open_errno = 0;</span>
+<span class="lineNum">     127 </span><span class="lineNoCov">          0 :   struct timespec const *t = newtime;</span>
+<span class="lineNum">     128 </span>            : 
+<span class="lineNum">     129 </span><span class="lineNoCov">          0 :   if (STREQ (file, &quot;-&quot;))</span>
+<span class="lineNum">     130 </span>            :     fd = STDOUT_FILENO;
+<span class="lineNum">     131 </span><span class="lineNoCov">          0 :   else if (! (no_create || no_dereference))</span>
+<span class="lineNum">     132 </span>            :     {
+<span class="lineNum">     133 </span>            :       /* Try to open FILE, creating it if necessary.  */
+<span class="lineNum">     134 </span><span class="lineNoCov">          0 :       fd = fd_reopen (STDIN_FILENO, file,</span>
+<span class="lineNum">     135 </span>            :                       O_WRONLY | O_CREAT | O_NONBLOCK | O_NOCTTY, MODE_RW_UGO);
+<span class="lineNum">     136 </span>            : 
+<span class="lineNum">     137 </span>            :       /* Don't save a copy of errno if it's EISDIR, since that would lead
+<span class="lineNum">     138 </span>            :          touch to give a bogus diagnostic for e.g., 'touch /' (assuming
+<span class="lineNum">     139 </span>            :          we don't own / or have write access to it).  On Solaris 5.6,
+<span class="lineNum">     140 </span>            :          and probably other systems, it is EINVAL.  On SunOS4, it's EPERM.  */
+<span class="lineNum">     141 </span><span class="lineNoCov">          0 :       if (fd == -1 &amp;&amp; errno != EISDIR &amp;&amp; errno != EINVAL &amp;&amp; errno != EPERM)</span>
+<span class="lineNum">     142 </span><span class="lineNoCov">          0 :         open_errno = errno;</span>
+<span class="lineNum">     143 </span>            :     }
+<span class="lineNum">     144 </span>            : 
+<span class="lineNum">     145 </span><span class="lineNoCov">          0 :   if (change_times != (CH_ATIME | CH_MTIME))</span>
+<span class="lineNum">     146 </span>            :     {
+<span class="lineNum">     147 </span>            :       /* We're setting only one of the time values.  */
+<span class="lineNum">     148 </span><span class="lineNoCov">          0 :       if (change_times == CH_MTIME)</span>
+<span class="lineNum">     149 </span><span class="lineNoCov">          0 :         newtime[0].tv_nsec = UTIME_OMIT;</span>
+<span class="lineNum">     150 </span>            :       else
+<span class="lineNum">     151 </span>            :         {
+<span class="lineNum">     152 </span><span class="lineNoCov">          0 :           assert (change_times == CH_ATIME);</span>
+<span class="lineNum">     153 </span><span class="lineNoCov">          0 :           newtime[1].tv_nsec = UTIME_OMIT;</span>
+<span class="lineNum">     154 </span>            :         }
+<span class="lineNum">     155 </span>            :     }
+<span class="lineNum">     156 </span>            : 
+<span class="lineNum">     157 </span><span class="lineNoCov">          0 :   if (amtime_now)</span>
+<span class="lineNum">     158 </span>            :     {
+<span class="lineNum">     159 </span>            :       /* Pass NULL to futimens so it will not fail if we have
+<span class="lineNum">     160 </span>            :          write access to the file, but don't own it.  */
+<span class="lineNum">     161 </span><span class="lineNoCov">          0 :       t = NULL;</span>
+<span class="lineNum">     162 </span>            :     }
+<span class="lineNum">     163 </span>            : 
+<span class="lineNum">     164 </span><span class="lineNoCov">          0 :   ok = (fdutimensat (fd, AT_FDCWD, (fd == STDOUT_FILENO ? NULL : file), t,</span>
+<span class="lineNum">     165 </span><span class="lineNoCov">          0 :                      (no_dereference &amp;&amp; fd == -1) ? AT_SYMLINK_NOFOLLOW : 0)</span>
+<span class="lineNum">     166 </span>            :         == 0);
+<span class="lineNum">     167 </span>            : 
+<span class="lineNum">     168 </span><span class="lineNoCov">          0 :   if (fd == STDIN_FILENO)</span>
+<span class="lineNum">     169 </span>            :     {
+<span class="lineNum">     170 </span><span class="lineNoCov">          0 :       if (close (STDIN_FILENO) != 0)</span>
+<span class="lineNum">     171 </span>            :         {
+<span class="lineNum">     172 </span><span class="lineNoCov">          0 :           error (0, errno, _(&quot;failed to close %s&quot;), quoteaf (file));</span>
+<span class="lineNum">     173 </span><span class="lineNoCov">          0 :           return false;</span>
+<span class="lineNum">     174 </span>            :         }
+<span class="lineNum">     175 </span>            :     }
+<span class="lineNum">     176 </span><span class="lineNoCov">          0 :   else if (fd == STDOUT_FILENO)</span>
+<span class="lineNum">     177 </span>            :     {
+<span class="lineNum">     178 </span>            :       /* Do not diagnose &quot;touch -c - &gt;&amp;-&quot;.  */
+<span class="lineNum">     179 </span><span class="lineNoCov">          0 :       if (!ok &amp;&amp; errno == EBADF &amp;&amp; no_create)</span>
+<span class="lineNum">     180 </span>            :         return true;
+<span class="lineNum">     181 </span>            :     }
+<span class="lineNum">     182 </span>            : 
+<span class="lineNum">     183 </span><span class="lineNoCov">          0 :   if (!ok)</span>
+<span class="lineNum">     184 </span>            :     {
+<span class="lineNum">     185 </span><span class="lineNoCov">          0 :       if (open_errno)</span>
+<span class="lineNum">     186 </span>            :         {
+<span class="lineNum">     187 </span>            :           /* The wording of this diagnostic should cover at least two cases:
+<span class="lineNum">     188 </span>            :              - the file does not exist, but the parent directory is unwritable
+<span class="lineNum">     189 </span>            :              - the file exists, but it isn't writable
+<span class="lineNum">     190 </span>            :              I think it's not worth trying to distinguish them.  */
+<span class="lineNum">     191 </span><span class="lineNoCov">          0 :           error (0, open_errno, _(&quot;cannot touch %s&quot;), quoteaf (file));</span>
+<span class="lineNum">     192 </span>            :         }
+<span class="lineNum">     193 </span>            :       else
+<span class="lineNum">     194 </span>            :         {
+<span class="lineNum">     195 </span><span class="lineNoCov">          0 :           if (no_create &amp;&amp; errno == ENOENT)</span>
+<span class="lineNum">     196 </span>            :             return true;
+<span class="lineNum">     197 </span><span class="lineNoCov">          0 :           error (0, errno, _(&quot;setting times of %s&quot;), quoteaf (file));</span>
+<span class="lineNum">     198 </span>            :         }
+<span class="lineNum">     199 </span>            :       return false;
+<span class="lineNum">     200 </span>            :     }
+<span class="lineNum">     201 </span>            : 
+<span class="lineNum">     202 </span>            :   return true;
+<span class="lineNum">     203 </span>            : }
+<a name="204"><span class="lineNum">     204 </span>            : </a>
+<span class="lineNum">     205 </span>            : void
+<span class="lineNum">     206 </span><span class="lineNoCov">          0 : usage (int status)</span>
+<span class="lineNum">     207 </span>            : {
+<span class="lineNum">     208 </span><span class="lineNoCov">          0 :   if (status != EXIT_SUCCESS)</span>
+<span class="lineNum">     209 </span><span class="lineNoCov">          0 :     emit_try_help ();</span>
+<span class="lineNum">     210 </span>            :   else
+<span class="lineNum">     211 </span>            :     {
+<span class="lineNum">     212 </span><span class="lineNoCov">          0 :       printf (_(&quot;Usage: %s [OPTION]... FILE...\n&quot;), program_name);</span>
+<span class="lineNum">     213 </span><span class="lineNoCov">          0 :       fputs (_(&quot;\</span>
+<span class="lineNum">     214 </span>            : Update the access and modification times of each FILE to the current time.\n\
+<span class="lineNum">     215 </span>            : \n\
+<span class="lineNum">     216 </span>            : A FILE argument that does not exist is created empty, unless -c or -h\n\
+<span class="lineNum">     217 </span>            : is supplied.\n\
+<span class="lineNum">     218 </span>            : \n\
+<span class="lineNum">     219 </span>            : A FILE argument string of - is handled specially and causes touch to\n\
+<span class="lineNum">     220 </span>            : change the times of the file associated with standard output.\n\
+<span class="lineNum">     221 </span>            : &quot;), stdout);
+<span class="lineNum">     222 </span>            : 
+<span class="lineNum">     223 </span><span class="lineNoCov">          0 :       emit_mandatory_arg_note ();</span>
+<span class="lineNum">     224 </span>            : 
+<span class="lineNum">     225 </span><span class="lineNoCov">          0 :       fputs (_(&quot;\</span>
+<span class="lineNum">     226 </span>            :   -a                     change only the access time\n\
+<span class="lineNum">     227 </span>            :   -c, --no-create        do not create any files\n\
+<span class="lineNum">     228 </span>            :   -d, --date=STRING      parse STRING and use it instead of current time\n\
+<span class="lineNum">     229 </span>            :   -f                     (ignored)\n\
+<span class="lineNum">     230 </span>            : &quot;), stdout);
+<span class="lineNum">     231 </span><span class="lineNoCov">          0 :       fputs (_(&quot;\</span>
+<span class="lineNum">     232 </span>            :   -h, --no-dereference   affect each symbolic link instead of any referenced\n\
+<span class="lineNum">     233 </span>            :                          file (useful only on systems that can change the\n\
+<span class="lineNum">     234 </span>            :                          timestamps of a symlink)\n\
+<span class="lineNum">     235 </span>            :   -m                     change only the modification time\n\
+<span class="lineNum">     236 </span>            : &quot;), stdout);
+<span class="lineNum">     237 </span><span class="lineNoCov">          0 :       fputs (_(&quot;\</span>
+<span class="lineNum">     238 </span>            :   -r, --reference=FILE   use this file's times instead of current time\n\
+<span class="lineNum">     239 </span>            :   -t STAMP               use [[CC]YY]MMDDhhmm[.ss] instead of current time\n\
+<span class="lineNum">     240 </span>            :       --time=WORD        change the specified time:\n\
+<span class="lineNum">     241 </span>            :                            WORD is access, atime, or use: equivalent to -a\n\
+<span class="lineNum">     242 </span>            :                            WORD is modify or mtime: equivalent to -m\n\
+<span class="lineNum">     243 </span>            : &quot;), stdout);
+<span class="lineNum">     244 </span><span class="lineNoCov">          0 :       fputs (HELP_OPTION_DESCRIPTION, stdout);</span>
+<span class="lineNum">     245 </span><span class="lineNoCov">          0 :       fputs (VERSION_OPTION_DESCRIPTION, stdout);</span>
+<span class="lineNum">     246 </span><span class="lineNoCov">          0 :       fputs (_(&quot;\</span>
+<span class="lineNum">     247 </span>            : \n\
+<span class="lineNum">     248 </span>            : Note that the -d and -t options accept different time-date formats.\n\
+<span class="lineNum">     249 </span>            : &quot;), stdout);
+<span class="lineNum">     250 </span><span class="lineNoCov">          0 :       emit_ancillary_info (PROGRAM_NAME);</span>
+<span class="lineNum">     251 </span>            :     }
+<span class="lineNum">     252 </span><span class="lineNoCov">          0 :   exit (status);</span>
+<span class="lineNum">     253 </span>            : }
+<a name="254"><span class="lineNum">     254 </span>            : </a>
+<span class="lineNum">     255 </span>            : int
+<span class="lineNum">     256 </span><span class="lineNoCov">          0 : main (int argc, char **argv)</span>
+<span class="lineNum">     257 </span>            : {
+<span class="lineNum">     258 </span>            :   int c;
+<span class="lineNum">     259 </span><span class="lineNoCov">          0 :   bool date_set = false;</span>
+<span class="lineNum">     260 </span><span class="lineNoCov">          0 :   bool ok = true;</span>
+<span class="lineNum">     261 </span><span class="lineNoCov">          0 :   char const *flex_date = NULL;</span>
+<span class="lineNum">     262 </span>            : 
+<span class="lineNum">     263 </span>            :   initialize_main (&amp;argc, &amp;argv);
+<span class="lineNum">     264 </span><span class="lineNoCov">          0 :   set_program_name (argv[0]);</span>
+<span class="lineNum">     265 </span><span class="lineNoCov">          0 :   setlocale (LC_ALL, &quot;&quot;);</span>
+<span class="lineNum">     266 </span><span class="lineNoCov">          0 :   bindtextdomain (PACKAGE, LOCALEDIR);</span>
+<span class="lineNum">     267 </span><span class="lineNoCov">          0 :   textdomain (PACKAGE);</span>
+<span class="lineNum">     268 </span>            : 
+<span class="lineNum">     269 </span><span class="lineNoCov">          0 :   atexit (close_stdout);</span>
+<span class="lineNum">     270 </span>            : 
+<span class="lineNum">     271 </span><span class="lineNoCov">          0 :   change_times = 0;</span>
+<span class="lineNum">     272 </span><span class="lineNoCov">          0 :   no_create = use_ref = false;</span>
+<span class="lineNum">     273 </span>            : 
+<span class="lineNum">     274 </span><span class="lineNoCov">          0 :   while ((c = getopt_long (argc, argv, &quot;acd:fhmr:t:&quot;, longopts, NULL)) != -1)</span>
+<span class="lineNum">     275 </span>            :     {
+<span class="lineNum">     276 </span><span class="lineNoCov">          0 :       switch (c)</span>
+<span class="lineNum">     277 </span>            :         {
+<span class="lineNum">     278 </span>            :         case 'a':
+<span class="lineNum">     279 </span><span class="lineNoCov">          0 :           change_times |= CH_ATIME;</span>
+<span class="lineNum">     280 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     281 </span>            : 
+<span class="lineNum">     282 </span>            :         case 'c':
+<span class="lineNum">     283 </span><span class="lineNoCov">          0 :           no_create = true;</span>
+<span class="lineNum">     284 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     285 </span>            : 
+<span class="lineNum">     286 </span>            :         case 'd':
+<span class="lineNum">     287 </span><span class="lineNoCov">          0 :           flex_date = optarg;</span>
+<span class="lineNum">     288 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     289 </span>            : 
+<span class="lineNum">     290 </span>            :         case 'f':
+<span class="lineNum">     291 </span>            :           break;
+<span class="lineNum">     292 </span>            : 
+<span class="lineNum">     293 </span>            :         case 'h':
+<span class="lineNum">     294 </span><span class="lineNoCov">          0 :           no_dereference = true;</span>
+<span class="lineNum">     295 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     296 </span>            : 
+<span class="lineNum">     297 </span>            :         case 'm':
+<span class="lineNum">     298 </span><span class="lineNoCov">          0 :           change_times |= CH_MTIME;</span>
+<span class="lineNum">     299 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     300 </span>            : 
+<span class="lineNum">     301 </span>            :         case 'r':
+<span class="lineNum">     302 </span><span class="lineNoCov">          0 :           use_ref = true;</span>
+<span class="lineNum">     303 </span><span class="lineNoCov">          0 :           ref_file = optarg;</span>
+<span class="lineNum">     304 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     305 </span>            : 
+<span class="lineNum">     306 </span>            :         case 't':
+<span class="lineNum">     307 </span><span class="lineNoCov">          0 :           if (! posixtime (&amp;newtime[0].tv_sec, optarg,</span>
+<span class="lineNum">     308 </span>            :                            PDS_LEADING_YEAR | PDS_CENTURY | PDS_SECONDS))
+<span class="lineNum">     309 </span><span class="lineNoCov">          0 :             error (EXIT_FAILURE, 0, _(&quot;invalid date format %s&quot;),</span>
+<span class="lineNum">     310 </span>            :                    quote (optarg));
+<span class="lineNum">     311 </span><span class="lineNoCov">          0 :           newtime[0].tv_nsec = 0;</span>
+<span class="lineNum">     312 </span><span class="lineNoCov">          0 :           newtime[1] = newtime[0];</span>
+<span class="lineNum">     313 </span><span class="lineNoCov">          0 :           date_set = true;</span>
+<span class="lineNum">     314 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     315 </span>            : 
+<span class="lineNum">     316 </span>            :         case TIME_OPTION:       /* --time */
+<span class="lineNum">     317 </span><span class="lineNoCov">          0 :           change_times |= XARGMATCH (&quot;--time&quot;, optarg,</span>
+<span class="lineNum">     318 </span>            :                                      time_args, time_masks);
+<span class="lineNum">     319 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     320 </span>            : 
+<span class="lineNum">     321 </span><span class="lineNoCov">          0 :         case_GETOPT_HELP_CHAR;</span>
+<span class="lineNum">     322 </span>            : 
+<span class="lineNum">     323 </span><span class="lineNoCov">          0 :         case_GETOPT_VERSION_CHAR (PROGRAM_NAME, AUTHORS);</span>
+<span class="lineNum">     324 </span>            : 
+<span class="lineNum">     325 </span>            :         default:
+<span class="lineNum">     326 </span><span class="lineNoCov">          0 :           usage (EXIT_FAILURE);</span>
+<span class="lineNum">     327 </span>            :         }
+<span class="lineNum">     328 </span>            :     }
+<span class="lineNum">     329 </span>            : 
+<span class="lineNum">     330 </span><span class="lineNoCov">          0 :   if (change_times == 0)</span>
+<span class="lineNum">     331 </span><span class="lineNoCov">          0 :     change_times = CH_ATIME | CH_MTIME;</span>
+<span class="lineNum">     332 </span>            : 
+<span class="lineNum">     333 </span><span class="lineNoCov">          0 :   if (date_set &amp;&amp; (use_ref || flex_date))</span>
+<span class="lineNum">     334 </span>            :     {
+<span class="lineNum">     335 </span><span class="lineNoCov">          0 :       error (0, 0, _(&quot;cannot specify times from more than one source&quot;));</span>
+<span class="lineNum">     336 </span><span class="lineNoCov">          0 :       usage (EXIT_FAILURE);</span>
+<span class="lineNum">     337 </span>            :     }
+<span class="lineNum">     338 </span>            : 
+<span class="lineNum">     339 </span><span class="lineNoCov">          0 :   if (use_ref)</span>
+<span class="lineNum">     340 </span>            :     {
+<span class="lineNum">     341 </span>            :       struct stat ref_stats;
+<span class="lineNum">     342 </span>            :       /* Don't use (no_dereference?lstat:stat) (args), since stat
+<span class="lineNum">     343 </span>            :          might be an object-like macro.  */
+<span class="lineNum">     344 </span><span class="lineNoCov">          0 :       if (no_dereference ? lstat (ref_file, &amp;ref_stats)</span>
+<span class="lineNum">     345 </span><span class="lineNoCov">          0 :           : stat (ref_file, &amp;ref_stats))</span>
+<span class="lineNum">     346 </span><span class="lineNoCov">          0 :         error (EXIT_FAILURE, errno,</span>
+<span class="lineNum">     347 </span><span class="lineNoCov">          0 :                _(&quot;failed to get attributes of %s&quot;), quoteaf (ref_file));</span>
+<span class="lineNum">     348 </span><span class="lineNoCov">          0 :       newtime[0] = get_stat_atime (&amp;ref_stats);</span>
+<span class="lineNum">     349 </span><span class="lineNoCov">          0 :       newtime[1] = get_stat_mtime (&amp;ref_stats);</span>
+<span class="lineNum">     350 </span><span class="lineNoCov">          0 :       date_set = true;</span>
+<span class="lineNum">     351 </span><span class="lineNoCov">          0 :       if (flex_date)</span>
+<span class="lineNum">     352 </span>            :         {
+<span class="lineNum">     353 </span><span class="lineNoCov">          0 :           if (change_times &amp; CH_ATIME)</span>
+<span class="lineNum">     354 </span><span class="lineNoCov">          0 :             get_reldate (&amp;newtime[0], flex_date, &amp;newtime[0]);</span>
+<span class="lineNum">     355 </span><span class="lineNoCov">          0 :           if (change_times &amp; CH_MTIME)</span>
+<span class="lineNum">     356 </span><span class="lineNoCov">          0 :             get_reldate (&amp;newtime[1], flex_date, &amp;newtime[1]);</span>
+<span class="lineNum">     357 </span>            :         }
+<span class="lineNum">     358 </span>            :     }
+<span class="lineNum">     359 </span>            :   else
+<span class="lineNum">     360 </span>            :     {
+<span class="lineNum">     361 </span><span class="lineNoCov">          0 :       if (flex_date)</span>
+<span class="lineNum">     362 </span>            :         {
+<span class="lineNum">     363 </span>            :           struct timespec now;
+<span class="lineNum">     364 </span><span class="lineNoCov">          0 :           gettime (&amp;now);</span>
+<span class="lineNum">     365 </span><span class="lineNoCov">          0 :           get_reldate (&amp;newtime[0], flex_date, &amp;now);</span>
+<span class="lineNum">     366 </span><span class="lineNoCov">          0 :           newtime[1] = newtime[0];</span>
+<span class="lineNum">     367 </span><span class="lineNoCov">          0 :           date_set = true;</span>
+<span class="lineNum">     368 </span>            : 
+<span class="lineNum">     369 </span>            :           /* If neither -a nor -m is specified, treat &quot;-d now&quot; as if
+<span class="lineNum">     370 </span>            :              it were absent; this lets &quot;touch&quot; succeed more often in
+<span class="lineNum">     371 </span>            :              the presence of restrictive permissions.  */
+<span class="lineNum">     372 </span><span class="lineNoCov">          0 :           if (change_times == (CH_ATIME | CH_MTIME)</span>
+<span class="lineNum">     373 </span><span class="lineNoCov">          0 :               &amp;&amp; newtime[0].tv_sec == now.tv_sec</span>
+<span class="lineNum">     374 </span><span class="lineNoCov">          0 :               &amp;&amp; newtime[0].tv_nsec == now.tv_nsec)</span>
+<span class="lineNum">     375 </span>            :             {
+<span class="lineNum">     376 </span>            :               /* Check that it really was &quot;-d now&quot;, and not a time
+<span class="lineNum">     377 </span>            :                  stamp that just happens to be the current time.  */
+<span class="lineNum">     378 </span>            :               struct timespec notnow, notnow1;
+<span class="lineNum">     379 </span><span class="lineNoCov">          0 :               notnow.tv_sec = now.tv_sec ^ 1;</span>
+<span class="lineNum">     380 </span><span class="lineNoCov">          0 :               notnow.tv_nsec = now.tv_nsec;</span>
+<span class="lineNum">     381 </span><span class="lineNoCov">          0 :               get_reldate (&amp;notnow1, flex_date, &amp;notnow);</span>
+<span class="lineNum">     382 </span><span class="lineNoCov">          0 :               if (notnow1.tv_sec == notnow.tv_sec</span>
+<span class="lineNum">     383 </span><span class="lineNoCov">          0 :                   &amp;&amp; notnow1.tv_nsec == notnow.tv_nsec)</span>
+<span class="lineNum">     384 </span><span class="lineNoCov">          0 :                 date_set = false;</span>
+<span class="lineNum">     385 </span>            :             }
+<span class="lineNum">     386 </span>            :         }
+<span class="lineNum">     387 </span>            :     }
+<span class="lineNum">     388 </span>            : 
+<span class="lineNum">     389 </span>            :   /* The obsolete 'MMDDhhmm[YY]' form is valid IFF there are
+<span class="lineNum">     390 </span>            :      two or more non-option arguments.  */
+<span class="lineNum">     391 </span><span class="lineNoCov">          0 :   if (!date_set &amp;&amp; 2 &lt;= argc - optind &amp;&amp; posix2_version () &lt; 200112</span>
+<span class="lineNum">     392 </span><span class="lineNoCov">          0 :       &amp;&amp; posixtime (&amp;newtime[0].tv_sec, argv[optind],</span>
+<span class="lineNum">     393 </span>            :                     PDS_TRAILING_YEAR | PDS_PRE_2000))
+<span class="lineNum">     394 </span>            :     {
+<span class="lineNum">     395 </span><span class="lineNoCov">          0 :       newtime[0].tv_nsec = 0;</span>
+<span class="lineNum">     396 </span><span class="lineNoCov">          0 :       newtime[1] = newtime[0];</span>
+<span class="lineNum">     397 </span><span class="lineNoCov">          0 :       date_set = true;</span>
+<span class="lineNum">     398 </span>            : 
+<span class="lineNum">     399 </span><span class="lineNoCov">          0 :       if (! getenv (&quot;POSIXLY_CORRECT&quot;))</span>
+<span class="lineNum">     400 </span>            :         {
+<span class="lineNum">     401 </span><span class="lineNoCov">          0 :           struct tm const *tm = localtime (&amp;newtime[0].tv_sec);</span>
+<span class="lineNum">     402 </span>            : 
+<span class="lineNum">     403 </span>            :           /* Technically, it appears that even a deliberate attempt to cause
+<span class="lineNum">     404 </span>            :              the above localtime to return NULL will always fail because our
+<span class="lineNum">     405 </span>            :              posixtime implementation rejects all dates for which localtime
+<span class="lineNum">     406 </span>            :              would fail.  However, skip the warning if it ever fails.  */
+<span class="lineNum">     407 </span><span class="lineNoCov">          0 :           if (tm)</span>
+<span class="lineNum">     408 </span><span class="lineNoCov">          0 :             error (0, 0,</span>
+<span class="lineNum">     409 </span><span class="lineNoCov">          0 :                    _(&quot;warning: 'touch %s' is obsolete; use &quot;</span>
+<span class="lineNum">     410 </span>            :                      &quot;'touch -t %04ld%02d%02d%02d%02d.%02d'&quot;),
+<span class="lineNum">     411 </span><span class="lineNoCov">          0 :                    argv[optind],</span>
+<span class="lineNum">     412 </span><span class="lineNoCov">          0 :                    tm-&gt;tm_year + 1900L, tm-&gt;tm_mon + 1, tm-&gt;tm_mday,</span>
+<span class="lineNum">     413 </span>            :                    tm-&gt;tm_hour, tm-&gt;tm_min, tm-&gt;tm_sec);
+<span class="lineNum">     414 </span>            :         }
+<span class="lineNum">     415 </span>            : 
+<span class="lineNum">     416 </span><span class="lineNoCov">          0 :       optind++;</span>
+<span class="lineNum">     417 </span>            :     }
+<span class="lineNum">     418 </span>            : 
+<span class="lineNum">     419 </span><span class="lineNoCov">          0 :   if (!date_set)</span>
+<span class="lineNum">     420 </span>            :     {
+<span class="lineNum">     421 </span><span class="lineNoCov">          0 :       if (change_times == (CH_ATIME | CH_MTIME))</span>
+<span class="lineNum">     422 </span><span class="lineNoCov">          0 :         amtime_now = true;</span>
+<span class="lineNum">     423 </span>            :       else
+<span class="lineNum">     424 </span><span class="lineNoCov">          0 :         newtime[1].tv_nsec = newtime[0].tv_nsec = UTIME_NOW;</span>
+<span class="lineNum">     425 </span>            :     }
+<span class="lineNum">     426 </span>            : 
+<span class="lineNum">     427 </span><span class="lineNoCov">          0 :   if (optind == argc)</span>
+<span class="lineNum">     428 </span>            :     {
+<span class="lineNum">     429 </span><span class="lineNoCov">          0 :       error (0, 0, _(&quot;missing file operand&quot;));</span>
+<span class="lineNum">     430 </span><span class="lineNoCov">          0 :       usage (EXIT_FAILURE);</span>
+<span class="lineNum">     431 </span>            :     }
+<span class="lineNum">     432 </span>            : 
+<span class="lineNum">     433 </span><span class="lineNoCov">          0 :   for (; optind &lt; argc; ++optind)</span>
+<span class="lineNum">     434 </span><span class="lineNoCov">          0 :     ok &amp;= touch (argv[optind]);</span>
+<span class="lineNum">     435 </span>            : 
+<span class="lineNum">     436 </span><span class="lineNoCov">          0 :   return ok ? EXIT_SUCCESS : EXIT_FAILURE;</span>
+<span class="lineNum">     437 </span>            : }
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.12</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>

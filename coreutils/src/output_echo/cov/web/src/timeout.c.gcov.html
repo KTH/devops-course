@@ -1,0 +1,582 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - trace.lcov_info_final - src/timeout.c</title>
+  <link rel="stylesheet" type="text/css" href="../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">src</a> - timeout.c<span style="font-size: 80%;"> (source / <a href="timeout.c.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">trace.lcov_info_final</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">149</td>
+            <td class="headerCovTableEntryLo">0.0 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2019-04-22 20:19:38</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">9</td>
+            <td class="headerCovTableEntryLo">0.0 %</td>
+          </tr>
+          <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>            : /* timeout -- run a command with bounded time</a>
+<span class="lineNum">       2 </span>            :    Copyright (C) 2008-2016 Free Software Foundation, Inc.
+<span class="lineNum">       3 </span>            : 
+<span class="lineNum">       4 </span>            :    This program is free software: you can redistribute it and/or modify
+<span class="lineNum">       5 </span>            :    it under the terms of the GNU General Public License as published by
+<span class="lineNum">       6 </span>            :    the Free Software Foundation, either version 3 of the License, or
+<span class="lineNum">       7 </span>            :    (at your option) any later version.
+<span class="lineNum">       8 </span>            : 
+<span class="lineNum">       9 </span>            :    This program is distributed in the hope that it will be useful,
+<span class="lineNum">      10 </span>            :    but WITHOUT ANY WARRANTY; without even the implied warranty of
+<span class="lineNum">      11 </span>            :    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+<span class="lineNum">      12 </span>            :    GNU General Public License for more details.
+<span class="lineNum">      13 </span>            : 
+<span class="lineNum">      14 </span>            :    You should have received a copy of the GNU General Public License
+<span class="lineNum">      15 </span>            :    along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.  */
+<span class="lineNum">      16 </span>            : 
+<span class="lineNum">      17 </span>            : 
+<span class="lineNum">      18 </span>            : /* timeout - Start a command, and kill it if the specified timeout expires
+<span class="lineNum">      19 </span>            : 
+<span class="lineNum">      20 </span>            :    We try to behave like a shell starting a single (foreground) job,
+<span class="lineNum">      21 </span>            :    and will kill the job if we receive the alarm signal we setup.
+<span class="lineNum">      22 </span>            :    The exit status of the job is returned, or one of these errors:
+<span class="lineNum">      23 </span>            :      EXIT_TIMEDOUT      124      job timed out
+<span class="lineNum">      24 </span>            :      EXIT_CANCELED      125      internal error
+<span class="lineNum">      25 </span>            :      EXIT_CANNOT_INVOKE 126      error executing job
+<span class="lineNum">      26 </span>            :      EXIT_ENOENT        127      couldn't find job to exec
+<span class="lineNum">      27 </span>            : 
+<span class="lineNum">      28 </span>            :    Caveats:
+<span class="lineNum">      29 </span>            :      If user specifies the KILL (9) signal is to be sent on timeout,
+<span class="lineNum">      30 </span>            :      the monitor is killed and so exits with 128+9 rather than 124.
+<span class="lineNum">      31 </span>            : 
+<span class="lineNum">      32 </span>            :      If you start a command in the background, which reads from the tty
+<span class="lineNum">      33 </span>            :      and so is immediately sent SIGTTIN to stop, then the timeout
+<span class="lineNum">      34 </span>            :      process will ignore this so it can timeout the command as expected.
+<span class="lineNum">      35 </span>            :      This can be seen with 'timeout 10 dd&amp;' for example.
+<span class="lineNum">      36 </span>            :      However if one brings this group to the foreground with the 'fg'
+<span class="lineNum">      37 </span>            :      command before the timer expires, the command will remain
+<span class="lineNum">      38 </span>            :      in the stop state as the shell doesn't send a SIGCONT
+<span class="lineNum">      39 </span>            :      because the timeout process (group leader) is already running.
+<span class="lineNum">      40 </span>            :      To get the command running again one can Ctrl-Z, and do fg again.
+<span class="lineNum">      41 </span>            :      Note one can Ctrl-C the whole job when in this state.
+<span class="lineNum">      42 </span>            :      I think this could be fixed but I'm not sure the extra
+<span class="lineNum">      43 </span>            :      complication is justified for this scenario.
+<span class="lineNum">      44 </span>            : 
+<span class="lineNum">      45 </span>            :    Written by Pádraig Brady.  */
+<span class="lineNum">      46 </span>            : 
+<span class="lineNum">      47 </span>            : #include &lt;config.h&gt;
+<span class="lineNum">      48 </span>            : #include &lt;getopt.h&gt;
+<span class="lineNum">      49 </span>            : #include &lt;stdio.h&gt;
+<span class="lineNum">      50 </span>            : #include &lt;sys/types.h&gt;
+<span class="lineNum">      51 </span>            : #include &lt;signal.h&gt;
+<span class="lineNum">      52 </span>            : #if HAVE_PRCTL
+<span class="lineNum">      53 </span>            : # include &lt;sys/prctl.h&gt;
+<span class="lineNum">      54 </span>            : #endif
+<span class="lineNum">      55 </span>            : #include &lt;sys/wait.h&gt;
+<span class="lineNum">      56 </span>            : 
+<span class="lineNum">      57 </span>            : #include &quot;system.h&quot;
+<span class="lineNum">      58 </span>            : #include &quot;c-strtod.h&quot;
+<span class="lineNum">      59 </span>            : #include &quot;xstrtod.h&quot;
+<span class="lineNum">      60 </span>            : #include &quot;sig2str.h&quot;
+<span class="lineNum">      61 </span>            : #include &quot;operand2sig.h&quot;
+<span class="lineNum">      62 </span>            : #include &quot;error.h&quot;
+<span class="lineNum">      63 </span>            : #include &quot;quote.h&quot;
+<span class="lineNum">      64 </span>            : 
+<span class="lineNum">      65 </span>            : #if HAVE_SETRLIMIT
+<span class="lineNum">      66 </span>            : /* FreeBSD 5.0 at least needs &lt;sys/types.h&gt; and &lt;sys/time.h&gt; included
+<span class="lineNum">      67 </span>            :    before &lt;sys/resource.h&gt;.  Currently &quot;system.h&quot; includes &lt;sys/time.h&gt;.  */
+<span class="lineNum">      68 </span>            : # include &lt;sys/resource.h&gt;
+<span class="lineNum">      69 </span>            : #endif
+<span class="lineNum">      70 </span>            : 
+<span class="lineNum">      71 </span>            : /* NonStop circa 2011 lacks both SA_RESTART and siginterrupt.  */
+<span class="lineNum">      72 </span>            : #ifndef SA_RESTART
+<span class="lineNum">      73 </span>            : # define SA_RESTART 0
+<span class="lineNum">      74 </span>            : #endif
+<span class="lineNum">      75 </span>            : 
+<span class="lineNum">      76 </span>            : #define PROGRAM_NAME &quot;timeout&quot;
+<span class="lineNum">      77 </span>            : 
+<span class="lineNum">      78 </span>            : #define AUTHORS proper_name_utf8 (&quot;Padraig Brady&quot;, &quot;P\303\241draig Brady&quot;)
+<span class="lineNum">      79 </span>            : 
+<span class="lineNum">      80 </span>            : static int timed_out;
+<span class="lineNum">      81 </span>            : static int term_signal = SIGTERM;  /* same default as kill command.  */
+<span class="lineNum">      82 </span>            : static int monitored_pid;
+<span class="lineNum">      83 </span>            : static double kill_after;
+<span class="lineNum">      84 </span>            : static bool foreground;      /* whether to use another program group.  */
+<span class="lineNum">      85 </span>            : static bool preserve_status; /* whether to use a timeout status or not.  */
+<span class="lineNum">      86 </span>            : 
+<span class="lineNum">      87 </span>            : /* for long options with no corresponding short option, use enum */
+<span class="lineNum">      88 </span>            : enum
+<span class="lineNum">      89 </span>            : {
+<span class="lineNum">      90 </span>            :       FOREGROUND_OPTION = CHAR_MAX + 1,
+<span class="lineNum">      91 </span>            :       PRESERVE_STATUS_OPTION
+<span class="lineNum">      92 </span>            : };
+<span class="lineNum">      93 </span>            : 
+<span class="lineNum">      94 </span>            : static struct option const long_options[] =
+<span class="lineNum">      95 </span>            : {
+<span class="lineNum">      96 </span>            :   {&quot;kill-after&quot;, required_argument, NULL, 'k'},
+<span class="lineNum">      97 </span>            :   {&quot;signal&quot;, required_argument, NULL, 's'},
+<span class="lineNum">      98 </span>            :   {&quot;foreground&quot;, no_argument, NULL, FOREGROUND_OPTION},
+<span class="lineNum">      99 </span>            :   {&quot;preserve-status&quot;, no_argument, NULL, PRESERVE_STATUS_OPTION},
+<span class="lineNum">     100 </span>            :   {GETOPT_HELP_OPTION_DECL},
+<span class="lineNum">     101 </span>            :   {GETOPT_VERSION_OPTION_DECL},
+<span class="lineNum">     102 </span>            :   {NULL, 0, NULL, 0}
+<span class="lineNum">     103 </span>            : };
+<a name="104"><span class="lineNum">     104 </span>            : </a>
+<span class="lineNum">     105 </span>            : static void
+<span class="lineNum">     106 </span><span class="lineNoCov">          0 : unblock_signal (int sig)</span>
+<span class="lineNum">     107 </span>            : {
+<span class="lineNum">     108 </span>            :   sigset_t unblock_set;
+<span class="lineNum">     109 </span><span class="lineNoCov">          0 :   sigemptyset (&amp;unblock_set);</span>
+<span class="lineNum">     110 </span><span class="lineNoCov">          0 :   sigaddset (&amp;unblock_set, sig);</span>
+<span class="lineNum">     111 </span><span class="lineNoCov">          0 :   if (sigprocmask (SIG_UNBLOCK, &amp;unblock_set, NULL) != 0)</span>
+<span class="lineNum">     112 </span><span class="lineNoCov">          0 :     error (0, errno, _(&quot;warning: sigprocmask&quot;));</span>
+<span class="lineNum">     113 </span><span class="lineNoCov">          0 : }</span>
+<span class="lineNum">     114 </span>            : 
+<span class="lineNum">     115 </span>            : /* Start the timeout after which we'll receive a SIGALRM.
+<span class="lineNum">     116 </span>            :    Round DURATION up to the next representable value.
+<span class="lineNum">     117 </span>            :    Treat out-of-range values as if they were maximal,
+<span class="lineNum">     118 </span>            :    as that's more useful in practice than reporting an error.
+<a name="119"><span class="lineNum">     119 </span>            :    '0' means don't timeout.  */</a>
+<span class="lineNum">     120 </span>            : static void
+<span class="lineNum">     121 </span><span class="lineNoCov">          0 : settimeout (double duration, bool warn)</span>
+<span class="lineNum">     122 </span>            : {
+<span class="lineNum">     123 </span>            : 
+<span class="lineNum">     124 </span>            :   /* We configure timers below so that SIGALRM is sent on expiry.
+<span class="lineNum">     125 </span>            :      Therefore ensure we don't inherit a mask blocking SIGALRM.  */
+<span class="lineNum">     126 </span><span class="lineNoCov">          0 :   unblock_signal (SIGALRM);</span>
+<span class="lineNum">     127 </span>            : 
+<span class="lineNum">     128 </span>            : /* timer_settime() provides potentially nanosecond resolution.
+<span class="lineNum">     129 </span>            :    setitimer() is more portable (to Darwin for example),
+<span class="lineNum">     130 </span>            :    but only provides microsecond resolution and thus is
+<span class="lineNum">     131 </span>            :    a little more awkward to use with timespecs, as well as being
+<span class="lineNum">     132 </span>            :    deprecated by POSIX.  Instead we fallback to single second
+<span class="lineNum">     133 </span>            :    resolution provided by alarm().  */
+<span class="lineNum">     134 </span>            : 
+<span class="lineNum">     135 </span>            : #if HAVE_TIMER_SETTIME
+<span class="lineNum">     136 </span><span class="lineNoCov">          0 :   struct timespec ts = dtotimespec (duration);</span>
+<span class="lineNum">     137 </span><span class="lineNoCov">          0 :   struct itimerspec its = { {0, 0}, ts };</span>
+<span class="lineNum">     138 </span>            :   timer_t timerid;
+<span class="lineNum">     139 </span><span class="lineNoCov">          0 :   if (timer_create (CLOCK_REALTIME, NULL, &amp;timerid) == 0)</span>
+<span class="lineNum">     140 </span>            :     {
+<span class="lineNum">     141 </span><span class="lineNoCov">          0 :       if (timer_settime (timerid, 0, &amp;its, NULL) == 0)</span>
+<span class="lineNum">     142 </span><span class="lineNoCov">          0 :         return;</span>
+<span class="lineNum">     143 </span>            :       else
+<span class="lineNum">     144 </span>            :         {
+<span class="lineNum">     145 </span><span class="lineNoCov">          0 :           if (warn)</span>
+<span class="lineNum">     146 </span><span class="lineNoCov">          0 :             error (0, errno, _(&quot;warning: timer_settime&quot;));</span>
+<span class="lineNum">     147 </span><span class="lineNoCov">          0 :           timer_delete (timerid);</span>
+<span class="lineNum">     148 </span>            :         }
+<span class="lineNum">     149 </span>            :     }
+<span class="lineNum">     150 </span><span class="lineNoCov">          0 :   else if (warn &amp;&amp; errno != ENOSYS)</span>
+<span class="lineNum">     151 </span><span class="lineNoCov">          0 :     error (0, errno, _(&quot;warning: timer_create&quot;));</span>
+<span class="lineNum">     152 </span>            : #endif
+<span class="lineNum">     153 </span>            : 
+<span class="lineNum">     154 </span>            :   unsigned int timeint;
+<span class="lineNum">     155 </span><span class="lineNoCov">          0 :   if (UINT_MAX &lt;= duration)</span>
+<span class="lineNum">     156 </span>            :     timeint = UINT_MAX;
+<span class="lineNum">     157 </span>            :   else
+<span class="lineNum">     158 </span>            :     {
+<span class="lineNum">     159 </span><span class="lineNoCov">          0 :       unsigned int duration_floor = duration;</span>
+<span class="lineNum">     160 </span><span class="lineNoCov">          0 :       timeint = duration_floor + (duration_floor &lt; duration);</span>
+<span class="lineNum">     161 </span>            :     }
+<span class="lineNum">     162 </span><span class="lineNoCov">          0 :   alarm (timeint);</span>
+<span class="lineNum">     163 </span>            : }
+<span class="lineNum">     164 </span>            : 
+<span class="lineNum">     165 </span>            : /* send SIG avoiding the current process.  */
+<a name="166"><span class="lineNum">     166 </span>            : </a>
+<span class="lineNum">     167 </span>            : static int
+<span class="lineNum">     168 </span><span class="lineNoCov">          0 : send_sig (int where, int sig)</span>
+<span class="lineNum">     169 </span>            : {
+<span class="lineNum">     170 </span>            :   /* If sending to the group, then ignore the signal,
+<span class="lineNum">     171 </span>            :      so we don't go into a signal loop.  Note that this will ignore any of the
+<span class="lineNum">     172 </span>            :      signals registered in install_signal_handlers(), that are sent after we
+<span class="lineNum">     173 </span>            :      propagate the first one, which hopefully won't be an issue.  Note this
+<span class="lineNum">     174 </span>            :      process can be implicitly multithreaded due to some timer_settime()
+<span class="lineNum">     175 </span>            :      implementations, therefore a signal sent to the group, can be sent
+<span class="lineNum">     176 </span>            :      multiple times to this process.  */
+<span class="lineNum">     177 </span><span class="lineNoCov">          0 :   if (where == 0)</span>
+<span class="lineNum">     178 </span><span class="lineNoCov">          0 :     signal (sig, SIG_IGN);</span>
+<span class="lineNum">     179 </span><span class="lineNoCov">          0 :   return kill (where, sig);</span>
+<span class="lineNum">     180 </span>            : }
+<a name="181"><span class="lineNum">     181 </span>            : </a>
+<span class="lineNum">     182 </span>            : static void
+<span class="lineNum">     183 </span><span class="lineNoCov">          0 : cleanup (int sig)</span>
+<span class="lineNum">     184 </span>            : {
+<span class="lineNum">     185 </span><span class="lineNoCov">          0 :   if (sig == SIGALRM)</span>
+<span class="lineNum">     186 </span>            :     {
+<span class="lineNum">     187 </span><span class="lineNoCov">          0 :       timed_out = 1;</span>
+<span class="lineNum">     188 </span><span class="lineNoCov">          0 :       sig = term_signal;</span>
+<span class="lineNum">     189 </span>            :     }
+<span class="lineNum">     190 </span><span class="lineNoCov">          0 :   if (monitored_pid)</span>
+<span class="lineNum">     191 </span>            :     {
+<span class="lineNum">     192 </span><span class="lineNoCov">          0 :       if (kill_after)</span>
+<span class="lineNum">     193 </span>            :         {
+<span class="lineNum">     194 </span><span class="lineNoCov">          0 :           int saved_errno = errno; /* settimeout may reset.  */</span>
+<span class="lineNum">     195 </span>            :           /* Start a new timeout after which we'll send SIGKILL.  */
+<span class="lineNum">     196 </span><span class="lineNoCov">          0 :           term_signal = SIGKILL;</span>
+<span class="lineNum">     197 </span><span class="lineNoCov">          0 :           settimeout (kill_after, false);</span>
+<span class="lineNum">     198 </span><span class="lineNoCov">          0 :           kill_after = 0; /* Don't let later signals reset kill alarm.  */</span>
+<span class="lineNum">     199 </span><span class="lineNoCov">          0 :           errno = saved_errno;</span>
+<span class="lineNum">     200 </span>            :         }
+<span class="lineNum">     201 </span>            : 
+<span class="lineNum">     202 </span>            :       /* Send the signal directly to the monitored child,
+<span class="lineNum">     203 </span>            :          in case it has itself become group leader,
+<span class="lineNum">     204 </span>            :          or is not running in a separate group.  */
+<span class="lineNum">     205 </span><span class="lineNoCov">          0 :       send_sig (monitored_pid, sig);</span>
+<span class="lineNum">     206 </span>            : 
+<span class="lineNum">     207 </span>            :       /* The normal case is the job has remained in our
+<span class="lineNum">     208 </span>            :          newly created process group, so send to all processes in that.  */
+<span class="lineNum">     209 </span><span class="lineNoCov">          0 :       if (!foreground)</span>
+<span class="lineNum">     210 </span>            :         {
+<span class="lineNum">     211 </span><span class="lineNoCov">          0 :           send_sig (0, sig);</span>
+<span class="lineNum">     212 </span><span class="lineNoCov">          0 :           if (sig != SIGKILL &amp;&amp; sig != SIGCONT)</span>
+<span class="lineNum">     213 </span>            :             {
+<span class="lineNum">     214 </span><span class="lineNoCov">          0 :               send_sig (monitored_pid, SIGCONT);</span>
+<span class="lineNum">     215 </span>            :               send_sig (0, SIGCONT);
+<span class="lineNum">     216 </span>            :             }
+<span class="lineNum">     217 </span>            :         }
+<span class="lineNum">     218 </span>            :     }
+<span class="lineNum">     219 </span>            :   else /* we're the child or the child is not exec'd yet.  */
+<span class="lineNum">     220 </span><span class="lineNoCov">          0 :     _exit (128 + sig);</span>
+<span class="lineNum">     221 </span><span class="lineNoCov">          0 : }</span>
+<a name="222"><span class="lineNum">     222 </span>            : </a>
+<span class="lineNum">     223 </span>            : void
+<span class="lineNum">     224 </span><span class="lineNoCov">          0 : usage (int status)</span>
+<span class="lineNum">     225 </span>            : {
+<span class="lineNum">     226 </span><span class="lineNoCov">          0 :   if (status != EXIT_SUCCESS)</span>
+<span class="lineNum">     227 </span><span class="lineNoCov">          0 :     emit_try_help ();</span>
+<span class="lineNum">     228 </span>            :   else
+<span class="lineNum">     229 </span>            :     {
+<span class="lineNum">     230 </span><span class="lineNoCov">          0 :       printf (_(&quot;\</span>
+<span class="lineNum">     231 </span>            : Usage: %s [OPTION] DURATION COMMAND [ARG]...\n\
+<span class="lineNum">     232 </span>            :   or:  %s [OPTION]\n&quot;), program_name, program_name);
+<span class="lineNum">     233 </span>            : 
+<span class="lineNum">     234 </span><span class="lineNoCov">          0 :       fputs (_(&quot;\</span>
+<span class="lineNum">     235 </span>            : Start COMMAND, and kill it if still running after DURATION.\n\
+<span class="lineNum">     236 </span>            : &quot;), stdout);
+<span class="lineNum">     237 </span>            : 
+<span class="lineNum">     238 </span><span class="lineNoCov">          0 :       emit_mandatory_arg_note ();</span>
+<span class="lineNum">     239 </span>            : 
+<span class="lineNum">     240 </span><span class="lineNoCov">          0 :       fputs (_(&quot;\</span>
+<span class="lineNum">     241 </span>            :       --preserve-status\n\
+<span class="lineNum">     242 </span>            :                  exit with the same status as COMMAND, even when the\n\
+<span class="lineNum">     243 </span>            :                    command times out\n\
+<span class="lineNum">     244 </span>            :       --foreground\n\
+<span class="lineNum">     245 </span>            :                  when not running timeout directly from a shell prompt,\n\
+<span class="lineNum">     246 </span>            :                    allow COMMAND to read from the TTY and get TTY signals;\n\
+<span class="lineNum">     247 </span>            :                    in this mode, children of COMMAND will not be timed out\n\
+<span class="lineNum">     248 </span>            :   -k, --kill-after=DURATION\n\
+<span class="lineNum">     249 </span>            :                  also send a KILL signal if COMMAND is still running\n\
+<span class="lineNum">     250 </span>            :                    this long after the initial signal was sent\n\
+<span class="lineNum">     251 </span>            :   -s, --signal=SIGNAL\n\
+<span class="lineNum">     252 </span>            :                  specify the signal to be sent on timeout;\n\
+<span class="lineNum">     253 </span>            :                    SIGNAL may be a name like 'HUP' or a number;\n\
+<span class="lineNum">     254 </span>            :                    see 'kill -l' for a list of signals\n&quot;), stdout);
+<span class="lineNum">     255 </span>            : 
+<span class="lineNum">     256 </span><span class="lineNoCov">          0 :       fputs (HELP_OPTION_DESCRIPTION, stdout);</span>
+<span class="lineNum">     257 </span><span class="lineNoCov">          0 :       fputs (VERSION_OPTION_DESCRIPTION, stdout);</span>
+<span class="lineNum">     258 </span>            : 
+<span class="lineNum">     259 </span><span class="lineNoCov">          0 :       fputs (_(&quot;\n\</span>
+<span class="lineNum">     260 </span>            : DURATION is a floating point number with an optional suffix:\n\
+<span class="lineNum">     261 </span>            : 's' for seconds (the default), 'm' for minutes, 'h' for hours \
+<span class="lineNum">     262 </span>            : or 'd' for days.\n&quot;), stdout);
+<span class="lineNum">     263 </span>            : 
+<span class="lineNum">     264 </span><span class="lineNoCov">          0 :       fputs (_(&quot;\n\</span>
+<span class="lineNum">     265 </span>            : If the command times out, and --preserve-status is not set, then exit with\n\
+<span class="lineNum">     266 </span>            : status 124.  Otherwise, exit with the status of COMMAND.  If no signal\n\
+<span class="lineNum">     267 </span>            : is specified, send the TERM signal upon timeout.  The TERM signal kills\n\
+<span class="lineNum">     268 </span>            : any process that does not block or catch that signal.  It may be necessary\n\
+<span class="lineNum">     269 </span>            : to use the KILL (9) signal, since this signal cannot be caught, in which\n\
+<span class="lineNum">     270 </span>            : case the exit status is 128+9 rather than 124.\n&quot;), stdout);
+<span class="lineNum">     271 </span><span class="lineNoCov">          0 :       emit_ancillary_info (PROGRAM_NAME);</span>
+<span class="lineNum">     272 </span>            :     }
+<span class="lineNum">     273 </span><span class="lineNoCov">          0 :   exit (status);</span>
+<span class="lineNum">     274 </span>            : }
+<span class="lineNum">     275 </span>            : 
+<span class="lineNum">     276 </span>            : /* Given a floating point value *X, and a suffix character, SUFFIX_CHAR,
+<span class="lineNum">     277 </span>            :    scale *X by the multiplier implied by SUFFIX_CHAR.  SUFFIX_CHAR may
+<span class="lineNum">     278 </span>            :    be the NUL byte or 's' to denote seconds, 'm' for minutes, 'h' for
+<span class="lineNum">     279 </span>            :    hours, or 'd' for days.  If SUFFIX_CHAR is invalid, don't modify *X
+<span class="lineNum">     280 </span>            :    and return false.  Otherwise return true.  */
+<span class="lineNum">     281 </span>            : 
+<span class="lineNum">     282 </span>            : static bool
+<span class="lineNum">     283 </span>            : apply_time_suffix (double *x, char suffix_char)
+<span class="lineNum">     284 </span>            : {
+<span class="lineNum">     285 </span>            :   int multiplier;
+<span class="lineNum">     286 </span>            : 
+<span class="lineNum">     287 </span><span class="lineNoCov">          0 :   switch (suffix_char)</span>
+<span class="lineNum">     288 </span>            :     {
+<span class="lineNum">     289 </span>            :     case 0:
+<span class="lineNum">     290 </span>            :     case 's':
+<span class="lineNum">     291 </span>            :       multiplier = 1;
+<span class="lineNum">     292 </span>            :       break;
+<span class="lineNum">     293 </span>            :     case 'm':
+<span class="lineNum">     294 </span><span class="lineNoCov">          0 :       multiplier = 60;</span>
+<span class="lineNum">     295 </span>            :       break;
+<span class="lineNum">     296 </span>            :     case 'h':
+<span class="lineNum">     297 </span><span class="lineNoCov">          0 :       multiplier = 60 * 60;</span>
+<span class="lineNum">     298 </span>            :       break;
+<span class="lineNum">     299 </span>            :     case 'd':
+<span class="lineNum">     300 </span><span class="lineNoCov">          0 :       multiplier = 60 * 60 * 24;</span>
+<span class="lineNum">     301 </span>            :       break;
+<span class="lineNum">     302 </span>            :     default:
+<span class="lineNum">     303 </span>            :       return false;
+<span class="lineNum">     304 </span>            :     }
+<span class="lineNum">     305 </span>            : 
+<span class="lineNum">     306 </span><span class="lineNoCov">          0 :   *x *= multiplier;</span>
+<span class="lineNum">     307 </span>            : 
+<span class="lineNum">     308 </span>            :   return true;
+<span class="lineNum">     309 </span>            : }
+<a name="310"><span class="lineNum">     310 </span>            : </a>
+<span class="lineNum">     311 </span>            : static double
+<span class="lineNum">     312 </span><span class="lineNoCov">          0 : parse_duration (const char* str)</span>
+<span class="lineNum">     313 </span>            : {
+<span class="lineNum">     314 </span>            :   double duration;
+<span class="lineNum">     315 </span>            :   const char *ep;
+<span class="lineNum">     316 </span>            : 
+<span class="lineNum">     317 </span><span class="lineNoCov">          0 :   if (!xstrtod (str, &amp;ep, &amp;duration, c_strtod)</span>
+<span class="lineNum">     318 </span>            :       /* Nonnegative interval.  */
+<span class="lineNum">     319 </span><span class="lineNoCov">          0 :       || ! (0 &lt;= duration)</span>
+<span class="lineNum">     320 </span>            :       /* No extra chars after the number and an optional s,m,h,d char.  */
+<span class="lineNum">     321 </span><span class="lineNoCov">          0 :       || (*ep &amp;&amp; *(ep + 1))</span>
+<span class="lineNum">     322 </span>            :       /* Check any suffix char and update timeout based on the suffix.  */
+<span class="lineNum">     323 </span><span class="lineNoCov">          0 :       || !apply_time_suffix (&amp;duration, *ep))</span>
+<span class="lineNum">     324 </span>            :     {
+<span class="lineNum">     325 </span><span class="lineNoCov">          0 :       error (0, 0, _(&quot;invalid time interval %s&quot;), quote (str));</span>
+<span class="lineNum">     326 </span><span class="lineNoCov">          0 :       usage (EXIT_CANCELED);</span>
+<span class="lineNum">     327 </span>            :     }
+<span class="lineNum">     328 </span>            : 
+<span class="lineNum">     329 </span><span class="lineNoCov">          0 :   return duration;</span>
+<span class="lineNum">     330 </span>            : }
+<a name="331"><span class="lineNum">     331 </span>            : </a>
+<span class="lineNum">     332 </span>            : static void
+<span class="lineNum">     333 </span><span class="lineNoCov">          0 : install_signal_handlers (int sigterm)</span>
+<span class="lineNum">     334 </span>            : {
+<span class="lineNum">     335 </span>            :   struct sigaction sa;
+<span class="lineNum">     336 </span><span class="lineNoCov">          0 :   sigemptyset (&amp;sa.sa_mask);  /* Allow concurrent calls to handler */</span>
+<span class="lineNum">     337 </span><span class="lineNoCov">          0 :   sa.sa_handler = cleanup;</span>
+<span class="lineNum">     338 </span><span class="lineNoCov">          0 :   sa.sa_flags = SA_RESTART;   /* Restart syscalls if possible, as that's</span>
+<span class="lineNum">     339 </span>            :                                  more likely to work cleanly.  */
+<span class="lineNum">     340 </span>            : 
+<span class="lineNum">     341 </span><span class="lineNoCov">          0 :   sigaction (SIGALRM, &amp;sa, NULL); /* our timeout.  */</span>
+<span class="lineNum">     342 </span><span class="lineNoCov">          0 :   sigaction (SIGINT, &amp;sa, NULL);  /* Ctrl-C at terminal for example.  */</span>
+<span class="lineNum">     343 </span><span class="lineNoCov">          0 :   sigaction (SIGQUIT, &amp;sa, NULL); /* Ctrl-\ at terminal for example.  */</span>
+<span class="lineNum">     344 </span><span class="lineNoCov">          0 :   sigaction (SIGHUP, &amp;sa, NULL);  /* terminal closed for example.  */</span>
+<span class="lineNum">     345 </span><span class="lineNoCov">          0 :   sigaction (SIGTERM, &amp;sa, NULL); /* if we're killed, stop monitored proc.  */</span>
+<span class="lineNum">     346 </span><span class="lineNoCov">          0 :   sigaction (sigterm, &amp;sa, NULL); /* user specified termination signal.  */</span>
+<span class="lineNum">     347 </span><span class="lineNoCov">          0 : }</span>
+<span class="lineNum">     348 </span>            : 
+<span class="lineNum">     349 </span>            : /* Try to disable core dumps for this process.
+<a name="350"><span class="lineNum">     350 </span>            :    Return TRUE if successful, FALSE otherwise.  */</a>
+<span class="lineNum">     351 </span>            : static bool
+<span class="lineNum">     352 </span><span class="lineNoCov">          0 : disable_core_dumps (void)</span>
+<span class="lineNum">     353 </span>            : {
+<span class="lineNum">     354 </span>            : #if HAVE_PRCTL &amp;&amp; defined PR_SET_DUMPABLE
+<span class="lineNum">     355 </span><span class="lineNoCov">          0 :   if (prctl (PR_SET_DUMPABLE, 0) == 0)</span>
+<span class="lineNum">     356 </span>            :     return true;
+<span class="lineNum">     357 </span>            : 
+<span class="lineNum">     358 </span>            : #elif HAVE_SETRLIMIT &amp;&amp; defined RLIMIT_CORE
+<span class="lineNum">     359 </span>            :   /* Note this doesn't disable processing by a filter in
+<span class="lineNum">     360 </span>            :      /proc/sys/kernel/core_pattern on Linux.  */
+<span class="lineNum">     361 </span>            :   if (setrlimit (RLIMIT_CORE, &amp;(struct rlimit) {0,0}) == 0)
+<span class="lineNum">     362 </span>            :     return true;
+<span class="lineNum">     363 </span>            : 
+<span class="lineNum">     364 </span>            : #else
+<span class="lineNum">     365 </span>            :   return false;
+<span class="lineNum">     366 </span>            : #endif
+<span class="lineNum">     367 </span>            : 
+<span class="lineNum">     368 </span><span class="lineNoCov">          0 :   error (0, errno, _(&quot;warning: disabling core dumps failed&quot;));</span>
+<span class="lineNum">     369 </span><span class="lineNoCov">          0 :   return false;</span>
+<span class="lineNum">     370 </span>            : }
+<a name="371"><span class="lineNum">     371 </span>            : </a>
+<span class="lineNum">     372 </span>            : int
+<span class="lineNum">     373 </span><span class="lineNoCov">          0 : main (int argc, char **argv)</span>
+<span class="lineNum">     374 </span>            : {
+<span class="lineNum">     375 </span>            :   double timeout;
+<span class="lineNum">     376 </span>            :   char signame[SIG2STR_MAX];
+<span class="lineNum">     377 </span>            :   int c;
+<span class="lineNum">     378 </span>            : 
+<span class="lineNum">     379 </span>            :   initialize_main (&amp;argc, &amp;argv);
+<span class="lineNum">     380 </span><span class="lineNoCov">          0 :   set_program_name (argv[0]);</span>
+<span class="lineNum">     381 </span><span class="lineNoCov">          0 :   setlocale (LC_ALL, &quot;&quot;);</span>
+<span class="lineNum">     382 </span><span class="lineNoCov">          0 :   bindtextdomain (PACKAGE, LOCALEDIR);</span>
+<span class="lineNum">     383 </span><span class="lineNoCov">          0 :   textdomain (PACKAGE);</span>
+<span class="lineNum">     384 </span>            : 
+<span class="lineNum">     385 </span><span class="lineNoCov">          0 :   initialize_exit_failure (EXIT_CANCELED);</span>
+<span class="lineNum">     386 </span><span class="lineNoCov">          0 :   atexit (close_stdout);</span>
+<span class="lineNum">     387 </span>            : 
+<span class="lineNum">     388 </span><span class="lineNoCov">          0 :   while ((c = getopt_long (argc, argv, &quot;+k:s:&quot;, long_options, NULL)) != -1)</span>
+<span class="lineNum">     389 </span>            :     {
+<span class="lineNum">     390 </span><span class="lineNoCov">          0 :       switch (c)</span>
+<span class="lineNum">     391 </span>            :         {
+<span class="lineNum">     392 </span>            :         case 'k':
+<span class="lineNum">     393 </span><span class="lineNoCov">          0 :           kill_after = parse_duration (optarg);</span>
+<span class="lineNum">     394 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     395 </span>            : 
+<span class="lineNum">     396 </span>            :         case 's':
+<span class="lineNum">     397 </span><span class="lineNoCov">          0 :           term_signal = operand2sig (optarg, signame);</span>
+<span class="lineNum">     398 </span><span class="lineNoCov">          0 :           if (term_signal == -1)</span>
+<span class="lineNum">     399 </span><span class="lineNoCov">          0 :             usage (EXIT_CANCELED);</span>
+<span class="lineNum">     400 </span>            :           break;
+<span class="lineNum">     401 </span>            : 
+<span class="lineNum">     402 </span>            :         case FOREGROUND_OPTION:
+<span class="lineNum">     403 </span><span class="lineNoCov">          0 :           foreground = true;</span>
+<span class="lineNum">     404 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     405 </span>            : 
+<span class="lineNum">     406 </span>            :         case PRESERVE_STATUS_OPTION:
+<span class="lineNum">     407 </span><span class="lineNoCov">          0 :           preserve_status = true;</span>
+<span class="lineNum">     408 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     409 </span>            : 
+<span class="lineNum">     410 </span><span class="lineNoCov">          0 :         case_GETOPT_HELP_CHAR;</span>
+<span class="lineNum">     411 </span>            : 
+<span class="lineNum">     412 </span><span class="lineNoCov">          0 :         case_GETOPT_VERSION_CHAR (PROGRAM_NAME, AUTHORS);</span>
+<span class="lineNum">     413 </span>            : 
+<span class="lineNum">     414 </span>            :         default:
+<span class="lineNum">     415 </span><span class="lineNoCov">          0 :           usage (EXIT_CANCELED);</span>
+<span class="lineNum">     416 </span>            :           break;
+<span class="lineNum">     417 </span>            :         }
+<span class="lineNum">     418 </span>            :     }
+<span class="lineNum">     419 </span>            : 
+<span class="lineNum">     420 </span><span class="lineNoCov">          0 :   if (argc - optind &lt; 2)</span>
+<span class="lineNum">     421 </span><span class="lineNoCov">          0 :     usage (EXIT_CANCELED);</span>
+<span class="lineNum">     422 </span>            : 
+<span class="lineNum">     423 </span><span class="lineNoCov">          0 :   timeout = parse_duration (argv[optind++]);</span>
+<span class="lineNum">     424 </span>            : 
+<span class="lineNum">     425 </span><span class="lineNoCov">          0 :   argv += optind;</span>
+<span class="lineNum">     426 </span>            : 
+<span class="lineNum">     427 </span>            :   /* Ensure we're in our own group so all subprocesses can be killed.
+<span class="lineNum">     428 </span>            :      Note we don't just put the child in a separate group as
+<span class="lineNum">     429 </span>            :      then we would need to worry about foreground and background groups
+<span class="lineNum">     430 </span>            :      and propagating signals between them.  */
+<span class="lineNum">     431 </span><span class="lineNoCov">          0 :   if (!foreground)</span>
+<span class="lineNum">     432 </span><span class="lineNoCov">          0 :     setpgid (0, 0);</span>
+<span class="lineNum">     433 </span>            : 
+<span class="lineNum">     434 </span>            :   /* Setup handlers before fork() so that we
+<span class="lineNum">     435 </span>            :      handle any signals caused by child, without races.  */
+<span class="lineNum">     436 </span><span class="lineNoCov">          0 :   install_signal_handlers (term_signal);</span>
+<span class="lineNum">     437 </span><span class="lineNoCov">          0 :   signal (SIGTTIN, SIG_IGN);   /* Don't stop if background child needs tty.  */</span>
+<span class="lineNum">     438 </span><span class="lineNoCov">          0 :   signal (SIGTTOU, SIG_IGN);   /* Don't stop if background child needs tty.  */</span>
+<span class="lineNum">     439 </span><span class="lineNoCov">          0 :   signal (SIGCHLD, SIG_DFL);   /* Don't inherit CHLD handling from parent.   */</span>
+<span class="lineNum">     440 </span>            : 
+<span class="lineNum">     441 </span><span class="lineNoCov">          0 :   monitored_pid = fork ();</span>
+<span class="lineNum">     442 </span><span class="lineNoCov">          0 :   if (monitored_pid == -1)</span>
+<span class="lineNum">     443 </span>            :     {
+<span class="lineNum">     444 </span><span class="lineNoCov">          0 :       error (0, errno, _(&quot;fork system call failed&quot;));</span>
+<span class="lineNum">     445 </span><span class="lineNoCov">          0 :       return EXIT_CANCELED;</span>
+<span class="lineNum">     446 </span>            :     }
+<span class="lineNum">     447 </span><span class="lineNoCov">          0 :   else if (monitored_pid == 0)</span>
+<span class="lineNum">     448 </span>            :     {                           /* child */
+<span class="lineNum">     449 </span>            :       /* exec doesn't reset SIG_IGN -&gt; SIG_DFL.  */
+<span class="lineNum">     450 </span><span class="lineNoCov">          0 :       signal (SIGTTIN, SIG_DFL);</span>
+<span class="lineNum">     451 </span><span class="lineNoCov">          0 :       signal (SIGTTOU, SIG_DFL);</span>
+<span class="lineNum">     452 </span>            : 
+<span class="lineNum">     453 </span><span class="lineNoCov">          0 :       execvp (argv[0], argv);   /* FIXME: should we use &quot;sh -c&quot; ... here?  */</span>
+<span class="lineNum">     454 </span>            : 
+<span class="lineNum">     455 </span>            :       /* exit like sh, env, nohup, ...  */
+<span class="lineNum">     456 </span><span class="lineNoCov">          0 :       int exit_status = errno == ENOENT ? EXIT_ENOENT : EXIT_CANNOT_INVOKE;</span>
+<span class="lineNum">     457 </span><span class="lineNoCov">          0 :       error (0, errno, _(&quot;failed to run command %s&quot;), quote (argv[0]));</span>
+<span class="lineNum">     458 </span><span class="lineNoCov">          0 :       return exit_status;</span>
+<span class="lineNum">     459 </span>            :     }
+<span class="lineNum">     460 </span>            :   else
+<span class="lineNum">     461 </span>            :     {
+<span class="lineNum">     462 </span>            :       pid_t wait_result;
+<span class="lineNum">     463 </span>            :       int status;
+<span class="lineNum">     464 </span>            : 
+<span class="lineNum">     465 </span><span class="lineNoCov">          0 :       settimeout (timeout, true);</span>
+<span class="lineNum">     466 </span>            : 
+<span class="lineNum">     467 </span><span class="lineNoCov">          0 :       while ((wait_result = waitpid (monitored_pid, &amp;status, 0)) &lt; 0</span>
+<span class="lineNum">     468 </span><span class="lineNoCov">          0 :              &amp;&amp; errno == EINTR)</span>
+<span class="lineNum">     469 </span><span class="lineNoCov">          0 :         continue;</span>
+<span class="lineNum">     470 </span>            : 
+<span class="lineNum">     471 </span><span class="lineNoCov">          0 :       if (wait_result &lt; 0)</span>
+<span class="lineNum">     472 </span>            :         {
+<span class="lineNum">     473 </span>            :           /* shouldn't happen.  */
+<span class="lineNum">     474 </span><span class="lineNoCov">          0 :           error (0, errno, _(&quot;error waiting for command&quot;));</span>
+<span class="lineNum">     475 </span><span class="lineNoCov">          0 :           status = EXIT_CANCELED;</span>
+<span class="lineNum">     476 </span>            :         }
+<span class="lineNum">     477 </span>            :       else
+<span class="lineNum">     478 </span>            :         {
+<span class="lineNum">     479 </span><span class="lineNoCov">          0 :           if (WIFEXITED (status))</span>
+<span class="lineNum">     480 </span><span class="lineNoCov">          0 :             status = WEXITSTATUS (status);</span>
+<span class="lineNum">     481 </span><span class="lineNoCov">          0 :           else if (WIFSIGNALED (status))</span>
+<span class="lineNum">     482 </span>            :             {
+<span class="lineNum">     483 </span><span class="lineNoCov">          0 :               int sig = WTERMSIG (status);</span>
+<span class="lineNum">     484 </span><span class="lineNoCov">          0 :               if (WCOREDUMP (status))</span>
+<span class="lineNum">     485 </span><span class="lineNoCov">          0 :                 error (0, 0, _(&quot;the monitored command dumped core&quot;));</span>
+<span class="lineNum">     486 </span><span class="lineNoCov">          0 :               if (!timed_out &amp;&amp; disable_core_dumps ())</span>
+<span class="lineNum">     487 </span>            :                 {
+<span class="lineNum">     488 </span>            :                   /* exit with the signal flag set.  */
+<span class="lineNum">     489 </span><span class="lineNoCov">          0 :                   signal (sig, SIG_DFL);</span>
+<span class="lineNum">     490 </span><span class="lineNoCov">          0 :                   raise (sig);</span>
+<span class="lineNum">     491 </span>            :                 }
+<span class="lineNum">     492 </span><span class="lineNoCov">          0 :               status = sig + 128; /* what sh returns for signaled processes.  */</span>
+<span class="lineNum">     493 </span>            :             }
+<span class="lineNum">     494 </span>            :           else
+<span class="lineNum">     495 </span>            :             {
+<span class="lineNum">     496 </span>            :               /* shouldn't happen.  */
+<span class="lineNum">     497 </span><span class="lineNoCov">          0 :               error (0, 0, _(&quot;unknown status from command (%d)&quot;), status);</span>
+<span class="lineNum">     498 </span><span class="lineNoCov">          0 :               status = EXIT_FAILURE;</span>
+<span class="lineNum">     499 </span>            :             }
+<span class="lineNum">     500 </span>            :         }
+<span class="lineNum">     501 </span>            : 
+<span class="lineNum">     502 </span><span class="lineNoCov">          0 :       if (timed_out &amp;&amp; !preserve_status)</span>
+<span class="lineNum">     503 </span><span class="lineNoCov">          0 :         status = EXIT_TIMEDOUT;</span>
+<span class="lineNum">     504 </span><span class="lineNoCov">          0 :       return status;</span>
+<span class="lineNum">     505 </span>            :     }
+<span class="lineNum">     506 </span>            : }
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.12</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>

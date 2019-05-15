@@ -1,0 +1,277 @@
+        -:    0:Source:src/echo.c
+        -:    0:Graph:src/echo.gcno
+        -:    0:Data:src/echo.gcda
+        -:    0:Runs:14
+        -:    0:Programs:1
+        -:    1:/* echo.c, derived from code echo.c in Bash.
+        -:    2:   Copyright (C) 1987-2016 Free Software Foundation, Inc.
+        -:    3:
+        -:    4:   This program is free software: you can redistribute it and/or modify
+        -:    5:   it under the terms of the GNU General Public License as published by
+        -:    6:   the Free Software Foundation, either version 3 of the License, or
+        -:    7:   (at your option) any later version.
+        -:    8:
+        -:    9:   This program is distributed in the hope that it will be useful,
+        -:   10:   but WITHOUT ANY WARRANTY; without even the implied warranty of
+        -:   11:   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+        -:   12:   GNU General Public License for more details.
+        -:   13:
+        -:   14:   You should have received a copy of the GNU General Public License
+        -:   15:   along with this program.  If not, see <http://www.gnu.org/licenses/>.  */
+        -:   16:
+        -:   17:#include <config.h>
+        -:   18:#include <stdio.h>
+        -:   19:#include <sys/types.h>
+        -:   20:#include "system.h"
+        -:   21:
+        -:   22:/* The official name of this program (e.g., no 'g' prefix).  */
+        -:   23:#define PROGRAM_NAME "echo"
+        -:   24:
+        -:   25:#define AUTHORS \
+        -:   26:  proper_name ("Brian Fox"), \
+        -:   27:  proper_name ("Chet Ramey")
+        -:   28:
+        -:   29:/* If true, interpret backslash escapes by default.  */
+        -:   30:#ifndef DEFAULT_ECHO_TO_XPG
+        -:   31:enum { DEFAULT_ECHO_TO_XPG = false };
+        -:   32:#endif
+        -:   33:
+        -:   34:void
+        1:   35:usage (int status)
+        -:   36:{
+        1:   37:  if (status != EXIT_SUCCESS)
+    #####:   38:    emit_try_help ();
+        -:   39:  else
+        -:   40:    {
+        2:   41:      printf (_("\
+        -:   42:Usage: %s [SHORT-OPTION]... [STRING]...\n\
+        -:   43:  or:  %s LONG-OPTION\n\
+        -:   44:"), program_name, program_name);
+        1:   45:      fputs (_("\
+        -:   46:Echo the STRING(s) to standard output.\n\
+        -:   47:\n\
+        -:   48:  -n             do not output the trailing newline\n\
+        -:   49:"), stdout);
+        1:   50:      fputs (_(DEFAULT_ECHO_TO_XPG
+        -:   51:               ? N_("\
+        -:   52:  -e             enable interpretation of backslash escapes (default)\n\
+        -:   53:  -E             disable interpretation of backslash escapes\n")
+        -:   54:               : N_("\
+        -:   55:  -e             enable interpretation of backslash escapes\n\
+        -:   56:  -E             disable interpretation of backslash escapes (default)\n")),
+        -:   57:             stdout);
+        1:   58:      fputs (HELP_OPTION_DESCRIPTION, stdout);
+        1:   59:      fputs (VERSION_OPTION_DESCRIPTION, stdout);
+        1:   60:      fputs (_("\
+        -:   61:\n\
+        -:   62:If -e is in effect, the following sequences are recognized:\n\
+        -:   63:\n\
+        -:   64:"), stdout);
+        1:   65:      fputs (_("\
+        -:   66:  \\\\      backslash\n\
+        -:   67:  \\a      alert (BEL)\n\
+        -:   68:  \\b      backspace\n\
+        -:   69:  \\c      produce no further output\n\
+        -:   70:  \\e      escape\n\
+        -:   71:  \\f      form feed\n\
+        -:   72:  \\n      new line\n\
+        -:   73:  \\r      carriage return\n\
+        -:   74:  \\t      horizontal tab\n\
+        -:   75:  \\v      vertical tab\n\
+        -:   76:"), stdout);
+        1:   77:      fputs (_("\
+        -:   78:  \\0NNN   byte with octal value NNN (1 to 3 digits)\n\
+        -:   79:  \\xHH    byte with hexadecimal value HH (1 to 2 digits)\n\
+        -:   80:"), stdout);
+        2:   81:      printf (USAGE_BUILTIN_WARNING, PROGRAM_NAME);
+        1:   82:      emit_ancillary_info (PROGRAM_NAME);
+        -:   83:    }
+        1:   84:  exit (status);
+        -:   85:}
+        -:   86:
+        -:   87:/* Convert C from hexadecimal character to integer.  */
+        -:   88:static int
+    #####:   89:hextobin (unsigned char c)
+        -:   90:{
+    #####:   91:  switch (c)
+        -:   92:    {
+    #####:   93:    default: return c - '0';
+        -:   94:    case 'a': case 'A': return 10;
+    #####:   95:    case 'b': case 'B': return 11;
+    #####:   96:    case 'c': case 'C': return 12;
+    #####:   97:    case 'd': case 'D': return 13;
+    #####:   98:    case 'e': case 'E': return 14;
+    #####:   99:    case 'f': case 'F': return 15;
+        -:  100:    }
+        -:  101:}
+        -:  102:
+        -:  103:/* Print the words in LIST to standard output.  If the first word is
+        -:  104:   '-n', then don't print a trailing newline.  We also support the
+        -:  105:   echo syntax from Version 9 unix systems. */
+        -:  106:
+        -:  107:int
+       14:  108:main (int argc, char **argv)
+        -:  109:{
+       14:  110:  bool display_return = true;
+       14:  111:  bool allow_options =
+       14:  112:    (! getenv ("POSIXLY_CORRECT")
+       14:  113:     || (! DEFAULT_ECHO_TO_XPG && 1 < argc && STREQ (argv[1], "-n")));
+        -:  114:
+        -:  115:  /* System V machines already have a /bin/sh with a v9 behavior.
+        -:  116:     Use the identical behavior for these machines so that the
+        -:  117:     existing system shell scripts won't barf.  */
+       14:  118:  bool do_v9 = DEFAULT_ECHO_TO_XPG;
+        -:  119:
+        -:  120:  initialize_main (&argc, &argv);
+       14:  121:  set_program_name (argv[0]);
+       14:  122:  setlocale (LC_ALL, "");
+       14:  123:  bindtextdomain (PACKAGE, LOCALEDIR);
+       14:  124:  textdomain (PACKAGE);
+        -:  125:
+       14:  126:  atexit (close_stdout);
+        -:  127:
+        -:  128:  /* We directly parse options, rather than use parse_long_options, in
+        -:  129:     order to avoid accepting abbreviations.  */
+       14:  130:  if (allow_options && argc == 2)
+        -:  131:    {
+        8:  132:      if (STREQ (argv[1], "--help"))
+        1:  133:        usage (EXIT_SUCCESS);
+        -:  134:
+        7:  135:      if (STREQ (argv[1], "--version"))
+        -:  136:        {
+        1:  137:          version_etc (stdout, PROGRAM_NAME, PACKAGE_NAME, Version, AUTHORS,
+        -:  138:                       (char *) NULL);
+        1:  139:          return EXIT_SUCCESS;
+        -:  140:        }
+        -:  141:    }
+        -:  142:
+       12:  143:  --argc;
+       12:  144:  ++argv;
+        -:  145:
+       12:  146:  if (allow_options)
+       12:  147:    while (argc > 0 && *argv[0] == '-')
+        -:  148:      {
+    #####:  149:        char const *temp = argv[0] + 1;
+        -:  150:        size_t i;
+        -:  151:
+        -:  152:        /* If it appears that we are handling options, then make sure that
+        -:  153:           all of the options specified are actually valid.  Otherwise, the
+        -:  154:           string should just be echoed.  */
+        -:  155:
+    #####:  156:        for (i = 0; temp[i]; i++)
+        -:  157:          switch (temp[i])
+        -:  158:            {
+        -:  159:            case 'e': case 'E': case 'n':
+        -:  160:              break;
+        -:  161:            default:
+        -:  162:              goto just_echo;
+        -:  163:            }
+        -:  164:
+    #####:  165:        if (i == 0)
+        -:  166:          goto just_echo;
+        -:  167:
+        -:  168:        /* All of the options in TEMP are valid options to ECHO.
+        -:  169:           Handle them. */
+    #####:  170:        while (*temp)
+    #####:  171:          switch (*temp++)
+        -:  172:            {
+        -:  173:            case 'e':
+    #####:  174:              do_v9 = true;
+    #####:  175:              break;
+        -:  176:
+        -:  177:            case 'E':
+    #####:  178:              do_v9 = false;
+    #####:  179:              break;
+        -:  180:
+        -:  181:            case 'n':
+    #####:  182:              display_return = false;
+    #####:  183:              break;
+        -:  184:            }
+        -:  185:
+    #####:  186:        argc--;
+    #####:  187:        argv++;
+        -:  188:      }
+        -:  189:
+        -:  190:just_echo:
+        -:  191:
+       12:  192:  if (do_v9)
+        -:  193:    {
+    #####:  194:      while (argc > 0)
+        -:  195:        {
+    #####:  196:          char const *s = argv[0];
+        -:  197:          unsigned char c;
+        -:  198:
+    #####:  199:          while ((c = *s++))
+        -:  200:            {
+    #####:  201:              if (c == '\\' && *s)
+        -:  202:                {
+    #####:  203:                  switch (c = *s++)
+        -:  204:                    {
+    #####:  205:                    case 'a': c = '\a'; break;
+    #####:  206:                    case 'b': c = '\b'; break;
+        -:  207:                    case 'c': return EXIT_SUCCESS;
+    #####:  208:                    case 'e': c = '\x1B'; break;
+    #####:  209:                    case 'f': c = '\f'; break;
+    #####:  210:                    case 'n': c = '\n'; break;
+    #####:  211:                    case 'r': c = '\r'; break;
+    #####:  212:                    case 't': c = '\t'; break;
+    #####:  213:                    case 'v': c = '\v'; break;
+        -:  214:                    case 'x':
+        -:  215:                      {
+    #####:  216:                        unsigned char ch = *s;
+    #####:  217:                        if (! isxdigit (ch))
+        -:  218:                          goto not_an_escape;
+    #####:  219:                        s++;
+    #####:  220:                        c = hextobin (ch);
+    #####:  221:                        ch = *s;
+    #####:  222:                        if (isxdigit (ch))
+        -:  223:                          {
+    #####:  224:                            s++;
+    #####:  225:                            c = c * 16 + hextobin (ch);
+        -:  226:                          }
+        -:  227:                      }
+        -:  228:                      break;
+        -:  229:                    case '0':
+    #####:  230:                      c = 0;
+    #####:  231:                      if (! ('0' <= *s && *s <= '7'))
+        -:  232:                        break;
+    #####:  233:                      c = *s++;
+        -:  234:                      /* Fall through.  */
+        -:  235:                    case '1': case '2': case '3':
+        -:  236:                    case '4': case '5': case '6': case '7':
+    #####:  237:                      c -= '0';
+    #####:  238:                      if ('0' <= *s && *s <= '7')
+    #####:  239:                        c = c * 8 + (*s++ - '0');
+    #####:  240:                      if ('0' <= *s && *s <= '7')
+    #####:  241:                        c = c * 8 + (*s++ - '0');
+        -:  242:                      break;
+        -:  243:                    case '\\': break;
+        -:  244:
+        -:  245:                    not_an_escape:
+        -:  246:                    default:  putchar ('\\'); break;
+        -:  247:                    }
+        -:  248:                }
+    #####:  249:              putchar (c);
+        -:  250:            }
+    #####:  251:          argc--;
+    #####:  252:          argv++;
+    #####:  253:          if (argc > 0)
+        -:  254:            putchar (' ');
+        -:  255:        }
+        -:  256:    }
+        -:  257:  else
+        -:  258:    {
+       48:  259:      while (argc > 0)
+        -:  260:        {
+       36:  261:          fputs (argv[0], stdout);
+       36:  262:          argc--;
+       36:  263:          argv++;
+       36:  264:          if (argc > 0)
+        -:  265:            putchar (' ');
+        -:  266:        }
+        -:  267:    }
+        -:  268:
+       12:  269:  if (display_return)
+        -:  270:    putchar ('\n');
+        -:  271:  return EXIT_SUCCESS;
+        -:  272:}

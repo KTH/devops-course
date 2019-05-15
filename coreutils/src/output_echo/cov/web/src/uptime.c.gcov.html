@@ -1,0 +1,333 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - trace.lcov_info_final - src/uptime.c</title>
+  <link rel="stylesheet" type="text/css" href="../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">src</a> - uptime.c<span style="font-size: 80%;"> (source / <a href="uptime.c.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">trace.lcov_info_final</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">79</td>
+            <td class="headerCovTableEntryLo">0.0 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2019-04-22 20:19:38</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">4</td>
+            <td class="headerCovTableEntryLo">0.0 %</td>
+          </tr>
+          <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>            : /* GNU's uptime.</a>
+<span class="lineNum">       2 </span>            :    Copyright (C) 1992-2016 Free Software Foundation, Inc.
+<span class="lineNum">       3 </span>            : 
+<span class="lineNum">       4 </span>            :    This program is free software: you can redistribute it and/or modify
+<span class="lineNum">       5 </span>            :    it under the terms of the GNU General Public License as published by
+<span class="lineNum">       6 </span>            :    the Free Software Foundation, either version 3 of the License, or
+<span class="lineNum">       7 </span>            :    (at your option) any later version.
+<span class="lineNum">       8 </span>            : 
+<span class="lineNum">       9 </span>            :    This program is distributed in the hope that it will be useful,
+<span class="lineNum">      10 </span>            :    but WITHOUT ANY WARRANTY; without even the implied warranty of
+<span class="lineNum">      11 </span>            :    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+<span class="lineNum">      12 </span>            :    GNU General Public License for more details.
+<span class="lineNum">      13 </span>            : 
+<span class="lineNum">      14 </span>            :    You should have received a copy of the GNU General Public License
+<span class="lineNum">      15 </span>            :    along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.  */
+<span class="lineNum">      16 </span>            : 
+<span class="lineNum">      17 </span>            : /* Created by hacking who.c by Kaveh Ghazi ghazi@caip.rutgers.edu.  */
+<span class="lineNum">      18 </span>            : 
+<span class="lineNum">      19 </span>            : #include &lt;config.h&gt;
+<span class="lineNum">      20 </span>            : #include &lt;getopt.h&gt;
+<span class="lineNum">      21 </span>            : #include &lt;stdio.h&gt;
+<span class="lineNum">      22 </span>            : 
+<span class="lineNum">      23 </span>            : #include &lt;sys/types.h&gt;
+<span class="lineNum">      24 </span>            : #include &quot;system.h&quot;
+<span class="lineNum">      25 </span>            : 
+<span class="lineNum">      26 </span>            : #if HAVE_SYSCTL &amp;&amp; HAVE_SYS_SYSCTL_H
+<span class="lineNum">      27 </span>            : # include &lt;sys/sysctl.h&gt;
+<span class="lineNum">      28 </span>            : #endif
+<span class="lineNum">      29 </span>            : 
+<span class="lineNum">      30 </span>            : #if HAVE_OS_H
+<span class="lineNum">      31 </span>            : # include &lt;OS.h&gt;
+<span class="lineNum">      32 </span>            : #endif
+<span class="lineNum">      33 </span>            : 
+<span class="lineNum">      34 </span>            : #include &quot;c-strtod.h&quot;
+<span class="lineNum">      35 </span>            : #include &quot;error.h&quot;
+<span class="lineNum">      36 </span>            : #include &quot;long-options.h&quot;
+<span class="lineNum">      37 </span>            : #include &quot;quote.h&quot;
+<span class="lineNum">      38 </span>            : #include &quot;readutmp.h&quot;
+<span class="lineNum">      39 </span>            : #include &quot;fprintftime.h&quot;
+<span class="lineNum">      40 </span>            : 
+<span class="lineNum">      41 </span>            : /* The official name of this program (e.g., no 'g' prefix).  */
+<span class="lineNum">      42 </span>            : #define PROGRAM_NAME &quot;uptime&quot;
+<span class="lineNum">      43 </span>            : 
+<span class="lineNum">      44 </span>            : #define AUTHORS \
+<span class="lineNum">      45 </span>            :   proper_name (&quot;Joseph Arceneaux&quot;), \
+<span class="lineNum">      46 </span>            :   proper_name (&quot;David MacKenzie&quot;), \
+<span class="lineNum">      47 </span>            :   proper_name (&quot;Kaveh Ghazi&quot;)
+<a name="48"><span class="lineNum">      48 </span>            : </a>
+<span class="lineNum">      49 </span>            : static void
+<span class="lineNum">      50 </span><span class="lineNoCov">          0 : print_uptime (size_t n, const STRUCT_UTMP *this)</span>
+<span class="lineNum">      51 </span>            : {
+<span class="lineNum">      52 </span><span class="lineNoCov">          0 :   size_t entries = 0;</span>
+<span class="lineNum">      53 </span><span class="lineNoCov">          0 :   time_t boot_time = 0;</span>
+<span class="lineNum">      54 </span>            :   time_t time_now;
+<span class="lineNum">      55 </span><span class="lineNoCov">          0 :   time_t uptime = 0;</span>
+<span class="lineNum">      56 </span>            :   long int updays;
+<span class="lineNum">      57 </span>            :   int uphours;
+<span class="lineNum">      58 </span>            :   int upmins;
+<span class="lineNum">      59 </span>            :   struct tm *tmn;
+<span class="lineNum">      60 </span>            :   double avg[3];
+<span class="lineNum">      61 </span>            :   int loads;
+<span class="lineNum">      62 </span>            : #ifdef HAVE_PROC_UPTIME
+<span class="lineNum">      63 </span>            :   FILE *fp;
+<span class="lineNum">      64 </span>            : 
+<span class="lineNum">      65 </span><span class="lineNoCov">          0 :   fp = fopen (&quot;/proc/uptime&quot;, &quot;r&quot;);</span>
+<span class="lineNum">      66 </span><span class="lineNoCov">          0 :   if (fp != NULL)</span>
+<span class="lineNum">      67 </span>            :     {
+<span class="lineNum">      68 </span>            :       char buf[BUFSIZ];
+<span class="lineNum">      69 </span><span class="lineNoCov">          0 :       char *b = fgets (buf, BUFSIZ, fp);</span>
+<span class="lineNum">      70 </span><span class="lineNoCov">          0 :       if (b == buf)</span>
+<span class="lineNum">      71 </span>            :         {
+<span class="lineNum">      72 </span>            :           char *end_ptr;
+<span class="lineNum">      73 </span><span class="lineNoCov">          0 :           double upsecs = c_strtod (buf, &amp;end_ptr);</span>
+<span class="lineNum">      74 </span><span class="lineNoCov">          0 :           if (buf != end_ptr)</span>
+<span class="lineNum">      75 </span><span class="lineNoCov">          0 :             uptime = (0 &lt;= upsecs &amp;&amp; upsecs &lt; TYPE_MAXIMUM (time_t)</span>
+<span class="lineNum">      76 </span>            :                       ? upsecs : -1);
+<span class="lineNum">      77 </span>            :         }
+<span class="lineNum">      78 </span>            : 
+<span class="lineNum">      79 </span><span class="lineNoCov">          0 :       fclose (fp);</span>
+<span class="lineNum">      80 </span>            :     }
+<span class="lineNum">      81 </span>            : #endif /* HAVE_PROC_UPTIME */
+<span class="lineNum">      82 </span>            : 
+<span class="lineNum">      83 </span>            : #if HAVE_SYSCTL &amp;&amp; defined CTL_KERN &amp;&amp; defined KERN_BOOTTIME
+<span class="lineNum">      84 </span>            :   {
+<span class="lineNum">      85 </span>            :     /* FreeBSD specific: fetch sysctl &quot;kern.boottime&quot;.  */
+<span class="lineNum">      86 </span>            :     static int request[2] = { CTL_KERN, KERN_BOOTTIME };
+<span class="lineNum">      87 </span>            :     struct timeval result;
+<span class="lineNum">      88 </span>            :     size_t result_len = sizeof result;
+<span class="lineNum">      89 </span>            : 
+<span class="lineNum">      90 </span>            :     if (sysctl (request, 2, &amp;result, &amp;result_len, NULL, 0) &gt;= 0)
+<span class="lineNum">      91 </span>            :       boot_time = result.tv_sec;
+<span class="lineNum">      92 </span>            :   }
+<span class="lineNum">      93 </span>            : #endif
+<span class="lineNum">      94 </span>            : 
+<span class="lineNum">      95 </span>            : #if HAVE_OS_H /* BeOS */
+<span class="lineNum">      96 </span>            :   {
+<span class="lineNum">      97 </span>            :     system_info si;
+<span class="lineNum">      98 </span>            : 
+<span class="lineNum">      99 </span>            :     get_system_info (&amp;si);
+<span class="lineNum">     100 </span>            :     boot_time = si.boot_time / 1000000;
+<span class="lineNum">     101 </span>            :   }
+<span class="lineNum">     102 </span>            : #endif
+<span class="lineNum">     103 </span>            : 
+<span class="lineNum">     104 </span>            : #if HAVE_UTMPX_H || HAVE_UTMP_H
+<span class="lineNum">     105 </span>            :   /* Loop through all the utmp entries we just read and count up the valid
+<span class="lineNum">     106 </span>            :      ones, also in the process possibly gleaning boottime. */
+<span class="lineNum">     107 </span><span class="lineNoCov">          0 :   while (n--)</span>
+<span class="lineNum">     108 </span>            :     {
+<span class="lineNum">     109 </span><span class="lineNoCov">          0 :       entries += IS_USER_PROCESS (this);</span>
+<span class="lineNum">     110 </span><span class="lineNoCov">          0 :       if (UT_TYPE_BOOT_TIME (this))</span>
+<span class="lineNum">     111 </span><span class="lineNoCov">          0 :         boot_time = UT_TIME_MEMBER (this);</span>
+<span class="lineNum">     112 </span><span class="lineNoCov">          0 :       ++this;</span>
+<span class="lineNum">     113 </span>            :     }
+<span class="lineNum">     114 </span>            : #else
+<span class="lineNum">     115 </span>            :   (void) n;
+<span class="lineNum">     116 </span>            :   (void) this;
+<span class="lineNum">     117 </span>            : #endif
+<span class="lineNum">     118 </span>            : 
+<span class="lineNum">     119 </span><span class="lineNoCov">          0 :   time_now = time (NULL);</span>
+<span class="lineNum">     120 </span>            : #if defined HAVE_PROC_UPTIME
+<span class="lineNum">     121 </span><span class="lineNoCov">          0 :   if (uptime == 0)</span>
+<span class="lineNum">     122 </span>            : #endif
+<span class="lineNum">     123 </span>            :     {
+<span class="lineNum">     124 </span><span class="lineNoCov">          0 :       if (boot_time == 0)</span>
+<span class="lineNum">     125 </span><span class="lineNoCov">          0 :         error (EXIT_FAILURE, errno, _(&quot;couldn't get boot time&quot;));</span>
+<span class="lineNum">     126 </span><span class="lineNoCov">          0 :       uptime = time_now - boot_time;</span>
+<span class="lineNum">     127 </span>            :     }
+<span class="lineNum">     128 </span><span class="lineNoCov">          0 :   updays = uptime / 86400;</span>
+<span class="lineNum">     129 </span><span class="lineNoCov">          0 :   uphours = (uptime - (updays * 86400)) / 3600;</span>
+<span class="lineNum">     130 </span><span class="lineNoCov">          0 :   upmins = (uptime - (updays * 86400) - (uphours * 3600)) / 60;</span>
+<span class="lineNum">     131 </span><span class="lineNoCov">          0 :   tmn = localtime (&amp;time_now);</span>
+<span class="lineNum">     132 </span>            :   /* procps' version of uptime also prints the seconds field, but
+<span class="lineNum">     133 </span>            :      previous versions of coreutils don't. */
+<span class="lineNum">     134 </span><span class="lineNoCov">          0 :   if (tmn)</span>
+<span class="lineNum">     135 </span>            :     /* TRANSLATORS: This prints the current clock time. */
+<span class="lineNum">     136 </span><span class="lineNoCov">          0 :     fprintftime (stdout, _(&quot; %H:%M%P  &quot;), tmn, 0, 0);</span>
+<span class="lineNum">     137 </span>            :   else
+<span class="lineNum">     138 </span><span class="lineNoCov">          0 :     printf (_(&quot; ??:????  &quot;));</span>
+<span class="lineNum">     139 </span><span class="lineNoCov">          0 :   if (uptime == (time_t) -1)</span>
+<span class="lineNum">     140 </span><span class="lineNoCov">          0 :     printf (_(&quot;up ???? days ??:??,  &quot;));</span>
+<span class="lineNum">     141 </span>            :   else
+<span class="lineNum">     142 </span>            :     {
+<span class="lineNum">     143 </span><span class="lineNoCov">          0 :       if (0 &lt; updays)</span>
+<span class="lineNum">     144 </span><span class="lineNoCov">          0 :         printf (ngettext (&quot;up %ld day %2d:%02d,  &quot;,</span>
+<span class="lineNum">     145 </span>            :                           &quot;up %ld days %2d:%02d,  &quot;,
+<span class="lineNum">     146 </span>            :                           select_plural (updays)),
+<span class="lineNum">     147 </span>            :                 updays, uphours, upmins);
+<span class="lineNum">     148 </span>            :       else
+<span class="lineNum">     149 </span><span class="lineNoCov">          0 :         printf (_(&quot;up  %2d:%02d,  &quot;), uphours, upmins);</span>
+<span class="lineNum">     150 </span>            :     }
+<span class="lineNum">     151 </span><span class="lineNoCov">          0 :   printf (ngettext (&quot;%lu user&quot;, &quot;%lu users&quot;, select_plural (entries)),</span>
+<span class="lineNum">     152 </span>            :           (unsigned long int) entries);
+<span class="lineNum">     153 </span>            : 
+<span class="lineNum">     154 </span><span class="lineNoCov">          0 :   loads = getloadavg (avg, 3);</span>
+<span class="lineNum">     155 </span>            : 
+<span class="lineNum">     156 </span><span class="lineNoCov">          0 :   if (loads == -1)</span>
+<span class="lineNum">     157 </span>            :     putchar ('\n');
+<span class="lineNum">     158 </span>            :   else
+<span class="lineNum">     159 </span>            :     {
+<span class="lineNum">     160 </span><span class="lineNoCov">          0 :       if (loads &gt; 0)</span>
+<span class="lineNum">     161 </span><span class="lineNoCov">          0 :         printf (_(&quot;,  load average: %.2f&quot;), avg[0]);</span>
+<span class="lineNum">     162 </span><span class="lineNoCov">          0 :       if (loads &gt; 1)</span>
+<span class="lineNum">     163 </span><span class="lineNoCov">          0 :         printf (&quot;, %.2f&quot;, avg[1]);</span>
+<span class="lineNum">     164 </span><span class="lineNoCov">          0 :       if (loads &gt; 2)</span>
+<span class="lineNum">     165 </span><span class="lineNoCov">          0 :         printf (&quot;, %.2f&quot;, avg[2]);</span>
+<span class="lineNum">     166 </span><span class="lineNoCov">          0 :       if (loads &gt; 0)</span>
+<span class="lineNum">     167 </span>            :         putchar ('\n');
+<span class="lineNum">     168 </span>            :     }
+<span class="lineNum">     169 </span><span class="lineNoCov">          0 : }</span>
+<span class="lineNum">     170 </span>            : 
+<span class="lineNum">     171 </span>            : /* Display the system uptime and the number of users on the system,
+<span class="lineNum">     172 </span>            :    according to utmp file FILENAME.  Use read_utmp OPTIONS to read the
+<span class="lineNum">     173 </span>            :    utmp file.  */
+<a name="174"><span class="lineNum">     174 </span>            : </a>
+<span class="lineNum">     175 </span>            : static void
+<span class="lineNum">     176 </span><span class="lineNoCov">          0 : uptime (const char *filename, int options)</span>
+<span class="lineNum">     177 </span>            : {
+<span class="lineNum">     178 </span>            :   size_t n_users;
+<span class="lineNum">     179 </span><span class="lineNoCov">          0 :   STRUCT_UTMP *utmp_buf = NULL;</span>
+<span class="lineNum">     180 </span>            : 
+<span class="lineNum">     181 </span>            : #if HAVE_UTMPX_H || HAVE_UTMP_H
+<span class="lineNum">     182 </span><span class="lineNoCov">          0 :   if (read_utmp (filename, &amp;n_users, &amp;utmp_buf, options) != 0)</span>
+<span class="lineNum">     183 </span><span class="lineNoCov">          0 :     error (EXIT_FAILURE, errno, &quot;%s&quot;, quotef (filename));</span>
+<span class="lineNum">     184 </span>            : #endif
+<span class="lineNum">     185 </span>            : 
+<span class="lineNum">     186 </span><span class="lineNoCov">          0 :   print_uptime (n_users, utmp_buf);</span>
+<span class="lineNum">     187 </span>            : 
+<span class="lineNum">     188 </span><span class="lineNoCov">          0 :   IF_LINT (free (utmp_buf));</span>
+<span class="lineNum">     189 </span><span class="lineNoCov">          0 : }</span>
+<a name="190"><span class="lineNum">     190 </span>            : </a>
+<span class="lineNum">     191 </span>            : void
+<span class="lineNum">     192 </span><span class="lineNoCov">          0 : usage (int status)</span>
+<span class="lineNum">     193 </span>            : {
+<span class="lineNum">     194 </span><span class="lineNoCov">          0 :   if (status != EXIT_SUCCESS)</span>
+<span class="lineNum">     195 </span><span class="lineNoCov">          0 :     emit_try_help ();</span>
+<span class="lineNum">     196 </span>            :   else
+<span class="lineNum">     197 </span>            :     {
+<span class="lineNum">     198 </span><span class="lineNoCov">          0 :       printf (_(&quot;Usage: %s [OPTION]... [FILE]\n&quot;), program_name);</span>
+<span class="lineNum">     199 </span><span class="lineNoCov">          0 :       printf (_(&quot;\</span>
+<span class="lineNum">     200 </span>            : Print the current time, the length of time the system has been up,\n\
+<span class="lineNum">     201 </span>            : the number of users on the system, and the average number of jobs\n\
+<span class="lineNum">     202 </span>            : in the run queue over the last 1, 5 and 15 minutes.&quot;));
+<span class="lineNum">     203 </span>            : #ifdef __linux__
+<span class="lineNum">     204 </span>            :       /* It would be better to introduce a configure test for this,
+<span class="lineNum">     205 </span>            :          but such a test is hard to write.  For the moment then, we
+<span class="lineNum">     206 </span>            :          have a hack which depends on the preprocessor used at compile
+<span class="lineNum">     207 </span>            :          time to tell us what the running kernel is.  Ugh.  */
+<span class="lineNum">     208 </span><span class="lineNoCov">          0 :       printf (_(&quot;  \</span>
+<span class="lineNum">     209 </span>            : Processes in\n\
+<span class="lineNum">     210 </span>            : an uninterruptible sleep state also contribute to the load average.\n&quot;));
+<span class="lineNum">     211 </span>            : #else
+<span class="lineNum">     212 </span>            :       printf (_(&quot;\n&quot;));
+<span class="lineNum">     213 </span>            : #endif
+<span class="lineNum">     214 </span><span class="lineNoCov">          0 :       printf (_(&quot;\</span>
+<span class="lineNum">     215 </span>            : If FILE is not specified, use %s.  %s as FILE is common.\n\
+<span class="lineNum">     216 </span>            : \n&quot;),
+<span class="lineNum">     217 </span>            :               UTMP_FILE, WTMP_FILE);
+<span class="lineNum">     218 </span><span class="lineNoCov">          0 :       fputs (HELP_OPTION_DESCRIPTION, stdout);</span>
+<span class="lineNum">     219 </span><span class="lineNoCov">          0 :       fputs (VERSION_OPTION_DESCRIPTION, stdout);</span>
+<span class="lineNum">     220 </span><span class="lineNoCov">          0 :       emit_ancillary_info (PROGRAM_NAME);</span>
+<span class="lineNum">     221 </span>            :     }
+<span class="lineNum">     222 </span><span class="lineNoCov">          0 :   exit (status);</span>
+<span class="lineNum">     223 </span>            : }
+<a name="224"><span class="lineNum">     224 </span>            : </a>
+<span class="lineNum">     225 </span>            : int
+<span class="lineNum">     226 </span><span class="lineNoCov">          0 : main (int argc, char **argv)</span>
+<span class="lineNum">     227 </span>            : {
+<span class="lineNum">     228 </span>            :   initialize_main (&amp;argc, &amp;argv);
+<span class="lineNum">     229 </span><span class="lineNoCov">          0 :   set_program_name (argv[0]);</span>
+<span class="lineNum">     230 </span><span class="lineNoCov">          0 :   setlocale (LC_ALL, &quot;&quot;);</span>
+<span class="lineNum">     231 </span><span class="lineNoCov">          0 :   bindtextdomain (PACKAGE, LOCALEDIR);</span>
+<span class="lineNum">     232 </span><span class="lineNoCov">          0 :   textdomain (PACKAGE);</span>
+<span class="lineNum">     233 </span>            : 
+<span class="lineNum">     234 </span><span class="lineNoCov">          0 :   atexit (close_stdout);</span>
+<span class="lineNum">     235 </span>            : 
+<span class="lineNum">     236 </span><span class="lineNoCov">          0 :   parse_long_options (argc, argv, PROGRAM_NAME, PACKAGE_NAME, Version,</span>
+<span class="lineNum">     237 </span>            :                       usage, AUTHORS, (char const *) NULL);
+<span class="lineNum">     238 </span><span class="lineNoCov">          0 :   if (getopt_long (argc, argv, &quot;&quot;, NULL, NULL) != -1)</span>
+<span class="lineNum">     239 </span><span class="lineNoCov">          0 :     usage (EXIT_FAILURE);</span>
+<span class="lineNum">     240 </span>            : 
+<span class="lineNum">     241 </span><span class="lineNoCov">          0 :   switch (argc - optind)</span>
+<span class="lineNum">     242 </span>            :     {
+<span class="lineNum">     243 </span>            :     case 0:                     /* uptime */
+<span class="lineNum">     244 </span><span class="lineNoCov">          0 :       uptime (UTMP_FILE, READ_UTMP_CHECK_PIDS);</span>
+<span class="lineNum">     245 </span><span class="lineNoCov">          0 :       break;</span>
+<span class="lineNum">     246 </span>            : 
+<span class="lineNum">     247 </span>            :     case 1:                     /* uptime &lt;utmp file&gt; */
+<span class="lineNum">     248 </span><span class="lineNoCov">          0 :       uptime (argv[optind], 0);</span>
+<span class="lineNum">     249 </span><span class="lineNoCov">          0 :       break;</span>
+<span class="lineNum">     250 </span>            : 
+<span class="lineNum">     251 </span>            :     default:                    /* lose */
+<span class="lineNum">     252 </span><span class="lineNoCov">          0 :       error (0, 0, _(&quot;extra operand %s&quot;), quote (argv[optind + 1]));</span>
+<span class="lineNum">     253 </span><span class="lineNoCov">          0 :       usage (EXIT_FAILURE);</span>
+<span class="lineNum">     254 </span>            :     }
+<span class="lineNum">     255 </span>            : 
+<span class="lineNum">     256 </span>            :   return EXIT_SUCCESS;
+<span class="lineNum">     257 </span>            : }
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.12</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>

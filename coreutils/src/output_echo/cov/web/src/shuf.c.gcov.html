@@ -1,0 +1,695 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - trace.lcov_info_final - src/shuf.c</title>
+  <link rel="stylesheet" type="text/css" href="../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">src</a> - shuf.c<span style="font-size: 80%;"> (source / <a href="shuf.c.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">trace.lcov_info_final</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">223</td>
+            <td class="headerCovTableEntryLo">0.0 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2019-04-22 20:19:38</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">11</td>
+            <td class="headerCovTableEntryLo">0.0 %</td>
+          </tr>
+          <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>            : /* Shuffle lines of text.</a>
+<span class="lineNum">       2 </span>            : 
+<span class="lineNum">       3 </span>            :    Copyright (C) 2006-2016 Free Software Foundation, Inc.
+<span class="lineNum">       4 </span>            : 
+<span class="lineNum">       5 </span>            :    This program is free software: you can redistribute it and/or modify
+<span class="lineNum">       6 </span>            :    it under the terms of the GNU General Public License as published by
+<span class="lineNum">       7 </span>            :    the Free Software Foundation, either version 3 of the License, or
+<span class="lineNum">       8 </span>            :    (at your option) any later version.
+<span class="lineNum">       9 </span>            : 
+<span class="lineNum">      10 </span>            :    This program is distributed in the hope that it will be useful,
+<span class="lineNum">      11 </span>            :    but WITHOUT ANY WARRANTY; without even the implied warranty of
+<span class="lineNum">      12 </span>            :    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+<span class="lineNum">      13 </span>            :    GNU General Public License for more details.
+<span class="lineNum">      14 </span>            : 
+<span class="lineNum">      15 </span>            :    You should have received a copy of the GNU General Public License
+<span class="lineNum">      16 </span>            :    along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.
+<span class="lineNum">      17 </span>            : 
+<span class="lineNum">      18 </span>            :    Written by Paul Eggert.  */
+<span class="lineNum">      19 </span>            : 
+<span class="lineNum">      20 </span>            : #include &lt;config.h&gt;
+<span class="lineNum">      21 </span>            : 
+<span class="lineNum">      22 </span>            : #include &lt;sys/types.h&gt;
+<span class="lineNum">      23 </span>            : #include &quot;system.h&quot;
+<span class="lineNum">      24 </span>            : 
+<span class="lineNum">      25 </span>            : #include &quot;error.h&quot;
+<span class="lineNum">      26 </span>            : #include &quot;fadvise.h&quot;
+<span class="lineNum">      27 </span>            : #include &quot;getopt.h&quot;
+<span class="lineNum">      28 </span>            : #include &quot;linebuffer.h&quot;
+<span class="lineNum">      29 </span>            : #include &quot;quote.h&quot;
+<span class="lineNum">      30 </span>            : #include &quot;randint.h&quot;
+<span class="lineNum">      31 </span>            : #include &quot;randperm.h&quot;
+<span class="lineNum">      32 </span>            : #include &quot;read-file.h&quot;
+<span class="lineNum">      33 </span>            : #include &quot;stdio--.h&quot;
+<span class="lineNum">      34 </span>            : #include &quot;xdectoint.h&quot;
+<span class="lineNum">      35 </span>            : #include &quot;xstrtol.h&quot;
+<span class="lineNum">      36 </span>            : 
+<span class="lineNum">      37 </span>            : /* The official name of this program (e.g., no 'g' prefix).  */
+<span class="lineNum">      38 </span>            : #define PROGRAM_NAME &quot;shuf&quot;
+<span class="lineNum">      39 </span>            : 
+<span class="lineNum">      40 </span>            : #define AUTHORS proper_name (&quot;Paul Eggert&quot;)
+<span class="lineNum">      41 </span>            : 
+<span class="lineNum">      42 </span>            : /* For reservoir-sampling, allocate the reservoir lines in batches.  */
+<span class="lineNum">      43 </span>            : enum { RESERVOIR_LINES_INCREMENT = 1024 };
+<span class="lineNum">      44 </span>            : 
+<span class="lineNum">      45 </span>            : /* reservoir-sampling introduces CPU overhead for small inputs.
+<span class="lineNum">      46 </span>            :    So only enable it for inputs &gt;= this limit.
+<span class="lineNum">      47 </span>            :    This limit was determined using these commands:
+<span class="lineNum">      48 </span>            :      $ for p in $(seq 7); do src/seq $((10**$p)) &gt; 10p$p.in; done
+<span class="lineNum">      49 </span>            :      $ for p in $(seq 7); do time shuf-nores -n10 10p$p.in &gt;/dev/null; done
+<span class="lineNum">      50 </span>            :      $ for p in $(seq 7); do time shuf -n10 10p$p.in &gt;/dev/null; done  .*/
+<span class="lineNum">      51 </span>            : enum { RESERVOIR_MIN_INPUT = 8192 * 1024 };
+<span class="lineNum">      52 </span>            : 
+<a name="53"><span class="lineNum">      53 </span>            : </a>
+<span class="lineNum">      54 </span>            : void
+<span class="lineNum">      55 </span><span class="lineNoCov">          0 : usage (int status)</span>
+<span class="lineNum">      56 </span>            : {
+<span class="lineNum">      57 </span><span class="lineNoCov">          0 :   if (status != EXIT_SUCCESS)</span>
+<span class="lineNum">      58 </span><span class="lineNoCov">          0 :     emit_try_help ();</span>
+<span class="lineNum">      59 </span>            :   else
+<span class="lineNum">      60 </span>            :     {
+<span class="lineNum">      61 </span><span class="lineNoCov">          0 :       printf (_(&quot;\</span>
+<span class="lineNum">      62 </span>            : Usage: %s [OPTION]... [FILE]\n\
+<span class="lineNum">      63 </span>            :   or:  %s -e [OPTION]... [ARG]...\n\
+<span class="lineNum">      64 </span>            :   or:  %s -i LO-HI [OPTION]...\n\
+<span class="lineNum">      65 </span>            : &quot;),
+<span class="lineNum">      66 </span>            :               program_name, program_name, program_name);
+<span class="lineNum">      67 </span><span class="lineNoCov">          0 :       fputs (_(&quot;\</span>
+<span class="lineNum">      68 </span>            : Write a random permutation of the input lines to standard output.\n\
+<span class="lineNum">      69 </span>            : &quot;), stdout);
+<span class="lineNum">      70 </span>            : 
+<span class="lineNum">      71 </span><span class="lineNoCov">          0 :       emit_stdin_note ();</span>
+<span class="lineNum">      72 </span><span class="lineNoCov">          0 :       emit_mandatory_arg_note ();</span>
+<span class="lineNum">      73 </span>            : 
+<span class="lineNum">      74 </span><span class="lineNoCov">          0 :       fputs (_(&quot;\</span>
+<span class="lineNum">      75 </span>            :   -e, --echo                treat each ARG as an input line\n\
+<span class="lineNum">      76 </span>            :   -i, --input-range=LO-HI   treat each number LO through HI as an input line\n\
+<span class="lineNum">      77 </span>            :   -n, --head-count=COUNT    output at most COUNT lines\n\
+<span class="lineNum">      78 </span>            :   -o, --output=FILE         write result to FILE instead of standard output\n\
+<span class="lineNum">      79 </span>            :       --random-source=FILE  get random bytes from FILE\n\
+<span class="lineNum">      80 </span>            :   -r, --repeat              output lines can be repeated\n\
+<span class="lineNum">      81 </span>            : &quot;), stdout);
+<span class="lineNum">      82 </span><span class="lineNoCov">          0 :       fputs (_(&quot;\</span>
+<span class="lineNum">      83 </span>            :   -z, --zero-terminated     line delimiter is NUL, not newline\n\
+<span class="lineNum">      84 </span>            : &quot;), stdout);
+<span class="lineNum">      85 </span><span class="lineNoCov">          0 :       fputs (HELP_OPTION_DESCRIPTION, stdout);</span>
+<span class="lineNum">      86 </span><span class="lineNoCov">          0 :       fputs (VERSION_OPTION_DESCRIPTION, stdout);</span>
+<span class="lineNum">      87 </span><span class="lineNoCov">          0 :       emit_ancillary_info (PROGRAM_NAME);</span>
+<span class="lineNum">      88 </span>            :     }
+<span class="lineNum">      89 </span>            : 
+<span class="lineNum">      90 </span><span class="lineNoCov">          0 :   exit (status);</span>
+<span class="lineNum">      91 </span>            : }
+<span class="lineNum">      92 </span>            : 
+<span class="lineNum">      93 </span>            : /* For long options that have no equivalent short option, use a
+<span class="lineNum">      94 </span>            :    non-character as a pseudo short option, starting with CHAR_MAX + 1.  */
+<span class="lineNum">      95 </span>            : enum
+<span class="lineNum">      96 </span>            : {
+<span class="lineNum">      97 </span>            :   RANDOM_SOURCE_OPTION = CHAR_MAX + 1
+<span class="lineNum">      98 </span>            : };
+<span class="lineNum">      99 </span>            : 
+<span class="lineNum">     100 </span>            : static struct option const long_opts[] =
+<span class="lineNum">     101 </span>            : {
+<span class="lineNum">     102 </span>            :   {&quot;echo&quot;, no_argument, NULL, 'e'},
+<span class="lineNum">     103 </span>            :   {&quot;input-range&quot;, required_argument, NULL, 'i'},
+<span class="lineNum">     104 </span>            :   {&quot;head-count&quot;, required_argument, NULL, 'n'},
+<span class="lineNum">     105 </span>            :   {&quot;output&quot;, required_argument, NULL, 'o'},
+<span class="lineNum">     106 </span>            :   {&quot;random-source&quot;, required_argument, NULL, RANDOM_SOURCE_OPTION},
+<span class="lineNum">     107 </span>            :   {&quot;repeat&quot;, no_argument, NULL, 'r'},
+<span class="lineNum">     108 </span>            :   {&quot;zero-terminated&quot;, no_argument, NULL, 'z'},
+<span class="lineNum">     109 </span>            :   {GETOPT_HELP_OPTION_DECL},
+<span class="lineNum">     110 </span>            :   {GETOPT_VERSION_OPTION_DECL},
+<span class="lineNum">     111 </span>            :   {0, 0, 0, 0},
+<span class="lineNum">     112 </span>            : };
+<a name="113"><span class="lineNum">     113 </span>            : </a>
+<span class="lineNum">     114 </span>            : static void
+<span class="lineNum">     115 </span><span class="lineNoCov">          0 : input_from_argv (char **operand, int n_operands, char eolbyte)</span>
+<span class="lineNum">     116 </span>            : {
+<span class="lineNum">     117 </span>            :   char *p;
+<span class="lineNum">     118 </span><span class="lineNoCov">          0 :   size_t size = n_operands;</span>
+<span class="lineNum">     119 </span>            :   int i;
+<span class="lineNum">     120 </span>            : 
+<span class="lineNum">     121 </span><span class="lineNoCov">          0 :   for (i = 0; i &lt; n_operands; i++)</span>
+<span class="lineNum">     122 </span><span class="lineNoCov">          0 :     size += strlen (operand[i]);</span>
+<span class="lineNum">     123 </span><span class="lineNoCov">          0 :   p = xmalloc (size);</span>
+<span class="lineNum">     124 </span>            : 
+<span class="lineNum">     125 </span><span class="lineNoCov">          0 :   for (i = 0; i &lt; n_operands; i++)</span>
+<span class="lineNum">     126 </span>            :     {
+<span class="lineNum">     127 </span><span class="lineNoCov">          0 :       char *p1 = stpcpy (p, operand[i]);</span>
+<span class="lineNum">     128 </span><span class="lineNoCov">          0 :       operand[i] = p;</span>
+<span class="lineNum">     129 </span><span class="lineNoCov">          0 :       p = p1;</span>
+<span class="lineNum">     130 </span><span class="lineNoCov">          0 :       *p++ = eolbyte;</span>
+<span class="lineNum">     131 </span>            :     }
+<span class="lineNum">     132 </span>            : 
+<span class="lineNum">     133 </span><span class="lineNoCov">          0 :   operand[n_operands] = p;</span>
+<span class="lineNum">     134 </span><span class="lineNoCov">          0 : }</span>
+<span class="lineNum">     135 </span>            : 
+<span class="lineNum">     136 </span>            : /* Return the start of the next line after LINE.  The current line
+<span class="lineNum">     137 </span>            :    ends in EOLBYTE, and is guaranteed to end before LINE + N.  */
+<span class="lineNum">     138 </span>            : 
+<span class="lineNum">     139 </span>            : static char *
+<span class="lineNum">     140 </span>            : next_line (char *line, char eolbyte, size_t n)
+<span class="lineNum">     141 </span>            : {
+<span class="lineNum">     142 </span><span class="lineNoCov">          0 :   char *p = memchr (line, eolbyte, n);</span>
+<span class="lineNum">     143 </span><span class="lineNoCov">          0 :   return p + 1;</span>
+<span class="lineNum">     144 </span>            : }
+<span class="lineNum">     145 </span>            : 
+<span class="lineNum">     146 </span>            : /* Return the size of the input if possible or OFF_T_MAX if not.  */
+<a name="147"><span class="lineNum">     147 </span>            : </a>
+<span class="lineNum">     148 </span>            : static off_t
+<span class="lineNum">     149 </span><span class="lineNoCov">          0 : input_size (void)</span>
+<span class="lineNum">     150 </span>            : {
+<span class="lineNum">     151 </span>            :   off_t file_size;
+<span class="lineNum">     152 </span>            : 
+<span class="lineNum">     153 </span>            :   struct stat stat_buf;
+<span class="lineNum">     154 </span><span class="lineNoCov">          0 :   if (fstat (STDIN_FILENO, &amp;stat_buf) != 0)</span>
+<span class="lineNum">     155 </span>            :     return OFF_T_MAX;
+<span class="lineNum">     156 </span><span class="lineNoCov">          0 :   if (usable_st_size (&amp;stat_buf))</span>
+<span class="lineNum">     157 </span><span class="lineNoCov">          0 :     file_size = stat_buf.st_size;</span>
+<span class="lineNum">     158 </span>            :   else
+<span class="lineNum">     159 </span>            :     return OFF_T_MAX;
+<span class="lineNum">     160 </span>            : 
+<span class="lineNum">     161 </span><span class="lineNoCov">          0 :   off_t input_offset = lseek (STDIN_FILENO, 0, SEEK_CUR);</span>
+<span class="lineNum">     162 </span><span class="lineNoCov">          0 :   if (input_offset &lt; 0)</span>
+<span class="lineNum">     163 </span>            :     return OFF_T_MAX;
+<span class="lineNum">     164 </span>            : 
+<span class="lineNum">     165 </span><span class="lineNoCov">          0 :   file_size -= input_offset;</span>
+<span class="lineNum">     166 </span>            : 
+<span class="lineNum">     167 </span><span class="lineNoCov">          0 :   return file_size;</span>
+<span class="lineNum">     168 </span>            : }
+<span class="lineNum">     169 </span>            : 
+<span class="lineNum">     170 </span>            : /* Read all lines and store up to K permuted lines in *OUT_RSRV.
+<span class="lineNum">     171 </span>            :    Return the number of lines read, up to a maximum of K.  */
+<a name="172"><span class="lineNum">     172 </span>            : </a>
+<span class="lineNum">     173 </span>            : static size_t
+<span class="lineNum">     174 </span><span class="lineNoCov">          0 : read_input_reservoir_sampling (FILE *in, char eolbyte, size_t k,</span>
+<span class="lineNum">     175 </span>            :                                struct randint_source *s,
+<span class="lineNum">     176 </span>            :                                struct linebuffer **out_rsrv)
+<span class="lineNum">     177 </span>            : {
+<span class="lineNum">     178 </span><span class="lineNoCov">          0 :   randint n_lines = 0;</span>
+<span class="lineNum">     179 </span><span class="lineNoCov">          0 :   size_t n_alloc_lines = MIN (k, RESERVOIR_LINES_INCREMENT);</span>
+<span class="lineNum">     180 </span><span class="lineNoCov">          0 :   struct linebuffer *line = NULL;</span>
+<span class="lineNum">     181 </span>            :   struct linebuffer *rsrv;
+<span class="lineNum">     182 </span>            : 
+<span class="lineNum">     183 </span><span class="lineNoCov">          0 :   rsrv = xcalloc (n_alloc_lines, sizeof (struct linebuffer));</span>
+<span class="lineNum">     184 </span>            : 
+<span class="lineNum">     185 </span>            :   /* Fill the first K lines, directly into the reservoir.  */
+<span class="lineNum">     186 </span><span class="lineNoCov">          0 :   while (n_lines &lt; k</span>
+<span class="lineNum">     187 </span><span class="lineNoCov">          0 :          &amp;&amp; (line =</span>
+<span class="lineNum">     188 </span><span class="lineNoCov">          0 :              readlinebuffer_delim (&amp;rsrv[n_lines], in, eolbyte)) != NULL)</span>
+<span class="lineNum">     189 </span>            :     {
+<span class="lineNum">     190 </span><span class="lineNoCov">          0 :       n_lines++;</span>
+<span class="lineNum">     191 </span>            : 
+<span class="lineNum">     192 </span>            :       /* Enlarge reservoir.  */
+<span class="lineNum">     193 </span><span class="lineNoCov">          0 :       if (n_lines &gt;= n_alloc_lines)</span>
+<span class="lineNum">     194 </span>            :         {
+<span class="lineNum">     195 </span><span class="lineNoCov">          0 :           n_alloc_lines += RESERVOIR_LINES_INCREMENT;</span>
+<span class="lineNum">     196 </span><span class="lineNoCov">          0 :           rsrv = xnrealloc (rsrv, n_alloc_lines, sizeof (struct linebuffer));</span>
+<span class="lineNum">     197 </span><span class="lineNoCov">          0 :           memset (&amp;rsrv[n_lines], 0,</span>
+<span class="lineNum">     198 </span>            :                   RESERVOIR_LINES_INCREMENT * sizeof (struct linebuffer));
+<span class="lineNum">     199 </span>            :         }
+<span class="lineNum">     200 </span>            :     }
+<span class="lineNum">     201 </span>            : 
+<span class="lineNum">     202 </span>            :   /* last line wasn't NULL - so there may be more lines to read.  */
+<span class="lineNum">     203 </span><span class="lineNoCov">          0 :   if (line != NULL)</span>
+<span class="lineNum">     204 </span>            :     {
+<span class="lineNum">     205 </span>            :       struct linebuffer dummy;
+<span class="lineNum">     206 </span><span class="lineNoCov">          0 :       initbuffer (&amp;dummy);  /* space for lines not put in reservoir.  */</span>
+<span class="lineNum">     207 </span>            : 
+<span class="lineNum">     208 </span>            :       /* Choose the fate of the next line, with decreasing probability (as
+<span class="lineNum">     209 </span>            :          n_lines increases in size).
+<span class="lineNum">     210 </span>            : 
+<span class="lineNum">     211 </span>            :          If the line will be used, store it directly in the reservoir.
+<span class="lineNum">     212 </span>            :          Otherwise, store it in dummy space.
+<span class="lineNum">     213 </span>            : 
+<span class="lineNum">     214 </span>            :          With 'struct linebuffer', storing into existing buffer will reduce
+<span class="lineNum">     215 </span>            :          re-allocations (will only re-allocate if the new line is longer than
+<span class="lineNum">     216 </span>            :          the currently allocated space).  */
+<span class="lineNum">     217 </span>            :       do
+<span class="lineNum">     218 </span>            :         {
+<span class="lineNum">     219 </span><span class="lineNoCov">          0 :           randint j = randint_choose (s, n_lines + 1);  /* 0 .. n_lines.  */</span>
+<span class="lineNum">     220 </span><span class="lineNoCov">          0 :           line = (j &lt; k) ? (&amp;rsrv[j]) : (&amp;dummy);</span>
+<span class="lineNum">     221 </span>            :         }
+<span class="lineNum">     222 </span><span class="lineNoCov">          0 :       while (readlinebuffer_delim (line, in, eolbyte) != NULL &amp;&amp; n_lines++);</span>
+<span class="lineNum">     223 </span>            : 
+<span class="lineNum">     224 </span><span class="lineNoCov">          0 :       if (! n_lines)</span>
+<span class="lineNum">     225 </span><span class="lineNoCov">          0 :         error (EXIT_FAILURE, EOVERFLOW, _(&quot;too many input lines&quot;));</span>
+<span class="lineNum">     226 </span>            : 
+<span class="lineNum">     227 </span><span class="lineNoCov">          0 :       freebuffer (&amp;dummy);</span>
+<span class="lineNum">     228 </span>            :     }
+<span class="lineNum">     229 </span>            : 
+<span class="lineNum">     230 </span>            :   /* no more input lines, or an input error.  */
+<span class="lineNum">     231 </span><span class="lineNoCov">          0 :   if (ferror (in))</span>
+<span class="lineNum">     232 </span><span class="lineNoCov">          0 :     error (EXIT_FAILURE, errno, _(&quot;read error&quot;));</span>
+<span class="lineNum">     233 </span>            : 
+<span class="lineNum">     234 </span><span class="lineNoCov">          0 :   *out_rsrv = rsrv;</span>
+<span class="lineNum">     235 </span><span class="lineNoCov">          0 :   return MIN (k, n_lines);</span>
+<span class="lineNum">     236 </span>            : }
+<a name="237"><span class="lineNum">     237 </span>            : </a>
+<span class="lineNum">     238 </span>            : static int
+<span class="lineNum">     239 </span><span class="lineNoCov">          0 : write_permuted_output_reservoir (size_t n_lines, struct linebuffer *lines,</span>
+<span class="lineNum">     240 </span>            :                                  size_t const *permutation)
+<span class="lineNum">     241 </span>            : {
+<span class="lineNum">     242 </span>            :   size_t i;
+<span class="lineNum">     243 </span>            : 
+<span class="lineNum">     244 </span><span class="lineNoCov">          0 :   for (i = 0; i &lt; n_lines; i++)</span>
+<span class="lineNum">     245 </span>            :     {
+<span class="lineNum">     246 </span><span class="lineNoCov">          0 :       const struct linebuffer *p = &amp;lines[permutation[i]];</span>
+<span class="lineNum">     247 </span><span class="lineNoCov">          0 :       if (fwrite (p-&gt;buffer, sizeof (char), p-&gt;length, stdout) != p-&gt;length)</span>
+<span class="lineNum">     248 </span>            :         return -1;
+<span class="lineNum">     249 </span>            :     }
+<span class="lineNum">     250 </span>            : 
+<span class="lineNum">     251 </span>            :   return 0;
+<span class="lineNum">     252 </span>            : }
+<span class="lineNum">     253 </span>            : 
+<span class="lineNum">     254 </span>            : /* Read data from file IN.  Input lines are delimited by EOLBYTE;
+<span class="lineNum">     255 </span>            :    silently append a trailing EOLBYTE if the file ends in some other
+<span class="lineNum">     256 </span>            :    byte.  Store a pointer to the resulting array of lines into *PLINE.
+<span class="lineNum">     257 </span>            :    Return the number of lines read.  Report an error and exit on
+<span class="lineNum">     258 </span>            :    failure.  */
+<a name="259"><span class="lineNum">     259 </span>            : </a>
+<span class="lineNum">     260 </span>            : static size_t
+<span class="lineNum">     261 </span><span class="lineNoCov">          0 : read_input (FILE *in, char eolbyte, char ***pline)</span>
+<span class="lineNum">     262 </span>            : {
+<span class="lineNum">     263 </span>            :   char *p;
+<span class="lineNum">     264 </span><span class="lineNoCov">          0 :   char *buf = NULL;</span>
+<span class="lineNum">     265 </span>            :   size_t used;
+<span class="lineNum">     266 </span>            :   char *lim;
+<span class="lineNum">     267 </span>            :   char **line;
+<span class="lineNum">     268 </span>            :   size_t i;
+<span class="lineNum">     269 </span>            :   size_t n_lines;
+<span class="lineNum">     270 </span>            : 
+<span class="lineNum">     271 </span>            :   /* TODO: We should limit the amount of data read here,
+<span class="lineNum">     272 </span>            :      to less than RESERVOIR_MIN_INPUT.  I.e., adjust fread_file() to support
+<span class="lineNum">     273 </span>            :      taking a byte limit.  We'd then need to ensure we handle a line spanning
+<span class="lineNum">     274 </span>            :      this boundary.  With that in place we could set use_reservoir_sampling
+<span class="lineNum">     275 </span>            :      when used==RESERVOIR_MIN_INPUT, and have read_input_reservoir_sampling()
+<span class="lineNum">     276 </span>            :      call a wrapper function to populate a linebuffer from the internal pline
+<span class="lineNum">     277 </span>            :      or if none left, stdin.  Doing that would give better performance by
+<span class="lineNum">     278 </span>            :      avoiding the reservoir CPU overhead when reading &lt; RESERVOIR_MIN_INPUT
+<span class="lineNum">     279 </span>            :      from a pipe, and allow us to dispense with the input_size() function.  */
+<span class="lineNum">     280 </span><span class="lineNoCov">          0 :   if (!(buf = fread_file (in, &amp;used)))</span>
+<span class="lineNum">     281 </span><span class="lineNoCov">          0 :     error (EXIT_FAILURE, errno, _(&quot;read error&quot;));</span>
+<span class="lineNum">     282 </span>            : 
+<span class="lineNum">     283 </span><span class="lineNoCov">          0 :   if (used &amp;&amp; buf[used - 1] != eolbyte)</span>
+<span class="lineNum">     284 </span><span class="lineNoCov">          0 :     buf[used++] = eolbyte;</span>
+<span class="lineNum">     285 </span>            : 
+<span class="lineNum">     286 </span><span class="lineNoCov">          0 :   lim = buf + used;</span>
+<span class="lineNum">     287 </span>            : 
+<span class="lineNum">     288 </span><span class="lineNoCov">          0 :   n_lines = 0;</span>
+<span class="lineNum">     289 </span><span class="lineNoCov">          0 :   for (p = buf; p &lt; lim; p = next_line (p, eolbyte, lim - p))</span>
+<span class="lineNum">     290 </span><span class="lineNoCov">          0 :     n_lines++;</span>
+<span class="lineNum">     291 </span>            : 
+<span class="lineNum">     292 </span><span class="lineNoCov">          0 :   *pline = line = xnmalloc (n_lines + 1, sizeof *line);</span>
+<span class="lineNum">     293 </span>            : 
+<span class="lineNum">     294 </span><span class="lineNoCov">          0 :   line[0] = p = buf;</span>
+<span class="lineNum">     295 </span><span class="lineNoCov">          0 :   for (i = 1; i &lt;= n_lines; i++)</span>
+<span class="lineNum">     296 </span><span class="lineNoCov">          0 :     line[i] = p = next_line (p, eolbyte, lim - p);</span>
+<span class="lineNum">     297 </span>            : 
+<span class="lineNum">     298 </span><span class="lineNoCov">          0 :   return n_lines;</span>
+<span class="lineNum">     299 </span>            : }
+<span class="lineNum">     300 </span>            : 
+<span class="lineNum">     301 </span>            : /* Output N_LINES lines to stdout from LINE array,
+<span class="lineNum">     302 </span>            :    chosen by the indices in PERMUTATION.
+<span class="lineNum">     303 </span>            :    PERMUTATION and LINE must have at least N_LINES elements.
+<a name="304"><span class="lineNum">     304 </span>            :    Strings in LINE must include the line-terminator character.  */</a>
+<span class="lineNum">     305 </span>            : static int
+<span class="lineNum">     306 </span><span class="lineNoCov">          0 : write_permuted_lines (size_t n_lines, char *const *line,</span>
+<span class="lineNum">     307 </span>            :                       size_t const *permutation)
+<span class="lineNum">     308 </span>            : {
+<span class="lineNum">     309 </span>            :   size_t i;
+<span class="lineNum">     310 </span>            : 
+<span class="lineNum">     311 </span><span class="lineNoCov">          0 :   for (i = 0; i &lt; n_lines; i++)</span>
+<span class="lineNum">     312 </span>            :     {
+<span class="lineNum">     313 </span><span class="lineNoCov">          0 :       char *const *p = line + permutation[i];</span>
+<span class="lineNum">     314 </span><span class="lineNoCov">          0 :       size_t len = p[1] - p[0];</span>
+<span class="lineNum">     315 </span><span class="lineNoCov">          0 :       if (fwrite (p[0], sizeof *p[0], len, stdout) != len)</span>
+<span class="lineNum">     316 </span>            :         return -1;
+<span class="lineNum">     317 </span>            :     }
+<span class="lineNum">     318 </span>            : 
+<span class="lineNum">     319 </span>            :   return 0;
+<span class="lineNum">     320 </span>            : }
+<span class="lineNum">     321 </span>            : 
+<span class="lineNum">     322 </span>            : /* Output N_LINES of numbers to stdout, from PERMUTATION array.
+<a name="323"><span class="lineNum">     323 </span>            :    PERMUTATION must have at least N_LINES elements.  */</a>
+<span class="lineNum">     324 </span>            : static int
+<span class="lineNum">     325 </span><span class="lineNoCov">          0 : write_permuted_numbers (size_t n_lines, size_t lo_input,</span>
+<span class="lineNum">     326 </span>            :                         size_t const *permutation, char eolbyte)
+<span class="lineNum">     327 </span>            : {
+<span class="lineNum">     328 </span>            :   size_t i;
+<span class="lineNum">     329 </span>            : 
+<span class="lineNum">     330 </span><span class="lineNoCov">          0 :   for (i = 0; i &lt; n_lines; i++)</span>
+<span class="lineNum">     331 </span>            :     {
+<span class="lineNum">     332 </span><span class="lineNoCov">          0 :       unsigned long int n = lo_input + permutation[i];</span>
+<span class="lineNum">     333 </span><span class="lineNoCov">          0 :       if (printf (&quot;%lu%c&quot;, n, eolbyte) &lt; 0)</span>
+<span class="lineNum">     334 </span>            :         return -1;
+<span class="lineNum">     335 </span>            :     }
+<span class="lineNum">     336 </span>            : 
+<span class="lineNum">     337 </span>            :   return 0;
+<span class="lineNum">     338 </span>            : }
+<span class="lineNum">     339 </span>            : 
+<span class="lineNum">     340 </span>            : /* Output COUNT numbers to stdout, chosen randomly from range
+<a name="341"><span class="lineNum">     341 </span>            :    LO_INPUT through HI_INPUT.  */</a>
+<span class="lineNum">     342 </span>            : static int
+<span class="lineNum">     343 </span><span class="lineNoCov">          0 : write_random_numbers (struct randint_source *s, size_t count,</span>
+<span class="lineNum">     344 </span>            :                       size_t lo_input, size_t hi_input, char eolbyte)
+<span class="lineNum">     345 </span>            : {
+<span class="lineNum">     346 </span>            :   size_t i;
+<span class="lineNum">     347 </span><span class="lineNoCov">          0 :   const randint range = hi_input - lo_input + 1;</span>
+<span class="lineNum">     348 </span>            : 
+<span class="lineNum">     349 </span><span class="lineNoCov">          0 :   for (i = 0; i &lt; count; i++)</span>
+<span class="lineNum">     350 </span>            :     {
+<span class="lineNum">     351 </span><span class="lineNoCov">          0 :       unsigned long int j = lo_input + randint_choose (s, range);</span>
+<span class="lineNum">     352 </span><span class="lineNoCov">          0 :       if (printf (&quot;%lu%c&quot;, j, eolbyte) &lt; 0)</span>
+<span class="lineNum">     353 </span>            :         return -1;
+<span class="lineNum">     354 </span>            :     }
+<span class="lineNum">     355 </span>            : 
+<span class="lineNum">     356 </span>            :   return 0;
+<span class="lineNum">     357 </span>            : }
+<span class="lineNum">     358 </span>            : 
+<span class="lineNum">     359 </span>            : /* Output COUNT lines to stdout from LINES array.
+<span class="lineNum">     360 </span>            :    LINES must have at least N_LINES elements in it.
+<a name="361"><span class="lineNum">     361 </span>            :    Strings in LINES_ must include the line-terminator character.  */</a>
+<span class="lineNum">     362 </span>            : static int
+<span class="lineNum">     363 </span><span class="lineNoCov">          0 : write_random_lines (struct randint_source *s, size_t count,</span>
+<span class="lineNum">     364 </span>            :                     char *const *lines, size_t n_lines)
+<span class="lineNum">     365 </span>            : {
+<span class="lineNum">     366 </span>            :   size_t i;
+<span class="lineNum">     367 </span>            : 
+<span class="lineNum">     368 </span><span class="lineNoCov">          0 :   for (i = 0; i &lt; count; i++)</span>
+<span class="lineNum">     369 </span>            :     {
+<span class="lineNum">     370 </span><span class="lineNoCov">          0 :       const randint j = randint_choose (s, n_lines);</span>
+<span class="lineNum">     371 </span><span class="lineNoCov">          0 :       char *const *p = lines + j;</span>
+<span class="lineNum">     372 </span><span class="lineNoCov">          0 :       size_t len = p[1] - p[0];</span>
+<span class="lineNum">     373 </span><span class="lineNoCov">          0 :       if (fwrite (p[0], sizeof *p[0], len, stdout) != len)</span>
+<span class="lineNum">     374 </span>            :         return -1;
+<span class="lineNum">     375 </span>            :     }
+<span class="lineNum">     376 </span>            : 
+<span class="lineNum">     377 </span>            :   return 0;
+<span class="lineNum">     378 </span>            : }
+<a name="379"><span class="lineNum">     379 </span>            : </a>
+<span class="lineNum">     380 </span>            : int
+<span class="lineNum">     381 </span><span class="lineNoCov">          0 : main (int argc, char **argv)</span>
+<span class="lineNum">     382 </span>            : {
+<span class="lineNum">     383 </span><span class="lineNoCov">          0 :   bool echo = false;</span>
+<span class="lineNum">     384 </span><span class="lineNoCov">          0 :   bool input_range = false;</span>
+<span class="lineNum">     385 </span><span class="lineNoCov">          0 :   size_t lo_input = SIZE_MAX;</span>
+<span class="lineNum">     386 </span><span class="lineNoCov">          0 :   size_t hi_input = 0;</span>
+<span class="lineNum">     387 </span><span class="lineNoCov">          0 :   size_t head_lines = SIZE_MAX;</span>
+<span class="lineNum">     388 </span><span class="lineNoCov">          0 :   char const *outfile = NULL;</span>
+<span class="lineNum">     389 </span><span class="lineNoCov">          0 :   char *random_source = NULL;</span>
+<span class="lineNum">     390 </span><span class="lineNoCov">          0 :   char eolbyte = '\n';</span>
+<span class="lineNum">     391 </span><span class="lineNoCov">          0 :   char **input_lines = NULL;</span>
+<span class="lineNum">     392 </span><span class="lineNoCov">          0 :   bool use_reservoir_sampling = false;</span>
+<span class="lineNum">     393 </span><span class="lineNoCov">          0 :   bool repeat = false;</span>
+<span class="lineNum">     394 </span>            : 
+<span class="lineNum">     395 </span>            :   int optc;
+<span class="lineNum">     396 </span>            :   int n_operands;
+<span class="lineNum">     397 </span>            :   char **operand;
+<span class="lineNum">     398 </span>            :   size_t n_lines;
+<span class="lineNum">     399 </span><span class="lineNoCov">          0 :   char **line = NULL;</span>
+<span class="lineNum">     400 </span><span class="lineNoCov">          0 :   struct linebuffer *reservoir = NULL;</span>
+<span class="lineNum">     401 </span>            :   struct randint_source *randint_source;
+<span class="lineNum">     402 </span><span class="lineNoCov">          0 :   size_t *permutation = NULL;</span>
+<span class="lineNum">     403 </span>            :   int i;
+<span class="lineNum">     404 </span>            : 
+<span class="lineNum">     405 </span>            :   initialize_main (&amp;argc, &amp;argv);
+<span class="lineNum">     406 </span><span class="lineNoCov">          0 :   set_program_name (argv[0]);</span>
+<span class="lineNum">     407 </span><span class="lineNoCov">          0 :   setlocale (LC_ALL, &quot;&quot;);</span>
+<span class="lineNum">     408 </span><span class="lineNoCov">          0 :   bindtextdomain (PACKAGE, LOCALEDIR);</span>
+<span class="lineNum">     409 </span><span class="lineNoCov">          0 :   textdomain (PACKAGE);</span>
+<span class="lineNum">     410 </span>            : 
+<span class="lineNum">     411 </span><span class="lineNoCov">          0 :   atexit (close_stdout);</span>
+<span class="lineNum">     412 </span>            : 
+<span class="lineNum">     413 </span><span class="lineNoCov">          0 :   while ((optc = getopt_long (argc, argv, &quot;ei:n:o:rz&quot;, long_opts, NULL)) != -1)</span>
+<span class="lineNum">     414 </span><span class="lineNoCov">          0 :     switch (optc)</span>
+<span class="lineNum">     415 </span>            :       {
+<span class="lineNum">     416 </span>            :       case 'e':
+<span class="lineNum">     417 </span>            :         echo = true;
+<span class="lineNum">     418 </span>            :         break;
+<span class="lineNum">     419 </span>            : 
+<span class="lineNum">     420 </span>            :       case 'i':
+<span class="lineNum">     421 </span>            :         {
+<span class="lineNum">     422 </span><span class="lineNoCov">          0 :           char *p = strchr (optarg, '-');</span>
+<span class="lineNum">     423 </span><span class="lineNoCov">          0 :           char const *hi_optarg = optarg;</span>
+<span class="lineNum">     424 </span><span class="lineNoCov">          0 :           bool invalid = !p;</span>
+<span class="lineNum">     425 </span>            : 
+<span class="lineNum">     426 </span><span class="lineNoCov">          0 :           if (input_range)</span>
+<span class="lineNum">     427 </span><span class="lineNoCov">          0 :             error (EXIT_FAILURE, 0, _(&quot;multiple -i options specified&quot;));</span>
+<span class="lineNum">     428 </span><span class="lineNoCov">          0 :           input_range = true;</span>
+<span class="lineNum">     429 </span>            : 
+<span class="lineNum">     430 </span><span class="lineNoCov">          0 :           if (p)</span>
+<span class="lineNum">     431 </span>            :             {
+<span class="lineNum">     432 </span><span class="lineNoCov">          0 :               *p = '\0';</span>
+<span class="lineNum">     433 </span><span class="lineNoCov">          0 :               lo_input = xdectoumax (optarg, 0, SIZE_MAX, &quot;&quot;,</span>
+<span class="lineNum">     434 </span><span class="lineNoCov">          0 :                                      _(&quot;invalid input range&quot;), 0);</span>
+<span class="lineNum">     435 </span><span class="lineNoCov">          0 :               *p = '-';</span>
+<span class="lineNum">     436 </span><span class="lineNoCov">          0 :               hi_optarg = p + 1;</span>
+<span class="lineNum">     437 </span>            :             }
+<span class="lineNum">     438 </span>            : 
+<span class="lineNum">     439 </span><span class="lineNoCov">          0 :           hi_input = xdectoumax (hi_optarg, 0, SIZE_MAX, &quot;&quot;,</span>
+<span class="lineNum">     440 </span><span class="lineNoCov">          0 :                                  _(&quot;invalid input range&quot;), 0);</span>
+<span class="lineNum">     441 </span>            : 
+<span class="lineNum">     442 </span><span class="lineNoCov">          0 :           n_lines = hi_input - lo_input + 1;</span>
+<span class="lineNum">     443 </span><span class="lineNoCov">          0 :           invalid |= ((lo_input &lt;= hi_input) == (n_lines == 0));</span>
+<span class="lineNum">     444 </span><span class="lineNoCov">          0 :           if (invalid)</span>
+<span class="lineNum">     445 </span><span class="lineNoCov">          0 :             error (EXIT_FAILURE, errno, &quot;%s: %s&quot;, _(&quot;invalid input range&quot;),</span>
+<span class="lineNum">     446 </span>            :                    quote (optarg));
+<span class="lineNum">     447 </span>            :         }
+<span class="lineNum">     448 </span>            :         break;
+<span class="lineNum">     449 </span>            : 
+<span class="lineNum">     450 </span>            :       case 'n':
+<span class="lineNum">     451 </span>            :         {
+<span class="lineNum">     452 </span>            :           unsigned long int argval;
+<span class="lineNum">     453 </span><span class="lineNoCov">          0 :           strtol_error e = xstrtoul (optarg, NULL, 10, &amp;argval, NULL);</span>
+<span class="lineNum">     454 </span>            : 
+<span class="lineNum">     455 </span><span class="lineNoCov">          0 :           if (e == LONGINT_OK)</span>
+<span class="lineNum">     456 </span><span class="lineNoCov">          0 :             head_lines = MIN (head_lines, argval);</span>
+<span class="lineNum">     457 </span><span class="lineNoCov">          0 :           else if (e != LONGINT_OVERFLOW)</span>
+<span class="lineNum">     458 </span><span class="lineNoCov">          0 :             error (EXIT_FAILURE, 0, _(&quot;invalid line count: %s&quot;),</span>
+<span class="lineNum">     459 </span>            :                    quote (optarg));
+<span class="lineNum">     460 </span>            :         }
+<span class="lineNum">     461 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">     462 </span>            : 
+<span class="lineNum">     463 </span>            :       case 'o':
+<span class="lineNum">     464 </span><span class="lineNoCov">          0 :         if (outfile &amp;&amp; !STREQ (outfile, optarg))</span>
+<span class="lineNum">     465 </span><span class="lineNoCov">          0 :           error (EXIT_FAILURE, 0, _(&quot;multiple output files specified&quot;));</span>
+<span class="lineNum">     466 </span><span class="lineNoCov">          0 :         outfile = optarg;</span>
+<span class="lineNum">     467 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">     468 </span>            : 
+<span class="lineNum">     469 </span>            :       case RANDOM_SOURCE_OPTION:
+<span class="lineNum">     470 </span><span class="lineNoCov">          0 :         if (random_source &amp;&amp; !STREQ (random_source, optarg))</span>
+<span class="lineNum">     471 </span><span class="lineNoCov">          0 :           error (EXIT_FAILURE, 0, _(&quot;multiple random sources specified&quot;));</span>
+<span class="lineNum">     472 </span><span class="lineNoCov">          0 :         random_source = optarg;</span>
+<span class="lineNum">     473 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">     474 </span>            : 
+<span class="lineNum">     475 </span>            :       case 'r':
+<span class="lineNum">     476 </span><span class="lineNoCov">          0 :         repeat = true;</span>
+<span class="lineNum">     477 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">     478 </span>            : 
+<span class="lineNum">     479 </span>            :       case 'z':
+<span class="lineNum">     480 </span><span class="lineNoCov">          0 :         eolbyte = '\0';</span>
+<span class="lineNum">     481 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">     482 </span>            : 
+<span class="lineNum">     483 </span><span class="lineNoCov">          0 :       case_GETOPT_HELP_CHAR;</span>
+<span class="lineNum">     484 </span><span class="lineNoCov">          0 :       case_GETOPT_VERSION_CHAR (PROGRAM_NAME, AUTHORS);</span>
+<span class="lineNum">     485 </span>            :       default:
+<span class="lineNum">     486 </span><span class="lineNoCov">          0 :         usage (EXIT_FAILURE);</span>
+<span class="lineNum">     487 </span>            :       }
+<span class="lineNum">     488 </span>            : 
+<span class="lineNum">     489 </span><span class="lineNoCov">          0 :   n_operands = argc - optind;</span>
+<span class="lineNum">     490 </span><span class="lineNoCov">          0 :   operand = argv + optind;</span>
+<span class="lineNum">     491 </span>            : 
+<span class="lineNum">     492 </span>            :   /* Check invalid usage.  */
+<span class="lineNum">     493 </span><span class="lineNoCov">          0 :   if (echo &amp;&amp; input_range)</span>
+<span class="lineNum">     494 </span>            :     {
+<span class="lineNum">     495 </span><span class="lineNoCov">          0 :       error (0, 0, _(&quot;cannot combine -e and -i options&quot;));</span>
+<span class="lineNum">     496 </span><span class="lineNoCov">          0 :       usage (EXIT_FAILURE);</span>
+<span class="lineNum">     497 </span>            :     }
+<span class="lineNum">     498 </span><span class="lineNoCov">          0 :   if (input_range ? 0 &lt; n_operands : !echo &amp;&amp; 1 &lt; n_operands)</span>
+<span class="lineNum">     499 </span>            :     {
+<span class="lineNum">     500 </span><span class="lineNoCov">          0 :       error (0, 0, _(&quot;extra operand %s&quot;), quote (operand[!input_range]));</span>
+<span class="lineNum">     501 </span><span class="lineNoCov">          0 :       usage (EXIT_FAILURE);</span>
+<span class="lineNum">     502 </span>            :     }
+<span class="lineNum">     503 </span>            : 
+<span class="lineNum">     504 </span>            :   /* Prepare input.  */
+<span class="lineNum">     505 </span><span class="lineNoCov">          0 :   if (echo)</span>
+<span class="lineNum">     506 </span>            :     {
+<span class="lineNum">     507 </span><span class="lineNoCov">          0 :       input_from_argv (operand, n_operands, eolbyte);</span>
+<span class="lineNum">     508 </span><span class="lineNoCov">          0 :       n_lines = n_operands;</span>
+<span class="lineNum">     509 </span><span class="lineNoCov">          0 :       line = operand;</span>
+<span class="lineNum">     510 </span>            :     }
+<span class="lineNum">     511 </span><span class="lineNoCov">          0 :   else if (input_range)</span>
+<span class="lineNum">     512 </span>            :     {
+<span class="lineNum">     513 </span><span class="lineNoCov">          0 :       n_lines = hi_input - lo_input + 1;</span>
+<span class="lineNum">     514 </span><span class="lineNoCov">          0 :       line = NULL;</span>
+<span class="lineNum">     515 </span>            :     }
+<span class="lineNum">     516 </span>            :   else
+<span class="lineNum">     517 </span>            :     {
+<span class="lineNum">     518 </span>            :       /* If an input file is specified, re-open it as stdin.  */
+<span class="lineNum">     519 </span><span class="lineNoCov">          0 :       if (n_operands == 1)</span>
+<span class="lineNum">     520 </span><span class="lineNoCov">          0 :         if (! (STREQ (operand[0], &quot;-&quot;) || ! head_lines</span>
+<span class="lineNum">     521 </span><span class="lineNoCov">          0 :                || freopen (operand[0], &quot;r&quot;, stdin)))</span>
+<span class="lineNum">     522 </span><span class="lineNoCov">          0 :           error (EXIT_FAILURE, errno, &quot;%s&quot;, quotef (operand[0]));</span>
+<span class="lineNum">     523 </span>            : 
+<span class="lineNum">     524 </span><span class="lineNoCov">          0 :       fadvise (stdin, FADVISE_SEQUENTIAL);</span>
+<span class="lineNum">     525 </span>            : 
+<span class="lineNum">     526 </span><span class="lineNoCov">          0 :       if (! repeat &amp;&amp; head_lines != SIZE_MAX</span>
+<span class="lineNum">     527 </span><span class="lineNoCov">          0 :           &amp;&amp; (! head_lines || input_size () &gt; RESERVOIR_MIN_INPUT))</span>
+<span class="lineNum">     528 </span>            :         {
+<span class="lineNum">     529 </span>            :           use_reservoir_sampling = true;
+<span class="lineNum">     530 </span>            :           n_lines = SIZE_MAX;   /* unknown number of input lines, for now.  */
+<span class="lineNum">     531 </span>            :         }
+<span class="lineNum">     532 </span>            :       else
+<span class="lineNum">     533 </span>            :         {
+<span class="lineNum">     534 </span><span class="lineNoCov">          0 :           n_lines = read_input (stdin, eolbyte, &amp;input_lines);</span>
+<span class="lineNum">     535 </span><span class="lineNoCov">          0 :           line = input_lines;</span>
+<span class="lineNum">     536 </span>            :         }
+<span class="lineNum">     537 </span>            :     }
+<span class="lineNum">     538 </span>            : 
+<span class="lineNum">     539 </span><span class="lineNoCov">          0 :   if (! repeat)</span>
+<span class="lineNum">     540 </span><span class="lineNoCov">          0 :     head_lines = MIN (head_lines, n_lines);</span>
+<span class="lineNum">     541 </span>            : 
+<span class="lineNum">     542 </span><span class="lineNoCov">          0 :   randint_source = randint_all_new (random_source,</span>
+<span class="lineNum">     543 </span><span class="lineNoCov">          0 :                                     (use_reservoir_sampling || repeat</span>
+<span class="lineNum">     544 </span>            :                                      ? SIZE_MAX
+<span class="lineNum">     545 </span>            :                                      : randperm_bound (head_lines, n_lines)));
+<span class="lineNum">     546 </span><span class="lineNoCov">          0 :   if (! randint_source)</span>
+<span class="lineNum">     547 </span><span class="lineNoCov">          0 :     error (EXIT_FAILURE, errno, &quot;%s&quot;, quotef (random_source));</span>
+<span class="lineNum">     548 </span>            : 
+<span class="lineNum">     549 </span><span class="lineNoCov">          0 :   if (use_reservoir_sampling)</span>
+<span class="lineNum">     550 </span>            :     {
+<span class="lineNum">     551 </span>            :       /* Instead of reading the entire file into 'line',
+<span class="lineNum">     552 </span>            :          use reservoir-sampling to store just &quot;head_lines&quot; random lines.  */
+<span class="lineNum">     553 </span><span class="lineNoCov">          0 :       n_lines = read_input_reservoir_sampling (stdin, eolbyte, head_lines,</span>
+<span class="lineNum">     554 </span>            :                                                randint_source, &amp;reservoir);
+<span class="lineNum">     555 </span><span class="lineNoCov">          0 :       head_lines = n_lines;</span>
+<span class="lineNum">     556 </span>            :     }
+<span class="lineNum">     557 </span>            : 
+<span class="lineNum">     558 </span>            :   /* Close stdin now, rather than earlier, so that randint_all_new
+<span class="lineNum">     559 </span>            :      doesn't have to worry about opening something other than
+<span class="lineNum">     560 </span>            :      stdin.  */
+<span class="lineNum">     561 </span><span class="lineNoCov">          0 :   if (! (echo || input_range)</span>
+<span class="lineNum">     562 </span><span class="lineNoCov">          0 :       &amp;&amp; (fclose (stdin) != 0))</span>
+<span class="lineNum">     563 </span><span class="lineNoCov">          0 :     error (EXIT_FAILURE, errno, _(&quot;read error&quot;));</span>
+<span class="lineNum">     564 </span>            : 
+<span class="lineNum">     565 </span><span class="lineNoCov">          0 :   if (!repeat)</span>
+<span class="lineNum">     566 </span><span class="lineNoCov">          0 :     permutation = randperm_new (randint_source, head_lines, n_lines);</span>
+<span class="lineNum">     567 </span>            : 
+<span class="lineNum">     568 </span><span class="lineNoCov">          0 :   if (outfile &amp;&amp; ! freopen (outfile, &quot;w&quot;, stdout))</span>
+<span class="lineNum">     569 </span><span class="lineNoCov">          0 :     error (EXIT_FAILURE, errno, &quot;%s&quot;, quotef (outfile));</span>
+<span class="lineNum">     570 </span>            : 
+<span class="lineNum">     571 </span>            :   /* Generate output according to requested method */
+<span class="lineNum">     572 </span><span class="lineNoCov">          0 :   if (repeat)</span>
+<span class="lineNum">     573 </span>            :     {
+<span class="lineNum">     574 </span><span class="lineNoCov">          0 :       if (head_lines == 0)</span>
+<span class="lineNum">     575 </span>            :         i = 0;
+<span class="lineNum">     576 </span>            :       else
+<span class="lineNum">     577 </span>            :         {
+<span class="lineNum">     578 </span><span class="lineNoCov">          0 :           if (n_lines == 0)</span>
+<span class="lineNum">     579 </span><span class="lineNoCov">          0 :             error (EXIT_FAILURE, 0, _(&quot;no lines to repeat&quot;));</span>
+<span class="lineNum">     580 </span><span class="lineNoCov">          0 :           if (input_range)</span>
+<span class="lineNum">     581 </span><span class="lineNoCov">          0 :             i = write_random_numbers (randint_source, head_lines,</span>
+<span class="lineNum">     582 </span>            :                                       lo_input, hi_input, eolbyte);
+<span class="lineNum">     583 </span>            :           else
+<span class="lineNum">     584 </span><span class="lineNoCov">          0 :             i = write_random_lines (randint_source, head_lines, line, n_lines);</span>
+<span class="lineNum">     585 </span>            :         }
+<span class="lineNum">     586 </span>            :     }
+<span class="lineNum">     587 </span>            :   else
+<span class="lineNum">     588 </span>            :     {
+<span class="lineNum">     589 </span><span class="lineNoCov">          0 :       if (use_reservoir_sampling)</span>
+<span class="lineNum">     590 </span><span class="lineNoCov">          0 :         i = write_permuted_output_reservoir (n_lines, reservoir, permutation);</span>
+<span class="lineNum">     591 </span><span class="lineNoCov">          0 :       else if (input_range)</span>
+<span class="lineNum">     592 </span><span class="lineNoCov">          0 :         i = write_permuted_numbers (head_lines, lo_input,</span>
+<span class="lineNum">     593 </span>            :                                     permutation, eolbyte);
+<span class="lineNum">     594 </span>            :       else
+<span class="lineNum">     595 </span><span class="lineNoCov">          0 :         i = write_permuted_lines (head_lines, line, permutation);</span>
+<span class="lineNum">     596 </span>            :     }
+<span class="lineNum">     597 </span>            : 
+<span class="lineNum">     598 </span><span class="lineNoCov">          0 :   if (i != 0)</span>
+<span class="lineNum">     599 </span><span class="lineNoCov">          0 :     error (EXIT_FAILURE, errno, _(&quot;write error&quot;));</span>
+<span class="lineNum">     600 </span>            : 
+<span class="lineNum">     601 </span>            : #ifdef lint
+<span class="lineNum">     602 </span><span class="lineNoCov">          0 :   free (permutation);</span>
+<span class="lineNum">     603 </span><span class="lineNoCov">          0 :   randint_all_free (randint_source);</span>
+<span class="lineNum">     604 </span><span class="lineNoCov">          0 :   if (input_lines)</span>
+<span class="lineNum">     605 </span>            :     {
+<span class="lineNum">     606 </span><span class="lineNoCov">          0 :       free (input_lines[0]);</span>
+<span class="lineNum">     607 </span><span class="lineNoCov">          0 :       free (input_lines);</span>
+<span class="lineNum">     608 </span>            :     }
+<span class="lineNum">     609 </span><span class="lineNoCov">          0 :   if (reservoir)</span>
+<span class="lineNum">     610 </span>            :     {
+<span class="lineNum">     611 </span>            :       size_t j;
+<span class="lineNum">     612 </span><span class="lineNoCov">          0 :       for (j = 0; j &lt; n_lines; ++j)</span>
+<span class="lineNum">     613 </span><span class="lineNoCov">          0 :         freebuffer (&amp;reservoir[j]);</span>
+<span class="lineNum">     614 </span><span class="lineNoCov">          0 :       free (reservoir);</span>
+<span class="lineNum">     615 </span>            :     }
+<span class="lineNum">     616 </span>            : #endif
+<span class="lineNum">     617 </span>            : 
+<span class="lineNum">     618 </span>            :   return EXIT_SUCCESS;
+<span class="lineNum">     619 </span>            : }
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.12</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>

@@ -1,0 +1,442 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - trace.lcov_info_final - lib/c-ctype.h</title>
+  <link rel="stylesheet" type="text/css" href="../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">lib</a> - c-ctype.h<span style="font-size: 80%;"> (source / <a href="c-ctype.h.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">trace.lcov_info_final</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">2</td>
+            <td class="headerCovTableEntryLo">0.0 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2019-04-22 20:19:38</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntryHi">-</td>
+          </tr>
+          <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>            : /* Character handling in C locale.</a>
+<span class="lineNum">       2 </span>            : 
+<span class="lineNum">       3 </span>            :    These functions work like the corresponding functions in &lt;ctype.h&gt;,
+<span class="lineNum">       4 </span>            :    except that they have the C (POSIX) locale hardwired, whereas the
+<span class="lineNum">       5 </span>            :    &lt;ctype.h&gt; functions' behaviour depends on the current locale set via
+<span class="lineNum">       6 </span>            :    setlocale.
+<span class="lineNum">       7 </span>            : 
+<span class="lineNum">       8 </span>            :    Copyright (C) 2000-2003, 2006, 2008-2016 Free Software Foundation, Inc.
+<span class="lineNum">       9 </span>            : 
+<span class="lineNum">      10 </span>            : This program is free software; you can redistribute it and/or modify
+<span class="lineNum">      11 </span>            : it under the terms of the GNU General Public License as published by
+<span class="lineNum">      12 </span>            : the Free Software Foundation; either version 3 of the License, or
+<span class="lineNum">      13 </span>            : (at your option) any later version.
+<span class="lineNum">      14 </span>            : 
+<span class="lineNum">      15 </span>            : This program is distributed in the hope that it will be useful,
+<span class="lineNum">      16 </span>            : but WITHOUT ANY WARRANTY; without even the implied warranty of
+<span class="lineNum">      17 </span>            : MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+<span class="lineNum">      18 </span>            : GNU General Public License for more details.
+<span class="lineNum">      19 </span>            : 
+<span class="lineNum">      20 </span>            : You should have received a copy of the GNU General Public License
+<span class="lineNum">      21 </span>            : along with this program; if not, see &lt;http://www.gnu.org/licenses/&gt;.  */
+<span class="lineNum">      22 </span>            : 
+<span class="lineNum">      23 </span>            : #ifndef C_CTYPE_H
+<span class="lineNum">      24 </span>            : #define C_CTYPE_H
+<span class="lineNum">      25 </span>            : 
+<span class="lineNum">      26 </span>            : #include &lt;stdbool.h&gt;
+<span class="lineNum">      27 </span>            : 
+<span class="lineNum">      28 </span>            : #ifndef _GL_INLINE_HEADER_BEGIN
+<span class="lineNum">      29 </span>            :  #error &quot;Please include config.h first.&quot;
+<span class="lineNum">      30 </span>            : #endif
+<span class="lineNum">      31 </span>            : _GL_INLINE_HEADER_BEGIN
+<span class="lineNum">      32 </span>            : #ifndef C_CTYPE_INLINE
+<span class="lineNum">      33 </span>            : # define C_CTYPE_INLINE _GL_INLINE
+<span class="lineNum">      34 </span>            : #endif
+<span class="lineNum">      35 </span>            : 
+<span class="lineNum">      36 </span>            : #ifdef __cplusplus
+<span class="lineNum">      37 </span>            : extern &quot;C&quot; {
+<span class="lineNum">      38 </span>            : #endif
+<span class="lineNum">      39 </span>            : 
+<span class="lineNum">      40 </span>            : 
+<span class="lineNum">      41 </span>            : /* The functions defined in this file assume the &quot;C&quot; locale and a character
+<span class="lineNum">      42 </span>            :    set without diacritics (ASCII-US or EBCDIC-US or something like that).
+<span class="lineNum">      43 </span>            :    Even if the &quot;C&quot; locale on a particular system is an extension of the ASCII
+<span class="lineNum">      44 </span>            :    character set (like on BeOS, where it is UTF-8, or on AmigaOS, where it
+<span class="lineNum">      45 </span>            :    is ISO-8859-1), the functions in this file recognize only the ASCII
+<span class="lineNum">      46 </span>            :    characters.  */
+<span class="lineNum">      47 </span>            : 
+<span class="lineNum">      48 </span>            : 
+<span class="lineNum">      49 </span>            : #if (' ' == 32) &amp;&amp; ('!' == 33) &amp;&amp; ('&quot;' == 34) &amp;&amp; ('#' == 35) \
+<span class="lineNum">      50 </span>            :     &amp;&amp; ('%' == 37) &amp;&amp; ('&amp;' == 38) &amp;&amp; ('\'' == 39) &amp;&amp; ('(' == 40) \
+<span class="lineNum">      51 </span>            :     &amp;&amp; (')' == 41) &amp;&amp; ('*' == 42) &amp;&amp; ('+' == 43) &amp;&amp; (',' == 44) \
+<span class="lineNum">      52 </span>            :     &amp;&amp; ('-' == 45) &amp;&amp; ('.' == 46) &amp;&amp; ('/' == 47) &amp;&amp; ('0' == 48) \
+<span class="lineNum">      53 </span>            :     &amp;&amp; ('1' == 49) &amp;&amp; ('2' == 50) &amp;&amp; ('3' == 51) &amp;&amp; ('4' == 52) \
+<span class="lineNum">      54 </span>            :     &amp;&amp; ('5' == 53) &amp;&amp; ('6' == 54) &amp;&amp; ('7' == 55) &amp;&amp; ('8' == 56) \
+<span class="lineNum">      55 </span>            :     &amp;&amp; ('9' == 57) &amp;&amp; (':' == 58) &amp;&amp; (';' == 59) &amp;&amp; ('&lt;' == 60) \
+<span class="lineNum">      56 </span>            :     &amp;&amp; ('=' == 61) &amp;&amp; ('&gt;' == 62) &amp;&amp; ('?' == 63) &amp;&amp; ('A' == 65) \
+<span class="lineNum">      57 </span>            :     &amp;&amp; ('B' == 66) &amp;&amp; ('C' == 67) &amp;&amp; ('D' == 68) &amp;&amp; ('E' == 69) \
+<span class="lineNum">      58 </span>            :     &amp;&amp; ('F' == 70) &amp;&amp; ('G' == 71) &amp;&amp; ('H' == 72) &amp;&amp; ('I' == 73) \
+<span class="lineNum">      59 </span>            :     &amp;&amp; ('J' == 74) &amp;&amp; ('K' == 75) &amp;&amp; ('L' == 76) &amp;&amp; ('M' == 77) \
+<span class="lineNum">      60 </span>            :     &amp;&amp; ('N' == 78) &amp;&amp; ('O' == 79) &amp;&amp; ('P' == 80) &amp;&amp; ('Q' == 81) \
+<span class="lineNum">      61 </span>            :     &amp;&amp; ('R' == 82) &amp;&amp; ('S' == 83) &amp;&amp; ('T' == 84) &amp;&amp; ('U' == 85) \
+<span class="lineNum">      62 </span>            :     &amp;&amp; ('V' == 86) &amp;&amp; ('W' == 87) &amp;&amp; ('X' == 88) &amp;&amp; ('Y' == 89) \
+<span class="lineNum">      63 </span>            :     &amp;&amp; ('Z' == 90) &amp;&amp; ('[' == 91) &amp;&amp; ('\\' == 92) &amp;&amp; (']' == 93) \
+<span class="lineNum">      64 </span>            :     &amp;&amp; ('^' == 94) &amp;&amp; ('_' == 95) &amp;&amp; ('a' == 97) &amp;&amp; ('b' == 98) \
+<span class="lineNum">      65 </span>            :     &amp;&amp; ('c' == 99) &amp;&amp; ('d' == 100) &amp;&amp; ('e' == 101) &amp;&amp; ('f' == 102) \
+<span class="lineNum">      66 </span>            :     &amp;&amp; ('g' == 103) &amp;&amp; ('h' == 104) &amp;&amp; ('i' == 105) &amp;&amp; ('j' == 106) \
+<span class="lineNum">      67 </span>            :     &amp;&amp; ('k' == 107) &amp;&amp; ('l' == 108) &amp;&amp; ('m' == 109) &amp;&amp; ('n' == 110) \
+<span class="lineNum">      68 </span>            :     &amp;&amp; ('o' == 111) &amp;&amp; ('p' == 112) &amp;&amp; ('q' == 113) &amp;&amp; ('r' == 114) \
+<span class="lineNum">      69 </span>            :     &amp;&amp; ('s' == 115) &amp;&amp; ('t' == 116) &amp;&amp; ('u' == 117) &amp;&amp; ('v' == 118) \
+<span class="lineNum">      70 </span>            :     &amp;&amp; ('w' == 119) &amp;&amp; ('x' == 120) &amp;&amp; ('y' == 121) &amp;&amp; ('z' == 122) \
+<span class="lineNum">      71 </span>            :     &amp;&amp; ('{' == 123) &amp;&amp; ('|' == 124) &amp;&amp; ('}' == 125) &amp;&amp; ('~' == 126)
+<span class="lineNum">      72 </span>            : /* The character set is ASCII or one of its variants or extensions, not EBCDIC.
+<span class="lineNum">      73 </span>            :    Testing the value of '\n' and '\r' is not relevant.  */
+<span class="lineNum">      74 </span>            : # define C_CTYPE_ASCII 1
+<span class="lineNum">      75 </span>            : #elif ! (' ' == '\x40' &amp;&amp; '0' == '\xf0'                     \
+<span class="lineNum">      76 </span>            :          &amp;&amp; 'A' == '\xc1' &amp;&amp; 'J' == '\xd1' &amp;&amp; 'S' == '\xe2' \
+<span class="lineNum">      77 </span>            :          &amp;&amp; 'a' == '\x81' &amp;&amp; 'j' == '\x91' &amp;&amp; 's' == '\xa2')
+<span class="lineNum">      78 </span>            : # error &quot;Only ASCII and EBCDIC are supported&quot;
+<span class="lineNum">      79 </span>            : #endif
+<span class="lineNum">      80 </span>            : 
+<span class="lineNum">      81 </span>            : #if 'A' &lt; 0
+<span class="lineNum">      82 </span>            : # error &quot;EBCDIC and char is signed -- not supported&quot;
+<span class="lineNum">      83 </span>            : #endif
+<span class="lineNum">      84 </span>            : 
+<span class="lineNum">      85 </span>            : /* Cases for control characters.  */
+<span class="lineNum">      86 </span>            : 
+<span class="lineNum">      87 </span>            : #define _C_CTYPE_CNTRL \
+<span class="lineNum">      88 </span>            :    case '\a': case '\b': case '\f': case '\n': \
+<span class="lineNum">      89 </span>            :    case '\r': case '\t': case '\v': \
+<span class="lineNum">      90 </span>            :    _C_CTYPE_OTHER_CNTRL
+<span class="lineNum">      91 </span>            : 
+<span class="lineNum">      92 </span>            : /* ASCII control characters other than those with \-letter escapes.  */
+<span class="lineNum">      93 </span>            : 
+<span class="lineNum">      94 </span>            : #if C_CTYPE_ASCII
+<span class="lineNum">      95 </span>            : # define _C_CTYPE_OTHER_CNTRL \
+<span class="lineNum">      96 </span>            :     case '\x00': case '\x01': case '\x02': case '\x03': \
+<span class="lineNum">      97 </span>            :     case '\x04': case '\x05': case '\x06': case '\x0e': \
+<span class="lineNum">      98 </span>            :     case '\x0f': case '\x10': case '\x11': case '\x12': \
+<span class="lineNum">      99 </span>            :     case '\x13': case '\x14': case '\x15': case '\x16': \
+<span class="lineNum">     100 </span>            :     case '\x17': case '\x18': case '\x19': case '\x1a': \
+<span class="lineNum">     101 </span>            :     case '\x1b': case '\x1c': case '\x1d': case '\x1e': \
+<span class="lineNum">     102 </span>            :     case '\x1f': case '\x7f'
+<span class="lineNum">     103 </span>            : #else
+<span class="lineNum">     104 </span>            :    /* Use EBCDIC code page 1047's assignments for ASCII control chars;
+<span class="lineNum">     105 </span>            :       assume all EBCDIC code pages agree about these assignments.  */
+<span class="lineNum">     106 </span>            : # define _C_CTYPE_OTHER_CNTRL \
+<span class="lineNum">     107 </span>            :     case '\x00': case '\x01': case '\x02': case '\x03': \
+<span class="lineNum">     108 </span>            :     case '\x07': case '\x0e': case '\x0f': case '\x10': \
+<span class="lineNum">     109 </span>            :     case '\x11': case '\x12': case '\x13': case '\x18': \
+<span class="lineNum">     110 </span>            :     case '\x19': case '\x1c': case '\x1d': case '\x1e': \
+<span class="lineNum">     111 </span>            :     case '\x1f': case '\x26': case '\x27': case '\x2d': \
+<span class="lineNum">     112 </span>            :     case '\x2e': case '\x32': case '\x37': case '\x3c': \
+<span class="lineNum">     113 </span>            :     case '\x3d': case '\x3f'
+<span class="lineNum">     114 </span>            : #endif
+<span class="lineNum">     115 </span>            : 
+<span class="lineNum">     116 </span>            : /* Cases for lowercase hex letters, and lowercase letters, all offset by N.  */
+<span class="lineNum">     117 </span>            : 
+<span class="lineNum">     118 </span>            : #define _C_CTYPE_LOWER_A_THRU_F_N(n) \
+<span class="lineNum">     119 </span>            :    case 'a' + (n): case 'b' + (n): case 'c' + (n): case 'd' + (n): \
+<span class="lineNum">     120 </span>            :    case 'e' + (n): case 'f' + (n)
+<span class="lineNum">     121 </span>            : #define _C_CTYPE_LOWER_N(n) \
+<span class="lineNum">     122 </span>            :    _C_CTYPE_LOWER_A_THRU_F_N(n): \
+<span class="lineNum">     123 </span>            :    case 'g' + (n): case 'h' + (n): case 'i' + (n): case 'j' + (n): \
+<span class="lineNum">     124 </span>            :    case 'k' + (n): case 'l' + (n): case 'm' + (n): case 'n' + (n): \
+<span class="lineNum">     125 </span>            :    case 'o' + (n): case 'p' + (n): case 'q' + (n): case 'r' + (n): \
+<span class="lineNum">     126 </span>            :    case 's' + (n): case 't' + (n): case 'u' + (n): case 'v' + (n): \
+<span class="lineNum">     127 </span>            :    case 'w' + (n): case 'x' + (n): case 'y' + (n): case 'z' + (n)
+<span class="lineNum">     128 </span>            : 
+<span class="lineNum">     129 </span>            : /* Cases for hex letters, digits, lower, punct, and upper.  */
+<span class="lineNum">     130 </span>            : 
+<span class="lineNum">     131 </span>            : #define _C_CTYPE_A_THRU_F \
+<span class="lineNum">     132 </span>            :    _C_CTYPE_LOWER_A_THRU_F_N (0): \
+<span class="lineNum">     133 </span>            :    _C_CTYPE_LOWER_A_THRU_F_N ('A' - 'a')
+<span class="lineNum">     134 </span>            : #define _C_CTYPE_DIGIT                     \
+<span class="lineNum">     135 </span>            :    case '0': case '1': case '2': case '3': \
+<span class="lineNum">     136 </span>            :    case '4': case '5': case '6': case '7': \
+<span class="lineNum">     137 </span>            :    case '8': case '9'
+<span class="lineNum">     138 </span>            : #define _C_CTYPE_LOWER _C_CTYPE_LOWER_N (0)
+<span class="lineNum">     139 </span>            : #define _C_CTYPE_PUNCT \
+<span class="lineNum">     140 </span>            :    case '!': case '&quot;': case '#': case '$':  \
+<span class="lineNum">     141 </span>            :    case '%': case '&amp;': case '\'': case '(': \
+<span class="lineNum">     142 </span>            :    case ')': case '*': case '+': case ',':  \
+<span class="lineNum">     143 </span>            :    case '-': case '.': case '/': case ':':  \
+<span class="lineNum">     144 </span>            :    case ';': case '&lt;': case '=': case '&gt;':  \
+<span class="lineNum">     145 </span>            :    case '?': case '@': case '[': case '\\': \
+<span class="lineNum">     146 </span>            :    case ']': case '^': case '_': case '`':  \
+<span class="lineNum">     147 </span>            :    case '{': case '|': case '}': case '~'
+<span class="lineNum">     148 </span>            : #define _C_CTYPE_UPPER _C_CTYPE_LOWER_N ('A' - 'a')
+<span class="lineNum">     149 </span>            : 
+<span class="lineNum">     150 </span>            : 
+<span class="lineNum">     151 </span>            : /* Function definitions.  */
+<span class="lineNum">     152 </span>            : 
+<span class="lineNum">     153 </span>            : /* Unlike the functions in &lt;ctype.h&gt;, which require an argument in the range
+<span class="lineNum">     154 </span>            :    of the 'unsigned char' type, the functions here operate on values that are
+<span class="lineNum">     155 </span>            :    in the 'unsigned char' range or in the 'char' range.  In other words,
+<span class="lineNum">     156 </span>            :    when you have a 'char' value, you need to cast it before using it as
+<span class="lineNum">     157 </span>            :    argument to a &lt;ctype.h&gt; function:
+<span class="lineNum">     158 </span>            : 
+<span class="lineNum">     159 </span>            :          const char *s = ...;
+<span class="lineNum">     160 </span>            :          if (isalpha ((unsigned char) *s)) ...
+<span class="lineNum">     161 </span>            : 
+<span class="lineNum">     162 </span>            :    but you don't need to cast it for the functions defined in this file:
+<span class="lineNum">     163 </span>            : 
+<span class="lineNum">     164 </span>            :          const char *s = ...;
+<span class="lineNum">     165 </span>            :          if (c_isalpha (*s)) ...
+<span class="lineNum">     166 </span>            :  */
+<span class="lineNum">     167 </span>            : 
+<span class="lineNum">     168 </span>            : C_CTYPE_INLINE bool
+<span class="lineNum">     169 </span>            : c_isalnum (int c)
+<span class="lineNum">     170 </span>            : {
+<span class="lineNum">     171 </span>            :   switch (c)
+<span class="lineNum">     172 </span>            :     {
+<span class="lineNum">     173 </span>            :     _C_CTYPE_DIGIT:
+<span class="lineNum">     174 </span>            :     _C_CTYPE_LOWER:
+<span class="lineNum">     175 </span>            :     _C_CTYPE_UPPER:
+<span class="lineNum">     176 </span>            :       return true;
+<span class="lineNum">     177 </span>            :     default:
+<span class="lineNum">     178 </span>            :       return false;
+<span class="lineNum">     179 </span>            :     }
+<span class="lineNum">     180 </span>            : }
+<span class="lineNum">     181 </span>            : 
+<span class="lineNum">     182 </span>            : C_CTYPE_INLINE bool
+<span class="lineNum">     183 </span>            : c_isalpha (int c)
+<span class="lineNum">     184 </span>            : {
+<span class="lineNum">     185 </span>            :   switch (c)
+<span class="lineNum">     186 </span>            :     {
+<span class="lineNum">     187 </span>            :     _C_CTYPE_LOWER:
+<span class="lineNum">     188 </span>            :     _C_CTYPE_UPPER:
+<span class="lineNum">     189 </span>            :       return true;
+<span class="lineNum">     190 </span>            :     default:
+<span class="lineNum">     191 </span>            :       return false;
+<span class="lineNum">     192 </span>            :     }
+<span class="lineNum">     193 </span>            : }
+<span class="lineNum">     194 </span>            : 
+<span class="lineNum">     195 </span>            : /* The function isascii is not locale dependent.
+<span class="lineNum">     196 </span>            :    Its use in EBCDIC is questionable. */
+<span class="lineNum">     197 </span>            : C_CTYPE_INLINE bool
+<span class="lineNum">     198 </span>            : c_isascii (int c)
+<span class="lineNum">     199 </span>            : {
+<span class="lineNum">     200 </span>            :   switch (c)
+<span class="lineNum">     201 </span>            :     {
+<span class="lineNum">     202 </span>            :     case ' ':
+<span class="lineNum">     203 </span>            :     _C_CTYPE_CNTRL:
+<span class="lineNum">     204 </span>            :     _C_CTYPE_DIGIT:
+<span class="lineNum">     205 </span>            :     _C_CTYPE_LOWER:
+<span class="lineNum">     206 </span>            :     _C_CTYPE_PUNCT:
+<span class="lineNum">     207 </span>            :     _C_CTYPE_UPPER:
+<span class="lineNum">     208 </span>            :       return true;
+<span class="lineNum">     209 </span>            :     default:
+<span class="lineNum">     210 </span>            :       return false;
+<span class="lineNum">     211 </span>            :     }
+<span class="lineNum">     212 </span>            : }
+<span class="lineNum">     213 </span>            : 
+<span class="lineNum">     214 </span>            : C_CTYPE_INLINE bool
+<span class="lineNum">     215 </span>            : c_isblank (int c)
+<span class="lineNum">     216 </span>            : {
+<span class="lineNum">     217 </span>            :   return c == ' ' || c == '\t';
+<span class="lineNum">     218 </span>            : }
+<span class="lineNum">     219 </span>            : 
+<span class="lineNum">     220 </span>            : C_CTYPE_INLINE bool
+<span class="lineNum">     221 </span>            : c_iscntrl (int c)
+<span class="lineNum">     222 </span>            : {
+<span class="lineNum">     223 </span>            :   switch (c)
+<span class="lineNum">     224 </span>            :     {
+<span class="lineNum">     225 </span>            :     _C_CTYPE_CNTRL:
+<span class="lineNum">     226 </span>            :       return true;
+<span class="lineNum">     227 </span>            :     default:
+<span class="lineNum">     228 </span>            :       return false;
+<span class="lineNum">     229 </span>            :     }
+<span class="lineNum">     230 </span>            : }
+<span class="lineNum">     231 </span>            : 
+<span class="lineNum">     232 </span>            : C_CTYPE_INLINE bool
+<span class="lineNum">     233 </span>            : c_isdigit (int c)
+<span class="lineNum">     234 </span>            : {
+<span class="lineNum">     235 </span><span class="lineNoCov">          0 :   switch (c)</span>
+<span class="lineNum">     236 </span>            :     {
+<span class="lineNum">     237 </span>            :     _C_CTYPE_DIGIT:
+<span class="lineNum">     238 </span>            :       return true;
+<span class="lineNum">     239 </span>            :     default:
+<span class="lineNum">     240 </span>            :       return false;
+<span class="lineNum">     241 </span>            :     }
+<span class="lineNum">     242 </span>            : }
+<span class="lineNum">     243 </span>            : 
+<span class="lineNum">     244 </span>            : C_CTYPE_INLINE bool
+<span class="lineNum">     245 </span>            : c_isgraph (int c)
+<span class="lineNum">     246 </span>            : {
+<span class="lineNum">     247 </span>            :   switch (c)
+<span class="lineNum">     248 </span>            :     {
+<span class="lineNum">     249 </span>            :     _C_CTYPE_DIGIT:
+<span class="lineNum">     250 </span>            :     _C_CTYPE_LOWER:
+<span class="lineNum">     251 </span>            :     _C_CTYPE_PUNCT:
+<span class="lineNum">     252 </span>            :     _C_CTYPE_UPPER:
+<span class="lineNum">     253 </span>            :       return true;
+<span class="lineNum">     254 </span>            :     default:
+<span class="lineNum">     255 </span>            :       return false;
+<span class="lineNum">     256 </span>            :     }
+<span class="lineNum">     257 </span>            : }
+<span class="lineNum">     258 </span>            : 
+<span class="lineNum">     259 </span>            : C_CTYPE_INLINE bool
+<span class="lineNum">     260 </span>            : c_islower (int c)
+<span class="lineNum">     261 </span>            : {
+<span class="lineNum">     262 </span>            :   switch (c)
+<span class="lineNum">     263 </span>            :     {
+<span class="lineNum">     264 </span>            :     _C_CTYPE_LOWER:
+<span class="lineNum">     265 </span>            :       return true;
+<span class="lineNum">     266 </span>            :     default:
+<span class="lineNum">     267 </span>            :       return false;
+<span class="lineNum">     268 </span>            :     }
+<span class="lineNum">     269 </span>            : }
+<span class="lineNum">     270 </span>            : 
+<span class="lineNum">     271 </span>            : C_CTYPE_INLINE bool
+<span class="lineNum">     272 </span>            : c_isprint (int c)
+<span class="lineNum">     273 </span>            : {
+<span class="lineNum">     274 </span><span class="lineNoCov">          0 :   switch (c)</span>
+<span class="lineNum">     275 </span>            :     {
+<span class="lineNum">     276 </span>            :     case ' ':
+<span class="lineNum">     277 </span>            :     _C_CTYPE_DIGIT:
+<span class="lineNum">     278 </span>            :     _C_CTYPE_LOWER:
+<span class="lineNum">     279 </span>            :     _C_CTYPE_PUNCT:
+<span class="lineNum">     280 </span>            :     _C_CTYPE_UPPER:
+<span class="lineNum">     281 </span>            :       return true;
+<span class="lineNum">     282 </span>            :     default:
+<span class="lineNum">     283 </span>            :       return false;
+<span class="lineNum">     284 </span>            :     }
+<span class="lineNum">     285 </span>            : }
+<span class="lineNum">     286 </span>            : 
+<span class="lineNum">     287 </span>            : C_CTYPE_INLINE bool
+<span class="lineNum">     288 </span>            : c_ispunct (int c)
+<span class="lineNum">     289 </span>            : {
+<span class="lineNum">     290 </span>            :   switch (c)
+<span class="lineNum">     291 </span>            :     {
+<span class="lineNum">     292 </span>            :     _C_CTYPE_PUNCT:
+<span class="lineNum">     293 </span>            :       return true;
+<span class="lineNum">     294 </span>            :     default:
+<span class="lineNum">     295 </span>            :       return false;
+<span class="lineNum">     296 </span>            :     }
+<span class="lineNum">     297 </span>            : }
+<span class="lineNum">     298 </span>            : 
+<span class="lineNum">     299 </span>            : C_CTYPE_INLINE bool
+<span class="lineNum">     300 </span>            : c_isspace (int c)
+<span class="lineNum">     301 </span>            : {
+<span class="lineNum">     302 </span>            :   switch (c)
+<span class="lineNum">     303 </span>            :     {
+<span class="lineNum">     304 </span>            :     case ' ': case '\t': case '\n': case '\v': case '\f': case '\r':
+<span class="lineNum">     305 </span>            :       return true;
+<span class="lineNum">     306 </span>            :     default:
+<span class="lineNum">     307 </span>            :       return false;
+<span class="lineNum">     308 </span>            :     }
+<span class="lineNum">     309 </span>            : }
+<span class="lineNum">     310 </span>            : 
+<span class="lineNum">     311 </span>            : C_CTYPE_INLINE bool
+<span class="lineNum">     312 </span>            : c_isupper (int c)
+<span class="lineNum">     313 </span>            : {
+<span class="lineNum">     314 </span>            :   switch (c)
+<span class="lineNum">     315 </span>            :     {
+<span class="lineNum">     316 </span>            :     _C_CTYPE_UPPER:
+<span class="lineNum">     317 </span>            :       return true;
+<span class="lineNum">     318 </span>            :     default:
+<span class="lineNum">     319 </span>            :       return false;
+<span class="lineNum">     320 </span>            :     }
+<span class="lineNum">     321 </span>            : }
+<span class="lineNum">     322 </span>            : 
+<span class="lineNum">     323 </span>            : C_CTYPE_INLINE bool
+<span class="lineNum">     324 </span>            : c_isxdigit (int c)
+<span class="lineNum">     325 </span>            : {
+<span class="lineNum">     326 </span>            :   switch (c)
+<span class="lineNum">     327 </span>            :     {
+<span class="lineNum">     328 </span>            :     _C_CTYPE_DIGIT:
+<span class="lineNum">     329 </span>            :     _C_CTYPE_A_THRU_F:
+<span class="lineNum">     330 </span>            :       return true;
+<span class="lineNum">     331 </span>            :     default:
+<span class="lineNum">     332 </span>            :       return false;
+<span class="lineNum">     333 </span>            :     }
+<span class="lineNum">     334 </span>            : }
+<span class="lineNum">     335 </span>            : 
+<span class="lineNum">     336 </span>            : C_CTYPE_INLINE int
+<span class="lineNum">     337 </span>            : c_tolower (int c)
+<span class="lineNum">     338 </span>            : {
+<span class="lineNum">     339 </span>            :   switch (c)
+<span class="lineNum">     340 </span>            :     {
+<span class="lineNum">     341 </span>            :     _C_CTYPE_UPPER:
+<span class="lineNum">     342 </span>            :       return c - 'A' + 'a';
+<span class="lineNum">     343 </span>            :     default:
+<span class="lineNum">     344 </span>            :       return c;
+<span class="lineNum">     345 </span>            :     }
+<span class="lineNum">     346 </span>            : }
+<span class="lineNum">     347 </span>            : 
+<span class="lineNum">     348 </span>            : C_CTYPE_INLINE int
+<span class="lineNum">     349 </span>            : c_toupper (int c)
+<span class="lineNum">     350 </span>            : {
+<span class="lineNum">     351 </span>            :   switch (c)
+<span class="lineNum">     352 </span>            :     {
+<span class="lineNum">     353 </span>            :     _C_CTYPE_LOWER:
+<span class="lineNum">     354 </span>            :       return c - 'a' + 'A';
+<span class="lineNum">     355 </span>            :     default:
+<span class="lineNum">     356 </span>            :       return c;
+<span class="lineNum">     357 </span>            :     }
+<span class="lineNum">     358 </span>            : }
+<span class="lineNum">     359 </span>            : 
+<span class="lineNum">     360 </span>            : #ifdef __cplusplus
+<span class="lineNum">     361 </span>            : }
+<span class="lineNum">     362 </span>            : #endif
+<span class="lineNum">     363 </span>            : 
+<span class="lineNum">     364 </span>            : _GL_INLINE_HEADER_END
+<span class="lineNum">     365 </span>            : 
+<span class="lineNum">     366 </span>            : #endif /* C_CTYPE_H */
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.12</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>

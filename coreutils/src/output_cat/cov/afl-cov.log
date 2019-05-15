@@ -1,0 +1,80 @@
+
+*** Imported 2 new test cases from: ../coreutils/src/output_cat/queue
+
+[+] AFL test case: id:000000,orig:cat.txt (0 / 2), cycle: 0
+    lines......: 0.2% (55 of 25300 lines)
+    functions..: 0.2% (2 of 1093 functions)
+
+    Coverage diff (init) id:000000,orig:cat.txt
+diff (init) -> id:000000,orig:cat.txt
+New src file: /root/coreutils.gcov/src/system.h
+  New 'line' coverage: 500
+  New 'line' coverage: 501
+  New 'line' coverage: 502
+New src file: /root/coreutils.gcov/src/cat.c
+  New 'function' coverage: main()
+  New 'function' coverage: simple_cat()
+  New 'line' coverage: 151
+  New 'line' coverage: 168
+  New 'line' coverage: 169
+  New 'line' coverage: 177
+  New 'line' coverage: 184
+  New 'line' coverage: 185
+  New 'line' coverage: 502
+  New 'line' coverage: 510
+  New 'line' coverage: 518
+  New 'line' coverage: 534
+  New 'line' coverage: 539
+  New 'line' coverage: 540
+  New 'line' coverage: 541
+  New 'line' coverage: 542
+  New 'line' coverage: 543
+  New 'line' coverage: 544
+  New 'line' coverage: 545
+  New 'line' coverage: 562
+  New 'line' coverage: 563
+  New 'line' coverage: 564
+  New 'line' coverage: 565
+  New 'line' coverage: 571
+  New 'line' coverage: 575
+  New 'line' coverage: 636
+  New 'line' coverage: 639
+  New 'line' coverage: 640
+  New 'line' coverage: 641
+  New 'line' coverage: 642
+  New 'line' coverage: 644
+  New 'line' coverage: 655
+  New 'line' coverage: 656
+  New 'line' coverage: 660
+  New 'line' coverage: 661
+  New 'line' coverage: 663
+  New 'line' coverage: 672
+  New 'line' coverage: 673
+  New 'line' coverage: 681
+  New 'line' coverage: 687
+  New 'line' coverage: 689
+  New 'line' coverage: 695
+  New 'line' coverage: 696
+  New 'line' coverage: 707
+  New 'line' coverage: 708
+  New 'line' coverage: 710
+  New 'line' coverage: 711
+  New 'line' coverage: 713
+  New 'line' coverage: 752
+  New 'line' coverage: 755
+  New 'line' coverage: 761
+  New 'line' coverage: 763
+  New 'line' coverage: 766
+New src file: /root/coreutils.gcov/src/ioblksize.h
+  New 'line' coverage: 77
+
+
+
+++++++ BEGIN - first exec output for CMD: src/cat ../coreutils/src/output_cat/queue/id:000000,orig:cat.txt
+    --he
+++++++ END
+
+[+] AFL test case: id:000001,orig:cat2.txt (1 / 2), cycle: 0
+    lines......: 0.2% (55 of 25300 lines)
+    functions..: 0.2% (2 of 1093 functions)
+[-] No new AFL test cases, sleeping for 60 seconds

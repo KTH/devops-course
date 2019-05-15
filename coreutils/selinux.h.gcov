@@ -1,0 +1,150 @@
+        -:    0:Source:lib/selinux/selinux.h
+        -:    0:Graph:src/ls.gcno
+        -:    0:Data:src/ls.gcda
+        -:    0:Runs:248
+        -:    0:Programs:1
+        -:    0:Source is newer than graph
+        -:    1:/* DO NOT EDIT! GENERATED AUTOMATICALLY! */
+        -:    2:/* Replacement <selinux/selinux.h> for platforms that lack it.
+        -:    3:   Copyright (C) 2008-2016 Free Software Foundation, Inc.
+        -:    4:
+        -:    5:   This program is free software: you can redistribute it and/or modify
+        -:    6:   it under the terms of the GNU General Public License as published by
+        -:    7:   the Free Software Foundation; either version 3 of the License, or
+        -:    8:   (at your option) any later version.
+        -:    9:
+        -:   10:   This program is distributed in the hope that it will be useful,
+        -:   11:   but WITHOUT ANY WARRANTY; without even the implied warranty of
+        -:   12:   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+        -:   13:   GNU General Public License for more details.
+        -:   14:
+        -:   15:   You should have received a copy of the GNU General Public License
+        -:   16:   along with this program.  If not, see <http://www.gnu.org/licenses/>.  */
+        -:   17:
+        -:   18:#ifndef _GL_SELINUX_SELINUX_H
+        -:   19:# define _GL_SELINUX_SELINUX_H
+        -:   20:
+        -:   21:# if __GNUC__ >= 3
+        -:   22:#pragma GCC system_header
+        -:   23:# endif
+        -:   24:
+        -:   25:
+        -:   26:# if HAVE_SELINUX_SELINUX_H
+        -:   27:
+        -:   28:#include_next 
+        -:   29:
+        -:   30:# else
+        -:   31:
+        -:   32:#  include <sys/types.h>
+        -:   33:#  include <errno.h>
+        -:   34:
+        -:   35:#ifndef _GL_INLINE_HEADER_BEGIN
+        -:   36: #error "Please include config.h first."
+        -:   37:#endif
+        -:   38:_GL_INLINE_HEADER_BEGIN
+        -:   39:#  ifndef SE_SELINUX_INLINE
+        -:   40:#   define SE_SELINUX_INLINE _GL_INLINE
+        -:   41:#  endif
+        -:   42:
+        -:   43:/* The definition of _GL_UNUSED_PARAMETER is copied here.  */
+        -:   44:/* _GL_UNUSED_PARAMETER is a marker that can be appended to function parameter
+        -:   45:   declarations for parameters that are not used.  This helps to reduce
+        -:   46:   warnings, such as from GCC -Wunused-parameter.  The syntax is as follows:
+        -:   47:       type param _GL_UNUSED_PARAMETER
+        -:   48:   or more generally
+        -:   49:       param_decl _GL_UNUSED_PARAMETER
+        -:   50:   For example:
+        -:   51:       int param _GL_UNUSED_PARAMETER
+        -:   52:       int *(*param)(void) _GL_UNUSED_PARAMETER
+        -:   53:   Other possible, but obscure and discouraged syntaxes:
+        -:   54:       int _GL_UNUSED_PARAMETER *(*param)(void)
+        -:   55:       _GL_UNUSED_PARAMETER int *(*param)(void)
+        -:   56: */
+        -:   57:#ifndef _GL_UNUSED_PARAMETER
+        -:   58:# if __GNUC__ >= 3 || (__GNUC__ == 2 && __GNUC_MINOR__ >= 7)
+        -:   59:#  define _GL_UNUSED_PARAMETER __attribute__ ((__unused__))
+        -:   60:# else
+        -:   61:#  define _GL_UNUSED_PARAMETER
+        -:   62:# endif
+        -:   63:#endif
+        -:   64:
+        -:   65:#  if !GNULIB_defined_security_types
+        -:   66:
+        -:   67:typedef unsigned short security_class_t;
+        -:   68:typedef char *security_context_t;
+        -:   69:#   define is_selinux_enabled() 0
+        -:   70:
+        -:   71:SE_SELINUX_INLINE int
+        -:   72:getcon (security_context_t *con _GL_UNUSED_PARAMETER)
+        -:   73:  { errno = ENOTSUP; return -1; }
+        -:   74:SE_SELINUX_INLINE void
+        -:   75:freecon (security_context_t con _GL_UNUSED_PARAMETER) {}
+        -:   76:
+        -:   77:SE_SELINUX_INLINE int
+        -:   78:getfscreatecon (security_context_t *con _GL_UNUSED_PARAMETER)
+        -:   79:  { errno = ENOTSUP; return -1; }
+        -:   80:SE_SELINUX_INLINE int
+        -:   81:setfscreatecon (security_context_t con _GL_UNUSED_PARAMETER)
+        -:   82:  { errno = ENOTSUP; return -1; }
+        -:   83:SE_SELINUX_INLINE int
+        -:   84:matchpathcon (char const *file _GL_UNUSED_PARAMETER,
+        -:   85:              mode_t m _GL_UNUSED_PARAMETER,
+        -:   86:  security_context_t *con _GL_UNUSED_PARAMETER)
+        -:   87:  { errno = ENOTSUP; return -1; }
+        -:   88:SE_SELINUX_INLINE int
+        -:   89:getfilecon (char const *file _GL_UNUSED_PARAMETER,
+        -:   90:            security_context_t *con _GL_UNUSED_PARAMETER)
+    #####:   91:  { errno = ENOTSUP; return -1; }
+        -:   92:SE_SELINUX_INLINE int
+        -:   93:lgetfilecon (char const *file _GL_UNUSED_PARAMETER,
+        -:   94:             security_context_t *con _GL_UNUSED_PARAMETER)
+      129:   95:  { errno = ENOTSUP; return -1; }
+        -:   96:SE_SELINUX_INLINE int
+        -:   97:fgetfilecon (int fd, security_context_t *con _GL_UNUSED_PARAMETER)
+        -:   98:  { errno = ENOTSUP; return -1; }
+        -:   99:SE_SELINUX_INLINE int
+        -:  100:setfilecon (char const *file _GL_UNUSED_PARAMETER,
+        -:  101:            security_context_t con _GL_UNUSED_PARAMETER)
+        -:  102:  { errno = ENOTSUP; return -1; }
+        -:  103:SE_SELINUX_INLINE int
+        -:  104:lsetfilecon (char const *file _GL_UNUSED_PARAMETER,
+        -:  105:             security_context_t con _GL_UNUSED_PARAMETER)
+        -:  106:  { errno = ENOTSUP; return -1; }
+        -:  107:SE_SELINUX_INLINE int
+        -:  108:fsetfilecon (int fd _GL_UNUSED_PARAMETER,
+        -:  109:             security_context_t con _GL_UNUSED_PARAMETER)
+        -:  110:  { errno = ENOTSUP; return -1; }
+        -:  111:
+        -:  112:SE_SELINUX_INLINE int
+        -:  113:security_check_context (security_context_t con _GL_UNUSED_PARAMETER)
+        -:  114:  { errno = ENOTSUP; return -1; }
+        -:  115:SE_SELINUX_INLINE int
+        -:  116:security_check_context_raw (security_context_t con _GL_UNUSED_PARAMETER)
+        -:  117:  { errno = ENOTSUP; return -1; }
+        -:  118:SE_SELINUX_INLINE int
+        -:  119:setexeccon (security_context_t con _GL_UNUSED_PARAMETER)
+        -:  120:  { errno = ENOTSUP; return -1; }
+        -:  121:SE_SELINUX_INLINE int
+        -:  122:security_compute_create (security_context_t scon _GL_UNUSED_PARAMETER,
+        -:  123:                         security_context_t tcon _GL_UNUSED_PARAMETER,
+        -:  124:                         security_class_t tclass _GL_UNUSED_PARAMETER,
+        -:  125:                         security_context_t *newcon _GL_UNUSED_PARAMETER)
+        -:  126:  { errno = ENOTSUP; return -1; }
+        -:  127:SE_SELINUX_INLINE security_class_t
+        -:  128:string_to_security_class (char const *name)
+        -:  129:  { errno = ENOTSUP; return 0; }
+        -:  130:SE_SELINUX_INLINE int
+        -:  131:matchpathcon_init_prefix (char const *path _GL_UNUSED_PARAMETER,
+        -:  132:                          char const *prefix _GL_UNUSED_PARAMETER)
+        -:  133:  { errno = ENOTSUP; return -1; }
+        -:  134:
+        -:  135:#   define GNULIB_defined_security_types 1
+        -:  136:#  endif
+        -:  137:
+        -:  138:#ifndef _GL_INLINE_HEADER_BEGIN
+        -:  139: #error "Please include config.h first."
+        -:  140:#endif
+        -:  141:_GL_INLINE_HEADER_BEGIN
+        -:  142:
+        -:  143:# endif
+        -:  144:#endif /* _GL_SELINUX_SELINUX_H */

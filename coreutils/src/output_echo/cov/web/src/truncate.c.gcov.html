@@ -1,0 +1,474 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - trace.lcov_info_final - src/truncate.c</title>
+  <link rel="stylesheet" type="text/css" href="../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">src</a> - truncate.c<span style="font-size: 80%;"> (source / <a href="truncate.c.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">trace.lcov_info_final</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">152</td>
+            <td class="headerCovTableEntryLo">0.0 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2019-04-22 20:19:38</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">1</td>
+            <td class="headerCovTableEntryLo">0.0 %</td>
+          </tr>
+          <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>            : /* truncate -- truncate or extend the length of files.</a>
+<span class="lineNum">       2 </span>            :    Copyright (C) 2008-2016 Free Software Foundation, Inc.
+<span class="lineNum">       3 </span>            : 
+<span class="lineNum">       4 </span>            :    This program is free software: you can redistribute it and/or modify
+<span class="lineNum">       5 </span>            :    it under the terms of the GNU General Public License as published by
+<span class="lineNum">       6 </span>            :    the Free Software Foundation, either version 3 of the License, or
+<span class="lineNum">       7 </span>            :    (at your option) any later version.
+<span class="lineNum">       8 </span>            : 
+<span class="lineNum">       9 </span>            :    This program is distributed in the hope that it will be useful,
+<span class="lineNum">      10 </span>            :    but WITHOUT ANY WARRANTY; without even the implied warranty of
+<span class="lineNum">      11 </span>            :    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+<span class="lineNum">      12 </span>            :    GNU General Public License for more details.
+<span class="lineNum">      13 </span>            : 
+<span class="lineNum">      14 </span>            :    You should have received a copy of the GNU General Public License
+<span class="lineNum">      15 </span>            :    along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.  */
+<span class="lineNum">      16 </span>            : 
+<span class="lineNum">      17 </span>            : /* Written by Pádraig Brady
+<span class="lineNum">      18 </span>            : 
+<span class="lineNum">      19 </span>            :    This is backwards compatible with the FreeBSD utility, but is more
+<span class="lineNum">      20 </span>            :    flexible wrt the size specifications and the use of long options,
+<span class="lineNum">      21 </span>            :    to better fit the &quot;GNU&quot; environment.  */
+<span class="lineNum">      22 </span>            : 
+<span class="lineNum">      23 </span>            : #include &lt;config.h&gt;             /* sets _FILE_OFFSET_BITS=64 etc. */
+<span class="lineNum">      24 </span>            : #include &lt;stdio.h&gt;
+<span class="lineNum">      25 </span>            : #include &lt;getopt.h&gt;
+<span class="lineNum">      26 </span>            : #include &lt;sys/types.h&gt;
+<span class="lineNum">      27 </span>            : 
+<span class="lineNum">      28 </span>            : #include &quot;system.h&quot;
+<span class="lineNum">      29 </span>            : #include &quot;error.h&quot;
+<span class="lineNum">      30 </span>            : #include &quot;quote.h&quot;
+<span class="lineNum">      31 </span>            : #include &quot;stat-size.h&quot;
+<span class="lineNum">      32 </span>            : #include &quot;xdectoint.h&quot;
+<span class="lineNum">      33 </span>            : 
+<span class="lineNum">      34 </span>            : /* The official name of this program (e.g., no 'g' prefix).  */
+<span class="lineNum">      35 </span>            : #define PROGRAM_NAME &quot;truncate&quot;
+<span class="lineNum">      36 </span>            : 
+<span class="lineNum">      37 </span>            : #define AUTHORS proper_name_utf8 (&quot;Padraig Brady&quot;, &quot;P\303\241draig Brady&quot;)
+<span class="lineNum">      38 </span>            : 
+<span class="lineNum">      39 </span>            : /* (-c) If true, don't create if not already there */
+<span class="lineNum">      40 </span>            : static bool no_create;
+<span class="lineNum">      41 </span>            : 
+<span class="lineNum">      42 </span>            : /* (-o) If true, --size refers to blocks not bytes */
+<span class="lineNum">      43 </span>            : static bool block_mode;
+<span class="lineNum">      44 </span>            : 
+<span class="lineNum">      45 </span>            : /* (-r) Reference file to use size from */
+<span class="lineNum">      46 </span>            : static char const *ref_file;
+<span class="lineNum">      47 </span>            : 
+<span class="lineNum">      48 </span>            : static struct option const longopts[] =
+<span class="lineNum">      49 </span>            : {
+<span class="lineNum">      50 </span>            :   {&quot;no-create&quot;, no_argument, NULL, 'c'},
+<span class="lineNum">      51 </span>            :   {&quot;io-blocks&quot;, no_argument, NULL, 'o'},
+<span class="lineNum">      52 </span>            :   {&quot;reference&quot;, required_argument, NULL, 'r'},
+<span class="lineNum">      53 </span>            :   {&quot;size&quot;, required_argument, NULL, 's'},
+<span class="lineNum">      54 </span>            :   {GETOPT_HELP_OPTION_DECL},
+<span class="lineNum">      55 </span>            :   {GETOPT_VERSION_OPTION_DECL},
+<span class="lineNum">      56 </span>            :   {NULL, 0, NULL, 0}
+<span class="lineNum">      57 </span>            : };
+<span class="lineNum">      58 </span>            : 
+<span class="lineNum">      59 </span>            : typedef enum
+<span class="lineNum">      60 </span>            : { rm_abs = 0, rm_rel, rm_min, rm_max, rm_rdn, rm_rup } rel_mode_t;
+<a name="61"><span class="lineNum">      61 </span>            : </a>
+<span class="lineNum">      62 </span>            : void
+<span class="lineNum">      63 </span><span class="lineNoCov">          0 : usage (int status)</span>
+<span class="lineNum">      64 </span>            : {
+<span class="lineNum">      65 </span><span class="lineNoCov">          0 :   if (status != EXIT_SUCCESS)</span>
+<span class="lineNum">      66 </span><span class="lineNoCov">          0 :     emit_try_help ();</span>
+<span class="lineNum">      67 </span>            :   else
+<span class="lineNum">      68 </span>            :     {
+<span class="lineNum">      69 </span><span class="lineNoCov">          0 :       printf (_(&quot;Usage: %s OPTION... FILE...\n&quot;), program_name);</span>
+<span class="lineNum">      70 </span><span class="lineNoCov">          0 :       fputs (_(&quot;\</span>
+<span class="lineNum">      71 </span>            : Shrink or extend the size of each FILE to the specified size\n\
+<span class="lineNum">      72 </span>            : \n\
+<span class="lineNum">      73 </span>            : A FILE argument that does not exist is created.\n\
+<span class="lineNum">      74 </span>            : \n\
+<span class="lineNum">      75 </span>            : If a FILE is larger than the specified size, the extra data is lost.\n\
+<span class="lineNum">      76 </span>            : If a FILE is shorter, it is extended and the extended part (hole)\n\
+<span class="lineNum">      77 </span>            : reads as zero bytes.\n\
+<span class="lineNum">      78 </span>            : &quot;), stdout);
+<span class="lineNum">      79 </span>            : 
+<span class="lineNum">      80 </span><span class="lineNoCov">          0 :       emit_mandatory_arg_note ();</span>
+<span class="lineNum">      81 </span>            : 
+<span class="lineNum">      82 </span><span class="lineNoCov">          0 :       fputs (_(&quot;\</span>
+<span class="lineNum">      83 </span>            :   -c, --no-create        do not create any files\n\
+<span class="lineNum">      84 </span>            : &quot;), stdout);
+<span class="lineNum">      85 </span><span class="lineNoCov">          0 :       fputs (_(&quot;\</span>
+<span class="lineNum">      86 </span>            :   -o, --io-blocks        treat SIZE as number of IO blocks instead of bytes\n\
+<span class="lineNum">      87 </span>            : &quot;), stdout);
+<span class="lineNum">      88 </span><span class="lineNoCov">          0 :       fputs (_(&quot;\</span>
+<span class="lineNum">      89 </span>            :   -r, --reference=RFILE  base size on RFILE\n\
+<span class="lineNum">      90 </span>            :   -s, --size=SIZE        set or adjust the file size by SIZE bytes\n&quot;), stdout);
+<span class="lineNum">      91 </span><span class="lineNoCov">          0 :       fputs (HELP_OPTION_DESCRIPTION, stdout);</span>
+<span class="lineNum">      92 </span><span class="lineNoCov">          0 :       fputs (VERSION_OPTION_DESCRIPTION, stdout);</span>
+<span class="lineNum">      93 </span><span class="lineNoCov">          0 :       emit_size_note ();</span>
+<span class="lineNum">      94 </span><span class="lineNoCov">          0 :       fputs (_(&quot;\n\</span>
+<span class="lineNum">      95 </span>            : SIZE may also be prefixed by one of the following modifying characters:\n\
+<span class="lineNum">      96 </span>            : '+' extend by, '-' reduce by, '&lt;' at most, '&gt;' at least,\n\
+<span class="lineNum">      97 </span>            : '/' round down to multiple of, '%' round up to multiple of.\n&quot;), stdout);
+<span class="lineNum">      98 </span><span class="lineNoCov">          0 :       emit_ancillary_info (PROGRAM_NAME);</span>
+<span class="lineNum">      99 </span>            :     }
+<span class="lineNum">     100 </span><span class="lineNoCov">          0 :   exit (status);</span>
+<span class="lineNum">     101 </span>            : }
+<span class="lineNum">     102 </span>            : 
+<span class="lineNum">     103 </span>            : /* return true on success, false on error.  */
+<span class="lineNum">     104 </span>            : static bool
+<span class="lineNum">     105 </span><span class="lineNoCov">          0 : do_ftruncate (int fd, char const *fname, off_t ssize, off_t rsize,</span>
+<span class="lineNum">     106 </span>            :               rel_mode_t rel_mode)
+<span class="lineNum">     107 </span>            : {
+<span class="lineNum">     108 </span>            :   struct stat sb;
+<span class="lineNum">     109 </span>            :   off_t nsize;
+<span class="lineNum">     110 </span>            : 
+<span class="lineNum">     111 </span><span class="lineNoCov">          0 :   if ((block_mode || (rel_mode &amp;&amp; rsize &lt; 0)) &amp;&amp; fstat (fd, &amp;sb) != 0)</span>
+<span class="lineNum">     112 </span>            :     {
+<span class="lineNum">     113 </span><span class="lineNoCov">          0 :       error (0, errno, _(&quot;cannot fstat %s&quot;), quoteaf (fname));</span>
+<span class="lineNum">     114 </span><span class="lineNoCov">          0 :       return false;</span>
+<span class="lineNum">     115 </span>            :     }
+<span class="lineNum">     116 </span><span class="lineNoCov">          0 :   if (block_mode)</span>
+<span class="lineNum">     117 </span>            :     {
+<span class="lineNum">     118 </span><span class="lineNoCov">          0 :       off_t const blksize = ST_BLKSIZE (sb);</span>
+<span class="lineNum">     119 </span><span class="lineNoCov">          0 :       if (ssize &lt; OFF_T_MIN / blksize || ssize &gt; OFF_T_MAX / blksize)</span>
+<span class="lineNum">     120 </span>            :         {
+<span class="lineNum">     121 </span><span class="lineNoCov">          0 :           error (0, 0,</span>
+<span class="lineNum">     122 </span><span class="lineNoCov">          0 :                  _(&quot;overflow in %&quot; PRIdMAX</span>
+<span class="lineNum">     123 </span>            :                    &quot; * %&quot; PRIdMAX &quot; byte blocks for file %s&quot;),
+<span class="lineNum">     124 </span>            :                  (intmax_t) ssize, (intmax_t) blksize,
+<span class="lineNum">     125 </span>            :                  quoteaf (fname));
+<span class="lineNum">     126 </span><span class="lineNoCov">          0 :           return false;</span>
+<span class="lineNum">     127 </span>            :         }
+<span class="lineNum">     128 </span><span class="lineNoCov">          0 :       ssize *= blksize;</span>
+<span class="lineNum">     129 </span>            :     }
+<span class="lineNum">     130 </span><span class="lineNoCov">          0 :   if (rel_mode)</span>
+<span class="lineNum">     131 </span>            :     {
+<span class="lineNum">     132 </span>            :       uintmax_t fsize;
+<span class="lineNum">     133 </span>            : 
+<span class="lineNum">     134 </span><span class="lineNoCov">          0 :       if (0 &lt;= rsize)</span>
+<span class="lineNum">     135 </span><span class="lineNoCov">          0 :         fsize = rsize;</span>
+<span class="lineNum">     136 </span>            :       else
+<span class="lineNum">     137 </span>            :         {
+<span class="lineNum">     138 </span>            :           off_t file_size;
+<span class="lineNum">     139 </span><span class="lineNoCov">          0 :           if (usable_st_size (&amp;sb))</span>
+<span class="lineNum">     140 </span>            :             {
+<span class="lineNum">     141 </span><span class="lineNoCov">          0 :               file_size = sb.st_size;</span>
+<span class="lineNum">     142 </span><span class="lineNoCov">          0 :               if (file_size &lt; 0)</span>
+<span class="lineNum">     143 </span>            :                 {
+<span class="lineNum">     144 </span>            :                   /* Sanity check.  Overflow is the only reason I can think
+<span class="lineNum">     145 </span>            :                      this would ever go negative. */
+<span class="lineNum">     146 </span><span class="lineNoCov">          0 :                   error (0, 0, _(&quot;%s has unusable, apparently negative size&quot;),</span>
+<span class="lineNum">     147 </span>            :                          quoteaf (fname));
+<span class="lineNum">     148 </span><span class="lineNoCov">          0 :                   return false;</span>
+<span class="lineNum">     149 </span>            :                 }
+<span class="lineNum">     150 </span>            :             }
+<span class="lineNum">     151 </span>            :           else
+<span class="lineNum">     152 </span>            :             {
+<span class="lineNum">     153 </span><span class="lineNoCov">          0 :               file_size = lseek (fd, 0, SEEK_END);</span>
+<span class="lineNum">     154 </span><span class="lineNoCov">          0 :               if (file_size &lt; 0)</span>
+<span class="lineNum">     155 </span>            :                 {
+<span class="lineNum">     156 </span><span class="lineNoCov">          0 :                   error (0, errno, _(&quot;cannot get the size of %s&quot;),</span>
+<span class="lineNum">     157 </span>            :                          quoteaf (fname));
+<span class="lineNum">     158 </span><span class="lineNoCov">          0 :                   return false;</span>
+<span class="lineNum">     159 </span>            :                 }
+<span class="lineNum">     160 </span>            :             }
+<span class="lineNum">     161 </span><span class="lineNoCov">          0 :           fsize = file_size;</span>
+<span class="lineNum">     162 </span>            :         }
+<span class="lineNum">     163 </span>            : 
+<span class="lineNum">     164 </span><span class="lineNoCov">          0 :       if (rel_mode == rm_min)</span>
+<span class="lineNum">     165 </span><span class="lineNoCov">          0 :         nsize = MAX (fsize, (uintmax_t) ssize);</span>
+<span class="lineNum">     166 </span><span class="lineNoCov">          0 :       else if (rel_mode == rm_max)</span>
+<span class="lineNum">     167 </span><span class="lineNoCov">          0 :         nsize = MIN (fsize, (uintmax_t) ssize);</span>
+<span class="lineNum">     168 </span><span class="lineNoCov">          0 :       else if (rel_mode == rm_rdn)</span>
+<span class="lineNum">     169 </span>            :         /* 0..ssize-1 -&gt; 0 */
+<span class="lineNum">     170 </span><span class="lineNoCov">          0 :         nsize = (fsize / ssize) * ssize;</span>
+<span class="lineNum">     171 </span><span class="lineNoCov">          0 :       else if (rel_mode == rm_rup)</span>
+<span class="lineNum">     172 </span>            :         /* 1..ssize -&gt; ssize */
+<span class="lineNum">     173 </span>            :         {
+<span class="lineNum">     174 </span>            :           /* Here ssize&gt;=1 &amp;&amp; fsize&gt;=0 */
+<span class="lineNum">     175 </span><span class="lineNoCov">          0 :           uintmax_t const overflow = ((fsize + ssize - 1) / ssize) * ssize;</span>
+<span class="lineNum">     176 </span><span class="lineNoCov">          0 :           if (overflow &gt; OFF_T_MAX)</span>
+<span class="lineNum">     177 </span>            :             {
+<span class="lineNum">     178 </span><span class="lineNoCov">          0 :               error (0, 0, _(&quot;overflow rounding up size of file %s&quot;),</span>
+<span class="lineNum">     179 </span>            :                      quoteaf (fname));
+<span class="lineNum">     180 </span><span class="lineNoCov">          0 :               return false;</span>
+<span class="lineNum">     181 </span>            :             }
+<span class="lineNum">     182 </span>            :           nsize = overflow;
+<span class="lineNum">     183 </span>            :         }
+<span class="lineNum">     184 </span>            :       else
+<span class="lineNum">     185 </span>            :         {
+<span class="lineNum">     186 </span><span class="lineNoCov">          0 :           if (ssize &gt; OFF_T_MAX - (off_t)fsize)</span>
+<span class="lineNum">     187 </span>            :             {
+<span class="lineNum">     188 </span><span class="lineNoCov">          0 :               error (0, 0, _(&quot;overflow extending size of file %s&quot;),</span>
+<span class="lineNum">     189 </span>            :                      quoteaf (fname));
+<span class="lineNum">     190 </span><span class="lineNoCov">          0 :               return false;</span>
+<span class="lineNum">     191 </span>            :             }
+<span class="lineNum">     192 </span><span class="lineNoCov">          0 :           nsize = fsize + ssize;</span>
+<span class="lineNum">     193 </span>            :         }
+<span class="lineNum">     194 </span>            :     }
+<span class="lineNum">     195 </span>            :   else
+<span class="lineNum">     196 </span>            :     nsize = ssize;
+<span class="lineNum">     197 </span><span class="lineNoCov">          0 :   if (nsize &lt; 0)</span>
+<span class="lineNum">     198 </span><span class="lineNoCov">          0 :     nsize = 0;</span>
+<span class="lineNum">     199 </span>            : 
+<span class="lineNum">     200 </span><span class="lineNoCov">          0 :   if (ftruncate (fd, nsize) == -1)      /* note updates mtime &amp; ctime */</span>
+<span class="lineNum">     201 </span>            :     {
+<span class="lineNum">     202 </span><span class="lineNoCov">          0 :       error (0, errno,</span>
+<span class="lineNum">     203 </span><span class="lineNoCov">          0 :              _(&quot;failed to truncate %s at %&quot; PRIdMAX &quot; bytes&quot;), quoteaf (fname),</span>
+<span class="lineNum">     204 </span>            :              (intmax_t) nsize);
+<span class="lineNum">     205 </span><span class="lineNoCov">          0 :       return false;</span>
+<span class="lineNum">     206 </span>            :     }
+<span class="lineNum">     207 </span>            : 
+<span class="lineNum">     208 </span>            :   return true;
+<span class="lineNum">     209 </span>            : }
+<span class="lineNum">     210 </span>            : 
+<span class="lineNum">     211 </span>            : int
+<span class="lineNum">     212 </span><span class="lineNoCov">          0 : main (int argc, char **argv)</span>
+<span class="lineNum">     213 </span>            : {
+<span class="lineNum">     214 </span><span class="lineNoCov">          0 :   bool got_size = false;</span>
+<span class="lineNum">     215 </span><span class="lineNoCov">          0 :   bool errors = false;</span>
+<span class="lineNum">     216 </span><span class="lineNoCov">          0 :   off_t size IF_LINT ( = 0);</span>
+<span class="lineNum">     217 </span><span class="lineNoCov">          0 :   off_t rsize = -1;</span>
+<span class="lineNum">     218 </span><span class="lineNoCov">          0 :   rel_mode_t rel_mode = rm_abs;</span>
+<span class="lineNum">     219 </span><span class="lineNoCov">          0 :   int c, fd = -1, oflags;</span>
+<span class="lineNum">     220 </span>            :   char const *fname;
+<span class="lineNum">     221 </span>            : 
+<span class="lineNum">     222 </span>            :   initialize_main (&amp;argc, &amp;argv);
+<span class="lineNum">     223 </span><span class="lineNoCov">          0 :   set_program_name (argv[0]);</span>
+<span class="lineNum">     224 </span><span class="lineNoCov">          0 :   setlocale (LC_ALL, &quot;&quot;);</span>
+<span class="lineNum">     225 </span><span class="lineNoCov">          0 :   bindtextdomain (PACKAGE, LOCALEDIR);</span>
+<span class="lineNum">     226 </span><span class="lineNoCov">          0 :   textdomain (PACKAGE);</span>
+<span class="lineNum">     227 </span>            : 
+<span class="lineNum">     228 </span><span class="lineNoCov">          0 :   atexit (close_stdout);</span>
+<span class="lineNum">     229 </span>            : 
+<span class="lineNum">     230 </span><span class="lineNoCov">          0 :   while ((c = getopt_long (argc, argv, &quot;cor:s:&quot;, longopts, NULL)) != -1)</span>
+<span class="lineNum">     231 </span>            :     {
+<span class="lineNum">     232 </span><span class="lineNoCov">          0 :       switch (c)</span>
+<span class="lineNum">     233 </span>            :         {
+<span class="lineNum">     234 </span>            :         case 'c':
+<span class="lineNum">     235 </span><span class="lineNoCov">          0 :           no_create = true;</span>
+<span class="lineNum">     236 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     237 </span>            : 
+<span class="lineNum">     238 </span>            :         case 'o':
+<span class="lineNum">     239 </span><span class="lineNoCov">          0 :           block_mode = true;</span>
+<span class="lineNum">     240 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     241 </span>            : 
+<span class="lineNum">     242 </span>            :         case 'r':
+<span class="lineNum">     243 </span><span class="lineNoCov">          0 :           ref_file = optarg;</span>
+<span class="lineNum">     244 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     245 </span>            : 
+<span class="lineNum">     246 </span>            :         case 's':
+<span class="lineNum">     247 </span>            :           /* skip any whitespace */
+<span class="lineNum">     248 </span><span class="lineNoCov">          0 :           while (isspace (to_uchar (*optarg)))</span>
+<span class="lineNum">     249 </span><span class="lineNoCov">          0 :             optarg++;</span>
+<span class="lineNum">     250 </span><span class="lineNoCov">          0 :           switch (*optarg)</span>
+<span class="lineNum">     251 </span>            :             {
+<span class="lineNum">     252 </span>            :             case '&lt;':
+<span class="lineNum">     253 </span><span class="lineNoCov">          0 :               rel_mode = rm_max;</span>
+<span class="lineNum">     254 </span><span class="lineNoCov">          0 :               optarg++;</span>
+<span class="lineNum">     255 </span><span class="lineNoCov">          0 :               break;</span>
+<span class="lineNum">     256 </span>            :             case '&gt;':
+<span class="lineNum">     257 </span><span class="lineNoCov">          0 :               rel_mode = rm_min;</span>
+<span class="lineNum">     258 </span><span class="lineNoCov">          0 :               optarg++;</span>
+<span class="lineNum">     259 </span><span class="lineNoCov">          0 :               break;</span>
+<span class="lineNum">     260 </span>            :             case '/':
+<span class="lineNum">     261 </span><span class="lineNoCov">          0 :               rel_mode = rm_rdn;</span>
+<span class="lineNum">     262 </span><span class="lineNoCov">          0 :               optarg++;</span>
+<span class="lineNum">     263 </span><span class="lineNoCov">          0 :               break;</span>
+<span class="lineNum">     264 </span>            :             case '%':
+<span class="lineNum">     265 </span><span class="lineNoCov">          0 :               rel_mode = rm_rup;</span>
+<span class="lineNum">     266 </span><span class="lineNoCov">          0 :               optarg++;</span>
+<span class="lineNum">     267 </span><span class="lineNoCov">          0 :               break;</span>
+<span class="lineNum">     268 </span>            :             }
+<span class="lineNum">     269 </span>            :           /* skip any whitespace */
+<span class="lineNum">     270 </span><span class="lineNoCov">          0 :           while (isspace (to_uchar (*optarg)))</span>
+<span class="lineNum">     271 </span><span class="lineNoCov">          0 :             optarg++;</span>
+<span class="lineNum">     272 </span><span class="lineNoCov">          0 :           if (*optarg == '+' || *optarg == '-')</span>
+<span class="lineNum">     273 </span>            :             {
+<span class="lineNum">     274 </span><span class="lineNoCov">          0 :               if (rel_mode)</span>
+<span class="lineNum">     275 </span>            :                 {
+<span class="lineNum">     276 </span><span class="lineNoCov">          0 :                   error (0, 0, _(&quot;multiple relative modifiers specified&quot;));</span>
+<span class="lineNum">     277 </span>            :                   /* Note other combinations are flagged as invalid numbers */
+<span class="lineNum">     278 </span><span class="lineNoCov">          0 :                   usage (EXIT_FAILURE);</span>
+<span class="lineNum">     279 </span>            :                 }
+<span class="lineNum">     280 </span>            :               rel_mode = rm_rel;
+<span class="lineNum">     281 </span>            :             }
+<span class="lineNum">     282 </span>            :           /* Support dd BLOCK size suffixes + lowercase g,t,m for bsd compat.
+<span class="lineNum">     283 </span>            :              Note we don't support dd's b=512, c=1, w=2 or 21x512MiB formats. */
+<span class="lineNum">     284 </span><span class="lineNoCov">          0 :           size = xdectoimax (optarg, OFF_T_MIN, OFF_T_MAX, &quot;EgGkKmMPtTYZ0&quot;,</span>
+<span class="lineNum">     285 </span><span class="lineNoCov">          0 :                              _(&quot;Invalid number&quot;), 0);</span>
+<span class="lineNum">     286 </span>            :           /* Rounding to multiple of 0 is nonsensical */
+<span class="lineNum">     287 </span><span class="lineNoCov">          0 :           if ((rel_mode == rm_rup || rel_mode == rm_rdn) &amp;&amp; size == 0)</span>
+<span class="lineNum">     288 </span><span class="lineNoCov">          0 :             error (EXIT_FAILURE, 0, _(&quot;division by zero&quot;));</span>
+<span class="lineNum">     289 </span>            :           got_size = true;
+<span class="lineNum">     290 </span>            :           break;
+<span class="lineNum">     291 </span>            : 
+<span class="lineNum">     292 </span><span class="lineNoCov">          0 :         case_GETOPT_HELP_CHAR;</span>
+<span class="lineNum">     293 </span>            : 
+<span class="lineNum">     294 </span><span class="lineNoCov">          0 :         case_GETOPT_VERSION_CHAR (PROGRAM_NAME, AUTHORS);</span>
+<span class="lineNum">     295 </span>            : 
+<span class="lineNum">     296 </span>            :         default:
+<span class="lineNum">     297 </span><span class="lineNoCov">          0 :           usage (EXIT_FAILURE);</span>
+<span class="lineNum">     298 </span>            :         }
+<span class="lineNum">     299 </span>            :     }
+<span class="lineNum">     300 </span>            : 
+<span class="lineNum">     301 </span><span class="lineNoCov">          0 :   argv += optind;</span>
+<span class="lineNum">     302 </span><span class="lineNoCov">          0 :   argc -= optind;</span>
+<span class="lineNum">     303 </span>            : 
+<span class="lineNum">     304 </span>            :   /* must specify either size or reference file */
+<span class="lineNum">     305 </span><span class="lineNoCov">          0 :   if (!ref_file &amp;&amp; !got_size)</span>
+<span class="lineNum">     306 </span>            :     {
+<span class="lineNum">     307 </span><span class="lineNoCov">          0 :       error (0, 0, _(&quot;you must specify either %s or %s&quot;),</span>
+<span class="lineNum">     308 </span>            :              quote_n (0, &quot;--size&quot;), quote_n (1, &quot;--reference&quot;));
+<span class="lineNum">     309 </span><span class="lineNoCov">          0 :       usage (EXIT_FAILURE);</span>
+<span class="lineNum">     310 </span>            :     }
+<span class="lineNum">     311 </span>            :   /* must specify a relative size with a reference file */
+<span class="lineNum">     312 </span><span class="lineNoCov">          0 :   if (ref_file &amp;&amp; got_size &amp;&amp; !rel_mode)</span>
+<span class="lineNum">     313 </span>            :     {
+<span class="lineNum">     314 </span><span class="lineNoCov">          0 :       error (0, 0, _(&quot;you must specify a relative %s with %s&quot;),</span>
+<span class="lineNum">     315 </span>            :              quote_n (0, &quot;--size&quot;), quote_n (1, &quot;--reference&quot;));
+<span class="lineNum">     316 </span><span class="lineNoCov">          0 :       usage (EXIT_FAILURE);</span>
+<span class="lineNum">     317 </span>            :     }
+<span class="lineNum">     318 </span>            :   /* block_mode without size is not valid */
+<span class="lineNum">     319 </span><span class="lineNoCov">          0 :   if (block_mode &amp;&amp; !got_size)</span>
+<span class="lineNum">     320 </span>            :     {
+<span class="lineNum">     321 </span><span class="lineNoCov">          0 :       error (0, 0, _(&quot;%s was specified but %s was not&quot;),</span>
+<span class="lineNum">     322 </span>            :              quote_n (0, &quot;--io-blocks&quot;), quote_n (1, &quot;--size&quot;));
+<span class="lineNum">     323 </span><span class="lineNoCov">          0 :       usage (EXIT_FAILURE);</span>
+<span class="lineNum">     324 </span>            :     }
+<span class="lineNum">     325 </span>            :   /* must specify at least 1 file */
+<span class="lineNum">     326 </span><span class="lineNoCov">          0 :   if (argc &lt; 1)</span>
+<span class="lineNum">     327 </span>            :     {
+<span class="lineNum">     328 </span><span class="lineNoCov">          0 :       error (0, 0, _(&quot;missing file operand&quot;));</span>
+<span class="lineNum">     329 </span><span class="lineNoCov">          0 :       usage (EXIT_FAILURE);</span>
+<span class="lineNum">     330 </span>            :     }
+<span class="lineNum">     331 </span>            : 
+<span class="lineNum">     332 </span><span class="lineNoCov">          0 :   if (ref_file)</span>
+<span class="lineNum">     333 </span>            :     {
+<span class="lineNum">     334 </span>            :       struct stat sb;
+<span class="lineNum">     335 </span><span class="lineNoCov">          0 :       off_t file_size = -1;</span>
+<span class="lineNum">     336 </span><span class="lineNoCov">          0 :       if (stat (ref_file, &amp;sb) != 0)</span>
+<span class="lineNum">     337 </span><span class="lineNoCov">          0 :         error (EXIT_FAILURE, errno, _(&quot;cannot stat %s&quot;), quoteaf (ref_file));</span>
+<span class="lineNum">     338 </span><span class="lineNoCov">          0 :       if (usable_st_size (&amp;sb))</span>
+<span class="lineNum">     339 </span><span class="lineNoCov">          0 :         file_size = sb.st_size;</span>
+<span class="lineNum">     340 </span>            :       else
+<span class="lineNum">     341 </span>            :         {
+<span class="lineNum">     342 </span><span class="lineNoCov">          0 :           int ref_fd = open (ref_file, O_RDONLY);</span>
+<span class="lineNum">     343 </span><span class="lineNoCov">          0 :           if (0 &lt;= ref_fd)</span>
+<span class="lineNum">     344 </span>            :             {
+<span class="lineNum">     345 </span><span class="lineNoCov">          0 :               off_t file_end = lseek (ref_fd, 0, SEEK_END);</span>
+<span class="lineNum">     346 </span><span class="lineNoCov">          0 :               int saved_errno = errno;</span>
+<span class="lineNum">     347 </span><span class="lineNoCov">          0 :               close (ref_fd); /* ignore failure */</span>
+<span class="lineNum">     348 </span><span class="lineNoCov">          0 :               if (0 &lt;= file_end)</span>
+<span class="lineNum">     349 </span>            :                 file_size = file_end;
+<span class="lineNum">     350 </span>            :               else
+<span class="lineNum">     351 </span>            :                 {
+<span class="lineNum">     352 </span>            :                   /* restore, in case close clobbered it. */
+<span class="lineNum">     353 </span><span class="lineNoCov">          0 :                   errno = saved_errno;</span>
+<span class="lineNum">     354 </span>            :                 }
+<span class="lineNum">     355 </span>            :             }
+<span class="lineNum">     356 </span>            :         }
+<span class="lineNum">     357 </span><span class="lineNoCov">          0 :       if (file_size &lt; 0)</span>
+<span class="lineNum">     358 </span><span class="lineNoCov">          0 :         error (EXIT_FAILURE, errno, _(&quot;cannot get the size of %s&quot;),</span>
+<span class="lineNum">     359 </span>            :                quoteaf (ref_file));
+<span class="lineNum">     360 </span><span class="lineNoCov">          0 :       if (!got_size)</span>
+<span class="lineNum">     361 </span>            :         size = file_size;
+<span class="lineNum">     362 </span>            :       else
+<span class="lineNum">     363 </span><span class="lineNoCov">          0 :         rsize = file_size;</span>
+<span class="lineNum">     364 </span>            :     }
+<span class="lineNum">     365 </span>            : 
+<span class="lineNum">     366 </span><span class="lineNoCov">          0 :   oflags = O_WRONLY | (no_create ? 0 : O_CREAT) | O_NONBLOCK;</span>
+<span class="lineNum">     367 </span>            : 
+<span class="lineNum">     368 </span><span class="lineNoCov">          0 :   while ((fname = *argv++) != NULL)</span>
+<span class="lineNum">     369 </span>            :     {
+<span class="lineNum">     370 </span><span class="lineNoCov">          0 :       if ((fd = open (fname, oflags, MODE_RW_UGO)) == -1)</span>
+<span class="lineNum">     371 </span>            :         {
+<span class="lineNum">     372 </span>            :           /* 'truncate -s0 -c no-such-file'  shouldn't gen error
+<span class="lineNum">     373 </span>            :              'truncate -s0 no-such-dir/file' should gen ENOENT error
+<span class="lineNum">     374 </span>            :              'truncate -s0 no-such-dir/' should gen EISDIR error
+<span class="lineNum">     375 </span>            :              'truncate -s0 .' should gen EISDIR error */
+<span class="lineNum">     376 </span><span class="lineNoCov">          0 :           if (!(no_create &amp;&amp; errno == ENOENT))</span>
+<span class="lineNum">     377 </span>            :             {
+<span class="lineNum">     378 </span><span class="lineNoCov">          0 :               error (0, errno, _(&quot;cannot open %s for writing&quot;),</span>
+<span class="lineNum">     379 </span>            :                      quoteaf (fname));
+<span class="lineNum">     380 </span><span class="lineNoCov">          0 :               errors = true;</span>
+<span class="lineNum">     381 </span>            :             }
+<span class="lineNum">     382 </span><span class="lineNoCov">          0 :           continue;</span>
+<span class="lineNum">     383 </span>            :         }
+<span class="lineNum">     384 </span>            : 
+<span class="lineNum">     385 </span>            : 
+<span class="lineNum">     386 </span><span class="lineNoCov">          0 :       if (fd != -1)</span>
+<span class="lineNum">     387 </span>            :         {
+<span class="lineNum">     388 </span><span class="lineNoCov">          0 :           errors |= !do_ftruncate (fd, fname, size, rsize, rel_mode);</span>
+<span class="lineNum">     389 </span><span class="lineNoCov">          0 :           if (close (fd) != 0)</span>
+<span class="lineNum">     390 </span>            :             {
+<span class="lineNum">     391 </span><span class="lineNoCov">          0 :               error (0, errno, _(&quot;failed to close %s&quot;), quoteaf (fname));</span>
+<span class="lineNum">     392 </span><span class="lineNoCov">          0 :               errors = true;</span>
+<span class="lineNum">     393 </span>            :             }
+<span class="lineNum">     394 </span>            :         }
+<span class="lineNum">     395 </span>            :     }
+<span class="lineNum">     396 </span>            : 
+<span class="lineNum">     397 </span><span class="lineNoCov">          0 :   return errors ? EXIT_FAILURE : EXIT_SUCCESS;</span>
+<span class="lineNum">     398 </span>            : }
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.12</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>

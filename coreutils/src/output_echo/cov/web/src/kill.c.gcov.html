@@ -1,0 +1,390 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - trace.lcov_info_final - src/kill.c</title>
+  <link rel="stylesheet" type="text/css" href="../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">src</a> - kill.c<span style="font-size: 80%;"> (source / <a href="kill.c.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">trace.lcov_info_final</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">100</td>
+            <td class="headerCovTableEntryLo">0.0 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2019-04-22 20:19:38</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">5</td>
+            <td class="headerCovTableEntryLo">0.0 %</td>
+          </tr>
+          <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>            : /* kill -- send a signal to a process</a>
+<span class="lineNum">       2 </span>            :    Copyright (C) 2002-2016 Free Software Foundation, Inc.
+<span class="lineNum">       3 </span>            : 
+<span class="lineNum">       4 </span>            :    This program is free software: you can redistribute it and/or modify
+<span class="lineNum">       5 </span>            :    it under the terms of the GNU General Public License as published by
+<span class="lineNum">       6 </span>            :    the Free Software Foundation, either version 3 of the License, or
+<span class="lineNum">       7 </span>            :    (at your option) any later version.
+<span class="lineNum">       8 </span>            : 
+<span class="lineNum">       9 </span>            :    This program is distributed in the hope that it will be useful,
+<span class="lineNum">      10 </span>            :    but WITHOUT ANY WARRANTY; without even the implied warranty of
+<span class="lineNum">      11 </span>            :    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+<span class="lineNum">      12 </span>            :    GNU General Public License for more details.
+<span class="lineNum">      13 </span>            : 
+<span class="lineNum">      14 </span>            :    You should have received a copy of the GNU General Public License
+<span class="lineNum">      15 </span>            :    along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.  */
+<span class="lineNum">      16 </span>            : 
+<span class="lineNum">      17 </span>            : /* Written by Paul Eggert.  */
+<span class="lineNum">      18 </span>            : 
+<span class="lineNum">      19 </span>            : #include &lt;config.h&gt;
+<span class="lineNum">      20 </span>            : #include &lt;stdio.h&gt;
+<span class="lineNum">      21 </span>            : #include &lt;getopt.h&gt;
+<span class="lineNum">      22 </span>            : #include &lt;sys/types.h&gt;
+<span class="lineNum">      23 </span>            : #include &lt;signal.h&gt;
+<span class="lineNum">      24 </span>            : 
+<span class="lineNum">      25 </span>            : #include &quot;system.h&quot;
+<span class="lineNum">      26 </span>            : #include &quot;error.h&quot;
+<span class="lineNum">      27 </span>            : #include &quot;sig2str.h&quot;
+<span class="lineNum">      28 </span>            : #include &quot;operand2sig.h&quot;
+<span class="lineNum">      29 </span>            : #include &quot;quote.h&quot;
+<span class="lineNum">      30 </span>            : 
+<span class="lineNum">      31 </span>            : /* The official name of this program (e.g., no 'g' prefix).  */
+<span class="lineNum">      32 </span>            : #define PROGRAM_NAME &quot;kill&quot;
+<span class="lineNum">      33 </span>            : 
+<span class="lineNum">      34 </span>            : #define AUTHORS proper_name (&quot;Paul Eggert&quot;)
+<span class="lineNum">      35 </span>            : 
+<span class="lineNum">      36 </span>            : #if ! (HAVE_DECL_STRSIGNAL || defined strsignal)
+<span class="lineNum">      37 </span>            : # if ! (HAVE_DECL_SYS_SIGLIST || defined sys_siglist)
+<span class="lineNum">      38 </span>            : #  if HAVE_DECL__SYS_SIGLIST || defined _sys_siglist
+<span class="lineNum">      39 </span>            : #   define sys_siglist _sys_siglist
+<span class="lineNum">      40 </span>            : #  elif HAVE_DECL___SYS_SIGLIST || defined __sys_siglist
+<span class="lineNum">      41 </span>            : #   define sys_siglist __sys_siglist
+<span class="lineNum">      42 </span>            : #  endif
+<span class="lineNum">      43 </span>            : # endif
+<span class="lineNum">      44 </span>            : # if HAVE_DECL_SYS_SIGLIST || defined sys_siglist
+<span class="lineNum">      45 </span>            : #  define strsignal(signum) (0 &lt;= (signum) &amp;&amp; (signum) &lt;= SIGNUM_BOUND \
+<span class="lineNum">      46 </span>            :                              ? sys_siglist[signum] \
+<span class="lineNum">      47 </span>            :                              : 0)
+<span class="lineNum">      48 </span>            : # endif
+<span class="lineNum">      49 </span>            : # ifndef strsignal
+<span class="lineNum">      50 </span>            : #  define strsignal(signum) 0
+<span class="lineNum">      51 </span>            : # endif
+<span class="lineNum">      52 </span>            : #endif
+<span class="lineNum">      53 </span>            : 
+<span class="lineNum">      54 </span>            : static char const short_options[] =
+<span class="lineNum">      55 </span>            :   &quot;0::1::2::3::4::5::6::7::8::9::&quot;
+<span class="lineNum">      56 </span>            :   &quot;A::B::C::D::E::F::G::H::I::J::K::M::&quot;
+<span class="lineNum">      57 </span>            :   &quot;N::O::P::Q::R::S::T::U::V::W::X::Y::Z::&quot;
+<span class="lineNum">      58 </span>            :   &quot;Lln:s:t&quot;;
+<span class="lineNum">      59 </span>            : 
+<span class="lineNum">      60 </span>            : static struct option const long_options[] =
+<span class="lineNum">      61 </span>            : {
+<span class="lineNum">      62 </span>            :   {&quot;list&quot;, no_argument, NULL, 'l'},
+<span class="lineNum">      63 </span>            :   {&quot;signal&quot;, required_argument, NULL, 's'},
+<span class="lineNum">      64 </span>            :   {&quot;table&quot;, no_argument, NULL, 't'},
+<span class="lineNum">      65 </span>            :   {GETOPT_HELP_OPTION_DECL},
+<span class="lineNum">      66 </span>            :   {GETOPT_VERSION_OPTION_DECL},
+<span class="lineNum">      67 </span>            :   {NULL, 0, NULL, 0}
+<span class="lineNum">      68 </span>            : };
+<a name="69"><span class="lineNum">      69 </span>            : </a>
+<span class="lineNum">      70 </span>            : void
+<span class="lineNum">      71 </span><span class="lineNoCov">          0 : usage (int status)</span>
+<span class="lineNum">      72 </span>            : {
+<span class="lineNum">      73 </span><span class="lineNoCov">          0 :   if (status != EXIT_SUCCESS)</span>
+<span class="lineNum">      74 </span><span class="lineNoCov">          0 :     emit_try_help ();</span>
+<span class="lineNum">      75 </span>            :   else
+<span class="lineNum">      76 </span>            :     {
+<span class="lineNum">      77 </span><span class="lineNoCov">          0 :       printf (_(&quot;\</span>
+<span class="lineNum">      78 </span>            : Usage: %s [-s SIGNAL | -SIGNAL] PID...\n\
+<span class="lineNum">      79 </span>            :   or:  %s -l [SIGNAL]...\n\
+<span class="lineNum">      80 </span>            :   or:  %s -t [SIGNAL]...\n\
+<span class="lineNum">      81 </span>            : &quot;),
+<span class="lineNum">      82 </span>            :               program_name, program_name, program_name);
+<span class="lineNum">      83 </span><span class="lineNoCov">          0 :       fputs (_(&quot;\</span>
+<span class="lineNum">      84 </span>            : Send signals to processes, or list signals.\n\
+<span class="lineNum">      85 </span>            : &quot;), stdout);
+<span class="lineNum">      86 </span>            : 
+<span class="lineNum">      87 </span><span class="lineNoCov">          0 :       emit_mandatory_arg_note ();</span>
+<span class="lineNum">      88 </span>            : 
+<span class="lineNum">      89 </span><span class="lineNoCov">          0 :       fputs (_(&quot;\</span>
+<span class="lineNum">      90 </span>            :   -s, --signal=SIGNAL, -SIGNAL\n\
+<span class="lineNum">      91 </span>            :                    specify the name or number of the signal to be sent\n\
+<span class="lineNum">      92 </span>            :   -l, --list       list signal names, or convert signal names to/from numbers\n\
+<span class="lineNum">      93 </span>            :   -t, --table      print a table of signal information\n\
+<span class="lineNum">      94 </span>            : &quot;), stdout);
+<span class="lineNum">      95 </span><span class="lineNoCov">          0 :       fputs (HELP_OPTION_DESCRIPTION, stdout);</span>
+<span class="lineNum">      96 </span><span class="lineNoCov">          0 :       fputs (VERSION_OPTION_DESCRIPTION, stdout);</span>
+<span class="lineNum">      97 </span><span class="lineNoCov">          0 :       fputs (_(&quot;\n\</span>
+<span class="lineNum">      98 </span>            : SIGNAL may be a signal name like 'HUP', or a signal number like '1',\n\
+<span class="lineNum">      99 </span>            : or the exit status of a process terminated by a signal.\n\
+<span class="lineNum">     100 </span>            : PID is an integer; if negative it identifies a process group.\n\
+<span class="lineNum">     101 </span>            : &quot;), stdout);
+<span class="lineNum">     102 </span><span class="lineNoCov">          0 :       printf (USAGE_BUILTIN_WARNING, PROGRAM_NAME);</span>
+<span class="lineNum">     103 </span><span class="lineNoCov">          0 :       emit_ancillary_info (PROGRAM_NAME);</span>
+<span class="lineNum">     104 </span>            :     }
+<span class="lineNum">     105 </span><span class="lineNoCov">          0 :   exit (status);</span>
+<span class="lineNum">     106 </span>            : }
+<span class="lineNum">     107 </span>            : 
+<span class="lineNum">     108 </span>            : /* Print a row of 'kill -t' output.  NUM_WIDTH is the maximum signal
+<span class="lineNum">     109 </span>            :    number width, and SIGNUM is the signal number to print.  The
+<span class="lineNum">     110 </span>            :    maximum name width is NAME_WIDTH, and SIGNAME is the name to print.  */
+<a name="111"><span class="lineNum">     111 </span>            : </a>
+<span class="lineNum">     112 </span>            : static void
+<span class="lineNum">     113 </span><span class="lineNoCov">          0 : print_table_row (int num_width, int signum,</span>
+<span class="lineNum">     114 </span>            :                  int name_width, char const *signame)
+<span class="lineNum">     115 </span>            : {
+<span class="lineNum">     116 </span><span class="lineNoCov">          0 :   char const *description = strsignal (signum);</span>
+<span class="lineNum">     117 </span><span class="lineNoCov">          0 :   printf (&quot;%*d %-*s %s\n&quot;, num_width, signum, name_width, signame,</span>
+<span class="lineNum">     118 </span>            :           description ? description : &quot;?&quot;);
+<span class="lineNum">     119 </span><span class="lineNoCov">          0 : }</span>
+<span class="lineNum">     120 </span>            : 
+<span class="lineNum">     121 </span>            : /* Print a list of signal names.  If TABLE, print a table.
+<span class="lineNum">     122 </span>            :    Print the names specified by ARGV if nonzero; otherwise,
+<span class="lineNum">     123 </span>            :    print all known names.  Return a suitable exit status.  */
+<a name="124"><span class="lineNum">     124 </span>            : </a>
+<span class="lineNum">     125 </span>            : static int
+<span class="lineNum">     126 </span><span class="lineNoCov">          0 : list_signals (bool table, char *const *argv)</span>
+<span class="lineNum">     127 </span>            : {
+<span class="lineNum">     128 </span>            :   int signum;
+<span class="lineNum">     129 </span><span class="lineNoCov">          0 :   int status = EXIT_SUCCESS;</span>
+<span class="lineNum">     130 </span>            :   char signame[SIG2STR_MAX];
+<span class="lineNum">     131 </span>            : 
+<span class="lineNum">     132 </span><span class="lineNoCov">          0 :   if (table)</span>
+<span class="lineNum">     133 </span>            :     {
+<span class="lineNum">     134 </span>            :       unsigned int name_width = 0;
+<span class="lineNum">     135 </span>            : 
+<span class="lineNum">     136 </span>            :       /* Compute the maximum width of a signal number.  */
+<span class="lineNum">     137 </span>            :       unsigned int num_width = 1;
+<span class="lineNum">     138 </span><span class="lineNoCov">          0 :       for (signum = 1; signum &lt;= SIGNUM_BOUND / 10; signum *= 10)</span>
+<span class="lineNum">     139 </span><span class="lineNoCov">          0 :         num_width++;</span>
+<span class="lineNum">     140 </span>            : 
+<span class="lineNum">     141 </span>            :       /* Compute the maximum width of a signal name.  */
+<span class="lineNum">     142 </span><span class="lineNoCov">          0 :       for (signum = 1; signum &lt;= SIGNUM_BOUND; signum++)</span>
+<span class="lineNum">     143 </span><span class="lineNoCov">          0 :         if (sig2str (signum, signame) == 0)</span>
+<span class="lineNum">     144 </span>            :           {
+<span class="lineNum">     145 </span><span class="lineNoCov">          0 :             size_t len = strlen (signame);</span>
+<span class="lineNum">     146 </span><span class="lineNoCov">          0 :             if (name_width &lt; len)</span>
+<span class="lineNum">     147 </span><span class="lineNoCov">          0 :               name_width = len;</span>
+<span class="lineNum">     148 </span>            :           }
+<span class="lineNum">     149 </span>            : 
+<span class="lineNum">     150 </span><span class="lineNoCov">          0 :       if (argv)</span>
+<span class="lineNum">     151 </span><span class="lineNoCov">          0 :         for (; *argv; argv++)</span>
+<span class="lineNum">     152 </span>            :           {
+<span class="lineNum">     153 </span><span class="lineNoCov">          0 :             signum = operand2sig (*argv, signame);</span>
+<span class="lineNum">     154 </span><span class="lineNoCov">          0 :             if (signum &lt; 0)</span>
+<span class="lineNum">     155 </span>            :               status = EXIT_FAILURE;
+<span class="lineNum">     156 </span>            :             else
+<span class="lineNum">     157 </span><span class="lineNoCov">          0 :               print_table_row (num_width, signum, name_width, signame);</span>
+<span class="lineNum">     158 </span>            :           }
+<span class="lineNum">     159 </span>            :       else
+<span class="lineNum">     160 </span><span class="lineNoCov">          0 :         for (signum = 1; signum &lt;= SIGNUM_BOUND; signum++)</span>
+<span class="lineNum">     161 </span><span class="lineNoCov">          0 :           if (sig2str (signum, signame) == 0)</span>
+<span class="lineNum">     162 </span><span class="lineNoCov">          0 :             print_table_row (num_width, signum, name_width, signame);</span>
+<span class="lineNum">     163 </span>            :     }
+<span class="lineNum">     164 </span>            :   else
+<span class="lineNum">     165 </span>            :     {
+<span class="lineNum">     166 </span><span class="lineNoCov">          0 :       if (argv)</span>
+<span class="lineNum">     167 </span><span class="lineNoCov">          0 :         for (; *argv; argv++)</span>
+<span class="lineNum">     168 </span>            :           {
+<span class="lineNum">     169 </span><span class="lineNoCov">          0 :             signum = operand2sig (*argv, signame);</span>
+<span class="lineNum">     170 </span><span class="lineNoCov">          0 :             if (signum &lt; 0)</span>
+<span class="lineNum">     171 </span>            :               status = EXIT_FAILURE;
+<span class="lineNum">     172 </span>            :             else
+<span class="lineNum">     173 </span>            :               {
+<span class="lineNum">     174 </span><span class="lineNoCov">          0 :                 if (ISDIGIT (**argv))</span>
+<span class="lineNum">     175 </span><span class="lineNoCov">          0 :                   puts (signame);</span>
+<span class="lineNum">     176 </span>            :                 else
+<span class="lineNum">     177 </span>            :                   printf (&quot;%d\n&quot;, signum);
+<span class="lineNum">     178 </span>            :               }
+<span class="lineNum">     179 </span>            :           }
+<span class="lineNum">     180 </span>            :       else
+<span class="lineNum">     181 </span><span class="lineNoCov">          0 :         for (signum = 1; signum &lt;= SIGNUM_BOUND; signum++)</span>
+<span class="lineNum">     182 </span><span class="lineNoCov">          0 :           if (sig2str (signum, signame) == 0)</span>
+<span class="lineNum">     183 </span><span class="lineNoCov">          0 :             puts (signame);</span>
+<span class="lineNum">     184 </span>            :     }
+<span class="lineNum">     185 </span>            : 
+<span class="lineNum">     186 </span><span class="lineNoCov">          0 :   return status;</span>
+<span class="lineNum">     187 </span>            : }
+<span class="lineNum">     188 </span>            : 
+<span class="lineNum">     189 </span>            : /* Send signal SIGNUM to all the processes or process groups specified
+<span class="lineNum">     190 </span>            :    by ARGV.  Return a suitable exit status.  */
+<a name="191"><span class="lineNum">     191 </span>            : </a>
+<span class="lineNum">     192 </span>            : static int
+<span class="lineNum">     193 </span><span class="lineNoCov">          0 : send_signals (int signum, char *const *argv)</span>
+<span class="lineNum">     194 </span>            : {
+<span class="lineNum">     195 </span><span class="lineNoCov">          0 :   int status = EXIT_SUCCESS;</span>
+<span class="lineNum">     196 </span><span class="lineNoCov">          0 :   char const *arg = *argv;</span>
+<span class="lineNum">     197 </span>            : 
+<span class="lineNum">     198 </span>            :   do
+<span class="lineNum">     199 </span>            :     {
+<span class="lineNum">     200 </span>            :       char *endp;
+<span class="lineNum">     201 </span><span class="lineNoCov">          0 :       intmax_t n = (errno = 0, strtoimax (arg, &amp;endp, 10));</span>
+<span class="lineNum">     202 </span><span class="lineNoCov">          0 :       pid_t pid = n;</span>
+<span class="lineNum">     203 </span>            : 
+<span class="lineNum">     204 </span><span class="lineNoCov">          0 :       if (errno == ERANGE || pid != n || arg == endp || *endp)</span>
+<span class="lineNum">     205 </span>            :         {
+<span class="lineNum">     206 </span><span class="lineNoCov">          0 :           error (0, 0, _(&quot;%s: invalid process id&quot;), quote (arg));</span>
+<span class="lineNum">     207 </span><span class="lineNoCov">          0 :           status = EXIT_FAILURE;</span>
+<span class="lineNum">     208 </span>            :         }
+<span class="lineNum">     209 </span><span class="lineNoCov">          0 :       else if (kill (pid, signum) != 0)</span>
+<span class="lineNum">     210 </span>            :         {
+<span class="lineNum">     211 </span><span class="lineNoCov">          0 :           error (0, errno, &quot;%s&quot;, quote (arg));</span>
+<span class="lineNum">     212 </span><span class="lineNoCov">          0 :           status = EXIT_FAILURE;</span>
+<span class="lineNum">     213 </span>            :         }
+<span class="lineNum">     214 </span>            :     }
+<span class="lineNum">     215 </span><span class="lineNoCov">          0 :   while ((arg = *++argv));</span>
+<span class="lineNum">     216 </span>            : 
+<span class="lineNum">     217 </span><span class="lineNoCov">          0 :   return status;</span>
+<span class="lineNum">     218 </span>            : }
+<a name="219"><span class="lineNum">     219 </span>            : </a>
+<span class="lineNum">     220 </span>            : int
+<span class="lineNum">     221 </span><span class="lineNoCov">          0 : main (int argc, char **argv)</span>
+<span class="lineNum">     222 </span>            : {
+<span class="lineNum">     223 </span>            :   int optc;
+<span class="lineNum">     224 </span><span class="lineNoCov">          0 :   bool list = false;</span>
+<span class="lineNum">     225 </span><span class="lineNoCov">          0 :   bool table = false;</span>
+<span class="lineNum">     226 </span><span class="lineNoCov">          0 :   int signum = -1;</span>
+<span class="lineNum">     227 </span>            :   char signame[SIG2STR_MAX];
+<span class="lineNum">     228 </span>            : 
+<span class="lineNum">     229 </span>            :   initialize_main (&amp;argc, &amp;argv);
+<span class="lineNum">     230 </span><span class="lineNoCov">          0 :   set_program_name (argv[0]);</span>
+<span class="lineNum">     231 </span><span class="lineNoCov">          0 :   setlocale (LC_ALL, &quot;&quot;);</span>
+<span class="lineNum">     232 </span><span class="lineNoCov">          0 :   bindtextdomain (PACKAGE, LOCALEDIR);</span>
+<span class="lineNum">     233 </span><span class="lineNoCov">          0 :   textdomain (PACKAGE);</span>
+<span class="lineNum">     234 </span>            : 
+<span class="lineNum">     235 </span><span class="lineNoCov">          0 :   atexit (close_stdout);</span>
+<span class="lineNum">     236 </span>            : 
+<span class="lineNum">     237 </span><span class="lineNoCov">          0 :   while ((optc = getopt_long (argc, argv, short_options, long_options, NULL))</span>
+<span class="lineNum">     238 </span>            :          != -1)
+<span class="lineNum">     239 </span><span class="lineNoCov">          0 :     switch (optc)</span>
+<span class="lineNum">     240 </span>            :       {
+<span class="lineNum">     241 </span>            :       case '0': case '1': case '2': case '3': case '4':
+<span class="lineNum">     242 </span>            :       case '5': case '6': case '7': case '8': case '9':
+<span class="lineNum">     243 </span><span class="lineNoCov">          0 :         if (optind != 2)</span>
+<span class="lineNum">     244 </span>            :           {
+<span class="lineNum">     245 </span>            :             /* This option is actually a process-id.  */
+<span class="lineNum">     246 </span><span class="lineNoCov">          0 :             optind--;</span>
+<span class="lineNum">     247 </span><span class="lineNoCov">          0 :             goto no_more_options;</span>
+<span class="lineNum">     248 </span>            :           }
+<span class="lineNum">     249 </span>            :         /* Fall through.  */
+<span class="lineNum">     250 </span>            :       case 'A': case 'B': case 'C': case 'D': case 'E':
+<span class="lineNum">     251 </span>            :       case 'F': case 'G': case 'H': case 'I': case 'J':
+<span class="lineNum">     252 </span>            :       case 'K': /*case 'L':*/ case 'M': case 'N': case 'O':
+<span class="lineNum">     253 </span>            :       case 'P': case 'Q': case 'R': case 'S': case 'T':
+<span class="lineNum">     254 </span>            :       case 'U': case 'V': case 'W': case 'X': case 'Y':
+<span class="lineNum">     255 </span>            :       case 'Z':
+<span class="lineNum">     256 </span><span class="lineNoCov">          0 :         if (! optarg)</span>
+<span class="lineNum">     257 </span><span class="lineNoCov">          0 :           optarg = argv[optind - 1] + strlen (argv[optind - 1]);</span>
+<span class="lineNum">     258 </span><span class="lineNoCov">          0 :         if (optarg != argv[optind - 1] + 2)</span>
+<span class="lineNum">     259 </span>            :           {
+<span class="lineNum">     260 </span><span class="lineNoCov">          0 :             error (0, 0, _(&quot;invalid option -- %c&quot;), optc);</span>
+<span class="lineNum">     261 </span><span class="lineNoCov">          0 :             usage (EXIT_FAILURE);</span>
+<span class="lineNum">     262 </span>            :           }
+<span class="lineNum">     263 </span><span class="lineNoCov">          0 :         optarg--;</span>
+<span class="lineNum">     264 </span>            :         /* Fall through.  */
+<span class="lineNum">     265 </span>            :       case 'n': /* -n is not documented, but is for Bash compatibility.  */
+<span class="lineNum">     266 </span>            :       case 's':
+<span class="lineNum">     267 </span><span class="lineNoCov">          0 :         if (0 &lt;= signum)</span>
+<span class="lineNum">     268 </span>            :           {
+<span class="lineNum">     269 </span><span class="lineNoCov">          0 :             error (0, 0, _(&quot;%s: multiple signals specified&quot;), quote (optarg));</span>
+<span class="lineNum">     270 </span><span class="lineNoCov">          0 :             usage (EXIT_FAILURE);</span>
+<span class="lineNum">     271 </span>            :           }
+<span class="lineNum">     272 </span><span class="lineNoCov">          0 :         signum = operand2sig (optarg, signame);</span>
+<span class="lineNum">     273 </span><span class="lineNoCov">          0 :         if (signum &lt; 0)</span>
+<span class="lineNum">     274 </span><span class="lineNoCov">          0 :           usage (EXIT_FAILURE);</span>
+<span class="lineNum">     275 </span>            :         break;
+<span class="lineNum">     276 </span>            : 
+<span class="lineNum">     277 </span>            :       case 'L': /* -L is not documented, but is for procps compatibility.  */
+<span class="lineNum">     278 </span>            :       case 't':
+<span class="lineNum">     279 </span><span class="lineNoCov">          0 :         table = true;</span>
+<span class="lineNum">     280 </span>            :         /* Fall through.  */
+<span class="lineNum">     281 </span>            :       case 'l':
+<span class="lineNum">     282 </span><span class="lineNoCov">          0 :         if (list)</span>
+<span class="lineNum">     283 </span>            :           {
+<span class="lineNum">     284 </span><span class="lineNoCov">          0 :             error (0, 0, _(&quot;multiple -l or -t options specified&quot;));</span>
+<span class="lineNum">     285 </span><span class="lineNoCov">          0 :             usage (EXIT_FAILURE);</span>
+<span class="lineNum">     286 </span>            :           }
+<span class="lineNum">     287 </span>            :         list = true;
+<span class="lineNum">     288 </span>            :         break;
+<span class="lineNum">     289 </span>            : 
+<span class="lineNum">     290 </span><span class="lineNoCov">          0 :       case_GETOPT_HELP_CHAR;</span>
+<span class="lineNum">     291 </span><span class="lineNoCov">          0 :       case_GETOPT_VERSION_CHAR (PROGRAM_NAME, AUTHORS);</span>
+<span class="lineNum">     292 </span>            :       default:
+<span class="lineNum">     293 </span><span class="lineNoCov">          0 :         usage (EXIT_FAILURE);</span>
+<span class="lineNum">     294 </span>            :       }
+<span class="lineNum">     295 </span>            :  no_more_options:
+<span class="lineNum">     296 </span>            : 
+<span class="lineNum">     297 </span><span class="lineNoCov">          0 :   if (signum &lt; 0)</span>
+<span class="lineNum">     298 </span>            :     signum = SIGTERM;
+<span class="lineNum">     299 </span><span class="lineNoCov">          0 :   else if (list)</span>
+<span class="lineNum">     300 </span>            :     {
+<span class="lineNum">     301 </span><span class="lineNoCov">          0 :       error (0, 0, _(&quot;cannot combine signal with -l or -t&quot;));</span>
+<span class="lineNum">     302 </span><span class="lineNoCov">          0 :       usage (EXIT_FAILURE);</span>
+<span class="lineNum">     303 </span>            :     }
+<span class="lineNum">     304 </span>            : 
+<span class="lineNum">     305 </span><span class="lineNoCov">          0 :   if ( ! list &amp;&amp; argc &lt;= optind)</span>
+<span class="lineNum">     306 </span>            :     {
+<span class="lineNum">     307 </span><span class="lineNoCov">          0 :       error (0, 0, _(&quot;no process ID specified&quot;));</span>
+<span class="lineNum">     308 </span><span class="lineNoCov">          0 :       usage (EXIT_FAILURE);</span>
+<span class="lineNum">     309 </span>            :     }
+<span class="lineNum">     310 </span>            : 
+<span class="lineNum">     311 </span>            :   return (list
+<span class="lineNum">     312 </span><span class="lineNoCov">          0 :           ? list_signals (table, optind &lt; argc ? argv + optind : NULL)</span>
+<span class="lineNum">     313 </span><span class="lineNoCov">          0 :           : send_signals (signum, argv + optind));</span>
+<span class="lineNum">     314 </span>            : }
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.12</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - trace.lcov_info_final - lib/savewd.h</title>
+  <link rel="stylesheet" type="text/css" href="../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">lib</a> - savewd.h<span style="font-size: 80%;"> (source / <a href="savewd.h.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">trace.lcov_info_final</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">1</td>
+            <td class="headerCovTableEntryLo">0.0 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2019-04-22 20:19:38</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntryHi">-</td>
+          </tr>
+          <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>            : /* Save and restore the working directory, possibly using a subprocess.</a>
+<span class="lineNum">       2 </span>            : 
+<span class="lineNum">       3 </span>            :    Copyright (C) 2006, 2009-2016 Free Software Foundation, Inc.
+<span class="lineNum">       4 </span>            : 
+<span class="lineNum">       5 </span>            :    This program is free software: you can redistribute it and/or modify
+<span class="lineNum">       6 </span>            :    it under the terms of the GNU General Public License as published by
+<span class="lineNum">       7 </span>            :    the Free Software Foundation; either version 3 of the License, or
+<span class="lineNum">       8 </span>            :    (at your option) any later version.
+<span class="lineNum">       9 </span>            : 
+<span class="lineNum">      10 </span>            :    This program is distributed in the hope that it will be useful,
+<span class="lineNum">      11 </span>            :    but WITHOUT ANY WARRANTY; without even the implied warranty of
+<span class="lineNum">      12 </span>            :    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+<span class="lineNum">      13 </span>            :    GNU General Public License for more details.
+<span class="lineNum">      14 </span>            : 
+<span class="lineNum">      15 </span>            :    You should have received a copy of the GNU General Public License
+<span class="lineNum">      16 </span>            :    along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.  */
+<span class="lineNum">      17 </span>            : 
+<span class="lineNum">      18 </span>            : /* Written by Paul Eggert.  */
+<span class="lineNum">      19 </span>            : 
+<span class="lineNum">      20 </span>            : #ifndef SAVEWD_H
+<span class="lineNum">      21 </span>            : # define SAVEWD_H 1
+<span class="lineNum">      22 </span>            : 
+<span class="lineNum">      23 </span>            : #include &lt;stdbool.h&gt;
+<span class="lineNum">      24 </span>            : #include &lt;sys/types.h&gt;
+<span class="lineNum">      25 </span>            : 
+<span class="lineNum">      26 </span>            : #ifndef _GL_INLINE_HEADER_BEGIN
+<span class="lineNum">      27 </span>            :  #error &quot;Please include config.h first.&quot;
+<span class="lineNum">      28 </span>            : #endif
+<span class="lineNum">      29 </span>            : _GL_INLINE_HEADER_BEGIN
+<span class="lineNum">      30 </span>            : #ifndef SAVEWD_INLINE
+<span class="lineNum">      31 </span>            : # define SAVEWD_INLINE _GL_INLINE
+<span class="lineNum">      32 </span>            : #endif
+<span class="lineNum">      33 </span>            : 
+<span class="lineNum">      34 </span>            : /* A saved working directory.  The member names and constants defined
+<span class="lineNum">      35 </span>            :    by this structure are private to the savewd module.  */
+<span class="lineNum">      36 </span>            : struct savewd
+<span class="lineNum">      37 </span>            : {
+<span class="lineNum">      38 </span>            :   /* The state of this object.  */
+<span class="lineNum">      39 </span>            :   enum
+<span class="lineNum">      40 </span>            :     {
+<span class="lineNum">      41 </span>            :       /* This object has been created but does not yet represent
+<span class="lineNum">      42 </span>            :          the working directory.  */
+<span class="lineNum">      43 </span>            :       INITIAL_STATE,
+<span class="lineNum">      44 </span>            : 
+<span class="lineNum">      45 </span>            :       /* val.fd is the original working directory's file descriptor.
+<span class="lineNum">      46 </span>            :          It is still the working directory.  */
+<span class="lineNum">      47 </span>            :       FD_STATE,
+<span class="lineNum">      48 </span>            : 
+<span class="lineNum">      49 </span>            :       /* Like FD_STATE, but the working directory has changed, so
+<span class="lineNum">      50 </span>            :          restoring it will require a fchdir.  */
+<span class="lineNum">      51 </span>            :       FD_POST_CHDIR_STATE,
+<span class="lineNum">      52 </span>            : 
+<span class="lineNum">      53 </span>            :       /* Fork and let the subprocess do the work.  val.child is 0 in a
+<span class="lineNum">      54 </span>            :          child, negative in a childless parent, and the child process
+<span class="lineNum">      55 </span>            :          ID in a parent with a child.  */
+<span class="lineNum">      56 </span>            :       FORKING_STATE,
+<span class="lineNum">      57 </span>            : 
+<span class="lineNum">      58 </span>            :       /* A serious problem argues against further efforts.  val.errnum
+<span class="lineNum">      59 </span>            :          contains the error number (e.g., EIO).  */
+<span class="lineNum">      60 </span>            :       ERROR_STATE,
+<span class="lineNum">      61 </span>            : 
+<span class="lineNum">      62 </span>            :       /* savewd_finish has been called, so the application no longer
+<span class="lineNum">      63 </span>            :          cares whether the working directory is saved, and there is no
+<span class="lineNum">      64 </span>            :          more work to do.  */
+<span class="lineNum">      65 </span>            :       FINAL_STATE
+<span class="lineNum">      66 </span>            :     } state;
+<span class="lineNum">      67 </span>            : 
+<span class="lineNum">      68 </span>            :   /* The object's value.  */
+<span class="lineNum">      69 </span>            :   union
+<span class="lineNum">      70 </span>            :   {
+<span class="lineNum">      71 </span>            :     int fd;
+<span class="lineNum">      72 </span>            :     int errnum;
+<span class="lineNum">      73 </span>            :     pid_t child;
+<span class="lineNum">      74 </span>            :   } val;
+<span class="lineNum">      75 </span>            : };
+<span class="lineNum">      76 </span>            : 
+<span class="lineNum">      77 </span>            : /* Initialize a saved working directory object.  */
+<span class="lineNum">      78 </span>            : SAVEWD_INLINE void
+<span class="lineNum">      79 </span>            : savewd_init (struct savewd *wd)
+<span class="lineNum">      80 </span>            : {
+<span class="lineNum">      81 </span><span class="lineNoCov">          0 :   wd-&gt;state = INITIAL_STATE;</span>
+<span class="lineNum">      82 </span>            : }
+<span class="lineNum">      83 </span>            : 
+<span class="lineNum">      84 </span>            : 
+<span class="lineNum">      85 </span>            : /* Options for savewd_chdir.  Can be ORed together.  */
+<span class="lineNum">      86 </span>            : enum
+<span class="lineNum">      87 </span>            :   {
+<span class="lineNum">      88 </span>            :     /* Do not follow symbolic links, if supported.  */
+<span class="lineNum">      89 </span>            :     SAVEWD_CHDIR_NOFOLLOW = 1,
+<span class="lineNum">      90 </span>            : 
+<span class="lineNum">      91 </span>            :     /* Do not chdir if the directory is readable; simply succeed
+<span class="lineNum">      92 </span>            :        without invoking chdir if the directory was opened.  */
+<span class="lineNum">      93 </span>            :     SAVEWD_CHDIR_SKIP_READABLE = 2
+<span class="lineNum">      94 </span>            :   };
+<span class="lineNum">      95 </span>            : 
+<span class="lineNum">      96 </span>            : /* Change the directory, and if successful, record into *WD the fact
+<span class="lineNum">      97 </span>            :    that the process chdired into DIR.  A process using this module
+<span class="lineNum">      98 </span>            :    should use savewd_chdir rather than chdir or fchdir.  Obey the
+<span class="lineNum">      99 </span>            :    options specified in OPTIONS.
+<span class="lineNum">     100 </span>            : 
+<span class="lineNum">     101 </span>            :    If OPEN_RESULT is not null, store into OPEN_RESULT[0] a file
+<span class="lineNum">     102 </span>            :    descriptor that accesses DIR if a file descriptor is successfully
+<span class="lineNum">     103 </span>            :    obtained.  Store -1 otherwise, setting OPEN_RESULT[1] to the error
+<span class="lineNum">     104 </span>            :    number.  Store through OPEN_RESULT regardless of whether the chdir
+<span class="lineNum">     105 </span>            :    is successful.  However, when -2 is returned, the contents of
+<span class="lineNum">     106 </span>            :    OPEN_RESULT are indeterminate since the file descriptor is closed
+<span class="lineNum">     107 </span>            :    in the parent.
+<span class="lineNum">     108 </span>            : 
+<span class="lineNum">     109 </span>            :    Return -2 if a subprocess was spun off to do the real work, -1
+<span class="lineNum">     110 </span>            :    (setting errno) if unsuccessful, 0 if successful.  */
+<span class="lineNum">     111 </span>            : int savewd_chdir (struct savewd *wd, char const *dir, int options,
+<span class="lineNum">     112 </span>            :                   int open_result[2]);
+<span class="lineNum">     113 </span>            : 
+<span class="lineNum">     114 </span>            : /* Restore the working directory from *WD.  STATUS indicates the exit
+<span class="lineNum">     115 </span>            :    status corresponding to the work done since the last save; this is
+<span class="lineNum">     116 </span>            :    used when the caller is in a subprocess.  Return 0 if successful,
+<span class="lineNum">     117 </span>            :    -1 (setting errno) on our failure, a positive subprocess exit
+<span class="lineNum">     118 </span>            :    status if the working directory was restored in the parent but the
+<span class="lineNum">     119 </span>            :    subprocess failed.  */
+<span class="lineNum">     120 </span>            : int savewd_restore (struct savewd *wd, int status);
+<span class="lineNum">     121 </span>            : 
+<span class="lineNum">     122 </span>            : /* Return WD's error number, or 0 if WD is not in an error state.  */
+<span class="lineNum">     123 </span>            : SAVEWD_INLINE int _GL_ATTRIBUTE_PURE
+<span class="lineNum">     124 </span>            : savewd_errno (struct savewd const *wd)
+<span class="lineNum">     125 </span>            : {
+<span class="lineNum">     126 </span>            :   return (wd-&gt;state == ERROR_STATE ? wd-&gt;val.errnum : 0);
+<span class="lineNum">     127 </span>            : }
+<span class="lineNum">     128 </span>            : 
+<span class="lineNum">     129 </span>            : /* Deallocate any resources associated with WD.  A program that chdirs
+<span class="lineNum">     130 </span>            :    should restore before finishing.  */
+<span class="lineNum">     131 </span>            : void savewd_finish (struct savewd *wd);
+<span class="lineNum">     132 </span>            : 
+<span class="lineNum">     133 </span>            : /* Process N_FILES file names, FILE[0] through FILE[N_FILES - 1].
+<span class="lineNum">     134 </span>            :    For each file name F, call ACT (F, WD, OPTIONS); ACT should invoke
+<span class="lineNum">     135 </span>            :    savewd_chdir as needed, and should return an exit status.  WD
+<span class="lineNum">     136 </span>            :    represents the working directory; it may be in an error state when
+<span class="lineNum">     137 </span>            :    ACT is called.
+<span class="lineNum">     138 </span>            : 
+<span class="lineNum">     139 </span>            :    Save and restore the working directory as needed by the file name
+<span class="lineNum">     140 </span>            :    vector; assume that ACT does not require access to any relative
+<span class="lineNum">     141 </span>            :    file names other than its first argument, and that it is OK if the
+<span class="lineNum">     142 </span>            :    working directory is changed when this function returns.  Some
+<span class="lineNum">     143 </span>            :    actions may be applied in a subprocess.
+<span class="lineNum">     144 </span>            : 
+<span class="lineNum">     145 </span>            :    Return the maximum exit status that any call to ACT returned, or
+<span class="lineNum">     146 </span>            :    EXIT_SUCCESS (i.e., 0) if no calls were made.  */
+<span class="lineNum">     147 </span>            : int savewd_process_files (int n_files, char **file,
+<span class="lineNum">     148 </span>            :                           int (*act) (char *, struct savewd *, void *),
+<span class="lineNum">     149 </span>            :                           void *options);
+<span class="lineNum">     150 </span>            : 
+<span class="lineNum">     151 </span>            : _GL_INLINE_HEADER_END
+<span class="lineNum">     152 </span>            : 
+<span class="lineNum">     153 </span>            : #endif
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.12</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>

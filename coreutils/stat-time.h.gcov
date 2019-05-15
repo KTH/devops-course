@@ -1,0 +1,204 @@
+        -:    0:Source:lib/stat-time.h
+        -:    0:Graph:src/ls.gcno
+        -:    0:Data:src/ls.gcda
+        -:    0:Runs:248
+        -:    0:Programs:1
+        -:    1:/* stat-related time functions.
+        -:    2:
+        -:    3:   Copyright (C) 2005, 2007, 2009-2016 Free Software Foundation, Inc.
+        -:    4:
+        -:    5:   This program is free software: you can redistribute it and/or modify
+        -:    6:   it under the terms of the GNU General Public License as published by
+        -:    7:   the Free Software Foundation; either version 3 of the License, or
+        -:    8:   (at your option) any later version.
+        -:    9:
+        -:   10:   This program is distributed in the hope that it will be useful,
+        -:   11:   but WITHOUT ANY WARRANTY; without even the implied warranty of
+        -:   12:   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+        -:   13:   GNU General Public License for more details.
+        -:   14:
+        -:   15:   You should have received a copy of the GNU General Public License
+        -:   16:   along with this program.  If not, see <http://www.gnu.org/licenses/>.  */
+        -:   17:
+        -:   18:/* Written by Paul Eggert.  */
+        -:   19:
+        -:   20:#ifndef STAT_TIME_H
+        -:   21:#define STAT_TIME_H 1
+        -:   22:
+        -:   23:#include <sys/stat.h>
+        -:   24:#include <time.h>
+        -:   25:
+        -:   26:#ifndef _GL_INLINE_HEADER_BEGIN
+        -:   27: #error "Please include config.h first."
+        -:   28:#endif
+        -:   29:_GL_INLINE_HEADER_BEGIN
+        -:   30:#ifndef _GL_STAT_TIME_INLINE
+        -:   31:# define _GL_STAT_TIME_INLINE _GL_INLINE
+        -:   32:#endif
+        -:   33:
+        -:   34:/* STAT_TIMESPEC (ST, ST_XTIM) is the ST_XTIM member for *ST of type
+        -:   35:   struct timespec, if available.  If not, then STAT_TIMESPEC_NS (ST,
+        -:   36:   ST_XTIM) is the nanosecond component of the ST_XTIM member for *ST,
+        -:   37:   if available.  ST_XTIM can be st_atim, st_ctim, st_mtim, or st_birthtim
+        -:   38:   for access, status change, data modification, or birth (creation)
+        -:   39:   time respectively.
+        -:   40:
+        -:   41:   These macros are private to stat-time.h.  */
+        -:   42:#if defined HAVE_STRUCT_STAT_ST_ATIM_TV_NSEC
+        -:   43:# ifdef TYPEOF_STRUCT_STAT_ST_ATIM_IS_STRUCT_TIMESPEC
+        -:   44:#  define STAT_TIMESPEC(st, st_xtim) ((st)->st_xtim)
+        -:   45:# else
+        -:   46:#  define STAT_TIMESPEC_NS(st, st_xtim) ((st)->st_xtim.tv_nsec)
+        -:   47:# endif
+        -:   48:#elif defined HAVE_STRUCT_STAT_ST_ATIMESPEC_TV_NSEC
+        -:   49:# define STAT_TIMESPEC(st, st_xtim) ((st)->st_xtim##espec)
+        -:   50:#elif defined HAVE_STRUCT_STAT_ST_ATIMENSEC
+        -:   51:# define STAT_TIMESPEC_NS(st, st_xtim) ((st)->st_xtim##ensec)
+        -:   52:#elif defined HAVE_STRUCT_STAT_ST_ATIM_ST__TIM_TV_NSEC
+        -:   53:# define STAT_TIMESPEC_NS(st, st_xtim) ((st)->st_xtim.st__tim.tv_nsec)
+        -:   54:#endif
+        -:   55:
+        -:   56:/* Return the nanosecond component of *ST's access time.  */
+        -:   57:_GL_STAT_TIME_INLINE long int _GL_ATTRIBUTE_PURE
+        -:   58:get_stat_atime_ns (struct stat const *st)
+        -:   59:{
+        -:   60:# if defined STAT_TIMESPEC
+        -:   61:  return STAT_TIMESPEC (st, st_atim).tv_nsec;
+        -:   62:# elif defined STAT_TIMESPEC_NS
+        -:   63:  return STAT_TIMESPEC_NS (st, st_atim);
+        -:   64:# else
+        -:   65:  return 0;
+        -:   66:# endif
+        -:   67:}
+        -:   68:
+        -:   69:/* Return the nanosecond component of *ST's status change time.  */
+        -:   70:_GL_STAT_TIME_INLINE long int _GL_ATTRIBUTE_PURE
+        -:   71:get_stat_ctime_ns (struct stat const *st)
+        -:   72:{
+        -:   73:# if defined STAT_TIMESPEC
+        -:   74:  return STAT_TIMESPEC (st, st_ctim).tv_nsec;
+        -:   75:# elif defined STAT_TIMESPEC_NS
+        -:   76:  return STAT_TIMESPEC_NS (st, st_ctim);
+        -:   77:# else
+        -:   78:  return 0;
+        -:   79:# endif
+        -:   80:}
+        -:   81:
+        -:   82:/* Return the nanosecond component of *ST's data modification time.  */
+        -:   83:_GL_STAT_TIME_INLINE long int _GL_ATTRIBUTE_PURE
+        -:   84:get_stat_mtime_ns (struct stat const *st)
+        -:   85:{
+        -:   86:# if defined STAT_TIMESPEC
+        -:   87:  return STAT_TIMESPEC (st, st_mtim).tv_nsec;
+        -:   88:# elif defined STAT_TIMESPEC_NS
+        -:   89:  return STAT_TIMESPEC_NS (st, st_mtim);
+        -:   90:# else
+        -:   91:  return 0;
+        -:   92:# endif
+        -:   93:}
+        -:   94:
+        -:   95:/* Return the nanosecond component of *ST's birth time.  */
+        -:   96:_GL_STAT_TIME_INLINE long int _GL_ATTRIBUTE_PURE
+        -:   97:get_stat_birthtime_ns (struct stat const *st)
+        -:   98:{
+        -:   99:# if defined HAVE_STRUCT_STAT_ST_BIRTHTIMESPEC_TV_NSEC
+        -:  100:  return STAT_TIMESPEC (st, st_birthtim).tv_nsec;
+        -:  101:# elif defined HAVE_STRUCT_STAT_ST_BIRTHTIMENSEC
+        -:  102:  return STAT_TIMESPEC_NS (st, st_birthtim);
+        -:  103:# else
+        -:  104:  /* Avoid a "parameter unused" warning.  */
+        -:  105:  (void) st;
+        -:  106:  return 0;
+        -:  107:# endif
+        -:  108:}
+        -:  109:
+        -:  110:/* Return *ST's access time.  */
+        -:  111:_GL_STAT_TIME_INLINE struct timespec _GL_ATTRIBUTE_PURE
+        -:  112:get_stat_atime (struct stat const *st)
+        -:  113:{
+        -:  114:#ifdef STAT_TIMESPEC
+    #####:  115:  return STAT_TIMESPEC (st, st_atim);
+        -:  116:#else
+        -:  117:  struct timespec t;
+        -:  118:  t.tv_sec = st->st_atime;
+        -:  119:  t.tv_nsec = get_stat_atime_ns (st);
+        -:  120:  return t;
+        -:  121:#endif
+        -:  122:}
+        -:  123:
+        -:  124:/* Return *ST's status change time.  */
+        -:  125:_GL_STAT_TIME_INLINE struct timespec _GL_ATTRIBUTE_PURE
+        -:  126:get_stat_ctime (struct stat const *st)
+        -:  127:{
+        -:  128:#ifdef STAT_TIMESPEC
+    #####:  129:  return STAT_TIMESPEC (st, st_ctim);
+        -:  130:#else
+        -:  131:  struct timespec t;
+        -:  132:  t.tv_sec = st->st_ctime;
+        -:  133:  t.tv_nsec = get_stat_ctime_ns (st);
+        -:  134:  return t;
+        -:  135:#endif
+        -:  136:}
+        -:  137:
+        -:  138:/* Return *ST's data modification time.  */
+        -:  139:_GL_STAT_TIME_INLINE struct timespec _GL_ATTRIBUTE_PURE
+        -:  140:get_stat_mtime (struct stat const *st)
+        -:  141:{
+        -:  142:#ifdef STAT_TIMESPEC
+      143:  143:  return STAT_TIMESPEC (st, st_mtim);
+        -:  144:#else
+        -:  145:  struct timespec t;
+        -:  146:  t.tv_sec = st->st_mtime;
+        -:  147:  t.tv_nsec = get_stat_mtime_ns (st);
+        -:  148:  return t;
+        -:  149:#endif
+        -:  150:}
+        -:  151:
+        -:  152:/* Return *ST's birth time, if available; otherwise return a value
+        -:  153:   with tv_sec and tv_nsec both equal to -1.  */
+        -:  154:_GL_STAT_TIME_INLINE struct timespec _GL_ATTRIBUTE_PURE
+        -:  155:get_stat_birthtime (struct stat const *st)
+        -:  156:{
+        -:  157:  struct timespec t;
+        -:  158:
+        -:  159:#if (defined HAVE_STRUCT_STAT_ST_BIRTHTIMESPEC_TV_NSEC \
+        -:  160:     || defined HAVE_STRUCT_STAT_ST_BIRTHTIM_TV_NSEC)
+        -:  161:  t = STAT_TIMESPEC (st, st_birthtim);
+        -:  162:#elif defined HAVE_STRUCT_STAT_ST_BIRTHTIMENSEC
+        -:  163:  t.tv_sec = st->st_birthtime;
+        -:  164:  t.tv_nsec = st->st_birthtimensec;
+        -:  165:#elif (defined _WIN32 || defined __WIN32__) && ! defined __CYGWIN__
+        -:  166:  /* Native Windows platforms (but not Cygwin) put the "file creation
+        -:  167:     time" in st_ctime (!).  See
+        -:  168:     <http://msdn2.microsoft.com/de-de/library/14h5k7ff(VS.80).aspx>.  */
+        -:  169:  t.tv_sec = st->st_ctime;
+        -:  170:  t.tv_nsec = 0;
+        -:  171:#else
+        -:  172:  /* Birth time is not supported.  */
+        -:  173:  t.tv_sec = -1;
+        -:  174:  t.tv_nsec = -1;
+        -:  175:  /* Avoid a "parameter unused" warning.  */
+        -:  176:  (void) st;
+        -:  177:#endif
+        -:  178:
+        -:  179:#if (defined HAVE_STRUCT_STAT_ST_BIRTHTIMESPEC_TV_NSEC \
+        -:  180:     || defined HAVE_STRUCT_STAT_ST_BIRTHTIM_TV_NSEC \
+        -:  181:     || defined HAVE_STRUCT_STAT_ST_BIRTHTIMENSEC)
+        -:  182:  /* FreeBSD and NetBSD sometimes signal the absence of knowledge by
+        -:  183:     using zero.  Attempt to work around this problem.  Alas, this can
+        -:  184:     report failure even for valid time stamps.  Also, NetBSD
+        -:  185:     sometimes returns junk in the birth time fields; work around this
+        -:  186:     bug if it is detected.  */
+        -:  187:  if (! (t.tv_sec && 0 <= t.tv_nsec && t.tv_nsec < 1000000000))
+        -:  188:    {
+        -:  189:      t.tv_sec = -1;
+        -:  190:      t.tv_nsec = -1;
+        -:  191:    }
+        -:  192:#endif
+        -:  193:
+        -:  194:  return t;
+        -:  195:}
+        -:  196:
+        -:  197:_GL_INLINE_HEADER_END
+        -:  198:
+        -:  199:#endif

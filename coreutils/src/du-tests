@@ -1,0 +1,57 @@
+#!/bin/bash
+
+# Copyright (C) 2003-2016 Free Software Foundation, Inc.
+
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+cat - <<\EOF > /dev/null
+Invoke e.g., like this
+VG_PATH_PREFIX=/cu/src/vg: DU1=/cu/src/du DU2=/usr/bin/du ./du-tests
+Where /cu/src/vg/du is a valgrind wrapper around du,
+and DU1 refers to the just-built du binary you want to test.
+EOF
+
+test -z "$DU1" && { echo DU1 envvar not set 1>&2; exit 1; }
+test -z "$DU2" && { echo DU2 envvar not set 1>&2; exit 1; }
+
+test -x "$DU1" || { echo $DU1 not executable 1>&2; exit 1; }
+test -x "$DU2" || { echo $DU2 not executable 1>&2; exit 1; }
+
+# Expects $DU1 and $DU2 to be the binaries to compare.
+d1=$(mktemp -d)
+cp -a $DU1 $d1/du
+d2=$(mktemp -d)
+cp -a $DU2 $d2/du
+
+for args in  \
+    '-Sa .' \
+    '-Sa ../..' \
+    '-Sa a' \
+    '-Sa /tmp /t' \
+    '-Sa /tmp' \
+    '/tmp /t' \
+    '-a /tmp /t' \
+    '-a a' \
+    '-ca .' \
+    '-ca ..' \
+    '-ca ../..' \
+    '-ca /tmp /t' \
+    '-ca /tmp' \
+    '-ca a' \
+  ; do
+  echo Args: $args ======================
+  diff -u --label=$DU1 --label=$DU2 \
+    <(PATH=$VG_PATH_PREFIX$d1 du $args 2>&1) <(PATH=$d2 du $args 2>&1)
+done
+rm -rf $d1 $d2

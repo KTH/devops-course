@@ -1,0 +1,162 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - trace.lcov_info_final - src/operand2sig.c</title>
+  <link rel="stylesheet" type="text/css" href="../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">src</a> - operand2sig.c<span style="font-size: 80%;"> (source / <a href="operand2sig.c.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">trace.lcov_info_final</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">19</td>
+            <td class="headerCovTableEntryLo">0.0 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2019-04-22 20:19:38</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">1</td>
+            <td class="headerCovTableEntryLo">0.0 %</td>
+          </tr>
+          <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>            : /* operand2sig.c -- common function for parsing signal specifications</a>
+<span class="lineNum">       2 </span>            :    Copyright (C) 2008-2016 Free Software Foundation, Inc.
+<span class="lineNum">       3 </span>            : 
+<span class="lineNum">       4 </span>            :    This program is free software: you can redistribute it and/or modify
+<span class="lineNum">       5 </span>            :    it under the terms of the GNU General Public License as published by
+<span class="lineNum">       6 </span>            :    the Free Software Foundation, either version 3 of the License, or
+<span class="lineNum">       7 </span>            :    (at your option) any later version.
+<span class="lineNum">       8 </span>            : 
+<span class="lineNum">       9 </span>            :    This program is distributed in the hope that it will be useful,
+<span class="lineNum">      10 </span>            :    but WITHOUT ANY WARRANTY; without even the implied warranty of
+<span class="lineNum">      11 </span>            :    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+<span class="lineNum">      12 </span>            :    GNU General Public License for more details.
+<span class="lineNum">      13 </span>            : 
+<span class="lineNum">      14 </span>            :    You should have received a copy of the GNU General Public License
+<span class="lineNum">      15 </span>            :    along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.  */
+<span class="lineNum">      16 </span>            : 
+<span class="lineNum">      17 </span>            : /* Extracted from kill.c/timeout.c by Pádraig Brady.
+<span class="lineNum">      18 </span>            :    FIXME: Move this to gnulib/str2sig.c */
+<span class="lineNum">      19 </span>            : 
+<span class="lineNum">      20 </span>            : 
+<span class="lineNum">      21 </span>            : /* Convert OPERAND to a signal number with printable representation SIGNAME.
+<span class="lineNum">      22 </span>            :    Return the signal number, or -1 if unsuccessful.  */
+<span class="lineNum">      23 </span>            : 
+<span class="lineNum">      24 </span>            : #include &lt;config.h&gt;
+<span class="lineNum">      25 </span>            : #include &lt;stdio.h&gt;
+<span class="lineNum">      26 </span>            : #include &lt;sys/types.h&gt;
+<span class="lineNum">      27 </span>            : #include &lt;sys/wait.h&gt;
+<span class="lineNum">      28 </span>            : 
+<span class="lineNum">      29 </span>            : #include &quot;system.h&quot;
+<span class="lineNum">      30 </span>            : #include &quot;error.h&quot;
+<span class="lineNum">      31 </span>            : #include &quot;quote.h&quot;
+<span class="lineNum">      32 </span>            : #include &quot;sig2str.h&quot;
+<span class="lineNum">      33 </span>            : #include &quot;operand2sig.h&quot;
+<a name="34"><span class="lineNum">      34 </span>            : </a>
+<span class="lineNum">      35 </span>            : extern int
+<span class="lineNum">      36 </span><span class="lineNoCov">          0 : operand2sig (char const *operand, char *signame)</span>
+<span class="lineNum">      37 </span>            : {
+<span class="lineNum">      38 </span>            :   int signum;
+<span class="lineNum">      39 </span>            : 
+<span class="lineNum">      40 </span><span class="lineNoCov">          0 :   if (ISDIGIT (*operand))</span>
+<span class="lineNum">      41 </span>            :     {
+<span class="lineNum">      42 </span>            :       /* Note we don't put a limit on the maximum value passed,
+<span class="lineNum">      43 </span>            :          because we're checking shell $? values here, and ksh for
+<span class="lineNum">      44 </span>            :          example will add 256 to the signal value, thus being wider
+<span class="lineNum">      45 </span>            :          than the number of WEXITSTATUS bits.
+<span class="lineNum">      46 </span>            :          We could validate that values were not above say
+<span class="lineNum">      47 </span>            :          ((WEXITSTATUS (~0) &lt;&lt; 1) + 1), which would cater for ksh.
+<span class="lineNum">      48 </span>            :          But some shells may use other adjustments in future to be
+<span class="lineNum">      49 </span>            :          (forward) compatible with systems that support
+<span class="lineNum">      50 </span>            :          wider exit status values as discussed at
+<span class="lineNum">      51 </span>            :          http://austingroupbugs.net/view.php?id=947  */
+<span class="lineNum">      52 </span>            : 
+<span class="lineNum">      53 </span>            :       char *endp;
+<span class="lineNum">      54 </span><span class="lineNoCov">          0 :       long int l = (errno = 0, strtol (operand, &amp;endp, 10));</span>
+<span class="lineNum">      55 </span><span class="lineNoCov">          0 :       int i = l;</span>
+<span class="lineNum">      56 </span><span class="lineNoCov">          0 :       signum = (operand == endp || *endp || errno || i != l ? -1</span>
+<span class="lineNum">      57 </span><span class="lineNoCov">          0 :                 : WIFSIGNALED (i) ? WTERMSIG (i) : i);</span>
+<span class="lineNum">      58 </span>            :     }
+<span class="lineNum">      59 </span>            :   else
+<span class="lineNum">      60 </span>            :     {
+<span class="lineNum">      61 </span>            :       /* Convert signal to upper case in the C locale, not in the
+<span class="lineNum">      62 </span>            :          current locale.  Don't assume ASCII; it might be EBCDIC.  */
+<span class="lineNum">      63 </span><span class="lineNoCov">          0 :       char *upcased = xstrdup (operand);</span>
+<span class="lineNum">      64 </span>            :       char *p;
+<span class="lineNum">      65 </span><span class="lineNoCov">          0 :       for (p = upcased; *p; p++)</span>
+<span class="lineNum">      66 </span><span class="lineNoCov">          0 :         if (strchr (&quot;abcdefghijklmnopqrstuvwxyz&quot;, *p))</span>
+<span class="lineNum">      67 </span><span class="lineNoCov">          0 :           *p += 'A' - 'a';</span>
+<span class="lineNum">      68 </span>            : 
+<span class="lineNum">      69 </span>            :       /* Look for the signal name, possibly prefixed by &quot;SIG&quot;,
+<span class="lineNum">      70 </span>            :          and possibly lowercased.  */
+<span class="lineNum">      71 </span><span class="lineNoCov">          0 :       if (!(str2sig (upcased, &amp;signum) == 0</span>
+<span class="lineNum">      72 </span><span class="lineNoCov">          0 :             || (upcased[0] == 'S' &amp;&amp; upcased[1] == 'I' &amp;&amp; upcased[2] == 'G'</span>
+<span class="lineNum">      73 </span><span class="lineNoCov">          0 :                 &amp;&amp; str2sig (upcased + 3, &amp;signum) == 0)))</span>
+<span class="lineNum">      74 </span><span class="lineNoCov">          0 :         signum = -1;</span>
+<span class="lineNum">      75 </span>            : 
+<span class="lineNum">      76 </span><span class="lineNoCov">          0 :       free (upcased);</span>
+<span class="lineNum">      77 </span>            :     }
+<span class="lineNum">      78 </span>            : 
+<span class="lineNum">      79 </span><span class="lineNoCov">          0 :   if (signum &lt; 0 || sig2str (signum, signame) != 0)</span>
+<span class="lineNum">      80 </span>            :     {
+<span class="lineNum">      81 </span><span class="lineNoCov">          0 :       error (0, 0, _(&quot;%s: invalid signal&quot;), quote (operand));</span>
+<span class="lineNum">      82 </span><span class="lineNoCov">          0 :       return -1;</span>
+<span class="lineNum">      83 </span>            :     }
+<span class="lineNum">      84 </span>            : 
+<span class="lineNum">      85 </span><span class="lineNoCov">          0 :   return signum;</span>
+<span class="lineNum">      86 </span>            : }
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.12</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>

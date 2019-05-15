@@ -1,0 +1,38 @@
+-1
+-A
+-C
+-G --group-directories-first
+-N
+-Q
+-S
+-U
+-X
+-Z
+-a
+--ababab
+-b
+--classify
+--color
+-d
+-f
+-g --si
+--help
+-ik
+-la
+-l --author
+-lh
+-lrt
+-lt
+-ltc
+-ltu
+-m
+-n
+-o
+-p
+--several
+--show-control-chars
+-t
+-u
+-v
+--version
+-x

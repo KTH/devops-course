@@ -1,0 +1,28 @@
+diff (init) -> id:000000,orig:echo.txt
+New src file: /root/coreutils.gcov/src/echo.c
+  New 'function' coverage: main()
+  New 'line' coverage: 108
+  New 'line' coverage: 110
+  New 'line' coverage: 111
+  New 'line' coverage: 112
+  New 'line' coverage: 113
+  New 'line' coverage: 118
+  New 'line' coverage: 121
+  New 'line' coverage: 122
+  New 'line' coverage: 123
+  New 'line' coverage: 124
+  New 'line' coverage: 126
+  New 'line' coverage: 130
+  New 'line' coverage: 143
+  New 'line' coverage: 144
+  New 'line' coverage: 146
+  New 'line' coverage: 147
+  New 'line' coverage: 149
+  New 'line' coverage: 156
+  New 'line' coverage: 192
+  New 'line' coverage: 259
+  New 'line' coverage: 261
+  New 'line' coverage: 262
+  New 'line' coverage: 263
+  New 'line' coverage: 264
+  New 'line' coverage: 269

@@ -1,0 +1,327 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - trace.lcov_info_final - src/rmdir.c</title>
+  <link rel="stylesheet" type="text/css" href="../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">src</a> - rmdir.c<span style="font-size: 80%;"> (source / <a href="rmdir.c.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">trace.lcov_info_final</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">65</td>
+            <td class="headerCovTableEntryLo">0.0 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2019-04-22 20:19:38</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">4</td>
+            <td class="headerCovTableEntryLo">0.0 %</td>
+          </tr>
+          <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>            : /* rmdir -- remove directories</a>
+<span class="lineNum">       2 </span>            : 
+<span class="lineNum">       3 </span>            :    Copyright (C) 1990-2016 Free Software Foundation, Inc.
+<span class="lineNum">       4 </span>            : 
+<span class="lineNum">       5 </span>            :    This program is free software: you can redistribute it and/or modify
+<span class="lineNum">       6 </span>            :    it under the terms of the GNU General Public License as published by
+<span class="lineNum">       7 </span>            :    the Free Software Foundation, either version 3 of the License, or
+<span class="lineNum">       8 </span>            :    (at your option) any later version.
+<span class="lineNum">       9 </span>            : 
+<span class="lineNum">      10 </span>            :    This program is distributed in the hope that it will be useful,
+<span class="lineNum">      11 </span>            :    but WITHOUT ANY WARRANTY; without even the implied warranty of
+<span class="lineNum">      12 </span>            :    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+<span class="lineNum">      13 </span>            :    GNU General Public License for more details.
+<span class="lineNum">      14 </span>            : 
+<span class="lineNum">      15 </span>            :    You should have received a copy of the GNU General Public License
+<span class="lineNum">      16 </span>            :    along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.  */
+<span class="lineNum">      17 </span>            : 
+<span class="lineNum">      18 </span>            : /* Options:
+<span class="lineNum">      19 </span>            :    -p, --parent         Remove any parent dirs that are explicitly mentioned
+<span class="lineNum">      20 </span>            :                         in an argument, if they become empty after the
+<span class="lineNum">      21 </span>            :                         argument file is removed.
+<span class="lineNum">      22 </span>            : 
+<span class="lineNum">      23 </span>            :    David MacKenzie &lt;djm@ai.mit.edu&gt;  */
+<span class="lineNum">      24 </span>            : 
+<span class="lineNum">      25 </span>            : #include &lt;config.h&gt;
+<span class="lineNum">      26 </span>            : #include &lt;stdio.h&gt;
+<span class="lineNum">      27 </span>            : #include &lt;getopt.h&gt;
+<span class="lineNum">      28 </span>            : #include &lt;sys/types.h&gt;
+<span class="lineNum">      29 </span>            : 
+<span class="lineNum">      30 </span>            : #include &quot;system.h&quot;
+<span class="lineNum">      31 </span>            : #include &quot;error.h&quot;
+<span class="lineNum">      32 </span>            : #include &quot;prog-fprintf.h&quot;
+<span class="lineNum">      33 </span>            : 
+<span class="lineNum">      34 </span>            : /* The official name of this program (e.g., no 'g' prefix).  */
+<span class="lineNum">      35 </span>            : #define PROGRAM_NAME &quot;rmdir&quot;
+<span class="lineNum">      36 </span>            : 
+<span class="lineNum">      37 </span>            : #define AUTHORS proper_name (&quot;David MacKenzie&quot;)
+<span class="lineNum">      38 </span>            : 
+<span class="lineNum">      39 </span>            : /* If true, remove empty parent directories.  */
+<span class="lineNum">      40 </span>            : static bool remove_empty_parents;
+<span class="lineNum">      41 </span>            : 
+<span class="lineNum">      42 </span>            : /* If true, don't treat failure to remove a nonempty directory
+<span class="lineNum">      43 </span>            :    as an error.  */
+<span class="lineNum">      44 </span>            : static bool ignore_fail_on_non_empty;
+<span class="lineNum">      45 </span>            : 
+<span class="lineNum">      46 </span>            : /* If true, output a diagnostic for every directory processed.  */
+<span class="lineNum">      47 </span>            : static bool verbose;
+<span class="lineNum">      48 </span>            : 
+<span class="lineNum">      49 </span>            : /* For long options that have no equivalent short option, use a
+<span class="lineNum">      50 </span>            :    non-character as a pseudo short option, starting with CHAR_MAX + 1.  */
+<span class="lineNum">      51 </span>            : enum
+<span class="lineNum">      52 </span>            : {
+<span class="lineNum">      53 </span>            :   IGNORE_FAIL_ON_NON_EMPTY_OPTION = CHAR_MAX + 1
+<span class="lineNum">      54 </span>            : };
+<span class="lineNum">      55 </span>            : 
+<span class="lineNum">      56 </span>            : static struct option const longopts[] =
+<span class="lineNum">      57 </span>            : {
+<span class="lineNum">      58 </span>            :   /* Don't name this '--force' because it's not close enough in meaning
+<span class="lineNum">      59 </span>            :      to e.g. rm's -f option.  */
+<span class="lineNum">      60 </span>            :   {&quot;ignore-fail-on-non-empty&quot;, no_argument, NULL,
+<span class="lineNum">      61 </span>            :    IGNORE_FAIL_ON_NON_EMPTY_OPTION},
+<span class="lineNum">      62 </span>            : 
+<span class="lineNum">      63 </span>            :   {&quot;path&quot;, no_argument, NULL, 'p'},  /* Deprecated.  */
+<span class="lineNum">      64 </span>            :   {&quot;parents&quot;, no_argument, NULL, 'p'},
+<span class="lineNum">      65 </span>            :   {&quot;verbose&quot;, no_argument, NULL, 'v'},
+<span class="lineNum">      66 </span>            :   {GETOPT_HELP_OPTION_DECL},
+<span class="lineNum">      67 </span>            :   {GETOPT_VERSION_OPTION_DECL},
+<span class="lineNum">      68 </span>            :   {NULL, 0, NULL, 0}
+<span class="lineNum">      69 </span>            : };
+<span class="lineNum">      70 </span>            : 
+<span class="lineNum">      71 </span>            : /* Return true if ERROR_NUMBER is one of the values associated
+<span class="lineNum">      72 </span>            :    with a failed rmdir due to non-empty target directory.  */
+<span class="lineNum">      73 </span>            : static bool
+<span class="lineNum">      74 </span>            : errno_rmdir_non_empty (int error_number)
+<span class="lineNum">      75 </span>            : {
+<span class="lineNum">      76 </span><span class="lineNoCov">          0 :   return error_number == ENOTEMPTY || error_number == EEXIST;</span>
+<span class="lineNum">      77 </span>            : }
+<span class="lineNum">      78 </span>            : 
+<span class="lineNum">      79 </span>            : /* Return true if when rmdir fails with errno == ERROR_NUMBER
+<span class="lineNum">      80 </span>            :    the directory may be empty.  */
+<span class="lineNum">      81 </span>            : static bool
+<span class="lineNum">      82 </span>            : errno_may_be_empty (int error_number)
+<span class="lineNum">      83 </span>            : {
+<span class="lineNum">      84 </span>            :   switch (error_number)
+<span class="lineNum">      85 </span>            :     {
+<span class="lineNum">      86 </span>            :     case EACCES:
+<span class="lineNum">      87 </span>            :     case EPERM:
+<span class="lineNum">      88 </span>            :     case EROFS:
+<span class="lineNum">      89 </span>            :     case EEXIST:
+<span class="lineNum">      90 </span>            :     case EBUSY:
+<span class="lineNum">      91 </span>            :       return true;
+<span class="lineNum">      92 </span>            :     default:
+<span class="lineNum">      93 </span>            :       return false;
+<span class="lineNum">      94 </span>            :     }
+<span class="lineNum">      95 </span>            : }
+<span class="lineNum">      96 </span>            : 
+<span class="lineNum">      97 </span>            : /* Return true if an rmdir failure with errno == error_number
+<a name="98"><span class="lineNum">      98 </span>            :    for DIR is ignorable.  */</a>
+<span class="lineNum">      99 </span>            : static bool
+<span class="lineNum">     100 </span><span class="lineNoCov">          0 : ignorable_failure (int error_number, char const *dir)</span>
+<span class="lineNum">     101 </span>            : {
+<span class="lineNum">     102 </span><span class="lineNoCov">          0 :   return (ignore_fail_on_non_empty</span>
+<span class="lineNum">     103 </span><span class="lineNoCov">          0 :           &amp;&amp; (errno_rmdir_non_empty (error_number)</span>
+<span class="lineNum">     104 </span><span class="lineNoCov">          0 :               || (errno_may_be_empty (error_number)</span>
+<span class="lineNum">     105 </span><span class="lineNoCov">          0 :                   &amp;&amp; is_empty_dir (AT_FDCWD, dir))));</span>
+<span class="lineNum">     106 </span>            : }
+<span class="lineNum">     107 </span>            : 
+<span class="lineNum">     108 </span>            : /* Remove any empty parent directories of DIR.
+<span class="lineNum">     109 </span>            :    If DIR contains slash characters, at least one of them
+<span class="lineNum">     110 </span>            :    (beginning with the rightmost) is replaced with a NUL byte.
+<span class="lineNum">     111 </span>            :    Return true if successful.  */
+<a name="112"><span class="lineNum">     112 </span>            : </a>
+<span class="lineNum">     113 </span>            : static bool
+<span class="lineNum">     114 </span><span class="lineNoCov">          0 : remove_parents (char *dir)</span>
+<span class="lineNum">     115 </span>            : {
+<span class="lineNum">     116 </span>            :   char *slash;
+<span class="lineNum">     117 </span><span class="lineNoCov">          0 :   bool ok = true;</span>
+<span class="lineNum">     118 </span>            : 
+<span class="lineNum">     119 </span><span class="lineNoCov">          0 :   strip_trailing_slashes (dir);</span>
+<span class="lineNum">     120 </span>            :   while (1)
+<span class="lineNum">     121 </span>            :     {
+<span class="lineNum">     122 </span><span class="lineNoCov">          0 :       slash = strrchr (dir, '/');</span>
+<span class="lineNum">     123 </span><span class="lineNoCov">          0 :       if (slash == NULL)</span>
+<span class="lineNum">     124 </span>            :         break;
+<span class="lineNum">     125 </span>            :       /* Remove any characters after the slash, skipping any extra
+<span class="lineNum">     126 </span>            :          slashes in a row. */
+<span class="lineNum">     127 </span><span class="lineNoCov">          0 :       while (slash &gt; dir &amp;&amp; *slash == '/')</span>
+<span class="lineNum">     128 </span><span class="lineNoCov">          0 :         --slash;</span>
+<span class="lineNum">     129 </span><span class="lineNoCov">          0 :       slash[1] = 0;</span>
+<span class="lineNum">     130 </span>            : 
+<span class="lineNum">     131 </span>            :       /* Give a diagnostic for each attempted removal if --verbose.  */
+<span class="lineNum">     132 </span><span class="lineNoCov">          0 :       if (verbose)</span>
+<span class="lineNum">     133 </span><span class="lineNoCov">          0 :         prog_fprintf (stdout, _(&quot;removing directory, %s&quot;), quoteaf (dir));</span>
+<span class="lineNum">     134 </span>            : 
+<span class="lineNum">     135 </span><span class="lineNoCov">          0 :       ok = (rmdir (dir) == 0);</span>
+<span class="lineNum">     136 </span>            : 
+<span class="lineNum">     137 </span><span class="lineNoCov">          0 :       if (!ok)</span>
+<span class="lineNum">     138 </span>            :         {
+<span class="lineNum">     139 </span>            :           /* Stop quietly if --ignore-fail-on-non-empty. */
+<span class="lineNum">     140 </span><span class="lineNoCov">          0 :           if (ignorable_failure (errno, dir))</span>
+<span class="lineNum">     141 </span>            :             {
+<span class="lineNum">     142 </span>            :               ok = true;
+<span class="lineNum">     143 </span>            :             }
+<span class="lineNum">     144 </span>            :           else
+<span class="lineNum">     145 </span>            :             {
+<span class="lineNum">     146 </span>            :               /* Barring race conditions, DIR is expected to be a directory.  */
+<span class="lineNum">     147 </span><span class="lineNoCov">          0 :               error (0, errno, _(&quot;failed to remove directory %s&quot;),</span>
+<span class="lineNum">     148 </span>            :                      quoteaf (dir));
+<span class="lineNum">     149 </span>            :             }
+<span class="lineNum">     150 </span>            :           break;
+<span class="lineNum">     151 </span>            :         }
+<span class="lineNum">     152 </span>            :     }
+<span class="lineNum">     153 </span><span class="lineNoCov">          0 :   return ok;</span>
+<span class="lineNum">     154 </span>            : }
+<a name="155"><span class="lineNum">     155 </span>            : </a>
+<span class="lineNum">     156 </span>            : void
+<span class="lineNum">     157 </span><span class="lineNoCov">          0 : usage (int status)</span>
+<span class="lineNum">     158 </span>            : {
+<span class="lineNum">     159 </span><span class="lineNoCov">          0 :   if (status != EXIT_SUCCESS)</span>
+<span class="lineNum">     160 </span><span class="lineNoCov">          0 :     emit_try_help ();</span>
+<span class="lineNum">     161 </span>            :   else
+<span class="lineNum">     162 </span>            :     {
+<span class="lineNum">     163 </span><span class="lineNoCov">          0 :       printf (_(&quot;Usage: %s [OPTION]... DIRECTORY...\n&quot;), program_name);</span>
+<span class="lineNum">     164 </span><span class="lineNoCov">          0 :       fputs (_(&quot;\</span>
+<span class="lineNum">     165 </span>            : Remove the DIRECTORY(ies), if they are empty.\n\
+<span class="lineNum">     166 </span>            : \n\
+<span class="lineNum">     167 </span>            :       --ignore-fail-on-non-empty\n\
+<span class="lineNum">     168 </span>            :                   ignore each failure that is solely because a directory\n\
+<span class="lineNum">     169 </span>            :                     is non-empty\n\
+<span class="lineNum">     170 </span>            : &quot;), stdout);
+<span class="lineNum">     171 </span><span class="lineNoCov">          0 :       fputs (_(&quot;\</span>
+<span class="lineNum">     172 </span>            :   -p, --parents   remove DIRECTORY and its ancestors; e.g., 'rmdir -p a/b/c' is\
+<span class="lineNum">     173 </span>            : \n\
+<span class="lineNum">     174 </span>            :                     similar to 'rmdir a/b/c a/b a'\n\
+<span class="lineNum">     175 </span>            :   -v, --verbose   output a diagnostic for every directory processed\n\
+<span class="lineNum">     176 </span>            : &quot;), stdout);
+<span class="lineNum">     177 </span><span class="lineNoCov">          0 :       fputs (HELP_OPTION_DESCRIPTION, stdout);</span>
+<span class="lineNum">     178 </span><span class="lineNoCov">          0 :       fputs (VERSION_OPTION_DESCRIPTION, stdout);</span>
+<span class="lineNum">     179 </span><span class="lineNoCov">          0 :       emit_ancillary_info (PROGRAM_NAME);</span>
+<span class="lineNum">     180 </span>            :     }
+<span class="lineNum">     181 </span><span class="lineNoCov">          0 :   exit (status);</span>
+<span class="lineNum">     182 </span>            : }
+<a name="183"><span class="lineNum">     183 </span>            : </a>
+<span class="lineNum">     184 </span>            : int
+<span class="lineNum">     185 </span><span class="lineNoCov">          0 : main (int argc, char **argv)</span>
+<span class="lineNum">     186 </span>            : {
+<span class="lineNum">     187 </span><span class="lineNoCov">          0 :   bool ok = true;</span>
+<span class="lineNum">     188 </span>            :   int optc;
+<span class="lineNum">     189 </span>            : 
+<span class="lineNum">     190 </span>            :   initialize_main (&amp;argc, &amp;argv);
+<span class="lineNum">     191 </span><span class="lineNoCov">          0 :   set_program_name (argv[0]);</span>
+<span class="lineNum">     192 </span><span class="lineNoCov">          0 :   setlocale (LC_ALL, &quot;&quot;);</span>
+<span class="lineNum">     193 </span><span class="lineNoCov">          0 :   bindtextdomain (PACKAGE, LOCALEDIR);</span>
+<span class="lineNum">     194 </span><span class="lineNoCov">          0 :   textdomain (PACKAGE);</span>
+<span class="lineNum">     195 </span>            : 
+<span class="lineNum">     196 </span><span class="lineNoCov">          0 :   atexit (close_stdout);</span>
+<span class="lineNum">     197 </span>            : 
+<span class="lineNum">     198 </span><span class="lineNoCov">          0 :   remove_empty_parents = false;</span>
+<span class="lineNum">     199 </span>            : 
+<span class="lineNum">     200 </span><span class="lineNoCov">          0 :   while ((optc = getopt_long (argc, argv, &quot;pv&quot;, longopts, NULL)) != -1)</span>
+<span class="lineNum">     201 </span>            :     {
+<span class="lineNum">     202 </span><span class="lineNoCov">          0 :       switch (optc)</span>
+<span class="lineNum">     203 </span>            :         {
+<span class="lineNum">     204 </span>            :         case 'p':
+<span class="lineNum">     205 </span><span class="lineNoCov">          0 :           remove_empty_parents = true;</span>
+<span class="lineNum">     206 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     207 </span>            :         case IGNORE_FAIL_ON_NON_EMPTY_OPTION:
+<span class="lineNum">     208 </span><span class="lineNoCov">          0 :           ignore_fail_on_non_empty = true;</span>
+<span class="lineNum">     209 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     210 </span>            :         case 'v':
+<span class="lineNum">     211 </span><span class="lineNoCov">          0 :           verbose = true;</span>
+<span class="lineNum">     212 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     213 </span><span class="lineNoCov">          0 :         case_GETOPT_HELP_CHAR;</span>
+<span class="lineNum">     214 </span><span class="lineNoCov">          0 :         case_GETOPT_VERSION_CHAR (PROGRAM_NAME, AUTHORS);</span>
+<span class="lineNum">     215 </span>            :         default:
+<span class="lineNum">     216 </span><span class="lineNoCov">          0 :           usage (EXIT_FAILURE);</span>
+<span class="lineNum">     217 </span>            :         }
+<span class="lineNum">     218 </span>            :     }
+<span class="lineNum">     219 </span>            : 
+<span class="lineNum">     220 </span><span class="lineNoCov">          0 :   if (optind == argc)</span>
+<span class="lineNum">     221 </span>            :     {
+<span class="lineNum">     222 </span><span class="lineNoCov">          0 :       error (0, 0, _(&quot;missing operand&quot;));</span>
+<span class="lineNum">     223 </span><span class="lineNoCov">          0 :       usage (EXIT_FAILURE);</span>
+<span class="lineNum">     224 </span>            :     }
+<span class="lineNum">     225 </span>            : 
+<span class="lineNum">     226 </span><span class="lineNoCov">          0 :   for (; optind &lt; argc; ++optind)</span>
+<span class="lineNum">     227 </span>            :     {
+<span class="lineNum">     228 </span><span class="lineNoCov">          0 :       char *dir = argv[optind];</span>
+<span class="lineNum">     229 </span>            : 
+<span class="lineNum">     230 </span>            :       /* Give a diagnostic for each attempted removal if --verbose.  */
+<span class="lineNum">     231 </span><span class="lineNoCov">          0 :       if (verbose)</span>
+<span class="lineNum">     232 </span><span class="lineNoCov">          0 :         prog_fprintf (stdout, _(&quot;removing directory, %s&quot;), quoteaf (dir));</span>
+<span class="lineNum">     233 </span>            : 
+<span class="lineNum">     234 </span><span class="lineNoCov">          0 :       if (rmdir (dir) != 0)</span>
+<span class="lineNum">     235 </span>            :         {
+<span class="lineNum">     236 </span><span class="lineNoCov">          0 :           if (ignorable_failure (errno, dir))</span>
+<span class="lineNum">     237 </span><span class="lineNoCov">          0 :             continue;</span>
+<span class="lineNum">     238 </span>            : 
+<span class="lineNum">     239 </span>            :           /* Here, the diagnostic is less precise, since we have no idea
+<span class="lineNum">     240 </span>            :              whether DIR is a directory.  */
+<span class="lineNum">     241 </span><span class="lineNoCov">          0 :           error (0, errno, _(&quot;failed to remove %s&quot;), quoteaf (dir));</span>
+<span class="lineNum">     242 </span><span class="lineNoCov">          0 :           ok = false;</span>
+<span class="lineNum">     243 </span>            :         }
+<span class="lineNum">     244 </span><span class="lineNoCov">          0 :       else if (remove_empty_parents)</span>
+<span class="lineNum">     245 </span>            :         {
+<span class="lineNum">     246 </span><span class="lineNoCov">          0 :           ok &amp;= remove_parents (dir);</span>
+<span class="lineNum">     247 </span>            :         }
+<span class="lineNum">     248 </span>            :     }
+<span class="lineNum">     249 </span>            : 
+<span class="lineNum">     250 </span><span class="lineNoCov">          0 :   return ok ? EXIT_SUCCESS : EXIT_FAILURE;</span>
+<span class="lineNum">     251 </span>            : }
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.12</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>

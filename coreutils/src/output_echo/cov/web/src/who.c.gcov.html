@@ -1,0 +1,908 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - trace.lcov_info_final - src/who.c</title>
+  <link rel="stylesheet" type="text/css" href="../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">src</a> - who.c<span style="font-size: 80%;"> (source / <a href="who.c.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">trace.lcov_info_final</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">275</td>
+            <td class="headerCovTableEntryLo">0.0 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2019-04-22 20:19:38</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">17</td>
+            <td class="headerCovTableEntryLo">0.0 %</td>
+          </tr>
+          <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>            : /* GNU's who.</a>
+<span class="lineNum">       2 </span>            :    Copyright (C) 1992-2016 Free Software Foundation, Inc.
+<span class="lineNum">       3 </span>            : 
+<span class="lineNum">       4 </span>            :    This program is free software: you can redistribute it and/or modify
+<span class="lineNum">       5 </span>            :    it under the terms of the GNU General Public License as published by
+<span class="lineNum">       6 </span>            :    the Free Software Foundation, either version 3 of the License, or
+<span class="lineNum">       7 </span>            :    (at your option) any later version.
+<span class="lineNum">       8 </span>            : 
+<span class="lineNum">       9 </span>            :    This program is distributed in the hope that it will be useful,
+<span class="lineNum">      10 </span>            :    but WITHOUT ANY WARRANTY; without even the implied warranty of
+<span class="lineNum">      11 </span>            :    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+<span class="lineNum">      12 </span>            :    GNU General Public License for more details.
+<span class="lineNum">      13 </span>            : 
+<span class="lineNum">      14 </span>            :    You should have received a copy of the GNU General Public License
+<span class="lineNum">      15 </span>            :    along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.  */
+<span class="lineNum">      16 </span>            : 
+<span class="lineNum">      17 </span>            : /* Written by jla; revised by djm; revised again by mstone */
+<span class="lineNum">      18 </span>            : 
+<span class="lineNum">      19 </span>            : /* Output format:
+<span class="lineNum">      20 </span>            :    name [state] line time [activity] [pid] [comment] [exit]
+<span class="lineNum">      21 </span>            :    state: -T
+<span class="lineNum">      22 </span>            :    name, line, time: not -q
+<span class="lineNum">      23 </span>            :    idle: -u
+<span class="lineNum">      24 </span>            : */
+<span class="lineNum">      25 </span>            : 
+<span class="lineNum">      26 </span>            : #include &lt;config.h&gt;
+<span class="lineNum">      27 </span>            : #include &lt;getopt.h&gt;
+<span class="lineNum">      28 </span>            : #include &lt;stdio.h&gt;
+<span class="lineNum">      29 </span>            : 
+<span class="lineNum">      30 </span>            : #include &lt;sys/types.h&gt;
+<span class="lineNum">      31 </span>            : #include &quot;system.h&quot;
+<span class="lineNum">      32 </span>            : 
+<span class="lineNum">      33 </span>            : #include &quot;c-ctype.h&quot;
+<span class="lineNum">      34 </span>            : #include &quot;canon-host.h&quot;
+<span class="lineNum">      35 </span>            : #include &quot;readutmp.h&quot;
+<span class="lineNum">      36 </span>            : #include &quot;error.h&quot;
+<span class="lineNum">      37 </span>            : #include &quot;hard-locale.h&quot;
+<span class="lineNum">      38 </span>            : #include &quot;quote.h&quot;
+<span class="lineNum">      39 </span>            : 
+<span class="lineNum">      40 </span>            : #ifdef TTY_GROUP_NAME
+<span class="lineNum">      41 </span>            : # include &lt;grp.h&gt;
+<span class="lineNum">      42 </span>            : #endif
+<span class="lineNum">      43 </span>            : 
+<span class="lineNum">      44 </span>            : /* The official name of this program (e.g., no 'g' prefix).  */
+<span class="lineNum">      45 </span>            : #define PROGRAM_NAME &quot;who&quot;
+<span class="lineNum">      46 </span>            : 
+<span class="lineNum">      47 </span>            : #define AUTHORS \
+<span class="lineNum">      48 </span>            :   proper_name (&quot;Joseph Arceneaux&quot;), \
+<span class="lineNum">      49 </span>            :   proper_name (&quot;David MacKenzie&quot;), \
+<span class="lineNum">      50 </span>            :   proper_name (&quot;Michael Stone&quot;)
+<span class="lineNum">      51 </span>            : 
+<span class="lineNum">      52 </span>            : #ifdef RUN_LVL
+<span class="lineNum">      53 </span>            : # define UT_TYPE_RUN_LVL(U) UT_TYPE_EQ (U, RUN_LVL)
+<span class="lineNum">      54 </span>            : #else
+<span class="lineNum">      55 </span>            : # define UT_TYPE_RUN_LVL(U) false
+<span class="lineNum">      56 </span>            : #endif
+<span class="lineNum">      57 </span>            : 
+<span class="lineNum">      58 </span>            : #ifdef INIT_PROCESS
+<span class="lineNum">      59 </span>            : # define UT_TYPE_INIT_PROCESS(U) UT_TYPE_EQ (U, INIT_PROCESS)
+<span class="lineNum">      60 </span>            : #else
+<span class="lineNum">      61 </span>            : # define UT_TYPE_INIT_PROCESS(U) false
+<span class="lineNum">      62 </span>            : #endif
+<span class="lineNum">      63 </span>            : 
+<span class="lineNum">      64 </span>            : #ifdef LOGIN_PROCESS
+<span class="lineNum">      65 </span>            : # define UT_TYPE_LOGIN_PROCESS(U) UT_TYPE_EQ (U, LOGIN_PROCESS)
+<span class="lineNum">      66 </span>            : #else
+<span class="lineNum">      67 </span>            : # define UT_TYPE_LOGIN_PROCESS(U) false
+<span class="lineNum">      68 </span>            : #endif
+<span class="lineNum">      69 </span>            : 
+<span class="lineNum">      70 </span>            : #ifdef DEAD_PROCESS
+<span class="lineNum">      71 </span>            : # define UT_TYPE_DEAD_PROCESS(U) UT_TYPE_EQ (U, DEAD_PROCESS)
+<span class="lineNum">      72 </span>            : #else
+<span class="lineNum">      73 </span>            : # define UT_TYPE_DEAD_PROCESS(U) false
+<span class="lineNum">      74 </span>            : #endif
+<span class="lineNum">      75 </span>            : 
+<span class="lineNum">      76 </span>            : #ifdef NEW_TIME
+<span class="lineNum">      77 </span>            : # define UT_TYPE_NEW_TIME(U) UT_TYPE_EQ (U, NEW_TIME)
+<span class="lineNum">      78 </span>            : #else
+<span class="lineNum">      79 </span>            : # define UT_TYPE_NEW_TIME(U) false
+<span class="lineNum">      80 </span>            : #endif
+<span class="lineNum">      81 </span>            : 
+<span class="lineNum">      82 </span>            : #define IDLESTR_LEN 6
+<span class="lineNum">      83 </span>            : 
+<span class="lineNum">      84 </span>            : #if HAVE_STRUCT_XTMP_UT_PID
+<span class="lineNum">      85 </span>            : # define PIDSTR_DECL_AND_INIT(Var, Utmp_ent) \
+<span class="lineNum">      86 </span>            :   char Var[INT_STRLEN_BOUND (Utmp_ent-&gt;ut_pid) + 1]; \
+<span class="lineNum">      87 </span>            :   sprintf (Var, &quot;%ld&quot;, (long int) (Utmp_ent-&gt;ut_pid))
+<span class="lineNum">      88 </span>            : #else
+<span class="lineNum">      89 </span>            : # define PIDSTR_DECL_AND_INIT(Var, Utmp_ent) \
+<span class="lineNum">      90 </span>            :   const char *Var = &quot;&quot;
+<span class="lineNum">      91 </span>            : #endif
+<span class="lineNum">      92 </span>            : 
+<span class="lineNum">      93 </span>            : #if HAVE_STRUCT_XTMP_UT_ID
+<span class="lineNum">      94 </span>            : # define UT_ID(U) ((U)-&gt;ut_id)
+<span class="lineNum">      95 </span>            : #else
+<span class="lineNum">      96 </span>            : # define UT_ID(U) &quot;??&quot;
+<span class="lineNum">      97 </span>            : #endif
+<span class="lineNum">      98 </span>            : 
+<span class="lineNum">      99 </span>            : char *ttyname (int);
+<span class="lineNum">     100 </span>            : 
+<span class="lineNum">     101 </span>            : /* If true, attempt to canonicalize hostnames via a DNS lookup. */
+<span class="lineNum">     102 </span>            : static bool do_lookup;
+<span class="lineNum">     103 </span>            : 
+<span class="lineNum">     104 </span>            : /* If true, display only a list of usernames and count of
+<span class="lineNum">     105 </span>            :    the users logged on.
+<span class="lineNum">     106 </span>            :    Ignored for 'who am i'.  */
+<span class="lineNum">     107 </span>            : static bool short_list;
+<span class="lineNum">     108 </span>            : 
+<span class="lineNum">     109 </span>            : /* If true, display only name, line, and time fields.  */
+<span class="lineNum">     110 </span>            : static bool short_output;
+<span class="lineNum">     111 </span>            : 
+<span class="lineNum">     112 </span>            : /* If true, display the hours:minutes since each user has touched
+<span class="lineNum">     113 </span>            :    the keyboard, or &quot;.&quot; if within the last minute, or &quot;old&quot; if
+<span class="lineNum">     114 </span>            :    not within the last day.  */
+<span class="lineNum">     115 </span>            : static bool include_idle;
+<span class="lineNum">     116 </span>            : 
+<span class="lineNum">     117 </span>            : /* If true, display a line at the top describing each field.  */
+<span class="lineNum">     118 </span>            : static bool include_heading;
+<span class="lineNum">     119 </span>            : 
+<span class="lineNum">     120 </span>            : /* If true, display a '+' for each user if mesg y, a '-' if mesg n,
+<span class="lineNum">     121 </span>            :    or a '?' if their tty cannot be statted. */
+<span class="lineNum">     122 </span>            : static bool include_mesg;
+<span class="lineNum">     123 </span>            : 
+<span class="lineNum">     124 </span>            : /* If true, display process termination &amp; exit status.  */
+<span class="lineNum">     125 </span>            : static bool include_exit;
+<span class="lineNum">     126 </span>            : 
+<span class="lineNum">     127 </span>            : /* If true, display the last boot time.  */
+<span class="lineNum">     128 </span>            : static bool need_boottime;
+<span class="lineNum">     129 </span>            : 
+<span class="lineNum">     130 </span>            : /* If true, display dead processes.  */
+<span class="lineNum">     131 </span>            : static bool need_deadprocs;
+<span class="lineNum">     132 </span>            : 
+<span class="lineNum">     133 </span>            : /* If true, display processes waiting for user login.  */
+<span class="lineNum">     134 </span>            : static bool need_login;
+<span class="lineNum">     135 </span>            : 
+<span class="lineNum">     136 </span>            : /* If true, display processes started by init.  */
+<span class="lineNum">     137 </span>            : static bool need_initspawn;
+<span class="lineNum">     138 </span>            : 
+<span class="lineNum">     139 </span>            : /* If true, display the last clock change.  */
+<span class="lineNum">     140 </span>            : static bool need_clockchange;
+<span class="lineNum">     141 </span>            : 
+<span class="lineNum">     142 </span>            : /* If true, display the current runlevel.  */
+<span class="lineNum">     143 </span>            : static bool need_runlevel;
+<span class="lineNum">     144 </span>            : 
+<span class="lineNum">     145 </span>            : /* If true, display user processes.  */
+<span class="lineNum">     146 </span>            : static bool need_users;
+<span class="lineNum">     147 </span>            : 
+<span class="lineNum">     148 </span>            : /* If true, display info only for the controlling tty.  */
+<span class="lineNum">     149 </span>            : static bool my_line_only;
+<span class="lineNum">     150 </span>            : 
+<span class="lineNum">     151 </span>            : /* The strftime format to use for login times, and its expected
+<span class="lineNum">     152 </span>            :    output width.  */
+<span class="lineNum">     153 </span>            : static char const *time_format;
+<span class="lineNum">     154 </span>            : static int time_format_width;
+<span class="lineNum">     155 </span>            : 
+<span class="lineNum">     156 </span>            : /* for long options with no corresponding short option, use enum */
+<span class="lineNum">     157 </span>            : enum
+<span class="lineNum">     158 </span>            : {
+<span class="lineNum">     159 </span>            :   LOOKUP_OPTION = CHAR_MAX + 1
+<span class="lineNum">     160 </span>            : };
+<span class="lineNum">     161 </span>            : 
+<span class="lineNum">     162 </span>            : static struct option const longopts[] =
+<span class="lineNum">     163 </span>            : {
+<span class="lineNum">     164 </span>            :   {&quot;all&quot;, no_argument, NULL, 'a'},
+<span class="lineNum">     165 </span>            :   {&quot;boot&quot;, no_argument, NULL, 'b'},
+<span class="lineNum">     166 </span>            :   {&quot;count&quot;, no_argument, NULL, 'q'},
+<span class="lineNum">     167 </span>            :   {&quot;dead&quot;, no_argument, NULL, 'd'},
+<span class="lineNum">     168 </span>            :   {&quot;heading&quot;, no_argument, NULL, 'H'},
+<span class="lineNum">     169 </span>            :   {&quot;login&quot;, no_argument, NULL, 'l'},
+<span class="lineNum">     170 </span>            :   {&quot;lookup&quot;, no_argument, NULL, LOOKUP_OPTION},
+<span class="lineNum">     171 </span>            :   {&quot;message&quot;, no_argument, NULL, 'T'},
+<span class="lineNum">     172 </span>            :   {&quot;mesg&quot;, no_argument, NULL, 'T'},
+<span class="lineNum">     173 </span>            :   {&quot;process&quot;, no_argument, NULL, 'p'},
+<span class="lineNum">     174 </span>            :   {&quot;runlevel&quot;, no_argument, NULL, 'r'},
+<span class="lineNum">     175 </span>            :   {&quot;short&quot;, no_argument, NULL, 's'},
+<span class="lineNum">     176 </span>            :   {&quot;time&quot;, no_argument, NULL, 't'},
+<span class="lineNum">     177 </span>            :   {&quot;users&quot;, no_argument, NULL, 'u'},
+<span class="lineNum">     178 </span>            :   {&quot;writable&quot;, no_argument, NULL, 'T'},
+<span class="lineNum">     179 </span>            :   {GETOPT_HELP_OPTION_DECL},
+<span class="lineNum">     180 </span>            :   {GETOPT_VERSION_OPTION_DECL},
+<span class="lineNum">     181 </span>            :   {NULL, 0, NULL, 0}
+<span class="lineNum">     182 </span>            : };
+<span class="lineNum">     183 </span>            : 
+<span class="lineNum">     184 </span>            : /* Return a string representing the time between WHEN and now.
+<span class="lineNum">     185 </span>            :    BOOTTIME is the time of last reboot.
+<a name="186"><span class="lineNum">     186 </span>            :    FIXME: locale? */</a>
+<span class="lineNum">     187 </span>            : static const char *
+<span class="lineNum">     188 </span><span class="lineNoCov">          0 : idle_string (time_t when, time_t boottime)</span>
+<span class="lineNum">     189 </span>            : {
+<span class="lineNum">     190 </span>            :   static time_t now = TYPE_MINIMUM (time_t);
+<span class="lineNum">     191 </span>            : 
+<span class="lineNum">     192 </span><span class="lineNoCov">          0 :   if (now == TYPE_MINIMUM (time_t))</span>
+<span class="lineNum">     193 </span><span class="lineNoCov">          0 :     time (&amp;now);</span>
+<span class="lineNum">     194 </span>            : 
+<span class="lineNum">     195 </span><span class="lineNoCov">          0 :   if (boottime &lt; when &amp;&amp; now - 24 * 60 * 60 &lt; when &amp;&amp; when &lt;= now)</span>
+<span class="lineNum">     196 </span>            :     {
+<span class="lineNum">     197 </span><span class="lineNoCov">          0 :       int seconds_idle = now - when;</span>
+<span class="lineNum">     198 </span><span class="lineNoCov">          0 :       if (seconds_idle &lt; 60)</span>
+<span class="lineNum">     199 </span>            :         return &quot;  .  &quot;;
+<span class="lineNum">     200 </span>            :       else
+<span class="lineNum">     201 </span>            :         {
+<span class="lineNum">     202 </span>            :           static char idle_hhmm[IDLESTR_LEN];
+<span class="lineNum">     203 </span><span class="lineNoCov">          0 :           sprintf (idle_hhmm, &quot;%02d:%02d&quot;,</span>
+<span class="lineNum">     204 </span>            :                    seconds_idle / (60 * 60),
+<span class="lineNum">     205 </span><span class="lineNoCov">          0 :                    (seconds_idle % (60 * 60)) / 60);</span>
+<span class="lineNum">     206 </span><span class="lineNoCov">          0 :           return idle_hhmm;</span>
+<span class="lineNum">     207 </span>            :         }
+<span class="lineNum">     208 </span>            :     }
+<span class="lineNum">     209 </span>            : 
+<span class="lineNum">     210 </span><span class="lineNoCov">          0 :   return _(&quot; old &quot;);</span>
+<span class="lineNum">     211 </span>            : }
+<span class="lineNum">     212 </span>            : 
+<a name="213"><span class="lineNum">     213 </span>            : /* Return a time string.  */</a>
+<span class="lineNum">     214 </span>            : static const char *
+<span class="lineNum">     215 </span><span class="lineNoCov">          0 : time_string (const STRUCT_UTMP *utmp_ent)</span>
+<span class="lineNum">     216 </span>            : {
+<span class="lineNum">     217 </span>            :   static char buf[INT_STRLEN_BOUND (intmax_t) + sizeof &quot;-%m-%d %H:%M&quot;];
+<span class="lineNum">     218 </span>            : 
+<span class="lineNum">     219 </span>            :   /* Don't take the address of UT_TIME_MEMBER directly.
+<span class="lineNum">     220 </span>            :      Ulrich Drepper wrote:
+<span class="lineNum">     221 </span>            :      &quot;... GNU libc (and perhaps other libcs as well) have extended
+<span class="lineNum">     222 </span>            :      utmp file formats which do not use a simple time_t ut_time field.
+<span class="lineNum">     223 </span>            :      In glibc, ut_time is a macro which selects for backward compatibility
+<span class="lineNum">     224 </span>            :      the tv_sec member of a struct timeval value.&quot;  */
+<span class="lineNum">     225 </span><span class="lineNoCov">          0 :   time_t t = UT_TIME_MEMBER (utmp_ent);</span>
+<span class="lineNum">     226 </span><span class="lineNoCov">          0 :   struct tm *tmp = localtime (&amp;t);</span>
+<span class="lineNum">     227 </span>            : 
+<span class="lineNum">     228 </span><span class="lineNoCov">          0 :   if (tmp)</span>
+<span class="lineNum">     229 </span>            :     {
+<span class="lineNum">     230 </span><span class="lineNoCov">          0 :       strftime (buf, sizeof buf, time_format, tmp);</span>
+<span class="lineNum">     231 </span>            :       return buf;
+<span class="lineNum">     232 </span>            :     }
+<span class="lineNum">     233 </span>            :   else
+<span class="lineNum">     234 </span><span class="lineNoCov">          0 :     return timetostr (t, buf);</span>
+<span class="lineNum">     235 </span>            : }
+<span class="lineNum">     236 </span>            : 
+<span class="lineNum">     237 </span>            : /* Print formatted output line. Uses mostly arbitrary field sizes, probably
+<span class="lineNum">     238 </span>            :    will need tweaking if any of the localization stuff is done, or for 64 bit
+<a name="239"><span class="lineNum">     239 </span>            :    pids, etc. */</a>
+<span class="lineNum">     240 </span>            : static void
+<span class="lineNum">     241 </span><span class="lineNoCov">          0 : print_line (int userlen, const char *user, const char state,</span>
+<span class="lineNum">     242 </span>            :             int linelen, const char *line,
+<span class="lineNum">     243 </span>            :             const char *time_str, const char *idle, const char *pid,
+<span class="lineNum">     244 </span>            :             const char *comment, const char *exitstr)
+<span class="lineNum">     245 </span>            : {
+<span class="lineNum">     246 </span>            :   static char mesg[3] = { ' ', 'x', '\0' };
+<span class="lineNum">     247 </span>            :   char *buf;
+<span class="lineNum">     248 </span>            :   char x_idle[1 + IDLESTR_LEN + 1];
+<span class="lineNum">     249 </span>            :   char x_pid[1 + INT_STRLEN_BOUND (pid_t) + 1];
+<span class="lineNum">     250 </span>            :   char *x_exitstr;
+<span class="lineNum">     251 </span>            :   int err;
+<span class="lineNum">     252 </span>            : 
+<span class="lineNum">     253 </span><span class="lineNoCov">          0 :   mesg[1] = state;</span>
+<span class="lineNum">     254 </span>            : 
+<span class="lineNum">     255 </span><span class="lineNoCov">          0 :   if (include_idle &amp;&amp; !short_output &amp;&amp; strlen (idle) &lt; sizeof x_idle - 1)</span>
+<span class="lineNum">     256 </span>            :     sprintf (x_idle, &quot; %-6s&quot;, idle);
+<span class="lineNum">     257 </span>            :   else
+<span class="lineNum">     258 </span><span class="lineNoCov">          0 :     *x_idle = '\0';</span>
+<span class="lineNum">     259 </span>            : 
+<span class="lineNum">     260 </span><span class="lineNoCov">          0 :   if (!short_output &amp;&amp; strlen (pid) &lt; sizeof x_pid - 1)</span>
+<span class="lineNum">     261 </span>            :     sprintf (x_pid, &quot; %10s&quot;, pid);
+<span class="lineNum">     262 </span>            :   else
+<span class="lineNum">     263 </span><span class="lineNoCov">          0 :     *x_pid = '\0';</span>
+<span class="lineNum">     264 </span>            : 
+<span class="lineNum">     265 </span><span class="lineNoCov">          0 :   x_exitstr = xmalloc (include_exit ? 1 + MAX (12, strlen (exitstr)) + 1 : 1);</span>
+<span class="lineNum">     266 </span><span class="lineNoCov">          0 :   if (include_exit)</span>
+<span class="lineNum">     267 </span>            :     sprintf (x_exitstr, &quot; %-12s&quot;, exitstr);
+<span class="lineNum">     268 </span>            :   else
+<span class="lineNum">     269 </span><span class="lineNoCov">          0 :     *x_exitstr = '\0';</span>
+<span class="lineNum">     270 </span>            : 
+<span class="lineNum">     271 </span><span class="lineNoCov">          0 :   err = asprintf (&amp;buf,</span>
+<span class="lineNum">     272 </span>            :                   &quot;%-8.*s&quot;
+<span class="lineNum">     273 </span>            :                   &quot;%s&quot;
+<span class="lineNum">     274 </span>            :                   &quot; %-12.*s&quot;
+<span class="lineNum">     275 </span>            :                   &quot; %-*s&quot;
+<span class="lineNum">     276 </span>            :                   &quot;%s&quot;
+<span class="lineNum">     277 </span>            :                   &quot;%s&quot;
+<span class="lineNum">     278 </span>            :                   &quot; %-8s&quot;
+<span class="lineNum">     279 </span>            :                   &quot;%s&quot;
+<span class="lineNum">     280 </span>            :                   ,
+<span class="lineNum">     281 </span>            :                   userlen, user ? user : &quot;   .&quot;,
+<span class="lineNum">     282 </span>            :                   include_mesg ? mesg : &quot;&quot;,
+<span class="lineNum">     283 </span>            :                   linelen, line,
+<span class="lineNum">     284 </span>            :                   time_format_width,
+<span class="lineNum">     285 </span>            :                   time_str,
+<span class="lineNum">     286 </span>            :                   x_idle,
+<span class="lineNum">     287 </span>            :                   x_pid,
+<span class="lineNum">     288 </span>            :                   /* FIXME: it's not really clear whether the following
+<span class="lineNum">     289 </span>            :                      field should be in the short_output.  A strict reading
+<span class="lineNum">     290 </span>            :                      of SUSv2 would suggest not, but I haven't seen any
+<span class="lineNum">     291 </span>            :                      implementations that actually work that way... */
+<span class="lineNum">     292 </span>            :                   comment,
+<span class="lineNum">     293 </span>            :                   x_exitstr
+<span class="lineNum">     294 </span>            :                   );
+<span class="lineNum">     295 </span><span class="lineNoCov">          0 :   if (err == -1)</span>
+<span class="lineNum">     296 </span><span class="lineNoCov">          0 :     xalloc_die ();</span>
+<span class="lineNum">     297 </span>            : 
+<span class="lineNum">     298 </span>            :   {
+<span class="lineNum">     299 </span>            :     /* Remove any trailing spaces.  */
+<span class="lineNum">     300 </span><span class="lineNoCov">          0 :     char *p = buf + strlen (buf);</span>
+<span class="lineNum">     301 </span><span class="lineNoCov">          0 :     while (*--p == ' ')</span>
+<span class="lineNum">     302 </span>            :       /* empty */;
+<span class="lineNum">     303 </span><span class="lineNoCov">          0 :     *(p + 1) = '\0';</span>
+<span class="lineNum">     304 </span>            :   }
+<span class="lineNum">     305 </span>            : 
+<span class="lineNum">     306 </span><span class="lineNoCov">          0 :   puts (buf);</span>
+<span class="lineNum">     307 </span><span class="lineNoCov">          0 :   free (buf);</span>
+<span class="lineNum">     308 </span><span class="lineNoCov">          0 :   free (x_exitstr);</span>
+<span class="lineNum">     309 </span><span class="lineNoCov">          0 : }</span>
+<span class="lineNum">     310 </span>            : 
+<span class="lineNum">     311 </span>            : /* Return true if a terminal device given as PSTAT allows other users
+<span class="lineNum">     312 </span>            :    to send messages to; false otherwise */
+<span class="lineNum">     313 </span>            : static bool
+<span class="lineNum">     314 </span>            : is_tty_writable (struct stat const *pstat)
+<span class="lineNum">     315 </span>            : {
+<span class="lineNum">     316 </span>            : #ifdef TTY_GROUP_NAME
+<span class="lineNum">     317 </span>            :   /* Ensure the group of the TTY device matches TTY_GROUP_NAME, more info at
+<span class="lineNum">     318 </span>            :      https://bugzilla.redhat.com/454261 */
+<span class="lineNum">     319 </span>            :   struct group *ttygr = getgrnam (TTY_GROUP_NAME);
+<span class="lineNum">     320 </span>            :   if (!ttygr || (pstat-&gt;st_gid != ttygr-&gt;gr_gid))
+<span class="lineNum">     321 </span>            :     return false;
+<span class="lineNum">     322 </span>            : #endif
+<span class="lineNum">     323 </span>            : 
+<span class="lineNum">     324 </span><span class="lineNoCov">          0 :   return pstat-&gt;st_mode &amp; S_IWGRP;</span>
+<span class="lineNum">     325 </span>            : }
+<span class="lineNum">     326 </span>            : 
+<span class="lineNum">     327 </span>            : /* Send properly parsed USER_PROCESS info to print_line.  The most
+<a name="328"><span class="lineNum">     328 </span>            :    recent boot time is BOOTTIME. */</a>
+<span class="lineNum">     329 </span>            : static void
+<span class="lineNum">     330 </span><span class="lineNoCov">          0 : print_user (const STRUCT_UTMP *utmp_ent, time_t boottime)</span>
+<span class="lineNum">     331 </span>            : {
+<span class="lineNum">     332 </span>            :   struct stat stats;
+<span class="lineNum">     333 </span>            :   time_t last_change;
+<span class="lineNum">     334 </span>            :   char mesg;
+<span class="lineNum">     335 </span>            :   char idlestr[IDLESTR_LEN + 1];
+<span class="lineNum">     336 </span>            :   static char *hoststr;
+<span class="lineNum">     337 </span>            : #if HAVE_UT_HOST
+<span class="lineNum">     338 </span>            :   static size_t hostlen;
+<span class="lineNum">     339 </span>            : #endif
+<span class="lineNum">     340 </span>            : 
+<span class="lineNum">     341 </span>            : #define DEV_DIR_WITH_TRAILING_SLASH &quot;/dev/&quot;
+<span class="lineNum">     342 </span>            : #define DEV_DIR_LEN (sizeof (DEV_DIR_WITH_TRAILING_SLASH) - 1)
+<span class="lineNum">     343 </span>            : 
+<span class="lineNum">     344 </span>            :   char line[sizeof (utmp_ent-&gt;ut_line) + DEV_DIR_LEN + 1];
+<span class="lineNum">     345 </span><span class="lineNoCov">          0 :   char *p = line;</span>
+<span class="lineNum">     346 </span><span class="lineNoCov">          0 :   PIDSTR_DECL_AND_INIT (pidstr, utmp_ent);</span>
+<span class="lineNum">     347 </span>            : 
+<span class="lineNum">     348 </span>            :   /* Copy ut_line into LINE, prepending '/dev/' if ut_line is not
+<span class="lineNum">     349 </span>            :      already an absolute file name.  Some systems may put the full,
+<span class="lineNum">     350 </span>            :      absolute file name in ut_line.  */
+<span class="lineNum">     351 </span><span class="lineNoCov">          0 :   if ( ! IS_ABSOLUTE_FILE_NAME (utmp_ent-&gt;ut_line))</span>
+<span class="lineNum">     352 </span><span class="lineNoCov">          0 :     p = stpcpy (p, DEV_DIR_WITH_TRAILING_SLASH);</span>
+<span class="lineNum">     353 </span><span class="lineNoCov">          0 :   stzncpy (p, utmp_ent-&gt;ut_line, sizeof (utmp_ent-&gt;ut_line));</span>
+<span class="lineNum">     354 </span>            : 
+<span class="lineNum">     355 </span><span class="lineNoCov">          0 :   if (stat (line, &amp;stats) == 0)</span>
+<span class="lineNum">     356 </span>            :     {
+<span class="lineNum">     357 </span><span class="lineNoCov">          0 :       mesg = is_tty_writable (&amp;stats) ? '+' : '-';</span>
+<span class="lineNum">     358 </span><span class="lineNoCov">          0 :       last_change = stats.st_atime;</span>
+<span class="lineNum">     359 </span>            :     }
+<span class="lineNum">     360 </span>            :   else
+<span class="lineNum">     361 </span>            :     {
+<span class="lineNum">     362 </span>            :       mesg = '?';
+<span class="lineNum">     363 </span>            :       last_change = 0;
+<span class="lineNum">     364 </span>            :     }
+<span class="lineNum">     365 </span>            : 
+<span class="lineNum">     366 </span><span class="lineNoCov">          0 :   if (last_change)</span>
+<span class="lineNum">     367 </span><span class="lineNoCov">          0 :     sprintf (idlestr, &quot;%.*s&quot;, IDLESTR_LEN, idle_string (last_change, boottime));</span>
+<span class="lineNum">     368 </span>            :   else
+<span class="lineNum">     369 </span>            :     sprintf (idlestr, &quot;  ?&quot;);
+<span class="lineNum">     370 </span>            : 
+<span class="lineNum">     371 </span>            : #if HAVE_UT_HOST
+<span class="lineNum">     372 </span><span class="lineNoCov">          0 :   if (utmp_ent-&gt;ut_host[0])</span>
+<span class="lineNum">     373 </span>            :     {
+<span class="lineNum">     374 </span>            :       char ut_host[sizeof (utmp_ent-&gt;ut_host) + 1];
+<span class="lineNum">     375 </span><span class="lineNoCov">          0 :       char *host = NULL;</span>
+<span class="lineNum">     376 </span><span class="lineNoCov">          0 :       char *display = NULL;</span>
+<span class="lineNum">     377 </span>            : 
+<span class="lineNum">     378 </span>            :       /* Copy the host name into UT_HOST, and ensure it's nul terminated. */
+<span class="lineNum">     379 </span><span class="lineNoCov">          0 :       stzncpy (ut_host, utmp_ent-&gt;ut_host, sizeof (utmp_ent-&gt;ut_host));</span>
+<span class="lineNum">     380 </span>            : 
+<span class="lineNum">     381 </span>            :       /* Look for an X display.  */
+<span class="lineNum">     382 </span><span class="lineNoCov">          0 :       display = strchr (ut_host, ':');</span>
+<span class="lineNum">     383 </span><span class="lineNoCov">          0 :       if (display)</span>
+<span class="lineNum">     384 </span><span class="lineNoCov">          0 :         *display++ = '\0';</span>
+<span class="lineNum">     385 </span>            : 
+<span class="lineNum">     386 </span><span class="lineNoCov">          0 :       if (*ut_host &amp;&amp; do_lookup)</span>
+<span class="lineNum">     387 </span>            :         {
+<span class="lineNum">     388 </span>            :           /* See if we can canonicalize it.  */
+<span class="lineNum">     389 </span><span class="lineNoCov">          0 :           host = canon_host (ut_host);</span>
+<span class="lineNum">     390 </span>            :         }
+<span class="lineNum">     391 </span>            : 
+<span class="lineNum">     392 </span><span class="lineNoCov">          0 :       if (! host)</span>
+<span class="lineNum">     393 </span><span class="lineNoCov">          0 :         host = ut_host;</span>
+<span class="lineNum">     394 </span>            : 
+<span class="lineNum">     395 </span><span class="lineNoCov">          0 :       if (display)</span>
+<span class="lineNum">     396 </span>            :         {
+<span class="lineNum">     397 </span><span class="lineNoCov">          0 :           if (hostlen &lt; strlen (host) + strlen (display) + 4)</span>
+<span class="lineNum">     398 </span>            :             {
+<span class="lineNum">     399 </span><span class="lineNoCov">          0 :               hostlen = strlen (host) + strlen (display) + 4;</span>
+<span class="lineNum">     400 </span><span class="lineNoCov">          0 :               free (hoststr);</span>
+<span class="lineNum">     401 </span><span class="lineNoCov">          0 :               hoststr = xmalloc (hostlen);</span>
+<span class="lineNum">     402 </span>            :             }
+<span class="lineNum">     403 </span><span class="lineNoCov">          0 :           sprintf (hoststr, &quot;(%s:%s)&quot;, host, display);</span>
+<span class="lineNum">     404 </span>            :         }
+<span class="lineNum">     405 </span>            :       else
+<span class="lineNum">     406 </span>            :         {
+<span class="lineNum">     407 </span><span class="lineNoCov">          0 :           if (hostlen &lt; strlen (host) + 3)</span>
+<span class="lineNum">     408 </span>            :             {
+<span class="lineNum">     409 </span><span class="lineNoCov">          0 :               hostlen = strlen (host) + 3;</span>
+<span class="lineNum">     410 </span><span class="lineNoCov">          0 :               free (hoststr);</span>
+<span class="lineNum">     411 </span><span class="lineNoCov">          0 :               hoststr = xmalloc (hostlen);</span>
+<span class="lineNum">     412 </span>            :             }
+<span class="lineNum">     413 </span><span class="lineNoCov">          0 :           sprintf (hoststr, &quot;(%s)&quot;, host);</span>
+<span class="lineNum">     414 </span>            :         }
+<span class="lineNum">     415 </span>            : 
+<span class="lineNum">     416 </span><span class="lineNoCov">          0 :       if (host != ut_host)</span>
+<span class="lineNum">     417 </span><span class="lineNoCov">          0 :         free (host);</span>
+<span class="lineNum">     418 </span>            :     }
+<span class="lineNum">     419 </span>            :   else
+<span class="lineNum">     420 </span>            :     {
+<span class="lineNum">     421 </span><span class="lineNoCov">          0 :       if (hostlen &lt; 1)</span>
+<span class="lineNum">     422 </span>            :         {
+<span class="lineNum">     423 </span><span class="lineNoCov">          0 :           hostlen = 1;</span>
+<span class="lineNum">     424 </span><span class="lineNoCov">          0 :           free (hoststr);</span>
+<span class="lineNum">     425 </span><span class="lineNoCov">          0 :           hoststr = xmalloc (hostlen);</span>
+<span class="lineNum">     426 </span>            :         }
+<span class="lineNum">     427 </span><span class="lineNoCov">          0 :       *hoststr = '\0';</span>
+<span class="lineNum">     428 </span>            :     }
+<span class="lineNum">     429 </span>            : #endif
+<span class="lineNum">     430 </span>            : 
+<span class="lineNum">     431 </span><span class="lineNoCov">          0 :   print_line (sizeof UT_USER (utmp_ent), UT_USER (utmp_ent), mesg,</span>
+<span class="lineNum">     432 </span>            :               sizeof utmp_ent-&gt;ut_line, utmp_ent-&gt;ut_line,
+<span class="lineNum">     433 </span>            :               time_string (utmp_ent), idlestr, pidstr,
+<span class="lineNum">     434 </span><span class="lineNoCov">          0 :               hoststr ? hoststr : &quot;&quot;, &quot;&quot;);</span>
+<span class="lineNum">     435 </span><span class="lineNoCov">          0 : }</span>
+<a name="436"><span class="lineNum">     436 </span>            : </a>
+<span class="lineNum">     437 </span>            : static void
+<span class="lineNum">     438 </span><span class="lineNoCov">          0 : print_boottime (const STRUCT_UTMP *utmp_ent)</span>
+<span class="lineNum">     439 </span>            : {
+<span class="lineNum">     440 </span><span class="lineNoCov">          0 :   print_line (-1, &quot;&quot;, ' ', -1, _(&quot;system boot&quot;),</span>
+<span class="lineNum">     441 </span>            :               time_string (utmp_ent), &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;);
+<span class="lineNum">     442 </span><span class="lineNoCov">          0 : }</span>
+<a name="443"><span class="lineNum">     443 </span>            : </a>
+<span class="lineNum">     444 </span>            : static char *
+<span class="lineNum">     445 </span><span class="lineNoCov">          0 : make_id_equals_comment (STRUCT_UTMP const *utmp_ent)</span>
+<span class="lineNum">     446 </span>            : {
+<span class="lineNum">     447 </span><span class="lineNoCov">          0 :   char *comment = xmalloc (strlen (_(&quot;id=&quot;)) + sizeof UT_ID (utmp_ent) + 1);</span>
+<span class="lineNum">     448 </span>            : 
+<span class="lineNum">     449 </span><span class="lineNoCov">          0 :   strcpy (comment, _(&quot;id=&quot;));</span>
+<span class="lineNum">     450 </span><span class="lineNoCov">          0 :   strncat (comment, UT_ID (utmp_ent), sizeof UT_ID (utmp_ent));</span>
+<span class="lineNum">     451 </span><span class="lineNoCov">          0 :   return comment;</span>
+<span class="lineNum">     452 </span>            : }
+<a name="453"><span class="lineNum">     453 </span>            : </a>
+<span class="lineNum">     454 </span>            : static void
+<span class="lineNum">     455 </span><span class="lineNoCov">          0 : print_deadprocs (const STRUCT_UTMP *utmp_ent)</span>
+<span class="lineNum">     456 </span>            : {
+<span class="lineNum">     457 </span>            :   static char *exitstr;
+<span class="lineNum">     458 </span><span class="lineNoCov">          0 :   char *comment = make_id_equals_comment (utmp_ent);</span>
+<span class="lineNum">     459 </span><span class="lineNoCov">          0 :   PIDSTR_DECL_AND_INIT (pidstr, utmp_ent);</span>
+<span class="lineNum">     460 </span>            : 
+<span class="lineNum">     461 </span><span class="lineNoCov">          0 :   if (!exitstr)</span>
+<span class="lineNum">     462 </span><span class="lineNoCov">          0 :     exitstr = xmalloc (strlen (_(&quot;term=&quot;))</span>
+<span class="lineNum">     463 </span>            :                        + INT_STRLEN_BOUND (UT_EXIT_E_TERMINATION (utmp_ent)) + 1
+<span class="lineNum">     464 </span><span class="lineNoCov">          0 :                        + strlen (_(&quot;exit=&quot;))</span>
+<span class="lineNum">     465 </span>            :                        + INT_STRLEN_BOUND (UT_EXIT_E_EXIT (utmp_ent))
+<span class="lineNum">     466 </span>            :                        + 1);
+<span class="lineNum">     467 </span><span class="lineNoCov">          0 :   sprintf (exitstr, &quot;%s%d %s%d&quot;, _(&quot;term=&quot;), UT_EXIT_E_TERMINATION (utmp_ent),</span>
+<span class="lineNum">     468 </span><span class="lineNoCov">          0 :            _(&quot;exit=&quot;), UT_EXIT_E_EXIT (utmp_ent));</span>
+<span class="lineNum">     469 </span>            : 
+<span class="lineNum">     470 </span>            :   /* FIXME: add idle time? */
+<span class="lineNum">     471 </span>            : 
+<span class="lineNum">     472 </span><span class="lineNoCov">          0 :   print_line (-1, &quot;&quot;, ' ', sizeof utmp_ent-&gt;ut_line, utmp_ent-&gt;ut_line,</span>
+<span class="lineNum">     473 </span>            :               time_string (utmp_ent), &quot;&quot;, pidstr, comment, exitstr);
+<span class="lineNum">     474 </span><span class="lineNoCov">          0 :   free (comment);</span>
+<span class="lineNum">     475 </span><span class="lineNoCov">          0 : }</span>
+<a name="476"><span class="lineNum">     476 </span>            : </a>
+<span class="lineNum">     477 </span>            : static void
+<span class="lineNum">     478 </span><span class="lineNoCov">          0 : print_login (const STRUCT_UTMP *utmp_ent)</span>
+<span class="lineNum">     479 </span>            : {
+<span class="lineNum">     480 </span><span class="lineNoCov">          0 :   char *comment = make_id_equals_comment (utmp_ent);</span>
+<span class="lineNum">     481 </span><span class="lineNoCov">          0 :   PIDSTR_DECL_AND_INIT (pidstr, utmp_ent);</span>
+<span class="lineNum">     482 </span>            : 
+<span class="lineNum">     483 </span>            :   /* FIXME: add idle time? */
+<span class="lineNum">     484 </span>            : 
+<span class="lineNum">     485 </span><span class="lineNoCov">          0 :   print_line (-1, _(&quot;LOGIN&quot;), ' ', sizeof utmp_ent-&gt;ut_line, utmp_ent-&gt;ut_line,</span>
+<span class="lineNum">     486 </span>            :               time_string (utmp_ent), &quot;&quot;, pidstr, comment, &quot;&quot;);
+<span class="lineNum">     487 </span><span class="lineNoCov">          0 :   free (comment);</span>
+<span class="lineNum">     488 </span><span class="lineNoCov">          0 : }</span>
+<a name="489"><span class="lineNum">     489 </span>            : </a>
+<span class="lineNum">     490 </span>            : static void
+<span class="lineNum">     491 </span><span class="lineNoCov">          0 : print_initspawn (const STRUCT_UTMP *utmp_ent)</span>
+<span class="lineNum">     492 </span>            : {
+<span class="lineNum">     493 </span><span class="lineNoCov">          0 :   char *comment = make_id_equals_comment (utmp_ent);</span>
+<span class="lineNum">     494 </span><span class="lineNoCov">          0 :   PIDSTR_DECL_AND_INIT (pidstr, utmp_ent);</span>
+<span class="lineNum">     495 </span>            : 
+<span class="lineNum">     496 </span><span class="lineNoCov">          0 :   print_line (-1, &quot;&quot;, ' ', sizeof utmp_ent-&gt;ut_line, utmp_ent-&gt;ut_line,</span>
+<span class="lineNum">     497 </span>            :               time_string (utmp_ent), &quot;&quot;, pidstr, comment, &quot;&quot;);
+<span class="lineNum">     498 </span><span class="lineNoCov">          0 :   free (comment);</span>
+<span class="lineNum">     499 </span><span class="lineNoCov">          0 : }</span>
+<a name="500"><span class="lineNum">     500 </span>            : </a>
+<span class="lineNum">     501 </span>            : static void
+<span class="lineNum">     502 </span><span class="lineNoCov">          0 : print_clockchange (const STRUCT_UTMP *utmp_ent)</span>
+<span class="lineNum">     503 </span>            : {
+<span class="lineNum">     504 </span>            :   /* FIXME: handle NEW_TIME &amp; OLD_TIME both */
+<span class="lineNum">     505 </span><span class="lineNoCov">          0 :   print_line (-1, &quot;&quot;, ' ', -1, _(&quot;clock change&quot;),</span>
+<span class="lineNum">     506 </span>            :               time_string (utmp_ent), &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;);
+<span class="lineNum">     507 </span><span class="lineNoCov">          0 : }</span>
+<a name="508"><span class="lineNum">     508 </span>            : </a>
+<span class="lineNum">     509 </span>            : static void
+<span class="lineNum">     510 </span><span class="lineNoCov">          0 : print_runlevel (const STRUCT_UTMP *utmp_ent)</span>
+<span class="lineNum">     511 </span>            : {
+<span class="lineNum">     512 </span>            :   static char *runlevline, *comment;
+<span class="lineNum">     513 </span><span class="lineNoCov">          0 :   unsigned char last = UT_PID (utmp_ent) / 256;</span>
+<span class="lineNum">     514 </span><span class="lineNoCov">          0 :   unsigned char curr = UT_PID (utmp_ent) % 256;</span>
+<span class="lineNum">     515 </span>            : 
+<span class="lineNum">     516 </span><span class="lineNoCov">          0 :   if (!runlevline)</span>
+<span class="lineNum">     517 </span><span class="lineNoCov">          0 :     runlevline = xmalloc (strlen (_(&quot;run-level&quot;)) + 3);</span>
+<span class="lineNum">     518 </span><span class="lineNoCov">          0 :   sprintf (runlevline, &quot;%s %c&quot;, _(&quot;run-level&quot;), curr);</span>
+<span class="lineNum">     519 </span>            : 
+<span class="lineNum">     520 </span><span class="lineNoCov">          0 :   if (!comment)</span>
+<span class="lineNum">     521 </span><span class="lineNoCov">          0 :     comment = xmalloc (strlen (_(&quot;last=&quot;)) + 2);</span>
+<span class="lineNum">     522 </span><span class="lineNoCov">          0 :   sprintf (comment, &quot;%s%c&quot;, _(&quot;last=&quot;), (last == 'N') ? 'S' : last);</span>
+<span class="lineNum">     523 </span>            : 
+<span class="lineNum">     524 </span><span class="lineNoCov">          0 :   print_line (-1, &quot;&quot;, ' ', -1, runlevline, time_string (utmp_ent),</span>
+<span class="lineNum">     525 </span><span class="lineNoCov">          0 :               &quot;&quot;, &quot;&quot;, c_isprint (last) ? comment : &quot;&quot;, &quot;&quot;);</span>
+<span class="lineNum">     526 </span>            : 
+<span class="lineNum">     527 </span><span class="lineNoCov">          0 :   return;</span>
+<span class="lineNum">     528 </span>            : }
+<span class="lineNum">     529 </span>            : 
+<span class="lineNum">     530 </span>            : /* Print the username of each valid entry and the number of valid entries
+<a name="531"><span class="lineNum">     531 </span>            :    in UTMP_BUF, which should have N elements. */</a>
+<span class="lineNum">     532 </span>            : static void
+<span class="lineNum">     533 </span><span class="lineNoCov">          0 : list_entries_who (size_t n, const STRUCT_UTMP *utmp_buf)</span>
+<span class="lineNum">     534 </span>            : {
+<span class="lineNum">     535 </span><span class="lineNoCov">          0 :   unsigned long int entries = 0;</span>
+<span class="lineNum">     536 </span><span class="lineNoCov">          0 :   char const *separator = &quot;&quot;;</span>
+<span class="lineNum">     537 </span>            : 
+<span class="lineNum">     538 </span><span class="lineNoCov">          0 :   while (n--)</span>
+<span class="lineNum">     539 </span>            :     {
+<span class="lineNum">     540 </span><span class="lineNoCov">          0 :       if (IS_USER_PROCESS (utmp_buf))</span>
+<span class="lineNum">     541 </span>            :         {
+<span class="lineNum">     542 </span>            :           char *trimmed_name;
+<span class="lineNum">     543 </span>            : 
+<span class="lineNum">     544 </span><span class="lineNoCov">          0 :           trimmed_name = extract_trimmed_name (utmp_buf);</span>
+<span class="lineNum">     545 </span>            : 
+<span class="lineNum">     546 </span><span class="lineNoCov">          0 :           printf (&quot;%s%s&quot;, separator, trimmed_name);</span>
+<span class="lineNum">     547 </span><span class="lineNoCov">          0 :           free (trimmed_name);</span>
+<span class="lineNum">     548 </span><span class="lineNoCov">          0 :           separator = &quot; &quot;;</span>
+<span class="lineNum">     549 </span><span class="lineNoCov">          0 :           entries++;</span>
+<span class="lineNum">     550 </span>            :         }
+<span class="lineNum">     551 </span><span class="lineNoCov">          0 :       utmp_buf++;</span>
+<span class="lineNum">     552 </span>            :     }
+<span class="lineNum">     553 </span><span class="lineNoCov">          0 :   printf (_(&quot;\n# users=%lu\n&quot;), entries);</span>
+<span class="lineNum">     554 </span><span class="lineNoCov">          0 : }</span>
+<a name="555"><span class="lineNum">     555 </span>            : </a>
+<span class="lineNum">     556 </span>            : static void
+<span class="lineNum">     557 </span><span class="lineNoCov">          0 : print_heading (void)</span>
+<span class="lineNum">     558 </span>            : {
+<span class="lineNum">     559 </span><span class="lineNoCov">          0 :   print_line (-1, _(&quot;NAME&quot;), ' ', -1, _(&quot;LINE&quot;), _(&quot;TIME&quot;), _(&quot;IDLE&quot;),</span>
+<span class="lineNum">     560 </span><span class="lineNoCov">          0 :               _(&quot;PID&quot;), _(&quot;COMMENT&quot;), _(&quot;EXIT&quot;));</span>
+<span class="lineNum">     561 </span><span class="lineNoCov">          0 : }</span>
+<span class="lineNum">     562 </span>            : 
+<a name="563"><span class="lineNum">     563 </span>            : /* Display UTMP_BUF, which should have N entries. */</a>
+<span class="lineNum">     564 </span>            : static void
+<span class="lineNum">     565 </span><span class="lineNoCov">          0 : scan_entries (size_t n, const STRUCT_UTMP *utmp_buf)</span>
+<span class="lineNum">     566 </span>            : {
+<span class="lineNum">     567 </span><span class="lineNoCov">          0 :   char *ttyname_b IF_LINT ( = NULL);</span>
+<span class="lineNum">     568 </span><span class="lineNoCov">          0 :   time_t boottime = TYPE_MINIMUM (time_t);</span>
+<span class="lineNum">     569 </span>            : 
+<span class="lineNum">     570 </span><span class="lineNoCov">          0 :   if (include_heading)</span>
+<span class="lineNum">     571 </span><span class="lineNoCov">          0 :     print_heading ();</span>
+<span class="lineNum">     572 </span>            : 
+<span class="lineNum">     573 </span><span class="lineNoCov">          0 :   if (my_line_only)</span>
+<span class="lineNum">     574 </span>            :     {
+<span class="lineNum">     575 </span><span class="lineNoCov">          0 :       ttyname_b = ttyname (STDIN_FILENO);</span>
+<span class="lineNum">     576 </span><span class="lineNoCov">          0 :       if (!ttyname_b)</span>
+<span class="lineNum">     577 </span>            :         return;
+<span class="lineNum">     578 </span><span class="lineNoCov">          0 :       if (STRNCMP_LIT (ttyname_b, DEV_DIR_WITH_TRAILING_SLASH) == 0)</span>
+<span class="lineNum">     579 </span><span class="lineNoCov">          0 :         ttyname_b += DEV_DIR_LEN;       /* Discard /dev/ prefix.  */</span>
+<span class="lineNum">     580 </span>            :     }
+<span class="lineNum">     581 </span>            : 
+<span class="lineNum">     582 </span><span class="lineNoCov">          0 :   while (n--)</span>
+<span class="lineNum">     583 </span>            :     {
+<span class="lineNum">     584 </span><span class="lineNoCov">          0 :       if (!my_line_only</span>
+<span class="lineNum">     585 </span><span class="lineNoCov">          0 :           || STREQ_LEN (ttyname_b, utmp_buf-&gt;ut_line,</span>
+<span class="lineNum">     586 </span>            :                         sizeof (utmp_buf-&gt;ut_line)))
+<span class="lineNum">     587 </span>            :         {
+<span class="lineNum">     588 </span><span class="lineNoCov">          0 :           if (need_users &amp;&amp; IS_USER_PROCESS (utmp_buf))</span>
+<span class="lineNum">     589 </span><span class="lineNoCov">          0 :             print_user (utmp_buf, boottime);</span>
+<span class="lineNum">     590 </span><span class="lineNoCov">          0 :           else if (need_runlevel &amp;&amp; UT_TYPE_RUN_LVL (utmp_buf))</span>
+<span class="lineNum">     591 </span><span class="lineNoCov">          0 :             print_runlevel (utmp_buf);</span>
+<span class="lineNum">     592 </span><span class="lineNoCov">          0 :           else if (need_boottime &amp;&amp; UT_TYPE_BOOT_TIME (utmp_buf))</span>
+<span class="lineNum">     593 </span><span class="lineNoCov">          0 :             print_boottime (utmp_buf);</span>
+<span class="lineNum">     594 </span>            :           /* I've never seen one of these, so I don't know what it should
+<span class="lineNum">     595 </span>            :              look like :^)
+<span class="lineNum">     596 </span>            :              FIXME: handle OLD_TIME also, perhaps show the delta? */
+<span class="lineNum">     597 </span><span class="lineNoCov">          0 :           else if (need_clockchange &amp;&amp; UT_TYPE_NEW_TIME (utmp_buf))</span>
+<span class="lineNum">     598 </span><span class="lineNoCov">          0 :             print_clockchange (utmp_buf);</span>
+<span class="lineNum">     599 </span><span class="lineNoCov">          0 :           else if (need_initspawn &amp;&amp; UT_TYPE_INIT_PROCESS (utmp_buf))</span>
+<span class="lineNum">     600 </span><span class="lineNoCov">          0 :             print_initspawn (utmp_buf);</span>
+<span class="lineNum">     601 </span><span class="lineNoCov">          0 :           else if (need_login &amp;&amp; UT_TYPE_LOGIN_PROCESS (utmp_buf))</span>
+<span class="lineNum">     602 </span><span class="lineNoCov">          0 :             print_login (utmp_buf);</span>
+<span class="lineNum">     603 </span><span class="lineNoCov">          0 :           else if (need_deadprocs &amp;&amp; UT_TYPE_DEAD_PROCESS (utmp_buf))</span>
+<span class="lineNum">     604 </span><span class="lineNoCov">          0 :             print_deadprocs (utmp_buf);</span>
+<span class="lineNum">     605 </span>            :         }
+<span class="lineNum">     606 </span>            : 
+<span class="lineNum">     607 </span><span class="lineNoCov">          0 :       if (UT_TYPE_BOOT_TIME (utmp_buf))</span>
+<span class="lineNum">     608 </span><span class="lineNoCov">          0 :         boottime = UT_TIME_MEMBER (utmp_buf);</span>
+<span class="lineNum">     609 </span>            : 
+<span class="lineNum">     610 </span><span class="lineNoCov">          0 :       utmp_buf++;</span>
+<span class="lineNum">     611 </span>            :     }
+<span class="lineNum">     612 </span>            : }
+<span class="lineNum">     613 </span>            : 
+<span class="lineNum">     614 </span>            : /* Display a list of who is on the system, according to utmp file FILENAME.
+<a name="615"><span class="lineNum">     615 </span>            :    Use read_utmp OPTIONS to read the file.  */</a>
+<span class="lineNum">     616 </span>            : static void
+<span class="lineNum">     617 </span><span class="lineNoCov">          0 : who (const char *filename, int options)</span>
+<span class="lineNum">     618 </span>            : {
+<span class="lineNum">     619 </span>            :   size_t n_users;
+<span class="lineNum">     620 </span>            :   STRUCT_UTMP *utmp_buf;
+<span class="lineNum">     621 </span>            : 
+<span class="lineNum">     622 </span><span class="lineNoCov">          0 :   if (read_utmp (filename, &amp;n_users, &amp;utmp_buf, options) != 0)</span>
+<span class="lineNum">     623 </span><span class="lineNoCov">          0 :     error (EXIT_FAILURE, errno, &quot;%s&quot;, quotef (filename));</span>
+<span class="lineNum">     624 </span>            : 
+<span class="lineNum">     625 </span><span class="lineNoCov">          0 :   if (short_list)</span>
+<span class="lineNum">     626 </span><span class="lineNoCov">          0 :     list_entries_who (n_users, utmp_buf);</span>
+<span class="lineNum">     627 </span>            :   else
+<span class="lineNum">     628 </span><span class="lineNoCov">          0 :     scan_entries (n_users, utmp_buf);</span>
+<span class="lineNum">     629 </span>            : 
+<span class="lineNum">     630 </span><span class="lineNoCov">          0 :   free (utmp_buf);</span>
+<span class="lineNum">     631 </span><span class="lineNoCov">          0 : }</span>
+<a name="632"><span class="lineNum">     632 </span>            : </a>
+<span class="lineNum">     633 </span>            : void
+<span class="lineNum">     634 </span><span class="lineNoCov">          0 : usage (int status)</span>
+<span class="lineNum">     635 </span>            : {
+<span class="lineNum">     636 </span><span class="lineNoCov">          0 :   if (status != EXIT_SUCCESS)</span>
+<span class="lineNum">     637 </span><span class="lineNoCov">          0 :     emit_try_help ();</span>
+<span class="lineNum">     638 </span>            :   else
+<span class="lineNum">     639 </span>            :     {
+<span class="lineNum">     640 </span><span class="lineNoCov">          0 :       printf (_(&quot;Usage: %s [OPTION]... [ FILE | ARG1 ARG2 ]\n&quot;), program_name);</span>
+<span class="lineNum">     641 </span><span class="lineNoCov">          0 :       fputs (_(&quot;\</span>
+<span class="lineNum">     642 </span>            : Print information about users who are currently logged in.\n\
+<span class="lineNum">     643 </span>            : &quot;), stdout);
+<span class="lineNum">     644 </span><span class="lineNoCov">          0 :       fputs (_(&quot;\</span>
+<span class="lineNum">     645 </span>            : \n\
+<span class="lineNum">     646 </span>            :   -a, --all         same as -b -d --login -p -r -t -T -u\n\
+<span class="lineNum">     647 </span>            :   -b, --boot        time of last system boot\n\
+<span class="lineNum">     648 </span>            :   -d, --dead        print dead processes\n\
+<span class="lineNum">     649 </span>            :   -H, --heading     print line of column headings\n\
+<span class="lineNum">     650 </span>            : &quot;), stdout);
+<span class="lineNum">     651 </span><span class="lineNoCov">          0 :       fputs (_(&quot;\</span>
+<span class="lineNum">     652 </span>            :   -l, --login       print system login processes\n\
+<span class="lineNum">     653 </span>            : &quot;), stdout);
+<span class="lineNum">     654 </span><span class="lineNoCov">          0 :       fputs (_(&quot;\</span>
+<span class="lineNum">     655 </span>            :       --lookup      attempt to canonicalize hostnames via DNS\n\
+<span class="lineNum">     656 </span>            :   -m                only hostname and user associated with stdin\n\
+<span class="lineNum">     657 </span>            :   -p, --process     print active processes spawned by init\n\
+<span class="lineNum">     658 </span>            : &quot;), stdout);
+<span class="lineNum">     659 </span><span class="lineNoCov">          0 :       fputs (_(&quot;\</span>
+<span class="lineNum">     660 </span>            :   -q, --count       all login names and number of users logged on\n\
+<span class="lineNum">     661 </span>            :   -r, --runlevel    print current runlevel\n\
+<span class="lineNum">     662 </span>            :   -s, --short       print only name, line, and time (default)\n\
+<span class="lineNum">     663 </span>            :   -t, --time        print last system clock change\n\
+<span class="lineNum">     664 </span>            : &quot;), stdout);
+<span class="lineNum">     665 </span><span class="lineNoCov">          0 :       fputs (_(&quot;\</span>
+<span class="lineNum">     666 </span>            :   -T, -w, --mesg    add user's message status as +, - or ?\n\
+<span class="lineNum">     667 </span>            :   -u, --users       list users logged in\n\
+<span class="lineNum">     668 </span>            :       --message     same as -T\n\
+<span class="lineNum">     669 </span>            :       --writable    same as -T\n\
+<span class="lineNum">     670 </span>            : &quot;), stdout);
+<span class="lineNum">     671 </span><span class="lineNoCov">          0 :       fputs (HELP_OPTION_DESCRIPTION, stdout);</span>
+<span class="lineNum">     672 </span><span class="lineNoCov">          0 :       fputs (VERSION_OPTION_DESCRIPTION, stdout);</span>
+<span class="lineNum">     673 </span><span class="lineNoCov">          0 :       printf (_(&quot;\</span>
+<span class="lineNum">     674 </span>            : \n\
+<span class="lineNum">     675 </span>            : If FILE is not specified, use %s.  %s as FILE is common.\n\
+<span class="lineNum">     676 </span>            : If ARG1 ARG2 given, -m presumed: 'am i' or 'mom likes' are usual.\n\
+<span class="lineNum">     677 </span>            : &quot;), UTMP_FILE, WTMP_FILE);
+<span class="lineNum">     678 </span><span class="lineNoCov">          0 :       emit_ancillary_info (PROGRAM_NAME);</span>
+<span class="lineNum">     679 </span>            :     }
+<span class="lineNum">     680 </span><span class="lineNoCov">          0 :   exit (status);</span>
+<span class="lineNum">     681 </span>            : }
+<a name="682"><span class="lineNum">     682 </span>            : </a>
+<span class="lineNum">     683 </span>            : int
+<span class="lineNum">     684 </span><span class="lineNoCov">          0 : main (int argc, char **argv)</span>
+<span class="lineNum">     685 </span>            : {
+<span class="lineNum">     686 </span>            :   int optc;
+<span class="lineNum">     687 </span><span class="lineNoCov">          0 :   bool assumptions = true;</span>
+<span class="lineNum">     688 </span>            : 
+<span class="lineNum">     689 </span>            :   initialize_main (&amp;argc, &amp;argv);
+<span class="lineNum">     690 </span><span class="lineNoCov">          0 :   set_program_name (argv[0]);</span>
+<span class="lineNum">     691 </span><span class="lineNoCov">          0 :   setlocale (LC_ALL, &quot;&quot;);</span>
+<span class="lineNum">     692 </span><span class="lineNoCov">          0 :   bindtextdomain (PACKAGE, LOCALEDIR);</span>
+<span class="lineNum">     693 </span><span class="lineNoCov">          0 :   textdomain (PACKAGE);</span>
+<span class="lineNum">     694 </span>            : 
+<span class="lineNum">     695 </span><span class="lineNoCov">          0 :   atexit (close_stdout);</span>
+<span class="lineNum">     696 </span>            : 
+<span class="lineNum">     697 </span><span class="lineNoCov">          0 :   while ((optc = getopt_long (argc, argv, &quot;abdlmpqrstuwHT&quot;, longopts, NULL))</span>
+<span class="lineNum">     698 </span>            :          != -1)
+<span class="lineNum">     699 </span>            :     {
+<span class="lineNum">     700 </span><span class="lineNoCov">          0 :       switch (optc)</span>
+<span class="lineNum">     701 </span>            :         {
+<span class="lineNum">     702 </span>            :         case 'a':
+<span class="lineNum">     703 </span><span class="lineNoCov">          0 :           need_boottime = true;</span>
+<span class="lineNum">     704 </span><span class="lineNoCov">          0 :           need_deadprocs = true;</span>
+<span class="lineNum">     705 </span><span class="lineNoCov">          0 :           need_login = true;</span>
+<span class="lineNum">     706 </span><span class="lineNoCov">          0 :           need_initspawn = true;</span>
+<span class="lineNum">     707 </span><span class="lineNoCov">          0 :           need_runlevel = true;</span>
+<span class="lineNum">     708 </span><span class="lineNoCov">          0 :           need_clockchange = true;</span>
+<span class="lineNum">     709 </span><span class="lineNoCov">          0 :           need_users = true;</span>
+<span class="lineNum">     710 </span><span class="lineNoCov">          0 :           include_mesg = true;</span>
+<span class="lineNum">     711 </span><span class="lineNoCov">          0 :           include_idle = true;</span>
+<span class="lineNum">     712 </span><span class="lineNoCov">          0 :           include_exit = true;</span>
+<span class="lineNum">     713 </span><span class="lineNoCov">          0 :           assumptions = false;</span>
+<span class="lineNum">     714 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     715 </span>            : 
+<span class="lineNum">     716 </span>            :         case 'b':
+<span class="lineNum">     717 </span><span class="lineNoCov">          0 :           need_boottime = true;</span>
+<span class="lineNum">     718 </span><span class="lineNoCov">          0 :           assumptions = false;</span>
+<span class="lineNum">     719 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     720 </span>            : 
+<span class="lineNum">     721 </span>            :         case 'd':
+<span class="lineNum">     722 </span><span class="lineNoCov">          0 :           need_deadprocs = true;</span>
+<span class="lineNum">     723 </span><span class="lineNoCov">          0 :           include_idle = true;</span>
+<span class="lineNum">     724 </span><span class="lineNoCov">          0 :           include_exit = true;</span>
+<span class="lineNum">     725 </span><span class="lineNoCov">          0 :           assumptions = false;</span>
+<span class="lineNum">     726 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     727 </span>            : 
+<span class="lineNum">     728 </span>            :         case 'H':
+<span class="lineNum">     729 </span><span class="lineNoCov">          0 :           include_heading = true;</span>
+<span class="lineNum">     730 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     731 </span>            : 
+<span class="lineNum">     732 </span>            :         case 'l':
+<span class="lineNum">     733 </span><span class="lineNoCov">          0 :           need_login = true;</span>
+<span class="lineNum">     734 </span><span class="lineNoCov">          0 :           include_idle = true;</span>
+<span class="lineNum">     735 </span><span class="lineNoCov">          0 :           assumptions = false;</span>
+<span class="lineNum">     736 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     737 </span>            : 
+<span class="lineNum">     738 </span>            :         case 'm':
+<span class="lineNum">     739 </span><span class="lineNoCov">          0 :           my_line_only = true;</span>
+<span class="lineNum">     740 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     741 </span>            : 
+<span class="lineNum">     742 </span>            :         case 'p':
+<span class="lineNum">     743 </span><span class="lineNoCov">          0 :           need_initspawn = true;</span>
+<span class="lineNum">     744 </span><span class="lineNoCov">          0 :           assumptions = false;</span>
+<span class="lineNum">     745 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     746 </span>            : 
+<span class="lineNum">     747 </span>            :         case 'q':
+<span class="lineNum">     748 </span><span class="lineNoCov">          0 :           short_list = true;</span>
+<span class="lineNum">     749 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     750 </span>            : 
+<span class="lineNum">     751 </span>            :         case 'r':
+<span class="lineNum">     752 </span><span class="lineNoCov">          0 :           need_runlevel = true;</span>
+<span class="lineNum">     753 </span><span class="lineNoCov">          0 :           include_idle = true;</span>
+<span class="lineNum">     754 </span><span class="lineNoCov">          0 :           assumptions = false;</span>
+<span class="lineNum">     755 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     756 </span>            : 
+<span class="lineNum">     757 </span>            :         case 's':
+<span class="lineNum">     758 </span><span class="lineNoCov">          0 :           short_output = true;</span>
+<span class="lineNum">     759 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     760 </span>            : 
+<span class="lineNum">     761 </span>            :         case 't':
+<span class="lineNum">     762 </span><span class="lineNoCov">          0 :           need_clockchange = true;</span>
+<span class="lineNum">     763 </span><span class="lineNoCov">          0 :           assumptions = false;</span>
+<span class="lineNum">     764 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     765 </span>            : 
+<span class="lineNum">     766 </span>            :         case 'T':
+<span class="lineNum">     767 </span>            :         case 'w':
+<span class="lineNum">     768 </span><span class="lineNoCov">          0 :           include_mesg = true;</span>
+<span class="lineNum">     769 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     770 </span>            : 
+<span class="lineNum">     771 </span>            :         case 'u':
+<span class="lineNum">     772 </span><span class="lineNoCov">          0 :           need_users = true;</span>
+<span class="lineNum">     773 </span><span class="lineNoCov">          0 :           include_idle = true;</span>
+<span class="lineNum">     774 </span><span class="lineNoCov">          0 :           assumptions = false;</span>
+<span class="lineNum">     775 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     776 </span>            : 
+<span class="lineNum">     777 </span>            :         case LOOKUP_OPTION:
+<span class="lineNum">     778 </span><span class="lineNoCov">          0 :           do_lookup = true;</span>
+<span class="lineNum">     779 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     780 </span>            : 
+<span class="lineNum">     781 </span><span class="lineNoCov">          0 :         case_GETOPT_HELP_CHAR;</span>
+<span class="lineNum">     782 </span>            : 
+<span class="lineNum">     783 </span><span class="lineNoCov">          0 :         case_GETOPT_VERSION_CHAR (PROGRAM_NAME, AUTHORS);</span>
+<span class="lineNum">     784 </span>            : 
+<span class="lineNum">     785 </span>            :         default:
+<span class="lineNum">     786 </span><span class="lineNoCov">          0 :           usage (EXIT_FAILURE);</span>
+<span class="lineNum">     787 </span>            :         }
+<span class="lineNum">     788 </span>            :     }
+<span class="lineNum">     789 </span>            : 
+<span class="lineNum">     790 </span><span class="lineNoCov">          0 :   if (assumptions)</span>
+<span class="lineNum">     791 </span>            :     {
+<span class="lineNum">     792 </span><span class="lineNoCov">          0 :       need_users = true;</span>
+<span class="lineNum">     793 </span><span class="lineNoCov">          0 :       short_output = true;</span>
+<span class="lineNum">     794 </span>            :     }
+<span class="lineNum">     795 </span>            : 
+<span class="lineNum">     796 </span><span class="lineNoCov">          0 :   if (include_exit)</span>
+<span class="lineNum">     797 </span>            :     {
+<span class="lineNum">     798 </span><span class="lineNoCov">          0 :       short_output = false;</span>
+<span class="lineNum">     799 </span>            :     }
+<span class="lineNum">     800 </span>            : 
+<span class="lineNum">     801 </span><span class="lineNoCov">          0 :   if (hard_locale (LC_TIME))</span>
+<span class="lineNum">     802 </span>            :     {
+<span class="lineNum">     803 </span><span class="lineNoCov">          0 :       time_format = &quot;%Y-%m-%d %H:%M&quot;;</span>
+<span class="lineNum">     804 </span><span class="lineNoCov">          0 :       time_format_width = 4 + 1 + 2 + 1 + 2 + 1 + 2 + 1 + 2;</span>
+<span class="lineNum">     805 </span>            :     }
+<span class="lineNum">     806 </span>            :   else
+<span class="lineNum">     807 </span>            :     {
+<span class="lineNum">     808 </span><span class="lineNoCov">          0 :       time_format = &quot;%b %e %H:%M&quot;;</span>
+<span class="lineNum">     809 </span><span class="lineNoCov">          0 :       time_format_width = 3 + 1 + 2 + 1 + 2 + 1 + 2;</span>
+<span class="lineNum">     810 </span>            :     }
+<span class="lineNum">     811 </span>            : 
+<span class="lineNum">     812 </span><span class="lineNoCov">          0 :   switch (argc - optind)</span>
+<span class="lineNum">     813 </span>            :     {
+<span class="lineNum">     814 </span>            :     case 2:                     /* who &lt;blurf&gt; &lt;glop&gt; */
+<span class="lineNum">     815 </span><span class="lineNoCov">          0 :       my_line_only = true;</span>
+<span class="lineNum">     816 </span>            :       /* Fall through.  */
+<span class="lineNum">     817 </span>            :     case -1:
+<span class="lineNum">     818 </span>            :     case 0:                     /* who */
+<span class="lineNum">     819 </span><span class="lineNoCov">          0 :       who (UTMP_FILE, READ_UTMP_CHECK_PIDS);</span>
+<span class="lineNum">     820 </span><span class="lineNoCov">          0 :       break;</span>
+<span class="lineNum">     821 </span>            : 
+<span class="lineNum">     822 </span>            :     case 1:                     /* who &lt;utmp file&gt; */
+<span class="lineNum">     823 </span><span class="lineNoCov">          0 :       who (argv[optind], 0);</span>
+<span class="lineNum">     824 </span><span class="lineNoCov">          0 :       break;</span>
+<span class="lineNum">     825 </span>            : 
+<span class="lineNum">     826 </span>            :     default:                    /* lose */
+<span class="lineNum">     827 </span><span class="lineNoCov">          0 :       error (0, 0, _(&quot;extra operand %s&quot;), quote (argv[optind + 2]));</span>
+<span class="lineNum">     828 </span><span class="lineNoCov">          0 :       usage (EXIT_FAILURE);</span>
+<span class="lineNum">     829 </span>            :     }
+<span class="lineNum">     830 </span>            : 
+<span class="lineNum">     831 </span>            :   return EXIT_SUCCESS;
+<span class="lineNum">     832 </span>            : }
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.12</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>

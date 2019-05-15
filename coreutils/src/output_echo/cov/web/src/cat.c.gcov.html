@@ -1,0 +1,843 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - trace.lcov_info_final - src/cat.c</title>
+  <link rel="stylesheet" type="text/css" href="../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">src</a> - cat.c<span style="font-size: 80%;"> (source / <a href="cat.c.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">trace.lcov_info_final</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">222</td>
+            <td class="headerCovTableEntryLo">0.0 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2019-04-22 20:19:38</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">6</td>
+            <td class="headerCovTableEntryLo">0.0 %</td>
+          </tr>
+          <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>            : /* cat -- concatenate files and print on the standard output.</a>
+<span class="lineNum">       2 </span>            :    Copyright (C) 1988-2016 Free Software Foundation, Inc.
+<span class="lineNum">       3 </span>            : 
+<span class="lineNum">       4 </span>            :    This program is free software: you can redistribute it and/or modify
+<span class="lineNum">       5 </span>            :    it under the terms of the GNU General Public License as published by
+<span class="lineNum">       6 </span>            :    the Free Software Foundation, either version 3 of the License, or
+<span class="lineNum">       7 </span>            :    (at your option) any later version.
+<span class="lineNum">       8 </span>            : 
+<span class="lineNum">       9 </span>            :    This program is distributed in the hope that it will be useful,
+<span class="lineNum">      10 </span>            :    but WITHOUT ANY WARRANTY; without even the implied warranty of
+<span class="lineNum">      11 </span>            :    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+<span class="lineNum">      12 </span>            :    GNU General Public License for more details.
+<span class="lineNum">      13 </span>            : 
+<span class="lineNum">      14 </span>            :    You should have received a copy of the GNU General Public License
+<span class="lineNum">      15 </span>            :    along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.  */
+<span class="lineNum">      16 </span>            : 
+<span class="lineNum">      17 </span>            : /* Differences from the Unix cat:
+<span class="lineNum">      18 </span>            :    * Always unbuffered, -u is ignored.
+<span class="lineNum">      19 </span>            :    * Usually much faster than other versions of cat, the difference
+<span class="lineNum">      20 </span>            :    is especially apparent when using the -v option.
+<span class="lineNum">      21 </span>            : 
+<span class="lineNum">      22 </span>            :    By tege@sics.se, Torbjorn Granlund, advised by rms, Richard Stallman.  */
+<span class="lineNum">      23 </span>            : 
+<span class="lineNum">      24 </span>            : #include &lt;config.h&gt;
+<span class="lineNum">      25 </span>            : 
+<span class="lineNum">      26 </span>            : #include &lt;stdio.h&gt;
+<span class="lineNum">      27 </span>            : #include &lt;getopt.h&gt;
+<span class="lineNum">      28 </span>            : #include &lt;sys/types.h&gt;
+<span class="lineNum">      29 </span>            : 
+<span class="lineNum">      30 </span>            : #if HAVE_STROPTS_H
+<span class="lineNum">      31 </span>            : # include &lt;stropts.h&gt;
+<span class="lineNum">      32 </span>            : #endif
+<span class="lineNum">      33 </span>            : #include &lt;sys/ioctl.h&gt;
+<span class="lineNum">      34 </span>            : 
+<span class="lineNum">      35 </span>            : #include &quot;system.h&quot;
+<span class="lineNum">      36 </span>            : #include &quot;ioblksize.h&quot;
+<span class="lineNum">      37 </span>            : #include &quot;error.h&quot;
+<span class="lineNum">      38 </span>            : #include &quot;fadvise.h&quot;
+<span class="lineNum">      39 </span>            : #include &quot;full-write.h&quot;
+<span class="lineNum">      40 </span>            : #include &quot;safe-read.h&quot;
+<span class="lineNum">      41 </span>            : #include &quot;xfreopen.h&quot;
+<span class="lineNum">      42 </span>            : 
+<span class="lineNum">      43 </span>            : /* The official name of this program (e.g., no 'g' prefix).  */
+<span class="lineNum">      44 </span>            : #define PROGRAM_NAME &quot;cat&quot;
+<span class="lineNum">      45 </span>            : 
+<span class="lineNum">      46 </span>            : #define AUTHORS \
+<span class="lineNum">      47 </span>            :   proper_name_utf8 (&quot;Torbjorn Granlund&quot;, &quot;Torbj\303\266rn Granlund&quot;), \
+<span class="lineNum">      48 </span>            :   proper_name (&quot;Richard M. Stallman&quot;)
+<span class="lineNum">      49 </span>            : 
+<span class="lineNum">      50 </span>            : /* Name of input file.  May be &quot;-&quot;.  */
+<span class="lineNum">      51 </span>            : static char const *infile;
+<span class="lineNum">      52 </span>            : 
+<span class="lineNum">      53 </span>            : /* Descriptor on which input file is open.  */
+<span class="lineNum">      54 </span>            : static int input_desc;
+<span class="lineNum">      55 </span>            : 
+<span class="lineNum">      56 </span>            : /* Buffer for line numbers.
+<span class="lineNum">      57 </span>            :    An 11 digit counter may overflow within an hour on a P2/466,
+<span class="lineNum">      58 </span>            :    an 18 digit counter needs about 1000y */
+<span class="lineNum">      59 </span>            : #define LINE_COUNTER_BUF_LEN 20
+<span class="lineNum">      60 </span>            : static char line_buf[LINE_COUNTER_BUF_LEN] =
+<span class="lineNum">      61 </span>            :   {
+<span class="lineNum">      62 </span>            :     ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ',
+<span class="lineNum">      63 </span>            :     ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '0',
+<span class="lineNum">      64 </span>            :     '\t', '\0'
+<span class="lineNum">      65 </span>            :   };
+<span class="lineNum">      66 </span>            : 
+<span class="lineNum">      67 </span>            : /* Position in 'line_buf' where printing starts.  This will not change
+<span class="lineNum">      68 </span>            :    unless the number of lines is larger than 999999.  */
+<span class="lineNum">      69 </span>            : static char *line_num_print = line_buf + LINE_COUNTER_BUF_LEN - 8;
+<span class="lineNum">      70 </span>            : 
+<span class="lineNum">      71 </span>            : /* Position of the first digit in 'line_buf'.  */
+<span class="lineNum">      72 </span>            : static char *line_num_start = line_buf + LINE_COUNTER_BUF_LEN - 3;
+<span class="lineNum">      73 </span>            : 
+<span class="lineNum">      74 </span>            : /* Position of the last digit in 'line_buf'.  */
+<span class="lineNum">      75 </span>            : static char *line_num_end = line_buf + LINE_COUNTER_BUF_LEN - 3;
+<span class="lineNum">      76 </span>            : 
+<span class="lineNum">      77 </span>            : /* Preserves the 'cat' function's local 'newlines' between invocations.  */
+<span class="lineNum">      78 </span>            : static int newlines2 = 0;
+<a name="79"><span class="lineNum">      79 </span>            : </a>
+<span class="lineNum">      80 </span>            : void
+<span class="lineNum">      81 </span><span class="lineNoCov">          0 : usage (int status)</span>
+<span class="lineNum">      82 </span>            : {
+<span class="lineNum">      83 </span><span class="lineNoCov">          0 :   if (status != EXIT_SUCCESS)</span>
+<span class="lineNum">      84 </span><span class="lineNoCov">          0 :     emit_try_help ();</span>
+<span class="lineNum">      85 </span>            :   else
+<span class="lineNum">      86 </span>            :     {
+<span class="lineNum">      87 </span><span class="lineNoCov">          0 :       printf (_(&quot;\</span>
+<span class="lineNum">      88 </span>            : Usage: %s [OPTION]... [FILE]...\n\
+<span class="lineNum">      89 </span>            : &quot;),
+<span class="lineNum">      90 </span>            :               program_name);
+<span class="lineNum">      91 </span><span class="lineNoCov">          0 :       fputs (_(&quot;\</span>
+<span class="lineNum">      92 </span>            : Concatenate FILE(s) to standard output.\n\
+<span class="lineNum">      93 </span>            : &quot;), stdout);
+<span class="lineNum">      94 </span>            : 
+<span class="lineNum">      95 </span><span class="lineNoCov">          0 :       emit_stdin_note ();</span>
+<span class="lineNum">      96 </span>            : 
+<span class="lineNum">      97 </span><span class="lineNoCov">          0 :       fputs (_(&quot;\</span>
+<span class="lineNum">      98 </span>            : \n\
+<span class="lineNum">      99 </span>            :   -A, --show-all           equivalent to -vET\n\
+<span class="lineNum">     100 </span>            :   -b, --number-nonblank    number nonempty output lines, overrides -n\n\
+<span class="lineNum">     101 </span>            :   -e                       equivalent to -vE\n\
+<span class="lineNum">     102 </span>            :   -E, --show-ends          display $ at end of each line\n\
+<span class="lineNum">     103 </span>            :   -n, --number             number all output lines\n\
+<span class="lineNum">     104 </span>            :   -s, --squeeze-blank      suppress repeated empty output lines\n\
+<span class="lineNum">     105 </span>            : &quot;), stdout);
+<span class="lineNum">     106 </span><span class="lineNoCov">          0 :       fputs (_(&quot;\</span>
+<span class="lineNum">     107 </span>            :   -t                       equivalent to -vT\n\
+<span class="lineNum">     108 </span>            :   -T, --show-tabs          display TAB characters as ^I\n\
+<span class="lineNum">     109 </span>            :   -u                       (ignored)\n\
+<span class="lineNum">     110 </span>            :   -v, --show-nonprinting   use ^ and M- notation, except for LFD and TAB\n\
+<span class="lineNum">     111 </span>            : &quot;), stdout);
+<span class="lineNum">     112 </span><span class="lineNoCov">          0 :       fputs (HELP_OPTION_DESCRIPTION, stdout);</span>
+<span class="lineNum">     113 </span><span class="lineNoCov">          0 :       fputs (VERSION_OPTION_DESCRIPTION, stdout);</span>
+<span class="lineNum">     114 </span><span class="lineNoCov">          0 :       printf (_(&quot;\</span>
+<span class="lineNum">     115 </span>            : \n\
+<span class="lineNum">     116 </span>            : Examples:\n\
+<span class="lineNum">     117 </span>            :   %s f - g  Output f's contents, then standard input, then g's contents.\n\
+<span class="lineNum">     118 </span>            :   %s        Copy standard input to standard output.\n\
+<span class="lineNum">     119 </span>            : &quot;),
+<span class="lineNum">     120 </span>            :               program_name, program_name);
+<span class="lineNum">     121 </span><span class="lineNoCov">          0 :       emit_ancillary_info (PROGRAM_NAME);</span>
+<span class="lineNum">     122 </span>            :     }
+<span class="lineNum">     123 </span><span class="lineNoCov">          0 :   exit (status);</span>
+<span class="lineNum">     124 </span>            : }
+<span class="lineNum">     125 </span>            : 
+<span class="lineNum">     126 </span>            : /* Compute the next line number.  */
+<a name="127"><span class="lineNum">     127 </span>            : </a>
+<span class="lineNum">     128 </span>            : static void
+<span class="lineNum">     129 </span><span class="lineNoCov">          0 : next_line_num (void)</span>
+<span class="lineNum">     130 </span>            : {
+<span class="lineNum">     131 </span><span class="lineNoCov">          0 :   char *endp = line_num_end;</span>
+<span class="lineNum">     132 </span>            :   do
+<span class="lineNum">     133 </span>            :     {
+<span class="lineNum">     134 </span><span class="lineNoCov">          0 :       if ((*endp)++ &lt; '9')</span>
+<span class="lineNum">     135 </span>            :         return;
+<span class="lineNum">     136 </span><span class="lineNoCov">          0 :       *endp-- = '0';</span>
+<span class="lineNum">     137 </span>            :     }
+<span class="lineNum">     138 </span><span class="lineNoCov">          0 :   while (endp &gt;= line_num_start);</span>
+<span class="lineNum">     139 </span><span class="lineNoCov">          0 :   if (line_num_start &gt; line_buf)</span>
+<span class="lineNum">     140 </span><span class="lineNoCov">          0 :     *--line_num_start = '1';</span>
+<span class="lineNum">     141 </span>            :   else
+<span class="lineNum">     142 </span><span class="lineNoCov">          0 :     *line_buf = '&gt;';</span>
+<span class="lineNum">     143 </span><span class="lineNoCov">          0 :   if (line_num_start &lt; line_num_print)</span>
+<span class="lineNum">     144 </span><span class="lineNoCov">          0 :     line_num_print--;</span>
+<span class="lineNum">     145 </span>            : }
+<span class="lineNum">     146 </span>            : 
+<span class="lineNum">     147 </span>            : /* Plain cat.  Copies the file behind 'input_desc' to STDOUT_FILENO.
+<span class="lineNum">     148 </span>            :    Return true if successful.  */
+<a name="149"><span class="lineNum">     149 </span>            : </a>
+<span class="lineNum">     150 </span>            : static bool
+<span class="lineNum">     151 </span><span class="lineNoCov">          0 : simple_cat (</span>
+<span class="lineNum">     152 </span>            :      /* Pointer to the buffer, used by reads and writes.  */
+<span class="lineNum">     153 </span>            :      char *buf,
+<span class="lineNum">     154 </span>            : 
+<span class="lineNum">     155 </span>            :      /* Number of characters preferably read or written by each read and write
+<span class="lineNum">     156 </span>            :         call.  */
+<span class="lineNum">     157 </span>            :      size_t bufsize)
+<span class="lineNum">     158 </span>            : {
+<span class="lineNum">     159 </span>            :   /* Actual number of characters read, and therefore written.  */
+<span class="lineNum">     160 </span>            :   size_t n_read;
+<span class="lineNum">     161 </span>            : 
+<span class="lineNum">     162 </span>            :   /* Loop until the end of the file.  */
+<span class="lineNum">     163 </span>            : 
+<span class="lineNum">     164 </span>            :   while (true)
+<span class="lineNum">     165 </span>            :     {
+<span class="lineNum">     166 </span>            :       /* Read a block of input.  */
+<span class="lineNum">     167 </span>            : 
+<span class="lineNum">     168 </span><span class="lineNoCov">          0 :       n_read = safe_read (input_desc, buf, bufsize);</span>
+<span class="lineNum">     169 </span><span class="lineNoCov">          0 :       if (n_read == SAFE_READ_ERROR)</span>
+<span class="lineNum">     170 </span>            :         {
+<span class="lineNum">     171 </span><span class="lineNoCov">          0 :           error (0, errno, &quot;%s&quot;, quotef (infile));</span>
+<span class="lineNum">     172 </span><span class="lineNoCov">          0 :           return false;</span>
+<span class="lineNum">     173 </span>            :         }
+<span class="lineNum">     174 </span>            : 
+<span class="lineNum">     175 </span>            :       /* End of this file?  */
+<span class="lineNum">     176 </span>            : 
+<span class="lineNum">     177 </span><span class="lineNoCov">          0 :       if (n_read == 0)</span>
+<span class="lineNum">     178 </span>            :         return true;
+<span class="lineNum">     179 </span>            : 
+<span class="lineNum">     180 </span>            :       /* Write this block out.  */
+<span class="lineNum">     181 </span>            : 
+<span class="lineNum">     182 </span>            :       {
+<span class="lineNum">     183 </span>            :         /* The following is ok, since we know that 0 &lt; n_read.  */
+<span class="lineNum">     184 </span><span class="lineNoCov">          0 :         size_t n = n_read;</span>
+<span class="lineNum">     185 </span><span class="lineNoCov">          0 :         if (full_write (STDOUT_FILENO, buf, n) != n)</span>
+<span class="lineNum">     186 </span><span class="lineNoCov">          0 :           error (EXIT_FAILURE, errno, _(&quot;write error&quot;));</span>
+<span class="lineNum">     187 </span>            :       }
+<span class="lineNum">     188 </span>            :     }
+<span class="lineNum">     189 </span>            : }
+<span class="lineNum">     190 </span>            : 
+<span class="lineNum">     191 </span>            : /* Write any pending output to STDOUT_FILENO.
+<span class="lineNum">     192 </span>            :    Pending is defined to be the *BPOUT - OUTBUF bytes starting at OUTBUF.
+<span class="lineNum">     193 </span>            :    Then set *BPOUT to OUTPUT if it's not already that value.  */
+<a name="194"><span class="lineNum">     194 </span>            : </a>
+<span class="lineNum">     195 </span>            : static inline void
+<span class="lineNum">     196 </span><span class="lineNoCov">          0 : write_pending (char *outbuf, char **bpout)</span>
+<span class="lineNum">     197 </span>            : {
+<span class="lineNum">     198 </span><span class="lineNoCov">          0 :   size_t n_write = *bpout - outbuf;</span>
+<span class="lineNum">     199 </span><span class="lineNoCov">          0 :   if (0 &lt; n_write)</span>
+<span class="lineNum">     200 </span>            :     {
+<span class="lineNum">     201 </span><span class="lineNoCov">          0 :       if (full_write (STDOUT_FILENO, outbuf, n_write) != n_write)</span>
+<span class="lineNum">     202 </span><span class="lineNoCov">          0 :         error (EXIT_FAILURE, errno, _(&quot;write error&quot;));</span>
+<span class="lineNum">     203 </span><span class="lineNoCov">          0 :       *bpout = outbuf;</span>
+<span class="lineNum">     204 </span>            :     }
+<span class="lineNum">     205 </span><span class="lineNoCov">          0 : }</span>
+<span class="lineNum">     206 </span>            : 
+<span class="lineNum">     207 </span>            : /* Cat the file behind INPUT_DESC to the file behind OUTPUT_DESC.
+<span class="lineNum">     208 </span>            :    Return true if successful.
+<span class="lineNum">     209 </span>            :    Called if any option more than -u was specified.
+<span class="lineNum">     210 </span>            : 
+<span class="lineNum">     211 </span>            :    A newline character is always put at the end of the buffer, to make
+<span class="lineNum">     212 </span>            :    an explicit test for buffer end unnecessary.  */
+<a name="213"><span class="lineNum">     213 </span>            : </a>
+<span class="lineNum">     214 </span>            : static bool
+<span class="lineNum">     215 </span><span class="lineNoCov">          0 : cat (</span>
+<span class="lineNum">     216 </span>            :      /* Pointer to the beginning of the input buffer.  */
+<span class="lineNum">     217 </span>            :      char *inbuf,
+<span class="lineNum">     218 </span>            : 
+<span class="lineNum">     219 </span>            :      /* Number of characters read in each read call.  */
+<span class="lineNum">     220 </span>            :      size_t insize,
+<span class="lineNum">     221 </span>            : 
+<span class="lineNum">     222 </span>            :      /* Pointer to the beginning of the output buffer.  */
+<span class="lineNum">     223 </span>            :      char *outbuf,
+<span class="lineNum">     224 </span>            : 
+<span class="lineNum">     225 </span>            :      /* Number of characters written by each write call.  */
+<span class="lineNum">     226 </span>            :      size_t outsize,
+<span class="lineNum">     227 </span>            : 
+<span class="lineNum">     228 </span>            :      /* Variables that have values according to the specified options.  */
+<span class="lineNum">     229 </span>            :      bool show_nonprinting,
+<span class="lineNum">     230 </span>            :      bool show_tabs,
+<span class="lineNum">     231 </span>            :      bool number,
+<span class="lineNum">     232 </span>            :      bool number_nonblank,
+<span class="lineNum">     233 </span>            :      bool show_ends,
+<span class="lineNum">     234 </span>            :      bool squeeze_blank)
+<span class="lineNum">     235 </span>            : {
+<span class="lineNum">     236 </span>            :   /* Last character read from the input buffer.  */
+<span class="lineNum">     237 </span>            :   unsigned char ch;
+<span class="lineNum">     238 </span>            : 
+<span class="lineNum">     239 </span>            :   /* Pointer to the next character in the input buffer.  */
+<span class="lineNum">     240 </span>            :   char *bpin;
+<span class="lineNum">     241 </span>            : 
+<span class="lineNum">     242 </span>            :   /* Pointer to the first non-valid byte in the input buffer, i.e., the
+<span class="lineNum">     243 </span>            :      current end of the buffer.  */
+<span class="lineNum">     244 </span>            :   char *eob;
+<span class="lineNum">     245 </span>            : 
+<span class="lineNum">     246 </span>            :   /* Pointer to the position where the next character shall be written.  */
+<span class="lineNum">     247 </span>            :   char *bpout;
+<span class="lineNum">     248 </span>            : 
+<span class="lineNum">     249 </span>            :   /* Number of characters read by the last read call.  */
+<span class="lineNum">     250 </span>            :   size_t n_read;
+<span class="lineNum">     251 </span>            : 
+<span class="lineNum">     252 </span>            :   /* Determines how many consecutive newlines there have been in the
+<span class="lineNum">     253 </span>            :      input.  0 newlines makes NEWLINES -1, 1 newline makes NEWLINES 1,
+<span class="lineNum">     254 </span>            :      etc.  Initially 0 to indicate that we are at the beginning of a
+<span class="lineNum">     255 </span>            :      new line.  The &quot;state&quot; of the procedure is determined by
+<span class="lineNum">     256 </span>            :      NEWLINES.  */
+<span class="lineNum">     257 </span><span class="lineNoCov">          0 :   int newlines = newlines2;</span>
+<span class="lineNum">     258 </span>            : 
+<span class="lineNum">     259 </span>            : #ifdef FIONREAD
+<span class="lineNum">     260 </span>            :   /* If nonzero, use the FIONREAD ioctl, as an optimization.
+<span class="lineNum">     261 </span>            :      (On Ultrix, it is not supported on NFS file systems.)  */
+<span class="lineNum">     262 </span><span class="lineNoCov">          0 :   bool use_fionread = true;</span>
+<span class="lineNum">     263 </span>            : #endif
+<span class="lineNum">     264 </span>            : 
+<span class="lineNum">     265 </span>            :   /* The inbuf pointers are initialized so that BPIN &gt; EOB, and thereby input
+<span class="lineNum">     266 </span>            :      is read immediately.  */
+<span class="lineNum">     267 </span>            : 
+<span class="lineNum">     268 </span><span class="lineNoCov">          0 :   eob = inbuf;</span>
+<span class="lineNum">     269 </span><span class="lineNoCov">          0 :   bpin = eob + 1;</span>
+<span class="lineNum">     270 </span>            : 
+<span class="lineNum">     271 </span><span class="lineNoCov">          0 :   bpout = outbuf;</span>
+<span class="lineNum">     272 </span>            : 
+<span class="lineNum">     273 </span>            :   while (true)
+<span class="lineNum">     274 </span>            :     {
+<span class="lineNum">     275 </span>            :       do
+<span class="lineNum">     276 </span>            :         {
+<span class="lineNum">     277 </span>            :           /* Write if there are at least OUTSIZE bytes in OUTBUF.  */
+<span class="lineNum">     278 </span>            : 
+<span class="lineNum">     279 </span><span class="lineNoCov">          0 :           if (outbuf + outsize &lt;= bpout)</span>
+<span class="lineNum">     280 </span>            :             {
+<span class="lineNum">     281 </span>            :               char *wp = outbuf;
+<span class="lineNum">     282 </span>            :               size_t remaining_bytes;
+<span class="lineNum">     283 </span>            :               do
+<span class="lineNum">     284 </span>            :                 {
+<span class="lineNum">     285 </span><span class="lineNoCov">          0 :                   if (full_write (STDOUT_FILENO, wp, outsize) != outsize)</span>
+<span class="lineNum">     286 </span><span class="lineNoCov">          0 :                     error (EXIT_FAILURE, errno, _(&quot;write error&quot;));</span>
+<span class="lineNum">     287 </span><span class="lineNoCov">          0 :                   wp += outsize;</span>
+<span class="lineNum">     288 </span><span class="lineNoCov">          0 :                   remaining_bytes = bpout - wp;</span>
+<span class="lineNum">     289 </span>            :                 }
+<span class="lineNum">     290 </span><span class="lineNoCov">          0 :               while (outsize &lt;= remaining_bytes);</span>
+<span class="lineNum">     291 </span>            : 
+<span class="lineNum">     292 </span>            :               /* Move the remaining bytes to the beginning of the
+<span class="lineNum">     293 </span>            :                  buffer.  */
+<span class="lineNum">     294 </span>            : 
+<span class="lineNum">     295 </span><span class="lineNoCov">          0 :               memmove (outbuf, wp, remaining_bytes);</span>
+<span class="lineNum">     296 </span><span class="lineNoCov">          0 :               bpout = outbuf + remaining_bytes;</span>
+<span class="lineNum">     297 </span>            :             }
+<span class="lineNum">     298 </span>            : 
+<span class="lineNum">     299 </span>            :           /* Is INBUF empty?  */
+<span class="lineNum">     300 </span>            : 
+<span class="lineNum">     301 </span><span class="lineNoCov">          0 :           if (bpin &gt; eob)</span>
+<span class="lineNum">     302 </span>            :             {
+<span class="lineNum">     303 </span><span class="lineNoCov">          0 :               bool input_pending = false;</span>
+<span class="lineNum">     304 </span>            : #ifdef FIONREAD
+<span class="lineNum">     305 </span><span class="lineNoCov">          0 :               int n_to_read = 0;</span>
+<span class="lineNum">     306 </span>            : 
+<span class="lineNum">     307 </span>            :               /* Is there any input to read immediately?
+<span class="lineNum">     308 </span>            :                  If not, we are about to wait,
+<span class="lineNum">     309 </span>            :                  so write all buffered output before waiting.  */
+<span class="lineNum">     310 </span>            : 
+<span class="lineNum">     311 </span><span class="lineNoCov">          0 :               if (use_fionread</span>
+<span class="lineNum">     312 </span><span class="lineNoCov">          0 :                   &amp;&amp; ioctl (input_desc, FIONREAD, &amp;n_to_read) &lt; 0)</span>
+<span class="lineNum">     313 </span>            :                 {
+<span class="lineNum">     314 </span>            :                   /* Ultrix returns EOPNOTSUPP on NFS;
+<span class="lineNum">     315 </span>            :                      HP-UX returns ENOTTY on pipes.
+<span class="lineNum">     316 </span>            :                      SunOS returns EINVAL and
+<span class="lineNum">     317 </span>            :                      More/BSD returns ENODEV on special files
+<span class="lineNum">     318 </span>            :                      like /dev/null.
+<span class="lineNum">     319 </span>            :                      Irix-5 returns ENOSYS on pipes.  */
+<span class="lineNum">     320 </span><span class="lineNoCov">          0 :                   if (errno == EOPNOTSUPP || errno == ENOTTY</span>
+<span class="lineNum">     321 </span><span class="lineNoCov">          0 :                       || errno == EINVAL || errno == ENODEV</span>
+<span class="lineNum">     322 </span><span class="lineNoCov">          0 :                       || errno == ENOSYS)</span>
+<span class="lineNum">     323 </span>            :                     use_fionread = false;
+<span class="lineNum">     324 </span>            :                   else
+<span class="lineNum">     325 </span>            :                     {
+<span class="lineNum">     326 </span><span class="lineNoCov">          0 :                       error (0, errno, _(&quot;cannot do ioctl on %s&quot;),</span>
+<span class="lineNum">     327 </span>            :                              quoteaf (infile));
+<span class="lineNum">     328 </span><span class="lineNoCov">          0 :                       newlines2 = newlines;</span>
+<span class="lineNum">     329 </span><span class="lineNoCov">          0 :                       return false;</span>
+<span class="lineNum">     330 </span>            :                     }
+<span class="lineNum">     331 </span>            :                 }
+<span class="lineNum">     332 </span><span class="lineNoCov">          0 :               if (n_to_read != 0)</span>
+<span class="lineNum">     333 </span><span class="lineNoCov">          0 :                 input_pending = true;</span>
+<span class="lineNum">     334 </span>            : #endif
+<span class="lineNum">     335 </span>            : 
+<span class="lineNum">     336 </span><span class="lineNoCov">          0 :               if (!input_pending)</span>
+<span class="lineNum">     337 </span><span class="lineNoCov">          0 :                 write_pending (outbuf, &amp;bpout);</span>
+<span class="lineNum">     338 </span>            : 
+<span class="lineNum">     339 </span>            :               /* Read more input into INBUF.  */
+<span class="lineNum">     340 </span>            : 
+<span class="lineNum">     341 </span><span class="lineNoCov">          0 :               n_read = safe_read (input_desc, inbuf, insize);</span>
+<span class="lineNum">     342 </span><span class="lineNoCov">          0 :               if (n_read == SAFE_READ_ERROR)</span>
+<span class="lineNum">     343 </span>            :                 {
+<span class="lineNum">     344 </span><span class="lineNoCov">          0 :                   error (0, errno, &quot;%s&quot;, quotef (infile));</span>
+<span class="lineNum">     345 </span><span class="lineNoCov">          0 :                   write_pending (outbuf, &amp;bpout);</span>
+<span class="lineNum">     346 </span><span class="lineNoCov">          0 :                   newlines2 = newlines;</span>
+<span class="lineNum">     347 </span><span class="lineNoCov">          0 :                   return false;</span>
+<span class="lineNum">     348 </span>            :                 }
+<span class="lineNum">     349 </span><span class="lineNoCov">          0 :               if (n_read == 0)</span>
+<span class="lineNum">     350 </span>            :                 {
+<span class="lineNum">     351 </span><span class="lineNoCov">          0 :                   write_pending (outbuf, &amp;bpout);</span>
+<span class="lineNum">     352 </span><span class="lineNoCov">          0 :                   newlines2 = newlines;</span>
+<span class="lineNum">     353 </span><span class="lineNoCov">          0 :                   return true;</span>
+<span class="lineNum">     354 </span>            :                 }
+<span class="lineNum">     355 </span>            : 
+<span class="lineNum">     356 </span>            :               /* Update the pointers and insert a sentinel at the buffer
+<span class="lineNum">     357 </span>            :                  end.  */
+<span class="lineNum">     358 </span>            : 
+<span class="lineNum">     359 </span><span class="lineNoCov">          0 :               bpin = inbuf;</span>
+<span class="lineNum">     360 </span><span class="lineNoCov">          0 :               eob = bpin + n_read;</span>
+<span class="lineNum">     361 </span><span class="lineNoCov">          0 :               *eob = '\n';</span>
+<span class="lineNum">     362 </span>            :             }
+<span class="lineNum">     363 </span>            :           else
+<span class="lineNum">     364 </span>            :             {
+<span class="lineNum">     365 </span>            :               /* It was a real (not a sentinel) newline.  */
+<span class="lineNum">     366 </span>            : 
+<span class="lineNum">     367 </span>            :               /* Was the last line empty?
+<span class="lineNum">     368 </span>            :                  (i.e., have two or more consecutive newlines been read?)  */
+<span class="lineNum">     369 </span>            : 
+<span class="lineNum">     370 </span><span class="lineNoCov">          0 :               if (++newlines &gt; 0)</span>
+<span class="lineNum">     371 </span>            :                 {
+<span class="lineNum">     372 </span><span class="lineNoCov">          0 :                   if (newlines &gt;= 2)</span>
+<span class="lineNum">     373 </span>            :                     {
+<span class="lineNum">     374 </span>            :                       /* Limit this to 2 here.  Otherwise, with lots of
+<span class="lineNum">     375 </span>            :                          consecutive newlines, the counter could wrap
+<span class="lineNum">     376 </span>            :                          around at INT_MAX.  */
+<span class="lineNum">     377 </span><span class="lineNoCov">          0 :                       newlines = 2;</span>
+<span class="lineNum">     378 </span>            : 
+<span class="lineNum">     379 </span>            :                       /* Are multiple adjacent empty lines to be substituted
+<span class="lineNum">     380 </span>            :                          by single ditto (-s), and this was the second empty
+<span class="lineNum">     381 </span>            :                          line?  */
+<span class="lineNum">     382 </span><span class="lineNoCov">          0 :                       if (squeeze_blank)</span>
+<span class="lineNum">     383 </span>            :                         {
+<span class="lineNum">     384 </span><span class="lineNoCov">          0 :                           ch = *bpin++;</span>
+<span class="lineNum">     385 </span><span class="lineNoCov">          0 :                           continue;</span>
+<span class="lineNum">     386 </span>            :                         }
+<span class="lineNum">     387 </span>            :                     }
+<span class="lineNum">     388 </span>            : 
+<span class="lineNum">     389 </span>            :                   /* Are line numbers to be written at empty lines (-n)?  */
+<span class="lineNum">     390 </span>            : 
+<span class="lineNum">     391 </span><span class="lineNoCov">          0 :                   if (number &amp;&amp; !number_nonblank)</span>
+<span class="lineNum">     392 </span>            :                     {
+<span class="lineNum">     393 </span><span class="lineNoCov">          0 :                       next_line_num ();</span>
+<span class="lineNum">     394 </span><span class="lineNoCov">          0 :                       bpout = stpcpy (bpout, line_num_print);</span>
+<span class="lineNum">     395 </span>            :                     }
+<span class="lineNum">     396 </span>            :                 }
+<span class="lineNum">     397 </span>            : 
+<span class="lineNum">     398 </span>            :               /* Output a currency symbol if requested (-e).  */
+<span class="lineNum">     399 </span>            : 
+<span class="lineNum">     400 </span><span class="lineNoCov">          0 :               if (show_ends)</span>
+<span class="lineNum">     401 </span><span class="lineNoCov">          0 :                 *bpout++ = '$';</span>
+<span class="lineNum">     402 </span>            : 
+<span class="lineNum">     403 </span>            :               /* Output the newline.  */
+<span class="lineNum">     404 </span>            : 
+<span class="lineNum">     405 </span><span class="lineNoCov">          0 :               *bpout++ = '\n';</span>
+<span class="lineNum">     406 </span>            :             }
+<span class="lineNum">     407 </span><span class="lineNoCov">          0 :           ch = *bpin++;</span>
+<span class="lineNum">     408 </span>            :         }
+<span class="lineNum">     409 </span><span class="lineNoCov">          0 :       while (ch == '\n');</span>
+<span class="lineNum">     410 </span>            : 
+<span class="lineNum">     411 </span>            :       /* Are we at the beginning of a line, and line numbers are requested?  */
+<span class="lineNum">     412 </span>            : 
+<span class="lineNum">     413 </span><span class="lineNoCov">          0 :       if (newlines &gt;= 0 &amp;&amp; number)</span>
+<span class="lineNum">     414 </span>            :         {
+<span class="lineNum">     415 </span><span class="lineNoCov">          0 :           next_line_num ();</span>
+<span class="lineNum">     416 </span><span class="lineNoCov">          0 :           bpout = stpcpy (bpout, line_num_print);</span>
+<span class="lineNum">     417 </span>            :         }
+<span class="lineNum">     418 </span>            : 
+<span class="lineNum">     419 </span>            :       /* Here CH cannot contain a newline character.  */
+<span class="lineNum">     420 </span>            : 
+<span class="lineNum">     421 </span>            :       /* The loops below continue until a newline character is found,
+<span class="lineNum">     422 </span>            :          which means that the buffer is empty or that a proper newline
+<span class="lineNum">     423 </span>            :          has been found.  */
+<span class="lineNum">     424 </span>            : 
+<span class="lineNum">     425 </span>            :       /* If quoting, i.e., at least one of -v, -e, or -t specified,
+<span class="lineNum">     426 </span>            :          scan for chars that need conversion.  */
+<span class="lineNum">     427 </span><span class="lineNoCov">          0 :       if (show_nonprinting)</span>
+<span class="lineNum">     428 </span>            :         {
+<span class="lineNum">     429 </span>            :           while (true)
+<span class="lineNum">     430 </span>            :             {
+<span class="lineNum">     431 </span><span class="lineNoCov">          0 :               if (ch &gt;= 32)</span>
+<span class="lineNum">     432 </span>            :                 {
+<span class="lineNum">     433 </span><span class="lineNoCov">          0 :                   if (ch &lt; 127)</span>
+<span class="lineNum">     434 </span><span class="lineNoCov">          0 :                     *bpout++ = ch;</span>
+<span class="lineNum">     435 </span><span class="lineNoCov">          0 :                   else if (ch == 127)</span>
+<span class="lineNum">     436 </span>            :                     {
+<span class="lineNum">     437 </span><span class="lineNoCov">          0 :                       *bpout++ = '^';</span>
+<span class="lineNum">     438 </span><span class="lineNoCov">          0 :                       *bpout++ = '?';</span>
+<span class="lineNum">     439 </span>            :                     }
+<span class="lineNum">     440 </span>            :                   else
+<span class="lineNum">     441 </span>            :                     {
+<span class="lineNum">     442 </span><span class="lineNoCov">          0 :                       *bpout++ = 'M';</span>
+<span class="lineNum">     443 </span><span class="lineNoCov">          0 :                       *bpout++ = '-';</span>
+<span class="lineNum">     444 </span><span class="lineNoCov">          0 :                       if (ch &gt;= 128 + 32)</span>
+<span class="lineNum">     445 </span>            :                         {
+<span class="lineNum">     446 </span><span class="lineNoCov">          0 :                           if (ch &lt; 128 + 127)</span>
+<span class="lineNum">     447 </span><span class="lineNoCov">          0 :                             *bpout++ = ch - 128;</span>
+<span class="lineNum">     448 </span>            :                           else
+<span class="lineNum">     449 </span>            :                             {
+<span class="lineNum">     450 </span><span class="lineNoCov">          0 :                               *bpout++ = '^';</span>
+<span class="lineNum">     451 </span><span class="lineNoCov">          0 :                               *bpout++ = '?';</span>
+<span class="lineNum">     452 </span>            :                             }
+<span class="lineNum">     453 </span>            :                         }
+<span class="lineNum">     454 </span>            :                       else
+<span class="lineNum">     455 </span>            :                         {
+<span class="lineNum">     456 </span><span class="lineNoCov">          0 :                           *bpout++ = '^';</span>
+<span class="lineNum">     457 </span><span class="lineNoCov">          0 :                           *bpout++ = ch - 128 + 64;</span>
+<span class="lineNum">     458 </span>            :                         }
+<span class="lineNum">     459 </span>            :                     }
+<span class="lineNum">     460 </span>            :                 }
+<span class="lineNum">     461 </span><span class="lineNoCov">          0 :               else if (ch == '\t' &amp;&amp; !show_tabs)</span>
+<span class="lineNum">     462 </span><span class="lineNoCov">          0 :                 *bpout++ = '\t';</span>
+<span class="lineNum">     463 </span><span class="lineNoCov">          0 :               else if (ch == '\n')</span>
+<span class="lineNum">     464 </span>            :                 {
+<span class="lineNum">     465 </span>            :                   newlines = -1;
+<span class="lineNum">     466 </span>            :                   break;
+<span class="lineNum">     467 </span>            :                 }
+<span class="lineNum">     468 </span>            :               else
+<span class="lineNum">     469 </span>            :                 {
+<span class="lineNum">     470 </span><span class="lineNoCov">          0 :                   *bpout++ = '^';</span>
+<span class="lineNum">     471 </span><span class="lineNoCov">          0 :                   *bpout++ = ch + 64;</span>
+<span class="lineNum">     472 </span>            :                 }
+<span class="lineNum">     473 </span>            : 
+<span class="lineNum">     474 </span><span class="lineNoCov">          0 :               ch = *bpin++;</span>
+<span class="lineNum">     475 </span><span class="lineNoCov">          0 :             }</span>
+<span class="lineNum">     476 </span>            :         }
+<span class="lineNum">     477 </span>            :       else
+<span class="lineNum">     478 </span>            :         {
+<span class="lineNum">     479 </span>            :           /* Not quoting, neither of -v, -e, or -t specified.  */
+<span class="lineNum">     480 </span>            :           while (true)
+<span class="lineNum">     481 </span>            :             {
+<span class="lineNum">     482 </span><span class="lineNoCov">          0 :               if (ch == '\t' &amp;&amp; show_tabs)</span>
+<span class="lineNum">     483 </span>            :                 {
+<span class="lineNum">     484 </span><span class="lineNoCov">          0 :                   *bpout++ = '^';</span>
+<span class="lineNum">     485 </span><span class="lineNoCov">          0 :                   *bpout++ = ch + 64;</span>
+<span class="lineNum">     486 </span>            :                 }
+<span class="lineNum">     487 </span><span class="lineNoCov">          0 :               else if (ch != '\n')</span>
+<span class="lineNum">     488 </span><span class="lineNoCov">          0 :                 *bpout++ = ch;</span>
+<span class="lineNum">     489 </span>            :               else
+<span class="lineNum">     490 </span>            :                 {
+<span class="lineNum">     491 </span>            :                   newlines = -1;
+<span class="lineNum">     492 </span>            :                   break;
+<span class="lineNum">     493 </span>            :                 }
+<span class="lineNum">     494 </span>            : 
+<span class="lineNum">     495 </span><span class="lineNoCov">          0 :               ch = *bpin++;</span>
+<span class="lineNum">     496 </span><span class="lineNoCov">          0 :             }</span>
+<span class="lineNum">     497 </span>            :         }
+<span class="lineNum">     498 </span>            :     }
+<span class="lineNum">     499 </span>            : }
+<a name="500"><span class="lineNum">     500 </span>            : </a>
+<span class="lineNum">     501 </span>            : int
+<span class="lineNum">     502 </span><span class="lineNoCov">          0 : main (int argc, char **argv)</span>
+<span class="lineNum">     503 </span>            : {
+<span class="lineNum">     504 </span>            :   /* Optimal size of i/o operations of output.  */
+<span class="lineNum">     505 </span>            :   size_t outsize;
+<span class="lineNum">     506 </span>            : 
+<span class="lineNum">     507 </span>            :   /* Optimal size of i/o operations of input.  */
+<span class="lineNum">     508 </span>            :   size_t insize;
+<span class="lineNum">     509 </span>            : 
+<span class="lineNum">     510 </span><span class="lineNoCov">          0 :   size_t page_size = getpagesize ();</span>
+<span class="lineNum">     511 </span>            : 
+<span class="lineNum">     512 </span>            :   /* Pointer to the input buffer.  */
+<span class="lineNum">     513 </span>            :   char *inbuf;
+<span class="lineNum">     514 </span>            : 
+<span class="lineNum">     515 </span>            :   /* Pointer to the output buffer.  */
+<span class="lineNum">     516 </span>            :   char *outbuf;
+<span class="lineNum">     517 </span>            : 
+<span class="lineNum">     518 </span><span class="lineNoCov">          0 :   bool ok = true;</span>
+<span class="lineNum">     519 </span>            :   int c;
+<span class="lineNum">     520 </span>            : 
+<span class="lineNum">     521 </span>            :   /* Index in argv to processed argument.  */
+<span class="lineNum">     522 </span>            :   int argind;
+<span class="lineNum">     523 </span>            : 
+<span class="lineNum">     524 </span>            :   /* Device number of the output (file or whatever).  */
+<span class="lineNum">     525 </span>            :   dev_t out_dev;
+<span class="lineNum">     526 </span>            : 
+<span class="lineNum">     527 </span>            :   /* I-node number of the output.  */
+<span class="lineNum">     528 </span>            :   ino_t out_ino;
+<span class="lineNum">     529 </span>            : 
+<span class="lineNum">     530 </span>            :   /* True if the output is a regular file.  */
+<span class="lineNum">     531 </span>            :   bool out_isreg;
+<span class="lineNum">     532 </span>            : 
+<span class="lineNum">     533 </span>            :   /* Nonzero if we have ever read standard input.  */
+<span class="lineNum">     534 </span><span class="lineNoCov">          0 :   bool have_read_stdin = false;</span>
+<span class="lineNum">     535 </span>            : 
+<span class="lineNum">     536 </span>            :   struct stat stat_buf;
+<span class="lineNum">     537 </span>            : 
+<span class="lineNum">     538 </span>            :   /* Variables that are set according to the specified options.  */
+<span class="lineNum">     539 </span><span class="lineNoCov">          0 :   bool number = false;</span>
+<span class="lineNum">     540 </span><span class="lineNoCov">          0 :   bool number_nonblank = false;</span>
+<span class="lineNum">     541 </span><span class="lineNoCov">          0 :   bool squeeze_blank = false;</span>
+<span class="lineNum">     542 </span><span class="lineNoCov">          0 :   bool show_ends = false;</span>
+<span class="lineNum">     543 </span><span class="lineNoCov">          0 :   bool show_nonprinting = false;</span>
+<span class="lineNum">     544 </span><span class="lineNoCov">          0 :   bool show_tabs = false;</span>
+<span class="lineNum">     545 </span><span class="lineNoCov">          0 :   int file_open_mode = O_RDONLY;</span>
+<span class="lineNum">     546 </span>            : 
+<span class="lineNum">     547 </span>            :   static struct option const long_options[] =
+<span class="lineNum">     548 </span>            :   {
+<span class="lineNum">     549 </span>            :     {&quot;number-nonblank&quot;, no_argument, NULL, 'b'},
+<span class="lineNum">     550 </span>            :     {&quot;number&quot;, no_argument, NULL, 'n'},
+<span class="lineNum">     551 </span>            :     {&quot;squeeze-blank&quot;, no_argument, NULL, 's'},
+<span class="lineNum">     552 </span>            :     {&quot;show-nonprinting&quot;, no_argument, NULL, 'v'},
+<span class="lineNum">     553 </span>            :     {&quot;show-ends&quot;, no_argument, NULL, 'E'},
+<span class="lineNum">     554 </span>            :     {&quot;show-tabs&quot;, no_argument, NULL, 'T'},
+<span class="lineNum">     555 </span>            :     {&quot;show-all&quot;, no_argument, NULL, 'A'},
+<span class="lineNum">     556 </span>            :     {GETOPT_HELP_OPTION_DECL},
+<span class="lineNum">     557 </span>            :     {GETOPT_VERSION_OPTION_DECL},
+<span class="lineNum">     558 </span>            :     {NULL, 0, NULL, 0}
+<span class="lineNum">     559 </span>            :   };
+<span class="lineNum">     560 </span>            : 
+<span class="lineNum">     561 </span>            :   initialize_main (&amp;argc, &amp;argv);
+<span class="lineNum">     562 </span><span class="lineNoCov">          0 :   set_program_name (argv[0]);</span>
+<span class="lineNum">     563 </span><span class="lineNoCov">          0 :   setlocale (LC_ALL, &quot;&quot;);</span>
+<span class="lineNum">     564 </span><span class="lineNoCov">          0 :   bindtextdomain (PACKAGE, LOCALEDIR);</span>
+<span class="lineNum">     565 </span><span class="lineNoCov">          0 :   textdomain (PACKAGE);</span>
+<span class="lineNum">     566 </span>            : 
+<span class="lineNum">     567 </span>            :   /* Arrange to close stdout if we exit via the
+<span class="lineNum">     568 </span>            :      case_GETOPT_HELP_CHAR or case_GETOPT_VERSION_CHAR code.
+<span class="lineNum">     569 </span>            :      Normally STDOUT_FILENO is used rather than stdout, so
+<span class="lineNum">     570 </span>            :      close_stdout does nothing.  */
+<span class="lineNum">     571 </span><span class="lineNoCov">          0 :   atexit (close_stdout);</span>
+<span class="lineNum">     572 </span>            : 
+<span class="lineNum">     573 </span>            :   /* Parse command line options.  */
+<span class="lineNum">     574 </span>            : 
+<span class="lineNum">     575 </span><span class="lineNoCov">          0 :   while ((c = getopt_long (argc, argv, &quot;benstuvAET&quot;, long_options, NULL))</span>
+<span class="lineNum">     576 </span>            :          != -1)
+<span class="lineNum">     577 </span>            :     {
+<span class="lineNum">     578 </span><span class="lineNoCov">          0 :       switch (c)</span>
+<span class="lineNum">     579 </span>            :         {
+<span class="lineNum">     580 </span>            :         case 'b':
+<span class="lineNum">     581 </span><span class="lineNoCov">          0 :           number = true;</span>
+<span class="lineNum">     582 </span><span class="lineNoCov">          0 :           number_nonblank = true;</span>
+<span class="lineNum">     583 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     584 </span>            : 
+<span class="lineNum">     585 </span>            :         case 'e':
+<span class="lineNum">     586 </span><span class="lineNoCov">          0 :           show_ends = true;</span>
+<span class="lineNum">     587 </span><span class="lineNoCov">          0 :           show_nonprinting = true;</span>
+<span class="lineNum">     588 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     589 </span>            : 
+<span class="lineNum">     590 </span>            :         case 'n':
+<span class="lineNum">     591 </span><span class="lineNoCov">          0 :           number = true;</span>
+<span class="lineNum">     592 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     593 </span>            : 
+<span class="lineNum">     594 </span>            :         case 's':
+<span class="lineNum">     595 </span><span class="lineNoCov">          0 :           squeeze_blank = true;</span>
+<span class="lineNum">     596 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     597 </span>            : 
+<span class="lineNum">     598 </span>            :         case 't':
+<span class="lineNum">     599 </span><span class="lineNoCov">          0 :           show_tabs = true;</span>
+<span class="lineNum">     600 </span><span class="lineNoCov">          0 :           show_nonprinting = true;</span>
+<span class="lineNum">     601 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     602 </span>            : 
+<span class="lineNum">     603 </span>            :         case 'u':
+<span class="lineNum">     604 </span>            :           /* We provide the -u feature unconditionally.  */
+<span class="lineNum">     605 </span>            :           break;
+<span class="lineNum">     606 </span>            : 
+<span class="lineNum">     607 </span>            :         case 'v':
+<span class="lineNum">     608 </span><span class="lineNoCov">          0 :           show_nonprinting = true;</span>
+<span class="lineNum">     609 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     610 </span>            : 
+<span class="lineNum">     611 </span>            :         case 'A':
+<span class="lineNum">     612 </span><span class="lineNoCov">          0 :           show_nonprinting = true;</span>
+<span class="lineNum">     613 </span><span class="lineNoCov">          0 :           show_ends = true;</span>
+<span class="lineNum">     614 </span><span class="lineNoCov">          0 :           show_tabs = true;</span>
+<span class="lineNum">     615 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     616 </span>            : 
+<span class="lineNum">     617 </span>            :         case 'E':
+<span class="lineNum">     618 </span><span class="lineNoCov">          0 :           show_ends = true;</span>
+<span class="lineNum">     619 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     620 </span>            : 
+<span class="lineNum">     621 </span>            :         case 'T':
+<span class="lineNum">     622 </span><span class="lineNoCov">          0 :           show_tabs = true;</span>
+<span class="lineNum">     623 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     624 </span>            : 
+<span class="lineNum">     625 </span><span class="lineNoCov">          0 :         case_GETOPT_HELP_CHAR;</span>
+<span class="lineNum">     626 </span>            : 
+<span class="lineNum">     627 </span><span class="lineNoCov">          0 :         case_GETOPT_VERSION_CHAR (PROGRAM_NAME, AUTHORS);</span>
+<span class="lineNum">     628 </span>            : 
+<span class="lineNum">     629 </span>            :         default:
+<span class="lineNum">     630 </span><span class="lineNoCov">          0 :           usage (EXIT_FAILURE);</span>
+<span class="lineNum">     631 </span>            :         }
+<span class="lineNum">     632 </span>            :     }
+<span class="lineNum">     633 </span>            : 
+<span class="lineNum">     634 </span>            :   /* Get device, i-node number, and optimal blocksize of output.  */
+<span class="lineNum">     635 </span>            : 
+<span class="lineNum">     636 </span><span class="lineNoCov">          0 :   if (fstat (STDOUT_FILENO, &amp;stat_buf) &lt; 0)</span>
+<span class="lineNum">     637 </span><span class="lineNoCov">          0 :     error (EXIT_FAILURE, errno, _(&quot;standard output&quot;));</span>
+<span class="lineNum">     638 </span>            : 
+<span class="lineNum">     639 </span><span class="lineNoCov">          0 :   outsize = io_blksize (stat_buf);</span>
+<span class="lineNum">     640 </span><span class="lineNoCov">          0 :   out_dev = stat_buf.st_dev;</span>
+<span class="lineNum">     641 </span><span class="lineNoCov">          0 :   out_ino = stat_buf.st_ino;</span>
+<span class="lineNum">     642 </span><span class="lineNoCov">          0 :   out_isreg = S_ISREG (stat_buf.st_mode) != 0;</span>
+<span class="lineNum">     643 </span>            : 
+<span class="lineNum">     644 </span><span class="lineNoCov">          0 :   if (! (number || show_ends || squeeze_blank))</span>
+<span class="lineNum">     645 </span>            :     {
+<span class="lineNum">     646 </span>            :       file_open_mode |= O_BINARY;
+<span class="lineNum">     647 </span>            :       if (O_BINARY &amp;&amp; ! isatty (STDOUT_FILENO))
+<span class="lineNum">     648 </span>            :         xfreopen (NULL, &quot;wb&quot;, stdout);
+<span class="lineNum">     649 </span>            :     }
+<span class="lineNum">     650 </span>            : 
+<span class="lineNum">     651 </span>            :   /* Check if any of the input files are the same as the output file.  */
+<span class="lineNum">     652 </span>            : 
+<span class="lineNum">     653 </span>            :   /* Main loop.  */
+<span class="lineNum">     654 </span>            : 
+<span class="lineNum">     655 </span><span class="lineNoCov">          0 :   infile = &quot;-&quot;;</span>
+<span class="lineNum">     656 </span><span class="lineNoCov">          0 :   argind = optind;</span>
+<span class="lineNum">     657 </span>            : 
+<span class="lineNum">     658 </span>            :   do
+<span class="lineNum">     659 </span>            :     {
+<span class="lineNum">     660 </span><span class="lineNoCov">          0 :       if (argind &lt; argc)</span>
+<span class="lineNum">     661 </span><span class="lineNoCov">          0 :         infile = argv[argind];</span>
+<span class="lineNum">     662 </span>            : 
+<span class="lineNum">     663 </span><span class="lineNoCov">          0 :       if (STREQ (infile, &quot;-&quot;))</span>
+<span class="lineNum">     664 </span>            :         {
+<span class="lineNum">     665 </span><span class="lineNoCov">          0 :           have_read_stdin = true;</span>
+<span class="lineNum">     666 </span><span class="lineNoCov">          0 :           input_desc = STDIN_FILENO;</span>
+<span class="lineNum">     667 </span>            :           if ((file_open_mode &amp; O_BINARY) &amp;&amp; ! isatty (STDIN_FILENO))
+<span class="lineNum">     668 </span>            :             xfreopen (NULL, &quot;rb&quot;, stdin);
+<span class="lineNum">     669 </span>            :         }
+<span class="lineNum">     670 </span>            :       else
+<span class="lineNum">     671 </span>            :         {
+<span class="lineNum">     672 </span><span class="lineNoCov">          0 :           input_desc = open (infile, file_open_mode);</span>
+<span class="lineNum">     673 </span><span class="lineNoCov">          0 :           if (input_desc &lt; 0)</span>
+<span class="lineNum">     674 </span>            :             {
+<span class="lineNum">     675 </span><span class="lineNoCov">          0 :               error (0, errno, &quot;%s&quot;, quotef (infile));</span>
+<span class="lineNum">     676 </span><span class="lineNoCov">          0 :               ok = false;</span>
+<span class="lineNum">     677 </span><span class="lineNoCov">          0 :               continue;</span>
+<span class="lineNum">     678 </span>            :             }
+<span class="lineNum">     679 </span>            :         }
+<span class="lineNum">     680 </span>            : 
+<span class="lineNum">     681 </span><span class="lineNoCov">          0 :       if (fstat (input_desc, &amp;stat_buf) &lt; 0)</span>
+<span class="lineNum">     682 </span>            :         {
+<span class="lineNum">     683 </span><span class="lineNoCov">          0 :           error (0, errno, &quot;%s&quot;, quotef (infile));</span>
+<span class="lineNum">     684 </span><span class="lineNoCov">          0 :           ok = false;</span>
+<span class="lineNum">     685 </span><span class="lineNoCov">          0 :           goto contin;</span>
+<span class="lineNum">     686 </span>            :         }
+<span class="lineNum">     687 </span><span class="lineNoCov">          0 :       insize = io_blksize (stat_buf);</span>
+<span class="lineNum">     688 </span>            : 
+<span class="lineNum">     689 </span><span class="lineNoCov">          0 :       fdadvise (input_desc, 0, 0, FADVISE_SEQUENTIAL);</span>
+<span class="lineNum">     690 </span>            : 
+<span class="lineNum">     691 </span>            :       /* Don't copy a nonempty regular file to itself, as that would
+<span class="lineNum">     692 </span>            :          merely exhaust the output device.  It's better to catch this
+<span class="lineNum">     693 </span>            :          error earlier rather than later.  */
+<span class="lineNum">     694 </span>            : 
+<span class="lineNum">     695 </span><span class="lineNoCov">          0 :       if (out_isreg</span>
+<span class="lineNum">     696 </span><span class="lineNoCov">          0 :           &amp;&amp; stat_buf.st_dev == out_dev &amp;&amp; stat_buf.st_ino == out_ino</span>
+<span class="lineNum">     697 </span><span class="lineNoCov">          0 :           &amp;&amp; lseek (input_desc, 0, SEEK_CUR) &lt; stat_buf.st_size)</span>
+<span class="lineNum">     698 </span>            :         {
+<span class="lineNum">     699 </span><span class="lineNoCov">          0 :           error (0, 0, _(&quot;%s: input file is output file&quot;), quotef (infile));</span>
+<span class="lineNum">     700 </span><span class="lineNoCov">          0 :           ok = false;</span>
+<span class="lineNum">     701 </span><span class="lineNoCov">          0 :           goto contin;</span>
+<span class="lineNum">     702 </span>            :         }
+<span class="lineNum">     703 </span>            : 
+<span class="lineNum">     704 </span>            :       /* Select which version of 'cat' to use.  If any format-oriented
+<span class="lineNum">     705 </span>            :          options were given use 'cat'; otherwise use 'simple_cat'.  */
+<span class="lineNum">     706 </span>            : 
+<span class="lineNum">     707 </span><span class="lineNoCov">          0 :       if (! (number || show_ends || show_nonprinting</span>
+<span class="lineNum">     708 </span><span class="lineNoCov">          0 :              || show_tabs || squeeze_blank))</span>
+<span class="lineNum">     709 </span>            :         {
+<span class="lineNum">     710 </span><span class="lineNoCov">          0 :           insize = MAX (insize, outsize);</span>
+<span class="lineNum">     711 </span><span class="lineNoCov">          0 :           inbuf = xmalloc (insize + page_size - 1);</span>
+<span class="lineNum">     712 </span>            : 
+<span class="lineNum">     713 </span><span class="lineNoCov">          0 :           ok &amp;= simple_cat (ptr_align (inbuf, page_size), insize);</span>
+<span class="lineNum">     714 </span>            :         }
+<span class="lineNum">     715 </span>            :       else
+<span class="lineNum">     716 </span>            :         {
+<span class="lineNum">     717 </span><span class="lineNoCov">          0 :           inbuf = xmalloc (insize + 1 + page_size - 1);</span>
+<span class="lineNum">     718 </span>            : 
+<span class="lineNum">     719 </span>            :           /* Why are
+<span class="lineNum">     720 </span>            :              (OUTSIZE - 1 + INSIZE * 4 + LINE_COUNTER_BUF_LEN + PAGE_SIZE - 1)
+<span class="lineNum">     721 </span>            :              bytes allocated for the output buffer?
+<span class="lineNum">     722 </span>            : 
+<span class="lineNum">     723 </span>            :              A test whether output needs to be written is done when the input
+<span class="lineNum">     724 </span>            :              buffer empties or when a newline appears in the input.  After
+<span class="lineNum">     725 </span>            :              output is written, at most (OUTSIZE - 1) bytes will remain in the
+<span class="lineNum">     726 </span>            :              buffer.  Now INSIZE bytes of input is read.  Each input character
+<span class="lineNum">     727 </span>            :              may grow by a factor of 4 (by the prepending of M-^).  If all
+<span class="lineNum">     728 </span>            :              characters do, and no newlines appear in this block of input, we
+<span class="lineNum">     729 </span>            :              will have at most (OUTSIZE - 1 + INSIZE * 4) bytes in the buffer.
+<span class="lineNum">     730 </span>            :              If the last character in the preceding block of input was a
+<span class="lineNum">     731 </span>            :              newline, a line number may be written (according to the given
+<span class="lineNum">     732 </span>            :              options) as the first thing in the output buffer. (Done after the
+<span class="lineNum">     733 </span>            :              new input is read, but before processing of the input begins.)
+<span class="lineNum">     734 </span>            :              A line number requires seldom more than LINE_COUNTER_BUF_LEN
+<span class="lineNum">     735 </span>            :              positions.
+<span class="lineNum">     736 </span>            : 
+<span class="lineNum">     737 </span>            :              Align the output buffer to a page size boundary, for efficiency
+<span class="lineNum">     738 </span>            :              on some paging implementations, so add PAGE_SIZE - 1 bytes to the
+<span class="lineNum">     739 </span>            :              request to make room for the alignment.  */
+<span class="lineNum">     740 </span>            : 
+<span class="lineNum">     741 </span><span class="lineNoCov">          0 :           outbuf = xmalloc (outsize - 1 + insize * 4 + LINE_COUNTER_BUF_LEN</span>
+<span class="lineNum">     742 </span><span class="lineNoCov">          0 :                             + page_size - 1);</span>
+<span class="lineNum">     743 </span>            : 
+<span class="lineNum">     744 </span><span class="lineNoCov">          0 :           ok &amp;= cat (ptr_align (inbuf, page_size), insize,</span>
+<span class="lineNum">     745 </span><span class="lineNoCov">          0 :                      ptr_align (outbuf, page_size), outsize, show_nonprinting,</span>
+<span class="lineNum">     746 </span>            :                      show_tabs, number, number_nonblank, show_ends,
+<span class="lineNum">     747 </span>            :                      squeeze_blank);
+<span class="lineNum">     748 </span>            : 
+<span class="lineNum">     749 </span><span class="lineNoCov">          0 :           free (outbuf);</span>
+<span class="lineNum">     750 </span>            :         }
+<span class="lineNum">     751 </span>            : 
+<span class="lineNum">     752 </span><span class="lineNoCov">          0 :       free (inbuf);</span>
+<span class="lineNum">     753 </span>            : 
+<span class="lineNum">     754 </span>            :     contin:
+<span class="lineNum">     755 </span><span class="lineNoCov">          0 :       if (!STREQ (infile, &quot;-&quot;) &amp;&amp; close (input_desc) &lt; 0)</span>
+<span class="lineNum">     756 </span>            :         {
+<span class="lineNum">     757 </span><span class="lineNoCov">          0 :           error (0, errno, &quot;%s&quot;, quotef (infile));</span>
+<span class="lineNum">     758 </span><span class="lineNoCov">          0 :           ok = false;</span>
+<span class="lineNum">     759 </span>            :         }
+<span class="lineNum">     760 </span>            :     }
+<span class="lineNum">     761 </span><span class="lineNoCov">          0 :   while (++argind &lt; argc);</span>
+<span class="lineNum">     762 </span>            : 
+<span class="lineNum">     763 </span><span class="lineNoCov">          0 :   if (have_read_stdin &amp;&amp; close (STDIN_FILENO) &lt; 0)</span>
+<span class="lineNum">     764 </span><span class="lineNoCov">          0 :     error (EXIT_FAILURE, errno, _(&quot;closing standard input&quot;));</span>
+<span class="lineNum">     765 </span>            : 
+<span class="lineNum">     766 </span><span class="lineNoCov">          0 :   return ok ? EXIT_SUCCESS : EXIT_FAILURE;</span>
+<span class="lineNum">     767 </span>            : }
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.12</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>

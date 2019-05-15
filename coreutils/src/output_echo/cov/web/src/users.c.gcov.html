@@ -1,0 +1,227 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - trace.lcov_info_final - src/users.c</title>
+  <link rel="stylesheet" type="text/css" href="../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">src</a> - users.c<span style="font-size: 80%;"> (source / <a href="users.c.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">trace.lcov_info_final</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">53</td>
+            <td class="headerCovTableEntryLo">0.0 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2019-04-22 20:19:38</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">5</td>
+            <td class="headerCovTableEntryLo">0.0 %</td>
+          </tr>
+          <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>            : /* GNU's users.</a>
+<span class="lineNum">       2 </span>            :    Copyright (C) 1992-2016 Free Software Foundation, Inc.
+<span class="lineNum">       3 </span>            : 
+<span class="lineNum">       4 </span>            :    This program is free software: you can redistribute it and/or modify
+<span class="lineNum">       5 </span>            :    it under the terms of the GNU General Public License as published by
+<span class="lineNum">       6 </span>            :    the Free Software Foundation, either version 3 of the License, or
+<span class="lineNum">       7 </span>            :    (at your option) any later version.
+<span class="lineNum">       8 </span>            : 
+<span class="lineNum">       9 </span>            :    This program is distributed in the hope that it will be useful,
+<span class="lineNum">      10 </span>            :    but WITHOUT ANY WARRANTY; without even the implied warranty of
+<span class="lineNum">      11 </span>            :    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+<span class="lineNum">      12 </span>            :    GNU General Public License for more details.
+<span class="lineNum">      13 </span>            : 
+<span class="lineNum">      14 </span>            :    You should have received a copy of the GNU General Public License
+<span class="lineNum">      15 </span>            :    along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.  */
+<span class="lineNum">      16 </span>            : 
+<span class="lineNum">      17 </span>            : /* Written by jla; revised by djm */
+<span class="lineNum">      18 </span>            : 
+<span class="lineNum">      19 </span>            : #include &lt;config.h&gt;
+<span class="lineNum">      20 </span>            : #include &lt;getopt.h&gt;
+<span class="lineNum">      21 </span>            : #include &lt;stdio.h&gt;
+<span class="lineNum">      22 </span>            : 
+<span class="lineNum">      23 </span>            : #include &lt;sys/types.h&gt;
+<span class="lineNum">      24 </span>            : #include &quot;system.h&quot;
+<span class="lineNum">      25 </span>            : 
+<span class="lineNum">      26 </span>            : #include &quot;error.h&quot;
+<span class="lineNum">      27 </span>            : #include &quot;long-options.h&quot;
+<span class="lineNum">      28 </span>            : #include &quot;quote.h&quot;
+<span class="lineNum">      29 </span>            : #include &quot;readutmp.h&quot;
+<span class="lineNum">      30 </span>            : 
+<span class="lineNum">      31 </span>            : /* The official name of this program (e.g., no 'g' prefix).  */
+<span class="lineNum">      32 </span>            : #define PROGRAM_NAME &quot;users&quot;
+<span class="lineNum">      33 </span>            : 
+<span class="lineNum">      34 </span>            : #define AUTHORS \
+<span class="lineNum">      35 </span>            :   proper_name (&quot;Joseph Arceneaux&quot;), \
+<span class="lineNum">      36 </span>            :   proper_name (&quot;David MacKenzie&quot;)
+<a name="37"><span class="lineNum">      37 </span>            : </a>
+<span class="lineNum">      38 </span>            : static int
+<span class="lineNum">      39 </span><span class="lineNoCov">          0 : userid_compare (const void *v_a, const void *v_b)</span>
+<span class="lineNum">      40 </span>            : {
+<span class="lineNum">      41 </span><span class="lineNoCov">          0 :   char **a = (char **) v_a;</span>
+<span class="lineNum">      42 </span><span class="lineNoCov">          0 :   char **b = (char **) v_b;</span>
+<span class="lineNum">      43 </span><span class="lineNoCov">          0 :   return strcmp (*a, *b);</span>
+<span class="lineNum">      44 </span>            : }
+<a name="45"><span class="lineNum">      45 </span>            : </a>
+<span class="lineNum">      46 </span>            : static void
+<span class="lineNum">      47 </span><span class="lineNoCov">          0 : list_entries_users (size_t n, const STRUCT_UTMP *this)</span>
+<span class="lineNum">      48 </span>            : {
+<span class="lineNum">      49 </span><span class="lineNoCov">          0 :   char **u = xnmalloc (n, sizeof *u);</span>
+<span class="lineNum">      50 </span>            :   size_t i;
+<span class="lineNum">      51 </span><span class="lineNoCov">          0 :   size_t n_entries = 0;</span>
+<span class="lineNum">      52 </span>            : 
+<span class="lineNum">      53 </span><span class="lineNoCov">          0 :   while (n--)</span>
+<span class="lineNum">      54 </span>            :     {
+<span class="lineNum">      55 </span><span class="lineNoCov">          0 :       if (IS_USER_PROCESS (this))</span>
+<span class="lineNum">      56 </span>            :         {
+<span class="lineNum">      57 </span>            :           char *trimmed_name;
+<span class="lineNum">      58 </span>            : 
+<span class="lineNum">      59 </span><span class="lineNoCov">          0 :           trimmed_name = extract_trimmed_name (this);</span>
+<span class="lineNum">      60 </span>            : 
+<span class="lineNum">      61 </span><span class="lineNoCov">          0 :           u[n_entries] = trimmed_name;</span>
+<span class="lineNum">      62 </span><span class="lineNoCov">          0 :           ++n_entries;</span>
+<span class="lineNum">      63 </span>            :         }
+<span class="lineNum">      64 </span><span class="lineNoCov">          0 :       this++;</span>
+<span class="lineNum">      65 </span>            :     }
+<span class="lineNum">      66 </span>            : 
+<span class="lineNum">      67 </span><span class="lineNoCov">          0 :   qsort (u, n_entries, sizeof (u[0]), userid_compare);</span>
+<span class="lineNum">      68 </span>            : 
+<span class="lineNum">      69 </span><span class="lineNoCov">          0 :   for (i = 0; i &lt; n_entries; i++)</span>
+<span class="lineNum">      70 </span>            :     {
+<span class="lineNum">      71 </span><span class="lineNoCov">          0 :       char c = (i &lt; n_entries - 1 ? ' ' : '\n');</span>
+<span class="lineNum">      72 </span><span class="lineNoCov">          0 :       fputs (u[i], stdout);</span>
+<span class="lineNum">      73 </span><span class="lineNoCov">          0 :       putchar (c);</span>
+<span class="lineNum">      74 </span>            :     }
+<span class="lineNum">      75 </span>            : 
+<span class="lineNum">      76 </span><span class="lineNoCov">          0 :   for (i = 0; i &lt; n_entries; i++)</span>
+<span class="lineNum">      77 </span><span class="lineNoCov">          0 :     free (u[i]);</span>
+<span class="lineNum">      78 </span><span class="lineNoCov">          0 :   free (u);</span>
+<span class="lineNum">      79 </span><span class="lineNoCov">          0 : }</span>
+<span class="lineNum">      80 </span>            : 
+<span class="lineNum">      81 </span>            : /* Display a list of users on the system, according to utmp file FILENAME.
+<span class="lineNum">      82 </span>            :    Use read_utmp OPTIONS to read FILENAME.  */
+<a name="83"><span class="lineNum">      83 </span>            : </a>
+<span class="lineNum">      84 </span>            : static void
+<span class="lineNum">      85 </span><span class="lineNoCov">          0 : users (const char *filename, int options)</span>
+<span class="lineNum">      86 </span>            : {
+<span class="lineNum">      87 </span>            :   size_t n_users;
+<span class="lineNum">      88 </span>            :   STRUCT_UTMP *utmp_buf;
+<span class="lineNum">      89 </span>            : 
+<span class="lineNum">      90 </span><span class="lineNoCov">          0 :   if (read_utmp (filename, &amp;n_users, &amp;utmp_buf, options) != 0)</span>
+<span class="lineNum">      91 </span><span class="lineNoCov">          0 :     error (EXIT_FAILURE, errno, &quot;%s&quot;, quotef (filename));</span>
+<span class="lineNum">      92 </span>            : 
+<span class="lineNum">      93 </span><span class="lineNoCov">          0 :   list_entries_users (n_users, utmp_buf);</span>
+<span class="lineNum">      94 </span>            : 
+<span class="lineNum">      95 </span><span class="lineNoCov">          0 :   free (utmp_buf);</span>
+<span class="lineNum">      96 </span><span class="lineNoCov">          0 : }</span>
+<a name="97"><span class="lineNum">      97 </span>            : </a>
+<span class="lineNum">      98 </span>            : void
+<span class="lineNum">      99 </span><span class="lineNoCov">          0 : usage (int status)</span>
+<span class="lineNum">     100 </span>            : {
+<span class="lineNum">     101 </span><span class="lineNoCov">          0 :   if (status != EXIT_SUCCESS)</span>
+<span class="lineNum">     102 </span><span class="lineNoCov">          0 :     emit_try_help ();</span>
+<span class="lineNum">     103 </span>            :   else
+<span class="lineNum">     104 </span>            :     {
+<span class="lineNum">     105 </span><span class="lineNoCov">          0 :       printf (_(&quot;Usage: %s [OPTION]... [FILE]\n&quot;), program_name);</span>
+<span class="lineNum">     106 </span><span class="lineNoCov">          0 :       printf (_(&quot;\</span>
+<span class="lineNum">     107 </span>            : Output who is currently logged in according to FILE.\n\
+<span class="lineNum">     108 </span>            : If FILE is not specified, use %s.  %s as FILE is common.\n\
+<span class="lineNum">     109 </span>            : \n\
+<span class="lineNum">     110 </span>            : &quot;),
+<span class="lineNum">     111 </span>            :               UTMP_FILE, WTMP_FILE);
+<span class="lineNum">     112 </span><span class="lineNoCov">          0 :       fputs (HELP_OPTION_DESCRIPTION, stdout);</span>
+<span class="lineNum">     113 </span><span class="lineNoCov">          0 :       fputs (VERSION_OPTION_DESCRIPTION, stdout);</span>
+<span class="lineNum">     114 </span><span class="lineNoCov">          0 :       emit_ancillary_info (PROGRAM_NAME);</span>
+<span class="lineNum">     115 </span>            :     }
+<span class="lineNum">     116 </span><span class="lineNoCov">          0 :   exit (status);</span>
+<span class="lineNum">     117 </span>            : }
+<a name="118"><span class="lineNum">     118 </span>            : </a>
+<span class="lineNum">     119 </span>            : int
+<span class="lineNum">     120 </span><span class="lineNoCov">          0 : main (int argc, char **argv)</span>
+<span class="lineNum">     121 </span>            : {
+<span class="lineNum">     122 </span>            :   initialize_main (&amp;argc, &amp;argv);
+<span class="lineNum">     123 </span><span class="lineNoCov">          0 :   set_program_name (argv[0]);</span>
+<span class="lineNum">     124 </span><span class="lineNoCov">          0 :   setlocale (LC_ALL, &quot;&quot;);</span>
+<span class="lineNum">     125 </span><span class="lineNoCov">          0 :   bindtextdomain (PACKAGE, LOCALEDIR);</span>
+<span class="lineNum">     126 </span><span class="lineNoCov">          0 :   textdomain (PACKAGE);</span>
+<span class="lineNum">     127 </span>            : 
+<span class="lineNum">     128 </span><span class="lineNoCov">          0 :   atexit (close_stdout);</span>
+<span class="lineNum">     129 </span>            : 
+<span class="lineNum">     130 </span><span class="lineNoCov">          0 :   parse_long_options (argc, argv, PROGRAM_NAME, PACKAGE_NAME, Version,</span>
+<span class="lineNum">     131 </span>            :                       usage, AUTHORS, (char const *) NULL);
+<span class="lineNum">     132 </span><span class="lineNoCov">          0 :   if (getopt_long (argc, argv, &quot;&quot;, NULL, NULL) != -1)</span>
+<span class="lineNum">     133 </span><span class="lineNoCov">          0 :     usage (EXIT_FAILURE);</span>
+<span class="lineNum">     134 </span>            : 
+<span class="lineNum">     135 </span><span class="lineNoCov">          0 :   switch (argc - optind)</span>
+<span class="lineNum">     136 </span>            :     {
+<span class="lineNum">     137 </span>            :     case 0:                     /* users */
+<span class="lineNum">     138 </span><span class="lineNoCov">          0 :       users (UTMP_FILE, READ_UTMP_CHECK_PIDS);</span>
+<span class="lineNum">     139 </span><span class="lineNoCov">          0 :       break;</span>
+<span class="lineNum">     140 </span>            : 
+<span class="lineNum">     141 </span>            :     case 1:                     /* users &lt;utmp file&gt; */
+<span class="lineNum">     142 </span><span class="lineNoCov">          0 :       users (argv[optind], 0);</span>
+<span class="lineNum">     143 </span><span class="lineNoCov">          0 :       break;</span>
+<span class="lineNum">     144 </span>            : 
+<span class="lineNum">     145 </span>            :     default:                    /* lose */
+<span class="lineNum">     146 </span><span class="lineNoCov">          0 :       error (0, 0, _(&quot;extra operand %s&quot;), quote (argv[optind + 1]));</span>
+<span class="lineNum">     147 </span><span class="lineNoCov">          0 :       usage (EXIT_FAILURE);</span>
+<span class="lineNum">     148 </span>            :     }
+<span class="lineNum">     149 </span>            : 
+<span class="lineNum">     150 </span>            :   return EXIT_SUCCESS;
+<span class="lineNum">     151 </span>            : }
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.12</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>

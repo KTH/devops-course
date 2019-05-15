@@ -1,0 +1,425 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - trace.lcov_info_final - src/mktemp.c</title>
+  <link rel="stylesheet" type="text/css" href="../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">src</a> - mktemp.c<span style="font-size: 80%;"> (source / <a href="mktemp.c.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">trace.lcov_info_final</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">125</td>
+            <td class="headerCovTableEntryLo">0.0 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2019-04-22 20:19:38</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">3</td>
+            <td class="headerCovTableEntryLo">0.0 %</td>
+          </tr>
+          <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>            : /* Create a temporary file or directory, safely.</a>
+<span class="lineNum">       2 </span>            :    Copyright (C) 2007-2016 Free Software Foundation, Inc.
+<span class="lineNum">       3 </span>            : 
+<span class="lineNum">       4 </span>            :    This program is free software: you can redistribute it and/or modify
+<span class="lineNum">       5 </span>            :    it under the terms of the GNU General Public License as published by
+<span class="lineNum">       6 </span>            :    the Free Software Foundation, either version 3 of the License, or
+<span class="lineNum">       7 </span>            :    (at your option) any later version.
+<span class="lineNum">       8 </span>            : 
+<span class="lineNum">       9 </span>            :    This program is distributed in the hope that it will be useful,
+<span class="lineNum">      10 </span>            :    but WITHOUT ANY WARRANTY; without even the implied warranty of
+<span class="lineNum">      11 </span>            :    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+<span class="lineNum">      12 </span>            :    GNU General Public License for more details.
+<span class="lineNum">      13 </span>            : 
+<span class="lineNum">      14 </span>            :    You should have received a copy of the GNU General Public License
+<span class="lineNum">      15 </span>            :    along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.  */
+<span class="lineNum">      16 </span>            : 
+<span class="lineNum">      17 </span>            : /* Written by Jim Meyering and Eric Blake.  */
+<span class="lineNum">      18 </span>            : 
+<span class="lineNum">      19 </span>            : #include &lt;config.h&gt;
+<span class="lineNum">      20 </span>            : #include &lt;sys/types.h&gt;
+<span class="lineNum">      21 </span>            : #include &lt;getopt.h&gt;
+<span class="lineNum">      22 </span>            : 
+<span class="lineNum">      23 </span>            : #include &quot;system.h&quot;
+<span class="lineNum">      24 </span>            : 
+<span class="lineNum">      25 </span>            : #include &quot;close-stream.h&quot;
+<span class="lineNum">      26 </span>            : #include &quot;error.h&quot;
+<span class="lineNum">      27 </span>            : #include &quot;filenamecat.h&quot;
+<span class="lineNum">      28 </span>            : #include &quot;quote.h&quot;
+<span class="lineNum">      29 </span>            : #include &quot;tempname.h&quot;
+<span class="lineNum">      30 </span>            : 
+<span class="lineNum">      31 </span>            : /* The official name of this program (e.g., no 'g' prefix).  */
+<span class="lineNum">      32 </span>            : #define PROGRAM_NAME &quot;mktemp&quot;
+<span class="lineNum">      33 </span>            : 
+<span class="lineNum">      34 </span>            : #define AUTHORS \
+<span class="lineNum">      35 </span>            :   proper_name (&quot;Jim Meyering&quot;), \
+<span class="lineNum">      36 </span>            :   proper_name (&quot;Eric Blake&quot;)
+<span class="lineNum">      37 </span>            : 
+<span class="lineNum">      38 </span>            : static const char *default_template = &quot;tmp.XXXXXXXXXX&quot;;
+<span class="lineNum">      39 </span>            : 
+<span class="lineNum">      40 </span>            : /* For long options that have no equivalent short option, use a
+<span class="lineNum">      41 </span>            :    non-character as a pseudo short option, starting with CHAR_MAX + 1.  */
+<span class="lineNum">      42 </span>            : enum
+<span class="lineNum">      43 </span>            : {
+<span class="lineNum">      44 </span>            :   SUFFIX_OPTION = CHAR_MAX + 1,
+<span class="lineNum">      45 </span>            : };
+<span class="lineNum">      46 </span>            : 
+<span class="lineNum">      47 </span>            : static struct option const longopts[] =
+<span class="lineNum">      48 </span>            : {
+<span class="lineNum">      49 </span>            :   {&quot;directory&quot;, no_argument, NULL, 'd'},
+<span class="lineNum">      50 </span>            :   {&quot;quiet&quot;, no_argument, NULL, 'q'},
+<span class="lineNum">      51 </span>            :   {&quot;dry-run&quot;, no_argument, NULL, 'u'},
+<span class="lineNum">      52 </span>            :   {&quot;suffix&quot;, required_argument, NULL, SUFFIX_OPTION},
+<span class="lineNum">      53 </span>            :   {&quot;tmpdir&quot;, optional_argument, NULL, 'p'},
+<span class="lineNum">      54 </span>            :   {GETOPT_HELP_OPTION_DECL},
+<span class="lineNum">      55 </span>            :   {GETOPT_VERSION_OPTION_DECL},
+<span class="lineNum">      56 </span>            :   {NULL, 0, NULL, 0}
+<span class="lineNum">      57 </span>            : };
+<a name="58"><span class="lineNum">      58 </span>            : </a>
+<span class="lineNum">      59 </span>            : void
+<span class="lineNum">      60 </span><span class="lineNoCov">          0 : usage (int status)</span>
+<span class="lineNum">      61 </span>            : {
+<span class="lineNum">      62 </span><span class="lineNoCov">          0 :   if (status != EXIT_SUCCESS)</span>
+<span class="lineNum">      63 </span><span class="lineNoCov">          0 :     emit_try_help ();</span>
+<span class="lineNum">      64 </span>            :   else
+<span class="lineNum">      65 </span>            :     {
+<span class="lineNum">      66 </span><span class="lineNoCov">          0 :       printf (_(&quot;Usage: %s [OPTION]... [TEMPLATE]\n&quot;), program_name);</span>
+<span class="lineNum">      67 </span><span class="lineNoCov">          0 :       fputs (_(&quot;\</span>
+<span class="lineNum">      68 </span>            : Create a temporary file or directory, safely, and print its name.\n\
+<span class="lineNum">      69 </span>            : TEMPLATE must contain at least 3 consecutive 'X's in last component.\n\
+<span class="lineNum">      70 </span>            : If TEMPLATE is not specified, use tmp.XXXXXXXXXX, and --tmpdir is implied.\n\
+<span class="lineNum">      71 </span>            : &quot;), stdout);
+<span class="lineNum">      72 </span><span class="lineNoCov">          0 :       fputs (_(&quot;\</span>
+<span class="lineNum">      73 </span>            : Files are created u+rw, and directories u+rwx, minus umask restrictions.\n\
+<span class="lineNum">      74 </span>            : &quot;), stdout);
+<span class="lineNum">      75 </span><span class="lineNoCov">          0 :       fputs (&quot;\n&quot;, stdout);</span>
+<span class="lineNum">      76 </span><span class="lineNoCov">          0 :       fputs (_(&quot;\</span>
+<span class="lineNum">      77 </span>            :   -d, --directory     create a directory, not a file\n\
+<span class="lineNum">      78 </span>            :   -u, --dry-run       do not create anything; merely print a name (unsafe)\n\
+<span class="lineNum">      79 </span>            :   -q, --quiet         suppress diagnostics about file/dir-creation failure\n\
+<span class="lineNum">      80 </span>            : &quot;), stdout);
+<span class="lineNum">      81 </span><span class="lineNoCov">          0 :       fputs (_(&quot;\</span>
+<span class="lineNum">      82 </span>            :       --suffix=SUFF   append SUFF to TEMPLATE; SUFF must not contain a slash.\n\
+<span class="lineNum">      83 </span>            :                         This option is implied if TEMPLATE does not end in X\n\
+<span class="lineNum">      84 </span>            : &quot;), stdout);
+<span class="lineNum">      85 </span><span class="lineNoCov">          0 :       fputs (_(&quot;\</span>
+<span class="lineNum">      86 </span>            :   -p DIR, --tmpdir[=DIR]  interpret TEMPLATE relative to DIR; if DIR is not\n\
+<span class="lineNum">      87 </span>            :                         specified, use $TMPDIR if set, else /tmp.  With\n\
+<span class="lineNum">      88 </span>            :                         this option, TEMPLATE must not be an absolute name;\n\
+<span class="lineNum">      89 </span>            :                         unlike with -t, TEMPLATE may contain slashes, but\n\
+<span class="lineNum">      90 </span>            :                         mktemp creates only the final component\n\
+<span class="lineNum">      91 </span>            : &quot;), stdout);
+<span class="lineNum">      92 </span><span class="lineNoCov">          0 :       fputs (_(&quot;\</span>
+<span class="lineNum">      93 </span>            :   -t                  interpret TEMPLATE as a single file name component,\n\
+<span class="lineNum">      94 </span>            :                         relative to a directory: $TMPDIR, if set; else the\n\
+<span class="lineNum">      95 </span>            :                         directory specified via -p; else /tmp [deprecated]\n\
+<span class="lineNum">      96 </span>            : &quot;), stdout);
+<span class="lineNum">      97 </span><span class="lineNoCov">          0 :       fputs (HELP_OPTION_DESCRIPTION, stdout);</span>
+<span class="lineNum">      98 </span><span class="lineNoCov">          0 :       fputs (VERSION_OPTION_DESCRIPTION, stdout);</span>
+<span class="lineNum">      99 </span><span class="lineNoCov">          0 :       emit_ancillary_info (PROGRAM_NAME);</span>
+<span class="lineNum">     100 </span>            :     }
+<span class="lineNum">     101 </span>            : 
+<span class="lineNum">     102 </span><span class="lineNoCov">          0 :   exit (status);</span>
+<span class="lineNum">     103 </span>            : }
+<span class="lineNum">     104 </span>            : 
+<span class="lineNum">     105 </span>            : static size_t
+<span class="lineNum">     106 </span>            : count_consecutive_X_s (const char *s, size_t len)
+<span class="lineNum">     107 </span>            : {
+<span class="lineNum">     108 </span><span class="lineNoCov">          0 :   size_t n = 0;</span>
+<span class="lineNum">     109 </span><span class="lineNoCov">          0 :   for ( ; len &amp;&amp; s[len-1] == 'X'; len--)</span>
+<span class="lineNum">     110 </span><span class="lineNoCov">          0 :     ++n;</span>
+<span class="lineNum">     111 </span>            :   return n;
+<span class="lineNum">     112 </span>            : }
+<span class="lineNum">     113 </span>            : 
+<span class="lineNum">     114 </span>            : static int
+<span class="lineNum">     115 </span>            : mkstemp_len (char *tmpl, size_t suff_len, size_t x_len, bool dry_run)
+<span class="lineNum">     116 </span>            : {
+<span class="lineNum">     117 </span><span class="lineNoCov">          0 :   return gen_tempname_len (tmpl, suff_len, 0, dry_run ? GT_NOCREATE : GT_FILE,</span>
+<span class="lineNum">     118 </span>            :                            x_len);
+<span class="lineNum">     119 </span>            : }
+<span class="lineNum">     120 </span>            : 
+<span class="lineNum">     121 </span>            : static int
+<span class="lineNum">     122 </span>            : mkdtemp_len (char *tmpl, size_t suff_len, size_t x_len, bool dry_run)
+<span class="lineNum">     123 </span>            : {
+<span class="lineNum">     124 </span><span class="lineNoCov">          0 :   return gen_tempname_len (tmpl, suff_len, 0, dry_run ? GT_NOCREATE : GT_DIR,</span>
+<span class="lineNum">     125 </span>            :                            x_len);
+<span class="lineNum">     126 </span>            : }
+<span class="lineNum">     127 </span>            : 
+<span class="lineNum">     128 </span>            : /* True if we have already closed standard output.  */
+<span class="lineNum">     129 </span>            : static bool stdout_closed;
+<span class="lineNum">     130 </span>            : 
+<span class="lineNum">     131 </span>            : /* Avoid closing stdout twice.  Since we conditionally call
+<span class="lineNum">     132 </span>            :    close_stream (stdout) in order to decide whether to clean up a
+<span class="lineNum">     133 </span>            :    temporary file, the exit hook needs to know whether to do all of
+<a name="134"><span class="lineNum">     134 </span>            :    close_stdout or just the stderr half.  */</a>
+<span class="lineNum">     135 </span>            : static void
+<span class="lineNum">     136 </span><span class="lineNoCov">          0 : maybe_close_stdout (void)</span>
+<span class="lineNum">     137 </span>            : {
+<span class="lineNum">     138 </span><span class="lineNoCov">          0 :   if (!stdout_closed)</span>
+<span class="lineNum">     139 </span><span class="lineNoCov">          0 :     close_stdout ();</span>
+<span class="lineNum">     140 </span><span class="lineNoCov">          0 :   else if (close_stream (stderr) != 0)</span>
+<span class="lineNum">     141 </span><span class="lineNoCov">          0 :     _exit (EXIT_FAILURE);</span>
+<span class="lineNum">     142 </span><span class="lineNoCov">          0 : }</span>
+<a name="143"><span class="lineNum">     143 </span>            : </a>
+<span class="lineNum">     144 </span>            : int
+<span class="lineNum">     145 </span><span class="lineNoCov">          0 : main (int argc, char **argv)</span>
+<span class="lineNum">     146 </span>            : {
+<span class="lineNum">     147 </span>            :   char const *dest_dir;
+<span class="lineNum">     148 </span><span class="lineNoCov">          0 :   char const *dest_dir_arg = NULL;</span>
+<span class="lineNum">     149 </span><span class="lineNoCov">          0 :   bool suppress_file_err = false;</span>
+<span class="lineNum">     150 </span>            :   int c;
+<span class="lineNum">     151 </span>            :   unsigned int n_args;
+<span class="lineNum">     152 </span>            :   char *template;
+<span class="lineNum">     153 </span><span class="lineNoCov">          0 :   char *suffix = NULL;</span>
+<span class="lineNum">     154 </span><span class="lineNoCov">          0 :   bool use_dest_dir = false;</span>
+<span class="lineNum">     155 </span><span class="lineNoCov">          0 :   bool deprecated_t_option = false;</span>
+<span class="lineNum">     156 </span><span class="lineNoCov">          0 :   bool create_directory = false;</span>
+<span class="lineNum">     157 </span><span class="lineNoCov">          0 :   bool dry_run = false;</span>
+<span class="lineNum">     158 </span><span class="lineNoCov">          0 :   int status = EXIT_SUCCESS;</span>
+<span class="lineNum">     159 </span>            :   size_t x_count;
+<span class="lineNum">     160 </span>            :   size_t suffix_len;
+<span class="lineNum">     161 </span>            :   char *dest_name;
+<span class="lineNum">     162 </span>            : 
+<span class="lineNum">     163 </span>            :   initialize_main (&amp;argc, &amp;argv);
+<span class="lineNum">     164 </span><span class="lineNoCov">          0 :   set_program_name (argv[0]);</span>
+<span class="lineNum">     165 </span><span class="lineNoCov">          0 :   setlocale (LC_ALL, &quot;&quot;);</span>
+<span class="lineNum">     166 </span><span class="lineNoCov">          0 :   bindtextdomain (PACKAGE, LOCALEDIR);</span>
+<span class="lineNum">     167 </span><span class="lineNoCov">          0 :   textdomain (PACKAGE);</span>
+<span class="lineNum">     168 </span>            : 
+<span class="lineNum">     169 </span><span class="lineNoCov">          0 :   atexit (maybe_close_stdout);</span>
+<span class="lineNum">     170 </span>            : 
+<span class="lineNum">     171 </span><span class="lineNoCov">          0 :   while ((c = getopt_long (argc, argv, &quot;dp:qtuV&quot;, longopts, NULL)) != -1)</span>
+<span class="lineNum">     172 </span>            :     {
+<span class="lineNum">     173 </span><span class="lineNoCov">          0 :       switch (c)</span>
+<span class="lineNum">     174 </span>            :         {
+<span class="lineNum">     175 </span>            :         case 'd':
+<span class="lineNum">     176 </span>            :           create_directory = true;
+<span class="lineNum">     177 </span>            :           break;
+<span class="lineNum">     178 </span>            :         case 'p':
+<span class="lineNum">     179 </span><span class="lineNoCov">          0 :           dest_dir_arg = optarg;</span>
+<span class="lineNum">     180 </span><span class="lineNoCov">          0 :           use_dest_dir = true;</span>
+<span class="lineNum">     181 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     182 </span>            :         case 'q':
+<span class="lineNum">     183 </span><span class="lineNoCov">          0 :           suppress_file_err = true;</span>
+<span class="lineNum">     184 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     185 </span>            :         case 't':
+<span class="lineNum">     186 </span><span class="lineNoCov">          0 :           use_dest_dir = true;</span>
+<span class="lineNum">     187 </span><span class="lineNoCov">          0 :           deprecated_t_option = true;</span>
+<span class="lineNum">     188 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     189 </span>            :         case 'u':
+<span class="lineNum">     190 </span><span class="lineNoCov">          0 :           dry_run = true;</span>
+<span class="lineNum">     191 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     192 </span>            : 
+<span class="lineNum">     193 </span>            :         case SUFFIX_OPTION:
+<span class="lineNum">     194 </span><span class="lineNoCov">          0 :           suffix = optarg;</span>
+<span class="lineNum">     195 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     196 </span>            : 
+<span class="lineNum">     197 </span><span class="lineNoCov">          0 :         case_GETOPT_HELP_CHAR;</span>
+<span class="lineNum">     198 </span>            : 
+<span class="lineNum">     199 </span>            :         case 'V': /* Undocumented alias, for compatibility with the original
+<span class="lineNum">     200 </span>            :                      mktemp program.  */
+<span class="lineNum">     201 </span><span class="lineNoCov">          0 :         case_GETOPT_VERSION_CHAR (PROGRAM_NAME, AUTHORS);</span>
+<span class="lineNum">     202 </span>            :         default:
+<span class="lineNum">     203 </span><span class="lineNoCov">          0 :           usage (EXIT_FAILURE);</span>
+<span class="lineNum">     204 </span>            :         }
+<span class="lineNum">     205 </span>            :     }
+<span class="lineNum">     206 </span>            : 
+<span class="lineNum">     207 </span><span class="lineNoCov">          0 :   n_args = argc - optind;</span>
+<span class="lineNum">     208 </span><span class="lineNoCov">          0 :   if (2 &lt;= n_args)</span>
+<span class="lineNum">     209 </span>            :     {
+<span class="lineNum">     210 </span><span class="lineNoCov">          0 :       error (0, 0, _(&quot;too many templates&quot;));</span>
+<span class="lineNum">     211 </span><span class="lineNoCov">          0 :       usage (EXIT_FAILURE);</span>
+<span class="lineNum">     212 </span>            :     }
+<span class="lineNum">     213 </span>            : 
+<span class="lineNum">     214 </span><span class="lineNoCov">          0 :   if (n_args == 0)</span>
+<span class="lineNum">     215 </span>            :     {
+<span class="lineNum">     216 </span><span class="lineNoCov">          0 :       use_dest_dir = true;</span>
+<span class="lineNum">     217 </span><span class="lineNoCov">          0 :       template = (char *) default_template;</span>
+<span class="lineNum">     218 </span>            :     }
+<span class="lineNum">     219 </span>            :   else
+<span class="lineNum">     220 </span>            :     {
+<span class="lineNum">     221 </span><span class="lineNoCov">          0 :       template = argv[optind];</span>
+<span class="lineNum">     222 </span>            :     }
+<span class="lineNum">     223 </span>            : 
+<span class="lineNum">     224 </span><span class="lineNoCov">          0 :   if (suffix)</span>
+<span class="lineNum">     225 </span>            :     {
+<span class="lineNum">     226 </span><span class="lineNoCov">          0 :       size_t len = strlen (template);</span>
+<span class="lineNum">     227 </span><span class="lineNoCov">          0 :       if (!len || template[len - 1] != 'X')</span>
+<span class="lineNum">     228 </span>            :         {
+<span class="lineNum">     229 </span><span class="lineNoCov">          0 :           error (EXIT_FAILURE, 0,</span>
+<span class="lineNum">     230 </span><span class="lineNoCov">          0 :                  _(&quot;with --suffix, template %s must end in X&quot;),</span>
+<span class="lineNum">     231 </span>            :                  quote (template));
+<span class="lineNum">     232 </span>            :         }
+<span class="lineNum">     233 </span><span class="lineNoCov">          0 :       suffix_len = strlen (suffix);</span>
+<span class="lineNum">     234 </span><span class="lineNoCov">          0 :       dest_name = xcharalloc (len + suffix_len + 1);</span>
+<span class="lineNum">     235 </span><span class="lineNoCov">          0 :       memcpy (dest_name, template, len);</span>
+<span class="lineNum">     236 </span><span class="lineNoCov">          0 :       memcpy (dest_name + len, suffix, suffix_len + 1);</span>
+<span class="lineNum">     237 </span><span class="lineNoCov">          0 :       template = dest_name;</span>
+<span class="lineNum">     238 </span><span class="lineNoCov">          0 :       suffix = dest_name + len;</span>
+<span class="lineNum">     239 </span>            :     }
+<span class="lineNum">     240 </span>            :   else
+<span class="lineNum">     241 </span>            :     {
+<span class="lineNum">     242 </span><span class="lineNoCov">          0 :       template = xstrdup (template);</span>
+<span class="lineNum">     243 </span><span class="lineNoCov">          0 :       suffix = strrchr (template, 'X');</span>
+<span class="lineNum">     244 </span><span class="lineNoCov">          0 :       if (!suffix)</span>
+<span class="lineNum">     245 </span><span class="lineNoCov">          0 :         suffix = strchr (template, '\0');</span>
+<span class="lineNum">     246 </span>            :       else
+<span class="lineNum">     247 </span><span class="lineNoCov">          0 :         suffix++;</span>
+<span class="lineNum">     248 </span><span class="lineNoCov">          0 :       suffix_len = strlen (suffix);</span>
+<span class="lineNum">     249 </span>            :     }
+<span class="lineNum">     250 </span>            : 
+<span class="lineNum">     251 </span>            :   /* At this point, template is malloc'd, and suffix points into template.  */
+<span class="lineNum">     252 </span><span class="lineNoCov">          0 :   if (suffix_len &amp;&amp; last_component (suffix) != suffix)</span>
+<span class="lineNum">     253 </span>            :     {
+<span class="lineNum">     254 </span><span class="lineNoCov">          0 :       error (EXIT_FAILURE, 0,</span>
+<span class="lineNum">     255 </span><span class="lineNoCov">          0 :              _(&quot;invalid suffix %s, contains directory separator&quot;),</span>
+<span class="lineNum">     256 </span>            :              quote (suffix));
+<span class="lineNum">     257 </span>            :     }
+<span class="lineNum">     258 </span><span class="lineNoCov">          0 :   x_count = count_consecutive_X_s (template, suffix - template);</span>
+<span class="lineNum">     259 </span><span class="lineNoCov">          0 :   if (x_count &lt; 3)</span>
+<span class="lineNum">     260 </span><span class="lineNoCov">          0 :     error (EXIT_FAILURE, 0, _(&quot;too few X's in template %s&quot;), quote (template));</span>
+<span class="lineNum">     261 </span>            : 
+<span class="lineNum">     262 </span><span class="lineNoCov">          0 :   if (use_dest_dir)</span>
+<span class="lineNum">     263 </span>            :     {
+<span class="lineNum">     264 </span><span class="lineNoCov">          0 :       if (deprecated_t_option)</span>
+<span class="lineNum">     265 </span>            :         {
+<span class="lineNum">     266 </span><span class="lineNoCov">          0 :           char *env = getenv (&quot;TMPDIR&quot;);</span>
+<span class="lineNum">     267 </span><span class="lineNoCov">          0 :           if (env &amp;&amp; *env)</span>
+<span class="lineNum">     268 </span>            :             dest_dir = env;
+<span class="lineNum">     269 </span><span class="lineNoCov">          0 :           else if (dest_dir_arg &amp;&amp; *dest_dir_arg)</span>
+<span class="lineNum">     270 </span><span class="lineNoCov">          0 :             dest_dir = dest_dir_arg;</span>
+<span class="lineNum">     271 </span>            :           else
+<span class="lineNum">     272 </span>            :             dest_dir = &quot;/tmp&quot;;
+<span class="lineNum">     273 </span>            : 
+<span class="lineNum">     274 </span><span class="lineNoCov">          0 :           if (last_component (template) != template)</span>
+<span class="lineNum">     275 </span><span class="lineNoCov">          0 :             error (EXIT_FAILURE, 0,</span>
+<span class="lineNum">     276 </span><span class="lineNoCov">          0 :                    _(&quot;invalid template, %s, contains directory separator&quot;),</span>
+<span class="lineNum">     277 </span>            :                    quote (template));
+<span class="lineNum">     278 </span>            :         }
+<span class="lineNum">     279 </span>            :       else
+<span class="lineNum">     280 </span>            :         {
+<span class="lineNum">     281 </span><span class="lineNoCov">          0 :           if (dest_dir_arg &amp;&amp; *dest_dir_arg)</span>
+<span class="lineNum">     282 </span>            :             dest_dir = dest_dir_arg;
+<span class="lineNum">     283 </span>            :           else
+<span class="lineNum">     284 </span>            :             {
+<span class="lineNum">     285 </span><span class="lineNoCov">          0 :               char *env = getenv (&quot;TMPDIR&quot;);</span>
+<span class="lineNum">     286 </span><span class="lineNoCov">          0 :               dest_dir = (env &amp;&amp; *env ? env : &quot;/tmp&quot;);</span>
+<span class="lineNum">     287 </span>            :             }
+<span class="lineNum">     288 </span><span class="lineNoCov">          0 :           if (IS_ABSOLUTE_FILE_NAME (template))</span>
+<span class="lineNum">     289 </span><span class="lineNoCov">          0 :             error (EXIT_FAILURE, 0,</span>
+<span class="lineNum">     290 </span><span class="lineNoCov">          0 :                    _(&quot;invalid template, %s; with --tmpdir,&quot;</span>
+<span class="lineNum">     291 </span>            :                      &quot; it may not be absolute&quot;),
+<span class="lineNum">     292 </span>            :                    quote (template));
+<span class="lineNum">     293 </span>            :         }
+<span class="lineNum">     294 </span>            : 
+<span class="lineNum">     295 </span><span class="lineNoCov">          0 :       dest_name = file_name_concat (dest_dir, template, NULL);</span>
+<span class="lineNum">     296 </span><span class="lineNoCov">          0 :       free (template);</span>
+<span class="lineNum">     297 </span><span class="lineNoCov">          0 :       template = dest_name;</span>
+<span class="lineNum">     298 </span>            :       /* Note that suffix is now invalid.  */
+<span class="lineNum">     299 </span>            :     }
+<span class="lineNum">     300 </span>            : 
+<span class="lineNum">     301 </span>            :   /* Make a copy to be used in case of diagnostic, since failing
+<span class="lineNum">     302 </span>            :      mkstemp may leave the buffer in an undefined state.  */
+<span class="lineNum">     303 </span><span class="lineNoCov">          0 :   dest_name = xstrdup (template);</span>
+<span class="lineNum">     304 </span>            : 
+<span class="lineNum">     305 </span><span class="lineNoCov">          0 :   if (create_directory)</span>
+<span class="lineNum">     306 </span>            :     {
+<span class="lineNum">     307 </span><span class="lineNoCov">          0 :       int err = mkdtemp_len (dest_name, suffix_len, x_count, dry_run);</span>
+<span class="lineNum">     308 </span><span class="lineNoCov">          0 :       if (err != 0)</span>
+<span class="lineNum">     309 </span>            :         {
+<span class="lineNum">     310 </span><span class="lineNoCov">          0 :           if (!suppress_file_err)</span>
+<span class="lineNum">     311 </span><span class="lineNoCov">          0 :             error (0, errno, _(&quot;failed to create directory via template %s&quot;),</span>
+<span class="lineNum">     312 </span>            :                    quote (template));
+<span class="lineNum">     313 </span>            :           status = EXIT_FAILURE;
+<span class="lineNum">     314 </span>            :         }
+<span class="lineNum">     315 </span>            :     }
+<span class="lineNum">     316 </span>            :   else
+<span class="lineNum">     317 </span>            :     {
+<span class="lineNum">     318 </span><span class="lineNoCov">          0 :       int fd = mkstemp_len (dest_name, suffix_len, x_count, dry_run);</span>
+<span class="lineNum">     319 </span><span class="lineNoCov">          0 :       if (fd &lt; 0 || (!dry_run &amp;&amp; close (fd) != 0))</span>
+<span class="lineNum">     320 </span>            :         {
+<span class="lineNum">     321 </span><span class="lineNoCov">          0 :           if (!suppress_file_err)</span>
+<span class="lineNum">     322 </span><span class="lineNoCov">          0 :             error (0, errno, _(&quot;failed to create file via template %s&quot;),</span>
+<span class="lineNum">     323 </span>            :                    quote (template));
+<span class="lineNum">     324 </span>            :           status = EXIT_FAILURE;
+<span class="lineNum">     325 </span>            :         }
+<span class="lineNum">     326 </span>            :     }
+<span class="lineNum">     327 </span>            : 
+<span class="lineNum">     328 </span><span class="lineNoCov">          0 :   if (status == EXIT_SUCCESS)</span>
+<span class="lineNum">     329 </span>            :     {
+<span class="lineNum">     330 </span><span class="lineNoCov">          0 :       puts (dest_name);</span>
+<span class="lineNum">     331 </span>            :       /* If we created a file, but then failed to output the file
+<span class="lineNum">     332 </span>            :          name, we should clean up the mess before failing.  */
+<span class="lineNum">     333 </span><span class="lineNoCov">          0 :       if (!dry_run &amp;&amp; ((stdout_closed = true), close_stream (stdout) != 0))</span>
+<span class="lineNum">     334 </span>            :         {
+<span class="lineNum">     335 </span><span class="lineNoCov">          0 :           int saved_errno = errno;</span>
+<span class="lineNum">     336 </span><span class="lineNoCov">          0 :           remove (dest_name);</span>
+<span class="lineNum">     337 </span><span class="lineNoCov">          0 :           if (!suppress_file_err)</span>
+<span class="lineNum">     338 </span><span class="lineNoCov">          0 :             error (0, saved_errno, _(&quot;write error&quot;));</span>
+<span class="lineNum">     339 </span>            :           status = EXIT_FAILURE;
+<span class="lineNum">     340 </span>            :         }
+<span class="lineNum">     341 </span>            :     }
+<span class="lineNum">     342 </span>            : 
+<span class="lineNum">     343 </span>            : #ifdef lint
+<span class="lineNum">     344 </span><span class="lineNoCov">          0 :   free (dest_name);</span>
+<span class="lineNum">     345 </span><span class="lineNoCov">          0 :   free (template);</span>
+<span class="lineNum">     346 </span>            : #endif
+<span class="lineNum">     347 </span>            : 
+<span class="lineNum">     348 </span>            :   return status;
+<span class="lineNum">     349 </span>            : }
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.12</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>

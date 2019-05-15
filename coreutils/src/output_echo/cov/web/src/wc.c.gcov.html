@@ -1,0 +1,909 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - trace.lcov_info_final - src/wc.c</title>
+  <link rel="stylesheet" type="text/css" href="../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">src</a> - wc.c<span style="font-size: 80%;"> (source / <a href="wc.c.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">trace.lcov_info_final</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">307</td>
+            <td class="headerCovTableEntryLo">0.0 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2019-04-22 20:19:38</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">7</td>
+            <td class="headerCovTableEntryLo">0.0 %</td>
+          </tr>
+          <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>            : /* wc - print the number of lines, words, and bytes in files</a>
+<span class="lineNum">       2 </span>            :    Copyright (C) 1985-2016 Free Software Foundation, Inc.
+<span class="lineNum">       3 </span>            : 
+<span class="lineNum">       4 </span>            :    This program is free software: you can redistribute it and/or modify
+<span class="lineNum">       5 </span>            :    it under the terms of the GNU General Public License as published by
+<span class="lineNum">       6 </span>            :    the Free Software Foundation, either version 3 of the License, or
+<span class="lineNum">       7 </span>            :    (at your option) any later version.
+<span class="lineNum">       8 </span>            : 
+<span class="lineNum">       9 </span>            :    This program is distributed in the hope that it will be useful,
+<span class="lineNum">      10 </span>            :    but WITHOUT ANY WARRANTY; without even the implied warranty of
+<span class="lineNum">      11 </span>            :    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+<span class="lineNum">      12 </span>            :    GNU General Public License for more details.
+<span class="lineNum">      13 </span>            : 
+<span class="lineNum">      14 </span>            :    You should have received a copy of the GNU General Public License
+<span class="lineNum">      15 </span>            :    along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.  */
+<span class="lineNum">      16 </span>            : 
+<span class="lineNum">      17 </span>            : /* Written by Paul Rubin, phr@ocf.berkeley.edu
+<span class="lineNum">      18 </span>            :    and David MacKenzie, djm@gnu.ai.mit.edu. */
+<span class="lineNum">      19 </span>            : 
+<span class="lineNum">      20 </span>            : #include &lt;config.h&gt;
+<span class="lineNum">      21 </span>            : 
+<span class="lineNum">      22 </span>            : #include &lt;stdio.h&gt;
+<span class="lineNum">      23 </span>            : #include &lt;assert.h&gt;
+<span class="lineNum">      24 </span>            : #include &lt;getopt.h&gt;
+<span class="lineNum">      25 </span>            : #include &lt;sys/types.h&gt;
+<span class="lineNum">      26 </span>            : #include &lt;wchar.h&gt;
+<span class="lineNum">      27 </span>            : #include &lt;wctype.h&gt;
+<span class="lineNum">      28 </span>            : 
+<span class="lineNum">      29 </span>            : #include &quot;system.h&quot;
+<span class="lineNum">      30 </span>            : #include &quot;argv-iter.h&quot;
+<span class="lineNum">      31 </span>            : #include &quot;error.h&quot;
+<span class="lineNum">      32 </span>            : #include &quot;fadvise.h&quot;
+<span class="lineNum">      33 </span>            : #include &quot;mbchar.h&quot;
+<span class="lineNum">      34 </span>            : #include &quot;physmem.h&quot;
+<span class="lineNum">      35 </span>            : #include &quot;readtokens0.h&quot;
+<span class="lineNum">      36 </span>            : #include &quot;safe-read.h&quot;
+<span class="lineNum">      37 </span>            : #include &quot;stat-size.h&quot;
+<span class="lineNum">      38 </span>            : #include &quot;xfreopen.h&quot;
+<span class="lineNum">      39 </span>            : 
+<span class="lineNum">      40 </span>            : #if !defined iswspace &amp;&amp; !HAVE_ISWSPACE
+<span class="lineNum">      41 </span>            : # define iswspace(wc) \
+<span class="lineNum">      42 </span>            :     ((wc) == to_uchar (wc) &amp;&amp; isspace (to_uchar (wc)))
+<span class="lineNum">      43 </span>            : #endif
+<span class="lineNum">      44 </span>            : 
+<span class="lineNum">      45 </span>            : /* The official name of this program (e.g., no 'g' prefix).  */
+<span class="lineNum">      46 </span>            : #define PROGRAM_NAME &quot;wc&quot;
+<span class="lineNum">      47 </span>            : 
+<span class="lineNum">      48 </span>            : #define AUTHORS \
+<span class="lineNum">      49 </span>            :   proper_name (&quot;Paul Rubin&quot;), \
+<span class="lineNum">      50 </span>            :   proper_name (&quot;David MacKenzie&quot;)
+<span class="lineNum">      51 </span>            : 
+<span class="lineNum">      52 </span>            : /* Size of atomic reads. */
+<span class="lineNum">      53 </span>            : #define BUFFER_SIZE (16 * 1024)
+<span class="lineNum">      54 </span>            : 
+<span class="lineNum">      55 </span>            : /* Cumulative number of lines, words, chars and bytes in all files so far.
+<span class="lineNum">      56 </span>            :    max_line_length is the maximum over all files processed so far.  */
+<span class="lineNum">      57 </span>            : static uintmax_t total_lines;
+<span class="lineNum">      58 </span>            : static uintmax_t total_words;
+<span class="lineNum">      59 </span>            : static uintmax_t total_chars;
+<span class="lineNum">      60 </span>            : static uintmax_t total_bytes;
+<span class="lineNum">      61 </span>            : static uintmax_t max_line_length;
+<span class="lineNum">      62 </span>            : 
+<span class="lineNum">      63 </span>            : /* Which counts to print. */
+<span class="lineNum">      64 </span>            : static bool print_lines, print_words, print_chars, print_bytes;
+<span class="lineNum">      65 </span>            : static bool print_linelength;
+<span class="lineNum">      66 </span>            : 
+<span class="lineNum">      67 </span>            : /* The print width of each count.  */
+<span class="lineNum">      68 </span>            : static int number_width;
+<span class="lineNum">      69 </span>            : 
+<span class="lineNum">      70 </span>            : /* True if we have ever read the standard input. */
+<span class="lineNum">      71 </span>            : static bool have_read_stdin;
+<span class="lineNum">      72 </span>            : 
+<span class="lineNum">      73 </span>            : /* The result of calling fstat or stat on a file descriptor or file.  */
+<span class="lineNum">      74 </span>            : struct fstatus
+<span class="lineNum">      75 </span>            : {
+<span class="lineNum">      76 </span>            :   /* If positive, fstat or stat has not been called yet.  Otherwise,
+<span class="lineNum">      77 </span>            :      this is the value returned from fstat or stat.  */
+<span class="lineNum">      78 </span>            :   int failed;
+<span class="lineNum">      79 </span>            : 
+<span class="lineNum">      80 </span>            :   /* If FAILED is zero, this is the file's status.  */
+<span class="lineNum">      81 </span>            :   struct stat st;
+<span class="lineNum">      82 </span>            : };
+<span class="lineNum">      83 </span>            : 
+<span class="lineNum">      84 </span>            : /* For long options that have no equivalent short option, use a
+<span class="lineNum">      85 </span>            :    non-character as a pseudo short option, starting with CHAR_MAX + 1.  */
+<span class="lineNum">      86 </span>            : enum
+<span class="lineNum">      87 </span>            : {
+<span class="lineNum">      88 </span>            :   FILES0_FROM_OPTION = CHAR_MAX + 1
+<span class="lineNum">      89 </span>            : };
+<span class="lineNum">      90 </span>            : 
+<span class="lineNum">      91 </span>            : static struct option const longopts[] =
+<span class="lineNum">      92 </span>            : {
+<span class="lineNum">      93 </span>            :   {&quot;bytes&quot;, no_argument, NULL, 'c'},
+<span class="lineNum">      94 </span>            :   {&quot;chars&quot;, no_argument, NULL, 'm'},
+<span class="lineNum">      95 </span>            :   {&quot;lines&quot;, no_argument, NULL, 'l'},
+<span class="lineNum">      96 </span>            :   {&quot;words&quot;, no_argument, NULL, 'w'},
+<span class="lineNum">      97 </span>            :   {&quot;files0-from&quot;, required_argument, NULL, FILES0_FROM_OPTION},
+<span class="lineNum">      98 </span>            :   {&quot;max-line-length&quot;, no_argument, NULL, 'L'},
+<span class="lineNum">      99 </span>            :   {GETOPT_HELP_OPTION_DECL},
+<span class="lineNum">     100 </span>            :   {GETOPT_VERSION_OPTION_DECL},
+<span class="lineNum">     101 </span>            :   {NULL, 0, NULL, 0}
+<span class="lineNum">     102 </span>            : };
+<a name="103"><span class="lineNum">     103 </span>            : </a>
+<span class="lineNum">     104 </span>            : void
+<span class="lineNum">     105 </span><span class="lineNoCov">          0 : usage (int status)</span>
+<span class="lineNum">     106 </span>            : {
+<span class="lineNum">     107 </span><span class="lineNoCov">          0 :   if (status != EXIT_SUCCESS)</span>
+<span class="lineNum">     108 </span><span class="lineNoCov">          0 :     emit_try_help ();</span>
+<span class="lineNum">     109 </span>            :   else
+<span class="lineNum">     110 </span>            :     {
+<span class="lineNum">     111 </span><span class="lineNoCov">          0 :       printf (_(&quot;\</span>
+<span class="lineNum">     112 </span>            : Usage: %s [OPTION]... [FILE]...\n\
+<span class="lineNum">     113 </span>            :   or:  %s [OPTION]... --files0-from=F\n\
+<span class="lineNum">     114 </span>            : &quot;),
+<span class="lineNum">     115 </span>            :               program_name, program_name);
+<span class="lineNum">     116 </span><span class="lineNoCov">          0 :       fputs (_(&quot;\</span>
+<span class="lineNum">     117 </span>            : Print newline, word, and byte counts for each FILE, and a total line if\n\
+<span class="lineNum">     118 </span>            : more than one FILE is specified.  A word is a non-zero-length sequence of\n\
+<span class="lineNum">     119 </span>            : characters delimited by white space.\n\
+<span class="lineNum">     120 </span>            : &quot;), stdout);
+<span class="lineNum">     121 </span>            : 
+<span class="lineNum">     122 </span><span class="lineNoCov">          0 :       emit_stdin_note ();</span>
+<span class="lineNum">     123 </span>            : 
+<span class="lineNum">     124 </span><span class="lineNoCov">          0 :       fputs (_(&quot;\</span>
+<span class="lineNum">     125 </span>            : \n\
+<span class="lineNum">     126 </span>            : The options below may be used to select which counts are printed, always in\n\
+<span class="lineNum">     127 </span>            : the following order: newline, word, character, byte, maximum line length.\n\
+<span class="lineNum">     128 </span>            :   -c, --bytes            print the byte counts\n\
+<span class="lineNum">     129 </span>            :   -m, --chars            print the character counts\n\
+<span class="lineNum">     130 </span>            :   -l, --lines            print the newline counts\n\
+<span class="lineNum">     131 </span>            : &quot;), stdout);
+<span class="lineNum">     132 </span><span class="lineNoCov">          0 :       fputs (_(&quot;\</span>
+<span class="lineNum">     133 </span>            :       --files0-from=F    read input from the files specified by\n\
+<span class="lineNum">     134 </span>            :                            NUL-terminated names in file F;\n\
+<span class="lineNum">     135 </span>            :                            If F is - then read names from standard input\n\
+<span class="lineNum">     136 </span>            :   -L, --max-line-length  print the maximum display width\n\
+<span class="lineNum">     137 </span>            :   -w, --words            print the word counts\n\
+<span class="lineNum">     138 </span>            : &quot;), stdout);
+<span class="lineNum">     139 </span><span class="lineNoCov">          0 :       fputs (HELP_OPTION_DESCRIPTION, stdout);</span>
+<span class="lineNum">     140 </span><span class="lineNoCov">          0 :       fputs (VERSION_OPTION_DESCRIPTION, stdout);</span>
+<span class="lineNum">     141 </span><span class="lineNoCov">          0 :       emit_ancillary_info (PROGRAM_NAME);</span>
+<span class="lineNum">     142 </span>            :     }
+<span class="lineNum">     143 </span><span class="lineNoCov">          0 :   exit (status);</span>
+<span class="lineNum">     144 </span>            : }
+<span class="lineNum">     145 </span>            : 
+<span class="lineNum">     146 </span>            : /* FILE is the name of the file (or NULL for standard input)
+<a name="147"><span class="lineNum">     147 </span>            :    associated with the specified counters.  */</a>
+<span class="lineNum">     148 </span>            : static void
+<span class="lineNum">     149 </span><span class="lineNoCov">          0 : write_counts (uintmax_t lines,</span>
+<span class="lineNum">     150 </span>            :               uintmax_t words,
+<span class="lineNum">     151 </span>            :               uintmax_t chars,
+<span class="lineNum">     152 </span>            :               uintmax_t bytes,
+<span class="lineNum">     153 </span>            :               uintmax_t linelength,
+<span class="lineNum">     154 </span>            :               const char *file)
+<span class="lineNum">     155 </span>            : {
+<span class="lineNum">     156 </span>            :   static char const format_sp_int[] = &quot; %*s&quot;;
+<span class="lineNum">     157 </span><span class="lineNoCov">          0 :   char const *format_int = format_sp_int + 1;</span>
+<span class="lineNum">     158 </span>            :   char buf[INT_BUFSIZE_BOUND (uintmax_t)];
+<span class="lineNum">     159 </span>            : 
+<span class="lineNum">     160 </span><span class="lineNoCov">          0 :   if (print_lines)</span>
+<span class="lineNum">     161 </span>            :     {
+<span class="lineNum">     162 </span><span class="lineNoCov">          0 :       printf (format_int, number_width, umaxtostr (lines, buf));</span>
+<span class="lineNum">     163 </span><span class="lineNoCov">          0 :       format_int = format_sp_int;</span>
+<span class="lineNum">     164 </span>            :     }
+<span class="lineNum">     165 </span><span class="lineNoCov">          0 :   if (print_words)</span>
+<span class="lineNum">     166 </span>            :     {
+<span class="lineNum">     167 </span><span class="lineNoCov">          0 :       printf (format_int, number_width, umaxtostr (words, buf));</span>
+<span class="lineNum">     168 </span><span class="lineNoCov">          0 :       format_int = format_sp_int;</span>
+<span class="lineNum">     169 </span>            :     }
+<span class="lineNum">     170 </span><span class="lineNoCov">          0 :   if (print_chars)</span>
+<span class="lineNum">     171 </span>            :     {
+<span class="lineNum">     172 </span><span class="lineNoCov">          0 :       printf (format_int, number_width, umaxtostr (chars, buf));</span>
+<span class="lineNum">     173 </span><span class="lineNoCov">          0 :       format_int = format_sp_int;</span>
+<span class="lineNum">     174 </span>            :     }
+<span class="lineNum">     175 </span><span class="lineNoCov">          0 :   if (print_bytes)</span>
+<span class="lineNum">     176 </span>            :     {
+<span class="lineNum">     177 </span><span class="lineNoCov">          0 :       printf (format_int, number_width, umaxtostr (bytes, buf));</span>
+<span class="lineNum">     178 </span><span class="lineNoCov">          0 :       format_int = format_sp_int;</span>
+<span class="lineNum">     179 </span>            :     }
+<span class="lineNum">     180 </span><span class="lineNoCov">          0 :   if (print_linelength)</span>
+<span class="lineNum">     181 </span>            :     {
+<span class="lineNum">     182 </span><span class="lineNoCov">          0 :       printf (format_int, number_width, umaxtostr (linelength, buf));</span>
+<span class="lineNum">     183 </span>            :     }
+<span class="lineNum">     184 </span><span class="lineNoCov">          0 :   if (file)</span>
+<span class="lineNum">     185 </span><span class="lineNoCov">          0 :     printf (&quot; %s&quot;, strchr (file, '\n') ? quotef (file) : file);</span>
+<span class="lineNum">     186 </span><span class="lineNoCov">          0 :   putchar ('\n');</span>
+<span class="lineNum">     187 </span><span class="lineNoCov">          0 : }</span>
+<span class="lineNum">     188 </span>            : 
+<span class="lineNum">     189 </span>            : /* Count words.  FILE_X is the name of the file (or NULL for standard
+<span class="lineNum">     190 </span>            :    input) that is open on descriptor FD.  *FSTATUS is its status.
+<span class="lineNum">     191 </span>            :    CURRENT_POS is the current file offset if known, negative if unknown.
+<a name="192"><span class="lineNum">     192 </span>            :    Return true if successful.  */</a>
+<span class="lineNum">     193 </span>            : static bool
+<span class="lineNum">     194 </span><span class="lineNoCov">          0 : wc (int fd, char const *file_x, struct fstatus *fstatus, off_t current_pos)</span>
+<span class="lineNum">     195 </span>            : {
+<span class="lineNum">     196 </span><span class="lineNoCov">          0 :   bool ok = true;</span>
+<span class="lineNum">     197 </span>            :   char buf[BUFFER_SIZE + 1];
+<span class="lineNum">     198 </span>            :   size_t bytes_read;
+<span class="lineNum">     199 </span>            :   uintmax_t lines, words, chars, bytes, linelength;
+<span class="lineNum">     200 </span>            :   bool count_bytes, count_chars, count_complicated;
+<span class="lineNum">     201 </span><span class="lineNoCov">          0 :   char const *file = file_x ? file_x : _(&quot;standard input&quot;);</span>
+<span class="lineNum">     202 </span>            : 
+<span class="lineNum">     203 </span><span class="lineNoCov">          0 :   lines = words = chars = bytes = linelength = 0;</span>
+<span class="lineNum">     204 </span>            : 
+<span class="lineNum">     205 </span>            :   /* If in the current locale, chars are equivalent to bytes, we prefer
+<span class="lineNum">     206 </span>            :      counting bytes, because that's easier.  */
+<span class="lineNum">     207 </span>            : #if MB_LEN_MAX &gt; 1
+<span class="lineNum">     208 </span><span class="lineNoCov">          0 :   if (MB_CUR_MAX &gt; 1)</span>
+<span class="lineNum">     209 </span>            :     {
+<span class="lineNum">     210 </span><span class="lineNoCov">          0 :       count_bytes = print_bytes;</span>
+<span class="lineNum">     211 </span><span class="lineNoCov">          0 :       count_chars = print_chars;</span>
+<span class="lineNum">     212 </span>            :     }
+<span class="lineNum">     213 </span>            :   else
+<span class="lineNum">     214 </span>            : #endif
+<span class="lineNum">     215 </span>            :     {
+<span class="lineNum">     216 </span><span class="lineNoCov">          0 :       count_bytes = print_bytes || print_chars;</span>
+<span class="lineNum">     217 </span><span class="lineNoCov">          0 :       count_chars = false;</span>
+<span class="lineNum">     218 </span>            :     }
+<span class="lineNum">     219 </span><span class="lineNoCov">          0 :   count_complicated = print_words || print_linelength;</span>
+<span class="lineNum">     220 </span>            : 
+<span class="lineNum">     221 </span>            :   /* Advise the kernel of our access pattern only if we will read().  */
+<span class="lineNum">     222 </span><span class="lineNoCov">          0 :   if (!count_bytes || count_chars || print_lines || count_complicated)</span>
+<span class="lineNum">     223 </span><span class="lineNoCov">          0 :     fdadvise (fd, 0, 0, FADVISE_SEQUENTIAL);</span>
+<span class="lineNum">     224 </span>            : 
+<span class="lineNum">     225 </span>            :   /* When counting only bytes, save some line- and word-counting
+<span class="lineNum">     226 </span>            :      overhead.  If FD is a 'regular' Unix file, using lseek is enough
+<span class="lineNum">     227 </span>            :      to get its 'size' in bytes.  Otherwise, read blocks of BUFFER_SIZE
+<span class="lineNum">     228 </span>            :      bytes at a time until EOF.  Note that the 'size' (number of bytes)
+<span class="lineNum">     229 </span>            :      that wc reports is smaller than stats.st_size when the file is not
+<span class="lineNum">     230 </span>            :      positioned at its beginning.  That's why the lseek calls below are
+<span class="lineNum">     231 </span>            :      necessary.  For example the command
+<span class="lineNum">     232 </span>            :      '(dd ibs=99k skip=1 count=0; ./wc -c) &lt; /etc/group'
+<span class="lineNum">     233 </span>            :      should make wc report '0' bytes.  */
+<span class="lineNum">     234 </span>            : 
+<span class="lineNum">     235 </span><span class="lineNoCov">          0 :   if (count_bytes &amp;&amp; !count_chars &amp;&amp; !print_lines &amp;&amp; !count_complicated)</span>
+<span class="lineNum">     236 </span>            :     {
+<span class="lineNum">     237 </span><span class="lineNoCov">          0 :       if (0 &lt; fstatus-&gt;failed)</span>
+<span class="lineNum">     238 </span><span class="lineNoCov">          0 :         fstatus-&gt;failed = fstat (fd, &amp;fstatus-&gt;st);</span>
+<span class="lineNum">     239 </span>            : 
+<span class="lineNum">     240 </span>            :       /* For sized files, seek to one st_blksize before EOF rather than to EOF.
+<span class="lineNum">     241 </span>            :          This works better for files in proc-like file systems where
+<span class="lineNum">     242 </span>            :          the size is only approximate.  */
+<span class="lineNum">     243 </span><span class="lineNoCov">          0 :       if (! fstatus-&gt;failed &amp;&amp; usable_st_size (&amp;fstatus-&gt;st)</span>
+<span class="lineNum">     244 </span><span class="lineNoCov">          0 :           &amp;&amp; 0 &lt;= fstatus-&gt;st.st_size)</span>
+<span class="lineNum">     245 </span>            :         {
+<span class="lineNum">     246 </span><span class="lineNoCov">          0 :           size_t end_pos = fstatus-&gt;st.st_size;</span>
+<span class="lineNum">     247 </span><span class="lineNoCov">          0 :           off_t hi_pos = end_pos - end_pos % (ST_BLKSIZE (fstatus-&gt;st) + 1);</span>
+<span class="lineNum">     248 </span><span class="lineNoCov">          0 :           if (current_pos &lt; 0)</span>
+<span class="lineNum">     249 </span><span class="lineNoCov">          0 :             current_pos = lseek (fd, 0, SEEK_CUR);</span>
+<span class="lineNum">     250 </span><span class="lineNoCov">          0 :           if (0 &lt;= current_pos &amp;&amp; current_pos &lt; hi_pos</span>
+<span class="lineNum">     251 </span><span class="lineNoCov">          0 :               &amp;&amp; 0 &lt;= lseek (fd, hi_pos, SEEK_CUR))</span>
+<span class="lineNum">     252 </span><span class="lineNoCov">          0 :             bytes = hi_pos - current_pos;</span>
+<span class="lineNum">     253 </span>            :         }
+<span class="lineNum">     254 </span>            : 
+<span class="lineNum">     255 </span><span class="lineNoCov">          0 :       fdadvise (fd, 0, 0, FADVISE_SEQUENTIAL);</span>
+<span class="lineNum">     256 </span><span class="lineNoCov">          0 :       while ((bytes_read = safe_read (fd, buf, BUFFER_SIZE)) &gt; 0)</span>
+<span class="lineNum">     257 </span>            :         {
+<span class="lineNum">     258 </span><span class="lineNoCov">          0 :           if (bytes_read == SAFE_READ_ERROR)</span>
+<span class="lineNum">     259 </span>            :             {
+<span class="lineNum">     260 </span><span class="lineNoCov">          0 :               error (0, errno, &quot;%s&quot;, quotef (file));</span>
+<span class="lineNum">     261 </span><span class="lineNoCov">          0 :               ok = false;</span>
+<span class="lineNum">     262 </span><span class="lineNoCov">          0 :               break;</span>
+<span class="lineNum">     263 </span>            :             }
+<span class="lineNum">     264 </span><span class="lineNoCov">          0 :           bytes += bytes_read;</span>
+<span class="lineNum">     265 </span>            :         }
+<span class="lineNum">     266 </span>            :     }
+<span class="lineNum">     267 </span><span class="lineNoCov">          0 :   else if (!count_chars &amp;&amp; !count_complicated)</span>
+<span class="lineNum">     268 </span>            :     {
+<span class="lineNum">     269 </span>            :       /* Use a separate loop when counting only lines or lines and bytes --
+<span class="lineNum">     270 </span>            :          but not chars or words.  */
+<span class="lineNum">     271 </span>            :       bool long_lines = false;
+<span class="lineNum">     272 </span><span class="lineNoCov">          0 :       while ((bytes_read = safe_read (fd, buf, BUFFER_SIZE)) &gt; 0)</span>
+<span class="lineNum">     273 </span>            :         {
+<span class="lineNum">     274 </span><span class="lineNoCov">          0 :           if (bytes_read == SAFE_READ_ERROR)</span>
+<span class="lineNum">     275 </span>            :             {
+<span class="lineNum">     276 </span><span class="lineNoCov">          0 :               error (0, errno, &quot;%s&quot;, quotef (file));</span>
+<span class="lineNum">     277 </span><span class="lineNoCov">          0 :               ok = false;</span>
+<span class="lineNum">     278 </span><span class="lineNoCov">          0 :               break;</span>
+<span class="lineNum">     279 </span>            :             }
+<span class="lineNum">     280 </span>            : 
+<span class="lineNum">     281 </span><span class="lineNoCov">          0 :           bytes += bytes_read;</span>
+<span class="lineNum">     282 </span>            : 
+<span class="lineNum">     283 </span><span class="lineNoCov">          0 :           char *p = buf;</span>
+<span class="lineNum">     284 </span><span class="lineNoCov">          0 :           char *end = p + bytes_read;</span>
+<span class="lineNum">     285 </span><span class="lineNoCov">          0 :           uintmax_t plines = lines;</span>
+<span class="lineNum">     286 </span>            : 
+<span class="lineNum">     287 </span><span class="lineNoCov">          0 :           if (! long_lines)</span>
+<span class="lineNum">     288 </span>            :             {
+<span class="lineNum">     289 </span>            :               /* Avoid function call overhead for shorter lines.  */
+<span class="lineNum">     290 </span><span class="lineNoCov">          0 :               while (p != end)</span>
+<span class="lineNum">     291 </span><span class="lineNoCov">          0 :                 lines += *p++ == '\n';</span>
+<span class="lineNum">     292 </span>            :             }
+<span class="lineNum">     293 </span>            :           else
+<span class="lineNum">     294 </span>            :             {
+<span class="lineNum">     295 </span>            :               /* memchr is more efficient with longer lines.  */
+<span class="lineNum">     296 </span><span class="lineNoCov">          0 :               while ((p = memchr (p, '\n', end - p)))</span>
+<span class="lineNum">     297 </span>            :                 {
+<span class="lineNum">     298 </span><span class="lineNoCov">          0 :                   ++p;</span>
+<span class="lineNum">     299 </span><span class="lineNoCov">          0 :                   ++lines;</span>
+<span class="lineNum">     300 </span>            :                 }
+<span class="lineNum">     301 </span>            :             }
+<span class="lineNum">     302 </span>            : 
+<span class="lineNum">     303 </span>            :           /* If the average line length in the block is &gt;= 15, then use
+<span class="lineNum">     304 </span>            :              memchr for the next block, where system specific optimizations
+<span class="lineNum">     305 </span>            :              may outweigh function call overhead.
+<span class="lineNum">     306 </span>            :              FIXME: This line length was determined in 2015, on both
+<span class="lineNum">     307 </span>            :              x86_64 and ppc64, but it's worth re-evaluating in future with
+<span class="lineNum">     308 </span>            :              newer compilers, CPUs, or memchr() implementations etc.  */
+<span class="lineNum">     309 </span><span class="lineNoCov">          0 :           if (lines - plines &lt;= bytes_read / 15)</span>
+<span class="lineNum">     310 </span>            :             long_lines = true;
+<span class="lineNum">     311 </span>            :           else
+<span class="lineNum">     312 </span><span class="lineNoCov">          0 :             long_lines = false;</span>
+<span class="lineNum">     313 </span>            :         }
+<span class="lineNum">     314 </span>            :     }
+<span class="lineNum">     315 </span>            : #if MB_LEN_MAX &gt; 1
+<span class="lineNum">     316 </span>            : # define SUPPORT_OLD_MBRTOWC 1
+<span class="lineNum">     317 </span><span class="lineNoCov">          0 :   else if (MB_CUR_MAX &gt; 1)</span>
+<span class="lineNum">     318 </span>            :     {
+<span class="lineNum">     319 </span><span class="lineNoCov">          0 :       bool in_word = false;</span>
+<span class="lineNum">     320 </span><span class="lineNoCov">          0 :       uintmax_t linepos = 0;</span>
+<span class="lineNum">     321 </span><span class="lineNoCov">          0 :       mbstate_t state = { 0, };</span>
+<span class="lineNum">     322 </span><span class="lineNoCov">          0 :       bool in_shift = false;</span>
+<span class="lineNum">     323 </span>            : # if SUPPORT_OLD_MBRTOWC
+<span class="lineNum">     324 </span>            :       /* Back-up the state before each multibyte character conversion and
+<span class="lineNum">     325 </span>            :          move the last incomplete character of the buffer to the front
+<span class="lineNum">     326 </span>            :          of the buffer.  This is needed because we don't know whether
+<span class="lineNum">     327 </span>            :          the 'mbrtowc' function updates the state when it returns -2, --
+<span class="lineNum">     328 </span>            :          this is the ISO C 99 and glibc-2.2 behaviour - or not - amended
+<span class="lineNum">     329 </span>            :          ANSI C, glibc-2.1 and Solaris 5.7 behaviour.  We don't have an
+<span class="lineNum">     330 </span>            :          autoconf test for this, yet.  */
+<span class="lineNum">     331 </span><span class="lineNoCov">          0 :       size_t prev = 0; /* number of bytes carried over from previous round */</span>
+<span class="lineNum">     332 </span>            : # else
+<span class="lineNum">     333 </span>            :       const size_t prev = 0;
+<span class="lineNum">     334 </span>            : # endif
+<span class="lineNum">     335 </span>            : 
+<span class="lineNum">     336 </span><span class="lineNoCov">          0 :       while ((bytes_read = safe_read (fd, buf + prev, BUFFER_SIZE - prev)) &gt; 0)</span>
+<span class="lineNum">     337 </span>            :         {
+<span class="lineNum">     338 </span>            :           const char *p;
+<span class="lineNum">     339 </span>            : # if SUPPORT_OLD_MBRTOWC
+<span class="lineNum">     340 </span>            :           mbstate_t backup_state;
+<span class="lineNum">     341 </span>            : # endif
+<span class="lineNum">     342 </span><span class="lineNoCov">          0 :           if (bytes_read == SAFE_READ_ERROR)</span>
+<span class="lineNum">     343 </span>            :             {
+<span class="lineNum">     344 </span><span class="lineNoCov">          0 :               error (0, errno, &quot;%s&quot;, quotef (file));</span>
+<span class="lineNum">     345 </span><span class="lineNoCov">          0 :               ok = false;</span>
+<span class="lineNum">     346 </span><span class="lineNoCov">          0 :               break;</span>
+<span class="lineNum">     347 </span>            :             }
+<span class="lineNum">     348 </span>            : 
+<span class="lineNum">     349 </span><span class="lineNoCov">          0 :           bytes += bytes_read;</span>
+<span class="lineNum">     350 </span><span class="lineNoCov">          0 :           p = buf;</span>
+<span class="lineNum">     351 </span><span class="lineNoCov">          0 :           bytes_read += prev;</span>
+<span class="lineNum">     352 </span>            :           do
+<span class="lineNum">     353 </span>            :             {
+<span class="lineNum">     354 </span>            :               wchar_t wide_char;
+<span class="lineNum">     355 </span>            :               size_t n;
+<span class="lineNum">     356 </span>            : 
+<span class="lineNum">     357 </span><span class="lineNoCov">          0 :               if (!in_shift &amp;&amp; is_basic (*p))</span>
+<span class="lineNum">     358 </span>            :                 {
+<span class="lineNum">     359 </span>            :                   /* Handle most ASCII characters quickly, without calling
+<span class="lineNum">     360 </span>            :                      mbrtowc().  */
+<span class="lineNum">     361 </span><span class="lineNoCov">          0 :                   n = 1;</span>
+<span class="lineNum">     362 </span><span class="lineNoCov">          0 :                   wide_char = *p;</span>
+<span class="lineNum">     363 </span>            :                 }
+<span class="lineNum">     364 </span>            :               else
+<span class="lineNum">     365 </span>            :                 {
+<span class="lineNum">     366 </span><span class="lineNoCov">          0 :                   in_shift = true;</span>
+<span class="lineNum">     367 </span>            : # if SUPPORT_OLD_MBRTOWC
+<span class="lineNum">     368 </span><span class="lineNoCov">          0 :                   backup_state = state;</span>
+<span class="lineNum">     369 </span>            : # endif
+<span class="lineNum">     370 </span><span class="lineNoCov">          0 :                   n = mbrtowc (&amp;wide_char, p, bytes_read, &amp;state);</span>
+<span class="lineNum">     371 </span><span class="lineNoCov">          0 :                   if (n == (size_t) -2)</span>
+<span class="lineNum">     372 </span>            :                     {
+<span class="lineNum">     373 </span>            : # if SUPPORT_OLD_MBRTOWC
+<span class="lineNum">     374 </span><span class="lineNoCov">          0 :                       state = backup_state;</span>
+<span class="lineNum">     375 </span>            : # endif
+<span class="lineNum">     376 </span><span class="lineNoCov">          0 :                       break;</span>
+<span class="lineNum">     377 </span>            :                     }
+<span class="lineNum">     378 </span><span class="lineNoCov">          0 :                   if (n == (size_t) -1)</span>
+<span class="lineNum">     379 </span>            :                     {
+<span class="lineNum">     380 </span>            :                       /* Remember that we read a byte, but don't complain
+<span class="lineNum">     381 </span>            :                          about the error.  Because of the decoding error,
+<span class="lineNum">     382 </span>            :                          this is a considered to be byte but not a
+<span class="lineNum">     383 </span>            :                          character (that is, chars is not incremented).  */
+<span class="lineNum">     384 </span><span class="lineNoCov">          0 :                       p++;</span>
+<span class="lineNum">     385 </span><span class="lineNoCov">          0 :                       bytes_read--;</span>
+<span class="lineNum">     386 </span><span class="lineNoCov">          0 :                       continue;</span>
+<span class="lineNum">     387 </span>            :                     }
+<span class="lineNum">     388 </span><span class="lineNoCov">          0 :                   if (mbsinit (&amp;state))</span>
+<span class="lineNum">     389 </span><span class="lineNoCov">          0 :                     in_shift = false;</span>
+<span class="lineNum">     390 </span><span class="lineNoCov">          0 :                   if (n == 0)</span>
+<span class="lineNum">     391 </span>            :                     {
+<span class="lineNum">     392 </span><span class="lineNoCov">          0 :                       wide_char = 0;</span>
+<span class="lineNum">     393 </span><span class="lineNoCov">          0 :                       n = 1;</span>
+<span class="lineNum">     394 </span>            :                     }
+<span class="lineNum">     395 </span>            :                 }
+<span class="lineNum">     396 </span><span class="lineNoCov">          0 :               p += n;</span>
+<span class="lineNum">     397 </span><span class="lineNoCov">          0 :               bytes_read -= n;</span>
+<span class="lineNum">     398 </span><span class="lineNoCov">          0 :               chars++;</span>
+<span class="lineNum">     399 </span><span class="lineNoCov">          0 :               switch (wide_char)</span>
+<span class="lineNum">     400 </span>            :                 {
+<span class="lineNum">     401 </span>            :                 case '\n':
+<span class="lineNum">     402 </span><span class="lineNoCov">          0 :                   lines++;</span>
+<span class="lineNum">     403 </span>            :                   /* Fall through. */
+<span class="lineNum">     404 </span>            :                 case '\r':
+<span class="lineNum">     405 </span>            :                 case '\f':
+<span class="lineNum">     406 </span><span class="lineNoCov">          0 :                   if (linepos &gt; linelength)</span>
+<span class="lineNum">     407 </span><span class="lineNoCov">          0 :                     linelength = linepos;</span>
+<span class="lineNum">     408 </span>            :                   linepos = 0;
+<span class="lineNum">     409 </span>            :                   goto mb_word_separator;
+<span class="lineNum">     410 </span>            :                 case '\t':
+<span class="lineNum">     411 </span><span class="lineNoCov">          0 :                   linepos += 8 - (linepos % 8);</span>
+<span class="lineNum">     412 </span><span class="lineNoCov">          0 :                   goto mb_word_separator;</span>
+<span class="lineNum">     413 </span>            :                 case ' ':
+<span class="lineNum">     414 </span><span class="lineNoCov">          0 :                   linepos++;</span>
+<span class="lineNum">     415 </span>            :                   /* Fall through. */
+<span class="lineNum">     416 </span>            :                 case '\v':
+<span class="lineNum">     417 </span>            :                 mb_word_separator:
+<span class="lineNum">     418 </span><span class="lineNoCov">          0 :                   words += in_word;</span>
+<span class="lineNum">     419 </span><span class="lineNoCov">          0 :                   in_word = false;</span>
+<span class="lineNum">     420 </span><span class="lineNoCov">          0 :                   break;</span>
+<span class="lineNum">     421 </span>            :                 default:
+<span class="lineNum">     422 </span><span class="lineNoCov">          0 :                   if (iswprint (wide_char))</span>
+<span class="lineNum">     423 </span>            :                     {
+<span class="lineNum">     424 </span><span class="lineNoCov">          0 :                       int width = wcwidth (wide_char);</span>
+<span class="lineNum">     425 </span><span class="lineNoCov">          0 :                       if (width &gt; 0)</span>
+<span class="lineNum">     426 </span><span class="lineNoCov">          0 :                         linepos += width;</span>
+<span class="lineNum">     427 </span><span class="lineNoCov">          0 :                       if (iswspace (wide_char))</span>
+<span class="lineNum">     428 </span>            :                         goto mb_word_separator;
+<span class="lineNum">     429 </span>            :                       in_word = true;
+<span class="lineNum">     430 </span>            :                     }
+<span class="lineNum">     431 </span>            :                   break;
+<span class="lineNum">     432 </span>            :                 }
+<span class="lineNum">     433 </span>            :             }
+<span class="lineNum">     434 </span><span class="lineNoCov">          0 :           while (bytes_read &gt; 0);</span>
+<span class="lineNum">     435 </span>            : 
+<span class="lineNum">     436 </span>            : # if SUPPORT_OLD_MBRTOWC
+<span class="lineNum">     437 </span><span class="lineNoCov">          0 :           if (bytes_read &gt; 0)</span>
+<span class="lineNum">     438 </span>            :             {
+<span class="lineNum">     439 </span><span class="lineNoCov">          0 :               if (bytes_read == BUFFER_SIZE)</span>
+<span class="lineNum">     440 </span>            :                 {
+<span class="lineNum">     441 </span>            :                   /* Encountered a very long redundant shift sequence.  */
+<span class="lineNum">     442 </span><span class="lineNoCov">          0 :                   p++;</span>
+<span class="lineNum">     443 </span><span class="lineNoCov">          0 :                   bytes_read--;</span>
+<span class="lineNum">     444 </span>            :                 }
+<span class="lineNum">     445 </span>            :               memmove (buf, p, bytes_read);
+<span class="lineNum">     446 </span>            :             }
+<span class="lineNum">     447 </span><span class="lineNoCov">          0 :           prev = bytes_read;</span>
+<span class="lineNum">     448 </span>            : # endif
+<span class="lineNum">     449 </span>            :         }
+<span class="lineNum">     450 </span><span class="lineNoCov">          0 :       if (linepos &gt; linelength)</span>
+<span class="lineNum">     451 </span><span class="lineNoCov">          0 :         linelength = linepos;</span>
+<span class="lineNum">     452 </span><span class="lineNoCov">          0 :       words += in_word;</span>
+<span class="lineNum">     453 </span>            :     }
+<span class="lineNum">     454 </span>            : #endif
+<span class="lineNum">     455 </span>            :   else
+<span class="lineNum">     456 </span>            :     {
+<span class="lineNum">     457 </span>            :       bool in_word = false;
+<span class="lineNum">     458 </span>            :       uintmax_t linepos = 0;
+<span class="lineNum">     459 </span>            : 
+<span class="lineNum">     460 </span><span class="lineNoCov">          0 :       while ((bytes_read = safe_read (fd, buf, BUFFER_SIZE)) &gt; 0)</span>
+<span class="lineNum">     461 </span>            :         {
+<span class="lineNum">     462 </span><span class="lineNoCov">          0 :           const char *p = buf;</span>
+<span class="lineNum">     463 </span><span class="lineNoCov">          0 :           if (bytes_read == SAFE_READ_ERROR)</span>
+<span class="lineNum">     464 </span>            :             {
+<span class="lineNum">     465 </span><span class="lineNoCov">          0 :               error (0, errno, &quot;%s&quot;, quotef (file));</span>
+<span class="lineNum">     466 </span><span class="lineNoCov">          0 :               ok = false;</span>
+<span class="lineNum">     467 </span><span class="lineNoCov">          0 :               break;</span>
+<span class="lineNum">     468 </span>            :             }
+<span class="lineNum">     469 </span>            : 
+<span class="lineNum">     470 </span><span class="lineNoCov">          0 :           bytes += bytes_read;</span>
+<span class="lineNum">     471 </span>            :           do
+<span class="lineNum">     472 </span>            :             {
+<span class="lineNum">     473 </span><span class="lineNoCov">          0 :               switch (*p++)</span>
+<span class="lineNum">     474 </span>            :                 {
+<span class="lineNum">     475 </span>            :                 case '\n':
+<span class="lineNum">     476 </span><span class="lineNoCov">          0 :                   lines++;</span>
+<span class="lineNum">     477 </span>            :                   /* Fall through. */
+<span class="lineNum">     478 </span>            :                 case '\r':
+<span class="lineNum">     479 </span>            :                 case '\f':
+<span class="lineNum">     480 </span><span class="lineNoCov">          0 :                   if (linepos &gt; linelength)</span>
+<span class="lineNum">     481 </span><span class="lineNoCov">          0 :                     linelength = linepos;</span>
+<span class="lineNum">     482 </span>            :                   linepos = 0;
+<span class="lineNum">     483 </span>            :                   goto word_separator;
+<span class="lineNum">     484 </span>            :                 case '\t':
+<span class="lineNum">     485 </span><span class="lineNoCov">          0 :                   linepos += 8 - (linepos % 8);</span>
+<span class="lineNum">     486 </span><span class="lineNoCov">          0 :                   goto word_separator;</span>
+<span class="lineNum">     487 </span>            :                 case ' ':
+<span class="lineNum">     488 </span><span class="lineNoCov">          0 :                   linepos++;</span>
+<span class="lineNum">     489 </span>            :                   /* Fall through. */
+<span class="lineNum">     490 </span>            :                 case '\v':
+<span class="lineNum">     491 </span>            :                 word_separator:
+<span class="lineNum">     492 </span><span class="lineNoCov">          0 :                   words += in_word;</span>
+<span class="lineNum">     493 </span><span class="lineNoCov">          0 :                   in_word = false;</span>
+<span class="lineNum">     494 </span><span class="lineNoCov">          0 :                   break;</span>
+<span class="lineNum">     495 </span>            :                 default:
+<span class="lineNum">     496 </span><span class="lineNoCov">          0 :                   if (isprint (to_uchar (p[-1])))</span>
+<span class="lineNum">     497 </span>            :                     {
+<span class="lineNum">     498 </span><span class="lineNoCov">          0 :                       linepos++;</span>
+<span class="lineNum">     499 </span><span class="lineNoCov">          0 :                       if (isspace (to_uchar (p[-1])))</span>
+<span class="lineNum">     500 </span>            :                         goto word_separator;
+<span class="lineNum">     501 </span>            :                       in_word = true;
+<span class="lineNum">     502 </span>            :                     }
+<span class="lineNum">     503 </span>            :                   break;
+<span class="lineNum">     504 </span>            :                 }
+<span class="lineNum">     505 </span>            :             }
+<span class="lineNum">     506 </span><span class="lineNoCov">          0 :           while (--bytes_read);</span>
+<span class="lineNum">     507 </span>            :         }
+<span class="lineNum">     508 </span><span class="lineNoCov">          0 :       if (linepos &gt; linelength)</span>
+<span class="lineNum">     509 </span><span class="lineNoCov">          0 :         linelength = linepos;</span>
+<span class="lineNum">     510 </span><span class="lineNoCov">          0 :       words += in_word;</span>
+<span class="lineNum">     511 </span>            :     }
+<span class="lineNum">     512 </span>            : 
+<span class="lineNum">     513 </span><span class="lineNoCov">          0 :   if (count_chars &lt; print_chars)</span>
+<span class="lineNum">     514 </span><span class="lineNoCov">          0 :     chars = bytes;</span>
+<span class="lineNum">     515 </span>            : 
+<span class="lineNum">     516 </span><span class="lineNoCov">          0 :   write_counts (lines, words, chars, bytes, linelength, file_x);</span>
+<span class="lineNum">     517 </span><span class="lineNoCov">          0 :   total_lines += lines;</span>
+<span class="lineNum">     518 </span><span class="lineNoCov">          0 :   total_words += words;</span>
+<span class="lineNum">     519 </span><span class="lineNoCov">          0 :   total_chars += chars;</span>
+<span class="lineNum">     520 </span><span class="lineNoCov">          0 :   total_bytes += bytes;</span>
+<span class="lineNum">     521 </span><span class="lineNoCov">          0 :   if (linelength &gt; max_line_length)</span>
+<span class="lineNum">     522 </span><span class="lineNoCov">          0 :     max_line_length = linelength;</span>
+<span class="lineNum">     523 </span>            : 
+<span class="lineNum">     524 </span><span class="lineNoCov">          0 :   return ok;</span>
+<span class="lineNum">     525 </span>            : }
+<a name="526"><span class="lineNum">     526 </span>            : </a>
+<span class="lineNum">     527 </span>            : static bool
+<span class="lineNum">     528 </span><span class="lineNoCov">          0 : wc_file (char const *file, struct fstatus *fstatus)</span>
+<span class="lineNum">     529 </span>            : {
+<span class="lineNum">     530 </span><span class="lineNoCov">          0 :   if (! file || STREQ (file, &quot;-&quot;))</span>
+<span class="lineNum">     531 </span>            :     {
+<span class="lineNum">     532 </span><span class="lineNoCov">          0 :       have_read_stdin = true;</span>
+<span class="lineNum">     533 </span>            :       if (O_BINARY &amp;&amp; ! isatty (STDIN_FILENO))
+<span class="lineNum">     534 </span>            :         xfreopen (NULL, &quot;rb&quot;, stdin);
+<span class="lineNum">     535 </span><span class="lineNoCov">          0 :       return wc (STDIN_FILENO, file, fstatus, -1);</span>
+<span class="lineNum">     536 </span>            :     }
+<span class="lineNum">     537 </span>            :   else
+<span class="lineNum">     538 </span>            :     {
+<span class="lineNum">     539 </span><span class="lineNoCov">          0 :       int fd = open (file, O_RDONLY | O_BINARY);</span>
+<span class="lineNum">     540 </span><span class="lineNoCov">          0 :       if (fd == -1)</span>
+<span class="lineNum">     541 </span>            :         {
+<span class="lineNum">     542 </span><span class="lineNoCov">          0 :           error (0, errno, &quot;%s&quot;, quotef (file));</span>
+<span class="lineNum">     543 </span><span class="lineNoCov">          0 :           return false;</span>
+<span class="lineNum">     544 </span>            :         }
+<span class="lineNum">     545 </span>            :       else
+<span class="lineNum">     546 </span>            :         {
+<span class="lineNum">     547 </span><span class="lineNoCov">          0 :           bool ok = wc (fd, file, fstatus, 0);</span>
+<span class="lineNum">     548 </span><span class="lineNoCov">          0 :           if (close (fd) != 0)</span>
+<span class="lineNum">     549 </span>            :             {
+<span class="lineNum">     550 </span><span class="lineNoCov">          0 :               error (0, errno, &quot;%s&quot;, quotef (file));</span>
+<span class="lineNum">     551 </span><span class="lineNoCov">          0 :               return false;</span>
+<span class="lineNum">     552 </span>            :             }
+<span class="lineNum">     553 </span>            :           return ok;
+<span class="lineNum">     554 </span>            :         }
+<span class="lineNum">     555 </span>            :     }
+<span class="lineNum">     556 </span>            : }
+<span class="lineNum">     557 </span>            : 
+<span class="lineNum">     558 </span>            : /* Return the file status for the NFILES files addressed by FILE.
+<span class="lineNum">     559 </span>            :    Optimize the case where only one number is printed, for just one
+<span class="lineNum">     560 </span>            :    file; in that case we can use a print width of 1, so we don't need
+<span class="lineNum">     561 </span>            :    to stat the file.  Handle the case of (nfiles == 0) in the same way;
+<span class="lineNum">     562 </span>            :    that happens when we don't know how long the list of file names will be.  */
+<a name="563"><span class="lineNum">     563 </span>            : </a>
+<span class="lineNum">     564 </span>            : static struct fstatus *
+<span class="lineNum">     565 </span><span class="lineNoCov">          0 : get_input_fstatus (size_t nfiles, char *const *file)</span>
+<span class="lineNum">     566 </span>            : {
+<span class="lineNum">     567 </span><span class="lineNoCov">          0 :   struct fstatus *fstatus = xnmalloc (nfiles ? nfiles : 1, sizeof *fstatus);</span>
+<span class="lineNum">     568 </span>            : 
+<span class="lineNum">     569 </span><span class="lineNoCov">          0 :   if (nfiles == 0</span>
+<span class="lineNum">     570 </span><span class="lineNoCov">          0 :       || (nfiles == 1</span>
+<span class="lineNum">     571 </span><span class="lineNoCov">          0 :           &amp;&amp; ((print_lines + print_words + print_chars</span>
+<span class="lineNum">     572 </span><span class="lineNoCov">          0 :                + print_bytes + print_linelength)</span>
+<span class="lineNum">     573 </span>            :               == 1)))
+<span class="lineNum">     574 </span><span class="lineNoCov">          0 :     fstatus[0].failed = 1;</span>
+<span class="lineNum">     575 </span>            :   else
+<span class="lineNum">     576 </span>            :     {
+<span class="lineNum">     577 </span>            :       size_t i;
+<span class="lineNum">     578 </span>            : 
+<span class="lineNum">     579 </span><span class="lineNoCov">          0 :       for (i = 0; i &lt; nfiles; i++)</span>
+<span class="lineNum">     580 </span><span class="lineNoCov">          0 :         fstatus[i].failed = (! file[i] || STREQ (file[i], &quot;-&quot;)</span>
+<span class="lineNum">     581 </span><span class="lineNoCov">          0 :                              ? fstat (STDIN_FILENO, &amp;fstatus[i].st)</span>
+<span class="lineNum">     582 </span><span class="lineNoCov">          0 :                              : stat (file[i], &amp;fstatus[i].st));</span>
+<span class="lineNum">     583 </span>            :     }
+<span class="lineNum">     584 </span>            : 
+<span class="lineNum">     585 </span><span class="lineNoCov">          0 :   return fstatus;</span>
+<span class="lineNum">     586 </span>            : }
+<span class="lineNum">     587 </span>            : 
+<span class="lineNum">     588 </span>            : /* Return a print width suitable for the NFILES files whose status is
+<span class="lineNum">     589 </span>            :    recorded in FSTATUS.  Optimize the same special case that
+<span class="lineNum">     590 </span>            :    get_input_fstatus optimizes.  */
+<a name="591"><span class="lineNum">     591 </span>            : </a>
+<span class="lineNum">     592 </span>            : static int _GL_ATTRIBUTE_PURE
+<span class="lineNum">     593 </span><span class="lineNoCov">          0 : compute_number_width (size_t nfiles, struct fstatus const *fstatus)</span>
+<span class="lineNum">     594 </span>            : {
+<span class="lineNum">     595 </span><span class="lineNoCov">          0 :   int width = 1;</span>
+<span class="lineNum">     596 </span>            : 
+<span class="lineNum">     597 </span><span class="lineNoCov">          0 :   if (0 &lt; nfiles &amp;&amp; fstatus[0].failed &lt;= 0)</span>
+<span class="lineNum">     598 </span>            :     {
+<span class="lineNum">     599 </span>            :       int minimum_width = 1;
+<span class="lineNum">     600 </span>            :       uintmax_t regular_total = 0;
+<span class="lineNum">     601 </span>            :       size_t i;
+<span class="lineNum">     602 </span>            : 
+<span class="lineNum">     603 </span><span class="lineNoCov">          0 :       for (i = 0; i &lt; nfiles; i++)</span>
+<span class="lineNum">     604 </span><span class="lineNoCov">          0 :         if (! fstatus[i].failed)</span>
+<span class="lineNum">     605 </span>            :           {
+<span class="lineNum">     606 </span><span class="lineNoCov">          0 :             if (S_ISREG (fstatus[i].st.st_mode))</span>
+<span class="lineNum">     607 </span><span class="lineNoCov">          0 :               regular_total += fstatus[i].st.st_size;</span>
+<span class="lineNum">     608 </span>            :             else
+<span class="lineNum">     609 </span>            :               minimum_width = 7;
+<span class="lineNum">     610 </span>            :           }
+<span class="lineNum">     611 </span>            : 
+<span class="lineNum">     612 </span><span class="lineNoCov">          0 :       for (; 10 &lt;= regular_total; regular_total /= 10)</span>
+<span class="lineNum">     613 </span><span class="lineNoCov">          0 :         width++;</span>
+<span class="lineNum">     614 </span><span class="lineNoCov">          0 :       if (width &lt; minimum_width)</span>
+<span class="lineNum">     615 </span><span class="lineNoCov">          0 :         width = minimum_width;</span>
+<span class="lineNum">     616 </span>            :     }
+<span class="lineNum">     617 </span>            : 
+<span class="lineNum">     618 </span><span class="lineNoCov">          0 :   return width;</span>
+<span class="lineNum">     619 </span>            : }
+<span class="lineNum">     620 </span>            : 
+<a name="621"><span class="lineNum">     621 </span>            : </a>
+<span class="lineNum">     622 </span>            : int
+<span class="lineNum">     623 </span><span class="lineNoCov">          0 : main (int argc, char **argv)</span>
+<span class="lineNum">     624 </span>            : {
+<span class="lineNum">     625 </span>            :   bool ok;
+<span class="lineNum">     626 </span>            :   int optc;
+<span class="lineNum">     627 </span>            :   size_t nfiles;
+<span class="lineNum">     628 </span>            :   char **files;
+<span class="lineNum">     629 </span><span class="lineNoCov">          0 :   char *files_from = NULL;</span>
+<span class="lineNum">     630 </span>            :   struct fstatus *fstatus;
+<span class="lineNum">     631 </span>            :   struct Tokens tok;
+<span class="lineNum">     632 </span>            : 
+<span class="lineNum">     633 </span>            :   initialize_main (&amp;argc, &amp;argv);
+<span class="lineNum">     634 </span><span class="lineNoCov">          0 :   set_program_name (argv[0]);</span>
+<span class="lineNum">     635 </span><span class="lineNoCov">          0 :   setlocale (LC_ALL, &quot;&quot;);</span>
+<span class="lineNum">     636 </span><span class="lineNoCov">          0 :   bindtextdomain (PACKAGE, LOCALEDIR);</span>
+<span class="lineNum">     637 </span><span class="lineNoCov">          0 :   textdomain (PACKAGE);</span>
+<span class="lineNum">     638 </span>            : 
+<span class="lineNum">     639 </span><span class="lineNoCov">          0 :   atexit (close_stdout);</span>
+<span class="lineNum">     640 </span>            : 
+<span class="lineNum">     641 </span>            :   /* Line buffer stdout to ensure lines are written atomically and immediately
+<span class="lineNum">     642 </span>            :      so that processes running in parallel do not intersperse their output.  */
+<span class="lineNum">     643 </span><span class="lineNoCov">          0 :   setvbuf (stdout, NULL, _IOLBF, 0);</span>
+<span class="lineNum">     644 </span>            : 
+<span class="lineNum">     645 </span><span class="lineNoCov">          0 :   print_lines = print_words = print_chars = print_bytes = false;</span>
+<span class="lineNum">     646 </span><span class="lineNoCov">          0 :   print_linelength = false;</span>
+<span class="lineNum">     647 </span><span class="lineNoCov">          0 :   total_lines = total_words = total_chars = total_bytes = max_line_length = 0;</span>
+<span class="lineNum">     648 </span>            : 
+<span class="lineNum">     649 </span><span class="lineNoCov">          0 :   while ((optc = getopt_long (argc, argv, &quot;clLmw&quot;, longopts, NULL)) != -1)</span>
+<span class="lineNum">     650 </span><span class="lineNoCov">          0 :     switch (optc)</span>
+<span class="lineNum">     651 </span>            :       {
+<span class="lineNum">     652 </span>            :       case 'c':
+<span class="lineNum">     653 </span><span class="lineNoCov">          0 :         print_bytes = true;</span>
+<span class="lineNum">     654 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">     655 </span>            : 
+<span class="lineNum">     656 </span>            :       case 'm':
+<span class="lineNum">     657 </span><span class="lineNoCov">          0 :         print_chars = true;</span>
+<span class="lineNum">     658 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">     659 </span>            : 
+<span class="lineNum">     660 </span>            :       case 'l':
+<span class="lineNum">     661 </span><span class="lineNoCov">          0 :         print_lines = true;</span>
+<span class="lineNum">     662 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">     663 </span>            : 
+<span class="lineNum">     664 </span>            :       case 'w':
+<span class="lineNum">     665 </span><span class="lineNoCov">          0 :         print_words = true;</span>
+<span class="lineNum">     666 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">     667 </span>            : 
+<span class="lineNum">     668 </span>            :       case 'L':
+<span class="lineNum">     669 </span><span class="lineNoCov">          0 :         print_linelength = true;</span>
+<span class="lineNum">     670 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">     671 </span>            : 
+<span class="lineNum">     672 </span>            :       case FILES0_FROM_OPTION:
+<span class="lineNum">     673 </span><span class="lineNoCov">          0 :         files_from = optarg;</span>
+<span class="lineNum">     674 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">     675 </span>            : 
+<span class="lineNum">     676 </span><span class="lineNoCov">          0 :       case_GETOPT_HELP_CHAR;</span>
+<span class="lineNum">     677 </span>            : 
+<span class="lineNum">     678 </span><span class="lineNoCov">          0 :       case_GETOPT_VERSION_CHAR (PROGRAM_NAME, AUTHORS);</span>
+<span class="lineNum">     679 </span>            : 
+<span class="lineNum">     680 </span>            :       default:
+<span class="lineNum">     681 </span><span class="lineNoCov">          0 :         usage (EXIT_FAILURE);</span>
+<span class="lineNum">     682 </span>            :       }
+<span class="lineNum">     683 </span>            : 
+<span class="lineNum">     684 </span><span class="lineNoCov">          0 :   if (! (print_lines || print_words || print_chars || print_bytes</span>
+<span class="lineNum">     685 </span><span class="lineNoCov">          0 :          || print_linelength))</span>
+<span class="lineNum">     686 </span><span class="lineNoCov">          0 :     print_lines = print_words = print_bytes = true;</span>
+<span class="lineNum">     687 </span>            : 
+<span class="lineNum">     688 </span><span class="lineNoCov">          0 :   bool read_tokens = false;</span>
+<span class="lineNum">     689 </span>            :   struct argv_iterator *ai;
+<span class="lineNum">     690 </span><span class="lineNoCov">          0 :   if (files_from)</span>
+<span class="lineNum">     691 </span>            :     {
+<span class="lineNum">     692 </span>            :       FILE *stream;
+<span class="lineNum">     693 </span>            : 
+<span class="lineNum">     694 </span>            :       /* When using --files0-from=F, you may not specify any files
+<span class="lineNum">     695 </span>            :          on the command-line.  */
+<span class="lineNum">     696 </span><span class="lineNoCov">          0 :       if (optind &lt; argc)</span>
+<span class="lineNum">     697 </span>            :         {
+<span class="lineNum">     698 </span><span class="lineNoCov">          0 :           error (0, 0, _(&quot;extra operand %s&quot;), quoteaf (argv[optind]));</span>
+<span class="lineNum">     699 </span><span class="lineNoCov">          0 :           fprintf (stderr, &quot;%s\n&quot;,</span>
+<span class="lineNum">     700 </span>            :                    _(&quot;file operands cannot be combined with --files0-from&quot;));
+<span class="lineNum">     701 </span><span class="lineNoCov">          0 :           usage (EXIT_FAILURE);</span>
+<span class="lineNum">     702 </span>            :         }
+<span class="lineNum">     703 </span>            : 
+<span class="lineNum">     704 </span><span class="lineNoCov">          0 :       if (STREQ (files_from, &quot;-&quot;))</span>
+<span class="lineNum">     705 </span><span class="lineNoCov">          0 :         stream = stdin;</span>
+<span class="lineNum">     706 </span>            :       else
+<span class="lineNum">     707 </span>            :         {
+<span class="lineNum">     708 </span><span class="lineNoCov">          0 :           stream = fopen (files_from, &quot;r&quot;);</span>
+<span class="lineNum">     709 </span><span class="lineNoCov">          0 :           if (stream == NULL)</span>
+<span class="lineNum">     710 </span><span class="lineNoCov">          0 :             error (EXIT_FAILURE, errno, _(&quot;cannot open %s for reading&quot;),</span>
+<span class="lineNum">     711 </span>            :                    quoteaf (files_from));
+<span class="lineNum">     712 </span>            :         }
+<span class="lineNum">     713 </span>            : 
+<span class="lineNum">     714 </span>            :       /* Read the file list into RAM if we can detect its size and that
+<span class="lineNum">     715 </span>            :          size is reasonable.  Otherwise, we'll read a name at a time.  */
+<span class="lineNum">     716 </span>            :       struct stat st;
+<span class="lineNum">     717 </span><span class="lineNoCov">          0 :       if (fstat (fileno (stream), &amp;st) == 0</span>
+<span class="lineNum">     718 </span><span class="lineNoCov">          0 :           &amp;&amp; S_ISREG (st.st_mode)</span>
+<span class="lineNum">     719 </span><span class="lineNoCov">          0 :           &amp;&amp; st.st_size &lt;= MIN (10 * 1024 * 1024, physmem_available () / 2))</span>
+<span class="lineNum">     720 </span>            :         {
+<span class="lineNum">     721 </span><span class="lineNoCov">          0 :           read_tokens = true;</span>
+<span class="lineNum">     722 </span><span class="lineNoCov">          0 :           readtokens0_init (&amp;tok);</span>
+<span class="lineNum">     723 </span><span class="lineNoCov">          0 :           if (! readtokens0 (stream, &amp;tok) || fclose (stream) != 0)</span>
+<span class="lineNum">     724 </span><span class="lineNoCov">          0 :             error (EXIT_FAILURE, 0, _(&quot;cannot read file names from %s&quot;),</span>
+<span class="lineNum">     725 </span>            :                    quoteaf (files_from));
+<span class="lineNum">     726 </span><span class="lineNoCov">          0 :           files = tok.tok;</span>
+<span class="lineNum">     727 </span><span class="lineNoCov">          0 :           nfiles = tok.n_tok;</span>
+<span class="lineNum">     728 </span><span class="lineNoCov">          0 :           ai = argv_iter_init_argv (files);</span>
+<span class="lineNum">     729 </span>            :         }
+<span class="lineNum">     730 </span>            :       else
+<span class="lineNum">     731 </span>            :         {
+<span class="lineNum">     732 </span><span class="lineNoCov">          0 :           files = NULL;</span>
+<span class="lineNum">     733 </span><span class="lineNoCov">          0 :           nfiles = 0;</span>
+<span class="lineNum">     734 </span><span class="lineNoCov">          0 :           ai = argv_iter_init_stream (stream);</span>
+<span class="lineNum">     735 </span>            :         }
+<span class="lineNum">     736 </span>            :     }
+<span class="lineNum">     737 </span>            :   else
+<span class="lineNum">     738 </span>            :     {
+<span class="lineNum">     739 </span>            :       static char *stdin_only[] = { NULL };
+<span class="lineNum">     740 </span><span class="lineNoCov">          0 :       files = (optind &lt; argc ? argv + optind : stdin_only);</span>
+<span class="lineNum">     741 </span><span class="lineNoCov">          0 :       nfiles = (optind &lt; argc ? argc - optind : 1);</span>
+<span class="lineNum">     742 </span><span class="lineNoCov">          0 :       ai = argv_iter_init_argv (files);</span>
+<span class="lineNum">     743 </span>            :     }
+<span class="lineNum">     744 </span>            : 
+<span class="lineNum">     745 </span><span class="lineNoCov">          0 :   if (!ai)</span>
+<span class="lineNum">     746 </span><span class="lineNoCov">          0 :     xalloc_die ();</span>
+<span class="lineNum">     747 </span>            : 
+<span class="lineNum">     748 </span><span class="lineNoCov">          0 :   fstatus = get_input_fstatus (nfiles, files);</span>
+<span class="lineNum">     749 </span><span class="lineNoCov">          0 :   number_width = compute_number_width (nfiles, fstatus);</span>
+<span class="lineNum">     750 </span>            : 
+<span class="lineNum">     751 </span>            :   int i;
+<span class="lineNum">     752 </span><span class="lineNoCov">          0 :   ok = true;</span>
+<span class="lineNum">     753 </span><span class="lineNoCov">          0 :   for (i = 0; /* */; i++)</span>
+<span class="lineNum">     754 </span>            :     {
+<span class="lineNum">     755 </span><span class="lineNoCov">          0 :       bool skip_file = false;</span>
+<span class="lineNum">     756 </span>            :       enum argv_iter_err ai_err;
+<span class="lineNum">     757 </span><span class="lineNoCov">          0 :       char *file_name = argv_iter (ai, &amp;ai_err);</span>
+<span class="lineNum">     758 </span><span class="lineNoCov">          0 :       if (!file_name)</span>
+<span class="lineNum">     759 </span>            :         {
+<span class="lineNum">     760 </span><span class="lineNoCov">          0 :           switch (ai_err)</span>
+<span class="lineNum">     761 </span>            :             {
+<span class="lineNum">     762 </span>            :             case AI_ERR_EOF:
+<span class="lineNum">     763 </span><span class="lineNoCov">          0 :               goto argv_iter_done;</span>
+<span class="lineNum">     764 </span>            :             case AI_ERR_READ:
+<span class="lineNum">     765 </span><span class="lineNoCov">          0 :               error (0, errno, _(&quot;%s: read error&quot;),</span>
+<span class="lineNum">     766 </span>            :                      quotef (files_from));
+<span class="lineNum">     767 </span><span class="lineNoCov">          0 :               ok = false;</span>
+<span class="lineNum">     768 </span><span class="lineNoCov">          0 :               goto argv_iter_done;</span>
+<span class="lineNum">     769 </span>            :             case AI_ERR_MEM:
+<span class="lineNum">     770 </span><span class="lineNoCov">          0 :               xalloc_die ();</span>
+<span class="lineNum">     771 </span>            :             default:
+<span class="lineNum">     772 </span><span class="lineNoCov">          0 :               assert (!&quot;unexpected error code from argv_iter&quot;);</span>
+<span class="lineNum">     773 </span>            :             }
+<span class="lineNum">     774 </span>            :         }
+<span class="lineNum">     775 </span><span class="lineNoCov">          0 :       if (files_from &amp;&amp; STREQ (files_from, &quot;-&quot;) &amp;&amp; STREQ (file_name, &quot;-&quot;))</span>
+<span class="lineNum">     776 </span>            :         {
+<span class="lineNum">     777 </span>            :           /* Give a better diagnostic in an unusual case:
+<span class="lineNum">     778 </span>            :              printf - | wc --files0-from=- */
+<span class="lineNum">     779 </span><span class="lineNoCov">          0 :           error (0, 0, _(&quot;when reading file names from stdin, &quot;</span>
+<span class="lineNum">     780 </span>            :                          &quot;no file name of %s allowed&quot;),
+<span class="lineNum">     781 </span>            :                  quoteaf (file_name));
+<span class="lineNum">     782 </span><span class="lineNoCov">          0 :           skip_file = true;</span>
+<span class="lineNum">     783 </span>            :         }
+<span class="lineNum">     784 </span>            : 
+<span class="lineNum">     785 </span><span class="lineNoCov">          0 :       if (!file_name[0])</span>
+<span class="lineNum">     786 </span>            :         {
+<span class="lineNum">     787 </span>            :           /* Diagnose a zero-length file name.  When it's one
+<span class="lineNum">     788 </span>            :              among many, knowing the record number may help.
+<span class="lineNum">     789 </span>            :              FIXME: currently print the record number only with
+<span class="lineNum">     790 </span>            :              --files0-from=FILE.  Maybe do it for argv, too?  */
+<span class="lineNum">     791 </span><span class="lineNoCov">          0 :           if (files_from == NULL)</span>
+<span class="lineNum">     792 </span><span class="lineNoCov">          0 :             error (0, 0, &quot;%s&quot;, _(&quot;invalid zero-length file name&quot;));</span>
+<span class="lineNum">     793 </span>            :           else
+<span class="lineNum">     794 </span>            :             {
+<span class="lineNum">     795 </span>            :               /* Using the standard 'filename:line-number:' prefix here is
+<span class="lineNum">     796 </span>            :                  not totally appropriate, since NUL is the separator, not NL,
+<span class="lineNum">     797 </span>            :                  but it might be better than nothing.  */
+<span class="lineNum">     798 </span><span class="lineNoCov">          0 :               unsigned long int file_number = argv_iter_n_args (ai);</span>
+<span class="lineNum">     799 </span><span class="lineNoCov">          0 :               error (0, 0, &quot;%s:%lu: %s&quot;, quotef (files_from),</span>
+<span class="lineNum">     800 </span>            :                      file_number, _(&quot;invalid zero-length file name&quot;));
+<span class="lineNum">     801 </span>            :             }
+<span class="lineNum">     802 </span>            :           skip_file = true;
+<span class="lineNum">     803 </span>            :         }
+<span class="lineNum">     804 </span>            : 
+<span class="lineNum">     805 </span><span class="lineNoCov">          0 :       if (skip_file)</span>
+<span class="lineNum">     806 </span>            :         ok = false;
+<span class="lineNum">     807 </span>            :       else
+<span class="lineNum">     808 </span><span class="lineNoCov">          0 :         ok &amp;= wc_file (file_name, &amp;fstatus[nfiles ? i : 0]);</span>
+<span class="lineNum">     809 </span><span class="lineNoCov">          0 :     }</span>
+<span class="lineNum">     810 </span>            :  argv_iter_done:
+<span class="lineNum">     811 </span>            : 
+<span class="lineNum">     812 </span>            :   /* No arguments on the command line is fine.  That means read from stdin.
+<span class="lineNum">     813 </span>            :      However, no arguments on the --files0-from input stream is an error
+<span class="lineNum">     814 </span>            :      means don't read anything.  */
+<span class="lineNum">     815 </span><span class="lineNoCov">          0 :   if (ok &amp;&amp; !files_from &amp;&amp; argv_iter_n_args (ai) == 0)</span>
+<span class="lineNum">     816 </span><span class="lineNoCov">          0 :     ok &amp;= wc_file (NULL, &amp;fstatus[0]);</span>
+<span class="lineNum">     817 </span>            : 
+<span class="lineNum">     818 </span><span class="lineNoCov">          0 :   if (read_tokens)</span>
+<span class="lineNum">     819 </span><span class="lineNoCov">          0 :     readtokens0_free (&amp;tok);</span>
+<span class="lineNum">     820 </span>            : 
+<span class="lineNum">     821 </span><span class="lineNoCov">          0 :   if (1 &lt; argv_iter_n_args (ai))</span>
+<span class="lineNum">     822 </span><span class="lineNoCov">          0 :     write_counts (total_lines, total_words, total_chars, total_bytes,</span>
+<span class="lineNum">     823 </span><span class="lineNoCov">          0 :                   max_line_length, _(&quot;total&quot;));</span>
+<span class="lineNum">     824 </span>            : 
+<span class="lineNum">     825 </span><span class="lineNoCov">          0 :   argv_iter_free (ai);</span>
+<span class="lineNum">     826 </span>            : 
+<span class="lineNum">     827 </span><span class="lineNoCov">          0 :   free (fstatus);</span>
+<span class="lineNum">     828 </span>            : 
+<span class="lineNum">     829 </span><span class="lineNoCov">          0 :   if (have_read_stdin &amp;&amp; close (STDIN_FILENO) != 0)</span>
+<span class="lineNum">     830 </span><span class="lineNoCov">          0 :     error (EXIT_FAILURE, errno, &quot;-&quot;);</span>
+<span class="lineNum">     831 </span>            : 
+<span class="lineNum">     832 </span><span class="lineNoCov">          0 :   return ok ? EXIT_SUCCESS : EXIT_FAILURE;</span>
+<span class="lineNum">     833 </span>            : }
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.12</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>

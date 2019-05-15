@@ -1,0 +1,498 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - trace.lcov_info_final - src/pathchk.c</title>
+  <link rel="stylesheet" type="text/css" href="../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">src</a> - pathchk.c<span style="font-size: 80%;"> (source / <a href="pathchk.c.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">trace.lcov_info_final</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">115</td>
+            <td class="headerCovTableEntryLo">0.0 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2019-04-22 20:19:38</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">5</td>
+            <td class="headerCovTableEntryLo">0.0 %</td>
+          </tr>
+          <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>            : /* pathchk -- check whether file names are valid or portable</a>
+<span class="lineNum">       2 </span>            :    Copyright (C) 1991-2016 Free Software Foundation, Inc.
+<span class="lineNum">       3 </span>            : 
+<span class="lineNum">       4 </span>            :    This program is free software: you can redistribute it and/or modify
+<span class="lineNum">       5 </span>            :    it under the terms of the GNU General Public License as published by
+<span class="lineNum">       6 </span>            :    the Free Software Foundation, either version 3 of the License, or
+<span class="lineNum">       7 </span>            :    (at your option) any later version.
+<span class="lineNum">       8 </span>            : 
+<span class="lineNum">       9 </span>            :    This program is distributed in the hope that it will be useful,
+<span class="lineNum">      10 </span>            :    but WITHOUT ANY WARRANTY; without even the implied warranty of
+<span class="lineNum">      11 </span>            :    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+<span class="lineNum">      12 </span>            :    GNU General Public License for more details.
+<span class="lineNum">      13 </span>            : 
+<span class="lineNum">      14 </span>            :    You should have received a copy of the GNU General Public License
+<span class="lineNum">      15 </span>            :    along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.  */
+<span class="lineNum">      16 </span>            : 
+<span class="lineNum">      17 </span>            : #include &lt;config.h&gt;
+<span class="lineNum">      18 </span>            : #include &lt;stdio.h&gt;
+<span class="lineNum">      19 </span>            : #include &lt;getopt.h&gt;
+<span class="lineNum">      20 </span>            : #include &lt;sys/types.h&gt;
+<span class="lineNum">      21 </span>            : #include &lt;wchar.h&gt;
+<span class="lineNum">      22 </span>            : 
+<span class="lineNum">      23 </span>            : #include &quot;system.h&quot;
+<span class="lineNum">      24 </span>            : #include &quot;error.h&quot;
+<span class="lineNum">      25 </span>            : #include &quot;quote.h&quot;
+<span class="lineNum">      26 </span>            : 
+<span class="lineNum">      27 </span>            : /* The official name of this program (e.g., no 'g' prefix).  */
+<span class="lineNum">      28 </span>            : #define PROGRAM_NAME &quot;pathchk&quot;
+<span class="lineNum">      29 </span>            : 
+<span class="lineNum">      30 </span>            : #define AUTHORS \
+<span class="lineNum">      31 </span>            :   proper_name (&quot;Paul Eggert&quot;), \
+<span class="lineNum">      32 </span>            :   proper_name (&quot;David MacKenzie&quot;), \
+<span class="lineNum">      33 </span>            :   proper_name (&quot;Jim Meyering&quot;)
+<span class="lineNum">      34 </span>            : 
+<span class="lineNum">      35 </span>            : #ifndef _POSIX_PATH_MAX
+<span class="lineNum">      36 </span>            : # define _POSIX_PATH_MAX 256
+<span class="lineNum">      37 </span>            : #endif
+<span class="lineNum">      38 </span>            : #ifndef _POSIX_NAME_MAX
+<span class="lineNum">      39 </span>            : # define _POSIX_NAME_MAX 14
+<span class="lineNum">      40 </span>            : #endif
+<span class="lineNum">      41 </span>            : 
+<span class="lineNum">      42 </span>            : #ifdef _XOPEN_NAME_MAX
+<span class="lineNum">      43 </span>            : # define NAME_MAX_MINIMUM _XOPEN_NAME_MAX
+<span class="lineNum">      44 </span>            : #else
+<span class="lineNum">      45 </span>            : # define NAME_MAX_MINIMUM _POSIX_NAME_MAX
+<span class="lineNum">      46 </span>            : #endif
+<span class="lineNum">      47 </span>            : #ifdef _XOPEN_PATH_MAX
+<span class="lineNum">      48 </span>            : # define PATH_MAX_MINIMUM _XOPEN_PATH_MAX
+<span class="lineNum">      49 </span>            : #else
+<span class="lineNum">      50 </span>            : # define PATH_MAX_MINIMUM _POSIX_PATH_MAX
+<span class="lineNum">      51 </span>            : #endif
+<span class="lineNum">      52 </span>            : 
+<span class="lineNum">      53 </span>            : #if ! (HAVE_PATHCONF &amp;&amp; defined _PC_NAME_MAX &amp;&amp; defined _PC_PATH_MAX)
+<span class="lineNum">      54 </span>            : # ifndef _PC_NAME_MAX
+<span class="lineNum">      55 </span>            : #  define _PC_NAME_MAX 0
+<span class="lineNum">      56 </span>            : #  define _PC_PATH_MAX 1
+<span class="lineNum">      57 </span>            : # endif
+<span class="lineNum">      58 </span>            : # ifndef pathconf
+<span class="lineNum">      59 </span>            : #  define pathconf(file, flag) \
+<span class="lineNum">      60 </span>            :      (flag == _PC_NAME_MAX ? NAME_MAX_MINIMUM : PATH_MAX_MINIMUM)
+<span class="lineNum">      61 </span>            : # endif
+<span class="lineNum">      62 </span>            : #endif
+<span class="lineNum">      63 </span>            : 
+<span class="lineNum">      64 </span>            : static bool validate_file_name (char *, bool, bool);
+<span class="lineNum">      65 </span>            : 
+<span class="lineNum">      66 </span>            : /* For long options that have no equivalent short option, use a
+<span class="lineNum">      67 </span>            :    non-character as a pseudo short option, starting with CHAR_MAX + 1.  */
+<span class="lineNum">      68 </span>            : enum
+<span class="lineNum">      69 </span>            : {
+<span class="lineNum">      70 </span>            :   PORTABILITY_OPTION = CHAR_MAX + 1
+<span class="lineNum">      71 </span>            : };
+<span class="lineNum">      72 </span>            : 
+<span class="lineNum">      73 </span>            : static struct option const longopts[] =
+<span class="lineNum">      74 </span>            : {
+<span class="lineNum">      75 </span>            :   {&quot;portability&quot;, no_argument, NULL, PORTABILITY_OPTION},
+<span class="lineNum">      76 </span>            :   {GETOPT_HELP_OPTION_DECL},
+<span class="lineNum">      77 </span>            :   {GETOPT_VERSION_OPTION_DECL},
+<span class="lineNum">      78 </span>            :   {NULL, 0, NULL, 0}
+<span class="lineNum">      79 </span>            : };
+<a name="80"><span class="lineNum">      80 </span>            : </a>
+<span class="lineNum">      81 </span>            : void
+<span class="lineNum">      82 </span><span class="lineNoCov">          0 : usage (int status)</span>
+<span class="lineNum">      83 </span>            : {
+<span class="lineNum">      84 </span><span class="lineNoCov">          0 :   if (status != EXIT_SUCCESS)</span>
+<span class="lineNum">      85 </span><span class="lineNoCov">          0 :     emit_try_help ();</span>
+<span class="lineNum">      86 </span>            :   else
+<span class="lineNum">      87 </span>            :     {
+<span class="lineNum">      88 </span><span class="lineNoCov">          0 :       printf (_(&quot;Usage: %s [OPTION]... NAME...\n&quot;), program_name);</span>
+<span class="lineNum">      89 </span><span class="lineNoCov">          0 :       fputs (_(&quot;\</span>
+<span class="lineNum">      90 </span>            : Diagnose invalid or unportable file names.\n\
+<span class="lineNum">      91 </span>            : \n\
+<span class="lineNum">      92 </span>            :   -p                  check for most POSIX systems\n\
+<span class="lineNum">      93 </span>            :   -P                  check for empty names and leading \&quot;-\&quot;\n\
+<span class="lineNum">      94 </span>            :       --portability   check for all POSIX systems (equivalent to -p -P)\n\
+<span class="lineNum">      95 </span>            : &quot;), stdout);
+<span class="lineNum">      96 </span><span class="lineNoCov">          0 :       fputs (HELP_OPTION_DESCRIPTION, stdout);</span>
+<span class="lineNum">      97 </span><span class="lineNoCov">          0 :       fputs (VERSION_OPTION_DESCRIPTION, stdout);</span>
+<span class="lineNum">      98 </span><span class="lineNoCov">          0 :       emit_ancillary_info (PROGRAM_NAME);</span>
+<span class="lineNum">      99 </span>            :     }
+<span class="lineNum">     100 </span><span class="lineNoCov">          0 :   exit (status);</span>
+<span class="lineNum">     101 </span>            : }
+<a name="102"><span class="lineNum">     102 </span>            : </a>
+<span class="lineNum">     103 </span>            : int
+<span class="lineNum">     104 </span><span class="lineNoCov">          0 : main (int argc, char **argv)</span>
+<span class="lineNum">     105 </span>            : {
+<span class="lineNum">     106 </span><span class="lineNoCov">          0 :   bool ok = true;</span>
+<span class="lineNum">     107 </span><span class="lineNoCov">          0 :   bool check_basic_portability = false;</span>
+<span class="lineNum">     108 </span><span class="lineNoCov">          0 :   bool check_extra_portability = false;</span>
+<span class="lineNum">     109 </span>            :   int optc;
+<span class="lineNum">     110 </span>            : 
+<span class="lineNum">     111 </span>            :   initialize_main (&amp;argc, &amp;argv);
+<span class="lineNum">     112 </span><span class="lineNoCov">          0 :   set_program_name (argv[0]);</span>
+<span class="lineNum">     113 </span><span class="lineNoCov">          0 :   setlocale (LC_ALL, &quot;&quot;);</span>
+<span class="lineNum">     114 </span><span class="lineNoCov">          0 :   bindtextdomain (PACKAGE, LOCALEDIR);</span>
+<span class="lineNum">     115 </span><span class="lineNoCov">          0 :   textdomain (PACKAGE);</span>
+<span class="lineNum">     116 </span>            : 
+<span class="lineNum">     117 </span><span class="lineNoCov">          0 :   atexit (close_stdout);</span>
+<span class="lineNum">     118 </span>            : 
+<span class="lineNum">     119 </span><span class="lineNoCov">          0 :   while ((optc = getopt_long (argc, argv, &quot;+pP&quot;, longopts, NULL)) != -1)</span>
+<span class="lineNum">     120 </span>            :     {
+<span class="lineNum">     121 </span><span class="lineNoCov">          0 :       switch (optc)</span>
+<span class="lineNum">     122 </span>            :         {
+<span class="lineNum">     123 </span>            :         case PORTABILITY_OPTION:
+<span class="lineNum">     124 </span>            :           check_basic_portability = true;
+<span class="lineNum">     125 </span>            :           check_extra_portability = true;
+<span class="lineNum">     126 </span>            :           break;
+<span class="lineNum">     127 </span>            : 
+<span class="lineNum">     128 </span>            :         case 'p':
+<span class="lineNum">     129 </span><span class="lineNoCov">          0 :           check_basic_portability = true;</span>
+<span class="lineNum">     130 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     131 </span>            : 
+<span class="lineNum">     132 </span>            :         case 'P':
+<span class="lineNum">     133 </span><span class="lineNoCov">          0 :           check_extra_portability = true;</span>
+<span class="lineNum">     134 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     135 </span>            : 
+<span class="lineNum">     136 </span><span class="lineNoCov">          0 :         case_GETOPT_HELP_CHAR;</span>
+<span class="lineNum">     137 </span>            : 
+<span class="lineNum">     138 </span><span class="lineNoCov">          0 :         case_GETOPT_VERSION_CHAR (PROGRAM_NAME, AUTHORS);</span>
+<span class="lineNum">     139 </span>            : 
+<span class="lineNum">     140 </span>            :         default:
+<span class="lineNum">     141 </span><span class="lineNoCov">          0 :           usage (EXIT_FAILURE);</span>
+<span class="lineNum">     142 </span>            :         }
+<span class="lineNum">     143 </span>            :     }
+<span class="lineNum">     144 </span>            : 
+<span class="lineNum">     145 </span><span class="lineNoCov">          0 :   if (optind == argc)</span>
+<span class="lineNum">     146 </span>            :     {
+<span class="lineNum">     147 </span><span class="lineNoCov">          0 :       error (0, 0, _(&quot;missing operand&quot;));</span>
+<span class="lineNum">     148 </span><span class="lineNoCov">          0 :       usage (EXIT_FAILURE);</span>
+<span class="lineNum">     149 </span>            :     }
+<span class="lineNum">     150 </span>            : 
+<span class="lineNum">     151 </span><span class="lineNoCov">          0 :   for (; optind &lt; argc; ++optind)</span>
+<span class="lineNum">     152 </span><span class="lineNoCov">          0 :     ok &amp;= validate_file_name (argv[optind],</span>
+<span class="lineNum">     153 </span>            :                               check_basic_portability, check_extra_portability);
+<span class="lineNum">     154 </span>            : 
+<span class="lineNum">     155 </span><span class="lineNoCov">          0 :   return ok ? EXIT_SUCCESS : EXIT_FAILURE;</span>
+<span class="lineNum">     156 </span>            : }
+<span class="lineNum">     157 </span>            : 
+<span class="lineNum">     158 </span>            : /* If FILE contains a component with a leading &quot;-&quot;, report an error
+<span class="lineNum">     159 </span>            :    and return false; otherwise, return true.  */
+<a name="160"><span class="lineNum">     160 </span>            : </a>
+<span class="lineNum">     161 </span>            : static bool
+<span class="lineNum">     162 </span><span class="lineNoCov">          0 : no_leading_hyphen (char const *file)</span>
+<span class="lineNum">     163 </span>            : {
+<span class="lineNum">     164 </span>            :   char const *p;
+<span class="lineNum">     165 </span>            : 
+<span class="lineNum">     166 </span><span class="lineNoCov">          0 :   for (p = file;  (p = strchr (p, '-'));  p++)</span>
+<span class="lineNum">     167 </span><span class="lineNoCov">          0 :     if (p == file || p[-1] == '/')</span>
+<span class="lineNum">     168 </span>            :       {
+<span class="lineNum">     169 </span><span class="lineNoCov">          0 :         error (0, 0, _(&quot;leading '-' in a component of file name %s&quot;),</span>
+<span class="lineNum">     170 </span>            :                quoteaf (file));
+<span class="lineNum">     171 </span><span class="lineNoCov">          0 :         return false;</span>
+<span class="lineNum">     172 </span>            :       }
+<span class="lineNum">     173 </span>            : 
+<span class="lineNum">     174 </span>            :   return true;
+<span class="lineNum">     175 </span>            : }
+<span class="lineNum">     176 </span>            : 
+<span class="lineNum">     177 </span>            : /* If FILE (of length FILELEN) contains only portable characters,
+<span class="lineNum">     178 </span>            :    return true, else report an error and return false.  */
+<a name="179"><span class="lineNum">     179 </span>            : </a>
+<span class="lineNum">     180 </span>            : static bool
+<span class="lineNum">     181 </span><span class="lineNoCov">          0 : portable_chars_only (char const *file, size_t filelen)</span>
+<span class="lineNum">     182 </span>            : {
+<span class="lineNum">     183 </span><span class="lineNoCov">          0 :   size_t validlen = strspn (file,</span>
+<span class="lineNum">     184 </span>            :                             (&quot;/&quot;
+<span class="lineNum">     185 </span>            :                              &quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;
+<span class="lineNum">     186 </span>            :                              &quot;abcdefghijklmnopqrstuvwxyz&quot;
+<span class="lineNum">     187 </span>            :                              &quot;0123456789._-&quot;));
+<span class="lineNum">     188 </span><span class="lineNoCov">          0 :   char const *invalid = file + validlen;</span>
+<span class="lineNum">     189 </span>            : 
+<span class="lineNum">     190 </span><span class="lineNoCov">          0 :   if (*invalid)</span>
+<span class="lineNum">     191 </span>            :     {
+<span class="lineNum">     192 </span><span class="lineNoCov">          0 :       mbstate_t mbstate = { 0, };</span>
+<span class="lineNum">     193 </span><span class="lineNoCov">          0 :       size_t charlen = mbrlen (invalid, filelen - validlen, &amp;mbstate);</span>
+<span class="lineNum">     194 </span><span class="lineNoCov">          0 :       error (0, 0,</span>
+<span class="lineNum">     195 </span><span class="lineNoCov">          0 :              _(&quot;nonportable character %s in file name %s&quot;),</span>
+<span class="lineNum">     196 </span>            :              quotearg_n_style_mem (1, locale_quoting_style, invalid,
+<span class="lineNum">     197 </span>            :                                    (charlen &lt;= MB_LEN_MAX ? charlen : 1)),
+<span class="lineNum">     198 </span>            :              quoteaf_n (0, file));
+<span class="lineNum">     199 </span>            :       return false;
+<span class="lineNum">     200 </span>            :     }
+<span class="lineNum">     201 </span>            : 
+<span class="lineNum">     202 </span>            :   return true;
+<span class="lineNum">     203 </span>            : }
+<span class="lineNum">     204 </span>            : 
+<span class="lineNum">     205 </span>            : /* Return the address of the start of the next file name component in F.  */
+<span class="lineNum">     206 </span>            : 
+<span class="lineNum">     207 </span>            : static char * _GL_ATTRIBUTE_PURE
+<span class="lineNum">     208 </span>            : component_start (char *f)
+<span class="lineNum">     209 </span>            : {
+<span class="lineNum">     210 </span><span class="lineNoCov">          0 :   while (*f == '/')</span>
+<span class="lineNum">     211 </span><span class="lineNoCov">          0 :     f++;</span>
+<span class="lineNum">     212 </span>            :   return f;
+<span class="lineNum">     213 </span>            : }
+<span class="lineNum">     214 </span>            : 
+<span class="lineNum">     215 </span>            : /* Return the size of the file name component F.  F must be nonempty.  */
+<span class="lineNum">     216 </span>            : 
+<span class="lineNum">     217 </span>            : static size_t _GL_ATTRIBUTE_PURE
+<span class="lineNum">     218 </span>            : component_len (char const *f)
+<span class="lineNum">     219 </span>            : {
+<span class="lineNum">     220 </span>            :   size_t len;
+<span class="lineNum">     221 </span><span class="lineNoCov">          0 :   for (len = 1; f[len] != '/' &amp;&amp; f[len]; len++)</span>
+<span class="lineNum">     222 </span><span class="lineNoCov">          0 :     continue;</span>
+<span class="lineNum">     223 </span>            :   return len;
+<span class="lineNum">     224 </span>            : }
+<span class="lineNum">     225 </span>            : 
+<span class="lineNum">     226 </span>            : /* Make sure that
+<span class="lineNum">     227 </span>            :    strlen (FILE) &lt;= PATH_MAX
+<span class="lineNum">     228 </span>            :    &amp;&amp; strlen (each-existing-directory-in-FILE) &lt;= NAME_MAX
+<span class="lineNum">     229 </span>            : 
+<span class="lineNum">     230 </span>            :    If CHECK_BASIC_PORTABILITY is true, compare against _POSIX_PATH_MAX and
+<span class="lineNum">     231 </span>            :    _POSIX_NAME_MAX instead, and make sure that FILE contains no
+<span class="lineNum">     232 </span>            :    characters not in the POSIX portable filename character set, which
+<span class="lineNum">     233 </span>            :    consists of A-Z, a-z, 0-9, ., _, - (plus / for separators).
+<span class="lineNum">     234 </span>            : 
+<span class="lineNum">     235 </span>            :    If CHECK_BASIC_PORTABILITY is false, make sure that all leading directories
+<span class="lineNum">     236 </span>            :    along FILE that exist are searchable.
+<span class="lineNum">     237 </span>            : 
+<span class="lineNum">     238 </span>            :    If CHECK_EXTRA_PORTABILITY is true, check that file name components do not
+<span class="lineNum">     239 </span>            :    begin with &quot;-&quot;.
+<span class="lineNum">     240 </span>            : 
+<span class="lineNum">     241 </span>            :    If either CHECK_BASIC_PORTABILITY or CHECK_EXTRA_PORTABILITY is true,
+<span class="lineNum">     242 </span>            :    check that the file name is not empty.
+<span class="lineNum">     243 </span>            : 
+<span class="lineNum">     244 </span>            :    Return true if all of these tests are successful, false if any fail.  */
+<a name="245"><span class="lineNum">     245 </span>            : </a>
+<span class="lineNum">     246 </span>            : static bool
+<span class="lineNum">     247 </span><span class="lineNoCov">          0 : validate_file_name (char *file, bool check_basic_portability,</span>
+<span class="lineNum">     248 </span>            :                     bool check_extra_portability)
+<span class="lineNum">     249 </span>            : {
+<span class="lineNum">     250 </span><span class="lineNoCov">          0 :   size_t filelen = strlen (file);</span>
+<span class="lineNum">     251 </span>            : 
+<span class="lineNum">     252 </span>            :   /* Start of file name component being checked.  */
+<span class="lineNum">     253 </span>            :   char *start;
+<span class="lineNum">     254 </span>            : 
+<span class="lineNum">     255 </span>            :   /* True if component lengths need to be checked.  */
+<span class="lineNum">     256 </span>            :   bool check_component_lengths;
+<span class="lineNum">     257 </span>            : 
+<span class="lineNum">     258 </span>            :   /* True if the file is known to exist.  */
+<span class="lineNum">     259 </span><span class="lineNoCov">          0 :   bool file_exists = false;</span>
+<span class="lineNum">     260 </span>            : 
+<span class="lineNum">     261 </span><span class="lineNoCov">          0 :   if (check_extra_portability &amp;&amp; ! no_leading_hyphen (file))</span>
+<span class="lineNum">     262 </span>            :     return false;
+<span class="lineNum">     263 </span>            : 
+<span class="lineNum">     264 </span><span class="lineNoCov">          0 :   if ((check_basic_portability || check_extra_portability)</span>
+<span class="lineNum">     265 </span><span class="lineNoCov">          0 :       &amp;&amp; filelen == 0)</span>
+<span class="lineNum">     266 </span>            :     {
+<span class="lineNum">     267 </span>            :       /* Fail, since empty names are not portable.  As of
+<span class="lineNum">     268 </span>            :          2005-01-06 POSIX does not address whether &quot;pathchk -p ''&quot;
+<span class="lineNum">     269 </span>            :          should (or is allowed to) fail, so this is not a
+<span class="lineNum">     270 </span>            :          conformance violation.  */
+<span class="lineNum">     271 </span><span class="lineNoCov">          0 :       error (0, 0, _(&quot;empty file name&quot;));</span>
+<span class="lineNum">     272 </span><span class="lineNoCov">          0 :       return false;</span>
+<span class="lineNum">     273 </span>            :     }
+<span class="lineNum">     274 </span>            : 
+<span class="lineNum">     275 </span><span class="lineNoCov">          0 :   if (check_basic_portability)</span>
+<span class="lineNum">     276 </span>            :     {
+<span class="lineNum">     277 </span><span class="lineNoCov">          0 :       if (! portable_chars_only (file, filelen))</span>
+<span class="lineNum">     278 </span>            :         return false;
+<span class="lineNum">     279 </span>            :     }
+<span class="lineNum">     280 </span>            :   else
+<span class="lineNum">     281 </span>            :     {
+<span class="lineNum">     282 </span>            :       /* Check whether a file name component is in a directory that
+<span class="lineNum">     283 </span>            :          is not searchable, or has some other serious problem.
+<span class="lineNum">     284 </span>            :          POSIX does not allow &quot;&quot; as a file name, but some non-POSIX
+<span class="lineNum">     285 </span>            :          hosts do (as an alias for &quot;.&quot;), so allow &quot;&quot; if lstat does.  */
+<span class="lineNum">     286 </span>            : 
+<span class="lineNum">     287 </span>            :       struct stat st;
+<span class="lineNum">     288 </span><span class="lineNoCov">          0 :       if (lstat (file, &amp;st) == 0)</span>
+<span class="lineNum">     289 </span>            :         file_exists = true;
+<span class="lineNum">     290 </span><span class="lineNoCov">          0 :       else if (errno != ENOENT || filelen == 0)</span>
+<span class="lineNum">     291 </span>            :         {
+<span class="lineNum">     292 </span><span class="lineNoCov">          0 :           error (0, errno, &quot;%s&quot;, quotef (file));</span>
+<span class="lineNum">     293 </span><span class="lineNoCov">          0 :           return false;</span>
+<span class="lineNum">     294 </span>            :         }
+<span class="lineNum">     295 </span>            :     }
+<span class="lineNum">     296 </span>            : 
+<span class="lineNum">     297 </span><span class="lineNoCov">          0 :   if (check_basic_portability</span>
+<span class="lineNum">     298 </span><span class="lineNoCov">          0 :       || (! file_exists &amp;&amp; PATH_MAX_MINIMUM &lt;= filelen))</span>
+<span class="lineNum">     299 </span>            :     {
+<span class="lineNum">     300 </span>            :       size_t maxsize;
+<span class="lineNum">     301 </span>            : 
+<span class="lineNum">     302 </span><span class="lineNoCov">          0 :       if (check_basic_portability)</span>
+<span class="lineNum">     303 </span>            :         maxsize = _POSIX_PATH_MAX;
+<span class="lineNum">     304 </span>            :       else
+<span class="lineNum">     305 </span>            :         {
+<span class="lineNum">     306 </span>            :           long int size;
+<span class="lineNum">     307 </span><span class="lineNoCov">          0 :           char const *dir = (*file == '/' ? &quot;/&quot; : &quot;.&quot;);</span>
+<span class="lineNum">     308 </span><span class="lineNoCov">          0 :           errno = 0;</span>
+<span class="lineNum">     309 </span><span class="lineNoCov">          0 :           size = pathconf (dir, _PC_PATH_MAX);</span>
+<span class="lineNum">     310 </span><span class="lineNoCov">          0 :           if (size &lt; 0 &amp;&amp; errno != 0)</span>
+<span class="lineNum">     311 </span>            :             {
+<span class="lineNum">     312 </span><span class="lineNoCov">          0 :               error (0, errno,</span>
+<span class="lineNum">     313 </span><span class="lineNoCov">          0 :                      _(&quot;%s: unable to determine maximum file name length&quot;),</span>
+<span class="lineNum">     314 </span>            :                      dir);
+<span class="lineNum">     315 </span><span class="lineNoCov">          0 :               return false;</span>
+<span class="lineNum">     316 </span>            :             }
+<span class="lineNum">     317 </span><span class="lineNoCov">          0 :           maxsize = MIN (size, SSIZE_MAX);</span>
+<span class="lineNum">     318 </span>            :         }
+<span class="lineNum">     319 </span>            : 
+<span class="lineNum">     320 </span><span class="lineNoCov">          0 :       if (maxsize &lt;= filelen)</span>
+<span class="lineNum">     321 </span>            :         {
+<span class="lineNum">     322 </span><span class="lineNoCov">          0 :           unsigned long int len = filelen;</span>
+<span class="lineNum">     323 </span><span class="lineNoCov">          0 :           unsigned long int maxlen = maxsize - 1;</span>
+<span class="lineNum">     324 </span><span class="lineNoCov">          0 :           error (0, 0, _(&quot;limit %lu exceeded by length %lu of file name %s&quot;),</span>
+<span class="lineNum">     325 </span>            :                  maxlen, len, quoteaf (file));
+<span class="lineNum">     326 </span><span class="lineNoCov">          0 :           return false;</span>
+<span class="lineNum">     327 </span>            :         }
+<span class="lineNum">     328 </span>            :     }
+<span class="lineNum">     329 </span>            : 
+<span class="lineNum">     330 </span>            :   /* Check whether pathconf (..., _PC_NAME_MAX) can be avoided, i.e.,
+<span class="lineNum">     331 </span>            :      whether all file name components are so short that they are valid
+<span class="lineNum">     332 </span>            :      in any file system on this platform.  If CHECK_BASIC_PORTABILITY, though,
+<span class="lineNum">     333 </span>            :      it's more convenient to check component lengths below.  */
+<span class="lineNum">     334 </span>            : 
+<span class="lineNum">     335 </span><span class="lineNoCov">          0 :   check_component_lengths = check_basic_portability;</span>
+<span class="lineNum">     336 </span><span class="lineNoCov">          0 :   if (! check_component_lengths &amp;&amp; ! file_exists)</span>
+<span class="lineNum">     337 </span>            :     {
+<span class="lineNum">     338 </span><span class="lineNoCov">          0 :       for (start = file; *(start = component_start (start)); )</span>
+<span class="lineNum">     339 </span>            :         {
+<span class="lineNum">     340 </span><span class="lineNoCov">          0 :           size_t length = component_len (start);</span>
+<span class="lineNum">     341 </span>            : 
+<span class="lineNum">     342 </span><span class="lineNoCov">          0 :           if (NAME_MAX_MINIMUM &lt; length)</span>
+<span class="lineNum">     343 </span>            :             {
+<span class="lineNum">     344 </span>            :               check_component_lengths = true;
+<span class="lineNum">     345 </span>            :               break;
+<span class="lineNum">     346 </span>            :             }
+<span class="lineNum">     347 </span>            : 
+<span class="lineNum">     348 </span>            :           start += length;
+<span class="lineNum">     349 </span>            :         }
+<span class="lineNum">     350 </span>            :     }
+<span class="lineNum">     351 </span>            : 
+<span class="lineNum">     352 </span><span class="lineNoCov">          0 :   if (check_component_lengths)</span>
+<span class="lineNum">     353 </span>            :     {
+<span class="lineNum">     354 </span>            :       /* The limit on file name components for the current component.
+<span class="lineNum">     355 </span>            :          This defaults to NAME_MAX_MINIMUM, for the sake of non-POSIX
+<span class="lineNum">     356 </span>            :          systems (NFS, say?) where pathconf fails on &quot;.&quot; or &quot;/&quot; with
+<span class="lineNum">     357 </span>            :          errno == ENOENT.  */
+<span class="lineNum">     358 </span><span class="lineNoCov">          0 :       size_t name_max = NAME_MAX_MINIMUM;</span>
+<span class="lineNum">     359 </span>            : 
+<span class="lineNum">     360 </span>            :       /* If nonzero, the known limit on file name components.  */
+<span class="lineNum">     361 </span><span class="lineNoCov">          0 :       size_t known_name_max = (check_basic_portability ? _POSIX_NAME_MAX : 0);</span>
+<span class="lineNum">     362 </span>            : 
+<span class="lineNum">     363 </span><span class="lineNoCov">          0 :       for (start = file; *(start = component_start (start)); )</span>
+<span class="lineNum">     364 </span>            :         {
+<span class="lineNum">     365 </span>            :           size_t length;
+<span class="lineNum">     366 </span>            : 
+<span class="lineNum">     367 </span><span class="lineNoCov">          0 :           if (known_name_max)</span>
+<span class="lineNum">     368 </span>            :             name_max = known_name_max;
+<span class="lineNum">     369 </span>            :           else
+<span class="lineNum">     370 </span>            :             {
+<span class="lineNum">     371 </span>            :               long int len;
+<span class="lineNum">     372 </span><span class="lineNoCov">          0 :               char const *dir = (start == file ? &quot;.&quot; : file);</span>
+<span class="lineNum">     373 </span><span class="lineNoCov">          0 :               char c = *start;</span>
+<span class="lineNum">     374 </span><span class="lineNoCov">          0 :               errno = 0;</span>
+<span class="lineNum">     375 </span><span class="lineNoCov">          0 :               *start = '\0';</span>
+<span class="lineNum">     376 </span><span class="lineNoCov">          0 :               len = pathconf (dir, _PC_NAME_MAX);</span>
+<span class="lineNum">     377 </span><span class="lineNoCov">          0 :               *start = c;</span>
+<span class="lineNum">     378 </span><span class="lineNoCov">          0 :               if (0 &lt;= len)</span>
+<span class="lineNum">     379 </span><span class="lineNoCov">          0 :                 name_max = MIN (len, SSIZE_MAX);</span>
+<span class="lineNum">     380 </span>            :               else
+<span class="lineNum">     381 </span><span class="lineNoCov">          0 :                 switch (errno)</span>
+<span class="lineNum">     382 </span>            :                   {
+<span class="lineNum">     383 </span>            :                   case 0:
+<span class="lineNum">     384 </span>            :                     /* There is no limit.  */
+<span class="lineNum">     385 </span>            :                     name_max = SIZE_MAX;
+<span class="lineNum">     386 </span>            :                     break;
+<span class="lineNum">     387 </span>            : 
+<span class="lineNum">     388 </span>            :                   case ENOENT:
+<span class="lineNum">     389 </span>            :                     /* DIR does not exist; use its parent's maximum.  */
+<span class="lineNum">     390 </span><span class="lineNoCov">          0 :                     known_name_max = name_max;</span>
+<span class="lineNum">     391 </span><span class="lineNoCov">          0 :                     break;</span>
+<span class="lineNum">     392 </span>            : 
+<span class="lineNum">     393 </span>            :                   default:
+<span class="lineNum">     394 </span><span class="lineNoCov">          0 :                     *start = '\0';</span>
+<span class="lineNum">     395 </span><span class="lineNoCov">          0 :                     error (0, errno, &quot;%s&quot;, quotef (dir));</span>
+<span class="lineNum">     396 </span><span class="lineNoCov">          0 :                     *start = c;</span>
+<span class="lineNum">     397 </span><span class="lineNoCov">          0 :                     return false;</span>
+<span class="lineNum">     398 </span>            :                   }
+<span class="lineNum">     399 </span>            :             }
+<span class="lineNum">     400 </span>            : 
+<span class="lineNum">     401 </span><span class="lineNoCov">          0 :           length = component_len (start);</span>
+<span class="lineNum">     402 </span>            : 
+<span class="lineNum">     403 </span><span class="lineNoCov">          0 :           if (name_max &lt; length)</span>
+<span class="lineNum">     404 </span>            :             {
+<span class="lineNum">     405 </span><span class="lineNoCov">          0 :               unsigned long int len = length;</span>
+<span class="lineNum">     406 </span><span class="lineNoCov">          0 :               unsigned long int maxlen = name_max;</span>
+<span class="lineNum">     407 </span><span class="lineNoCov">          0 :               char c = start[len];</span>
+<span class="lineNum">     408 </span><span class="lineNoCov">          0 :               start[len] = '\0';</span>
+<span class="lineNum">     409 </span><span class="lineNoCov">          0 :               error (0, 0,</span>
+<span class="lineNum">     410 </span><span class="lineNoCov">          0 :                      _(&quot;limit %lu exceeded by length %lu &quot;</span>
+<span class="lineNum">     411 </span>            :                        &quot;of file name component %s&quot;),
+<span class="lineNum">     412 </span>            :                      maxlen, len, quote (start));
+<span class="lineNum">     413 </span><span class="lineNoCov">          0 :               start[len] = c;</span>
+<span class="lineNum">     414 </span><span class="lineNoCov">          0 :               return false;</span>
+<span class="lineNum">     415 </span>            :             }
+<span class="lineNum">     416 </span>            : 
+<span class="lineNum">     417 </span>            :           start += length;
+<span class="lineNum">     418 </span>            :         }
+<span class="lineNum">     419 </span>            :     }
+<span class="lineNum">     420 </span>            : 
+<span class="lineNum">     421 </span>            :   return true;
+<span class="lineNum">     422 </span>            : }
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.12</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>

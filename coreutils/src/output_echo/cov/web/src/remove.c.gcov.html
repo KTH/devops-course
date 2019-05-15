@@ -1,0 +1,662 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - trace.lcov_info_final - src/remove.c</title>
+  <link rel="stylesheet" type="text/css" href="../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">src</a> - remove.c<span style="font-size: 80%;"> (source / <a href="remove.c.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">trace.lcov_info_final</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">154</td>
+            <td class="headerCovTableEntryLo">0.0 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2019-04-22 20:19:38</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">6</td>
+            <td class="headerCovTableEntryLo">0.0 %</td>
+          </tr>
+          <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>            : /* remove.c -- core functions for removing files and directories</a>
+<span class="lineNum">       2 </span>            :    Copyright (C) 1988-2016 Free Software Foundation, Inc.
+<span class="lineNum">       3 </span>            : 
+<span class="lineNum">       4 </span>            :    This program is free software: you can redistribute it and/or modify
+<span class="lineNum">       5 </span>            :    it under the terms of the GNU General Public License as published by
+<span class="lineNum">       6 </span>            :    the Free Software Foundation, either version 3 of the License, or
+<span class="lineNum">       7 </span>            :    (at your option) any later version.
+<span class="lineNum">       8 </span>            : 
+<span class="lineNum">       9 </span>            :    This program is distributed in the hope that it will be useful,
+<span class="lineNum">      10 </span>            :    but WITHOUT ANY WARRANTY; without even the implied warranty of
+<span class="lineNum">      11 </span>            :    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+<span class="lineNum">      12 </span>            :    GNU General Public License for more details.
+<span class="lineNum">      13 </span>            : 
+<span class="lineNum">      14 </span>            :    You should have received a copy of the GNU General Public License
+<span class="lineNum">      15 </span>            :    along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.  */
+<span class="lineNum">      16 </span>            : 
+<span class="lineNum">      17 </span>            : /* Extracted from rm.c, librarified, then rewritten twice by Jim Meyering.  */
+<span class="lineNum">      18 </span>            : 
+<span class="lineNum">      19 </span>            : #include &lt;config.h&gt;
+<span class="lineNum">      20 </span>            : #include &lt;stdio.h&gt;
+<span class="lineNum">      21 </span>            : #include &lt;sys/types.h&gt;
+<span class="lineNum">      22 </span>            : #include &lt;assert.h&gt;
+<span class="lineNum">      23 </span>            : 
+<span class="lineNum">      24 </span>            : #include &quot;system.h&quot;
+<span class="lineNum">      25 </span>            : #include &quot;error.h&quot;
+<span class="lineNum">      26 </span>            : #include &quot;file-type.h&quot;
+<span class="lineNum">      27 </span>            : #include &quot;ignore-value.h&quot;
+<span class="lineNum">      28 </span>            : #include &quot;remove.h&quot;
+<span class="lineNum">      29 </span>            : #include &quot;root-dev-ino.h&quot;
+<span class="lineNum">      30 </span>            : #include &quot;write-any-file.h&quot;
+<span class="lineNum">      31 </span>            : #include &quot;xfts.h&quot;
+<span class="lineNum">      32 </span>            : #include &quot;yesno.h&quot;
+<span class="lineNum">      33 </span>            : 
+<span class="lineNum">      34 </span>            : enum Ternary
+<span class="lineNum">      35 </span>            :   {
+<span class="lineNum">      36 </span>            :     T_UNKNOWN = 2,
+<span class="lineNum">      37 </span>            :     T_NO,
+<span class="lineNum">      38 </span>            :     T_YES
+<span class="lineNum">      39 </span>            :   };
+<span class="lineNum">      40 </span>            : typedef enum Ternary Ternary;
+<span class="lineNum">      41 </span>            : 
+<span class="lineNum">      42 </span>            : /* The prompt function may be called twice for a given directory.
+<span class="lineNum">      43 </span>            :    The first time, we ask whether to descend into it, and the
+<span class="lineNum">      44 </span>            :    second time, we ask whether to remove it.  */
+<span class="lineNum">      45 </span>            : enum Prompt_action
+<span class="lineNum">      46 </span>            :   {
+<span class="lineNum">      47 </span>            :     PA_DESCEND_INTO_DIR = 2,
+<span class="lineNum">      48 </span>            :     PA_REMOVE_DIR
+<span class="lineNum">      49 </span>            :   };
+<span class="lineNum">      50 </span>            : 
+<span class="lineNum">      51 </span>            : /* D_TYPE(D) is the type of directory entry D if known, DT_UNKNOWN
+<span class="lineNum">      52 </span>            :    otherwise.  */
+<span class="lineNum">      53 </span>            : #if ! HAVE_STRUCT_DIRENT_D_TYPE
+<span class="lineNum">      54 </span>            : /* Any int values will do here, so long as they're distinct.
+<span class="lineNum">      55 </span>            :    Undef any existing macros out of the way.  */
+<span class="lineNum">      56 </span>            : # undef DT_UNKNOWN
+<span class="lineNum">      57 </span>            : # undef DT_DIR
+<span class="lineNum">      58 </span>            : # undef DT_LNK
+<span class="lineNum">      59 </span>            : # define DT_UNKNOWN 0
+<span class="lineNum">      60 </span>            : # define DT_DIR 1
+<span class="lineNum">      61 </span>            : # define DT_LNK 2
+<span class="lineNum">      62 </span>            : #endif
+<span class="lineNum">      63 </span>            : 
+<span class="lineNum">      64 </span>            : /* Like fstatat, but cache the result.  If ST-&gt;st_size is -1, the
+<span class="lineNum">      65 </span>            :    status has not been gotten yet.  If less than -1, fstatat failed
+<span class="lineNum">      66 </span>            :    with errno == ST-&gt;st_ino.  Otherwise, the status has already
+<a name="67"><span class="lineNum">      67 </span>            :    been gotten, so return 0.  */</a>
+<span class="lineNum">      68 </span>            : static int
+<span class="lineNum">      69 </span><span class="lineNoCov">          0 : cache_fstatat (int fd, char const *file, struct stat *st, int flag)</span>
+<span class="lineNum">      70 </span>            : {
+<span class="lineNum">      71 </span><span class="lineNoCov">          0 :   if (st-&gt;st_size == -1 &amp;&amp; fstatat (fd, file, st, flag) != 0)</span>
+<span class="lineNum">      72 </span>            :     {
+<span class="lineNum">      73 </span><span class="lineNoCov">          0 :       st-&gt;st_size = -2;</span>
+<span class="lineNum">      74 </span><span class="lineNoCov">          0 :       st-&gt;st_ino = errno;</span>
+<span class="lineNum">      75 </span>            :     }
+<span class="lineNum">      76 </span><span class="lineNoCov">          0 :   if (0 &lt;= st-&gt;st_size)</span>
+<span class="lineNum">      77 </span>            :     return 0;
+<span class="lineNum">      78 </span><span class="lineNoCov">          0 :   errno = (int) st-&gt;st_ino;</span>
+<span class="lineNum">      79 </span><span class="lineNoCov">          0 :   return -1;</span>
+<span class="lineNum">      80 </span>            : }
+<span class="lineNum">      81 </span>            : 
+<span class="lineNum">      82 </span>            : /* Initialize a fstatat cache *ST.  Return ST for convenience.  */
+<span class="lineNum">      83 </span>            : static inline struct stat *
+<span class="lineNum">      84 </span>            : cache_stat_init (struct stat *st)
+<span class="lineNum">      85 </span>            : {
+<span class="lineNum">      86 </span><span class="lineNoCov">          0 :   st-&gt;st_size = -1;</span>
+<span class="lineNum">      87 </span>            :   return st;
+<span class="lineNum">      88 </span>            : }
+<span class="lineNum">      89 </span>            : 
+<span class="lineNum">      90 </span>            : /* Return 1 if FILE is an unwritable non-symlink,
+<span class="lineNum">      91 </span>            :    0 if it is writable or some other type of file,
+<span class="lineNum">      92 </span>            :    -1 and set errno if there is some problem in determining the answer.
+<a name="93"><span class="lineNum">      93 </span>            :    Set *BUF to the file status.  */</a>
+<span class="lineNum">      94 </span>            : static int
+<span class="lineNum">      95 </span><span class="lineNoCov">          0 : write_protected_non_symlink (int fd_cwd,</span>
+<span class="lineNum">      96 </span>            :                              char const *file,
+<span class="lineNum">      97 </span>            :                              struct stat *buf)
+<span class="lineNum">      98 </span>            : {
+<span class="lineNum">      99 </span><span class="lineNoCov">          0 :   if (can_write_any_file ())</span>
+<span class="lineNum">     100 </span>            :     return 0;
+<span class="lineNum">     101 </span><span class="lineNoCov">          0 :   if (cache_fstatat (fd_cwd, file, buf, AT_SYMLINK_NOFOLLOW) != 0)</span>
+<span class="lineNum">     102 </span>            :     return -1;
+<span class="lineNum">     103 </span><span class="lineNoCov">          0 :   if (S_ISLNK (buf-&gt;st_mode))</span>
+<span class="lineNum">     104 </span>            :     return 0;
+<span class="lineNum">     105 </span>            :   /* Here, we know FILE is not a symbolic link.  */
+<span class="lineNum">     106 </span>            : 
+<span class="lineNum">     107 </span>            :   /* In order to be reentrant -- i.e., to avoid changing the working
+<span class="lineNum">     108 </span>            :      directory, and at the same time to be able to deal with alternate
+<span class="lineNum">     109 </span>            :      access control mechanisms (ACLs, xattr-style attributes) and
+<span class="lineNum">     110 </span>            :      arbitrarily deep trees -- we need a function like eaccessat, i.e.,
+<span class="lineNum">     111 </span>            :      like Solaris' eaccess, but fd-relative, in the spirit of openat.  */
+<span class="lineNum">     112 </span>            : 
+<span class="lineNum">     113 </span>            :   /* In the absence of a native eaccessat function, here are some of
+<span class="lineNum">     114 </span>            :      the implementation choices [#4 and #5 were suggested by Paul Eggert]:
+<span class="lineNum">     115 </span>            :      1) call openat with O_WRONLY|O_NOCTTY
+<span class="lineNum">     116 </span>            :         Disadvantage: may create the file and doesn't work for directory,
+<span class="lineNum">     117 </span>            :         may mistakenly report 'unwritable' for EROFS or ACLs even though
+<span class="lineNum">     118 </span>            :         perm bits say the file is writable.
+<span class="lineNum">     119 </span>            : 
+<span class="lineNum">     120 </span>            :      2) fake eaccessat (save_cwd, fchdir, call euidaccess, restore_cwd)
+<span class="lineNum">     121 </span>            :         Disadvantage: changes working directory (not reentrant) and can't
+<span class="lineNum">     122 </span>            :         work if save_cwd fails.
+<span class="lineNum">     123 </span>            : 
+<span class="lineNum">     124 </span>            :      3) if (euidaccess (full_name, W_OK) == 0)
+<span class="lineNum">     125 </span>            :         Disadvantage: doesn't work if full_name is too long.
+<span class="lineNum">     126 </span>            :         Inefficient for very deep trees (O(Depth^2)).
+<span class="lineNum">     127 </span>            : 
+<span class="lineNum">     128 </span>            :      4) If the full pathname is sufficiently short (say, less than
+<span class="lineNum">     129 </span>            :         PATH_MAX or 8192 bytes, whichever is shorter):
+<span class="lineNum">     130 </span>            :         use method (3) (i.e., euidaccess (full_name, W_OK));
+<span class="lineNum">     131 </span>            :         Otherwise: vfork, fchdir in the child, run euidaccess in the
+<span class="lineNum">     132 </span>            :         child, then the child exits with a status that tells the parent
+<span class="lineNum">     133 </span>            :         whether euidaccess succeeded.
+<span class="lineNum">     134 </span>            : 
+<span class="lineNum">     135 </span>            :         This avoids the O(N**2) algorithm of method (3), and it also avoids
+<span class="lineNum">     136 </span>            :         the failure-due-to-too-long-file-names of method (3), but it's fast
+<span class="lineNum">     137 </span>            :         in the normal shallow case.  It also avoids the lack-of-reentrancy
+<span class="lineNum">     138 </span>            :         and the save_cwd problems.
+<span class="lineNum">     139 </span>            :         Disadvantage; it uses a process slot for very-long file names,
+<span class="lineNum">     140 </span>            :         and would be very slow for hierarchies with many such files.
+<span class="lineNum">     141 </span>            : 
+<span class="lineNum">     142 </span>            :      5) If the full file name is sufficiently short (say, less than
+<span class="lineNum">     143 </span>            :         PATH_MAX or 8192 bytes, whichever is shorter):
+<span class="lineNum">     144 </span>            :         use method (3) (i.e., euidaccess (full_name, W_OK));
+<span class="lineNum">     145 </span>            :         Otherwise: look just at the file bits.  Perhaps issue a warning
+<span class="lineNum">     146 </span>            :         the first time this occurs.
+<span class="lineNum">     147 </span>            : 
+<span class="lineNum">     148 </span>            :         This is like (4), except for the &quot;Otherwise&quot; case where it isn't as
+<span class="lineNum">     149 </span>            :         &quot;perfect&quot; as (4) but is considerably faster.  It conforms to current
+<span class="lineNum">     150 </span>            :         POSIX, and is uniformly better than what Solaris and FreeBSD do (they
+<span class="lineNum">     151 </span>            :         mess up with long file names). */
+<span class="lineNum">     152 </span>            : 
+<span class="lineNum">     153 </span>            :   {
+<span class="lineNum">     154 </span><span class="lineNoCov">          0 :     if (faccessat (fd_cwd, file, W_OK, AT_EACCESS) == 0)</span>
+<span class="lineNum">     155 </span>            :       return 0;
+<span class="lineNum">     156 </span>            : 
+<span class="lineNum">     157 </span><span class="lineNoCov">          0 :     return errno == EACCES ? 1 : -1;</span>
+<span class="lineNum">     158 </span>            :   }
+<span class="lineNum">     159 </span>            : }
+<span class="lineNum">     160 </span>            : 
+<span class="lineNum">     161 </span>            : /* Prompt whether to remove FILENAME (ent-&gt;, if required via a combination of
+<span class="lineNum">     162 </span>            :    the options specified by X and/or file attributes.  If the file may
+<span class="lineNum">     163 </span>            :    be removed, return RM_OK.  If the user declines to remove the file,
+<span class="lineNum">     164 </span>            :    return RM_USER_DECLINED.  If not ignoring missing files and we
+<span class="lineNum">     165 </span>            :    cannot lstat FILENAME, then return RM_ERROR.
+<span class="lineNum">     166 </span>            : 
+<span class="lineNum">     167 </span>            :    IS_DIR is true if ENT designates a directory, false otherwise.
+<span class="lineNum">     168 </span>            : 
+<span class="lineNum">     169 </span>            :    Depending on MODE, ask whether to 'descend into' or to 'remove' the
+<span class="lineNum">     170 </span>            :    directory FILENAME.  MODE is ignored when FILENAME is not a directory.
+<span class="lineNum">     171 </span>            :    Set *IS_EMPTY_P to T_YES if FILENAME is an empty directory, and it is
+<span class="lineNum">     172 </span>            :    appropriate to try to remove it with rmdir (e.g. recursive mode).
+<a name="173"><span class="lineNum">     173 </span>            :    Don't even try to set *IS_EMPTY_P when MODE == PA_REMOVE_DIR.  */</a>
+<span class="lineNum">     174 </span>            : static enum RM_status
+<span class="lineNum">     175 </span><span class="lineNoCov">          0 : prompt (FTS const *fts, FTSENT const *ent, bool is_dir,</span>
+<span class="lineNum">     176 </span>            :         struct rm_options const *x, enum Prompt_action mode,
+<span class="lineNum">     177 </span>            :         Ternary *is_empty_p)
+<span class="lineNum">     178 </span>            : {
+<span class="lineNum">     179 </span><span class="lineNoCov">          0 :   int fd_cwd = fts-&gt;fts_cwd_fd;</span>
+<span class="lineNum">     180 </span><span class="lineNoCov">          0 :   char const *full_name = ent-&gt;fts_path;</span>
+<span class="lineNum">     181 </span><span class="lineNoCov">          0 :   char const *filename = ent-&gt;fts_accpath;</span>
+<span class="lineNum">     182 </span><span class="lineNoCov">          0 :   if (is_empty_p)</span>
+<span class="lineNum">     183 </span><span class="lineNoCov">          0 :     *is_empty_p = T_UNKNOWN;</span>
+<span class="lineNum">     184 </span>            : 
+<span class="lineNum">     185 </span>            :   struct stat st;
+<span class="lineNum">     186 </span><span class="lineNoCov">          0 :   struct stat *sbuf = &amp;st;</span>
+<span class="lineNum">     187 </span><span class="lineNoCov">          0 :   cache_stat_init (sbuf);</span>
+<span class="lineNum">     188 </span>            : 
+<span class="lineNum">     189 </span><span class="lineNoCov">          0 :   int dirent_type = is_dir ? DT_DIR : DT_UNKNOWN;</span>
+<span class="lineNum">     190 </span><span class="lineNoCov">          0 :   int write_protected = 0;</span>
+<span class="lineNum">     191 </span>            : 
+<span class="lineNum">     192 </span><span class="lineNoCov">          0 :   bool is_empty = false;</span>
+<span class="lineNum">     193 </span><span class="lineNoCov">          0 :   if (is_empty_p)</span>
+<span class="lineNum">     194 </span>            :     {
+<span class="lineNum">     195 </span><span class="lineNoCov">          0 :       is_empty = is_empty_dir (fd_cwd, filename);</span>
+<span class="lineNum">     196 </span><span class="lineNoCov">          0 :       *is_empty_p = is_empty ? T_YES : T_NO;</span>
+<span class="lineNum">     197 </span>            :     }
+<span class="lineNum">     198 </span>            : 
+<span class="lineNum">     199 </span>            :   /* When nonzero, this indicates that we failed to remove a child entry,
+<span class="lineNum">     200 </span>            :      either because the user declined an interactive prompt, or due to
+<span class="lineNum">     201 </span>            :      some other failure, like permissions.  */
+<span class="lineNum">     202 </span><span class="lineNoCov">          0 :   if (ent-&gt;fts_number)</span>
+<span class="lineNum">     203 </span>            :     return RM_USER_DECLINED;
+<span class="lineNum">     204 </span>            : 
+<span class="lineNum">     205 </span><span class="lineNoCov">          0 :   if (x-&gt;interactive == RMI_NEVER)</span>
+<span class="lineNum">     206 </span>            :     return RM_OK;
+<span class="lineNum">     207 </span>            : 
+<span class="lineNum">     208 </span><span class="lineNoCov">          0 :   int wp_errno = 0;</span>
+<span class="lineNum">     209 </span><span class="lineNoCov">          0 :   if (!x-&gt;ignore_missing_files</span>
+<span class="lineNum">     210 </span><span class="lineNoCov">          0 :       &amp;&amp; ((x-&gt;interactive == RMI_ALWAYS) || x-&gt;stdin_tty)</span>
+<span class="lineNum">     211 </span>            :       &amp;&amp; dirent_type != DT_LNK)
+<span class="lineNum">     212 </span>            :     {
+<span class="lineNum">     213 </span><span class="lineNoCov">          0 :       write_protected = write_protected_non_symlink (fd_cwd, filename, sbuf);</span>
+<span class="lineNum">     214 </span><span class="lineNoCov">          0 :       wp_errno = errno;</span>
+<span class="lineNum">     215 </span>            :     }
+<span class="lineNum">     216 </span>            : 
+<span class="lineNum">     217 </span><span class="lineNoCov">          0 :   if (write_protected || x-&gt;interactive == RMI_ALWAYS)</span>
+<span class="lineNum">     218 </span>            :     {
+<span class="lineNum">     219 </span><span class="lineNoCov">          0 :       if (0 &lt;= write_protected &amp;&amp; dirent_type == DT_UNKNOWN)</span>
+<span class="lineNum">     220 </span>            :         {
+<span class="lineNum">     221 </span><span class="lineNoCov">          0 :           if (cache_fstatat (fd_cwd, filename, sbuf, AT_SYMLINK_NOFOLLOW) == 0)</span>
+<span class="lineNum">     222 </span>            :             {
+<span class="lineNum">     223 </span><span class="lineNoCov">          0 :               if (S_ISLNK (sbuf-&gt;st_mode))</span>
+<span class="lineNum">     224 </span>            :                 dirent_type = DT_LNK;
+<span class="lineNum">     225 </span><span class="lineNoCov">          0 :               else if (S_ISDIR (sbuf-&gt;st_mode))</span>
+<span class="lineNum">     226 </span><span class="lineNoCov">          0 :                 dirent_type = DT_DIR;</span>
+<span class="lineNum">     227 </span>            :               /* Otherwise it doesn't matter, so leave it DT_UNKNOWN.  */
+<span class="lineNum">     228 </span>            :             }
+<span class="lineNum">     229 </span>            :           else
+<span class="lineNum">     230 </span>            :             {
+<span class="lineNum">     231 </span>            :               /* This happens, e.g., with 'rm '''.  */
+<span class="lineNum">     232 </span><span class="lineNoCov">          0 :               write_protected = -1;</span>
+<span class="lineNum">     233 </span><span class="lineNoCov">          0 :               wp_errno = errno;</span>
+<span class="lineNum">     234 </span>            :             }
+<span class="lineNum">     235 </span>            :         }
+<span class="lineNum">     236 </span>            : 
+<span class="lineNum">     237 </span><span class="lineNoCov">          0 :       if (0 &lt;= write_protected)</span>
+<span class="lineNum">     238 </span><span class="lineNoCov">          0 :         switch (dirent_type)</span>
+<span class="lineNum">     239 </span>            :           {
+<span class="lineNum">     240 </span>            :           case DT_LNK:
+<span class="lineNum">     241 </span>            :             /* Using permissions doesn't make sense for symlinks.  */
+<span class="lineNum">     242 </span><span class="lineNoCov">          0 :             if (x-&gt;interactive != RMI_ALWAYS)</span>
+<span class="lineNum">     243 </span>            :               return RM_OK;
+<span class="lineNum">     244 </span>            :             break;
+<span class="lineNum">     245 </span>            : 
+<span class="lineNum">     246 </span>            :           case DT_DIR:
+<span class="lineNum">     247 </span>            :              /* Unless we're either deleting directories or deleting
+<span class="lineNum">     248 </span>            :                 recursively, we want to raise an EISDIR error rather than
+<span class="lineNum">     249 </span>            :                 prompting the user  */
+<span class="lineNum">     250 </span><span class="lineNoCov">          0 :             if ( ! (x-&gt;recursive || (x-&gt;remove_empty_directories &amp;&amp; is_empty)))</span>
+<span class="lineNum">     251 </span>            :               {
+<span class="lineNum">     252 </span><span class="lineNoCov">          0 :                 write_protected = -1;</span>
+<span class="lineNum">     253 </span><span class="lineNoCov">          0 :                 wp_errno = EISDIR;</span>
+<span class="lineNum">     254 </span>            :               }
+<span class="lineNum">     255 </span>            :             break;
+<span class="lineNum">     256 </span>            :           }
+<span class="lineNum">     257 </span>            : 
+<span class="lineNum">     258 </span><span class="lineNoCov">          0 :       char const *quoted_name = quoteaf (full_name);</span>
+<span class="lineNum">     259 </span>            : 
+<span class="lineNum">     260 </span><span class="lineNoCov">          0 :       if (write_protected &lt; 0)</span>
+<span class="lineNum">     261 </span>            :         {
+<span class="lineNum">     262 </span><span class="lineNoCov">          0 :           error (0, wp_errno, _(&quot;cannot remove %s&quot;), quoted_name);</span>
+<span class="lineNum">     263 </span><span class="lineNoCov">          0 :           return RM_ERROR;</span>
+<span class="lineNum">     264 </span>            :         }
+<span class="lineNum">     265 </span>            : 
+<span class="lineNum">     266 </span>            :       /* Issue the prompt.  */
+<span class="lineNum">     267 </span><span class="lineNoCov">          0 :       if (dirent_type == DT_DIR</span>
+<span class="lineNum">     268 </span><span class="lineNoCov">          0 :           &amp;&amp; mode == PA_DESCEND_INTO_DIR</span>
+<span class="lineNum">     269 </span><span class="lineNoCov">          0 :           &amp;&amp; !is_empty)</span>
+<span class="lineNum">     270 </span><span class="lineNoCov">          0 :         fprintf (stderr,</span>
+<span class="lineNum">     271 </span>            :                  (write_protected
+<span class="lineNum">     272 </span>            :                   ? _(&quot;%s: descend into write-protected directory %s? &quot;)
+<span class="lineNum">     273 </span>            :                   : _(&quot;%s: descend into directory %s? &quot;)),
+<span class="lineNum">     274 </span>            :                  program_name, quoted_name);
+<span class="lineNum">     275 </span>            :       else
+<span class="lineNum">     276 </span>            :         {
+<span class="lineNum">     277 </span><span class="lineNoCov">          0 :           if (cache_fstatat (fd_cwd, filename, sbuf, AT_SYMLINK_NOFOLLOW) != 0)</span>
+<span class="lineNum">     278 </span>            :             {
+<span class="lineNum">     279 </span><span class="lineNoCov">          0 :               error (0, errno, _(&quot;cannot remove %s&quot;), quoted_name);</span>
+<span class="lineNum">     280 </span><span class="lineNoCov">          0 :               return RM_ERROR;</span>
+<span class="lineNum">     281 </span>            :             }
+<span class="lineNum">     282 </span>            : 
+<span class="lineNum">     283 </span><span class="lineNoCov">          0 :           fprintf (stderr,</span>
+<span class="lineNum">     284 </span>            :                    (write_protected
+<span class="lineNum">     285 </span>            :                     /* TRANSLATORS: In the next two strings the second %s is
+<span class="lineNum">     286 </span>            :                        replaced by the type of the file.  To avoid grammatical
+<span class="lineNum">     287 </span>            :                        problems, it may be more convenient to translate these
+<span class="lineNum">     288 </span>            :                        strings instead as: &quot;%1$s: %3$s is write-protected and
+<span class="lineNum">     289 </span>            :                        is of type '%2$s' -- remove it? &quot;.  */
+<span class="lineNum">     290 </span>            :                     ? _(&quot;%s: remove write-protected %s %s? &quot;)
+<span class="lineNum">     291 </span>            :                     : _(&quot;%s: remove %s %s? &quot;)),
+<span class="lineNum">     292 </span>            :                    program_name, file_type (sbuf), quoted_name);
+<span class="lineNum">     293 </span>            :         }
+<span class="lineNum">     294 </span>            : 
+<span class="lineNum">     295 </span><span class="lineNoCov">          0 :       if (!yesno ())</span>
+<span class="lineNum">     296 </span>            :         return RM_USER_DECLINED;
+<span class="lineNum">     297 </span>            :     }
+<span class="lineNum">     298 </span>            :   return RM_OK;
+<span class="lineNum">     299 </span>            : }
+<span class="lineNum">     300 </span>            : 
+<span class="lineNum">     301 </span>            : /* When a function like unlink, rmdir, or fstatat fails with an errno
+<span class="lineNum">     302 </span>            :    value of ERRNUM, return true if the specified file system object
+<span class="lineNum">     303 </span>            :    is guaranteed not to exist;  otherwise, return false.  */
+<span class="lineNum">     304 </span>            : static inline bool
+<span class="lineNum">     305 </span>            : nonexistent_file_errno (int errnum)
+<span class="lineNum">     306 </span>            : {
+<span class="lineNum">     307 </span>            :   /* Do not include ELOOP here, since the specified file may indeed
+<span class="lineNum">     308 </span>            :      exist, but be (in)accessible only via too long a symlink chain.
+<span class="lineNum">     309 </span>            :      Likewise for ENAMETOOLONG, since rm -f ./././.../foo may fail
+<span class="lineNum">     310 </span>            :      if the &quot;...&quot; part expands to a long enough sequence of &quot;./&quot;s,
+<span class="lineNum">     311 </span>            :      even though ./foo does indeed exist.
+<span class="lineNum">     312 </span>            : 
+<span class="lineNum">     313 </span>            :      Another case to consider is when a particular name is invalid for
+<span class="lineNum">     314 </span>            :      a given file system.  In 2011, smbfs returns EINVAL, but the next
+<span class="lineNum">     315 </span>            :      revision of POSIX will require EILSEQ for that situation:
+<span class="lineNum">     316 </span>            :      http://austingroupbugs.net/view.php?id=293
+<span class="lineNum">     317 </span>            :   */
+<span class="lineNum">     318 </span>            : 
+<span class="lineNum">     319 </span><span class="lineNoCov">          0 :   switch (errnum)</span>
+<span class="lineNum">     320 </span>            :     {
+<span class="lineNum">     321 </span>            :     case EILSEQ:
+<span class="lineNum">     322 </span>            :     case EINVAL:
+<span class="lineNum">     323 </span>            :     case ENOENT:
+<span class="lineNum">     324 </span>            :     case ENOTDIR:
+<span class="lineNum">     325 </span>            :       return true;
+<span class="lineNum">     326 </span>            :     default:
+<span class="lineNum">     327 </span>            :       return false;
+<span class="lineNum">     328 </span>            :     }
+<span class="lineNum">     329 </span>            : }
+<span class="lineNum">     330 </span>            : 
+<span class="lineNum">     331 </span>            : /* Encapsulate the test for whether the errno value, ERRNUM, is ignorable.  */
+<span class="lineNum">     332 </span>            : static inline bool
+<span class="lineNum">     333 </span>            : ignorable_missing (struct rm_options const *x, int errnum)
+<span class="lineNum">     334 </span>            : {
+<span class="lineNum">     335 </span><span class="lineNoCov">          0 :   return x-&gt;ignore_missing_files &amp;&amp; nonexistent_file_errno (errnum);</span>
+<span class="lineNum">     336 </span>            : }
+<span class="lineNum">     337 </span>            : 
+<span class="lineNum">     338 </span>            : /* Tell fts not to traverse into the hierarchy at ENT.  */
+<span class="lineNum">     339 </span>            : static void
+<span class="lineNum">     340 </span>            : fts_skip_tree (FTS *fts, FTSENT *ent)
+<span class="lineNum">     341 </span>            : {
+<span class="lineNum">     342 </span><span class="lineNoCov">          0 :   fts_set (fts, ent, FTS_SKIP);</span>
+<span class="lineNum">     343 </span>            :   /* Ensure that we do not process ENT a second time.  */
+<span class="lineNum">     344 </span><span class="lineNoCov">          0 :   ignore_value (fts_read (fts));</span>
+<span class="lineNum">     345 </span>            : }
+<span class="lineNum">     346 </span>            : 
+<span class="lineNum">     347 </span>            : /* Upon unlink failure, or when the user declines to remove ENT, mark
+<span class="lineNum">     348 </span>            :    each of its ancestor directories, so that we know not to prompt for
+<span class="lineNum">     349 </span>            :    its removal.  */
+<span class="lineNum">     350 </span>            : static void
+<span class="lineNum">     351 </span>            : mark_ancestor_dirs (FTSENT *ent)
+<span class="lineNum">     352 </span>            : {
+<span class="lineNum">     353 </span>            :   FTSENT *p;
+<span class="lineNum">     354 </span><span class="lineNoCov">          0 :   for (p = ent-&gt;fts_parent; FTS_ROOTLEVEL &lt;= p-&gt;fts_level; p = p-&gt;fts_parent)</span>
+<span class="lineNum">     355 </span>            :     {
+<span class="lineNum">     356 </span><span class="lineNoCov">          0 :       if (p-&gt;fts_number)</span>
+<span class="lineNum">     357 </span>            :         break;
+<span class="lineNum">     358 </span><span class="lineNoCov">          0 :       p-&gt;fts_number = 1;</span>
+<span class="lineNum">     359 </span>            :     }
+<span class="lineNum">     360 </span>            : }
+<span class="lineNum">     361 </span>            : 
+<span class="lineNum">     362 </span>            : /* Remove the file system object specified by ENT.  IS_DIR specifies
+<span class="lineNum">     363 </span>            :    whether it is expected to be a directory or non-directory.
+<a name="364"><span class="lineNum">     364 </span>            :    Return RM_OK upon success, else RM_ERROR.  */</a>
+<span class="lineNum">     365 </span>            : static enum RM_status
+<span class="lineNum">     366 </span><span class="lineNoCov">          0 : excise (FTS *fts, FTSENT *ent, struct rm_options const *x, bool is_dir)</span>
+<span class="lineNum">     367 </span>            : {
+<span class="lineNum">     368 </span><span class="lineNoCov">          0 :   int flag = is_dir ? AT_REMOVEDIR : 0;</span>
+<span class="lineNum">     369 </span><span class="lineNoCov">          0 :   if (unlinkat (fts-&gt;fts_cwd_fd, ent-&gt;fts_accpath, flag) == 0)</span>
+<span class="lineNum">     370 </span>            :     {
+<span class="lineNum">     371 </span><span class="lineNoCov">          0 :       if (x-&gt;verbose)</span>
+<span class="lineNum">     372 </span>            :         {
+<span class="lineNum">     373 </span><span class="lineNoCov">          0 :           printf ((is_dir</span>
+<span class="lineNum">     374 </span>            :                    ? _(&quot;removed directory %s\n&quot;)
+<span class="lineNum">     375 </span><span class="lineNoCov">          0 :                    : _(&quot;removed %s\n&quot;)), quoteaf (ent-&gt;fts_path));</span>
+<span class="lineNum">     376 </span>            :         }
+<span class="lineNum">     377 </span>            :       return RM_OK;
+<span class="lineNum">     378 </span>            :     }
+<span class="lineNum">     379 </span>            : 
+<span class="lineNum">     380 </span>            :   /* The unlinkat from kernels like linux-2.6.32 reports EROFS even for
+<span class="lineNum">     381 </span>            :      nonexistent files.  When the file is indeed missing, map that to ENOENT,
+<span class="lineNum">     382 </span>            :      so that rm -f ignores it, as required.  Even without -f, this is useful
+<span class="lineNum">     383 </span>            :      because it makes rm print the more precise diagnostic.  */
+<span class="lineNum">     384 </span><span class="lineNoCov">          0 :   if (errno == EROFS)</span>
+<span class="lineNum">     385 </span>            :     {
+<span class="lineNum">     386 </span>            :       struct stat st;
+<span class="lineNum">     387 </span><span class="lineNoCov">          0 :       if ( ! (lstatat (fts-&gt;fts_cwd_fd, ent-&gt;fts_accpath, &amp;st)</span>
+<span class="lineNum">     388 </span><span class="lineNoCov">          0 :                        &amp;&amp; errno == ENOENT))</span>
+<span class="lineNum">     389 </span><span class="lineNoCov">          0 :         errno = EROFS;</span>
+<span class="lineNum">     390 </span>            :     }
+<span class="lineNum">     391 </span>            : 
+<span class="lineNum">     392 </span><span class="lineNoCov">          0 :   if (ignorable_missing (x, errno))</span>
+<span class="lineNum">     393 </span>            :     return RM_OK;
+<span class="lineNum">     394 </span>            : 
+<span class="lineNum">     395 </span>            :   /* When failing to rmdir an unreadable directory, we see errno values
+<span class="lineNum">     396 </span>            :      like EISDIR or ENOTDIR (or, on Solaris 10, EEXIST), but they would be
+<span class="lineNum">     397 </span>            :      meaningless in a diagnostic.  When that happens and the errno value
+<span class="lineNum">     398 </span>            :      from the failed open is EPERM or EACCES, use the earlier, more
+<span class="lineNum">     399 </span>            :      descriptive errno value.  */
+<span class="lineNum">     400 </span><span class="lineNoCov">          0 :   if (ent-&gt;fts_info == FTS_DNR</span>
+<span class="lineNum">     401 </span><span class="lineNoCov">          0 :       &amp;&amp; (errno == ENOTEMPTY || errno == EISDIR || errno == ENOTDIR</span>
+<span class="lineNum">     402 </span><span class="lineNoCov">          0 :           || errno == EEXIST)</span>
+<span class="lineNum">     403 </span><span class="lineNoCov">          0 :       &amp;&amp; (ent-&gt;fts_errno == EPERM || ent-&gt;fts_errno == EACCES))</span>
+<span class="lineNum">     404 </span><span class="lineNoCov">          0 :     errno = ent-&gt;fts_errno;</span>
+<span class="lineNum">     405 </span><span class="lineNoCov">          0 :   error (0, errno, _(&quot;cannot remove %s&quot;), quoteaf (ent-&gt;fts_path));</span>
+<span class="lineNum">     406 </span>            :   mark_ancestor_dirs (ent);
+<span class="lineNum">     407 </span>            :   return RM_ERROR;
+<span class="lineNum">     408 </span>            : }
+<span class="lineNum">     409 </span>            : 
+<span class="lineNum">     410 </span>            : /* This function is called once for every file system object that fts
+<span class="lineNum">     411 </span>            :    encounters.  fts performs a depth-first traversal.
+<span class="lineNum">     412 </span>            :    A directory is usually processed twice, first with fts_info == FTS_D,
+<span class="lineNum">     413 </span>            :    and later, after all of its entries have been processed, with FTS_DP.
+<span class="lineNum">     414 </span>            :    Return RM_ERROR upon error, RM_USER_DECLINED for a negative response
+<a name="415"><span class="lineNum">     415 </span>            :    to an interactive prompt, and otherwise, RM_OK.  */</a>
+<span class="lineNum">     416 </span>            : static enum RM_status
+<span class="lineNum">     417 </span><span class="lineNoCov">          0 : rm_fts (FTS *fts, FTSENT *ent, struct rm_options const *x)</span>
+<span class="lineNum">     418 </span>            : {
+<span class="lineNum">     419 </span><span class="lineNoCov">          0 :   switch (ent-&gt;fts_info)</span>
+<span class="lineNum">     420 </span>            :     {
+<span class="lineNum">     421 </span>            :     case FTS_D:                 /* preorder directory */
+<span class="lineNum">     422 </span><span class="lineNoCov">          0 :       if (! x-&gt;recursive</span>
+<span class="lineNum">     423 </span><span class="lineNoCov">          0 :           &amp;&amp; !(x-&gt;remove_empty_directories</span>
+<span class="lineNum">     424 </span><span class="lineNoCov">          0 :                &amp;&amp; is_empty_dir (fts-&gt;fts_cwd_fd, ent-&gt;fts_accpath)))</span>
+<span class="lineNum">     425 </span>            :         {
+<span class="lineNum">     426 </span>            :           /* This is the first (pre-order) encounter with a directory
+<span class="lineNum">     427 </span>            :              that we cannot delete.
+<span class="lineNum">     428 </span>            :              Not recursive, and it's not an empty directory (if we're removing
+<span class="lineNum">     429 </span>            :              them) so arrange to skip contents.  */
+<span class="lineNum">     430 </span><span class="lineNoCov">          0 :           int err = x-&gt;remove_empty_directories ? ENOTEMPTY : EISDIR;</span>
+<span class="lineNum">     431 </span><span class="lineNoCov">          0 :           error (0, err, _(&quot;cannot remove %s&quot;), quoteaf (ent-&gt;fts_path));</span>
+<span class="lineNum">     432 </span><span class="lineNoCov">          0 :           mark_ancestor_dirs (ent);</span>
+<span class="lineNum">     433 </span><span class="lineNoCov">          0 :           fts_skip_tree (fts, ent);</span>
+<span class="lineNum">     434 </span><span class="lineNoCov">          0 :           return RM_ERROR;</span>
+<span class="lineNum">     435 </span>            :         }
+<span class="lineNum">     436 </span>            : 
+<span class="lineNum">     437 </span>            :       /* Perform checks that can apply only for command-line arguments.  */
+<span class="lineNum">     438 </span><span class="lineNoCov">          0 :       if (ent-&gt;fts_level == FTS_ROOTLEVEL)</span>
+<span class="lineNum">     439 </span>            :         {
+<span class="lineNum">     440 </span>            :           /* POSIX says:
+<span class="lineNum">     441 </span>            :              If the basename of a command line argument is &quot;.&quot; or &quot;..&quot;,
+<span class="lineNum">     442 </span>            :              diagnose it and do nothing more with that argument.  */
+<span class="lineNum">     443 </span><span class="lineNoCov">          0 :           if (dot_or_dotdot (last_component (ent-&gt;fts_accpath)))</span>
+<span class="lineNum">     444 </span>            :             {
+<span class="lineNum">     445 </span><span class="lineNoCov">          0 :               error (0, 0,</span>
+<span class="lineNum">     446 </span><span class="lineNoCov">          0 :                      _(&quot;refusing to remove %s or %s directory: skipping %s&quot;),</span>
+<span class="lineNum">     447 </span>            :                      quoteaf_n (0, &quot;.&quot;), quoteaf_n (1, &quot;..&quot;),
+<span class="lineNum">     448 </span><span class="lineNoCov">          0 :                      quoteaf_n (2, ent-&gt;fts_path));</span>
+<span class="lineNum">     449 </span><span class="lineNoCov">          0 :               fts_skip_tree (fts, ent);</span>
+<span class="lineNum">     450 </span><span class="lineNoCov">          0 :               return RM_ERROR;</span>
+<span class="lineNum">     451 </span>            :             }
+<span class="lineNum">     452 </span>            : 
+<span class="lineNum">     453 </span>            :           /* POSIX also says:
+<span class="lineNum">     454 </span>            :              If a command line argument resolves to &quot;/&quot; (and --preserve-root
+<span class="lineNum">     455 </span>            :              is in effect -- default) diagnose and skip it.  */
+<span class="lineNum">     456 </span><span class="lineNoCov">          0 :           if (ROOT_DEV_INO_CHECK (x-&gt;root_dev_ino, ent-&gt;fts_statp))</span>
+<span class="lineNum">     457 </span>            :             {
+<span class="lineNum">     458 </span><span class="lineNoCov">          0 :               ROOT_DEV_INO_WARN (ent-&gt;fts_path);</span>
+<span class="lineNum">     459 </span><span class="lineNoCov">          0 :               fts_skip_tree (fts, ent);</span>
+<span class="lineNum">     460 </span><span class="lineNoCov">          0 :               return RM_ERROR;</span>
+<span class="lineNum">     461 </span>            :             }
+<span class="lineNum">     462 </span>            :         }
+<span class="lineNum">     463 </span>            : 
+<span class="lineNum">     464 </span>            :       {
+<span class="lineNum">     465 </span>            :         Ternary is_empty_directory;
+<span class="lineNum">     466 </span><span class="lineNoCov">          0 :         enum RM_status s = prompt (fts, ent, true /*is_dir*/, x,</span>
+<span class="lineNum">     467 </span>            :                                    PA_DESCEND_INTO_DIR, &amp;is_empty_directory);
+<span class="lineNum">     468 </span>            : 
+<span class="lineNum">     469 </span><span class="lineNoCov">          0 :         if (s == RM_OK &amp;&amp; is_empty_directory == T_YES)</span>
+<span class="lineNum">     470 </span>            :           {
+<span class="lineNum">     471 </span>            :             /* When we know (from prompt when in interactive mode)
+<span class="lineNum">     472 </span>            :                that this is an empty directory, don't prompt twice.  */
+<span class="lineNum">     473 </span><span class="lineNoCov">          0 :             s = excise (fts, ent, x, true);</span>
+<span class="lineNum">     474 </span>            :             fts_skip_tree (fts, ent);
+<span class="lineNum">     475 </span>            :           }
+<span class="lineNum">     476 </span>            : 
+<span class="lineNum">     477 </span><span class="lineNoCov">          0 :         if (s != RM_OK)</span>
+<span class="lineNum">     478 </span>            :           {
+<span class="lineNum">     479 </span><span class="lineNoCov">          0 :             mark_ancestor_dirs (ent);</span>
+<span class="lineNum">     480 </span>            :             fts_skip_tree (fts, ent);
+<span class="lineNum">     481 </span>            :           }
+<span class="lineNum">     482 </span>            : 
+<span class="lineNum">     483 </span>            :         return s;
+<span class="lineNum">     484 </span>            :       }
+<span class="lineNum">     485 </span>            : 
+<span class="lineNum">     486 </span>            :     case FTS_F:                 /* regular file */
+<span class="lineNum">     487 </span>            :     case FTS_NS:                /* stat(2) failed */
+<span class="lineNum">     488 </span>            :     case FTS_SL:                /* symbolic link */
+<span class="lineNum">     489 </span>            :     case FTS_SLNONE:            /* symbolic link without target */
+<span class="lineNum">     490 </span>            :     case FTS_DP:                /* postorder directory */
+<span class="lineNum">     491 </span>            :     case FTS_DNR:               /* unreadable directory */
+<span class="lineNum">     492 </span>            :     case FTS_NSOK:              /* e.g., dangling symlink */
+<span class="lineNum">     493 </span>            :     case FTS_DEFAULT:           /* none of the above */
+<span class="lineNum">     494 </span>            :       {
+<span class="lineNum">     495 </span>            :         /* With --one-file-system, do not attempt to remove a mount point.
+<span class="lineNum">     496 </span>            :            fts' FTS_XDEV ensures that we don't process any entries under
+<span class="lineNum">     497 </span>            :            the mount point.  */
+<span class="lineNum">     498 </span><span class="lineNoCov">          0 :         if (ent-&gt;fts_info == FTS_DP</span>
+<span class="lineNum">     499 </span><span class="lineNoCov">          0 :             &amp;&amp; x-&gt;one_file_system</span>
+<span class="lineNum">     500 </span><span class="lineNoCov">          0 :             &amp;&amp; FTS_ROOTLEVEL &lt; ent-&gt;fts_level</span>
+<span class="lineNum">     501 </span><span class="lineNoCov">          0 :             &amp;&amp; ent-&gt;fts_statp-&gt;st_dev != fts-&gt;fts_dev)</span>
+<span class="lineNum">     502 </span>            :           {
+<span class="lineNum">     503 </span><span class="lineNoCov">          0 :             mark_ancestor_dirs (ent);</span>
+<span class="lineNum">     504 </span><span class="lineNoCov">          0 :             error (0, 0, _(&quot;skipping %s, since it's on a different device&quot;),</span>
+<span class="lineNum">     505 </span><span class="lineNoCov">          0 :                    quoteaf (ent-&gt;fts_path));</span>
+<span class="lineNum">     506 </span><span class="lineNoCov">          0 :             return RM_ERROR;</span>
+<span class="lineNum">     507 </span>            :           }
+<span class="lineNum">     508 </span>            : 
+<span class="lineNum">     509 </span><span class="lineNoCov">          0 :         bool is_dir = ent-&gt;fts_info == FTS_DP || ent-&gt;fts_info == FTS_DNR;</span>
+<span class="lineNum">     510 </span><span class="lineNoCov">          0 :         enum RM_status s = prompt (fts, ent, is_dir, x, PA_REMOVE_DIR, NULL);</span>
+<span class="lineNum">     511 </span><span class="lineNoCov">          0 :         if (s != RM_OK)</span>
+<span class="lineNum">     512 </span>            :           return s;
+<span class="lineNum">     513 </span><span class="lineNoCov">          0 :         return excise (fts, ent, x, is_dir);</span>
+<span class="lineNum">     514 </span>            :       }
+<span class="lineNum">     515 </span>            : 
+<span class="lineNum">     516 </span>            :     case FTS_DC:                /* directory that causes cycles */
+<span class="lineNum">     517 </span><span class="lineNoCov">          0 :       emit_cycle_warning (ent-&gt;fts_path);</span>
+<span class="lineNum">     518 </span><span class="lineNoCov">          0 :       fts_skip_tree (fts, ent);</span>
+<span class="lineNum">     519 </span><span class="lineNoCov">          0 :       return RM_ERROR;</span>
+<span class="lineNum">     520 </span>            : 
+<span class="lineNum">     521 </span>            :     case FTS_ERR:
+<span class="lineNum">     522 </span>            :       /* Various failures, from opendir to ENOMEM, to failure to &quot;return&quot;
+<span class="lineNum">     523 </span>            :          to preceding directory, can provoke this.  */
+<span class="lineNum">     524 </span><span class="lineNoCov">          0 :       error (0, ent-&gt;fts_errno, _(&quot;traversal failed: %s&quot;),</span>
+<span class="lineNum">     525 </span><span class="lineNoCov">          0 :              quotef (ent-&gt;fts_path));</span>
+<span class="lineNum">     526 </span><span class="lineNoCov">          0 :       fts_skip_tree (fts, ent);</span>
+<span class="lineNum">     527 </span><span class="lineNoCov">          0 :       return RM_ERROR;</span>
+<span class="lineNum">     528 </span>            : 
+<span class="lineNum">     529 </span>            :     default:
+<span class="lineNum">     530 </span><span class="lineNoCov">          0 :       error (0, 0, _(&quot;unexpected failure: fts_info=%d: %s\n&quot;</span>
+<span class="lineNum">     531 </span>            :                      &quot;please report to %s&quot;),
+<span class="lineNum">     532 </span><span class="lineNoCov">          0 :              ent-&gt;fts_info,</span>
+<span class="lineNum">     533 </span><span class="lineNoCov">          0 :              quotef (ent-&gt;fts_path),</span>
+<span class="lineNum">     534 </span>            :              PACKAGE_BUGREPORT);
+<span class="lineNum">     535 </span><span class="lineNoCov">          0 :       abort ();</span>
+<span class="lineNum">     536 </span>            :     }
+<span class="lineNum">     537 </span>            : }
+<span class="lineNum">     538 </span>            : 
+<span class="lineNum">     539 </span>            : /* Remove FILEs, honoring options specified via X.
+<a name="540"><span class="lineNum">     540 </span>            :    Return RM_OK if successful.  */</a>
+<span class="lineNum">     541 </span>            : enum RM_status
+<span class="lineNum">     542 </span><span class="lineNoCov">          0 : rm (char *const *file, struct rm_options const *x)</span>
+<span class="lineNum">     543 </span>            : {
+<span class="lineNum">     544 </span><span class="lineNoCov">          0 :   enum RM_status rm_status = RM_OK;</span>
+<span class="lineNum">     545 </span>            : 
+<span class="lineNum">     546 </span><span class="lineNoCov">          0 :   if (*file)</span>
+<span class="lineNum">     547 </span>            :     {
+<span class="lineNum">     548 </span><span class="lineNoCov">          0 :       int bit_flags = (FTS_CWDFD</span>
+<span class="lineNum">     549 </span>            :                        | FTS_NOSTAT
+<span class="lineNum">     550 </span>            :                        | FTS_PHYSICAL);
+<span class="lineNum">     551 </span>            : 
+<span class="lineNum">     552 </span><span class="lineNoCov">          0 :       if (x-&gt;one_file_system)</span>
+<span class="lineNum">     553 </span><span class="lineNoCov">          0 :         bit_flags |= FTS_XDEV;</span>
+<span class="lineNum">     554 </span>            : 
+<span class="lineNum">     555 </span><span class="lineNoCov">          0 :       FTS *fts = xfts_open (file, bit_flags, NULL);</span>
+<span class="lineNum">     556 </span>            : 
+<span class="lineNum">     557 </span>            :       while (1)
+<span class="lineNum">     558 </span>            :         {
+<span class="lineNum">     559 </span>            :           FTSENT *ent;
+<span class="lineNum">     560 </span>            : 
+<span class="lineNum">     561 </span><span class="lineNoCov">          0 :           ent = fts_read (fts);</span>
+<span class="lineNum">     562 </span><span class="lineNoCov">          0 :           if (ent == NULL)</span>
+<span class="lineNum">     563 </span>            :             {
+<span class="lineNum">     564 </span><span class="lineNoCov">          0 :               if (errno != 0)</span>
+<span class="lineNum">     565 </span>            :                 {
+<span class="lineNum">     566 </span><span class="lineNoCov">          0 :                   error (0, errno, _(&quot;fts_read failed&quot;));</span>
+<span class="lineNum">     567 </span><span class="lineNoCov">          0 :                   rm_status = RM_ERROR;</span>
+<span class="lineNum">     568 </span>            :                 }
+<span class="lineNum">     569 </span>            :               break;
+<span class="lineNum">     570 </span>            :             }
+<span class="lineNum">     571 </span>            : 
+<span class="lineNum">     572 </span><span class="lineNoCov">          0 :           enum RM_status s = rm_fts (fts, ent, x);</span>
+<span class="lineNum">     573 </span>            : 
+<span class="lineNum">     574 </span><span class="lineNoCov">          0 :           assert (VALID_STATUS (s));</span>
+<span class="lineNum">     575 </span><span class="lineNoCov">          0 :           UPDATE_STATUS (rm_status, s);</span>
+<span class="lineNum">     576 </span>            :         }
+<span class="lineNum">     577 </span>            : 
+<span class="lineNum">     578 </span><span class="lineNoCov">          0 :       if (fts_close (fts) != 0)</span>
+<span class="lineNum">     579 </span>            :         {
+<span class="lineNum">     580 </span><span class="lineNoCov">          0 :           error (0, errno, _(&quot;fts_close failed&quot;));</span>
+<span class="lineNum">     581 </span><span class="lineNoCov">          0 :           rm_status = RM_ERROR;</span>
+<span class="lineNum">     582 </span>            :         }
+<span class="lineNum">     583 </span>            :     }
+<span class="lineNum">     584 </span>            : 
+<span class="lineNum">     585 </span><span class="lineNoCov">          0 :   return rm_status;</span>
+<span class="lineNum">     586 </span>            : }
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.12</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>

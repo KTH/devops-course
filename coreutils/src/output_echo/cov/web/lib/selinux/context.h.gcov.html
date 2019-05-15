@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - trace.lcov_info_final - lib/selinux/context.h</title>
+  <link rel="stylesheet" type="text/css" href="../../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../../index.html">top level</a> - <a href="index.html">lib/selinux</a> - context.h<span style="font-size: 80%;"> (source / <a href="context.h.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">trace.lcov_info_final</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">6</td>
+            <td class="headerCovTableEntryLo">0.0 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2019-04-22 20:19:38</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntryHi">-</td>
+          </tr>
+          <tr><td><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>            : /* DO NOT EDIT! GENERATED AUTOMATICALLY! */</a>
+<span class="lineNum">       2 </span>            : #ifndef SELINUX_CONTEXT_H
+<span class="lineNum">       3 </span>            : # define SELINUX_CONTEXT_H
+<span class="lineNum">       4 </span>            : 
+<span class="lineNum">       5 </span>            : # include &lt;errno.h&gt;
+<span class="lineNum">       6 </span>            : 
+<span class="lineNum">       7 </span>            : #ifndef _GL_INLINE_HEADER_BEGIN
+<span class="lineNum">       8 </span>            :  #error &quot;Please include config.h first.&quot;
+<span class="lineNum">       9 </span>            : #endif
+<span class="lineNum">      10 </span>            : _GL_INLINE_HEADER_BEGIN
+<span class="lineNum">      11 </span>            : #ifndef SE_CONTEXT_INLINE
+<span class="lineNum">      12 </span>            : # define SE_CONTEXT_INLINE _GL_INLINE
+<span class="lineNum">      13 </span>            : #endif
+<span class="lineNum">      14 </span>            : 
+<span class="lineNum">      15 </span>            : /* The definition of _GL_UNUSED_PARAMETER is copied here.  */
+<span class="lineNum">      16 </span>            : /* _GL_UNUSED_PARAMETER is a marker that can be appended to function parameter
+<span class="lineNum">      17 </span>            :    declarations for parameters that are not used.  This helps to reduce
+<span class="lineNum">      18 </span>            :    warnings, such as from GCC -Wunused-parameter.  The syntax is as follows:
+<span class="lineNum">      19 </span>            :        type param _GL_UNUSED_PARAMETER
+<span class="lineNum">      20 </span>            :    or more generally
+<span class="lineNum">      21 </span>            :        param_decl _GL_UNUSED_PARAMETER
+<span class="lineNum">      22 </span>            :    For example:
+<span class="lineNum">      23 </span>            :        int param _GL_UNUSED_PARAMETER
+<span class="lineNum">      24 </span>            :        int *(*param)(void) _GL_UNUSED_PARAMETER
+<span class="lineNum">      25 </span>            :    Other possible, but obscure and discouraged syntaxes:
+<span class="lineNum">      26 </span>            :        int _GL_UNUSED_PARAMETER *(*param)(void)
+<span class="lineNum">      27 </span>            :        _GL_UNUSED_PARAMETER int *(*param)(void)
+<span class="lineNum">      28 </span>            :  */
+<span class="lineNum">      29 </span>            : #ifndef _GL_UNUSED_PARAMETER
+<span class="lineNum">      30 </span>            : # if __GNUC__ &gt;= 3 || (__GNUC__ == 2 &amp;&amp; __GNUC_MINOR__ &gt;= 7)
+<span class="lineNum">      31 </span>            : #  define _GL_UNUSED_PARAMETER __attribute__ ((__unused__))
+<span class="lineNum">      32 </span>            : # else
+<span class="lineNum">      33 </span>            : #  define _GL_UNUSED_PARAMETER
+<span class="lineNum">      34 </span>            : # endif
+<span class="lineNum">      35 </span>            : #endif
+<span class="lineNum">      36 </span>            : 
+<span class="lineNum">      37 </span>            : typedef int context_t;
+<span class="lineNum">      38 </span>            : SE_CONTEXT_INLINE context_t context_new (char const *s _GL_UNUSED_PARAMETER)
+<span class="lineNum">      39 </span><span class="lineNoCov">          0 :   { errno = ENOTSUP; return 0; }</span>
+<span class="lineNum">      40 </span>            : SE_CONTEXT_INLINE char *context_str (context_t con _GL_UNUSED_PARAMETER)
+<span class="lineNum">      41 </span><span class="lineNoCov">          0 :   { errno = ENOTSUP; return (void *) 0; }</span>
+<span class="lineNum">      42 </span>            : SE_CONTEXT_INLINE void context_free (context_t c _GL_UNUSED_PARAMETER) {}
+<span class="lineNum">      43 </span>            : 
+<span class="lineNum">      44 </span>            : SE_CONTEXT_INLINE int context_user_set (context_t sc _GL_UNUSED_PARAMETER,
+<span class="lineNum">      45 </span>            :                                         char const *s _GL_UNUSED_PARAMETER)
+<span class="lineNum">      46 </span><span class="lineNoCov">          0 :   { errno = ENOTSUP; return -1; }</span>
+<span class="lineNum">      47 </span>            : SE_CONTEXT_INLINE int context_role_set (context_t sc _GL_UNUSED_PARAMETER,
+<span class="lineNum">      48 </span>            :                                         char const *s _GL_UNUSED_PARAMETER)
+<span class="lineNum">      49 </span><span class="lineNoCov">          0 :   { errno = ENOTSUP; return -1; }</span>
+<span class="lineNum">      50 </span>            : SE_CONTEXT_INLINE int context_range_set (context_t sc _GL_UNUSED_PARAMETER,
+<span class="lineNum">      51 </span>            :                                          char const *s _GL_UNUSED_PARAMETER)
+<span class="lineNum">      52 </span><span class="lineNoCov">          0 :   { errno = ENOTSUP; return -1; }</span>
+<span class="lineNum">      53 </span>            : SE_CONTEXT_INLINE int context_type_set (context_t sc _GL_UNUSED_PARAMETER,
+<span class="lineNum">      54 </span>            :                                         char const *s _GL_UNUSED_PARAMETER)
+<span class="lineNum">      55 </span><span class="lineNoCov">          0 :   { errno = ENOTSUP; return -1; }</span>
+<span class="lineNum">      56 </span>            : SE_CONTEXT_INLINE char *context_type_get (context_t sc _GL_UNUSED_PARAMETER)
+<span class="lineNum">      57 </span>            :   { errno = ENOTSUP; return (void *) 0; }
+<span class="lineNum">      58 </span>            : SE_CONTEXT_INLINE char *context_range_get (context_t sc _GL_UNUSED_PARAMETER)
+<span class="lineNum">      59 </span>            :   { errno = ENOTSUP; return (void *) 0; }
+<span class="lineNum">      60 </span>            : SE_CONTEXT_INLINE char *context_role_get (context_t sc _GL_UNUSED_PARAMETER)
+<span class="lineNum">      61 </span>            :   { errno = ENOTSUP; return (void *) 0; }
+<span class="lineNum">      62 </span>            : SE_CONTEXT_INLINE char *context_user_get (context_t sc _GL_UNUSED_PARAMETER)
+<span class="lineNum">      63 </span>            :   { errno = ENOTSUP; return (void *) 0; }
+<span class="lineNum">      64 </span>            : 
+<span class="lineNum">      65 </span>            : _GL_INLINE_HEADER_END
+<span class="lineNum">      66 </span>            : 
+<span class="lineNum">      67 </span>            : #endif
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.12</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>

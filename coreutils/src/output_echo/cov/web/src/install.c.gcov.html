@@ -1,0 +1,1129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - trace.lcov_info_final - src/install.c</title>
+  <link rel="stylesheet" type="text/css" href="../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">src</a> - install.c<span style="font-size: 80%;"> (source / <a href="install.c.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">trace.lcov_info_final</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">381</td>
+            <td class="headerCovTableEntryLo">0.0 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2019-04-22 20:19:38</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">19</td>
+            <td class="headerCovTableEntryLo">0.0 %</td>
+          </tr>
+          <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>            : /* install - copy files and set attributes</a>
+<span class="lineNum">       2 </span>            :    Copyright (C) 1989-2016 Free Software Foundation, Inc.
+<span class="lineNum">       3 </span>            : 
+<span class="lineNum">       4 </span>            :    This program is free software: you can redistribute it and/or modify
+<span class="lineNum">       5 </span>            :    it under the terms of the GNU General Public License as published by
+<span class="lineNum">       6 </span>            :    the Free Software Foundation, either version 3 of the License, or
+<span class="lineNum">       7 </span>            :    (at your option) any later version.
+<span class="lineNum">       8 </span>            : 
+<span class="lineNum">       9 </span>            :    This program is distributed in the hope that it will be useful,
+<span class="lineNum">      10 </span>            :    but WITHOUT ANY WARRANTY; without even the implied warranty of
+<span class="lineNum">      11 </span>            :    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+<span class="lineNum">      12 </span>            :    GNU General Public License for more details.
+<span class="lineNum">      13 </span>            : 
+<span class="lineNum">      14 </span>            :    You should have received a copy of the GNU General Public License
+<span class="lineNum">      15 </span>            :    along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.  */
+<span class="lineNum">      16 </span>            : 
+<span class="lineNum">      17 </span>            : /* Written by David MacKenzie &lt;djm@gnu.ai.mit.edu&gt; */
+<span class="lineNum">      18 </span>            : 
+<span class="lineNum">      19 </span>            : #include &lt;config.h&gt;
+<span class="lineNum">      20 </span>            : #include &lt;stdio.h&gt;
+<span class="lineNum">      21 </span>            : #include &lt;getopt.h&gt;
+<span class="lineNum">      22 </span>            : #include &lt;sys/types.h&gt;
+<span class="lineNum">      23 </span>            : #include &lt;signal.h&gt;
+<span class="lineNum">      24 </span>            : #include &lt;pwd.h&gt;
+<span class="lineNum">      25 </span>            : #include &lt;grp.h&gt;
+<span class="lineNum">      26 </span>            : #include &lt;selinux/selinux.h&gt;
+<span class="lineNum">      27 </span>            : #include &lt;sys/wait.h&gt;
+<span class="lineNum">      28 </span>            : 
+<span class="lineNum">      29 </span>            : #include &quot;system.h&quot;
+<span class="lineNum">      30 </span>            : #include &quot;backupfile.h&quot;
+<span class="lineNum">      31 </span>            : #include &quot;error.h&quot;
+<span class="lineNum">      32 </span>            : #include &quot;cp-hash.h&quot;
+<span class="lineNum">      33 </span>            : #include &quot;copy.h&quot;
+<span class="lineNum">      34 </span>            : #include &quot;filenamecat.h&quot;
+<span class="lineNum">      35 </span>            : #include &quot;full-read.h&quot;
+<span class="lineNum">      36 </span>            : #include &quot;mkancesdirs.h&quot;
+<span class="lineNum">      37 </span>            : #include &quot;mkdir-p.h&quot;
+<span class="lineNum">      38 </span>            : #include &quot;modechange.h&quot;
+<span class="lineNum">      39 </span>            : #include &quot;prog-fprintf.h&quot;
+<span class="lineNum">      40 </span>            : #include &quot;quote.h&quot;
+<span class="lineNum">      41 </span>            : #include &quot;savewd.h&quot;
+<span class="lineNum">      42 </span>            : #include &quot;stat-time.h&quot;
+<span class="lineNum">      43 </span>            : #include &quot;utimens.h&quot;
+<span class="lineNum">      44 </span>            : #include &quot;xstrtol.h&quot;
+<span class="lineNum">      45 </span>            : 
+<span class="lineNum">      46 </span>            : /* The official name of this program (e.g., no 'g' prefix).  */
+<span class="lineNum">      47 </span>            : #define PROGRAM_NAME &quot;install&quot;
+<span class="lineNum">      48 </span>            : 
+<span class="lineNum">      49 </span>            : #define AUTHORS proper_name (&quot;David MacKenzie&quot;)
+<span class="lineNum">      50 </span>            : 
+<span class="lineNum">      51 </span>            : static int selinux_enabled = 0;
+<span class="lineNum">      52 </span>            : static bool use_default_selinux_context = true;
+<span class="lineNum">      53 </span>            : 
+<span class="lineNum">      54 </span>            : #if ! HAVE_ENDGRENT
+<span class="lineNum">      55 </span>            : # define endgrent() ((void) 0)
+<span class="lineNum">      56 </span>            : #endif
+<span class="lineNum">      57 </span>            : 
+<span class="lineNum">      58 </span>            : #if ! HAVE_ENDPWENT
+<span class="lineNum">      59 </span>            : # define endpwent() ((void) 0)
+<span class="lineNum">      60 </span>            : #endif
+<span class="lineNum">      61 </span>            : 
+<span class="lineNum">      62 </span>            : #if ! HAVE_LCHOWN
+<span class="lineNum">      63 </span>            : # define lchown(name, uid, gid) chown (name, uid, gid)
+<span class="lineNum">      64 </span>            : #endif
+<span class="lineNum">      65 </span>            : 
+<span class="lineNum">      66 </span>            : #if ! HAVE_MATCHPATHCON_INIT_PREFIX
+<span class="lineNum">      67 </span>            : # define matchpathcon_init_prefix(a, p) /* empty */
+<span class="lineNum">      68 </span>            : #endif
+<span class="lineNum">      69 </span>            : 
+<span class="lineNum">      70 </span>            : /* The user name that will own the files, or NULL to make the owner
+<span class="lineNum">      71 </span>            :    the current user ID. */
+<span class="lineNum">      72 </span>            : static char *owner_name;
+<span class="lineNum">      73 </span>            : 
+<span class="lineNum">      74 </span>            : /* The user ID corresponding to 'owner_name'. */
+<span class="lineNum">      75 </span>            : static uid_t owner_id;
+<span class="lineNum">      76 </span>            : 
+<span class="lineNum">      77 </span>            : /* The group name that will own the files, or NULL to make the group
+<span class="lineNum">      78 </span>            :    the current group ID. */
+<span class="lineNum">      79 </span>            : static char *group_name;
+<span class="lineNum">      80 </span>            : 
+<span class="lineNum">      81 </span>            : /* The group ID corresponding to 'group_name'. */
+<span class="lineNum">      82 </span>            : static gid_t group_id;
+<span class="lineNum">      83 </span>            : 
+<span class="lineNum">      84 </span>            : #define DEFAULT_MODE (S_IRWXU | S_IRGRP | S_IXGRP | S_IROTH | S_IXOTH)
+<span class="lineNum">      85 </span>            : 
+<span class="lineNum">      86 </span>            : /* The file mode bits to which non-directory files will be set.  The umask has
+<span class="lineNum">      87 </span>            :    no effect. */
+<span class="lineNum">      88 </span>            : static mode_t mode = DEFAULT_MODE;
+<span class="lineNum">      89 </span>            : 
+<span class="lineNum">      90 </span>            : /* Similar, but for directories.  */
+<span class="lineNum">      91 </span>            : static mode_t dir_mode = DEFAULT_MODE;
+<span class="lineNum">      92 </span>            : 
+<span class="lineNum">      93 </span>            : /* The file mode bits that the user cares about.  This should be a
+<span class="lineNum">      94 </span>            :    superset of DIR_MODE and a subset of CHMOD_MODE_BITS.  This matters
+<span class="lineNum">      95 </span>            :    for directories, since otherwise directories may keep their S_ISUID
+<span class="lineNum">      96 </span>            :    or S_ISGID bits.  */
+<span class="lineNum">      97 </span>            : static mode_t dir_mode_bits = CHMOD_MODE_BITS;
+<span class="lineNum">      98 </span>            : 
+<span class="lineNum">      99 </span>            : /* Compare files before installing (-C) */
+<span class="lineNum">     100 </span>            : static bool copy_only_if_needed;
+<span class="lineNum">     101 </span>            : 
+<span class="lineNum">     102 </span>            : /* If true, strip executable files after copying them. */
+<span class="lineNum">     103 </span>            : static bool strip_files;
+<span class="lineNum">     104 </span>            : 
+<span class="lineNum">     105 </span>            : /* If true, install a directory instead of a regular file. */
+<span class="lineNum">     106 </span>            : static bool dir_arg;
+<span class="lineNum">     107 </span>            : 
+<span class="lineNum">     108 </span>            : /* Program used to strip binaries, &quot;strip&quot; is default */
+<span class="lineNum">     109 </span>            : static char const *strip_program = &quot;strip&quot;;
+<span class="lineNum">     110 </span>            : 
+<span class="lineNum">     111 </span>            : /* For long options that have no equivalent short option, use a
+<span class="lineNum">     112 </span>            :    non-character as a pseudo short option, starting with CHAR_MAX + 1.  */
+<span class="lineNum">     113 </span>            : enum
+<span class="lineNum">     114 </span>            : {
+<span class="lineNum">     115 </span>            :   PRESERVE_CONTEXT_OPTION = CHAR_MAX + 1,
+<span class="lineNum">     116 </span>            :   STRIP_PROGRAM_OPTION
+<span class="lineNum">     117 </span>            : };
+<span class="lineNum">     118 </span>            : 
+<span class="lineNum">     119 </span>            : static struct option const long_options[] =
+<span class="lineNum">     120 </span>            : {
+<span class="lineNum">     121 </span>            :   {&quot;backup&quot;, optional_argument, NULL, 'b'},
+<span class="lineNum">     122 </span>            :   {&quot;compare&quot;, no_argument, NULL, 'C'},
+<span class="lineNum">     123 </span>            :   {GETOPT_SELINUX_CONTEXT_OPTION_DECL},
+<span class="lineNum">     124 </span>            :   {&quot;directory&quot;, no_argument, NULL, 'd'},
+<span class="lineNum">     125 </span>            :   {&quot;group&quot;, required_argument, NULL, 'g'},
+<span class="lineNum">     126 </span>            :   {&quot;mode&quot;, required_argument, NULL, 'm'},
+<span class="lineNum">     127 </span>            :   {&quot;no-target-directory&quot;, no_argument, NULL, 'T'},
+<span class="lineNum">     128 </span>            :   {&quot;owner&quot;, required_argument, NULL, 'o'},
+<span class="lineNum">     129 </span>            :   {&quot;preserve-timestamps&quot;, no_argument, NULL, 'p'},
+<span class="lineNum">     130 </span>            :   {&quot;preserve-context&quot;, no_argument, NULL, PRESERVE_CONTEXT_OPTION},
+<span class="lineNum">     131 </span>            :   {&quot;strip&quot;, no_argument, NULL, 's'},
+<span class="lineNum">     132 </span>            :   {&quot;strip-program&quot;, required_argument, NULL, STRIP_PROGRAM_OPTION},
+<span class="lineNum">     133 </span>            :   {&quot;suffix&quot;, required_argument, NULL, 'S'},
+<span class="lineNum">     134 </span>            :   {&quot;target-directory&quot;, required_argument, NULL, 't'},
+<span class="lineNum">     135 </span>            :   {&quot;verbose&quot;, no_argument, NULL, 'v'},
+<span class="lineNum">     136 </span>            :   {GETOPT_HELP_OPTION_DECL},
+<span class="lineNum">     137 </span>            :   {GETOPT_VERSION_OPTION_DECL},
+<span class="lineNum">     138 </span>            :   {NULL, 0, NULL, 0}
+<span class="lineNum">     139 </span>            : };
+<span class="lineNum">     140 </span>            : 
+<span class="lineNum">     141 </span>            : /* Compare content of opened files using file descriptors A_FD and B_FD. Return
+<a name="142"><span class="lineNum">     142 </span>            :    true if files are equal. */</a>
+<span class="lineNum">     143 </span>            : static bool
+<span class="lineNum">     144 </span><span class="lineNoCov">          0 : have_same_content (int a_fd, int b_fd)</span>
+<span class="lineNum">     145 </span>            : {
+<span class="lineNum">     146 </span>            :   enum { CMP_BLOCK_SIZE = 4096 };
+<span class="lineNum">     147 </span>            :   static char a_buff[CMP_BLOCK_SIZE];
+<span class="lineNum">     148 </span>            :   static char b_buff[CMP_BLOCK_SIZE];
+<span class="lineNum">     149 </span>            : 
+<span class="lineNum">     150 </span>            :   size_t size;
+<span class="lineNum">     151 </span><span class="lineNoCov">          0 :   while (0 &lt; (size = full_read (a_fd, a_buff, sizeof a_buff))) {</span>
+<span class="lineNum">     152 </span><span class="lineNoCov">          0 :     if (size != full_read (b_fd, b_buff, sizeof b_buff))</span>
+<span class="lineNum">     153 </span>            :       return false;
+<span class="lineNum">     154 </span>            : 
+<span class="lineNum">     155 </span><span class="lineNoCov">          0 :     if (memcmp (a_buff, b_buff, size) != 0)</span>
+<span class="lineNum">     156 </span>            :       return false;
+<span class="lineNum">     157 </span>            :   }
+<span class="lineNum">     158 </span>            : 
+<span class="lineNum">     159 </span><span class="lineNoCov">          0 :   return size == 0;</span>
+<span class="lineNum">     160 </span>            : }
+<span class="lineNum">     161 </span>            : 
+<span class="lineNum">     162 </span>            : /* Return true for mode with non-permission bits. */
+<span class="lineNum">     163 </span>            : static bool
+<span class="lineNum">     164 </span>            : extra_mode (mode_t input)
+<span class="lineNum">     165 </span>            : {
+<span class="lineNum">     166 </span><span class="lineNoCov">          0 :   mode_t mask = S_IRWXUGO | S_IFMT;</span>
+<span class="lineNum">     167 </span><span class="lineNoCov">          0 :   return !! (input &amp; ~ mask);</span>
+<span class="lineNum">     168 </span>            : }
+<span class="lineNum">     169 </span>            : 
+<a name="170"><span class="lineNum">     170 </span>            : /* Return true if copy of file SRC_NAME to file DEST_NAME is necessary. */</a>
+<span class="lineNum">     171 </span>            : static bool
+<span class="lineNum">     172 </span><span class="lineNoCov">          0 : need_copy (const char *src_name, const char *dest_name,</span>
+<span class="lineNum">     173 </span>            :            const struct cp_options *x)
+<span class="lineNum">     174 </span>            : {
+<span class="lineNum">     175 </span>            :   struct stat src_sb, dest_sb;
+<span class="lineNum">     176 </span>            :   int src_fd, dest_fd;
+<span class="lineNum">     177 </span>            :   bool content_match;
+<span class="lineNum">     178 </span>            : 
+<span class="lineNum">     179 </span><span class="lineNoCov">          0 :   if (extra_mode (mode))</span>
+<span class="lineNum">     180 </span>            :     return true;
+<span class="lineNum">     181 </span>            : 
+<span class="lineNum">     182 </span>            :   /* compare files using stat */
+<span class="lineNum">     183 </span><span class="lineNoCov">          0 :   if (lstat (src_name, &amp;src_sb) != 0)</span>
+<span class="lineNum">     184 </span>            :     return true;
+<span class="lineNum">     185 </span>            : 
+<span class="lineNum">     186 </span><span class="lineNoCov">          0 :   if (lstat (dest_name, &amp;dest_sb) != 0)</span>
+<span class="lineNum">     187 </span>            :     return true;
+<span class="lineNum">     188 </span>            : 
+<span class="lineNum">     189 </span><span class="lineNoCov">          0 :   if (!S_ISREG (src_sb.st_mode) || !S_ISREG (dest_sb.st_mode)</span>
+<span class="lineNum">     190 </span><span class="lineNoCov">          0 :       || extra_mode (src_sb.st_mode) || extra_mode (dest_sb.st_mode))</span>
+<span class="lineNum">     191 </span>            :     return true;
+<span class="lineNum">     192 </span>            : 
+<span class="lineNum">     193 </span><span class="lineNoCov">          0 :   if (src_sb.st_size != dest_sb.st_size</span>
+<span class="lineNum">     194 </span><span class="lineNoCov">          0 :       || (dest_sb.st_mode &amp; CHMOD_MODE_BITS) != mode)</span>
+<span class="lineNum">     195 </span>            :     return true;
+<span class="lineNum">     196 </span>            : 
+<span class="lineNum">     197 </span><span class="lineNoCov">          0 :   if (owner_id == (uid_t) -1)</span>
+<span class="lineNum">     198 </span>            :     {
+<span class="lineNum">     199 </span><span class="lineNoCov">          0 :       errno = 0;</span>
+<span class="lineNum">     200 </span><span class="lineNoCov">          0 :       uid_t ruid = getuid ();</span>
+<span class="lineNum">     201 </span><span class="lineNoCov">          0 :       if ((ruid == (uid_t) -1 &amp;&amp; errno) || dest_sb.st_uid != ruid)</span>
+<span class="lineNum">     202 </span>            :         return true;
+<span class="lineNum">     203 </span>            :     }
+<span class="lineNum">     204 </span><span class="lineNoCov">          0 :   else if (dest_sb.st_uid != owner_id)</span>
+<span class="lineNum">     205 </span>            :     return true;
+<span class="lineNum">     206 </span>            : 
+<span class="lineNum">     207 </span><span class="lineNoCov">          0 :   if (group_id == (uid_t) -1)</span>
+<span class="lineNum">     208 </span>            :     {
+<span class="lineNum">     209 </span><span class="lineNoCov">          0 :       errno = 0;</span>
+<span class="lineNum">     210 </span><span class="lineNoCov">          0 :       gid_t rgid = getgid ();</span>
+<span class="lineNum">     211 </span><span class="lineNoCov">          0 :       if ((rgid == (uid_t) -1 &amp;&amp; errno) || dest_sb.st_gid != rgid)</span>
+<span class="lineNum">     212 </span>            :         return true;
+<span class="lineNum">     213 </span>            :     }
+<span class="lineNum">     214 </span><span class="lineNoCov">          0 :   else if (dest_sb.st_gid != group_id)</span>
+<span class="lineNum">     215 </span>            :     return true;
+<span class="lineNum">     216 </span>            : 
+<span class="lineNum">     217 </span>            :   /* compare SELinux context if preserving */
+<span class="lineNum">     218 </span><span class="lineNoCov">          0 :   if (selinux_enabled &amp;&amp; x-&gt;preserve_security_context)</span>
+<span class="lineNum">     219 </span>            :     {
+<span class="lineNum">     220 </span><span class="lineNoCov">          0 :       char *file_scontext = NULL;</span>
+<span class="lineNum">     221 </span><span class="lineNoCov">          0 :       char *to_scontext = NULL;</span>
+<span class="lineNum">     222 </span>            :       bool scontext_match;
+<span class="lineNum">     223 </span>            : 
+<span class="lineNum">     224 </span><span class="lineNoCov">          0 :       if (getfilecon (src_name, &amp;file_scontext) == -1)</span>
+<span class="lineNum">     225 </span><span class="lineNoCov">          0 :         return true;</span>
+<span class="lineNum">     226 </span>            : 
+<span class="lineNum">     227 </span>            :       if (getfilecon (dest_name, &amp;to_scontext) == -1)
+<span class="lineNum">     228 </span>            :         {
+<span class="lineNum">     229 </span>            :           freecon (file_scontext);
+<span class="lineNum">     230 </span>            :           return true;
+<span class="lineNum">     231 </span>            :         }
+<span class="lineNum">     232 </span>            : 
+<span class="lineNum">     233 </span>            :       scontext_match = STREQ (file_scontext, to_scontext);
+<span class="lineNum">     234 </span>            : 
+<span class="lineNum">     235 </span>            :       freecon (file_scontext);
+<span class="lineNum">     236 </span>            :       freecon (to_scontext);
+<span class="lineNum">     237 </span>            :       if (!scontext_match)
+<span class="lineNum">     238 </span>            :         return true;
+<span class="lineNum">     239 </span>            :     }
+<span class="lineNum">     240 </span>            : 
+<span class="lineNum">     241 </span>            :   /* compare files content */
+<span class="lineNum">     242 </span><span class="lineNoCov">          0 :   src_fd = open (src_name, O_RDONLY | O_BINARY);</span>
+<span class="lineNum">     243 </span><span class="lineNoCov">          0 :   if (src_fd &lt; 0)</span>
+<span class="lineNum">     244 </span>            :     return true;
+<span class="lineNum">     245 </span>            : 
+<span class="lineNum">     246 </span><span class="lineNoCov">          0 :   dest_fd = open (dest_name, O_RDONLY | O_BINARY);</span>
+<span class="lineNum">     247 </span><span class="lineNoCov">          0 :   if (dest_fd &lt; 0)</span>
+<span class="lineNum">     248 </span>            :     {
+<span class="lineNum">     249 </span><span class="lineNoCov">          0 :       close (src_fd);</span>
+<span class="lineNum">     250 </span>            :       return true;
+<span class="lineNum">     251 </span>            :     }
+<span class="lineNum">     252 </span>            : 
+<span class="lineNum">     253 </span><span class="lineNoCov">          0 :   content_match = have_same_content (src_fd, dest_fd);</span>
+<span class="lineNum">     254 </span>            : 
+<span class="lineNum">     255 </span><span class="lineNoCov">          0 :   close (src_fd);</span>
+<span class="lineNum">     256 </span><span class="lineNoCov">          0 :   close (dest_fd);</span>
+<span class="lineNum">     257 </span><span class="lineNoCov">          0 :   return !content_match;</span>
+<span class="lineNum">     258 </span>            : }
+<a name="259"><span class="lineNum">     259 </span>            : </a>
+<span class="lineNum">     260 </span>            : static void
+<span class="lineNum">     261 </span><span class="lineNoCov">          0 : cp_option_init (struct cp_options *x)</span>
+<span class="lineNum">     262 </span>            : {
+<span class="lineNum">     263 </span><span class="lineNoCov">          0 :   cp_options_default (x);</span>
+<span class="lineNum">     264 </span><span class="lineNoCov">          0 :   x-&gt;copy_as_regular = true;</span>
+<span class="lineNum">     265 </span><span class="lineNoCov">          0 :   x-&gt;reflink_mode = REFLINK_NEVER;</span>
+<span class="lineNum">     266 </span><span class="lineNoCov">          0 :   x-&gt;dereference = DEREF_ALWAYS;</span>
+<span class="lineNum">     267 </span><span class="lineNoCov">          0 :   x-&gt;unlink_dest_before_opening = true;</span>
+<span class="lineNum">     268 </span><span class="lineNoCov">          0 :   x-&gt;unlink_dest_after_failed_open = false;</span>
+<span class="lineNum">     269 </span><span class="lineNoCov">          0 :   x-&gt;hard_link = false;</span>
+<span class="lineNum">     270 </span><span class="lineNoCov">          0 :   x-&gt;interactive = I_UNSPECIFIED;</span>
+<span class="lineNum">     271 </span><span class="lineNoCov">          0 :   x-&gt;move_mode = false;</span>
+<span class="lineNum">     272 </span><span class="lineNoCov">          0 :   x-&gt;one_file_system = false;</span>
+<span class="lineNum">     273 </span><span class="lineNoCov">          0 :   x-&gt;preserve_ownership = false;</span>
+<span class="lineNum">     274 </span><span class="lineNoCov">          0 :   x-&gt;preserve_links = false;</span>
+<span class="lineNum">     275 </span><span class="lineNoCov">          0 :   x-&gt;preserve_mode = false;</span>
+<span class="lineNum">     276 </span><span class="lineNoCov">          0 :   x-&gt;preserve_timestamps = false;</span>
+<span class="lineNum">     277 </span><span class="lineNoCov">          0 :   x-&gt;explicit_no_preserve_mode = false;</span>
+<span class="lineNum">     278 </span><span class="lineNoCov">          0 :   x-&gt;reduce_diagnostics=false;</span>
+<span class="lineNum">     279 </span><span class="lineNoCov">          0 :   x-&gt;data_copy_required = true;</span>
+<span class="lineNum">     280 </span><span class="lineNoCov">          0 :   x-&gt;require_preserve = false;</span>
+<span class="lineNum">     281 </span><span class="lineNoCov">          0 :   x-&gt;require_preserve_xattr = false;</span>
+<span class="lineNum">     282 </span><span class="lineNoCov">          0 :   x-&gt;recursive = false;</span>
+<span class="lineNum">     283 </span><span class="lineNoCov">          0 :   x-&gt;sparse_mode = SPARSE_AUTO;</span>
+<span class="lineNum">     284 </span><span class="lineNoCov">          0 :   x-&gt;symbolic_link = false;</span>
+<span class="lineNum">     285 </span><span class="lineNoCov">          0 :   x-&gt;backup_type = no_backups;</span>
+<span class="lineNum">     286 </span>            : 
+<span class="lineNum">     287 </span>            :   /* Create destination files initially writable so we can run strip on them.
+<span class="lineNum">     288 </span>            :      Although GNU strip works fine on read-only files, some others
+<span class="lineNum">     289 </span>            :      would fail.  */
+<span class="lineNum">     290 </span><span class="lineNoCov">          0 :   x-&gt;set_mode = true;</span>
+<span class="lineNum">     291 </span><span class="lineNoCov">          0 :   x-&gt;mode = S_IRUSR | S_IWUSR;</span>
+<span class="lineNum">     292 </span><span class="lineNoCov">          0 :   x-&gt;stdin_tty = false;</span>
+<span class="lineNum">     293 </span>            : 
+<span class="lineNum">     294 </span><span class="lineNoCov">          0 :   x-&gt;open_dangling_dest_symlink = false;</span>
+<span class="lineNum">     295 </span><span class="lineNoCov">          0 :   x-&gt;update = false;</span>
+<span class="lineNum">     296 </span><span class="lineNoCov">          0 :   x-&gt;require_preserve_context = false;  /* Not used by install currently.  */</span>
+<span class="lineNum">     297 </span><span class="lineNoCov">          0 :   x-&gt;preserve_security_context = false; /* Whether to copy context from src.  */</span>
+<span class="lineNum">     298 </span><span class="lineNoCov">          0 :   x-&gt;set_security_context = false;    /* Whether to set sys default context.  */</span>
+<span class="lineNum">     299 </span><span class="lineNoCov">          0 :   x-&gt;preserve_xattr = false;</span>
+<span class="lineNum">     300 </span><span class="lineNoCov">          0 :   x-&gt;verbose = false;</span>
+<span class="lineNum">     301 </span><span class="lineNoCov">          0 :   x-&gt;dest_info = NULL;</span>
+<span class="lineNum">     302 </span><span class="lineNoCov">          0 :   x-&gt;src_info = NULL;</span>
+<span class="lineNum">     303 </span><span class="lineNoCov">          0 : }</span>
+<span class="lineNum">     304 </span>            : 
+<span class="lineNum">     305 </span>            : #ifdef ENABLE_MATCHPATHCON
+<span class="lineNum">     306 </span>            : /* Modify file context to match the specified policy.
+<span class="lineNum">     307 </span>            :    If an error occurs the file will remain with the default directory
+<span class="lineNum">     308 </span>            :    context.  Note this sets the context to that returned by matchpathcon,
+<a name="309"><span class="lineNum">     309 </span>            :    and thus discards MLS levels and user identity of the FILE.  */</a>
+<span class="lineNum">     310 </span>            : static void
+<span class="lineNum">     311 </span><span class="lineNoCov">          0 : setdefaultfilecon (char const *file)</span>
+<span class="lineNum">     312 </span>            : {
+<span class="lineNum">     313 </span>            :   struct stat st;
+<span class="lineNum">     314 </span><span class="lineNoCov">          0 :   char *scontext = NULL;</span>
+<span class="lineNum">     315 </span>            :   static bool first_call = true;
+<span class="lineNum">     316 </span>            : 
+<span class="lineNum">     317 </span><span class="lineNoCov">          0 :   if (selinux_enabled != 1)</span>
+<span class="lineNum">     318 </span>            :     {
+<span class="lineNum">     319 </span>            :       /* Indicate no context found. */
+<span class="lineNum">     320 </span>            :       return;
+<span class="lineNum">     321 </span>            :     }
+<span class="lineNum">     322 </span><span class="lineNoCov">          0 :   if (lstat (file, &amp;st) != 0)</span>
+<span class="lineNum">     323 </span>            :     return;
+<span class="lineNum">     324 </span>            : 
+<span class="lineNum">     325 </span><span class="lineNoCov">          0 :   if (first_call &amp;&amp; IS_ABSOLUTE_FILE_NAME (file))</span>
+<span class="lineNum">     326 </span>            :     {
+<span class="lineNum">     327 </span>            :       /* Calling matchpathcon_init_prefix (NULL, &quot;/first_component/&quot;)
+<span class="lineNum">     328 </span>            :          is an optimization to minimize the expense of the following
+<span class="lineNum">     329 </span>            :          matchpathcon call.  Do it only once, just before the first
+<span class="lineNum">     330 </span>            :          matchpathcon call.  We *could* call matchpathcon_fini after
+<span class="lineNum">     331 </span>            :          the final matchpathcon call, but that's not necessary, since
+<span class="lineNum">     332 </span>            :          by then we're about to exit, and besides, the buffers it
+<span class="lineNum">     333 </span>            :          would free are still reachable.  */
+<span class="lineNum">     334 </span>            :       char const *p0;
+<span class="lineNum">     335 </span><span class="lineNoCov">          0 :       char const *p = file + 1;</span>
+<span class="lineNum">     336 </span><span class="lineNoCov">          0 :       while (ISSLASH (*p))</span>
+<span class="lineNum">     337 </span><span class="lineNoCov">          0 :         ++p;</span>
+<span class="lineNum">     338 </span>            : 
+<span class="lineNum">     339 </span>            :       /* Record final leading slash, for when FILE starts with two or more.  */
+<span class="lineNum">     340 </span><span class="lineNoCov">          0 :       p0 = p - 1;</span>
+<span class="lineNum">     341 </span>            : 
+<span class="lineNum">     342 </span><span class="lineNoCov">          0 :       if (*p)</span>
+<span class="lineNum">     343 </span>            :         {
+<span class="lineNum">     344 </span>            :           char *prefix;
+<span class="lineNum">     345 </span>            :           do
+<span class="lineNum">     346 </span>            :             {
+<span class="lineNum">     347 </span><span class="lineNoCov">          0 :               ++p;</span>
+<span class="lineNum">     348 </span>            :             }
+<span class="lineNum">     349 </span><span class="lineNoCov">          0 :           while (*p &amp;&amp; !ISSLASH (*p));</span>
+<span class="lineNum">     350 </span>            : 
+<span class="lineNum">     351 </span><span class="lineNoCov">          0 :           prefix = malloc (p - p0 + 2);</span>
+<span class="lineNum">     352 </span><span class="lineNoCov">          0 :           if (prefix)</span>
+<span class="lineNum">     353 </span>            :             {
+<span class="lineNum">     354 </span><span class="lineNoCov">          0 :               stpcpy (stpncpy (prefix, p0, p - p0), &quot;/&quot;);</span>
+<span class="lineNum">     355 </span>            :               matchpathcon_init_prefix (NULL, prefix);
+<span class="lineNum">     356 </span><span class="lineNoCov">          0 :               free (prefix);</span>
+<span class="lineNum">     357 </span>            :             }
+<span class="lineNum">     358 </span>            :         }
+<span class="lineNum">     359 </span>            :     }
+<span class="lineNum">     360 </span><span class="lineNoCov">          0 :   first_call = false;</span>
+<span class="lineNum">     361 </span>            : 
+<span class="lineNum">     362 </span>            :   /* If there's an error determining the context, or it has none,
+<span class="lineNum">     363 </span>            :      return to allow default context.  Note the &quot;&lt;&lt;none&gt;&gt;&quot; check
+<span class="lineNum">     364 </span>            :      is only needed for libselinux &lt; 1.20 (2005-01-04).  */
+<span class="lineNum">     365 </span><span class="lineNoCov">          0 :   if ((matchpathcon (file, st.st_mode, &amp;scontext) != 0)</span>
+<span class="lineNum">     366 </span>            :       || STREQ (scontext, &quot;&lt;&lt;none&gt;&gt;&quot;))
+<span class="lineNum">     367 </span>            :     {
+<span class="lineNum">     368 </span>            :       if (scontext != NULL)
+<span class="lineNum">     369 </span>            :         freecon (scontext);
+<span class="lineNum">     370 </span>            :       return;
+<span class="lineNum">     371 </span>            :     }
+<span class="lineNum">     372 </span>            : 
+<span class="lineNum">     373 </span>            :   if (lsetfilecon (file, scontext) &lt; 0 &amp;&amp; errno != ENOTSUP)
+<span class="lineNum">     374 </span>            :     error (0, errno,
+<span class="lineNum">     375 </span>            :            _(&quot;warning: %s: failed to change context to %s&quot;),
+<span class="lineNum">     376 </span>            :            quotef_n (0, file), quote_n (1, scontext));
+<span class="lineNum">     377 </span>            : 
+<span class="lineNum">     378 </span>            :   freecon (scontext);
+<span class="lineNum">     379 </span>            :   return;
+<span class="lineNum">     380 </span>            : }
+<span class="lineNum">     381 </span>            : #else
+<span class="lineNum">     382 </span>            : static void
+<span class="lineNum">     383 </span>            : setdefaultfilecon (char const *file)
+<span class="lineNum">     384 </span>            : {
+<span class="lineNum">     385 </span>            :   (void) file;
+<span class="lineNum">     386 </span>            : }
+<span class="lineNum">     387 </span>            : #endif
+<span class="lineNum">     388 </span>            : 
+<span class="lineNum">     389 </span>            : /* FILE is the last operand of this command.  Return true if FILE is a
+<span class="lineNum">     390 </span>            :    directory.  But report an error there is a problem accessing FILE,
+<span class="lineNum">     391 </span>            :    or if FILE does not exist but would have to refer to an existing
+<span class="lineNum">     392 </span>            :    directory if it referred to anything at all.  */
+<a name="393"><span class="lineNum">     393 </span>            : </a>
+<span class="lineNum">     394 </span>            : static bool
+<span class="lineNum">     395 </span><span class="lineNoCov">          0 : target_directory_operand (char const *file)</span>
+<span class="lineNum">     396 </span>            : {
+<span class="lineNum">     397 </span><span class="lineNoCov">          0 :   char const *b = last_component (file);</span>
+<span class="lineNum">     398 </span><span class="lineNoCov">          0 :   size_t blen = strlen (b);</span>
+<span class="lineNum">     399 </span><span class="lineNoCov">          0 :   bool looks_like_a_dir = (blen == 0 || ISSLASH (b[blen - 1]));</span>
+<span class="lineNum">     400 </span>            :   struct stat st;
+<span class="lineNum">     401 </span><span class="lineNoCov">          0 :   int err = (stat (file, &amp;st) == 0 ? 0 : errno);</span>
+<span class="lineNum">     402 </span><span class="lineNoCov">          0 :   bool is_a_dir = !err &amp;&amp; S_ISDIR (st.st_mode);</span>
+<span class="lineNum">     403 </span><span class="lineNoCov">          0 :   if (err &amp;&amp; err != ENOENT)</span>
+<span class="lineNum">     404 </span><span class="lineNoCov">          0 :     error (EXIT_FAILURE, err, _(&quot;failed to access %s&quot;), quoteaf (file));</span>
+<span class="lineNum">     405 </span><span class="lineNoCov">          0 :   if (is_a_dir &lt; looks_like_a_dir)</span>
+<span class="lineNum">     406 </span><span class="lineNoCov">          0 :     error (EXIT_FAILURE, err, _(&quot;target %s is not a directory&quot;),</span>
+<span class="lineNum">     407 </span>            :            quoteaf (file));
+<span class="lineNum">     408 </span><span class="lineNoCov">          0 :   return is_a_dir;</span>
+<span class="lineNum">     409 </span>            : }
+<span class="lineNum">     410 </span>            : 
+<a name="411"><span class="lineNum">     411 </span>            : /* Report that directory DIR was made, if OPTIONS requests this.  */</a>
+<span class="lineNum">     412 </span>            : static void
+<span class="lineNum">     413 </span><span class="lineNoCov">          0 : announce_mkdir (char const *dir, void *options)</span>
+<span class="lineNum">     414 </span>            : {
+<span class="lineNum">     415 </span><span class="lineNoCov">          0 :   struct cp_options const *x = options;</span>
+<span class="lineNum">     416 </span><span class="lineNoCov">          0 :   if (x-&gt;verbose)</span>
+<span class="lineNum">     417 </span><span class="lineNoCov">          0 :     prog_fprintf (stdout, _(&quot;creating directory %s&quot;), quoteaf (dir));</span>
+<span class="lineNum">     418 </span><span class="lineNoCov">          0 : }</span>
+<span class="lineNum">     419 </span>            : 
+<span class="lineNum">     420 </span>            : /* Make ancestor directory DIR, whose last file name component is
+<span class="lineNum">     421 </span>            :    COMPONENT, with options OPTIONS.  Assume the working directory is
+<a name="422"><span class="lineNum">     422 </span>            :    COMPONENT's parent.  */</a>
+<span class="lineNum">     423 </span>            : static int
+<span class="lineNum">     424 </span><span class="lineNoCov">          0 : make_ancestor (char const *dir, char const *component, void *options)</span>
+<span class="lineNum">     425 </span>            : {
+<span class="lineNum">     426 </span><span class="lineNoCov">          0 :   int r = mkdir (component, DEFAULT_MODE);</span>
+<span class="lineNum">     427 </span><span class="lineNoCov">          0 :   if (r == 0)</span>
+<span class="lineNum">     428 </span><span class="lineNoCov">          0 :     announce_mkdir (dir, options);</span>
+<span class="lineNum">     429 </span><span class="lineNoCov">          0 :   return r;</span>
+<span class="lineNum">     430 </span>            : }
+<span class="lineNum">     431 </span>            : 
+<a name="432"><span class="lineNum">     432 </span>            : /* Process a command-line file name, for the -d option.  */</a>
+<span class="lineNum">     433 </span>            : static int
+<span class="lineNum">     434 </span><span class="lineNoCov">          0 : process_dir (char *dir, struct savewd *wd, void *options)</span>
+<span class="lineNum">     435 </span>            : {
+<span class="lineNum">     436 </span><span class="lineNoCov">          0 :   return (make_dir_parents (dir, wd,</span>
+<span class="lineNum">     437 </span>            :                             make_ancestor, options,
+<span class="lineNum">     438 </span>            :                             dir_mode, announce_mkdir,
+<span class="lineNum">     439 </span>            :                             dir_mode_bits, owner_id, group_id, false)
+<span class="lineNum">     440 </span>            :           ? EXIT_SUCCESS
+<span class="lineNum">     441 </span><span class="lineNoCov">          0 :           : EXIT_FAILURE);</span>
+<span class="lineNum">     442 </span>            : }
+<span class="lineNum">     443 </span>            : 
+<span class="lineNum">     444 </span>            : /* Copy file FROM onto file TO, creating TO if necessary.
+<span class="lineNum">     445 </span>            :    Return true if successful.  */
+<a name="446"><span class="lineNum">     446 </span>            : </a>
+<span class="lineNum">     447 </span>            : static bool
+<span class="lineNum">     448 </span><span class="lineNoCov">          0 : copy_file (const char *from, const char *to, const struct cp_options *x)</span>
+<span class="lineNum">     449 </span>            : {
+<span class="lineNum">     450 </span>            :   bool copy_into_self;
+<span class="lineNum">     451 </span>            : 
+<span class="lineNum">     452 </span><span class="lineNoCov">          0 :   if (copy_only_if_needed &amp;&amp; !need_copy (from, to, x))</span>
+<span class="lineNum">     453 </span>            :     return true;
+<span class="lineNum">     454 </span>            : 
+<span class="lineNum">     455 </span>            :   /* Allow installing from non-regular files like /dev/null.
+<span class="lineNum">     456 </span>            :      Charles Karney reported that some Sun version of install allows that
+<span class="lineNum">     457 </span>            :      and that sendmail's installation process relies on the behavior.
+<span class="lineNum">     458 </span>            :      However, since !x-&gt;recursive, the call to &quot;copy&quot; will fail if FROM
+<span class="lineNum">     459 </span>            :      is a directory.  */
+<span class="lineNum">     460 </span>            : 
+<span class="lineNum">     461 </span><span class="lineNoCov">          0 :   return copy (from, to, false, x, &amp;copy_into_self, NULL);</span>
+<span class="lineNum">     462 </span>            : }
+<span class="lineNum">     463 </span>            : 
+<span class="lineNum">     464 </span>            : /* Set the attributes of file or directory NAME.
+<span class="lineNum">     465 </span>            :    Return true if successful.  */
+<a name="466"><span class="lineNum">     466 </span>            : </a>
+<span class="lineNum">     467 </span>            : static bool
+<span class="lineNum">     468 </span><span class="lineNoCov">          0 : change_attributes (char const *name)</span>
+<span class="lineNum">     469 </span>            : {
+<span class="lineNum">     470 </span><span class="lineNoCov">          0 :   bool ok = false;</span>
+<span class="lineNum">     471 </span>            :   /* chown must precede chmod because on some systems,
+<span class="lineNum">     472 </span>            :      chown clears the set[ug]id bits for non-superusers,
+<span class="lineNum">     473 </span>            :      resulting in incorrect permissions.
+<span class="lineNum">     474 </span>            :      On System V, users can give away files with chown and then not
+<span class="lineNum">     475 </span>            :      be able to chmod them.  So don't give files away.
+<span class="lineNum">     476 </span>            : 
+<span class="lineNum">     477 </span>            :      We don't normally ignore errors from chown because the idea of
+<span class="lineNum">     478 </span>            :      the install command is that the file is supposed to end up with
+<span class="lineNum">     479 </span>            :      precisely the attributes that the user specified (or defaulted).
+<span class="lineNum">     480 </span>            :      If the file doesn't end up with the group they asked for, they'll
+<span class="lineNum">     481 </span>            :      want to know.  */
+<span class="lineNum">     482 </span>            : 
+<span class="lineNum">     483 </span><span class="lineNoCov">          0 :   if (! (owner_id == (uid_t) -1 &amp;&amp; group_id == (gid_t) -1)</span>
+<span class="lineNum">     484 </span><span class="lineNoCov">          0 :       &amp;&amp; lchown (name, owner_id, group_id) != 0)</span>
+<span class="lineNum">     485 </span><span class="lineNoCov">          0 :     error (0, errno, _(&quot;cannot change ownership of %s&quot;), quoteaf (name));</span>
+<span class="lineNum">     486 </span><span class="lineNoCov">          0 :   else if (chmod (name, mode) != 0)</span>
+<span class="lineNum">     487 </span><span class="lineNoCov">          0 :     error (0, errno, _(&quot;cannot change permissions of %s&quot;), quoteaf (name));</span>
+<span class="lineNum">     488 </span>            :   else
+<span class="lineNum">     489 </span>            :     ok = true;
+<span class="lineNum">     490 </span>            : 
+<span class="lineNum">     491 </span><span class="lineNoCov">          0 :   if (use_default_selinux_context)</span>
+<span class="lineNum">     492 </span><span class="lineNoCov">          0 :     setdefaultfilecon (name);</span>
+<span class="lineNum">     493 </span>            : 
+<span class="lineNum">     494 </span><span class="lineNoCov">          0 :   return ok;</span>
+<span class="lineNum">     495 </span>            : }
+<span class="lineNum">     496 </span>            : 
+<span class="lineNum">     497 </span>            : /* Set the timestamps of file DEST to match those of SRC_SB.
+<span class="lineNum">     498 </span>            :    Return true if successful.  */
+<a name="499"><span class="lineNum">     499 </span>            : </a>
+<span class="lineNum">     500 </span>            : static bool
+<span class="lineNum">     501 </span><span class="lineNoCov">          0 : change_timestamps (struct stat const *src_sb, char const *dest)</span>
+<span class="lineNum">     502 </span>            : {
+<span class="lineNum">     503 </span>            :   struct timespec timespec[2];
+<span class="lineNum">     504 </span><span class="lineNoCov">          0 :   timespec[0] = get_stat_atime (src_sb);</span>
+<span class="lineNum">     505 </span><span class="lineNoCov">          0 :   timespec[1] = get_stat_mtime (src_sb);</span>
+<span class="lineNum">     506 </span>            : 
+<span class="lineNum">     507 </span><span class="lineNoCov">          0 :   if (utimens (dest, timespec))</span>
+<span class="lineNum">     508 </span>            :     {
+<span class="lineNum">     509 </span><span class="lineNoCov">          0 :       error (0, errno, _(&quot;cannot set time stamps for %s&quot;), quoteaf (dest));</span>
+<span class="lineNum">     510 </span><span class="lineNoCov">          0 :       return false;</span>
+<span class="lineNum">     511 </span>            :     }
+<span class="lineNum">     512 </span>            :   return true;
+<span class="lineNum">     513 </span>            : }
+<span class="lineNum">     514 </span>            : 
+<span class="lineNum">     515 </span>            : /* Strip the symbol table from the file NAME.
+<span class="lineNum">     516 </span>            :    We could dig the magic number out of the file first to
+<span class="lineNum">     517 </span>            :    determine whether to strip it, but the header files and
+<span class="lineNum">     518 </span>            :    magic numbers vary so much from system to system that making
+<span class="lineNum">     519 </span>            :    it portable would be very difficult.  Not worth the effort. */
+<a name="520"><span class="lineNum">     520 </span>            : </a>
+<span class="lineNum">     521 </span>            : static bool
+<span class="lineNum">     522 </span><span class="lineNoCov">          0 : strip (char const *name)</span>
+<span class="lineNum">     523 </span>            : {
+<span class="lineNum">     524 </span>            :   int status;
+<span class="lineNum">     525 </span><span class="lineNoCov">          0 :   bool ok = false;</span>
+<span class="lineNum">     526 </span><span class="lineNoCov">          0 :   pid_t pid = fork ();</span>
+<span class="lineNum">     527 </span>            : 
+<span class="lineNum">     528 </span><span class="lineNoCov">          0 :   switch (pid)</span>
+<span class="lineNum">     529 </span>            :     {
+<span class="lineNum">     530 </span>            :     case -1:
+<span class="lineNum">     531 </span><span class="lineNoCov">          0 :       error (0, errno, _(&quot;fork system call failed&quot;));</span>
+<span class="lineNum">     532 </span><span class="lineNoCov">          0 :       break;</span>
+<span class="lineNum">     533 </span>            :     case 0:                     /* Child. */
+<span class="lineNum">     534 </span><span class="lineNoCov">          0 :       execlp (strip_program, strip_program, name, NULL);</span>
+<span class="lineNum">     535 </span><span class="lineNoCov">          0 :       error (EXIT_FAILURE, errno, _(&quot;cannot run %s&quot;), quoteaf (strip_program));</span>
+<span class="lineNum">     536 </span><span class="lineNoCov">          0 :       break;</span>
+<span class="lineNum">     537 </span>            :     default:                    /* Parent. */
+<span class="lineNum">     538 </span><span class="lineNoCov">          0 :       if (waitpid (pid, &amp;status, 0) &lt; 0)</span>
+<span class="lineNum">     539 </span><span class="lineNoCov">          0 :         error (0, errno, _(&quot;waiting for strip&quot;));</span>
+<span class="lineNum">     540 </span><span class="lineNoCov">          0 :       else if (! WIFEXITED (status) || WEXITSTATUS (status))</span>
+<span class="lineNum">     541 </span><span class="lineNoCov">          0 :         error (0, 0, _(&quot;strip process terminated abnormally&quot;));</span>
+<span class="lineNum">     542 </span>            :       else
+<span class="lineNum">     543 </span>            :         ok = true;      /* strip succeeded */
+<span class="lineNum">     544 </span>            :       break;
+<span class="lineNum">     545 </span>            :     }
+<span class="lineNum">     546 </span><span class="lineNoCov">          0 :   return ok;</span>
+<span class="lineNum">     547 </span>            : }
+<span class="lineNum">     548 </span>            : 
+<span class="lineNum">     549 </span>            : /* Initialize the user and group ownership of the files to install. */
+<a name="550"><span class="lineNum">     550 </span>            : </a>
+<span class="lineNum">     551 </span>            : static void
+<span class="lineNum">     552 </span><span class="lineNoCov">          0 : get_ids (void)</span>
+<span class="lineNum">     553 </span>            : {
+<span class="lineNum">     554 </span>            :   struct passwd *pw;
+<span class="lineNum">     555 </span>            :   struct group *gr;
+<span class="lineNum">     556 </span>            : 
+<span class="lineNum">     557 </span><span class="lineNoCov">          0 :   if (owner_name)</span>
+<span class="lineNum">     558 </span>            :     {
+<span class="lineNum">     559 </span><span class="lineNoCov">          0 :       pw = getpwnam (owner_name);</span>
+<span class="lineNum">     560 </span><span class="lineNoCov">          0 :       if (pw == NULL)</span>
+<span class="lineNum">     561 </span>            :         {
+<span class="lineNum">     562 </span>            :           unsigned long int tmp;
+<span class="lineNum">     563 </span><span class="lineNoCov">          0 :           if (xstrtoul (owner_name, NULL, 0, &amp;tmp, NULL) != LONGINT_OK</span>
+<span class="lineNum">     564 </span><span class="lineNoCov">          0 :               || UID_T_MAX &lt; tmp)</span>
+<span class="lineNum">     565 </span><span class="lineNoCov">          0 :             error (EXIT_FAILURE, 0, _(&quot;invalid user %s&quot;),</span>
+<span class="lineNum">     566 </span>            :                    quote (owner_name));
+<span class="lineNum">     567 </span><span class="lineNoCov">          0 :           owner_id = tmp;</span>
+<span class="lineNum">     568 </span>            :         }
+<span class="lineNum">     569 </span>            :       else
+<span class="lineNum">     570 </span><span class="lineNoCov">          0 :         owner_id = pw-&gt;pw_uid;</span>
+<span class="lineNum">     571 </span><span class="lineNoCov">          0 :       endpwent ();</span>
+<span class="lineNum">     572 </span>            :     }
+<span class="lineNum">     573 </span>            :   else
+<span class="lineNum">     574 </span><span class="lineNoCov">          0 :     owner_id = (uid_t) -1;</span>
+<span class="lineNum">     575 </span>            : 
+<span class="lineNum">     576 </span><span class="lineNoCov">          0 :   if (group_name)</span>
+<span class="lineNum">     577 </span>            :     {
+<span class="lineNum">     578 </span><span class="lineNoCov">          0 :       gr = getgrnam (group_name);</span>
+<span class="lineNum">     579 </span><span class="lineNoCov">          0 :       if (gr == NULL)</span>
+<span class="lineNum">     580 </span>            :         {
+<span class="lineNum">     581 </span>            :           unsigned long int tmp;
+<span class="lineNum">     582 </span><span class="lineNoCov">          0 :           if (xstrtoul (group_name, NULL, 0, &amp;tmp, NULL) != LONGINT_OK</span>
+<span class="lineNum">     583 </span><span class="lineNoCov">          0 :               || GID_T_MAX &lt; tmp)</span>
+<span class="lineNum">     584 </span><span class="lineNoCov">          0 :             error (EXIT_FAILURE, 0, _(&quot;invalid group %s&quot;),</span>
+<span class="lineNum">     585 </span>            :                    quote (group_name));
+<span class="lineNum">     586 </span><span class="lineNoCov">          0 :           group_id = tmp;</span>
+<span class="lineNum">     587 </span>            :         }
+<span class="lineNum">     588 </span>            :       else
+<span class="lineNum">     589 </span><span class="lineNoCov">          0 :         group_id = gr-&gt;gr_gid;</span>
+<span class="lineNum">     590 </span><span class="lineNoCov">          0 :       endgrent ();</span>
+<span class="lineNum">     591 </span>            :     }
+<span class="lineNum">     592 </span>            :   else
+<span class="lineNum">     593 </span><span class="lineNoCov">          0 :     group_id = (gid_t) -1;</span>
+<span class="lineNum">     594 </span><span class="lineNoCov">          0 : }</span>
+<a name="595"><span class="lineNum">     595 </span>            : </a>
+<span class="lineNum">     596 </span>            : void
+<span class="lineNum">     597 </span><span class="lineNoCov">          0 : usage (int status)</span>
+<span class="lineNum">     598 </span>            : {
+<span class="lineNum">     599 </span><span class="lineNoCov">          0 :   if (status != EXIT_SUCCESS)</span>
+<span class="lineNum">     600 </span><span class="lineNoCov">          0 :     emit_try_help ();</span>
+<span class="lineNum">     601 </span>            :   else
+<span class="lineNum">     602 </span>            :     {
+<span class="lineNum">     603 </span><span class="lineNoCov">          0 :       printf (_(&quot;\</span>
+<span class="lineNum">     604 </span>            : Usage: %s [OPTION]... [-T] SOURCE DEST\n\
+<span class="lineNum">     605 </span>            :   or:  %s [OPTION]... SOURCE... DIRECTORY\n\
+<span class="lineNum">     606 </span>            :   or:  %s [OPTION]... -t DIRECTORY SOURCE...\n\
+<span class="lineNum">     607 </span>            :   or:  %s [OPTION]... -d DIRECTORY...\n\
+<span class="lineNum">     608 </span>            : &quot;),
+<span class="lineNum">     609 </span>            :               program_name, program_name, program_name, program_name);
+<span class="lineNum">     610 </span><span class="lineNoCov">          0 :       fputs (_(&quot;\</span>
+<span class="lineNum">     611 </span>            : \n\
+<span class="lineNum">     612 </span>            : This install program copies files (often just compiled) into destination\n\
+<span class="lineNum">     613 </span>            : locations you choose.  If you want to download and install a ready-to-use\n\
+<span class="lineNum">     614 </span>            : package on a GNU/Linux system, you should instead be using a package manager\n\
+<span class="lineNum">     615 </span>            : like yum(1) or apt-get(1).\n\
+<span class="lineNum">     616 </span>            : \n\
+<span class="lineNum">     617 </span>            : In the first three forms, copy SOURCE to DEST or multiple SOURCE(s) to\n\
+<span class="lineNum">     618 </span>            : the existing DIRECTORY, while setting permission modes and owner/group.\n\
+<span class="lineNum">     619 </span>            : In the 4th form, create all components of the given DIRECTORY(ies).\n\
+<span class="lineNum">     620 </span>            : &quot;), stdout);
+<span class="lineNum">     621 </span>            : 
+<span class="lineNum">     622 </span><span class="lineNoCov">          0 :       emit_mandatory_arg_note ();</span>
+<span class="lineNum">     623 </span>            : 
+<span class="lineNum">     624 </span><span class="lineNoCov">          0 :       fputs (_(&quot;\</span>
+<span class="lineNum">     625 </span>            :       --backup[=CONTROL]  make a backup of each existing destination file\n\
+<span class="lineNum">     626 </span>            :   -b                  like --backup but does not accept an argument\n\
+<span class="lineNum">     627 </span>            :   -c                  (ignored)\n\
+<span class="lineNum">     628 </span>            :   -C, --compare       compare each pair of source and destination files, and\n\
+<span class="lineNum">     629 </span>            :                         in some cases, do not modify the destination at all\n\
+<span class="lineNum">     630 </span>            :   -d, --directory     treat all arguments as directory names; create all\n\
+<span class="lineNum">     631 </span>            :                         components of the specified directories\n\
+<span class="lineNum">     632 </span>            : &quot;), stdout);
+<span class="lineNum">     633 </span><span class="lineNoCov">          0 :       fputs (_(&quot;\</span>
+<span class="lineNum">     634 </span>            :   -D                  create all leading components of DEST except the last,\n\
+<span class="lineNum">     635 </span>            :                         or all components of --target-directory,\n\
+<span class="lineNum">     636 </span>            :                         then copy SOURCE to DEST\n\
+<span class="lineNum">     637 </span>            :   -g, --group=GROUP   set group ownership, instead of process' current group\n\
+<span class="lineNum">     638 </span>            :   -m, --mode=MODE     set permission mode (as in chmod), instead of rwxr-xr-x\n\
+<span class="lineNum">     639 </span>            :   -o, --owner=OWNER   set ownership (super-user only)\n\
+<span class="lineNum">     640 </span>            : &quot;), stdout);
+<span class="lineNum">     641 </span><span class="lineNoCov">          0 :       fputs (_(&quot;\</span>
+<span class="lineNum">     642 </span>            :   -p, --preserve-timestamps   apply access/modification times of SOURCE files\n\
+<span class="lineNum">     643 </span>            :                         to corresponding destination files\n\
+<span class="lineNum">     644 </span>            :   -s, --strip         strip symbol tables\n\
+<span class="lineNum">     645 </span>            :       --strip-program=PROGRAM  program used to strip binaries\n\
+<span class="lineNum">     646 </span>            :   -S, --suffix=SUFFIX  override the usual backup suffix\n\
+<span class="lineNum">     647 </span>            :   -t, --target-directory=DIRECTORY  copy all SOURCE arguments into DIRECTORY\n\
+<span class="lineNum">     648 </span>            :   -T, --no-target-directory  treat DEST as a normal file\n\
+<span class="lineNum">     649 </span>            :   -v, --verbose       print the name of each directory as it is created\n\
+<span class="lineNum">     650 </span>            : &quot;), stdout);
+<span class="lineNum">     651 </span><span class="lineNoCov">          0 :       fputs (_(&quot;\</span>
+<span class="lineNum">     652 </span>            :       --preserve-context  preserve SELinux security context\n\
+<span class="lineNum">     653 </span>            :   -Z                      set SELinux security context of destination\n\
+<span class="lineNum">     654 </span>            :                             file to default type\n\
+<span class="lineNum">     655 </span>            :       --context[=CTX]     like -Z, or if CTX is specified then set the\n\
+<span class="lineNum">     656 </span>            :                             SELinux or SMACK security context to CTX\n\
+<span class="lineNum">     657 </span>            : &quot;), stdout);
+<span class="lineNum">     658 </span>            : 
+<span class="lineNum">     659 </span><span class="lineNoCov">          0 :       fputs (HELP_OPTION_DESCRIPTION, stdout);</span>
+<span class="lineNum">     660 </span><span class="lineNoCov">          0 :       fputs (VERSION_OPTION_DESCRIPTION, stdout);</span>
+<span class="lineNum">     661 </span><span class="lineNoCov">          0 :       fputs (_(&quot;\</span>
+<span class="lineNum">     662 </span>            : \n\
+<span class="lineNum">     663 </span>            : The backup suffix is '~', unless set with --suffix or SIMPLE_BACKUP_SUFFIX.\n\
+<span class="lineNum">     664 </span>            : The version control method may be selected via the --backup option or through\n\
+<span class="lineNum">     665 </span>            : the VERSION_CONTROL environment variable.  Here are the values:\n\
+<span class="lineNum">     666 </span>            : \n\
+<span class="lineNum">     667 </span>            : &quot;), stdout);
+<span class="lineNum">     668 </span><span class="lineNoCov">          0 :       fputs (_(&quot;\</span>
+<span class="lineNum">     669 </span>            :   none, off       never make backups (even if --backup is given)\n\
+<span class="lineNum">     670 </span>            :   numbered, t     make numbered backups\n\
+<span class="lineNum">     671 </span>            :   existing, nil   numbered if numbered backups exist, simple otherwise\n\
+<span class="lineNum">     672 </span>            :   simple, never   always make simple backups\n\
+<span class="lineNum">     673 </span>            : &quot;), stdout);
+<span class="lineNum">     674 </span><span class="lineNoCov">          0 :       emit_ancillary_info (PROGRAM_NAME);</span>
+<span class="lineNum">     675 </span>            :     }
+<span class="lineNum">     676 </span><span class="lineNoCov">          0 :   exit (status);</span>
+<span class="lineNum">     677 </span>            : }
+<span class="lineNum">     678 </span>            : 
+<span class="lineNum">     679 </span>            : /* Copy file FROM onto file TO and give TO the appropriate
+<span class="lineNum">     680 </span>            :    attributes.
+<span class="lineNum">     681 </span>            :    Return true if successful.  */
+<a name="682"><span class="lineNum">     682 </span>            : </a>
+<span class="lineNum">     683 </span>            : static bool
+<span class="lineNum">     684 </span><span class="lineNoCov">          0 : install_file_in_file (const char *from, const char *to,</span>
+<span class="lineNum">     685 </span>            :                       const struct cp_options *x)
+<span class="lineNum">     686 </span>            : {
+<span class="lineNum">     687 </span>            :   struct stat from_sb;
+<span class="lineNum">     688 </span><span class="lineNoCov">          0 :   if (x-&gt;preserve_timestamps &amp;&amp; stat (from, &amp;from_sb) != 0)</span>
+<span class="lineNum">     689 </span>            :     {
+<span class="lineNum">     690 </span><span class="lineNoCov">          0 :       error (0, errno, _(&quot;cannot stat %s&quot;), quoteaf (from));</span>
+<span class="lineNum">     691 </span><span class="lineNoCov">          0 :       return false;</span>
+<span class="lineNum">     692 </span>            :     }
+<span class="lineNum">     693 </span><span class="lineNoCov">          0 :   if (! copy_file (from, to, x))</span>
+<span class="lineNum">     694 </span>            :     return false;
+<span class="lineNum">     695 </span><span class="lineNoCov">          0 :   if (strip_files)</span>
+<span class="lineNum">     696 </span><span class="lineNoCov">          0 :     if (! strip (to))</span>
+<span class="lineNum">     697 </span>            :       {
+<span class="lineNum">     698 </span><span class="lineNoCov">          0 :         if (unlink (to) != 0)  /* Cleanup.  */</span>
+<span class="lineNum">     699 </span><span class="lineNoCov">          0 :           error (EXIT_FAILURE, errno, _(&quot;cannot unlink %s&quot;), quoteaf (to));</span>
+<span class="lineNum">     700 </span>            :         return false;
+<span class="lineNum">     701 </span>            :       }
+<span class="lineNum">     702 </span><span class="lineNoCov">          0 :   if (x-&gt;preserve_timestamps &amp;&amp; (strip_files || ! S_ISREG (from_sb.st_mode))</span>
+<span class="lineNum">     703 </span><span class="lineNoCov">          0 :       &amp;&amp; ! change_timestamps (&amp;from_sb, to))</span>
+<span class="lineNum">     704 </span>            :     return false;
+<span class="lineNum">     705 </span><span class="lineNoCov">          0 :   return change_attributes (to);</span>
+<span class="lineNum">     706 </span>            : }
+<span class="lineNum">     707 </span>            : 
+<span class="lineNum">     708 </span>            : /* Create any missing parent directories of TO,
+<span class="lineNum">     709 </span>            :    while maintaining the current Working Directory.
+<span class="lineNum">     710 </span>            :    Return true if successful.  */
+<a name="711"><span class="lineNum">     711 </span>            : </a>
+<span class="lineNum">     712 </span>            : static bool
+<span class="lineNum">     713 </span><span class="lineNoCov">          0 : mkancesdirs_safe_wd (char const *from, char *to, struct cp_options *x,</span>
+<span class="lineNum">     714 </span>            :                      bool save_always)
+<span class="lineNum">     715 </span>            : {
+<span class="lineNum">     716 </span><span class="lineNoCov">          0 :   bool save_working_directory =</span>
+<span class="lineNum">     717 </span>            :     save_always
+<span class="lineNum">     718 </span><span class="lineNoCov">          0 :     || ! (IS_ABSOLUTE_FILE_NAME (from) &amp;&amp; IS_ABSOLUTE_FILE_NAME (to));</span>
+<span class="lineNum">     719 </span><span class="lineNoCov">          0 :   int status = EXIT_SUCCESS;</span>
+<span class="lineNum">     720 </span>            : 
+<span class="lineNum">     721 </span>            :   struct savewd wd;
+<span class="lineNum">     722 </span><span class="lineNoCov">          0 :   savewd_init (&amp;wd);</span>
+<span class="lineNum">     723 </span><span class="lineNoCov">          0 :   if (! save_working_directory)</span>
+<span class="lineNum">     724 </span><span class="lineNoCov">          0 :     savewd_finish (&amp;wd);</span>
+<span class="lineNum">     725 </span>            : 
+<span class="lineNum">     726 </span><span class="lineNoCov">          0 :   if (mkancesdirs (to, &amp;wd, make_ancestor, x) == -1)</span>
+<span class="lineNum">     727 </span>            :     {
+<span class="lineNum">     728 </span><span class="lineNoCov">          0 :       error (0, errno, _(&quot;cannot create directory %s&quot;), quoteaf (to));</span>
+<span class="lineNum">     729 </span><span class="lineNoCov">          0 :       status = EXIT_FAILURE;</span>
+<span class="lineNum">     730 </span>            :     }
+<span class="lineNum">     731 </span>            : 
+<span class="lineNum">     732 </span><span class="lineNoCov">          0 :   if (save_working_directory)</span>
+<span class="lineNum">     733 </span>            :     {
+<span class="lineNum">     734 </span><span class="lineNoCov">          0 :       int restore_result = savewd_restore (&amp;wd, status);</span>
+<span class="lineNum">     735 </span><span class="lineNoCov">          0 :       int restore_errno = errno;</span>
+<span class="lineNum">     736 </span><span class="lineNoCov">          0 :       savewd_finish (&amp;wd);</span>
+<span class="lineNum">     737 </span><span class="lineNoCov">          0 :       if (EXIT_SUCCESS &lt; restore_result)</span>
+<span class="lineNum">     738 </span>            :         return false;
+<span class="lineNum">     739 </span><span class="lineNoCov">          0 :       if (restore_result &lt; 0 &amp;&amp; status == EXIT_SUCCESS)</span>
+<span class="lineNum">     740 </span>            :         {
+<span class="lineNum">     741 </span><span class="lineNoCov">          0 :           error (0, restore_errno, _(&quot;cannot create directory %s&quot;),</span>
+<span class="lineNum">     742 </span>            :                  quoteaf (to));
+<span class="lineNum">     743 </span><span class="lineNoCov">          0 :           return false;</span>
+<span class="lineNum">     744 </span>            :         }
+<span class="lineNum">     745 </span>            :     }
+<span class="lineNum">     746 </span><span class="lineNoCov">          0 :   return status == EXIT_SUCCESS;</span>
+<span class="lineNum">     747 </span>            : }
+<span class="lineNum">     748 </span>            : 
+<span class="lineNum">     749 </span>            : /* Copy file FROM onto file TO, creating any missing parent directories of TO.
+<span class="lineNum">     750 </span>            :    Return true if successful.  */
+<a name="751"><span class="lineNum">     751 </span>            : </a>
+<span class="lineNum">     752 </span>            : static bool
+<span class="lineNum">     753 </span><span class="lineNoCov">          0 : install_file_in_file_parents (char const *from, char *to,</span>
+<span class="lineNum">     754 </span>            :                               const struct cp_options *x)
+<span class="lineNum">     755 </span>            : {
+<span class="lineNum">     756 </span><span class="lineNoCov">          0 :   return (mkancesdirs_safe_wd (from, to, (struct cp_options *)x, false)</span>
+<span class="lineNum">     757 </span><span class="lineNoCov">          0 :           &amp;&amp; install_file_in_file (from, to, x));</span>
+<span class="lineNum">     758 </span>            : }
+<span class="lineNum">     759 </span>            : 
+<span class="lineNum">     760 </span>            : /* Copy file FROM into directory TO_DIR, keeping its same name,
+<span class="lineNum">     761 </span>            :    and give the copy the appropriate attributes.
+<span class="lineNum">     762 </span>            :    Return true if successful.  */
+<a name="763"><span class="lineNum">     763 </span>            : </a>
+<span class="lineNum">     764 </span>            : static bool
+<span class="lineNum">     765 </span><span class="lineNoCov">          0 : install_file_in_dir (const char *from, const char *to_dir,</span>
+<span class="lineNum">     766 </span>            :                      const struct cp_options *x, bool mkdir_and_install)
+<span class="lineNum">     767 </span>            : {
+<span class="lineNum">     768 </span><span class="lineNoCov">          0 :   const char *from_base = last_component (from);</span>
+<span class="lineNum">     769 </span><span class="lineNoCov">          0 :   char *to = file_name_concat (to_dir, from_base, NULL);</span>
+<span class="lineNum">     770 </span><span class="lineNoCov">          0 :   bool ret = true;</span>
+<span class="lineNum">     771 </span>            : 
+<span class="lineNum">     772 </span><span class="lineNoCov">          0 :   if (mkdir_and_install)</span>
+<span class="lineNum">     773 </span><span class="lineNoCov">          0 :     ret = mkancesdirs_safe_wd (from, to, (struct cp_options *)x, true);</span>
+<span class="lineNum">     774 </span>            : 
+<span class="lineNum">     775 </span><span class="lineNoCov">          0 :   ret = ret &amp;&amp; install_file_in_file (from, to, x);</span>
+<span class="lineNum">     776 </span><span class="lineNoCov">          0 :   free (to);</span>
+<span class="lineNum">     777 </span><span class="lineNoCov">          0 :   return ret;</span>
+<span class="lineNum">     778 </span>            : }
+<a name="779"><span class="lineNum">     779 </span>            : </a>
+<span class="lineNum">     780 </span>            : int
+<span class="lineNum">     781 </span><span class="lineNoCov">          0 : main (int argc, char **argv)</span>
+<span class="lineNum">     782 </span>            : {
+<span class="lineNum">     783 </span>            :   int optc;
+<span class="lineNum">     784 </span><span class="lineNoCov">          0 :   int exit_status = EXIT_SUCCESS;</span>
+<span class="lineNum">     785 </span><span class="lineNoCov">          0 :   const char *specified_mode = NULL;</span>
+<span class="lineNum">     786 </span><span class="lineNoCov">          0 :   bool make_backups = false;</span>
+<span class="lineNum">     787 </span>            :   char *backup_suffix_string;
+<span class="lineNum">     788 </span><span class="lineNoCov">          0 :   char *version_control_string = NULL;</span>
+<span class="lineNum">     789 </span><span class="lineNoCov">          0 :   bool mkdir_and_install = false;</span>
+<span class="lineNum">     790 </span>            :   struct cp_options x;
+<span class="lineNum">     791 </span><span class="lineNoCov">          0 :   char const *target_directory = NULL;</span>
+<span class="lineNum">     792 </span><span class="lineNoCov">          0 :   bool no_target_directory = false;</span>
+<span class="lineNum">     793 </span>            :   int n_files;
+<span class="lineNum">     794 </span>            :   char **file;
+<span class="lineNum">     795 </span><span class="lineNoCov">          0 :   bool strip_program_specified = false;</span>
+<span class="lineNum">     796 </span><span class="lineNoCov">          0 :   char const *scontext = NULL;</span>
+<span class="lineNum">     797 </span>            :   /* set iff kernel has extra selinux system calls */
+<span class="lineNum">     798 </span><span class="lineNoCov">          0 :   selinux_enabled = (0 &lt; is_selinux_enabled ());</span>
+<span class="lineNum">     799 </span>            : 
+<span class="lineNum">     800 </span>            :   initialize_main (&amp;argc, &amp;argv);
+<span class="lineNum">     801 </span><span class="lineNoCov">          0 :   set_program_name (argv[0]);</span>
+<span class="lineNum">     802 </span><span class="lineNoCov">          0 :   setlocale (LC_ALL, &quot;&quot;);</span>
+<span class="lineNum">     803 </span><span class="lineNoCov">          0 :   bindtextdomain (PACKAGE, LOCALEDIR);</span>
+<span class="lineNum">     804 </span><span class="lineNoCov">          0 :   textdomain (PACKAGE);</span>
+<span class="lineNum">     805 </span>            : 
+<span class="lineNum">     806 </span><span class="lineNoCov">          0 :   atexit (close_stdin);</span>
+<span class="lineNum">     807 </span>            : 
+<span class="lineNum">     808 </span><span class="lineNoCov">          0 :   cp_option_init (&amp;x);</span>
+<span class="lineNum">     809 </span>            : 
+<span class="lineNum">     810 </span><span class="lineNoCov">          0 :   owner_name = NULL;</span>
+<span class="lineNum">     811 </span><span class="lineNoCov">          0 :   group_name = NULL;</span>
+<span class="lineNum">     812 </span><span class="lineNoCov">          0 :   strip_files = false;</span>
+<span class="lineNum">     813 </span><span class="lineNoCov">          0 :   dir_arg = false;</span>
+<span class="lineNum">     814 </span><span class="lineNoCov">          0 :   umask (0);</span>
+<span class="lineNum">     815 </span>            : 
+<span class="lineNum">     816 </span>            :   /* FIXME: consider not calling getenv for SIMPLE_BACKUP_SUFFIX unless
+<span class="lineNum">     817 </span>            :      we'll actually use backup_suffix_string.  */
+<span class="lineNum">     818 </span><span class="lineNoCov">          0 :   backup_suffix_string = getenv (&quot;SIMPLE_BACKUP_SUFFIX&quot;);</span>
+<span class="lineNum">     819 </span>            : 
+<span class="lineNum">     820 </span><span class="lineNoCov">          0 :   while ((optc = getopt_long (argc, argv, &quot;bcCsDdg:m:o:pt:TvS:Z&quot;, long_options,</span>
+<span class="lineNum">     821 </span>            :                               NULL)) != -1)
+<span class="lineNum">     822 </span>            :     {
+<span class="lineNum">     823 </span><span class="lineNoCov">          0 :       switch (optc)</span>
+<span class="lineNum">     824 </span>            :         {
+<span class="lineNum">     825 </span>            :         case 'b':
+<span class="lineNum">     826 </span><span class="lineNoCov">          0 :           make_backups = true;</span>
+<span class="lineNum">     827 </span><span class="lineNoCov">          0 :           if (optarg)</span>
+<span class="lineNum">     828 </span><span class="lineNoCov">          0 :             version_control_string = optarg;</span>
+<span class="lineNum">     829 </span>            :           break;
+<span class="lineNum">     830 </span>            :         case 'c':
+<span class="lineNum">     831 </span>            :           break;
+<span class="lineNum">     832 </span>            :         case 'C':
+<span class="lineNum">     833 </span><span class="lineNoCov">          0 :           copy_only_if_needed = true;</span>
+<span class="lineNum">     834 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     835 </span>            :         case 's':
+<span class="lineNum">     836 </span><span class="lineNoCov">          0 :           strip_files = true;</span>
+<span class="lineNum">     837 </span>            : #ifdef SIGCHLD
+<span class="lineNum">     838 </span>            :           /* System V fork+wait does not work if SIGCHLD is ignored.  */
+<span class="lineNum">     839 </span><span class="lineNoCov">          0 :           signal (SIGCHLD, SIG_DFL);</span>
+<span class="lineNum">     840 </span>            : #endif
+<span class="lineNum">     841 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     842 </span>            :         case STRIP_PROGRAM_OPTION:
+<span class="lineNum">     843 </span><span class="lineNoCov">          0 :           strip_program = xstrdup (optarg);</span>
+<span class="lineNum">     844 </span><span class="lineNoCov">          0 :           strip_program_specified = true;</span>
+<span class="lineNum">     845 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     846 </span>            :         case 'd':
+<span class="lineNum">     847 </span><span class="lineNoCov">          0 :           dir_arg = true;</span>
+<span class="lineNum">     848 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     849 </span>            :         case 'D':
+<span class="lineNum">     850 </span><span class="lineNoCov">          0 :           mkdir_and_install = true;</span>
+<span class="lineNum">     851 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     852 </span>            :         case 'v':
+<span class="lineNum">     853 </span><span class="lineNoCov">          0 :           x.verbose = true;</span>
+<span class="lineNum">     854 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     855 </span>            :         case 'g':
+<span class="lineNum">     856 </span><span class="lineNoCov">          0 :           group_name = optarg;</span>
+<span class="lineNum">     857 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     858 </span>            :         case 'm':
+<span class="lineNum">     859 </span><span class="lineNoCov">          0 :           specified_mode = optarg;</span>
+<span class="lineNum">     860 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     861 </span>            :         case 'o':
+<span class="lineNum">     862 </span><span class="lineNoCov">          0 :           owner_name = optarg;</span>
+<span class="lineNum">     863 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     864 </span>            :         case 'p':
+<span class="lineNum">     865 </span><span class="lineNoCov">          0 :           x.preserve_timestamps = true;</span>
+<span class="lineNum">     866 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     867 </span>            :         case 'S':
+<span class="lineNum">     868 </span><span class="lineNoCov">          0 :           make_backups = true;</span>
+<span class="lineNum">     869 </span><span class="lineNoCov">          0 :           backup_suffix_string = optarg;</span>
+<span class="lineNum">     870 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     871 </span>            :         case 't':
+<span class="lineNum">     872 </span><span class="lineNoCov">          0 :           if (target_directory)</span>
+<span class="lineNum">     873 </span><span class="lineNoCov">          0 :             error (EXIT_FAILURE, 0,</span>
+<span class="lineNum">     874 </span><span class="lineNoCov">          0 :                    _(&quot;multiple target directories specified&quot;));</span>
+<span class="lineNum">     875 </span><span class="lineNoCov">          0 :           target_directory = optarg;</span>
+<span class="lineNum">     876 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     877 </span>            :         case 'T':
+<span class="lineNum">     878 </span><span class="lineNoCov">          0 :           no_target_directory = true;</span>
+<span class="lineNum">     879 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     880 </span>            : 
+<span class="lineNum">     881 </span>            :         case PRESERVE_CONTEXT_OPTION:
+<span class="lineNum">     882 </span><span class="lineNoCov">          0 :           if (! selinux_enabled)</span>
+<span class="lineNum">     883 </span>            :             {
+<span class="lineNum">     884 </span><span class="lineNoCov">          0 :               error (0, 0, _(&quot;WARNING: ignoring --preserve-context; &quot;</span>
+<span class="lineNum">     885 </span>            :                              &quot;this kernel is not SELinux-enabled&quot;));
+<span class="lineNum">     886 </span><span class="lineNoCov">          0 :               break;</span>
+<span class="lineNum">     887 </span>            :             }
+<span class="lineNum">     888 </span><span class="lineNoCov">          0 :           x.preserve_security_context = true;</span>
+<span class="lineNum">     889 </span><span class="lineNoCov">          0 :           use_default_selinux_context = false;</span>
+<span class="lineNum">     890 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     891 </span>            :         case 'Z':
+<span class="lineNum">     892 </span><span class="lineNoCov">          0 :           if (selinux_enabled)</span>
+<span class="lineNum">     893 </span>            :             {
+<span class="lineNum">     894 </span>            :               /* Disable use of the install(1) specific setdefaultfilecon().
+<span class="lineNum">     895 </span>            :                  Note setdefaultfilecon() is different from the newer and more
+<span class="lineNum">     896 </span>            :                  generic restorecon() in that the former sets the context of
+<span class="lineNum">     897 </span>            :                  the dest files to that returned by matchpathcon directly,
+<span class="lineNum">     898 </span>            :                  thus discarding MLS level and user identity of the file.
+<span class="lineNum">     899 </span>            :                  TODO: consider removing setdefaultfilecon() in future.  */
+<span class="lineNum">     900 </span><span class="lineNoCov">          0 :               use_default_selinux_context = false;</span>
+<span class="lineNum">     901 </span>            : 
+<span class="lineNum">     902 </span><span class="lineNoCov">          0 :               if (optarg)</span>
+<span class="lineNum">     903 </span>            :                 scontext = optarg;
+<span class="lineNum">     904 </span>            :               else
+<span class="lineNum">     905 </span><span class="lineNoCov">          0 :                 x.set_security_context = true;</span>
+<span class="lineNum">     906 </span>            :             }
+<span class="lineNum">     907 </span><span class="lineNoCov">          0 :           else if (optarg)</span>
+<span class="lineNum">     908 </span>            :             {
+<span class="lineNum">     909 </span><span class="lineNoCov">          0 :               error (0, 0,</span>
+<span class="lineNum">     910 </span><span class="lineNoCov">          0 :                      _(&quot;warning: ignoring --context; &quot;</span>
+<span class="lineNum">     911 </span>            :                        &quot;it requires an SELinux-enabled kernel&quot;));
+<span class="lineNum">     912 </span>            :             }
+<span class="lineNum">     913 </span>            :           break;
+<span class="lineNum">     914 </span><span class="lineNoCov">          0 :         case_GETOPT_HELP_CHAR;</span>
+<span class="lineNum">     915 </span><span class="lineNoCov">          0 :         case_GETOPT_VERSION_CHAR (PROGRAM_NAME, AUTHORS);</span>
+<span class="lineNum">     916 </span>            :         default:
+<span class="lineNum">     917 </span><span class="lineNoCov">          0 :           usage (EXIT_FAILURE);</span>
+<span class="lineNum">     918 </span>            :         }
+<span class="lineNum">     919 </span>            :     }
+<span class="lineNum">     920 </span>            : 
+<span class="lineNum">     921 </span>            :   /* Check for invalid combinations of arguments. */
+<span class="lineNum">     922 </span><span class="lineNoCov">          0 :   if (dir_arg &amp;&amp; strip_files)</span>
+<span class="lineNum">     923 </span><span class="lineNoCov">          0 :     error (EXIT_FAILURE, 0,</span>
+<span class="lineNum">     924 </span><span class="lineNoCov">          0 :            _(&quot;the strip option may not be used when installing a directory&quot;));</span>
+<span class="lineNum">     925 </span><span class="lineNoCov">          0 :   if (dir_arg &amp;&amp; target_directory)</span>
+<span class="lineNum">     926 </span><span class="lineNoCov">          0 :     error (EXIT_FAILURE, 0,</span>
+<span class="lineNum">     927 </span><span class="lineNoCov">          0 :            _(&quot;target directory not allowed when installing a directory&quot;));</span>
+<span class="lineNum">     928 </span>            : 
+<span class="lineNum">     929 </span><span class="lineNoCov">          0 :   if (target_directory)</span>
+<span class="lineNum">     930 </span>            :     {
+<span class="lineNum">     931 </span>            :       struct stat st;
+<span class="lineNum">     932 </span><span class="lineNoCov">          0 :       bool stat_success = stat (target_directory, &amp;st) == 0 ? true : false;</span>
+<span class="lineNum">     933 </span><span class="lineNoCov">          0 :       if (! mkdir_and_install &amp;&amp; ! stat_success)</span>
+<span class="lineNum">     934 </span><span class="lineNoCov">          0 :         error (EXIT_FAILURE, errno, _(&quot;failed to access %s&quot;),</span>
+<span class="lineNum">     935 </span>            :                quoteaf (target_directory));
+<span class="lineNum">     936 </span><span class="lineNoCov">          0 :       if (stat_success &amp;&amp; ! S_ISDIR (st.st_mode))</span>
+<span class="lineNum">     937 </span><span class="lineNoCov">          0 :         error (EXIT_FAILURE, 0, _(&quot;target %s is not a directory&quot;),</span>
+<span class="lineNum">     938 </span>            :                quoteaf (target_directory));
+<span class="lineNum">     939 </span>            :     }
+<span class="lineNum">     940 </span>            : 
+<span class="lineNum">     941 </span><span class="lineNoCov">          0 :   if (backup_suffix_string)</span>
+<span class="lineNum">     942 </span><span class="lineNoCov">          0 :     simple_backup_suffix = xstrdup (backup_suffix_string);</span>
+<span class="lineNum">     943 </span>            : 
+<span class="lineNum">     944 </span><span class="lineNoCov">          0 :   x.backup_type = (make_backups</span>
+<span class="lineNum">     945 </span><span class="lineNoCov">          0 :                    ? xget_version (_(&quot;backup type&quot;),</span>
+<span class="lineNum">     946 </span>            :                                    version_control_string)
+<span class="lineNum">     947 </span>            :                    : no_backups);
+<span class="lineNum">     948 </span>            : 
+<span class="lineNum">     949 </span><span class="lineNoCov">          0 :   if (x.preserve_security_context &amp;&amp; (x.set_security_context || scontext))</span>
+<span class="lineNum">     950 </span><span class="lineNoCov">          0 :     error (EXIT_FAILURE, 0,</span>
+<span class="lineNum">     951 </span><span class="lineNoCov">          0 :            _(&quot;cannot set target context and preserve it&quot;));</span>
+<span class="lineNum">     952 </span>            : 
+<span class="lineNum">     953 </span><span class="lineNoCov">          0 :   if (scontext &amp;&amp; setfscreatecon (se_const (scontext)) &lt; 0)</span>
+<span class="lineNum">     954 </span><span class="lineNoCov">          0 :     error (EXIT_FAILURE, errno,</span>
+<span class="lineNum">     955 </span><span class="lineNoCov">          0 :            _(&quot;failed to set default file creation context to %s&quot;),</span>
+<span class="lineNum">     956 </span>            :            quote (scontext));
+<span class="lineNum">     957 </span>            : 
+<span class="lineNum">     958 </span><span class="lineNoCov">          0 :   n_files = argc - optind;</span>
+<span class="lineNum">     959 </span><span class="lineNoCov">          0 :   file = argv + optind;</span>
+<span class="lineNum">     960 </span>            : 
+<span class="lineNum">     961 </span><span class="lineNoCov">          0 :   if (n_files &lt;= ! (dir_arg || target_directory))</span>
+<span class="lineNum">     962 </span>            :     {
+<span class="lineNum">     963 </span><span class="lineNoCov">          0 :       if (n_files &lt;= 0)</span>
+<span class="lineNum">     964 </span><span class="lineNoCov">          0 :         error (0, 0, _(&quot;missing file operand&quot;));</span>
+<span class="lineNum">     965 </span>            :       else
+<span class="lineNum">     966 </span><span class="lineNoCov">          0 :         error (0, 0, _(&quot;missing destination file operand after %s&quot;),</span>
+<span class="lineNum">     967 </span>            :                quoteaf (file[0]));
+<span class="lineNum">     968 </span><span class="lineNoCov">          0 :       usage (EXIT_FAILURE);</span>
+<span class="lineNum">     969 </span>            :     }
+<span class="lineNum">     970 </span>            : 
+<span class="lineNum">     971 </span><span class="lineNoCov">          0 :   if (no_target_directory)</span>
+<span class="lineNum">     972 </span>            :     {
+<span class="lineNum">     973 </span><span class="lineNoCov">          0 :       if (target_directory)</span>
+<span class="lineNum">     974 </span><span class="lineNoCov">          0 :         error (EXIT_FAILURE, 0,</span>
+<span class="lineNum">     975 </span><span class="lineNoCov">          0 :                _(&quot;cannot combine --target-directory (-t) &quot;</span>
+<span class="lineNum">     976 </span>            :                  &quot;and --no-target-directory (-T)&quot;));
+<span class="lineNum">     977 </span><span class="lineNoCov">          0 :       if (2 &lt; n_files)</span>
+<span class="lineNum">     978 </span>            :         {
+<span class="lineNum">     979 </span><span class="lineNoCov">          0 :           error (0, 0, _(&quot;extra operand %s&quot;), quoteaf (file[2]));</span>
+<span class="lineNum">     980 </span><span class="lineNoCov">          0 :           usage (EXIT_FAILURE);</span>
+<span class="lineNum">     981 </span>            :         }
+<span class="lineNum">     982 </span>            :     }
+<span class="lineNum">     983 </span><span class="lineNoCov">          0 :   else if (! (dir_arg || target_directory))</span>
+<span class="lineNum">     984 </span>            :     {
+<span class="lineNum">     985 </span><span class="lineNoCov">          0 :       if (2 &lt;= n_files &amp;&amp; target_directory_operand (file[n_files - 1]))</span>
+<span class="lineNum">     986 </span><span class="lineNoCov">          0 :         target_directory = file[--n_files];</span>
+<span class="lineNum">     987 </span><span class="lineNoCov">          0 :       else if (2 &lt; n_files)</span>
+<span class="lineNum">     988 </span><span class="lineNoCov">          0 :         error (EXIT_FAILURE, 0, _(&quot;target %s is not a directory&quot;),</span>
+<span class="lineNum">     989 </span><span class="lineNoCov">          0 :                quoteaf (file[n_files - 1]));</span>
+<span class="lineNum">     990 </span>            :     }
+<span class="lineNum">     991 </span>            : 
+<span class="lineNum">     992 </span><span class="lineNoCov">          0 :   if (specified_mode)</span>
+<span class="lineNum">     993 </span>            :     {
+<span class="lineNum">     994 </span><span class="lineNoCov">          0 :       struct mode_change *change = mode_compile (specified_mode);</span>
+<span class="lineNum">     995 </span><span class="lineNoCov">          0 :       if (!change)</span>
+<span class="lineNum">     996 </span><span class="lineNoCov">          0 :         error (EXIT_FAILURE, 0, _(&quot;invalid mode %s&quot;), quote (specified_mode));</span>
+<span class="lineNum">     997 </span><span class="lineNoCov">          0 :       mode = mode_adjust (0, false, 0, change, NULL);</span>
+<span class="lineNum">     998 </span><span class="lineNoCov">          0 :       dir_mode = mode_adjust (0, true, 0, change, &amp;dir_mode_bits);</span>
+<span class="lineNum">     999 </span><span class="lineNoCov">          0 :       free (change);</span>
+<span class="lineNum">    1000 </span>            :     }
+<span class="lineNum">    1001 </span>            : 
+<span class="lineNum">    1002 </span><span class="lineNoCov">          0 :   if (strip_program_specified &amp;&amp; !strip_files)</span>
+<span class="lineNum">    1003 </span><span class="lineNoCov">          0 :     error (0, 0, _(&quot;WARNING: ignoring --strip-program option as -s option was &quot;</span>
+<span class="lineNum">    1004 </span>            :                    &quot;not specified&quot;));
+<span class="lineNum">    1005 </span>            : 
+<span class="lineNum">    1006 </span><span class="lineNoCov">          0 :   if (copy_only_if_needed &amp;&amp; x.preserve_timestamps)</span>
+<span class="lineNum">    1007 </span>            :     {
+<span class="lineNum">    1008 </span><span class="lineNoCov">          0 :       error (0, 0, _(&quot;options --compare (-C) and --preserve-timestamps are &quot;</span>
+<span class="lineNum">    1009 </span>            :                      &quot;mutually exclusive&quot;));
+<span class="lineNum">    1010 </span><span class="lineNoCov">          0 :       usage (EXIT_FAILURE);</span>
+<span class="lineNum">    1011 </span>            :     }
+<span class="lineNum">    1012 </span>            : 
+<span class="lineNum">    1013 </span><span class="lineNoCov">          0 :   if (copy_only_if_needed &amp;&amp; strip_files)</span>
+<span class="lineNum">    1014 </span>            :     {
+<span class="lineNum">    1015 </span><span class="lineNoCov">          0 :       error (0, 0, _(&quot;options --compare (-C) and --strip are mutually &quot;</span>
+<span class="lineNum">    1016 </span>            :                      &quot;exclusive&quot;));
+<span class="lineNum">    1017 </span><span class="lineNoCov">          0 :       usage (EXIT_FAILURE);</span>
+<span class="lineNum">    1018 </span>            :     }
+<span class="lineNum">    1019 </span>            : 
+<span class="lineNum">    1020 </span><span class="lineNoCov">          0 :   if (copy_only_if_needed &amp;&amp; extra_mode (mode))</span>
+<span class="lineNum">    1021 </span><span class="lineNoCov">          0 :     error (0, 0, _(&quot;the --compare (-C) option is ignored when you&quot;</span>
+<span class="lineNum">    1022 </span>            :                    &quot; specify a mode with non-permission bits&quot;));
+<span class="lineNum">    1023 </span>            : 
+<span class="lineNum">    1024 </span><span class="lineNoCov">          0 :   get_ids ();</span>
+<span class="lineNum">    1025 </span>            : 
+<span class="lineNum">    1026 </span><span class="lineNoCov">          0 :   if (dir_arg)</span>
+<span class="lineNum">    1027 </span><span class="lineNoCov">          0 :     exit_status = savewd_process_files (n_files, file, process_dir, &amp;x);</span>
+<span class="lineNum">    1028 </span>            :   else
+<span class="lineNum">    1029 </span>            :     {
+<span class="lineNum">    1030 </span>            :       /* FIXME: it's a little gross that this initialization is
+<span class="lineNum">    1031 </span>            :          required by copy.c::copy. */
+<span class="lineNum">    1032 </span><span class="lineNoCov">          0 :       hash_init ();</span>
+<span class="lineNum">    1033 </span>            : 
+<span class="lineNum">    1034 </span><span class="lineNoCov">          0 :       if (!target_directory)</span>
+<span class="lineNum">    1035 </span>            :         {
+<span class="lineNum">    1036 </span><span class="lineNoCov">          0 :           if (! (mkdir_and_install</span>
+<span class="lineNum">    1037 </span><span class="lineNoCov">          0 :                  ? install_file_in_file_parents (file[0], file[1], &amp;x)</span>
+<span class="lineNum">    1038 </span><span class="lineNoCov">          0 :                  : install_file_in_file (file[0], file[1], &amp;x)))</span>
+<span class="lineNum">    1039 </span><span class="lineNoCov">          0 :             exit_status = EXIT_FAILURE;</span>
+<span class="lineNum">    1040 </span>            :         }
+<span class="lineNum">    1041 </span>            :       else
+<span class="lineNum">    1042 </span>            :         {
+<span class="lineNum">    1043 </span>            :           int i;
+<span class="lineNum">    1044 </span><span class="lineNoCov">          0 :           dest_info_init (&amp;x);</span>
+<span class="lineNum">    1045 </span><span class="lineNoCov">          0 :           for (i = 0; i &lt; n_files; i++)</span>
+<span class="lineNum">    1046 </span><span class="lineNoCov">          0 :             if (! install_file_in_dir (file[i], target_directory, &amp;x,</span>
+<span class="lineNum">    1047 </span><span class="lineNoCov">          0 :                                        i == 0 &amp;&amp; mkdir_and_install))</span>
+<span class="lineNum">    1048 </span><span class="lineNoCov">          0 :               exit_status = EXIT_FAILURE;</span>
+<span class="lineNum">    1049 </span>            :         }
+<span class="lineNum">    1050 </span>            :     }
+<span class="lineNum">    1051 </span>            : 
+<span class="lineNum">    1052 </span>            :   return exit_status;
+<span class="lineNum">    1053 </span>            : }
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.12</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>

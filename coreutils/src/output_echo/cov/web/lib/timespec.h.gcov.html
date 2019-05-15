@@ -1,0 +1,188 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - trace.lcov_info_final - lib/timespec.h</title>
+  <link rel="stylesheet" type="text/css" href="../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">lib</a> - timespec.h<span style="font-size: 80%;"> (source / <a href="timespec.h.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">trace.lcov_info_final</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">2</td>
+            <td class="headerCovTableEntryLo">0.0 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2019-04-22 20:19:38</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntryHi">-</td>
+          </tr>
+          <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>            : /* timespec -- System time interface</a>
+<span class="lineNum">       2 </span>            : 
+<span class="lineNum">       3 </span>            :    Copyright (C) 2000, 2002, 2004-2005, 2007, 2009-2016 Free Software
+<span class="lineNum">       4 </span>            :    Foundation, Inc.
+<span class="lineNum">       5 </span>            : 
+<span class="lineNum">       6 </span>            :    This program is free software: you can redistribute it and/or modify
+<span class="lineNum">       7 </span>            :    it under the terms of the GNU General Public License as published by
+<span class="lineNum">       8 </span>            :    the Free Software Foundation; either version 3 of the License, or
+<span class="lineNum">       9 </span>            :    (at your option) any later version.
+<span class="lineNum">      10 </span>            : 
+<span class="lineNum">      11 </span>            :    This program is distributed in the hope that it will be useful,
+<span class="lineNum">      12 </span>            :    but WITHOUT ANY WARRANTY; without even the implied warranty of
+<span class="lineNum">      13 </span>            :    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+<span class="lineNum">      14 </span>            :    GNU General Public License for more details.
+<span class="lineNum">      15 </span>            : 
+<span class="lineNum">      16 </span>            :    You should have received a copy of the GNU General Public License
+<span class="lineNum">      17 </span>            :    along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.  */
+<span class="lineNum">      18 </span>            : 
+<span class="lineNum">      19 </span>            : #if ! defined TIMESPEC_H
+<span class="lineNum">      20 </span>            : # define TIMESPEC_H
+<span class="lineNum">      21 </span>            : 
+<span class="lineNum">      22 </span>            : # include &lt;time.h&gt;
+<span class="lineNum">      23 </span>            : 
+<span class="lineNum">      24 </span>            : #ifndef _GL_INLINE_HEADER_BEGIN
+<span class="lineNum">      25 </span>            :  #error &quot;Please include config.h first.&quot;
+<span class="lineNum">      26 </span>            : #endif
+<span class="lineNum">      27 </span>            : _GL_INLINE_HEADER_BEGIN
+<span class="lineNum">      28 </span>            : #ifndef _GL_TIMESPEC_INLINE
+<span class="lineNum">      29 </span>            : # define _GL_TIMESPEC_INLINE _GL_INLINE
+<span class="lineNum">      30 </span>            : #endif
+<span class="lineNum">      31 </span>            : 
+<span class="lineNum">      32 </span>            : /* Resolution of timespec time stamps (in units per second), and log
+<span class="lineNum">      33 </span>            :    base 10 of the resolution.  */
+<span class="lineNum">      34 </span>            : 
+<span class="lineNum">      35 </span>            : enum { TIMESPEC_RESOLUTION = 1000000000 };
+<span class="lineNum">      36 </span>            : enum { LOG10_TIMESPEC_RESOLUTION = 9 };
+<span class="lineNum">      37 </span>            : 
+<span class="lineNum">      38 </span>            : /* Return a timespec with seconds S and nanoseconds NS.  */
+<span class="lineNum">      39 </span>            : 
+<span class="lineNum">      40 </span>            : _GL_TIMESPEC_INLINE struct timespec
+<span class="lineNum">      41 </span>            : make_timespec (time_t s, long int ns)
+<span class="lineNum">      42 </span>            : {
+<span class="lineNum">      43 </span>            :   struct timespec r;
+<span class="lineNum">      44 </span>            :   r.tv_sec = s;
+<span class="lineNum">      45 </span>            :   r.tv_nsec = ns;
+<span class="lineNum">      46 </span>            :   return r;
+<span class="lineNum">      47 </span>            : }
+<span class="lineNum">      48 </span>            : 
+<span class="lineNum">      49 </span>            : /* Return negative, zero, positive if A &lt; B, A == B, A &gt; B, respectively.
+<span class="lineNum">      50 </span>            : 
+<span class="lineNum">      51 </span>            :    For each time stamp T, this code assumes that either:
+<span class="lineNum">      52 </span>            : 
+<span class="lineNum">      53 </span>            :      * T.tv_nsec is in the range 0..999999999; or
+<span class="lineNum">      54 </span>            :      * T.tv_sec corresponds to a valid leap second on a host that supports
+<span class="lineNum">      55 </span>            :        leap seconds, and T.tv_nsec is in the range 1000000000..1999999999; or
+<span class="lineNum">      56 </span>            :      * T.tv_sec is the minimum time_t value and T.tv_nsec is -1; or
+<span class="lineNum">      57 </span>            :        T.tv_sec is the maximum time_t value and T.tv_nsec is 2000000000.
+<span class="lineNum">      58 </span>            :        This allows for special struct timespec values that are less or
+<span class="lineNum">      59 </span>            :        greater than all possible valid time stamps.
+<span class="lineNum">      60 </span>            : 
+<span class="lineNum">      61 </span>            :    In all these cases, it is safe to subtract two tv_nsec values and
+<span class="lineNum">      62 </span>            :    convert the result to integer without worrying about overflow on
+<span class="lineNum">      63 </span>            :    any platform of interest to the GNU project, since all such
+<span class="lineNum">      64 </span>            :    platforms have 32-bit int or wider.
+<span class="lineNum">      65 </span>            : 
+<span class="lineNum">      66 </span>            :    Replacing &quot;(int) (a.tv_nsec - b.tv_nsec)&quot; with something like
+<span class="lineNum">      67 </span>            :    &quot;a.tv_nsec &lt; b.tv_nsec ? -1 : a.tv_nsec &gt; b.tv_nsec&quot; would cause
+<span class="lineNum">      68 </span>            :    this function to work in some cases where the above assumption is
+<span class="lineNum">      69 </span>            :    violated, but not in all cases (e.g., a.tv_sec==1, a.tv_nsec==-2,
+<span class="lineNum">      70 </span>            :    b.tv_sec==0, b.tv_nsec==999999999) and is arguably not worth the
+<span class="lineNum">      71 </span>            :    extra instructions.  Using a subtraction has the advantage of
+<span class="lineNum">      72 </span>            :    detecting some invalid cases on platforms that detect integer
+<span class="lineNum">      73 </span>            :    overflow.
+<span class="lineNum">      74 </span>            : 
+<span class="lineNum">      75 </span>            :    The (int) cast avoids a gcc -Wconversion warning.  */
+<span class="lineNum">      76 </span>            : 
+<span class="lineNum">      77 </span>            : _GL_TIMESPEC_INLINE int _GL_ATTRIBUTE_PURE
+<span class="lineNum">      78 </span>            : timespec_cmp (struct timespec a, struct timespec b)
+<span class="lineNum">      79 </span>            : {
+<span class="lineNum">      80 </span>            :   return (a.tv_sec &lt; b.tv_sec ? -1
+<span class="lineNum">      81 </span><span class="lineNoCov">          0 :           : a.tv_sec &gt; b.tv_sec ? 1</span>
+<span class="lineNum">      82 </span><span class="lineNoCov">          0 :           : (int) (a.tv_nsec - b.tv_nsec));</span>
+<span class="lineNum">      83 </span>            : }
+<span class="lineNum">      84 </span>            : 
+<span class="lineNum">      85 </span>            : /* Return -1, 0, 1, depending on the sign of A.  A.tv_nsec must be
+<span class="lineNum">      86 </span>            :    nonnegative.  */
+<span class="lineNum">      87 </span>            : _GL_TIMESPEC_INLINE int _GL_ATTRIBUTE_PURE
+<span class="lineNum">      88 </span>            : timespec_sign (struct timespec a)
+<span class="lineNum">      89 </span>            : {
+<span class="lineNum">      90 </span>            :   return a.tv_sec &lt; 0 ? -1 : a.tv_sec || a.tv_nsec;
+<span class="lineNum">      91 </span>            : }
+<span class="lineNum">      92 </span>            : 
+<span class="lineNum">      93 </span>            : struct timespec timespec_add (struct timespec, struct timespec)
+<span class="lineNum">      94 </span>            :   _GL_ATTRIBUTE_CONST;
+<span class="lineNum">      95 </span>            : struct timespec timespec_sub (struct timespec, struct timespec)
+<span class="lineNum">      96 </span>            :   _GL_ATTRIBUTE_CONST;
+<span class="lineNum">      97 </span>            : struct timespec dtotimespec (double)
+<span class="lineNum">      98 </span>            :   _GL_ATTRIBUTE_CONST;
+<span class="lineNum">      99 </span>            : 
+<span class="lineNum">     100 </span>            : /* Return an approximation to A, of type 'double'.  */
+<span class="lineNum">     101 </span>            : _GL_TIMESPEC_INLINE double
+<span class="lineNum">     102 </span>            : timespectod (struct timespec a)
+<span class="lineNum">     103 </span>            : {
+<span class="lineNum">     104 </span>            :   return a.tv_sec + a.tv_nsec / 1e9;
+<span class="lineNum">     105 </span>            : }
+<span class="lineNum">     106 </span>            : 
+<span class="lineNum">     107 </span>            : void gettime (struct timespec *);
+<span class="lineNum">     108 </span>            : int settime (struct timespec const *);
+<span class="lineNum">     109 </span>            : 
+<span class="lineNum">     110 </span>            : _GL_INLINE_HEADER_END
+<span class="lineNum">     111 </span>            : 
+<span class="lineNum">     112 </span>            : #endif
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.12</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>

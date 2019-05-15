@@ -1,0 +1,606 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - trace.lcov_info_final - src/paste.c</title>
+  <link rel="stylesheet" type="text/css" href="../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">src</a> - paste.c<span style="font-size: 80%;"> (source / <a href="paste.c.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">trace.lcov_info_final</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">190</td>
+            <td class="headerCovTableEntryLo">0.0 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2019-04-22 20:19:38</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">7</td>
+            <td class="headerCovTableEntryLo">0.0 %</td>
+          </tr>
+          <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>            : /* paste - merge lines of files</a>
+<span class="lineNum">       2 </span>            :    Copyright (C) 1997-2016 Free Software Foundation, Inc.
+<span class="lineNum">       3 </span>            :    Copyright (C) 1984 David M. Ihnat
+<span class="lineNum">       4 </span>            : 
+<span class="lineNum">       5 </span>            :    This program is free software: you can redistribute it and/or modify
+<span class="lineNum">       6 </span>            :    it under the terms of the GNU General Public License as published by
+<span class="lineNum">       7 </span>            :    the Free Software Foundation, either version 3 of the License, or
+<span class="lineNum">       8 </span>            :    (at your option) any later version.
+<span class="lineNum">       9 </span>            : 
+<span class="lineNum">      10 </span>            :    This program is distributed in the hope that it will be useful,
+<span class="lineNum">      11 </span>            :    but WITHOUT ANY WARRANTY; without even the implied warranty of
+<span class="lineNum">      12 </span>            :    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+<span class="lineNum">      13 </span>            :    GNU General Public License for more details.
+<span class="lineNum">      14 </span>            : 
+<span class="lineNum">      15 </span>            :    You should have received a copy of the GNU General Public License
+<span class="lineNum">      16 </span>            :    along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.  */
+<span class="lineNum">      17 </span>            : 
+<span class="lineNum">      18 </span>            : /* Written by David Ihnat.  */
+<span class="lineNum">      19 </span>            : 
+<span class="lineNum">      20 </span>            : /* The list of valid escape sequences has been expanded over the Unix
+<span class="lineNum">      21 </span>            :    version, to include \b, \f, \r, and \v.
+<span class="lineNum">      22 </span>            : 
+<span class="lineNum">      23 </span>            :    POSIX changes, bug fixes, long-named options, and cleanup
+<span class="lineNum">      24 </span>            :    by David MacKenzie &lt;djm@gnu.ai.mit.edu&gt;.
+<span class="lineNum">      25 </span>            : 
+<span class="lineNum">      26 </span>            :    Options:
+<span class="lineNum">      27 </span>            :    --serial
+<span class="lineNum">      28 </span>            :    -s                           Paste one file at a time rather than
+<span class="lineNum">      29 </span>            :                                 one line from each file.
+<span class="lineNum">      30 </span>            :    --delimiters=delim-list
+<span class="lineNum">      31 </span>            :    -d delim-list                Consecutively use the characters in
+<span class="lineNum">      32 </span>            :                                 DELIM-LIST instead of tab to separate
+<span class="lineNum">      33 </span>            :                                 merged lines.  When DELIM-LIST is exhausted,
+<span class="lineNum">      34 </span>            :                                 start again at its beginning.
+<span class="lineNum">      35 </span>            :    A FILE of '-' means standard input.
+<span class="lineNum">      36 </span>            :    If no FILEs are given, standard input is used. */
+<span class="lineNum">      37 </span>            : 
+<span class="lineNum">      38 </span>            : #include &lt;config.h&gt;
+<span class="lineNum">      39 </span>            : 
+<span class="lineNum">      40 </span>            : #include &lt;stdio.h&gt;
+<span class="lineNum">      41 </span>            : #include &lt;getopt.h&gt;
+<span class="lineNum">      42 </span>            : #include &lt;sys/types.h&gt;
+<span class="lineNum">      43 </span>            : #include &quot;system.h&quot;
+<span class="lineNum">      44 </span>            : #include &quot;error.h&quot;
+<span class="lineNum">      45 </span>            : #include &quot;fadvise.h&quot;
+<span class="lineNum">      46 </span>            : 
+<span class="lineNum">      47 </span>            : /* The official name of this program (e.g., no 'g' prefix).  */
+<span class="lineNum">      48 </span>            : #define PROGRAM_NAME &quot;paste&quot;
+<span class="lineNum">      49 </span>            : 
+<span class="lineNum">      50 </span>            : #define AUTHORS \
+<span class="lineNum">      51 </span>            :   proper_name (&quot;David M. Ihnat&quot;), \
+<span class="lineNum">      52 </span>            :   proper_name (&quot;David MacKenzie&quot;)
+<span class="lineNum">      53 </span>            : 
+<span class="lineNum">      54 </span>            : /* Indicates that no delimiter should be added in the current position. */
+<span class="lineNum">      55 </span>            : #define EMPTY_DELIM '\0'
+<span class="lineNum">      56 </span>            : 
+<span class="lineNum">      57 </span>            : /* If nonzero, we have read standard input at some point. */
+<span class="lineNum">      58 </span>            : static bool have_read_stdin;
+<span class="lineNum">      59 </span>            : 
+<span class="lineNum">      60 </span>            : /* If nonzero, merge subsequent lines of each file rather than
+<span class="lineNum">      61 </span>            :    corresponding lines from each file in parallel. */
+<span class="lineNum">      62 </span>            : static bool serial_merge;
+<span class="lineNum">      63 </span>            : 
+<span class="lineNum">      64 </span>            : /* The delimiters between lines of input files (used cyclically). */
+<span class="lineNum">      65 </span>            : static char *delims;
+<span class="lineNum">      66 </span>            : 
+<span class="lineNum">      67 </span>            : /* A pointer to the character after the end of 'delims'. */
+<span class="lineNum">      68 </span>            : static char const *delim_end;
+<span class="lineNum">      69 </span>            : 
+<span class="lineNum">      70 </span>            : static unsigned char line_delim = '\n';
+<span class="lineNum">      71 </span>            : 
+<span class="lineNum">      72 </span>            : static struct option const longopts[] =
+<span class="lineNum">      73 </span>            : {
+<span class="lineNum">      74 </span>            :   {&quot;serial&quot;, no_argument, NULL, 's'},
+<span class="lineNum">      75 </span>            :   {&quot;delimiters&quot;, required_argument, NULL, 'd'},
+<span class="lineNum">      76 </span>            :   {&quot;zero-terminated&quot;, no_argument, NULL, 'z'},
+<span class="lineNum">      77 </span>            :   {GETOPT_HELP_OPTION_DECL},
+<span class="lineNum">      78 </span>            :   {GETOPT_VERSION_OPTION_DECL},
+<span class="lineNum">      79 </span>            :   {NULL, 0, NULL, 0}
+<span class="lineNum">      80 </span>            : };
+<span class="lineNum">      81 </span>            : 
+<span class="lineNum">      82 </span>            : /* Set globals delims and delim_end.  Copy STRPTR to DELIMS, converting
+<span class="lineNum">      83 </span>            :    backslash representations of special characters in STRPTR to their actual
+<span class="lineNum">      84 </span>            :    values. The set of possible backslash characters has been expanded beyond
+<span class="lineNum">      85 </span>            :    that recognized by the Unix version.
+<span class="lineNum">      86 </span>            :    Return 0 upon success.
+<span class="lineNum">      87 </span>            :    If the string ends in an odd number of backslashes, ignore the
+<span class="lineNum">      88 </span>            :    final backslash and return nonzero.  */
+<a name="89"><span class="lineNum">      89 </span>            : </a>
+<span class="lineNum">      90 </span>            : static int
+<span class="lineNum">      91 </span><span class="lineNoCov">          0 : collapse_escapes (char const *strptr)</span>
+<span class="lineNum">      92 </span>            : {
+<span class="lineNum">      93 </span><span class="lineNoCov">          0 :   char *strout = xstrdup (strptr);</span>
+<span class="lineNum">      94 </span><span class="lineNoCov">          0 :   bool backslash_at_end = false;</span>
+<span class="lineNum">      95 </span>            : 
+<span class="lineNum">      96 </span><span class="lineNoCov">          0 :   delims = strout;</span>
+<span class="lineNum">      97 </span>            : 
+<span class="lineNum">      98 </span><span class="lineNoCov">          0 :   while (*strptr)</span>
+<span class="lineNum">      99 </span>            :     {
+<span class="lineNum">     100 </span><span class="lineNoCov">          0 :       if (*strptr != '\\')      /* Is it an escape character? */</span>
+<span class="lineNum">     101 </span><span class="lineNoCov">          0 :         *strout++ = *strptr++;  /* No, just transfer it. */</span>
+<span class="lineNum">     102 </span>            :       else
+<span class="lineNum">     103 </span>            :         {
+<span class="lineNum">     104 </span><span class="lineNoCov">          0 :           switch (*++strptr)</span>
+<span class="lineNum">     105 </span>            :             {
+<span class="lineNum">     106 </span>            :             case '0':
+<span class="lineNum">     107 </span><span class="lineNoCov">          0 :               *strout++ = EMPTY_DELIM;</span>
+<span class="lineNum">     108 </span><span class="lineNoCov">          0 :               break;</span>
+<span class="lineNum">     109 </span>            : 
+<span class="lineNum">     110 </span>            :             case 'b':
+<span class="lineNum">     111 </span><span class="lineNoCov">          0 :               *strout++ = '\b';</span>
+<span class="lineNum">     112 </span><span class="lineNoCov">          0 :               break;</span>
+<span class="lineNum">     113 </span>            : 
+<span class="lineNum">     114 </span>            :             case 'f':
+<span class="lineNum">     115 </span><span class="lineNoCov">          0 :               *strout++ = '\f';</span>
+<span class="lineNum">     116 </span><span class="lineNoCov">          0 :               break;</span>
+<span class="lineNum">     117 </span>            : 
+<span class="lineNum">     118 </span>            :             case 'n':
+<span class="lineNum">     119 </span><span class="lineNoCov">          0 :               *strout++ = '\n';</span>
+<span class="lineNum">     120 </span><span class="lineNoCov">          0 :               break;</span>
+<span class="lineNum">     121 </span>            : 
+<span class="lineNum">     122 </span>            :             case 'r':
+<span class="lineNum">     123 </span><span class="lineNoCov">          0 :               *strout++ = '\r';</span>
+<span class="lineNum">     124 </span><span class="lineNoCov">          0 :               break;</span>
+<span class="lineNum">     125 </span>            : 
+<span class="lineNum">     126 </span>            :             case 't':
+<span class="lineNum">     127 </span><span class="lineNoCov">          0 :               *strout++ = '\t';</span>
+<span class="lineNum">     128 </span><span class="lineNoCov">          0 :               break;</span>
+<span class="lineNum">     129 </span>            : 
+<span class="lineNum">     130 </span>            :             case 'v':
+<span class="lineNum">     131 </span><span class="lineNoCov">          0 :               *strout++ = '\v';</span>
+<span class="lineNum">     132 </span><span class="lineNoCov">          0 :               break;</span>
+<span class="lineNum">     133 </span>            : 
+<span class="lineNum">     134 </span>            :             case '\\':
+<span class="lineNum">     135 </span><span class="lineNoCov">          0 :               *strout++ = '\\';</span>
+<span class="lineNum">     136 </span><span class="lineNoCov">          0 :               break;</span>
+<span class="lineNum">     137 </span>            : 
+<span class="lineNum">     138 </span>            :             case '\0':
+<span class="lineNum">     139 </span>            :               backslash_at_end = true;
+<span class="lineNum">     140 </span>            :               goto done;
+<span class="lineNum">     141 </span>            : 
+<span class="lineNum">     142 </span>            :             default:
+<span class="lineNum">     143 </span><span class="lineNoCov">          0 :               *strout++ = *strptr;</span>
+<span class="lineNum">     144 </span><span class="lineNoCov">          0 :               break;</span>
+<span class="lineNum">     145 </span>            :             }
+<span class="lineNum">     146 </span><span class="lineNoCov">          0 :           strptr++;</span>
+<span class="lineNum">     147 </span>            :         }
+<span class="lineNum">     148 </span>            :     }
+<span class="lineNum">     149 </span>            : 
+<span class="lineNum">     150 </span>            :  done:
+<span class="lineNum">     151 </span>            : 
+<span class="lineNum">     152 </span><span class="lineNoCov">          0 :   delim_end = strout;</span>
+<span class="lineNum">     153 </span><span class="lineNoCov">          0 :   return backslash_at_end ? 1 : 0;</span>
+<span class="lineNum">     154 </span>            : }
+<span class="lineNum">     155 </span>            : 
+<span class="lineNum">     156 </span>            : /* Report a write error and exit.  */
+<span class="lineNum">     157 </span>            : 
+<a name="158"><span class="lineNum">     158 </span>            : static void write_error (void) ATTRIBUTE_NORETURN;</a>
+<span class="lineNum">     159 </span>            : static void
+<span class="lineNum">     160 </span><span class="lineNoCov">          0 : write_error (void)</span>
+<span class="lineNum">     161 </span>            : {
+<span class="lineNum">     162 </span><span class="lineNoCov">          0 :   error (EXIT_FAILURE, errno, _(&quot;write error&quot;));</span>
+<span class="lineNum">     163 </span><span class="lineNoCov">          0 :   abort ();</span>
+<span class="lineNum">     164 </span>            : }
+<span class="lineNum">     165 </span>            : 
+<span class="lineNum">     166 </span>            : /* Output a single byte, reporting any write errors.  */
+<a name="167"><span class="lineNum">     167 </span>            : </a>
+<span class="lineNum">     168 </span>            : static inline void
+<span class="lineNum">     169 </span><span class="lineNoCov">          0 : xputchar (char c)</span>
+<span class="lineNum">     170 </span>            : {
+<span class="lineNum">     171 </span><span class="lineNoCov">          0 :   if (putchar (c) &lt; 0)</span>
+<span class="lineNum">     172 </span><span class="lineNoCov">          0 :     write_error ();</span>
+<span class="lineNum">     173 </span><span class="lineNoCov">          0 : }</span>
+<span class="lineNum">     174 </span>            : 
+<span class="lineNum">     175 </span>            : /* Perform column paste on the NFILES files named in FNAMPTR.
+<span class="lineNum">     176 </span>            :    Return true if successful, false if one or more files could not be
+<span class="lineNum">     177 </span>            :    opened or read. */
+<a name="178"><span class="lineNum">     178 </span>            : </a>
+<span class="lineNum">     179 </span>            : static bool
+<span class="lineNum">     180 </span><span class="lineNoCov">          0 : paste_parallel (size_t nfiles, char **fnamptr)</span>
+<span class="lineNum">     181 </span>            : {
+<span class="lineNum">     182 </span><span class="lineNoCov">          0 :   bool ok = true;</span>
+<span class="lineNum">     183 </span>            :   /* If all files are just ready to be closed, or will be on this
+<span class="lineNum">     184 </span>            :      round, the string of delimiters must be preserved.
+<span class="lineNum">     185 </span>            :      delbuf[0] through delbuf[nfiles]
+<span class="lineNum">     186 </span>            :      store the delimiters for closed files. */
+<span class="lineNum">     187 </span><span class="lineNoCov">          0 :   char *delbuf = xmalloc (nfiles + 2);</span>
+<span class="lineNum">     188 </span>            : 
+<span class="lineNum">     189 </span>            :   /* Streams open to the files to process; NULL if the corresponding
+<span class="lineNum">     190 </span>            :      stream is closed.  */
+<span class="lineNum">     191 </span><span class="lineNoCov">          0 :   FILE **fileptr = xnmalloc (nfiles + 1, sizeof *fileptr);</span>
+<span class="lineNum">     192 </span>            : 
+<span class="lineNum">     193 </span>            :   /* Number of files still open to process.  */
+<span class="lineNum">     194 </span>            :   size_t files_open;
+<span class="lineNum">     195 </span>            : 
+<span class="lineNum">     196 </span>            :   /* True if any fopen got fd == STDIN_FILENO.  */
+<span class="lineNum">     197 </span><span class="lineNoCov">          0 :   bool opened_stdin = false;</span>
+<span class="lineNum">     198 </span>            : 
+<span class="lineNum">     199 </span>            :   /* Attempt to open all files.  This could be expanded to an infinite
+<span class="lineNum">     200 </span>            :      number of files, but at the (considerable) expense of remembering
+<span class="lineNum">     201 </span>            :      each file and its current offset, then opening/reading/closing.  */
+<span class="lineNum">     202 </span>            : 
+<span class="lineNum">     203 </span><span class="lineNoCov">          0 :   for (files_open = 0; files_open &lt; nfiles; ++files_open)</span>
+<span class="lineNum">     204 </span>            :     {
+<span class="lineNum">     205 </span><span class="lineNoCov">          0 :       if (STREQ (fnamptr[files_open], &quot;-&quot;))</span>
+<span class="lineNum">     206 </span>            :         {
+<span class="lineNum">     207 </span><span class="lineNoCov">          0 :           have_read_stdin = true;</span>
+<span class="lineNum">     208 </span><span class="lineNoCov">          0 :           fileptr[files_open] = stdin;</span>
+<span class="lineNum">     209 </span>            :         }
+<span class="lineNum">     210 </span>            :       else
+<span class="lineNum">     211 </span>            :         {
+<span class="lineNum">     212 </span><span class="lineNoCov">          0 :           fileptr[files_open] = fopen (fnamptr[files_open], &quot;r&quot;);</span>
+<span class="lineNum">     213 </span><span class="lineNoCov">          0 :           if (fileptr[files_open] == NULL)</span>
+<span class="lineNum">     214 </span><span class="lineNoCov">          0 :             error (EXIT_FAILURE, errno, &quot;%s&quot;, quotef (fnamptr[files_open]));</span>
+<span class="lineNum">     215 </span><span class="lineNoCov">          0 :           else if (fileno (fileptr[files_open]) == STDIN_FILENO)</span>
+<span class="lineNum">     216 </span><span class="lineNoCov">          0 :             opened_stdin = true;</span>
+<span class="lineNum">     217 </span><span class="lineNoCov">          0 :           fadvise (fileptr[files_open], FADVISE_SEQUENTIAL);</span>
+<span class="lineNum">     218 </span>            :         }
+<span class="lineNum">     219 </span>            :     }
+<span class="lineNum">     220 </span>            : 
+<span class="lineNum">     221 </span><span class="lineNoCov">          0 :   if (opened_stdin &amp;&amp; have_read_stdin)</span>
+<span class="lineNum">     222 </span><span class="lineNoCov">          0 :     error (EXIT_FAILURE, 0, _(&quot;standard input is closed&quot;));</span>
+<span class="lineNum">     223 </span>            : 
+<span class="lineNum">     224 </span>            :   /* Read a line from each file and output it to stdout separated by a
+<span class="lineNum">     225 </span>            :      delimiter, until we go through the loop without successfully
+<span class="lineNum">     226 </span>            :      reading from any of the files. */
+<span class="lineNum">     227 </span>            : 
+<span class="lineNum">     228 </span><span class="lineNoCov">          0 :   while (files_open)</span>
+<span class="lineNum">     229 </span>            :     {
+<span class="lineNum">     230 </span>            :       /* Set up for the next line. */
+<span class="lineNum">     231 </span><span class="lineNoCov">          0 :       bool somedone = false;</span>
+<span class="lineNum">     232 </span><span class="lineNoCov">          0 :       char const *delimptr = delims;</span>
+<span class="lineNum">     233 </span><span class="lineNoCov">          0 :       size_t delims_saved = 0;  /* Number of delims saved in 'delbuf'. */</span>
+<span class="lineNum">     234 </span>            :       size_t i;
+<span class="lineNum">     235 </span>            : 
+<span class="lineNum">     236 </span><span class="lineNoCov">          0 :       for (i = 0; i &lt; nfiles &amp;&amp; files_open; i++)</span>
+<span class="lineNum">     237 </span>            :         {
+<span class="lineNum">     238 </span><span class="lineNoCov">          0 :           int chr IF_LINT ( = 0);       /* Input character. */</span>
+<span class="lineNum">     239 </span><span class="lineNoCov">          0 :           int err IF_LINT ( = 0);       /* Input errno value.  */</span>
+<span class="lineNum">     240 </span><span class="lineNoCov">          0 :           bool sometodo = false;        /* Input chars to process.  */</span>
+<span class="lineNum">     241 </span>            : 
+<span class="lineNum">     242 </span><span class="lineNoCov">          0 :           if (fileptr[i])</span>
+<span class="lineNum">     243 </span>            :             {
+<span class="lineNum">     244 </span><span class="lineNoCov">          0 :               chr = getc (fileptr[i]);</span>
+<span class="lineNum">     245 </span><span class="lineNoCov">          0 :               err = errno;</span>
+<span class="lineNum">     246 </span><span class="lineNoCov">          0 :               if (chr != EOF &amp;&amp; delims_saved)</span>
+<span class="lineNum">     247 </span>            :                 {
+<span class="lineNum">     248 </span><span class="lineNoCov">          0 :                   if (fwrite (delbuf, 1, delims_saved, stdout) != delims_saved)</span>
+<span class="lineNum">     249 </span><span class="lineNoCov">          0 :                     write_error ();</span>
+<span class="lineNum">     250 </span>            :                   delims_saved = 0;
+<span class="lineNum">     251 </span>            :                 }
+<span class="lineNum">     252 </span>            : 
+<span class="lineNum">     253 </span><span class="lineNoCov">          0 :               while (chr != EOF)</span>
+<span class="lineNum">     254 </span>            :                 {
+<span class="lineNum">     255 </span><span class="lineNoCov">          0 :                   sometodo = true;</span>
+<span class="lineNum">     256 </span><span class="lineNoCov">          0 :                   if (chr == line_delim)</span>
+<span class="lineNum">     257 </span>            :                     break;
+<span class="lineNum">     258 </span><span class="lineNoCov">          0 :                   xputchar (chr);</span>
+<span class="lineNum">     259 </span><span class="lineNoCov">          0 :                   chr = getc (fileptr[i]);</span>
+<span class="lineNum">     260 </span><span class="lineNoCov">          0 :                   err = errno;</span>
+<span class="lineNum">     261 </span>            :                 }
+<span class="lineNum">     262 </span>            :             }
+<span class="lineNum">     263 </span>            : 
+<span class="lineNum">     264 </span><span class="lineNoCov">          0 :           if (! sometodo)</span>
+<span class="lineNum">     265 </span>            :             {
+<span class="lineNum">     266 </span>            :               /* EOF, read error, or closed file.
+<span class="lineNum">     267 </span>            :                  If an EOF or error, close the file.  */
+<span class="lineNum">     268 </span><span class="lineNoCov">          0 :               if (fileptr[i])</span>
+<span class="lineNum">     269 </span>            :                 {
+<span class="lineNum">     270 </span><span class="lineNoCov">          0 :                   if (ferror (fileptr[i]))</span>
+<span class="lineNum">     271 </span>            :                     {
+<span class="lineNum">     272 </span><span class="lineNoCov">          0 :                       error (0, err, &quot;%s&quot;, quotef (fnamptr[i]));</span>
+<span class="lineNum">     273 </span><span class="lineNoCov">          0 :                       ok = false;</span>
+<span class="lineNum">     274 </span>            :                     }
+<span class="lineNum">     275 </span><span class="lineNoCov">          0 :                   if (fileptr[i] == stdin)</span>
+<span class="lineNum">     276 </span><span class="lineNoCov">          0 :                     clearerr (fileptr[i]); /* Also clear EOF. */</span>
+<span class="lineNum">     277 </span><span class="lineNoCov">          0 :                   else if (fclose (fileptr[i]) == EOF)</span>
+<span class="lineNum">     278 </span>            :                     {
+<span class="lineNum">     279 </span><span class="lineNoCov">          0 :                       error (0, errno, &quot;%s&quot;, quotef (fnamptr[i]));</span>
+<span class="lineNum">     280 </span><span class="lineNoCov">          0 :                       ok = false;</span>
+<span class="lineNum">     281 </span>            :                     }
+<span class="lineNum">     282 </span>            : 
+<span class="lineNum">     283 </span><span class="lineNoCov">          0 :                   fileptr[i] = NULL;</span>
+<span class="lineNum">     284 </span><span class="lineNoCov">          0 :                   files_open--;</span>
+<span class="lineNum">     285 </span>            :                 }
+<span class="lineNum">     286 </span>            : 
+<span class="lineNum">     287 </span><span class="lineNoCov">          0 :               if (i + 1 == nfiles)</span>
+<span class="lineNum">     288 </span>            :                 {
+<span class="lineNum">     289 </span>            :                   /* End of this output line.
+<span class="lineNum">     290 </span>            :                      Is this the end of the whole thing? */
+<span class="lineNum">     291 </span><span class="lineNoCov">          0 :                   if (somedone)</span>
+<span class="lineNum">     292 </span>            :                     {
+<span class="lineNum">     293 </span>            :                       /* No.  Some files were not closed for this line. */
+<span class="lineNum">     294 </span><span class="lineNoCov">          0 :                       if (delims_saved)</span>
+<span class="lineNum">     295 </span>            :                         {
+<span class="lineNum">     296 </span><span class="lineNoCov">          0 :                           if (fwrite (delbuf, 1, delims_saved, stdout)</span>
+<span class="lineNum">     297 </span>            :                               != delims_saved)
+<span class="lineNum">     298 </span><span class="lineNoCov">          0 :                             write_error ();</span>
+<span class="lineNum">     299 </span>            :                           delims_saved = 0;
+<span class="lineNum">     300 </span>            :                         }
+<span class="lineNum">     301 </span><span class="lineNoCov">          0 :                       xputchar (line_delim);</span>
+<span class="lineNum">     302 </span>            :                     }
+<span class="lineNum">     303 </span><span class="lineNoCov">          0 :                   continue;     /* Next read of files, or exit. */</span>
+<span class="lineNum">     304 </span>            :                 }
+<span class="lineNum">     305 </span>            :               else
+<span class="lineNum">     306 </span>            :                 {
+<span class="lineNum">     307 </span>            :                   /* Closed file; add delimiter to 'delbuf'. */
+<span class="lineNum">     308 </span><span class="lineNoCov">          0 :                   if (*delimptr != EMPTY_DELIM)</span>
+<span class="lineNum">     309 </span><span class="lineNoCov">          0 :                     delbuf[delims_saved++] = *delimptr;</span>
+<span class="lineNum">     310 </span><span class="lineNoCov">          0 :                   if (++delimptr == delim_end)</span>
+<span class="lineNum">     311 </span><span class="lineNoCov">          0 :                     delimptr = delims;</span>
+<span class="lineNum">     312 </span>            :                 }
+<span class="lineNum">     313 </span>            :             }
+<span class="lineNum">     314 </span>            :           else
+<span class="lineNum">     315 </span>            :             {
+<span class="lineNum">     316 </span>            :               /* Some data read. */
+<span class="lineNum">     317 </span><span class="lineNoCov">          0 :               somedone = true;</span>
+<span class="lineNum">     318 </span>            : 
+<span class="lineNum">     319 </span>            :               /* Except for last file, replace last newline with delim. */
+<span class="lineNum">     320 </span><span class="lineNoCov">          0 :               if (i + 1 != nfiles)</span>
+<span class="lineNum">     321 </span>            :                 {
+<span class="lineNum">     322 </span><span class="lineNoCov">          0 :                   if (chr != line_delim &amp;&amp; chr != EOF)</span>
+<span class="lineNum">     323 </span><span class="lineNoCov">          0 :                     xputchar (chr);</span>
+<span class="lineNum">     324 </span><span class="lineNoCov">          0 :                   if (*delimptr != EMPTY_DELIM)</span>
+<span class="lineNum">     325 </span><span class="lineNoCov">          0 :                     xputchar (*delimptr);</span>
+<span class="lineNum">     326 </span><span class="lineNoCov">          0 :                   if (++delimptr == delim_end)</span>
+<span class="lineNum">     327 </span><span class="lineNoCov">          0 :                     delimptr = delims;</span>
+<span class="lineNum">     328 </span>            :                 }
+<span class="lineNum">     329 </span>            :               else
+<span class="lineNum">     330 </span>            :                 {
+<span class="lineNum">     331 </span>            :                   /* If the last line of the last file lacks a newline,
+<span class="lineNum">     332 </span>            :                      print one anyhow.  POSIX requires this.  */
+<span class="lineNum">     333 </span><span class="lineNoCov">          0 :                   char c = (chr == EOF ? line_delim : chr);</span>
+<span class="lineNum">     334 </span><span class="lineNoCov">          0 :                   xputchar (c);</span>
+<span class="lineNum">     335 </span>            :                 }
+<span class="lineNum">     336 </span>            :             }
+<span class="lineNum">     337 </span>            :         }
+<span class="lineNum">     338 </span>            :     }
+<span class="lineNum">     339 </span><span class="lineNoCov">          0 :   free (fileptr);</span>
+<span class="lineNum">     340 </span><span class="lineNoCov">          0 :   free (delbuf);</span>
+<span class="lineNum">     341 </span><span class="lineNoCov">          0 :   return ok;</span>
+<span class="lineNum">     342 </span>            : }
+<span class="lineNum">     343 </span>            : 
+<span class="lineNum">     344 </span>            : /* Perform serial paste on the NFILES files named in FNAMPTR.
+<span class="lineNum">     345 </span>            :    Return true if no errors, false if one or more files could not be
+<span class="lineNum">     346 </span>            :    opened or read. */
+<a name="347"><span class="lineNum">     347 </span>            : </a>
+<span class="lineNum">     348 </span>            : static bool
+<span class="lineNum">     349 </span><span class="lineNoCov">          0 : paste_serial (size_t nfiles, char **fnamptr)</span>
+<span class="lineNum">     350 </span>            : {
+<span class="lineNum">     351 </span><span class="lineNoCov">          0 :   bool ok = true;       /* false if open or read errors occur. */</span>
+<span class="lineNum">     352 </span>            :   int charnew, charold; /* Current and previous char read. */
+<span class="lineNum">     353 </span>            :   char const *delimptr; /* Current delimiter char. */
+<span class="lineNum">     354 </span>            :   FILE *fileptr;        /* Open for reading current file. */
+<span class="lineNum">     355 </span>            : 
+<span class="lineNum">     356 </span><span class="lineNoCov">          0 :   for (; nfiles; nfiles--, fnamptr++)</span>
+<span class="lineNum">     357 </span>            :     {
+<span class="lineNum">     358 </span>            :       int saved_errno;
+<span class="lineNum">     359 </span><span class="lineNoCov">          0 :       bool is_stdin = STREQ (*fnamptr, &quot;-&quot;);</span>
+<span class="lineNum">     360 </span><span class="lineNoCov">          0 :       if (is_stdin)</span>
+<span class="lineNum">     361 </span>            :         {
+<span class="lineNum">     362 </span><span class="lineNoCov">          0 :           have_read_stdin = true;</span>
+<span class="lineNum">     363 </span><span class="lineNoCov">          0 :           fileptr = stdin;</span>
+<span class="lineNum">     364 </span>            :         }
+<span class="lineNum">     365 </span>            :       else
+<span class="lineNum">     366 </span>            :         {
+<span class="lineNum">     367 </span><span class="lineNoCov">          0 :           fileptr = fopen (*fnamptr, &quot;r&quot;);</span>
+<span class="lineNum">     368 </span><span class="lineNoCov">          0 :           if (fileptr == NULL)</span>
+<span class="lineNum">     369 </span>            :             {
+<span class="lineNum">     370 </span><span class="lineNoCov">          0 :               error (0, errno, &quot;%s&quot;, quotef (*fnamptr));</span>
+<span class="lineNum">     371 </span><span class="lineNoCov">          0 :               ok = false;</span>
+<span class="lineNum">     372 </span><span class="lineNoCov">          0 :               continue;</span>
+<span class="lineNum">     373 </span>            :             }
+<span class="lineNum">     374 </span><span class="lineNoCov">          0 :           fadvise (fileptr, FADVISE_SEQUENTIAL);</span>
+<span class="lineNum">     375 </span>            :         }
+<span class="lineNum">     376 </span>            : 
+<span class="lineNum">     377 </span><span class="lineNoCov">          0 :       delimptr = delims;        /* Set up for delimiter string. */</span>
+<span class="lineNum">     378 </span>            : 
+<span class="lineNum">     379 </span><span class="lineNoCov">          0 :       charold = getc (fileptr);</span>
+<span class="lineNum">     380 </span><span class="lineNoCov">          0 :       saved_errno = errno;</span>
+<span class="lineNum">     381 </span><span class="lineNoCov">          0 :       if (charold != EOF)</span>
+<span class="lineNum">     382 </span>            :         {
+<span class="lineNum">     383 </span>            :           /* 'charold' is set up.  Hit it!
+<span class="lineNum">     384 </span>            :              Keep reading characters, stashing them in 'charnew';
+<span class="lineNum">     385 </span>            :              output 'charold', converting to the appropriate delimiter
+<span class="lineNum">     386 </span>            :              character if needed.  After the EOF, output 'charold'
+<span class="lineNum">     387 </span>            :              if it's a newline; otherwise, output it and then a newline. */
+<span class="lineNum">     388 </span>            : 
+<span class="lineNum">     389 </span><span class="lineNoCov">          0 :           while ((charnew = getc (fileptr)) != EOF)</span>
+<span class="lineNum">     390 </span>            :             {
+<span class="lineNum">     391 </span>            :               /* Process the old character. */
+<span class="lineNum">     392 </span><span class="lineNoCov">          0 :               if (charold == line_delim)</span>
+<span class="lineNum">     393 </span>            :                 {
+<span class="lineNum">     394 </span><span class="lineNoCov">          0 :                   if (*delimptr != EMPTY_DELIM)</span>
+<span class="lineNum">     395 </span><span class="lineNoCov">          0 :                     xputchar (*delimptr);</span>
+<span class="lineNum">     396 </span>            : 
+<span class="lineNum">     397 </span><span class="lineNoCov">          0 :                   if (++delimptr == delim_end)</span>
+<span class="lineNum">     398 </span><span class="lineNoCov">          0 :                     delimptr = delims;</span>
+<span class="lineNum">     399 </span>            :                 }
+<span class="lineNum">     400 </span>            :               else
+<span class="lineNum">     401 </span><span class="lineNoCov">          0 :                 xputchar (charold);</span>
+<span class="lineNum">     402 </span>            : 
+<span class="lineNum">     403 </span>            :               charold = charnew;
+<span class="lineNum">     404 </span>            :             }
+<span class="lineNum">     405 </span><span class="lineNoCov">          0 :           saved_errno = errno;</span>
+<span class="lineNum">     406 </span>            : 
+<span class="lineNum">     407 </span>            :           /* Hit EOF.  Process that last character. */
+<span class="lineNum">     408 </span><span class="lineNoCov">          0 :           xputchar (charold);</span>
+<span class="lineNum">     409 </span>            :         }
+<span class="lineNum">     410 </span>            : 
+<span class="lineNum">     411 </span><span class="lineNoCov">          0 :       if (charold != line_delim)</span>
+<span class="lineNum">     412 </span><span class="lineNoCov">          0 :         xputchar (line_delim);</span>
+<span class="lineNum">     413 </span>            : 
+<span class="lineNum">     414 </span><span class="lineNoCov">          0 :       if (ferror (fileptr))</span>
+<span class="lineNum">     415 </span>            :         {
+<span class="lineNum">     416 </span><span class="lineNoCov">          0 :           error (0, saved_errno, &quot;%s&quot;, quotef (*fnamptr));</span>
+<span class="lineNum">     417 </span><span class="lineNoCov">          0 :           ok = false;</span>
+<span class="lineNum">     418 </span>            :         }
+<span class="lineNum">     419 </span><span class="lineNoCov">          0 :       if (is_stdin)</span>
+<span class="lineNum">     420 </span><span class="lineNoCov">          0 :         clearerr (fileptr);     /* Also clear EOF. */</span>
+<span class="lineNum">     421 </span><span class="lineNoCov">          0 :       else if (fclose (fileptr) == EOF)</span>
+<span class="lineNum">     422 </span>            :         {
+<span class="lineNum">     423 </span><span class="lineNoCov">          0 :           error (0, errno, &quot;%s&quot;, quotef (*fnamptr));</span>
+<span class="lineNum">     424 </span><span class="lineNoCov">          0 :           ok = false;</span>
+<span class="lineNum">     425 </span>            :         }
+<span class="lineNum">     426 </span>            :     }
+<span class="lineNum">     427 </span><span class="lineNoCov">          0 :   return ok;</span>
+<span class="lineNum">     428 </span>            : }
+<a name="429"><span class="lineNum">     429 </span>            : </a>
+<span class="lineNum">     430 </span>            : void
+<span class="lineNum">     431 </span><span class="lineNoCov">          0 : usage (int status)</span>
+<span class="lineNum">     432 </span>            : {
+<span class="lineNum">     433 </span><span class="lineNoCov">          0 :   if (status != EXIT_SUCCESS)</span>
+<span class="lineNum">     434 </span><span class="lineNoCov">          0 :     emit_try_help ();</span>
+<span class="lineNum">     435 </span>            :   else
+<span class="lineNum">     436 </span>            :     {
+<span class="lineNum">     437 </span><span class="lineNoCov">          0 :       printf (_(&quot;\</span>
+<span class="lineNum">     438 </span>            : Usage: %s [OPTION]... [FILE]...\n\
+<span class="lineNum">     439 </span>            : &quot;),
+<span class="lineNum">     440 </span>            :               program_name);
+<span class="lineNum">     441 </span><span class="lineNoCov">          0 :       fputs (_(&quot;\</span>
+<span class="lineNum">     442 </span>            : Write lines consisting of the sequentially corresponding lines from\n\
+<span class="lineNum">     443 </span>            : each FILE, separated by TABs, to standard output.\n\
+<span class="lineNum">     444 </span>            : &quot;), stdout);
+<span class="lineNum">     445 </span>            : 
+<span class="lineNum">     446 </span><span class="lineNoCov">          0 :       emit_stdin_note ();</span>
+<span class="lineNum">     447 </span><span class="lineNoCov">          0 :       emit_mandatory_arg_note ();</span>
+<span class="lineNum">     448 </span>            : 
+<span class="lineNum">     449 </span><span class="lineNoCov">          0 :       fputs (_(&quot;\</span>
+<span class="lineNum">     450 </span>            :   -d, --delimiters=LIST   reuse characters from LIST instead of TABs\n\
+<span class="lineNum">     451 </span>            :   -s, --serial            paste one file at a time instead of in parallel\n\
+<span class="lineNum">     452 </span>            : &quot;), stdout);
+<span class="lineNum">     453 </span><span class="lineNoCov">          0 :       fputs (_(&quot;\</span>
+<span class="lineNum">     454 </span>            :   -z, --zero-terminated    line delimiter is NUL, not newline\n\
+<span class="lineNum">     455 </span>            : &quot;), stdout);
+<span class="lineNum">     456 </span><span class="lineNoCov">          0 :       fputs (HELP_OPTION_DESCRIPTION, stdout);</span>
+<span class="lineNum">     457 </span><span class="lineNoCov">          0 :       fputs (VERSION_OPTION_DESCRIPTION, stdout);</span>
+<span class="lineNum">     458 </span>            :       /* FIXME: add a couple of examples.  */
+<span class="lineNum">     459 </span><span class="lineNoCov">          0 :       emit_ancillary_info (PROGRAM_NAME);</span>
+<span class="lineNum">     460 </span>            :     }
+<span class="lineNum">     461 </span><span class="lineNoCov">          0 :   exit (status);</span>
+<span class="lineNum">     462 </span>            : }
+<a name="463"><span class="lineNum">     463 </span>            : </a>
+<span class="lineNum">     464 </span>            : int
+<span class="lineNum">     465 </span><span class="lineNoCov">          0 : main (int argc, char **argv)</span>
+<span class="lineNum">     466 </span>            : {
+<span class="lineNum">     467 </span>            :   int optc;
+<span class="lineNum">     468 </span>            :   bool ok;
+<span class="lineNum">     469 </span><span class="lineNoCov">          0 :   char const *delim_arg = &quot;\t&quot;;</span>
+<span class="lineNum">     470 </span>            : 
+<span class="lineNum">     471 </span>            :   initialize_main (&amp;argc, &amp;argv);
+<span class="lineNum">     472 </span><span class="lineNoCov">          0 :   set_program_name (argv[0]);</span>
+<span class="lineNum">     473 </span><span class="lineNoCov">          0 :   setlocale (LC_ALL, &quot;&quot;);</span>
+<span class="lineNum">     474 </span><span class="lineNoCov">          0 :   bindtextdomain (PACKAGE, LOCALEDIR);</span>
+<span class="lineNum">     475 </span><span class="lineNoCov">          0 :   textdomain (PACKAGE);</span>
+<span class="lineNum">     476 </span>            : 
+<span class="lineNum">     477 </span><span class="lineNoCov">          0 :   atexit (close_stdout);</span>
+<span class="lineNum">     478 </span>            : 
+<span class="lineNum">     479 </span><span class="lineNoCov">          0 :   have_read_stdin = false;</span>
+<span class="lineNum">     480 </span><span class="lineNoCov">          0 :   serial_merge = false;</span>
+<span class="lineNum">     481 </span>            : 
+<span class="lineNum">     482 </span><span class="lineNoCov">          0 :   while ((optc = getopt_long (argc, argv, &quot;d:sz&quot;, longopts, NULL)) != -1)</span>
+<span class="lineNum">     483 </span>            :     {
+<span class="lineNum">     484 </span><span class="lineNoCov">          0 :       switch (optc)</span>
+<span class="lineNum">     485 </span>            :         {
+<span class="lineNum">     486 </span>            :         case 'd':
+<span class="lineNum">     487 </span>            :           /* Delimiter character(s). */
+<span class="lineNum">     488 </span><span class="lineNoCov">          0 :           delim_arg = (optarg[0] == '\0' ? &quot;\\0&quot; : optarg);</span>
+<span class="lineNum">     489 </span>            :           break;
+<span class="lineNum">     490 </span>            : 
+<span class="lineNum">     491 </span>            :         case 's':
+<span class="lineNum">     492 </span><span class="lineNoCov">          0 :           serial_merge = true;</span>
+<span class="lineNum">     493 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     494 </span>            : 
+<span class="lineNum">     495 </span>            :         case 'z':
+<span class="lineNum">     496 </span><span class="lineNoCov">          0 :           line_delim = '\0';</span>
+<span class="lineNum">     497 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     498 </span>            : 
+<span class="lineNum">     499 </span><span class="lineNoCov">          0 :         case_GETOPT_HELP_CHAR;</span>
+<span class="lineNum">     500 </span>            : 
+<span class="lineNum">     501 </span><span class="lineNoCov">          0 :         case_GETOPT_VERSION_CHAR (PROGRAM_NAME, AUTHORS);</span>
+<span class="lineNum">     502 </span>            : 
+<span class="lineNum">     503 </span>            :         default:
+<span class="lineNum">     504 </span><span class="lineNoCov">          0 :           usage (EXIT_FAILURE);</span>
+<span class="lineNum">     505 </span>            :         }
+<span class="lineNum">     506 </span>            :     }
+<span class="lineNum">     507 </span>            : 
+<span class="lineNum">     508 </span><span class="lineNoCov">          0 :   if (optind == argc)</span>
+<span class="lineNum">     509 </span><span class="lineNoCov">          0 :     argv[argc++] = bad_cast (&quot;-&quot;);</span>
+<span class="lineNum">     510 </span>            : 
+<span class="lineNum">     511 </span><span class="lineNoCov">          0 :   if (collapse_escapes (delim_arg))</span>
+<span class="lineNum">     512 </span>            :     {
+<span class="lineNum">     513 </span>            :       /* Don't use the quote() quoting style, because that would double the
+<span class="lineNum">     514 </span>            :          number of displayed backslashes, making the diagnostic look bogus.  */
+<span class="lineNum">     515 </span><span class="lineNoCov">          0 :       error (EXIT_FAILURE, 0,</span>
+<span class="lineNum">     516 </span><span class="lineNoCov">          0 :              _(&quot;delimiter list ends with an unescaped backslash: %s&quot;),</span>
+<span class="lineNum">     517 </span>            :              quotearg_n_style_colon (0, c_maybe_quoting_style, delim_arg));
+<span class="lineNum">     518 </span>            :     }
+<span class="lineNum">     519 </span>            : 
+<span class="lineNum">     520 </span><span class="lineNoCov">          0 :   if (!serial_merge)</span>
+<span class="lineNum">     521 </span><span class="lineNoCov">          0 :     ok = paste_parallel (argc - optind, &amp;argv[optind]);</span>
+<span class="lineNum">     522 </span>            :   else
+<span class="lineNum">     523 </span><span class="lineNoCov">          0 :     ok = paste_serial (argc - optind, &amp;argv[optind]);</span>
+<span class="lineNum">     524 </span>            : 
+<span class="lineNum">     525 </span><span class="lineNoCov">          0 :   free (delims);</span>
+<span class="lineNum">     526 </span>            : 
+<span class="lineNum">     527 </span><span class="lineNoCov">          0 :   if (have_read_stdin &amp;&amp; fclose (stdin) == EOF)</span>
+<span class="lineNum">     528 </span><span class="lineNoCov">          0 :     error (EXIT_FAILURE, errno, &quot;-&quot;);</span>
+<span class="lineNum">     529 </span><span class="lineNoCov">          0 :   return ok ? EXIT_SUCCESS : EXIT_FAILURE;</span>
+<span class="lineNum">     530 </span>            : }
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.12</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>

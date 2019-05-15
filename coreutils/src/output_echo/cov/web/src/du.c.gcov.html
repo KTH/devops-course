@@ -1,0 +1,1212 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - trace.lcov_info_final - src/du.c</title>
+  <link rel="stylesheet" type="text/css" href="../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">src</a> - du.c<span style="font-size: 80%;"> (source / <a href="du.c.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">trace.lcov_info_final</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">344</td>
+            <td class="headerCovTableEntryLo">0.0 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2019-04-22 20:19:38</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">11</td>
+            <td class="headerCovTableEntryLo">0.0 %</td>
+          </tr>
+          <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>            : /* du -- summarize disk usage</a>
+<span class="lineNum">       2 </span>            :    Copyright (C) 1988-2016 Free Software Foundation, Inc.
+<span class="lineNum">       3 </span>            : 
+<span class="lineNum">       4 </span>            :    This program is free software: you can redistribute it and/or modify
+<span class="lineNum">       5 </span>            :    it under the terms of the GNU General Public License as published by
+<span class="lineNum">       6 </span>            :    the Free Software Foundation, either version 3 of the License, or
+<span class="lineNum">       7 </span>            :    (at your option) any later version.
+<span class="lineNum">       8 </span>            : 
+<span class="lineNum">       9 </span>            :    This program is distributed in the hope that it will be useful,
+<span class="lineNum">      10 </span>            :    but WITHOUT ANY WARRANTY; without even the implied warranty of
+<span class="lineNum">      11 </span>            :    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+<span class="lineNum">      12 </span>            :    GNU General Public License for more details.
+<span class="lineNum">      13 </span>            : 
+<span class="lineNum">      14 </span>            :    You should have received a copy of the GNU General Public License
+<span class="lineNum">      15 </span>            :    along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.  */
+<span class="lineNum">      16 </span>            : 
+<span class="lineNum">      17 </span>            : /* Differences from the Unix du:
+<span class="lineNum">      18 </span>            :    * Doesn't simply ignore the names of regular files given as arguments
+<span class="lineNum">      19 </span>            :      when -a is given.
+<span class="lineNum">      20 </span>            : 
+<span class="lineNum">      21 </span>            :    By tege@sics.se, Torbjorn Granlund,
+<span class="lineNum">      22 </span>            :    and djm@ai.mit.edu, David MacKenzie.
+<span class="lineNum">      23 </span>            :    Variable blocks added by lm@sgi.com and eggert@twinsun.com.
+<span class="lineNum">      24 </span>            :    Rewritten to use nftw, then to use fts by Jim Meyering.  */
+<span class="lineNum">      25 </span>            : 
+<span class="lineNum">      26 </span>            : #include &lt;config.h&gt;
+<span class="lineNum">      27 </span>            : #include &lt;getopt.h&gt;
+<span class="lineNum">      28 </span>            : #include &lt;sys/types.h&gt;
+<span class="lineNum">      29 </span>            : #include &lt;assert.h&gt;
+<span class="lineNum">      30 </span>            : #include &quot;system.h&quot;
+<span class="lineNum">      31 </span>            : #include &quot;argmatch.h&quot;
+<span class="lineNum">      32 </span>            : #include &quot;argv-iter.h&quot;
+<span class="lineNum">      33 </span>            : #include &quot;di-set.h&quot;
+<span class="lineNum">      34 </span>            : #include &quot;error.h&quot;
+<span class="lineNum">      35 </span>            : #include &quot;exclude.h&quot;
+<span class="lineNum">      36 </span>            : #include &quot;fprintftime.h&quot;
+<span class="lineNum">      37 </span>            : #include &quot;human.h&quot;
+<span class="lineNum">      38 </span>            : #include &quot;mountlist.h&quot;
+<span class="lineNum">      39 </span>            : #include &quot;quote.h&quot;
+<span class="lineNum">      40 </span>            : #include &quot;stat-size.h&quot;
+<span class="lineNum">      41 </span>            : #include &quot;stat-time.h&quot;
+<span class="lineNum">      42 </span>            : #include &quot;stdio--.h&quot;
+<span class="lineNum">      43 </span>            : #include &quot;xfts.h&quot;
+<span class="lineNum">      44 </span>            : #include &quot;xstrtol.h&quot;
+<span class="lineNum">      45 </span>            : 
+<span class="lineNum">      46 </span>            : extern bool fts_debug;
+<span class="lineNum">      47 </span>            : 
+<span class="lineNum">      48 </span>            : /* The official name of this program (e.g., no 'g' prefix).  */
+<span class="lineNum">      49 </span>            : #define PROGRAM_NAME &quot;du&quot;
+<span class="lineNum">      50 </span>            : 
+<span class="lineNum">      51 </span>            : #define AUTHORS \
+<span class="lineNum">      52 </span>            :   proper_name_utf8 (&quot;Torbjorn Granlund&quot;, &quot;Torbj\303\266rn Granlund&quot;), \
+<span class="lineNum">      53 </span>            :   proper_name (&quot;David MacKenzie&quot;), \
+<span class="lineNum">      54 </span>            :   proper_name (&quot;Paul Eggert&quot;), \
+<span class="lineNum">      55 </span>            :   proper_name (&quot;Jim Meyering&quot;)
+<span class="lineNum">      56 </span>            : 
+<span class="lineNum">      57 </span>            : #if DU_DEBUG
+<span class="lineNum">      58 </span>            : # define FTS_CROSS_CHECK(Fts) fts_cross_check (Fts)
+<span class="lineNum">      59 </span>            : #else
+<span class="lineNum">      60 </span>            : # define FTS_CROSS_CHECK(Fts)
+<span class="lineNum">      61 </span>            : #endif
+<span class="lineNum">      62 </span>            : 
+<span class="lineNum">      63 </span>            : /* A set of dev/ino pairs to help identify files and directories
+<span class="lineNum">      64 </span>            :    whose sizes have already been counted.  */
+<span class="lineNum">      65 </span>            : static struct di_set *di_files;
+<span class="lineNum">      66 </span>            : 
+<span class="lineNum">      67 </span>            : /* A set containing a dev/ino pair for each local mount point directory.  */
+<span class="lineNum">      68 </span>            : static struct di_set *di_mnt;
+<span class="lineNum">      69 </span>            : 
+<span class="lineNum">      70 </span>            : /* Keep track of the preceding &quot;level&quot; (depth in hierarchy)
+<span class="lineNum">      71 </span>            :    from one call of process_file to the next.  */
+<span class="lineNum">      72 </span>            : static size_t prev_level;
+<span class="lineNum">      73 </span>            : 
+<span class="lineNum">      74 </span>            : /* Define a class for collecting directory information. */
+<span class="lineNum">      75 </span>            : struct duinfo
+<span class="lineNum">      76 </span>            : {
+<span class="lineNum">      77 </span>            :   /* Size of files in directory.  */
+<span class="lineNum">      78 </span>            :   uintmax_t size;
+<span class="lineNum">      79 </span>            : 
+<span class="lineNum">      80 </span>            :   /* Number of inodes in directory.  */
+<span class="lineNum">      81 </span>            :   uintmax_t inodes;
+<span class="lineNum">      82 </span>            : 
+<span class="lineNum">      83 </span>            :   /* Latest time stamp found.  If tmax.tv_sec == TYPE_MINIMUM (time_t)
+<span class="lineNum">      84 </span>            :      &amp;&amp; tmax.tv_nsec &lt; 0, no time stamp has been found.  */
+<span class="lineNum">      85 </span>            :   struct timespec tmax;
+<span class="lineNum">      86 </span>            : };
+<span class="lineNum">      87 </span>            : 
+<span class="lineNum">      88 </span>            : /* Initialize directory data.  */
+<span class="lineNum">      89 </span>            : static inline void
+<span class="lineNum">      90 </span>            : duinfo_init (struct duinfo *a)
+<span class="lineNum">      91 </span>            : {
+<span class="lineNum">      92 </span><span class="lineNoCov">          0 :   a-&gt;size = 0;</span>
+<span class="lineNum">      93 </span><span class="lineNoCov">          0 :   a-&gt;inodes = 0;</span>
+<span class="lineNum">      94 </span><span class="lineNoCov">          0 :   a-&gt;tmax.tv_sec = TYPE_MINIMUM (time_t);</span>
+<span class="lineNum">      95 </span><span class="lineNoCov">          0 :   a-&gt;tmax.tv_nsec = -1;</span>
+<span class="lineNum">      96 </span>            : }
+<span class="lineNum">      97 </span>            : 
+<span class="lineNum">      98 </span>            : /* Set directory data.  */
+<span class="lineNum">      99 </span>            : static inline void
+<span class="lineNum">     100 </span>            : duinfo_set (struct duinfo *a, uintmax_t size, struct timespec tmax)
+<span class="lineNum">     101 </span>            : {
+<span class="lineNum">     102 </span><span class="lineNoCov">          0 :   a-&gt;size = size;</span>
+<span class="lineNum">     103 </span><span class="lineNoCov">          0 :   a-&gt;inodes = 1;</span>
+<span class="lineNum">     104 </span><span class="lineNoCov">          0 :   a-&gt;tmax = tmax;</span>
+<span class="lineNum">     105 </span>            : }
+<span class="lineNum">     106 </span>            : 
+<a name="107"><span class="lineNum">     107 </span>            : /* Accumulate directory data.  */</a>
+<span class="lineNum">     108 </span>            : static inline void
+<span class="lineNum">     109 </span><span class="lineNoCov">          0 : duinfo_add (struct duinfo *a, struct duinfo const *b)</span>
+<span class="lineNum">     110 </span>            : {
+<span class="lineNum">     111 </span><span class="lineNoCov">          0 :   uintmax_t sum = a-&gt;size + b-&gt;size;</span>
+<span class="lineNum">     112 </span><span class="lineNoCov">          0 :   a-&gt;size = a-&gt;size &lt;= sum ? sum : UINTMAX_MAX;</span>
+<span class="lineNum">     113 </span><span class="lineNoCov">          0 :   a-&gt;inodes = a-&gt;inodes + b-&gt;inodes;</span>
+<span class="lineNum">     114 </span><span class="lineNoCov">          0 :   if (timespec_cmp (a-&gt;tmax, b-&gt;tmax) &lt; 0)</span>
+<span class="lineNum">     115 </span><span class="lineNoCov">          0 :     a-&gt;tmax = b-&gt;tmax;</span>
+<span class="lineNum">     116 </span><span class="lineNoCov">          0 : }</span>
+<span class="lineNum">     117 </span>            : 
+<span class="lineNum">     118 </span>            : /* A structure for per-directory level information.  */
+<span class="lineNum">     119 </span>            : struct dulevel
+<span class="lineNum">     120 </span>            : {
+<span class="lineNum">     121 </span>            :   /* Entries in this directory.  */
+<span class="lineNum">     122 </span>            :   struct duinfo ent;
+<span class="lineNum">     123 </span>            : 
+<span class="lineNum">     124 </span>            :   /* Total for subdirectories.  */
+<span class="lineNum">     125 </span>            :   struct duinfo subdir;
+<span class="lineNum">     126 </span>            : };
+<span class="lineNum">     127 </span>            : 
+<span class="lineNum">     128 </span>            : /* If true, display counts for all files, not just directories.  */
+<span class="lineNum">     129 </span>            : static bool opt_all = false;
+<span class="lineNum">     130 </span>            : 
+<span class="lineNum">     131 </span>            : /* If true, rather than using the disk usage of each file,
+<span class="lineNum">     132 </span>            :    use the apparent size (a la stat.st_size).  */
+<span class="lineNum">     133 </span>            : static bool apparent_size = false;
+<span class="lineNum">     134 </span>            : 
+<span class="lineNum">     135 </span>            : /* If true, count each hard link of files with multiple links.  */
+<span class="lineNum">     136 </span>            : static bool opt_count_all = false;
+<span class="lineNum">     137 </span>            : 
+<span class="lineNum">     138 </span>            : /* If true, hash all files to look for hard links.  */
+<span class="lineNum">     139 </span>            : static bool hash_all;
+<span class="lineNum">     140 </span>            : 
+<span class="lineNum">     141 </span>            : /* If true, output the NUL byte instead of a newline at the end of each line. */
+<span class="lineNum">     142 </span>            : static bool opt_nul_terminate_output = false;
+<span class="lineNum">     143 </span>            : 
+<span class="lineNum">     144 </span>            : /* If true, print a grand total at the end.  */
+<span class="lineNum">     145 </span>            : static bool print_grand_total = false;
+<span class="lineNum">     146 </span>            : 
+<span class="lineNum">     147 </span>            : /* If nonzero, do not add sizes of subdirectories.  */
+<span class="lineNum">     148 </span>            : static bool opt_separate_dirs = false;
+<span class="lineNum">     149 </span>            : 
+<span class="lineNum">     150 </span>            : /* Show the total for each directory (and file if --all) that is at
+<span class="lineNum">     151 </span>            :    most MAX_DEPTH levels down from the root of the hierarchy.  The root
+<span class="lineNum">     152 </span>            :    is at level 0, so 'du --max-depth=0' is equivalent to 'du -s'.  */
+<span class="lineNum">     153 </span>            : static size_t max_depth = SIZE_MAX;
+<span class="lineNum">     154 </span>            : 
+<span class="lineNum">     155 </span>            : /* Only output entries with at least this SIZE if positive,
+<span class="lineNum">     156 </span>            :    or at most if negative.  See --threshold option.  */
+<span class="lineNum">     157 </span>            : static intmax_t opt_threshold = 0;
+<span class="lineNum">     158 </span>            : 
+<span class="lineNum">     159 </span>            : /* Human-readable options for output.  */
+<span class="lineNum">     160 </span>            : static int human_output_opts;
+<span class="lineNum">     161 </span>            : 
+<span class="lineNum">     162 </span>            : /* Output inodes count instead of blocks used.  */
+<span class="lineNum">     163 </span>            : static bool opt_inodes = false;
+<span class="lineNum">     164 </span>            : 
+<span class="lineNum">     165 </span>            : /* If true, print most recently modified date, using the specified format.  */
+<span class="lineNum">     166 </span>            : static bool opt_time = false;
+<span class="lineNum">     167 </span>            : 
+<span class="lineNum">     168 </span>            : /* Type of time to display. controlled by --time.  */
+<span class="lineNum">     169 </span>            : 
+<span class="lineNum">     170 </span>            : enum time_type
+<span class="lineNum">     171 </span>            :   {
+<span class="lineNum">     172 </span>            :     time_mtime,                 /* default */
+<span class="lineNum">     173 </span>            :     time_ctime,
+<span class="lineNum">     174 </span>            :     time_atime
+<span class="lineNum">     175 </span>            :   };
+<span class="lineNum">     176 </span>            : 
+<span class="lineNum">     177 </span>            : static enum time_type time_type = time_mtime;
+<span class="lineNum">     178 </span>            : 
+<span class="lineNum">     179 </span>            : /* User specified date / time style */
+<span class="lineNum">     180 </span>            : static char const *time_style = NULL;
+<span class="lineNum">     181 </span>            : 
+<span class="lineNum">     182 </span>            : /* Format used to display date / time. Controlled by --time-style */
+<span class="lineNum">     183 </span>            : static char const *time_format = NULL;
+<span class="lineNum">     184 </span>            : 
+<span class="lineNum">     185 </span>            : /* The units to use when printing sizes.  */
+<span class="lineNum">     186 </span>            : static uintmax_t output_block_size;
+<span class="lineNum">     187 </span>            : 
+<span class="lineNum">     188 </span>            : /* File name patterns to exclude.  */
+<span class="lineNum">     189 </span>            : static struct exclude *exclude;
+<span class="lineNum">     190 </span>            : 
+<span class="lineNum">     191 </span>            : /* Grand total size of all args, in bytes. Also latest modified date. */
+<span class="lineNum">     192 </span>            : static struct duinfo tot_dui;
+<span class="lineNum">     193 </span>            : 
+<span class="lineNum">     194 </span>            : #define IS_DIR_TYPE(Type)       \
+<span class="lineNum">     195 </span>            :   ((Type) == FTS_DP             \
+<span class="lineNum">     196 </span>            :    || (Type) == FTS_DNR)
+<span class="lineNum">     197 </span>            : 
+<span class="lineNum">     198 </span>            : /* For long options that have no equivalent short option, use a
+<span class="lineNum">     199 </span>            :    non-character as a pseudo short option, starting with CHAR_MAX + 1.  */
+<span class="lineNum">     200 </span>            : enum
+<span class="lineNum">     201 </span>            : {
+<span class="lineNum">     202 </span>            :   APPARENT_SIZE_OPTION = CHAR_MAX + 1,
+<span class="lineNum">     203 </span>            :   EXCLUDE_OPTION,
+<span class="lineNum">     204 </span>            :   FILES0_FROM_OPTION,
+<span class="lineNum">     205 </span>            :   HUMAN_SI_OPTION,
+<span class="lineNum">     206 </span>            :   FTS_DEBUG,
+<span class="lineNum">     207 </span>            :   TIME_OPTION,
+<span class="lineNum">     208 </span>            :   TIME_STYLE_OPTION,
+<span class="lineNum">     209 </span>            :   INODES_OPTION
+<span class="lineNum">     210 </span>            : };
+<span class="lineNum">     211 </span>            : 
+<span class="lineNum">     212 </span>            : static struct option const long_options[] =
+<span class="lineNum">     213 </span>            : {
+<span class="lineNum">     214 </span>            :   {&quot;all&quot;, no_argument, NULL, 'a'},
+<span class="lineNum">     215 </span>            :   {&quot;apparent-size&quot;, no_argument, NULL, APPARENT_SIZE_OPTION},
+<span class="lineNum">     216 </span>            :   {&quot;block-size&quot;, required_argument, NULL, 'B'},
+<span class="lineNum">     217 </span>            :   {&quot;bytes&quot;, no_argument, NULL, 'b'},
+<span class="lineNum">     218 </span>            :   {&quot;count-links&quot;, no_argument, NULL, 'l'},
+<span class="lineNum">     219 </span>            :   /* {&quot;-debug&quot;, no_argument, NULL, FTS_DEBUG}, */
+<span class="lineNum">     220 </span>            :   {&quot;dereference&quot;, no_argument, NULL, 'L'},
+<span class="lineNum">     221 </span>            :   {&quot;dereference-args&quot;, no_argument, NULL, 'D'},
+<span class="lineNum">     222 </span>            :   {&quot;exclude&quot;, required_argument, NULL, EXCLUDE_OPTION},
+<span class="lineNum">     223 </span>            :   {&quot;exclude-from&quot;, required_argument, NULL, 'X'},
+<span class="lineNum">     224 </span>            :   {&quot;files0-from&quot;, required_argument, NULL, FILES0_FROM_OPTION},
+<span class="lineNum">     225 </span>            :   {&quot;human-readable&quot;, no_argument, NULL, 'h'},
+<span class="lineNum">     226 </span>            :   {&quot;inodes&quot;, no_argument, NULL, INODES_OPTION},
+<span class="lineNum">     227 </span>            :   {&quot;si&quot;, no_argument, NULL, HUMAN_SI_OPTION},
+<span class="lineNum">     228 </span>            :   {&quot;max-depth&quot;, required_argument, NULL, 'd'},
+<span class="lineNum">     229 </span>            :   {&quot;null&quot;, no_argument, NULL, '0'},
+<span class="lineNum">     230 </span>            :   {&quot;no-dereference&quot;, no_argument, NULL, 'P'},
+<span class="lineNum">     231 </span>            :   {&quot;one-file-system&quot;, no_argument, NULL, 'x'},
+<span class="lineNum">     232 </span>            :   {&quot;separate-dirs&quot;, no_argument, NULL, 'S'},
+<span class="lineNum">     233 </span>            :   {&quot;summarize&quot;, no_argument, NULL, 's'},
+<span class="lineNum">     234 </span>            :   {&quot;total&quot;, no_argument, NULL, 'c'},
+<span class="lineNum">     235 </span>            :   {&quot;threshold&quot;, required_argument, NULL, 't'},
+<span class="lineNum">     236 </span>            :   {&quot;time&quot;, optional_argument, NULL, TIME_OPTION},
+<span class="lineNum">     237 </span>            :   {&quot;time-style&quot;, required_argument, NULL, TIME_STYLE_OPTION},
+<span class="lineNum">     238 </span>            :   {GETOPT_HELP_OPTION_DECL},
+<span class="lineNum">     239 </span>            :   {GETOPT_VERSION_OPTION_DECL},
+<span class="lineNum">     240 </span>            :   {NULL, 0, NULL, 0}
+<span class="lineNum">     241 </span>            : };
+<span class="lineNum">     242 </span>            : 
+<span class="lineNum">     243 </span>            : static char const *const time_args[] =
+<span class="lineNum">     244 </span>            : {
+<span class="lineNum">     245 </span>            :   &quot;atime&quot;, &quot;access&quot;, &quot;use&quot;, &quot;ctime&quot;, &quot;status&quot;, NULL
+<span class="lineNum">     246 </span>            : };
+<span class="lineNum">     247 </span>            : static enum time_type const time_types[] =
+<span class="lineNum">     248 </span>            : {
+<span class="lineNum">     249 </span>            :   time_atime, time_atime, time_atime, time_ctime, time_ctime
+<span class="lineNum">     250 </span>            : };
+<span class="lineNum">     251 </span>            : ARGMATCH_VERIFY (time_args, time_types);
+<span class="lineNum">     252 </span>            : 
+<span class="lineNum">     253 </span>            : /* 'full-iso' uses full ISO-style dates and times.  'long-iso' uses longer
+<span class="lineNum">     254 </span>            :    ISO-style time stamps, though shorter than 'full-iso'.  'iso' uses shorter
+<span class="lineNum">     255 </span>            :    ISO-style time stamps.  */
+<span class="lineNum">     256 </span>            : enum time_style
+<span class="lineNum">     257 </span>            :   {
+<span class="lineNum">     258 </span>            :     full_iso_time_style,       /* --time-style=full-iso */
+<span class="lineNum">     259 </span>            :     long_iso_time_style,       /* --time-style=long-iso */
+<span class="lineNum">     260 </span>            :     iso_time_style             /* --time-style=iso */
+<span class="lineNum">     261 </span>            :   };
+<span class="lineNum">     262 </span>            : 
+<span class="lineNum">     263 </span>            : static char const *const time_style_args[] =
+<span class="lineNum">     264 </span>            : {
+<span class="lineNum">     265 </span>            :   &quot;full-iso&quot;, &quot;long-iso&quot;, &quot;iso&quot;, NULL
+<span class="lineNum">     266 </span>            : };
+<span class="lineNum">     267 </span>            : static enum time_style const time_style_types[] =
+<span class="lineNum">     268 </span>            : {
+<span class="lineNum">     269 </span>            :   full_iso_time_style, long_iso_time_style, iso_time_style
+<span class="lineNum">     270 </span>            : };
+<span class="lineNum">     271 </span>            : ARGMATCH_VERIFY (time_style_args, time_style_types);
+<a name="272"><span class="lineNum">     272 </span>            : </a>
+<span class="lineNum">     273 </span>            : void
+<span class="lineNum">     274 </span><span class="lineNoCov">          0 : usage (int status)</span>
+<span class="lineNum">     275 </span>            : {
+<span class="lineNum">     276 </span><span class="lineNoCov">          0 :   if (status != EXIT_SUCCESS)</span>
+<span class="lineNum">     277 </span><span class="lineNoCov">          0 :     emit_try_help ();</span>
+<span class="lineNum">     278 </span>            :   else
+<span class="lineNum">     279 </span>            :     {
+<span class="lineNum">     280 </span><span class="lineNoCov">          0 :       printf (_(&quot;\</span>
+<span class="lineNum">     281 </span>            : Usage: %s [OPTION]... [FILE]...\n\
+<span class="lineNum">     282 </span>            :   or:  %s [OPTION]... --files0-from=F\n\
+<span class="lineNum">     283 </span>            : &quot;), program_name, program_name);
+<span class="lineNum">     284 </span><span class="lineNoCov">          0 :       fputs (_(&quot;\</span>
+<span class="lineNum">     285 </span>            : Summarize disk usage of the set of FILEs, recursively for directories.\n\
+<span class="lineNum">     286 </span>            : &quot;), stdout);
+<span class="lineNum">     287 </span>            : 
+<span class="lineNum">     288 </span><span class="lineNoCov">          0 :       emit_mandatory_arg_note ();</span>
+<span class="lineNum">     289 </span>            : 
+<span class="lineNum">     290 </span><span class="lineNoCov">          0 :       fputs (_(&quot;\</span>
+<span class="lineNum">     291 </span>            :   -0, --null            end each output line with NUL, not newline\n\
+<span class="lineNum">     292 </span>            :   -a, --all             write counts for all files, not just directories\n\
+<span class="lineNum">     293 </span>            :       --apparent-size   print apparent sizes, rather than disk usage; although\
+<span class="lineNum">     294 </span>            : \n\
+<span class="lineNum">     295 </span>            :                           the apparent size is usually smaller, it may be\n\
+<span class="lineNum">     296 </span>            :                           larger due to holes in ('sparse') files, internal\n\
+<span class="lineNum">     297 </span>            :                           fragmentation, indirect blocks, and the like\n\
+<span class="lineNum">     298 </span>            : &quot;), stdout);
+<span class="lineNum">     299 </span><span class="lineNoCov">          0 :       fputs (_(&quot;\</span>
+<span class="lineNum">     300 </span>            :   -B, --block-size=SIZE  scale sizes by SIZE before printing them; e.g.,\n\
+<span class="lineNum">     301 </span>            :                            '-BM' prints sizes in units of 1,048,576 bytes;\n\
+<span class="lineNum">     302 </span>            :                            see SIZE format below\n\
+<span class="lineNum">     303 </span>            :   -b, --bytes           equivalent to '--apparent-size --block-size=1'\n\
+<span class="lineNum">     304 </span>            :   -c, --total           produce a grand total\n\
+<span class="lineNum">     305 </span>            :   -D, --dereference-args  dereference only symlinks that are listed on the\n\
+<span class="lineNum">     306 </span>            :                           command line\n\
+<span class="lineNum">     307 </span>            :   -d, --max-depth=N     print the total for a directory (or file, with --all)\n\
+<span class="lineNum">     308 </span>            :                           only if it is N or fewer levels below the command\n\
+<span class="lineNum">     309 </span>            :                           line argument;  --max-depth=0 is the same as\n\
+<span class="lineNum">     310 </span>            :                           --summarize\n\
+<span class="lineNum">     311 </span>            : &quot;), stdout);
+<span class="lineNum">     312 </span><span class="lineNoCov">          0 :       fputs (_(&quot;\</span>
+<span class="lineNum">     313 </span>            :       --files0-from=F   summarize disk usage of the\n\
+<span class="lineNum">     314 </span>            :                           NUL-terminated file names specified in file F;\n\
+<span class="lineNum">     315 </span>            :                           if F is -, then read names from standard input\n\
+<span class="lineNum">     316 </span>            :   -H                    equivalent to --dereference-args (-D)\n\
+<span class="lineNum">     317 </span>            :   -h, --human-readable  print sizes in human readable format (e.g., 1K 234M 2G)\
+<span class="lineNum">     318 </span>            : \n\
+<span class="lineNum">     319 </span>            :       --inodes          list inode usage information instead of block usage\n\
+<span class="lineNum">     320 </span>            : &quot;), stdout);
+<span class="lineNum">     321 </span><span class="lineNoCov">          0 :       fputs (_(&quot;\</span>
+<span class="lineNum">     322 </span>            :   -k                    like --block-size=1K\n\
+<span class="lineNum">     323 </span>            :   -L, --dereference     dereference all symbolic links\n\
+<span class="lineNum">     324 </span>            :   -l, --count-links     count sizes many times if hard linked\n\
+<span class="lineNum">     325 </span>            :   -m                    like --block-size=1M\n\
+<span class="lineNum">     326 </span>            : &quot;), stdout);
+<span class="lineNum">     327 </span><span class="lineNoCov">          0 :       fputs (_(&quot;\</span>
+<span class="lineNum">     328 </span>            :   -P, --no-dereference  don't follow any symbolic links (this is the default)\n\
+<span class="lineNum">     329 </span>            :   -S, --separate-dirs   for directories do not include size of subdirectories\n\
+<span class="lineNum">     330 </span>            :       --si              like -h, but use powers of 1000 not 1024\n\
+<span class="lineNum">     331 </span>            :   -s, --summarize       display only a total for each argument\n\
+<span class="lineNum">     332 </span>            : &quot;), stdout);
+<span class="lineNum">     333 </span><span class="lineNoCov">          0 :       fputs (_(&quot;\</span>
+<span class="lineNum">     334 </span>            :   -t, --threshold=SIZE  exclude entries smaller than SIZE if positive,\n\
+<span class="lineNum">     335 </span>            :                           or entries greater than SIZE if negative\n\
+<span class="lineNum">     336 </span>            :       --time            show time of the last modification of any file in the\n\
+<span class="lineNum">     337 </span>            :                           directory, or any of its subdirectories\n\
+<span class="lineNum">     338 </span>            :       --time=WORD       show time as WORD instead of modification time:\n\
+<span class="lineNum">     339 </span>            :                           atime, access, use, ctime or status\n\
+<span class="lineNum">     340 </span>            :       --time-style=STYLE  show times using STYLE, which can be:\n\
+<span class="lineNum">     341 </span>            :                             full-iso, long-iso, iso, or +FORMAT;\n\
+<span class="lineNum">     342 </span>            :                             FORMAT is interpreted like in 'date'\n\
+<span class="lineNum">     343 </span>            : &quot;), stdout);
+<span class="lineNum">     344 </span><span class="lineNoCov">          0 :       fputs (_(&quot;\</span>
+<span class="lineNum">     345 </span>            :   -X, --exclude-from=FILE  exclude files that match any pattern in FILE\n\
+<span class="lineNum">     346 </span>            :       --exclude=PATTERN    exclude files that match PATTERN\n\
+<span class="lineNum">     347 </span>            :   -x, --one-file-system    skip directories on different file systems\n\
+<span class="lineNum">     348 </span>            : &quot;), stdout);
+<span class="lineNum">     349 </span><span class="lineNoCov">          0 :       fputs (HELP_OPTION_DESCRIPTION, stdout);</span>
+<span class="lineNum">     350 </span><span class="lineNoCov">          0 :       fputs (VERSION_OPTION_DESCRIPTION, stdout);</span>
+<span class="lineNum">     351 </span><span class="lineNoCov">          0 :       emit_blocksize_note (&quot;DU&quot;);</span>
+<span class="lineNum">     352 </span><span class="lineNoCov">          0 :       emit_size_note ();</span>
+<span class="lineNum">     353 </span><span class="lineNoCov">          0 :       emit_ancillary_info (PROGRAM_NAME);</span>
+<span class="lineNum">     354 </span>            :     }
+<span class="lineNum">     355 </span><span class="lineNoCov">          0 :   exit (status);</span>
+<span class="lineNum">     356 </span>            : }
+<span class="lineNum">     357 </span>            : 
+<span class="lineNum">     358 </span>            : /* Try to insert the INO/DEV pair into DI_SET.
+<span class="lineNum">     359 </span>            :    Return true if the pair is successfully inserted,
+<a name="360"><span class="lineNum">     360 </span>            :    false if the pair was already there.  */</a>
+<span class="lineNum">     361 </span>            : static bool
+<span class="lineNum">     362 </span><span class="lineNoCov">          0 : hash_ins (struct di_set *di_set, ino_t ino, dev_t dev)</span>
+<span class="lineNum">     363 </span>            : {
+<span class="lineNum">     364 </span><span class="lineNoCov">          0 :   int inserted = di_set_insert (di_set, dev, ino);</span>
+<span class="lineNum">     365 </span><span class="lineNoCov">          0 :   if (inserted &lt; 0)</span>
+<span class="lineNum">     366 </span><span class="lineNoCov">          0 :     xalloc_die ();</span>
+<span class="lineNum">     367 </span><span class="lineNoCov">          0 :   return inserted;</span>
+<span class="lineNum">     368 </span>            : }
+<span class="lineNum">     369 </span>            : 
+<span class="lineNum">     370 </span>            : /* FIXME: this code is nearly identical to code in date.c  */
+<span class="lineNum">     371 </span>            : /* Display the date and time in WHEN according to the format specified
+<span class="lineNum">     372 </span>            :    in FORMAT.  */
+<a name="373"><span class="lineNum">     373 </span>            : </a>
+<span class="lineNum">     374 </span>            : static void
+<span class="lineNum">     375 </span><span class="lineNoCov">          0 : show_date (const char *format, struct timespec when)</span>
+<span class="lineNum">     376 </span>            : {
+<span class="lineNum">     377 </span><span class="lineNoCov">          0 :   struct tm *tm = localtime (&amp;when.tv_sec);</span>
+<span class="lineNum">     378 </span><span class="lineNoCov">          0 :   if (! tm)</span>
+<span class="lineNum">     379 </span>            :     {
+<span class="lineNum">     380 </span>            :       char buf[INT_BUFSIZE_BOUND (intmax_t)];
+<span class="lineNum">     381 </span><span class="lineNoCov">          0 :       char *when_str = timetostr (when.tv_sec, buf);</span>
+<span class="lineNum">     382 </span><span class="lineNoCov">          0 :       error (0, 0, _(&quot;time %s is out of range&quot;), quote (when_str));</span>
+<span class="lineNum">     383 </span><span class="lineNoCov">          0 :       fputs (when_str, stdout);</span>
+<span class="lineNum">     384 </span>            :       return;
+<span class="lineNum">     385 </span>            :     }
+<span class="lineNum">     386 </span>            : 
+<span class="lineNum">     387 </span><span class="lineNoCov">          0 :   fprintftime (stdout, format, tm, 0, when.tv_nsec);</span>
+<span class="lineNum">     388 </span>            : }
+<span class="lineNum">     389 </span>            : 
+<span class="lineNum">     390 </span>            : /* Print N_BYTES.  Convert it to a readable value before printing.  */
+<a name="391"><span class="lineNum">     391 </span>            : </a>
+<span class="lineNum">     392 </span>            : static void
+<span class="lineNum">     393 </span><span class="lineNoCov">          0 : print_only_size (uintmax_t n_bytes)</span>
+<span class="lineNum">     394 </span>            : {
+<span class="lineNum">     395 </span>            :   char buf[LONGEST_HUMAN_READABLE + 1];
+<span class="lineNum">     396 </span><span class="lineNoCov">          0 :   fputs ((n_bytes == UINTMAX_MAX</span>
+<span class="lineNum">     397 </span>            :           ? _(&quot;Infinity&quot;)
+<span class="lineNum">     398 </span>            :           : human_readable (n_bytes, buf, human_output_opts,
+<span class="lineNum">     399 </span>            :                             1, output_block_size)),
+<span class="lineNum">     400 </span>            :          stdout);
+<span class="lineNum">     401 </span><span class="lineNoCov">          0 : }</span>
+<span class="lineNum">     402 </span>            : 
+<span class="lineNum">     403 </span>            : /* Print size (and optionally time) indicated by *PDUI, followed by STRING.  */
+<a name="404"><span class="lineNum">     404 </span>            : </a>
+<span class="lineNum">     405 </span>            : static void
+<span class="lineNum">     406 </span><span class="lineNoCov">          0 : print_size (const struct duinfo *pdui, const char *string)</span>
+<span class="lineNum">     407 </span>            : {
+<span class="lineNum">     408 </span><span class="lineNoCov">          0 :   print_only_size (opt_inodes</span>
+<span class="lineNum">     409 </span>            :                    ? pdui-&gt;inodes
+<span class="lineNum">     410 </span>            :                    : pdui-&gt;size);
+<span class="lineNum">     411 </span>            : 
+<span class="lineNum">     412 </span><span class="lineNoCov">          0 :   if (opt_time)</span>
+<span class="lineNum">     413 </span>            :     {
+<span class="lineNum">     414 </span><span class="lineNoCov">          0 :       putchar ('\t');</span>
+<span class="lineNum">     415 </span><span class="lineNoCov">          0 :       show_date (time_format, pdui-&gt;tmax);</span>
+<span class="lineNum">     416 </span>            :     }
+<span class="lineNum">     417 </span><span class="lineNoCov">          0 :   printf (&quot;\t%s%c&quot;, string, opt_nul_terminate_output ? '\0' : '\n');</span>
+<span class="lineNum">     418 </span><span class="lineNoCov">          0 :   fflush (stdout);</span>
+<span class="lineNum">     419 </span><span class="lineNoCov">          0 : }</span>
+<span class="lineNum">     420 </span>            : 
+<span class="lineNum">     421 </span>            : /* Fill the di_mnt set with local mount point dev/ino pairs.  */
+<a name="422"><span class="lineNum">     422 </span>            : </a>
+<span class="lineNum">     423 </span>            : static void
+<span class="lineNum">     424 </span><span class="lineNoCov">          0 : fill_mount_table (void)</span>
+<span class="lineNum">     425 </span>            : {
+<span class="lineNum">     426 </span><span class="lineNoCov">          0 :   struct mount_entry *mnt_ent = read_file_system_list (false);</span>
+<span class="lineNum">     427 </span><span class="lineNoCov">          0 :   while (mnt_ent)</span>
+<span class="lineNum">     428 </span>            :     {
+<span class="lineNum">     429 </span>            :       struct mount_entry *mnt_free;
+<span class="lineNum">     430 </span><span class="lineNoCov">          0 :       if (!mnt_ent-&gt;me_remote &amp;&amp; !mnt_ent-&gt;me_dummy)</span>
+<span class="lineNum">     431 </span>            :         {
+<span class="lineNum">     432 </span>            :           struct stat buf;
+<span class="lineNum">     433 </span><span class="lineNoCov">          0 :           if (!stat (mnt_ent-&gt;me_mountdir, &amp;buf))</span>
+<span class="lineNum">     434 </span><span class="lineNoCov">          0 :             hash_ins (di_mnt, buf.st_ino, buf.st_dev);</span>
+<span class="lineNum">     435 </span>            :           else
+<span class="lineNum">     436 </span>            :             {
+<span class="lineNum">     437 </span>            :               /* Ignore stat failure.  False positives are too common.
+<span class="lineNum">     438 </span>            :                  E.g., &quot;Permission denied&quot; on /run/user/&lt;name&gt;/gvfs.  */
+<span class="lineNum">     439 </span>            :             }
+<span class="lineNum">     440 </span>            :         }
+<span class="lineNum">     441 </span>            : 
+<span class="lineNum">     442 </span><span class="lineNoCov">          0 :       mnt_free = mnt_ent;</span>
+<span class="lineNum">     443 </span><span class="lineNoCov">          0 :       mnt_ent = mnt_ent-&gt;me_next;</span>
+<span class="lineNum">     444 </span><span class="lineNoCov">          0 :       free_mount_entry (mnt_free);</span>
+<span class="lineNum">     445 </span>            :     }
+<span class="lineNum">     446 </span><span class="lineNoCov">          0 : }</span>
+<span class="lineNum">     447 </span>            : 
+<span class="lineNum">     448 </span>            : /* This function checks whether any of the directories in the cycle that
+<span class="lineNum">     449 </span>            :    fts detected is a mount point.  */
+<a name="450"><span class="lineNum">     450 </span>            : </a>
+<span class="lineNum">     451 </span>            : static bool
+<span class="lineNum">     452 </span><span class="lineNoCov">          0 : mount_point_in_fts_cycle (FTSENT const *ent)</span>
+<span class="lineNum">     453 </span>            : {
+<span class="lineNum">     454 </span><span class="lineNoCov">          0 :   FTSENT const *cycle_ent = ent-&gt;fts_cycle;</span>
+<span class="lineNum">     455 </span>            : 
+<span class="lineNum">     456 </span><span class="lineNoCov">          0 :   if (!di_mnt)</span>
+<span class="lineNum">     457 </span>            :     {
+<span class="lineNum">     458 </span>            :       /* Initialize the set of dev,inode pairs.  */
+<span class="lineNum">     459 </span><span class="lineNoCov">          0 :       di_mnt = di_set_alloc ();</span>
+<span class="lineNum">     460 </span><span class="lineNoCov">          0 :       if (!di_mnt)</span>
+<span class="lineNum">     461 </span><span class="lineNoCov">          0 :         xalloc_die ();</span>
+<span class="lineNum">     462 </span>            : 
+<span class="lineNum">     463 </span><span class="lineNoCov">          0 :       fill_mount_table ();</span>
+<span class="lineNum">     464 </span>            :     }
+<span class="lineNum">     465 </span>            : 
+<span class="lineNum">     466 </span><span class="lineNoCov">          0 :   while (ent &amp;&amp; ent != cycle_ent)</span>
+<span class="lineNum">     467 </span>            :     {
+<span class="lineNum">     468 </span><span class="lineNoCov">          0 :       if (di_set_lookup (di_mnt, ent-&gt;fts_statp-&gt;st_dev,</span>
+<span class="lineNum">     469 </span>            :                          ent-&gt;fts_statp-&gt;st_ino) &gt; 0)
+<span class="lineNum">     470 </span>            :         {
+<span class="lineNum">     471 </span>            :           return true;
+<span class="lineNum">     472 </span>            :         }
+<span class="lineNum">     473 </span><span class="lineNoCov">          0 :       ent = ent-&gt;fts_parent;</span>
+<span class="lineNum">     474 </span>            :     }
+<span class="lineNum">     475 </span>            : 
+<span class="lineNum">     476 </span>            :   return false;
+<span class="lineNum">     477 </span>            : }
+<span class="lineNum">     478 </span>            : 
+<span class="lineNum">     479 </span>            : /* This function is called once for every file system object that fts
+<span class="lineNum">     480 </span>            :    encounters.  fts does a depth-first traversal.  This function knows
+<span class="lineNum">     481 </span>            :    that and accumulates per-directory totals based on changes in
+<span class="lineNum">     482 </span>            :    the depth of the current entry.  It returns true on success.  */
+<a name="483"><span class="lineNum">     483 </span>            : </a>
+<span class="lineNum">     484 </span>            : static bool
+<span class="lineNum">     485 </span><span class="lineNoCov">          0 : process_file (FTS *fts, FTSENT *ent)</span>
+<span class="lineNum">     486 </span>            : {
+<span class="lineNum">     487 </span><span class="lineNoCov">          0 :   bool ok = true;</span>
+<span class="lineNum">     488 </span>            :   struct duinfo dui;
+<span class="lineNum">     489 </span>            :   struct duinfo dui_to_print;
+<span class="lineNum">     490 </span>            :   size_t level;
+<span class="lineNum">     491 </span>            :   static size_t n_alloc;
+<span class="lineNum">     492 </span>            :   /* First element of the structure contains:
+<span class="lineNum">     493 </span>            :      The sum of the st_size values of all entries in the single directory
+<span class="lineNum">     494 </span>            :      at the corresponding level.  Although this does include the st_size
+<span class="lineNum">     495 </span>            :      corresponding to each subdirectory, it does not include the size of
+<span class="lineNum">     496 </span>            :      any file in a subdirectory. Also corresponding last modified date.
+<span class="lineNum">     497 </span>            :      Second element of the structure contains:
+<span class="lineNum">     498 </span>            :      The sum of the sizes of all entries in the hierarchy at or below the
+<span class="lineNum">     499 </span>            :      directory at the specified level.  */
+<span class="lineNum">     500 </span>            :   static struct dulevel *dulvl;
+<span class="lineNum">     501 </span>            : 
+<span class="lineNum">     502 </span><span class="lineNoCov">          0 :   const char *file = ent-&gt;fts_path;</span>
+<span class="lineNum">     503 </span><span class="lineNoCov">          0 :   const struct stat *sb = ent-&gt;fts_statp;</span>
+<span class="lineNum">     504 </span><span class="lineNoCov">          0 :   int info = ent-&gt;fts_info;</span>
+<span class="lineNum">     505 </span>            : 
+<span class="lineNum">     506 </span><span class="lineNoCov">          0 :   if (info == FTS_DNR)</span>
+<span class="lineNum">     507 </span>            :     {
+<span class="lineNum">     508 </span>            :       /* An error occurred, but the size is known, so count it.  */
+<span class="lineNum">     509 </span><span class="lineNoCov">          0 :       error (0, ent-&gt;fts_errno, _(&quot;cannot read directory %s&quot;), quoteaf (file));</span>
+<span class="lineNum">     510 </span><span class="lineNoCov">          0 :       ok = false;</span>
+<span class="lineNum">     511 </span>            :     }
+<span class="lineNum">     512 </span><span class="lineNoCov">          0 :   else if (info != FTS_DP)</span>
+<span class="lineNum">     513 </span>            :     {
+<span class="lineNum">     514 </span><span class="lineNoCov">          0 :       bool excluded = excluded_file_name (exclude, file);</span>
+<span class="lineNum">     515 </span><span class="lineNoCov">          0 :       if (! excluded)</span>
+<span class="lineNum">     516 </span>            :         {
+<span class="lineNum">     517 </span>            :           /* Make the stat buffer *SB valid, or fail noisily.  */
+<span class="lineNum">     518 </span>            : 
+<span class="lineNum">     519 </span><span class="lineNoCov">          0 :           if (info == FTS_NSOK)</span>
+<span class="lineNum">     520 </span>            :             {
+<span class="lineNum">     521 </span><span class="lineNoCov">          0 :               fts_set (fts, ent, FTS_AGAIN);</span>
+<span class="lineNum">     522 </span><span class="lineNoCov">          0 :               FTSENT const *e = fts_read (fts);</span>
+<span class="lineNum">     523 </span><span class="lineNoCov">          0 :               assert (e == ent);</span>
+<span class="lineNum">     524 </span><span class="lineNoCov">          0 :               info = ent-&gt;fts_info;</span>
+<span class="lineNum">     525 </span>            :             }
+<span class="lineNum">     526 </span>            : 
+<span class="lineNum">     527 </span><span class="lineNoCov">          0 :           if (info == FTS_NS || info == FTS_SLNONE)</span>
+<span class="lineNum">     528 </span>            :             {
+<span class="lineNum">     529 </span><span class="lineNoCov">          0 :               error (0, ent-&gt;fts_errno, _(&quot;cannot access %s&quot;), quoteaf (file));</span>
+<span class="lineNum">     530 </span><span class="lineNoCov">          0 :               return false;</span>
+<span class="lineNum">     531 </span>            :             }
+<span class="lineNum">     532 </span>            : 
+<span class="lineNum">     533 </span>            :           /* The --one-file-system (-x) option cannot exclude anything
+<span class="lineNum">     534 </span>            :              specified on the command-line.  By definition, it can exclude
+<span class="lineNum">     535 </span>            :              a file or directory only when its device number is different
+<span class="lineNum">     536 </span>            :              from that of its just-processed parent directory, and du does
+<span class="lineNum">     537 </span>            :              not process the parent of a command-line argument.  */
+<span class="lineNum">     538 </span><span class="lineNoCov">          0 :           if (fts-&gt;fts_options &amp; FTS_XDEV</span>
+<span class="lineNum">     539 </span><span class="lineNoCov">          0 :               &amp;&amp; FTS_ROOTLEVEL &lt; ent-&gt;fts_level</span>
+<span class="lineNum">     540 </span><span class="lineNoCov">          0 :               &amp;&amp; fts-&gt;fts_dev != sb-&gt;st_dev)</span>
+<span class="lineNum">     541 </span><span class="lineNoCov">          0 :             excluded = true;</span>
+<span class="lineNum">     542 </span>            :         }
+<span class="lineNum">     543 </span>            : 
+<span class="lineNum">     544 </span><span class="lineNoCov">          0 :       if (excluded</span>
+<span class="lineNum">     545 </span><span class="lineNoCov">          0 :           || (! opt_count_all</span>
+<span class="lineNum">     546 </span><span class="lineNoCov">          0 :               &amp;&amp; (hash_all || (! S_ISDIR (sb-&gt;st_mode) &amp;&amp; 1 &lt; sb-&gt;st_nlink))</span>
+<span class="lineNum">     547 </span><span class="lineNoCov">          0 :               &amp;&amp; ! hash_ins (di_files, sb-&gt;st_ino, sb-&gt;st_dev)))</span>
+<span class="lineNum">     548 </span>            :         {
+<span class="lineNum">     549 </span>            :           /* If ignoring a directory in preorder, skip its children.
+<span class="lineNum">     550 </span>            :              Ignore the next fts_read output too, as it's a postorder
+<span class="lineNum">     551 </span>            :              visit to the same directory.  */
+<span class="lineNum">     552 </span><span class="lineNoCov">          0 :           if (info == FTS_D)</span>
+<span class="lineNum">     553 </span>            :             {
+<span class="lineNum">     554 </span><span class="lineNoCov">          0 :               fts_set (fts, ent, FTS_SKIP);</span>
+<span class="lineNum">     555 </span><span class="lineNoCov">          0 :               FTSENT const *e = fts_read (fts);</span>
+<span class="lineNum">     556 </span><span class="lineNoCov">          0 :               assert (e == ent);</span>
+<span class="lineNum">     557 </span>            :             }
+<span class="lineNum">     558 </span>            : 
+<span class="lineNum">     559 </span>            :           return true;
+<span class="lineNum">     560 </span>            :         }
+<span class="lineNum">     561 </span>            : 
+<span class="lineNum">     562 </span><span class="lineNoCov">          0 :       switch (info)</span>
+<span class="lineNum">     563 </span>            :         {
+<span class="lineNum">     564 </span>            :         case FTS_D:
+<span class="lineNum">     565 </span>            :           return true;
+<span class="lineNum">     566 </span>            : 
+<span class="lineNum">     567 </span>            :         case FTS_ERR:
+<span class="lineNum">     568 </span>            :           /* An error occurred, but the size is known, so count it.  */
+<span class="lineNum">     569 </span><span class="lineNoCov">          0 :           error (0, ent-&gt;fts_errno, &quot;%s&quot;, quotef (file));</span>
+<span class="lineNum">     570 </span><span class="lineNoCov">          0 :           ok = false;</span>
+<span class="lineNum">     571 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     572 </span>            : 
+<span class="lineNum">     573 </span>            :         case FTS_DC:
+<span class="lineNum">     574 </span>            :           /* If not following symlinks and not a (bind) mount point.  */
+<span class="lineNum">     575 </span><span class="lineNoCov">          0 :           if (cycle_warning_required (fts, ent)</span>
+<span class="lineNum">     576 </span><span class="lineNoCov">          0 :               &amp;&amp; ! mount_point_in_fts_cycle (ent))</span>
+<span class="lineNum">     577 </span>            :             {
+<span class="lineNum">     578 </span><span class="lineNoCov">          0 :               emit_cycle_warning (file);</span>
+<span class="lineNum">     579 </span><span class="lineNoCov">          0 :               return false;</span>
+<span class="lineNum">     580 </span>            :             }
+<span class="lineNum">     581 </span>            :           return true;
+<span class="lineNum">     582 </span>            :         }
+<span class="lineNum">     583 </span>            :     }
+<span class="lineNum">     584 </span>            : 
+<span class="lineNum">     585 </span><span class="lineNoCov">          0 :   duinfo_set (&amp;dui,</span>
+<span class="lineNum">     586 </span>            :               (apparent_size
+<span class="lineNum">     587 </span><span class="lineNoCov">          0 :                ? MAX (0, sb-&gt;st_size)</span>
+<span class="lineNum">     588 </span><span class="lineNoCov">          0 :                : (uintmax_t) ST_NBLOCKS (*sb) * ST_NBLOCKSIZE),</span>
+<span class="lineNum">     589 </span><span class="lineNoCov">          0 :               (time_type == time_mtime ? get_stat_mtime (sb)</span>
+<span class="lineNum">     590 </span>            :                : time_type == time_atime ? get_stat_atime (sb)
+<span class="lineNum">     591 </span>            :                : get_stat_ctime (sb)));
+<span class="lineNum">     592 </span>            : 
+<span class="lineNum">     593 </span><span class="lineNoCov">          0 :   level = ent-&gt;fts_level;</span>
+<span class="lineNum">     594 </span><span class="lineNoCov">          0 :   dui_to_print = dui;</span>
+<span class="lineNum">     595 </span>            : 
+<span class="lineNum">     596 </span><span class="lineNoCov">          0 :   if (n_alloc == 0)</span>
+<span class="lineNum">     597 </span>            :     {
+<span class="lineNum">     598 </span><span class="lineNoCov">          0 :       n_alloc = level + 10;</span>
+<span class="lineNum">     599 </span><span class="lineNoCov">          0 :       dulvl = xcalloc (n_alloc, sizeof *dulvl);</span>
+<span class="lineNum">     600 </span>            :     }
+<span class="lineNum">     601 </span>            :   else
+<span class="lineNum">     602 </span>            :     {
+<span class="lineNum">     603 </span><span class="lineNoCov">          0 :       if (level == prev_level)</span>
+<span class="lineNum">     604 </span>            :         {
+<span class="lineNum">     605 </span>            :           /* This is usually the most common case.  Do nothing.  */
+<span class="lineNum">     606 </span>            :         }
+<span class="lineNum">     607 </span><span class="lineNoCov">          0 :       else if (level &gt; prev_level)</span>
+<span class="lineNum">     608 </span>            :         {
+<span class="lineNum">     609 </span>            :           /* Descending the hierarchy.
+<span class="lineNum">     610 </span>            :              Clear the accumulators for *all* levels between prev_level
+<span class="lineNum">     611 </span>            :              and the current one.  The depth may change dramatically,
+<span class="lineNum">     612 </span>            :              e.g., from 1 to 10.  */
+<span class="lineNum">     613 </span>            :           size_t i;
+<span class="lineNum">     614 </span>            : 
+<span class="lineNum">     615 </span><span class="lineNoCov">          0 :           if (n_alloc &lt;= level)</span>
+<span class="lineNum">     616 </span>            :             {
+<span class="lineNum">     617 </span><span class="lineNoCov">          0 :               dulvl = xnrealloc (dulvl, level, 2 * sizeof *dulvl);</span>
+<span class="lineNum">     618 </span><span class="lineNoCov">          0 :               n_alloc = level * 2;</span>
+<span class="lineNum">     619 </span>            :             }
+<span class="lineNum">     620 </span>            : 
+<span class="lineNum">     621 </span><span class="lineNoCov">          0 :           for (i = prev_level + 1; i &lt;= level; i++)</span>
+<span class="lineNum">     622 </span>            :             {
+<span class="lineNum">     623 </span><span class="lineNoCov">          0 :               duinfo_init (&amp;dulvl[i].ent);</span>
+<span class="lineNum">     624 </span><span class="lineNoCov">          0 :               duinfo_init (&amp;dulvl[i].subdir);</span>
+<span class="lineNum">     625 </span>            :             }
+<span class="lineNum">     626 </span>            :         }
+<span class="lineNum">     627 </span>            :       else /* level &lt; prev_level */
+<span class="lineNum">     628 </span>            :         {
+<span class="lineNum">     629 </span>            :           /* Ascending the hierarchy.
+<span class="lineNum">     630 </span>            :              Process a directory only after all entries in that
+<span class="lineNum">     631 </span>            :              directory have been processed.  When the depth decreases,
+<span class="lineNum">     632 </span>            :              propagate sums from the children (prev_level) to the parent.
+<span class="lineNum">     633 </span>            :              Here, the current level is always one smaller than the
+<span class="lineNum">     634 </span>            :              previous one.  */
+<span class="lineNum">     635 </span><span class="lineNoCov">          0 :           assert (level == prev_level - 1);</span>
+<span class="lineNum">     636 </span><span class="lineNoCov">          0 :           duinfo_add (&amp;dui_to_print, &amp;dulvl[prev_level].ent);</span>
+<span class="lineNum">     637 </span><span class="lineNoCov">          0 :           if (!opt_separate_dirs)</span>
+<span class="lineNum">     638 </span><span class="lineNoCov">          0 :             duinfo_add (&amp;dui_to_print, &amp;dulvl[prev_level].subdir);</span>
+<span class="lineNum">     639 </span><span class="lineNoCov">          0 :           duinfo_add (&amp;dulvl[level].subdir, &amp;dulvl[prev_level].ent);</span>
+<span class="lineNum">     640 </span><span class="lineNoCov">          0 :           duinfo_add (&amp;dulvl[level].subdir, &amp;dulvl[prev_level].subdir);</span>
+<span class="lineNum">     641 </span>            :         }
+<span class="lineNum">     642 </span>            :     }
+<span class="lineNum">     643 </span>            : 
+<span class="lineNum">     644 </span><span class="lineNoCov">          0 :   prev_level = level;</span>
+<span class="lineNum">     645 </span>            : 
+<span class="lineNum">     646 </span>            :   /* Let the size of a directory entry contribute to the total for the
+<span class="lineNum">     647 </span>            :      containing directory, unless --separate-dirs (-S) is specified.  */
+<span class="lineNum">     648 </span><span class="lineNoCov">          0 :   if (! (opt_separate_dirs &amp;&amp; IS_DIR_TYPE (info)))</span>
+<span class="lineNum">     649 </span><span class="lineNoCov">          0 :     duinfo_add (&amp;dulvl[level].ent, &amp;dui);</span>
+<span class="lineNum">     650 </span>            : 
+<span class="lineNum">     651 </span>            :   /* Even if this directory is unreadable or we can't chdir into it,
+<span class="lineNum">     652 </span>            :      do let its size contribute to the total. */
+<span class="lineNum">     653 </span><span class="lineNoCov">          0 :   duinfo_add (&amp;tot_dui, &amp;dui);</span>
+<span class="lineNum">     654 </span>            : 
+<span class="lineNum">     655 </span><span class="lineNoCov">          0 :   if ((IS_DIR_TYPE (info) &amp;&amp; level &lt;= max_depth)</span>
+<span class="lineNum">     656 </span><span class="lineNoCov">          0 :       || (opt_all &amp;&amp; level &lt;= max_depth)</span>
+<span class="lineNum">     657 </span><span class="lineNoCov">          0 :       || level == 0)</span>
+<span class="lineNum">     658 </span>            :     {
+<span class="lineNum">     659 </span>            :       /* Print or elide this entry according to the --threshold option.  */
+<span class="lineNum">     660 </span><span class="lineNoCov">          0 :       uintmax_t v = opt_inodes ? dui_to_print.inodes : dui_to_print.size;</span>
+<span class="lineNum">     661 </span><span class="lineNoCov">          0 :       if (opt_threshold &lt; 0</span>
+<span class="lineNum">     662 </span><span class="lineNoCov">          0 :           ? v &lt;= -opt_threshold</span>
+<span class="lineNum">     663 </span>            :           : v &gt;= opt_threshold)
+<span class="lineNum">     664 </span><span class="lineNoCov">          0 :         print_size (&amp;dui_to_print, file);</span>
+<span class="lineNum">     665 </span>            :     }
+<span class="lineNum">     666 </span>            : 
+<span class="lineNum">     667 </span>            :   return ok;
+<span class="lineNum">     668 </span>            : }
+<span class="lineNum">     669 </span>            : 
+<span class="lineNum">     670 </span>            : /* Recursively print the sizes of the directories (and, if selected, files)
+<span class="lineNum">     671 </span>            :    named in FILES, the last entry of which is NULL.
+<span class="lineNum">     672 </span>            :    BIT_FLAGS controls how fts works.
+<span class="lineNum">     673 </span>            :    Return true if successful.  */
+<a name="674"><span class="lineNum">     674 </span>            : </a>
+<span class="lineNum">     675 </span>            : static bool
+<span class="lineNum">     676 </span><span class="lineNoCov">          0 : du_files (char **files, int bit_flags)</span>
+<span class="lineNum">     677 </span>            : {
+<span class="lineNum">     678 </span><span class="lineNoCov">          0 :   bool ok = true;</span>
+<span class="lineNum">     679 </span>            : 
+<span class="lineNum">     680 </span><span class="lineNoCov">          0 :   if (*files)</span>
+<span class="lineNum">     681 </span>            :     {
+<span class="lineNum">     682 </span><span class="lineNoCov">          0 :       FTS *fts = xfts_open (files, bit_flags, NULL);</span>
+<span class="lineNum">     683 </span>            : 
+<span class="lineNum">     684 </span>            :       while (1)
+<span class="lineNum">     685 </span>            :         {
+<span class="lineNum">     686 </span>            :           FTSENT *ent;
+<span class="lineNum">     687 </span>            : 
+<span class="lineNum">     688 </span><span class="lineNoCov">          0 :           ent = fts_read (fts);</span>
+<span class="lineNum">     689 </span><span class="lineNoCov">          0 :           if (ent == NULL)</span>
+<span class="lineNum">     690 </span>            :             {
+<span class="lineNum">     691 </span><span class="lineNoCov">          0 :               if (errno != 0)</span>
+<span class="lineNum">     692 </span>            :                 {
+<span class="lineNum">     693 </span><span class="lineNoCov">          0 :                   error (0, errno, _(&quot;fts_read failed: %s&quot;),</span>
+<span class="lineNum">     694 </span><span class="lineNoCov">          0 :                          quotef (fts-&gt;fts_path));</span>
+<span class="lineNum">     695 </span><span class="lineNoCov">          0 :                   ok = false;</span>
+<span class="lineNum">     696 </span>            :                 }
+<span class="lineNum">     697 </span>            : 
+<span class="lineNum">     698 </span>            :               /* When exiting this loop early, be careful to reset the
+<span class="lineNum">     699 </span>            :                  global, prev_level, used in process_file.  Otherwise, its
+<span class="lineNum">     700 </span>            :                  (level == prev_level - 1) assertion could fail.  */
+<span class="lineNum">     701 </span><span class="lineNoCov">          0 :               prev_level = 0;</span>
+<span class="lineNum">     702 </span>            :               break;
+<span class="lineNum">     703 </span>            :             }
+<span class="lineNum">     704 </span>            :           FTS_CROSS_CHECK (fts);
+<span class="lineNum">     705 </span>            : 
+<span class="lineNum">     706 </span><span class="lineNoCov">          0 :           ok &amp;= process_file (fts, ent);</span>
+<span class="lineNum">     707 </span><span class="lineNoCov">          0 :         }</span>
+<span class="lineNum">     708 </span>            : 
+<span class="lineNum">     709 </span><span class="lineNoCov">          0 :       if (fts_close (fts) != 0)</span>
+<span class="lineNum">     710 </span>            :         {
+<span class="lineNum">     711 </span><span class="lineNoCov">          0 :           error (0, errno, _(&quot;fts_close failed&quot;));</span>
+<span class="lineNum">     712 </span><span class="lineNoCov">          0 :           ok = false;</span>
+<span class="lineNum">     713 </span>            :         }
+<span class="lineNum">     714 </span>            :     }
+<span class="lineNum">     715 </span>            : 
+<span class="lineNum">     716 </span><span class="lineNoCov">          0 :   return ok;</span>
+<span class="lineNum">     717 </span>            : }
+<a name="718"><span class="lineNum">     718 </span>            : </a>
+<span class="lineNum">     719 </span>            : int
+<span class="lineNum">     720 </span><span class="lineNoCov">          0 : main (int argc, char **argv)</span>
+<span class="lineNum">     721 </span>            : {
+<span class="lineNum">     722 </span>            :   char *cwd_only[2];
+<span class="lineNum">     723 </span><span class="lineNoCov">          0 :   bool max_depth_specified = false;</span>
+<span class="lineNum">     724 </span><span class="lineNoCov">          0 :   bool ok = true;</span>
+<span class="lineNum">     725 </span><span class="lineNoCov">          0 :   char *files_from = NULL;</span>
+<span class="lineNum">     726 </span>            : 
+<span class="lineNum">     727 </span>            :   /* Bit flags that control how fts works.  */
+<span class="lineNum">     728 </span><span class="lineNoCov">          0 :   int bit_flags = FTS_NOSTAT;</span>
+<span class="lineNum">     729 </span>            : 
+<span class="lineNum">     730 </span>            :   /* Select one of the three FTS_ options that control if/when
+<span class="lineNum">     731 </span>            :      to follow a symlink.  */
+<span class="lineNum">     732 </span><span class="lineNoCov">          0 :   int symlink_deref_bits = FTS_PHYSICAL;</span>
+<span class="lineNum">     733 </span>            : 
+<span class="lineNum">     734 </span>            :   /* If true, display only a total for each argument. */
+<span class="lineNum">     735 </span><span class="lineNoCov">          0 :   bool opt_summarize_only = false;</span>
+<span class="lineNum">     736 </span>            : 
+<span class="lineNum">     737 </span><span class="lineNoCov">          0 :   cwd_only[0] = bad_cast (&quot;.&quot;);</span>
+<span class="lineNum">     738 </span><span class="lineNoCov">          0 :   cwd_only[1] = NULL;</span>
+<span class="lineNum">     739 </span>            : 
+<span class="lineNum">     740 </span>            :   initialize_main (&amp;argc, &amp;argv);
+<span class="lineNum">     741 </span><span class="lineNoCov">          0 :   set_program_name (argv[0]);</span>
+<span class="lineNum">     742 </span><span class="lineNoCov">          0 :   setlocale (LC_ALL, &quot;&quot;);</span>
+<span class="lineNum">     743 </span><span class="lineNoCov">          0 :   bindtextdomain (PACKAGE, LOCALEDIR);</span>
+<span class="lineNum">     744 </span><span class="lineNoCov">          0 :   textdomain (PACKAGE);</span>
+<span class="lineNum">     745 </span>            : 
+<span class="lineNum">     746 </span><span class="lineNoCov">          0 :   atexit (close_stdout);</span>
+<span class="lineNum">     747 </span>            : 
+<span class="lineNum">     748 </span><span class="lineNoCov">          0 :   exclude = new_exclude ();</span>
+<span class="lineNum">     749 </span>            : 
+<span class="lineNum">     750 </span><span class="lineNoCov">          0 :   human_options (getenv (&quot;DU_BLOCK_SIZE&quot;),</span>
+<span class="lineNum">     751 </span>            :                  &amp;human_output_opts, &amp;output_block_size);
+<span class="lineNum">     752 </span>            : 
+<span class="lineNum">     753 </span>            :   while (true)
+<span class="lineNum">     754 </span>            :     {
+<span class="lineNum">     755 </span><span class="lineNoCov">          0 :       int oi = -1;</span>
+<span class="lineNum">     756 </span><span class="lineNoCov">          0 :       int c = getopt_long (argc, argv, &quot;0abd:chHklmst:xB:DLPSX:&quot;,</span>
+<span class="lineNum">     757 </span>            :                            long_options, &amp;oi);
+<span class="lineNum">     758 </span><span class="lineNoCov">          0 :       if (c == -1)</span>
+<span class="lineNum">     759 </span>            :         break;
+<span class="lineNum">     760 </span>            : 
+<span class="lineNum">     761 </span><span class="lineNoCov">          0 :       switch (c)</span>
+<span class="lineNum">     762 </span>            :         {
+<span class="lineNum">     763 </span>            : #if DU_DEBUG
+<span class="lineNum">     764 </span>            :         case FTS_DEBUG:
+<span class="lineNum">     765 </span>            :           fts_debug = true;
+<span class="lineNum">     766 </span>            :           break;
+<span class="lineNum">     767 </span>            : #endif
+<span class="lineNum">     768 </span>            : 
+<span class="lineNum">     769 </span>            :         case '0':
+<span class="lineNum">     770 </span><span class="lineNoCov">          0 :           opt_nul_terminate_output = true;</span>
+<span class="lineNum">     771 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     772 </span>            : 
+<span class="lineNum">     773 </span>            :         case 'a':
+<span class="lineNum">     774 </span><span class="lineNoCov">          0 :           opt_all = true;</span>
+<span class="lineNum">     775 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     776 </span>            : 
+<span class="lineNum">     777 </span>            :         case APPARENT_SIZE_OPTION:
+<span class="lineNum">     778 </span><span class="lineNoCov">          0 :           apparent_size = true;</span>
+<span class="lineNum">     779 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     780 </span>            : 
+<span class="lineNum">     781 </span>            :         case 'b':
+<span class="lineNum">     782 </span><span class="lineNoCov">          0 :           apparent_size = true;</span>
+<span class="lineNum">     783 </span><span class="lineNoCov">          0 :           human_output_opts = 0;</span>
+<span class="lineNum">     784 </span><span class="lineNoCov">          0 :           output_block_size = 1;</span>
+<span class="lineNum">     785 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     786 </span>            : 
+<span class="lineNum">     787 </span>            :         case 'c':
+<span class="lineNum">     788 </span><span class="lineNoCov">          0 :           print_grand_total = true;</span>
+<span class="lineNum">     789 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     790 </span>            : 
+<span class="lineNum">     791 </span>            :         case 'h':
+<span class="lineNum">     792 </span><span class="lineNoCov">          0 :           human_output_opts = human_autoscale | human_SI | human_base_1024;</span>
+<span class="lineNum">     793 </span><span class="lineNoCov">          0 :           output_block_size = 1;</span>
+<span class="lineNum">     794 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     795 </span>            : 
+<span class="lineNum">     796 </span>            :         case HUMAN_SI_OPTION:
+<span class="lineNum">     797 </span><span class="lineNoCov">          0 :           human_output_opts = human_autoscale | human_SI;</span>
+<span class="lineNum">     798 </span><span class="lineNoCov">          0 :           output_block_size = 1;</span>
+<span class="lineNum">     799 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     800 </span>            : 
+<span class="lineNum">     801 </span>            :         case 'k':
+<span class="lineNum">     802 </span><span class="lineNoCov">          0 :           human_output_opts = 0;</span>
+<span class="lineNum">     803 </span><span class="lineNoCov">          0 :           output_block_size = 1024;</span>
+<span class="lineNum">     804 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     805 </span>            : 
+<span class="lineNum">     806 </span>            :         case 'd':               /* --max-depth=N */
+<span class="lineNum">     807 </span>            :           {
+<span class="lineNum">     808 </span>            :             unsigned long int tmp_ulong;
+<span class="lineNum">     809 </span><span class="lineNoCov">          0 :             if (xstrtoul (optarg, NULL, 0, &amp;tmp_ulong, NULL) == LONGINT_OK</span>
+<span class="lineNum">     810 </span>            :                 &amp;&amp; tmp_ulong &lt;= SIZE_MAX)
+<span class="lineNum">     811 </span>            :               {
+<span class="lineNum">     812 </span><span class="lineNoCov">          0 :                 max_depth_specified = true;</span>
+<span class="lineNum">     813 </span><span class="lineNoCov">          0 :                 max_depth = tmp_ulong;</span>
+<span class="lineNum">     814 </span>            :               }
+<span class="lineNum">     815 </span>            :             else
+<span class="lineNum">     816 </span>            :               {
+<span class="lineNum">     817 </span><span class="lineNoCov">          0 :                 error (0, 0, _(&quot;invalid maximum depth %s&quot;),</span>
+<span class="lineNum">     818 </span>            :                        quote (optarg));
+<span class="lineNum">     819 </span><span class="lineNoCov">          0 :                 ok = false;</span>
+<span class="lineNum">     820 </span>            :               }
+<span class="lineNum">     821 </span>            :           }
+<span class="lineNum">     822 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     823 </span>            : 
+<span class="lineNum">     824 </span>            :         case 'm':
+<span class="lineNum">     825 </span><span class="lineNoCov">          0 :           human_output_opts = 0;</span>
+<span class="lineNum">     826 </span><span class="lineNoCov">          0 :           output_block_size = 1024 * 1024;</span>
+<span class="lineNum">     827 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     828 </span>            : 
+<span class="lineNum">     829 </span>            :         case 'l':
+<span class="lineNum">     830 </span><span class="lineNoCov">          0 :           opt_count_all = true;</span>
+<span class="lineNum">     831 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     832 </span>            : 
+<span class="lineNum">     833 </span>            :         case 's':
+<span class="lineNum">     834 </span>            :           opt_summarize_only = true;
+<span class="lineNum">     835 </span>            :           break;
+<span class="lineNum">     836 </span>            : 
+<span class="lineNum">     837 </span>            :         case 't':
+<span class="lineNum">     838 </span>            :           {
+<span class="lineNum">     839 </span>            :             enum strtol_error e;
+<span class="lineNum">     840 </span><span class="lineNoCov">          0 :             e = xstrtoimax (optarg, NULL, 0, &amp;opt_threshold, &quot;kKmMGTPEZY0&quot;);</span>
+<span class="lineNum">     841 </span><span class="lineNoCov">          0 :             if (e != LONGINT_OK)</span>
+<span class="lineNum">     842 </span><span class="lineNoCov">          0 :               xstrtol_fatal (e, oi, c, long_options, optarg);</span>
+<span class="lineNum">     843 </span><span class="lineNoCov">          0 :             if (opt_threshold == 0 &amp;&amp; *optarg == '-')</span>
+<span class="lineNum">     844 </span>            :               {
+<span class="lineNum">     845 </span>            :                 /* Do not allow -0, as this wouldn't make sense anyway.  */
+<span class="lineNum">     846 </span><span class="lineNoCov">          0 :                 error (EXIT_FAILURE, 0, _(&quot;invalid --threshold argument '-0'&quot;));</span>
+<span class="lineNum">     847 </span>            :               }
+<span class="lineNum">     848 </span>            :           }
+<span class="lineNum">     849 </span>            :           break;
+<span class="lineNum">     850 </span>            : 
+<span class="lineNum">     851 </span>            :         case 'x':
+<span class="lineNum">     852 </span><span class="lineNoCov">          0 :           bit_flags |= FTS_XDEV;</span>
+<span class="lineNum">     853 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     854 </span>            : 
+<span class="lineNum">     855 </span>            :         case 'B':
+<span class="lineNum">     856 </span>            :           {
+<span class="lineNum">     857 </span><span class="lineNoCov">          0 :             enum strtol_error e = human_options (optarg, &amp;human_output_opts,</span>
+<span class="lineNum">     858 </span>            :                                                  &amp;output_block_size);
+<span class="lineNum">     859 </span><span class="lineNoCov">          0 :             if (e != LONGINT_OK)</span>
+<span class="lineNum">     860 </span><span class="lineNoCov">          0 :               xstrtol_fatal (e, oi, c, long_options, optarg);</span>
+<span class="lineNum">     861 </span>            :           }
+<span class="lineNum">     862 </span>            :           break;
+<span class="lineNum">     863 </span>            : 
+<span class="lineNum">     864 </span>            :         case 'H':  /* NOTE: before 2008-12, -H was equivalent to --si.  */
+<span class="lineNum">     865 </span>            :         case 'D':
+<span class="lineNum">     866 </span><span class="lineNoCov">          0 :           symlink_deref_bits = FTS_COMFOLLOW | FTS_PHYSICAL;</span>
+<span class="lineNum">     867 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     868 </span>            : 
+<span class="lineNum">     869 </span>            :         case 'L': /* --dereference */
+<span class="lineNum">     870 </span><span class="lineNoCov">          0 :           symlink_deref_bits = FTS_LOGICAL;</span>
+<span class="lineNum">     871 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     872 </span>            : 
+<span class="lineNum">     873 </span>            :         case 'P': /* --no-dereference */
+<span class="lineNum">     874 </span><span class="lineNoCov">          0 :           symlink_deref_bits = FTS_PHYSICAL;</span>
+<span class="lineNum">     875 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     876 </span>            : 
+<span class="lineNum">     877 </span>            :         case 'S':
+<span class="lineNum">     878 </span><span class="lineNoCov">          0 :           opt_separate_dirs = true;</span>
+<span class="lineNum">     879 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     880 </span>            : 
+<span class="lineNum">     881 </span>            :         case 'X':
+<span class="lineNum">     882 </span><span class="lineNoCov">          0 :           if (add_exclude_file (add_exclude, exclude, optarg,</span>
+<span class="lineNum">     883 </span>            :                                 EXCLUDE_WILDCARDS, '\n'))
+<span class="lineNum">     884 </span>            :             {
+<span class="lineNum">     885 </span><span class="lineNoCov">          0 :               error (0, errno, &quot;%s&quot;, quotef (optarg));</span>
+<span class="lineNum">     886 </span><span class="lineNoCov">          0 :               ok = false;</span>
+<span class="lineNum">     887 </span>            :             }
+<span class="lineNum">     888 </span>            :           break;
+<span class="lineNum">     889 </span>            : 
+<span class="lineNum">     890 </span>            :         case FILES0_FROM_OPTION:
+<span class="lineNum">     891 </span><span class="lineNoCov">          0 :           files_from = optarg;</span>
+<span class="lineNum">     892 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     893 </span>            : 
+<span class="lineNum">     894 </span>            :         case EXCLUDE_OPTION:
+<span class="lineNum">     895 </span><span class="lineNoCov">          0 :           add_exclude (exclude, optarg, EXCLUDE_WILDCARDS);</span>
+<span class="lineNum">     896 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     897 </span>            : 
+<span class="lineNum">     898 </span>            :         case INODES_OPTION:
+<span class="lineNum">     899 </span><span class="lineNoCov">          0 :           opt_inodes = true;</span>
+<span class="lineNum">     900 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     901 </span>            : 
+<span class="lineNum">     902 </span>            :         case TIME_OPTION:
+<span class="lineNum">     903 </span><span class="lineNoCov">          0 :           opt_time = true;</span>
+<span class="lineNum">     904 </span><span class="lineNoCov">          0 :           time_type =</span>
+<span class="lineNum">     905 </span>            :             (optarg
+<span class="lineNum">     906 </span><span class="lineNoCov">          0 :              ? XARGMATCH (&quot;--time&quot;, optarg, time_args, time_types)</span>
+<span class="lineNum">     907 </span>            :              : time_mtime);
+<span class="lineNum">     908 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     909 </span>            : 
+<span class="lineNum">     910 </span>            :         case TIME_STYLE_OPTION:
+<span class="lineNum">     911 </span><span class="lineNoCov">          0 :           time_style = optarg;</span>
+<span class="lineNum">     912 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     913 </span>            : 
+<span class="lineNum">     914 </span><span class="lineNoCov">          0 :         case_GETOPT_HELP_CHAR;</span>
+<span class="lineNum">     915 </span>            : 
+<span class="lineNum">     916 </span><span class="lineNoCov">          0 :         case_GETOPT_VERSION_CHAR (PROGRAM_NAME, AUTHORS);</span>
+<span class="lineNum">     917 </span>            : 
+<span class="lineNum">     918 </span>            :         default:
+<span class="lineNum">     919 </span><span class="lineNoCov">          0 :           ok = false;</span>
+<span class="lineNum">     920 </span>            :         }
+<span class="lineNum">     921 </span><span class="lineNoCov">          0 :     }</span>
+<span class="lineNum">     922 </span>            : 
+<span class="lineNum">     923 </span><span class="lineNoCov">          0 :   if (!ok)</span>
+<span class="lineNum">     924 </span><span class="lineNoCov">          0 :     usage (EXIT_FAILURE);</span>
+<span class="lineNum">     925 </span>            : 
+<span class="lineNum">     926 </span><span class="lineNoCov">          0 :   if (opt_all &amp;&amp; opt_summarize_only)</span>
+<span class="lineNum">     927 </span>            :     {
+<span class="lineNum">     928 </span><span class="lineNoCov">          0 :       error (0, 0, _(&quot;cannot both summarize and show all entries&quot;));</span>
+<span class="lineNum">     929 </span><span class="lineNoCov">          0 :       usage (EXIT_FAILURE);</span>
+<span class="lineNum">     930 </span>            :     }
+<span class="lineNum">     931 </span>            : 
+<span class="lineNum">     932 </span><span class="lineNoCov">          0 :   if (opt_summarize_only &amp;&amp; max_depth_specified &amp;&amp; max_depth == 0)</span>
+<span class="lineNum">     933 </span>            :     {
+<span class="lineNum">     934 </span><span class="lineNoCov">          0 :       error (0, 0,</span>
+<span class="lineNum">     935 </span><span class="lineNoCov">          0 :              _(&quot;warning: summarizing is the same as using --max-depth=0&quot;));</span>
+<span class="lineNum">     936 </span>            :     }
+<span class="lineNum">     937 </span>            : 
+<span class="lineNum">     938 </span><span class="lineNoCov">          0 :   if (opt_summarize_only &amp;&amp; max_depth_specified &amp;&amp; max_depth != 0)</span>
+<span class="lineNum">     939 </span>            :     {
+<span class="lineNum">     940 </span><span class="lineNoCov">          0 :       unsigned long int d = max_depth;</span>
+<span class="lineNum">     941 </span><span class="lineNoCov">          0 :       error (0, 0, _(&quot;warning: summarizing conflicts with --max-depth=%lu&quot;), d);</span>
+<span class="lineNum">     942 </span><span class="lineNoCov">          0 :       usage (EXIT_FAILURE);</span>
+<span class="lineNum">     943 </span>            :     }
+<span class="lineNum">     944 </span>            : 
+<span class="lineNum">     945 </span><span class="lineNoCov">          0 :   if (opt_summarize_only)</span>
+<span class="lineNum">     946 </span><span class="lineNoCov">          0 :     max_depth = 0;</span>
+<span class="lineNum">     947 </span>            : 
+<span class="lineNum">     948 </span><span class="lineNoCov">          0 :   if (opt_inodes)</span>
+<span class="lineNum">     949 </span>            :     {
+<span class="lineNum">     950 </span><span class="lineNoCov">          0 :       if (apparent_size)</span>
+<span class="lineNum">     951 </span>            :         {
+<span class="lineNum">     952 </span><span class="lineNoCov">          0 :           error (0, 0, _(&quot;warning: options --apparent-size and -b are &quot;</span>
+<span class="lineNum">     953 </span>            :                          &quot;ineffective with --inodes&quot;));
+<span class="lineNum">     954 </span>            :         }
+<span class="lineNum">     955 </span><span class="lineNoCov">          0 :       output_block_size = 1;</span>
+<span class="lineNum">     956 </span>            :     }
+<span class="lineNum">     957 </span>            : 
+<span class="lineNum">     958 </span>            :   /* Process time style if printing last times.  */
+<span class="lineNum">     959 </span><span class="lineNoCov">          0 :   if (opt_time)</span>
+<span class="lineNum">     960 </span>            :     {
+<span class="lineNum">     961 </span><span class="lineNoCov">          0 :       if (! time_style)</span>
+<span class="lineNum">     962 </span>            :         {
+<span class="lineNum">     963 </span><span class="lineNoCov">          0 :           time_style = getenv (&quot;TIME_STYLE&quot;);</span>
+<span class="lineNum">     964 </span>            : 
+<span class="lineNum">     965 </span>            :           /* Ignore TIMESTYLE=&quot;locale&quot;, for compatibility with ls.  */
+<span class="lineNum">     966 </span><span class="lineNoCov">          0 :           if (! time_style || STREQ (time_style, &quot;locale&quot;))</span>
+<span class="lineNum">     967 </span><span class="lineNoCov">          0 :             time_style = &quot;long-iso&quot;;</span>
+<span class="lineNum">     968 </span><span class="lineNoCov">          0 :           else if (*time_style == '+')</span>
+<span class="lineNum">     969 </span>            :             {
+<span class="lineNum">     970 </span>            :               /* Ignore anything after a newline, for compatibility
+<span class="lineNum">     971 </span>            :                  with ls.  */
+<span class="lineNum">     972 </span><span class="lineNoCov">          0 :               char *p = strchr (time_style, '\n');</span>
+<span class="lineNum">     973 </span><span class="lineNoCov">          0 :               if (p)</span>
+<span class="lineNum">     974 </span><span class="lineNoCov">          0 :                 *p = '\0';</span>
+<span class="lineNum">     975 </span>            :             }
+<span class="lineNum">     976 </span>            :           else
+<span class="lineNum">     977 </span>            :             {
+<span class="lineNum">     978 </span>            :               /* Ignore &quot;posix-&quot; prefix, for compatibility with ls.  */
+<span class="lineNum">     979 </span>            :               static char const posix_prefix[] = &quot;posix-&quot;;
+<span class="lineNum">     980 </span>            :               static const size_t prefix_len = sizeof posix_prefix - 1;
+<span class="lineNum">     981 </span><span class="lineNoCov">          0 :               while (STREQ_LEN (time_style, posix_prefix, prefix_len))</span>
+<span class="lineNum">     982 </span><span class="lineNoCov">          0 :                 time_style += prefix_len;</span>
+<span class="lineNum">     983 </span>            :             }
+<span class="lineNum">     984 </span>            :         }
+<span class="lineNum">     985 </span>            : 
+<span class="lineNum">     986 </span><span class="lineNoCov">          0 :       if (*time_style == '+')</span>
+<span class="lineNum">     987 </span><span class="lineNoCov">          0 :         time_format = time_style + 1;</span>
+<span class="lineNum">     988 </span>            :       else
+<span class="lineNum">     989 </span>            :         {
+<span class="lineNum">     990 </span><span class="lineNoCov">          0 :           switch (XARGMATCH (&quot;time style&quot;, time_style,</span>
+<span class="lineNum">     991 </span>            :                              time_style_args, time_style_types))
+<span class="lineNum">     992 </span>            :             {
+<span class="lineNum">     993 </span>            :             case full_iso_time_style:
+<span class="lineNum">     994 </span><span class="lineNoCov">          0 :               time_format = &quot;%Y-%m-%d %H:%M:%S.%N %z&quot;;</span>
+<span class="lineNum">     995 </span><span class="lineNoCov">          0 :               break;</span>
+<span class="lineNum">     996 </span>            : 
+<span class="lineNum">     997 </span>            :             case long_iso_time_style:
+<span class="lineNum">     998 </span><span class="lineNoCov">          0 :               time_format = &quot;%Y-%m-%d %H:%M&quot;;</span>
+<span class="lineNum">     999 </span><span class="lineNoCov">          0 :               break;</span>
+<span class="lineNum">    1000 </span>            : 
+<span class="lineNum">    1001 </span>            :             case iso_time_style:
+<span class="lineNum">    1002 </span><span class="lineNoCov">          0 :               time_format = &quot;%Y-%m-%d&quot;;</span>
+<span class="lineNum">    1003 </span><span class="lineNoCov">          0 :               break;</span>
+<span class="lineNum">    1004 </span>            :             }
+<span class="lineNum">    1005 </span>            :         }
+<span class="lineNum">    1006 </span>            :     }
+<span class="lineNum">    1007 </span>            : 
+<span class="lineNum">    1008 </span>            :   struct argv_iterator *ai;
+<span class="lineNum">    1009 </span><span class="lineNoCov">          0 :   if (files_from)</span>
+<span class="lineNum">    1010 </span>            :     {
+<span class="lineNum">    1011 </span>            :       /* When using --files0-from=F, you may not specify any files
+<span class="lineNum">    1012 </span>            :          on the command-line.  */
+<span class="lineNum">    1013 </span><span class="lineNoCov">          0 :       if (optind &lt; argc)</span>
+<span class="lineNum">    1014 </span>            :         {
+<span class="lineNum">    1015 </span><span class="lineNoCov">          0 :           error (0, 0, _(&quot;extra operand %s&quot;), quote (argv[optind]));</span>
+<span class="lineNum">    1016 </span><span class="lineNoCov">          0 :           fprintf (stderr, &quot;%s\n&quot;,</span>
+<span class="lineNum">    1017 </span>            :                    _(&quot;file operands cannot be combined with --files0-from&quot;));
+<span class="lineNum">    1018 </span><span class="lineNoCov">          0 :           usage (EXIT_FAILURE);</span>
+<span class="lineNum">    1019 </span>            :         }
+<span class="lineNum">    1020 </span>            : 
+<span class="lineNum">    1021 </span><span class="lineNoCov">          0 :       if (! (STREQ (files_from, &quot;-&quot;) || freopen (files_from, &quot;r&quot;, stdin)))</span>
+<span class="lineNum">    1022 </span><span class="lineNoCov">          0 :         error (EXIT_FAILURE, errno, _(&quot;cannot open %s for reading&quot;),</span>
+<span class="lineNum">    1023 </span>            :                quoteaf (files_from));
+<span class="lineNum">    1024 </span>            : 
+<span class="lineNum">    1025 </span><span class="lineNoCov">          0 :       ai = argv_iter_init_stream (stdin);</span>
+<span class="lineNum">    1026 </span>            : 
+<span class="lineNum">    1027 </span>            :       /* It's not easy here to count the arguments, so assume the
+<span class="lineNum">    1028 </span>            :          worst.  */
+<span class="lineNum">    1029 </span><span class="lineNoCov">          0 :       hash_all = true;</span>
+<span class="lineNum">    1030 </span>            :     }
+<span class="lineNum">    1031 </span>            :   else
+<span class="lineNum">    1032 </span>            :     {
+<span class="lineNum">    1033 </span><span class="lineNoCov">          0 :       char **files = (optind &lt; argc ? argv + optind : cwd_only);</span>
+<span class="lineNum">    1034 </span><span class="lineNoCov">          0 :       ai = argv_iter_init_argv (files);</span>
+<span class="lineNum">    1035 </span>            : 
+<span class="lineNum">    1036 </span>            :       /* Hash all dev,ino pairs if there are multiple arguments, or if
+<span class="lineNum">    1037 </span>            :          following non-command-line symlinks, because in either case a
+<span class="lineNum">    1038 </span>            :          file with just one hard link might be seen more than once.  */
+<span class="lineNum">    1039 </span><span class="lineNoCov">          0 :       hash_all = (optind + 1 &lt; argc || symlink_deref_bits == FTS_LOGICAL);</span>
+<span class="lineNum">    1040 </span>            :     }
+<span class="lineNum">    1041 </span>            : 
+<span class="lineNum">    1042 </span><span class="lineNoCov">          0 :   if (!ai)</span>
+<span class="lineNum">    1043 </span><span class="lineNoCov">          0 :     xalloc_die ();</span>
+<span class="lineNum">    1044 </span>            : 
+<span class="lineNum">    1045 </span>            :   /* Initialize the set of dev,inode pairs.  */
+<span class="lineNum">    1046 </span><span class="lineNoCov">          0 :   di_files = di_set_alloc ();</span>
+<span class="lineNum">    1047 </span><span class="lineNoCov">          0 :   if (!di_files)</span>
+<span class="lineNum">    1048 </span><span class="lineNoCov">          0 :     xalloc_die ();</span>
+<span class="lineNum">    1049 </span>            : 
+<span class="lineNum">    1050 </span>            :   /* If not hashing everything, process_file won't find cycles on its
+<span class="lineNum">    1051 </span>            :      own, so ask fts_read to check for them accurately.  */
+<span class="lineNum">    1052 </span><span class="lineNoCov">          0 :   if (opt_count_all || ! hash_all)</span>
+<span class="lineNum">    1053 </span><span class="lineNoCov">          0 :     bit_flags |= FTS_TIGHT_CYCLE_CHECK;</span>
+<span class="lineNum">    1054 </span>            : 
+<span class="lineNum">    1055 </span><span class="lineNoCov">          0 :   bit_flags |= symlink_deref_bits;</span>
+<span class="lineNum">    1056 </span>            :   static char *temp_argv[] = { NULL, NULL };
+<span class="lineNum">    1057 </span>            : 
+<span class="lineNum">    1058 </span>            :   while (true)
+<span class="lineNum">    1059 </span>            :     {
+<span class="lineNum">    1060 </span><span class="lineNoCov">          0 :       bool skip_file = false;</span>
+<span class="lineNum">    1061 </span>            :       enum argv_iter_err ai_err;
+<span class="lineNum">    1062 </span><span class="lineNoCov">          0 :       char *file_name = argv_iter (ai, &amp;ai_err);</span>
+<span class="lineNum">    1063 </span><span class="lineNoCov">          0 :       if (!file_name)</span>
+<span class="lineNum">    1064 </span>            :         {
+<span class="lineNum">    1065 </span><span class="lineNoCov">          0 :           switch (ai_err)</span>
+<span class="lineNum">    1066 </span>            :             {
+<span class="lineNum">    1067 </span>            :             case AI_ERR_EOF:
+<span class="lineNum">    1068 </span><span class="lineNoCov">          0 :               goto argv_iter_done;</span>
+<span class="lineNum">    1069 </span>            :             case AI_ERR_READ:
+<span class="lineNum">    1070 </span><span class="lineNoCov">          0 :               error (0, errno, _(&quot;%s: read error&quot;),</span>
+<span class="lineNum">    1071 </span>            :                      quotef (files_from));
+<span class="lineNum">    1072 </span><span class="lineNoCov">          0 :               ok = false;</span>
+<span class="lineNum">    1073 </span><span class="lineNoCov">          0 :               goto argv_iter_done;</span>
+<span class="lineNum">    1074 </span>            :             case AI_ERR_MEM:
+<span class="lineNum">    1075 </span><span class="lineNoCov">          0 :               xalloc_die ();</span>
+<span class="lineNum">    1076 </span>            :             default:
+<span class="lineNum">    1077 </span><span class="lineNoCov">          0 :               assert (!&quot;unexpected error code from argv_iter&quot;);</span>
+<span class="lineNum">    1078 </span>            :             }
+<span class="lineNum">    1079 </span>            :         }
+<span class="lineNum">    1080 </span><span class="lineNoCov">          0 :       if (files_from &amp;&amp; STREQ (files_from, &quot;-&quot;) &amp;&amp; STREQ (file_name, &quot;-&quot;))</span>
+<span class="lineNum">    1081 </span>            :         {
+<span class="lineNum">    1082 </span>            :           /* Give a better diagnostic in an unusual case:
+<span class="lineNum">    1083 </span>            :              printf - | du --files0-from=- */
+<span class="lineNum">    1084 </span><span class="lineNoCov">          0 :           error (0, 0, _(&quot;when reading file names from stdin, &quot;</span>
+<span class="lineNum">    1085 </span>            :                          &quot;no file name of %s allowed&quot;),
+<span class="lineNum">    1086 </span>            :                  quoteaf (file_name));
+<span class="lineNum">    1087 </span><span class="lineNoCov">          0 :           skip_file = true;</span>
+<span class="lineNum">    1088 </span>            :         }
+<span class="lineNum">    1089 </span>            : 
+<span class="lineNum">    1090 </span>            :       /* Report and skip any empty file names before invoking fts.
+<span class="lineNum">    1091 </span>            :          This works around a glitch in fts, which fails immediately
+<span class="lineNum">    1092 </span>            :          (without looking at the other file names) when given an empty
+<span class="lineNum">    1093 </span>            :          file name.  */
+<span class="lineNum">    1094 </span><span class="lineNoCov">          0 :       if (!file_name[0])</span>
+<span class="lineNum">    1095 </span>            :         {
+<span class="lineNum">    1096 </span>            :           /* Diagnose a zero-length file name.  When it's one
+<span class="lineNum">    1097 </span>            :              among many, knowing the record number may help.
+<span class="lineNum">    1098 </span>            :              FIXME: currently print the record number only with
+<span class="lineNum">    1099 </span>            :              --files0-from=FILE.  Maybe do it for argv, too?  */
+<span class="lineNum">    1100 </span><span class="lineNoCov">          0 :           if (files_from == NULL)</span>
+<span class="lineNum">    1101 </span><span class="lineNoCov">          0 :             error (0, 0, &quot;%s&quot;, _(&quot;invalid zero-length file name&quot;));</span>
+<span class="lineNum">    1102 </span>            :           else
+<span class="lineNum">    1103 </span>            :             {
+<span class="lineNum">    1104 </span>            :               /* Using the standard 'filename:line-number:' prefix here is
+<span class="lineNum">    1105 </span>            :                  not totally appropriate, since NUL is the separator, not NL,
+<span class="lineNum">    1106 </span>            :                  but it might be better than nothing.  */
+<span class="lineNum">    1107 </span><span class="lineNoCov">          0 :               unsigned long int file_number = argv_iter_n_args (ai);</span>
+<span class="lineNum">    1108 </span><span class="lineNoCov">          0 :               error (0, 0, &quot;%s:%lu: %s&quot;, quotef (files_from),</span>
+<span class="lineNum">    1109 </span>            :                      file_number, _(&quot;invalid zero-length file name&quot;));
+<span class="lineNum">    1110 </span>            :             }
+<span class="lineNum">    1111 </span>            :           skip_file = true;
+<span class="lineNum">    1112 </span>            :         }
+<span class="lineNum">    1113 </span>            : 
+<span class="lineNum">    1114 </span><span class="lineNoCov">          0 :       if (skip_file)</span>
+<span class="lineNum">    1115 </span>            :         ok = false;
+<span class="lineNum">    1116 </span>            :       else
+<span class="lineNum">    1117 </span>            :         {
+<span class="lineNum">    1118 </span><span class="lineNoCov">          0 :           temp_argv[0] = file_name;</span>
+<span class="lineNum">    1119 </span><span class="lineNoCov">          0 :           ok &amp;= du_files (temp_argv, bit_flags);</span>
+<span class="lineNum">    1120 </span>            :         }
+<span class="lineNum">    1121 </span><span class="lineNoCov">          0 :     }</span>
+<span class="lineNum">    1122 </span>            :  argv_iter_done:
+<span class="lineNum">    1123 </span>            : 
+<span class="lineNum">    1124 </span><span class="lineNoCov">          0 :   argv_iter_free (ai);</span>
+<span class="lineNum">    1125 </span><span class="lineNoCov">          0 :   di_set_free (di_files);</span>
+<span class="lineNum">    1126 </span><span class="lineNoCov">          0 :   if (di_mnt)</span>
+<span class="lineNum">    1127 </span><span class="lineNoCov">          0 :     di_set_free (di_mnt);</span>
+<span class="lineNum">    1128 </span>            : 
+<span class="lineNum">    1129 </span><span class="lineNoCov">          0 :   if (files_from &amp;&amp; (ferror (stdin) || fclose (stdin) != 0) &amp;&amp; ok)</span>
+<span class="lineNum">    1130 </span><span class="lineNoCov">          0 :     error (EXIT_FAILURE, 0, _(&quot;error reading %s&quot;), quoteaf (files_from));</span>
+<span class="lineNum">    1131 </span>            : 
+<span class="lineNum">    1132 </span><span class="lineNoCov">          0 :   if (print_grand_total)</span>
+<span class="lineNum">    1133 </span><span class="lineNoCov">          0 :     print_size (&amp;tot_dui, _(&quot;total&quot;));</span>
+<span class="lineNum">    1134 </span>            : 
+<span class="lineNum">    1135 </span><span class="lineNoCov">          0 :   return ok ? EXIT_SUCCESS : EXIT_FAILURE;</span>
+<span class="lineNum">    1136 </span>            : }
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.12</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>

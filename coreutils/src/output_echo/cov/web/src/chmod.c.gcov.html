@@ -1,0 +1,645 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - trace.lcov_info_final - src/chmod.c</title>
+  <link rel="stylesheet" type="text/css" href="../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">src</a> - chmod.c<span style="font-size: 80%;"> (source / <a href="chmod.c.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">trace.lcov_info_final</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">175</td>
+            <td class="headerCovTableEntryLo">0.0 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2019-04-22 20:19:38</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">6</td>
+            <td class="headerCovTableEntryLo">0.0 %</td>
+          </tr>
+          <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>            : /* chmod -- change permission modes of files</a>
+<span class="lineNum">       2 </span>            :    Copyright (C) 1989-2016 Free Software Foundation, Inc.
+<span class="lineNum">       3 </span>            : 
+<span class="lineNum">       4 </span>            :    This program is free software: you can redistribute it and/or modify
+<span class="lineNum">       5 </span>            :    it under the terms of the GNU General Public License as published by
+<span class="lineNum">       6 </span>            :    the Free Software Foundation, either version 3 of the License, or
+<span class="lineNum">       7 </span>            :    (at your option) any later version.
+<span class="lineNum">       8 </span>            : 
+<span class="lineNum">       9 </span>            :    This program is distributed in the hope that it will be useful,
+<span class="lineNum">      10 </span>            :    but WITHOUT ANY WARRANTY; without even the implied warranty of
+<span class="lineNum">      11 </span>            :    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+<span class="lineNum">      12 </span>            :    GNU General Public License for more details.
+<span class="lineNum">      13 </span>            : 
+<span class="lineNum">      14 </span>            :    You should have received a copy of the GNU General Public License
+<span class="lineNum">      15 </span>            :    along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.  */
+<span class="lineNum">      16 </span>            : 
+<span class="lineNum">      17 </span>            : /* Written by David MacKenzie &lt;djm@gnu.ai.mit.edu&gt; */
+<span class="lineNum">      18 </span>            : 
+<span class="lineNum">      19 </span>            : #include &lt;config.h&gt;
+<span class="lineNum">      20 </span>            : #include &lt;stdio.h&gt;
+<span class="lineNum">      21 </span>            : #include &lt;getopt.h&gt;
+<span class="lineNum">      22 </span>            : #include &lt;sys/types.h&gt;
+<span class="lineNum">      23 </span>            : 
+<span class="lineNum">      24 </span>            : #include &quot;system.h&quot;
+<span class="lineNum">      25 </span>            : #include &quot;dev-ino.h&quot;
+<span class="lineNum">      26 </span>            : #include &quot;error.h&quot;
+<span class="lineNum">      27 </span>            : #include &quot;filemode.h&quot;
+<span class="lineNum">      28 </span>            : #include &quot;ignore-value.h&quot;
+<span class="lineNum">      29 </span>            : #include &quot;modechange.h&quot;
+<span class="lineNum">      30 </span>            : #include &quot;quote.h&quot;
+<span class="lineNum">      31 </span>            : #include &quot;root-dev-ino.h&quot;
+<span class="lineNum">      32 </span>            : #include &quot;xfts.h&quot;
+<span class="lineNum">      33 </span>            : 
+<span class="lineNum">      34 </span>            : /* The official name of this program (e.g., no 'g' prefix).  */
+<span class="lineNum">      35 </span>            : #define PROGRAM_NAME &quot;chmod&quot;
+<span class="lineNum">      36 </span>            : 
+<span class="lineNum">      37 </span>            : #define AUTHORS \
+<span class="lineNum">      38 </span>            :   proper_name (&quot;David MacKenzie&quot;), \
+<span class="lineNum">      39 </span>            :   proper_name (&quot;Jim Meyering&quot;)
+<span class="lineNum">      40 </span>            : 
+<span class="lineNum">      41 </span>            : enum Change_status
+<span class="lineNum">      42 </span>            : {
+<span class="lineNum">      43 </span>            :   CH_NOT_APPLIED,
+<span class="lineNum">      44 </span>            :   CH_SUCCEEDED,
+<span class="lineNum">      45 </span>            :   CH_FAILED,
+<span class="lineNum">      46 </span>            :   CH_NO_CHANGE_REQUESTED
+<span class="lineNum">      47 </span>            : };
+<span class="lineNum">      48 </span>            : 
+<span class="lineNum">      49 </span>            : enum Verbosity
+<span class="lineNum">      50 </span>            : {
+<span class="lineNum">      51 </span>            :   /* Print a message for each file that is processed.  */
+<span class="lineNum">      52 </span>            :   V_high,
+<span class="lineNum">      53 </span>            : 
+<span class="lineNum">      54 </span>            :   /* Print a message for each file whose attributes we change.  */
+<span class="lineNum">      55 </span>            :   V_changes_only,
+<span class="lineNum">      56 </span>            : 
+<span class="lineNum">      57 </span>            :   /* Do not be verbose.  This is the default. */
+<span class="lineNum">      58 </span>            :   V_off
+<span class="lineNum">      59 </span>            : };
+<span class="lineNum">      60 </span>            : 
+<span class="lineNum">      61 </span>            : /* The desired change to the mode.  */
+<span class="lineNum">      62 </span>            : static struct mode_change *change;
+<span class="lineNum">      63 </span>            : 
+<span class="lineNum">      64 </span>            : /* The initial umask value, if it might be needed.  */
+<span class="lineNum">      65 </span>            : static mode_t umask_value;
+<span class="lineNum">      66 </span>            : 
+<span class="lineNum">      67 </span>            : /* If true, change the modes of directories recursively. */
+<span class="lineNum">      68 </span>            : static bool recurse;
+<span class="lineNum">      69 </span>            : 
+<span class="lineNum">      70 </span>            : /* If true, force silence (suppress most of error messages). */
+<span class="lineNum">      71 </span>            : static bool force_silent;
+<span class="lineNum">      72 </span>            : 
+<span class="lineNum">      73 </span>            : /* If true, diagnose surprises from naive misuses like &quot;chmod -r file&quot;.
+<span class="lineNum">      74 </span>            :    POSIX allows diagnostics here, as portable code is supposed to use
+<span class="lineNum">      75 </span>            :    &quot;chmod -- -r file&quot;.  */
+<span class="lineNum">      76 </span>            : static bool diagnose_surprises;
+<span class="lineNum">      77 </span>            : 
+<span class="lineNum">      78 </span>            : /* Level of verbosity.  */
+<span class="lineNum">      79 </span>            : static enum Verbosity verbosity = V_off;
+<span class="lineNum">      80 </span>            : 
+<span class="lineNum">      81 </span>            : /* Pointer to the device and inode numbers of '/', when --recursive.
+<span class="lineNum">      82 </span>            :    Otherwise NULL.  */
+<span class="lineNum">      83 </span>            : static struct dev_ino *root_dev_ino;
+<span class="lineNum">      84 </span>            : 
+<span class="lineNum">      85 </span>            : /* For long options that have no equivalent short option, use a
+<span class="lineNum">      86 </span>            :    non-character as a pseudo short option, starting with CHAR_MAX + 1.  */
+<span class="lineNum">      87 </span>            : enum
+<span class="lineNum">      88 </span>            : {
+<span class="lineNum">      89 </span>            :   NO_PRESERVE_ROOT = CHAR_MAX + 1,
+<span class="lineNum">      90 </span>            :   PRESERVE_ROOT,
+<span class="lineNum">      91 </span>            :   REFERENCE_FILE_OPTION
+<span class="lineNum">      92 </span>            : };
+<span class="lineNum">      93 </span>            : 
+<span class="lineNum">      94 </span>            : static struct option const long_options[] =
+<span class="lineNum">      95 </span>            : {
+<span class="lineNum">      96 </span>            :   {&quot;changes&quot;, no_argument, NULL, 'c'},
+<span class="lineNum">      97 </span>            :   {&quot;recursive&quot;, no_argument, NULL, 'R'},
+<span class="lineNum">      98 </span>            :   {&quot;no-preserve-root&quot;, no_argument, NULL, NO_PRESERVE_ROOT},
+<span class="lineNum">      99 </span>            :   {&quot;preserve-root&quot;, no_argument, NULL, PRESERVE_ROOT},
+<span class="lineNum">     100 </span>            :   {&quot;quiet&quot;, no_argument, NULL, 'f'},
+<span class="lineNum">     101 </span>            :   {&quot;reference&quot;, required_argument, NULL, REFERENCE_FILE_OPTION},
+<span class="lineNum">     102 </span>            :   {&quot;silent&quot;, no_argument, NULL, 'f'},
+<span class="lineNum">     103 </span>            :   {&quot;verbose&quot;, no_argument, NULL, 'v'},
+<span class="lineNum">     104 </span>            :   {GETOPT_HELP_OPTION_DECL},
+<span class="lineNum">     105 </span>            :   {GETOPT_VERSION_OPTION_DECL},
+<span class="lineNum">     106 </span>            :   {NULL, 0, NULL, 0}
+<span class="lineNum">     107 </span>            : };
+<span class="lineNum">     108 </span>            : 
+<span class="lineNum">     109 </span>            : /* Return true if the chmodable permission bits of FILE changed.
+<span class="lineNum">     110 </span>            :    The old mode was OLD_MODE, but it was changed to NEW_MODE.  */
+<a name="111"><span class="lineNum">     111 </span>            : </a>
+<span class="lineNum">     112 </span>            : static bool
+<span class="lineNum">     113 </span><span class="lineNoCov">          0 : mode_changed (int dir_fd, char const *file, char const *file_full_name,</span>
+<span class="lineNum">     114 </span>            :               mode_t old_mode, mode_t new_mode)
+<span class="lineNum">     115 </span>            : {
+<span class="lineNum">     116 </span><span class="lineNoCov">          0 :   if (new_mode &amp; (S_ISUID | S_ISGID | S_ISVTX))</span>
+<span class="lineNum">     117 </span>            :     {
+<span class="lineNum">     118 </span>            :       /* The new mode contains unusual bits that the call to chmod may
+<span class="lineNum">     119 </span>            :          have silently cleared.  Check whether they actually changed.  */
+<span class="lineNum">     120 </span>            : 
+<span class="lineNum">     121 </span>            :       struct stat new_stats;
+<span class="lineNum">     122 </span>            : 
+<span class="lineNum">     123 </span><span class="lineNoCov">          0 :       if (fstatat (dir_fd, file, &amp;new_stats, 0) != 0)</span>
+<span class="lineNum">     124 </span>            :         {
+<span class="lineNum">     125 </span><span class="lineNoCov">          0 :           if (! force_silent)</span>
+<span class="lineNum">     126 </span><span class="lineNoCov">          0 :             error (0, errno, _(&quot;getting new attributes of %s&quot;),</span>
+<span class="lineNum">     127 </span>            :                    quoteaf (file_full_name));
+<span class="lineNum">     128 </span><span class="lineNoCov">          0 :           return false;</span>
+<span class="lineNum">     129 </span>            :         }
+<span class="lineNum">     130 </span>            : 
+<span class="lineNum">     131 </span><span class="lineNoCov">          0 :       new_mode = new_stats.st_mode;</span>
+<span class="lineNum">     132 </span>            :     }
+<span class="lineNum">     133 </span>            : 
+<span class="lineNum">     134 </span><span class="lineNoCov">          0 :   return ((old_mode ^ new_mode) &amp; CHMOD_MODE_BITS) != 0;</span>
+<span class="lineNum">     135 </span>            : }
+<span class="lineNum">     136 </span>            : 
+<span class="lineNum">     137 </span>            : /* Tell the user how/if the MODE of FILE has been changed.
+<span class="lineNum">     138 </span>            :    CHANGED describes what (if anything) has happened. */
+<a name="139"><span class="lineNum">     139 </span>            : </a>
+<span class="lineNum">     140 </span>            : static void
+<span class="lineNum">     141 </span><span class="lineNoCov">          0 : describe_change (const char *file, mode_t old_mode, mode_t mode,</span>
+<span class="lineNum">     142 </span>            :                  enum Change_status changed)
+<span class="lineNum">     143 </span>            : {
+<span class="lineNum">     144 </span>            :   char perms[12];               /* &quot;-rwxrwxrwx&quot; ls-style modes. */
+<span class="lineNum">     145 </span>            :   char old_perms[12];
+<span class="lineNum">     146 </span>            :   const char *fmt;
+<span class="lineNum">     147 </span>            : 
+<span class="lineNum">     148 </span><span class="lineNoCov">          0 :   if (changed == CH_NOT_APPLIED)</span>
+<span class="lineNum">     149 </span>            :     {
+<span class="lineNum">     150 </span><span class="lineNoCov">          0 :       printf (_(&quot;neither symbolic link %s nor referent has been changed\n&quot;),</span>
+<span class="lineNum">     151 </span>            :               quoteaf (file));
+<span class="lineNum">     152 </span><span class="lineNoCov">          0 :       return;</span>
+<span class="lineNum">     153 </span>            :     }
+<span class="lineNum">     154 </span>            : 
+<span class="lineNum">     155 </span><span class="lineNoCov">          0 :   strmode (mode, perms);</span>
+<span class="lineNum">     156 </span><span class="lineNoCov">          0 :   perms[10] = '\0';             /* Remove trailing space.  */</span>
+<span class="lineNum">     157 </span>            : 
+<span class="lineNum">     158 </span><span class="lineNoCov">          0 :   strmode (old_mode, old_perms);</span>
+<span class="lineNum">     159 </span><span class="lineNoCov">          0 :   old_perms[10] = '\0';         /* Remove trailing space.  */</span>
+<span class="lineNum">     160 </span>            : 
+<span class="lineNum">     161 </span><span class="lineNoCov">          0 :   switch (changed)</span>
+<span class="lineNum">     162 </span>            :     {
+<span class="lineNum">     163 </span>            :     case CH_SUCCEEDED:
+<span class="lineNum">     164 </span><span class="lineNoCov">          0 :       fmt = _(&quot;mode of %s changed from %04lo (%s) to %04lo (%s)\n&quot;);</span>
+<span class="lineNum">     165 </span><span class="lineNoCov">          0 :       break;</span>
+<span class="lineNum">     166 </span>            :     case CH_FAILED:
+<span class="lineNum">     167 </span><span class="lineNoCov">          0 :       fmt = _(&quot;failed to change mode of %s from %04lo (%s) to %04lo (%s)\n&quot;);</span>
+<span class="lineNum">     168 </span><span class="lineNoCov">          0 :       break;</span>
+<span class="lineNum">     169 </span>            :     case CH_NO_CHANGE_REQUESTED:
+<span class="lineNum">     170 </span><span class="lineNoCov">          0 :       fmt = _(&quot;mode of %s retained as %04lo (%s)\n&quot;);</span>
+<span class="lineNum">     171 </span><span class="lineNoCov">          0 :       printf (fmt, quoteaf (file),</span>
+<span class="lineNum">     172 </span>            :               (unsigned long int) (mode &amp; CHMOD_MODE_BITS), &amp;perms[1]);
+<span class="lineNum">     173 </span>            :       return;
+<span class="lineNum">     174 </span>            :     default:
+<span class="lineNum">     175 </span><span class="lineNoCov">          0 :       abort ();</span>
+<span class="lineNum">     176 </span>            :     }
+<span class="lineNum">     177 </span><span class="lineNoCov">          0 :   printf (fmt, quoteaf (file),</span>
+<span class="lineNum">     178 </span>            :           (unsigned long int) (old_mode &amp; CHMOD_MODE_BITS), &amp;old_perms[1],
+<span class="lineNum">     179 </span>            :           (unsigned long int) (mode &amp; CHMOD_MODE_BITS), &amp;perms[1]);
+<span class="lineNum">     180 </span>            : }
+<span class="lineNum">     181 </span>            : 
+<span class="lineNum">     182 </span>            : /* Change the mode of FILE.
+<span class="lineNum">     183 </span>            :    Return true if successful.  This function is called
+<span class="lineNum">     184 </span>            :    once for every file system object that fts encounters.  */
+<a name="185"><span class="lineNum">     185 </span>            : </a>
+<span class="lineNum">     186 </span>            : static bool
+<span class="lineNum">     187 </span><span class="lineNoCov">          0 : process_file (FTS *fts, FTSENT *ent)</span>
+<span class="lineNum">     188 </span>            : {
+<span class="lineNum">     189 </span><span class="lineNoCov">          0 :   char const *file_full_name = ent-&gt;fts_path;</span>
+<span class="lineNum">     190 </span><span class="lineNoCov">          0 :   char const *file = ent-&gt;fts_accpath;</span>
+<span class="lineNum">     191 </span><span class="lineNoCov">          0 :   const struct stat *file_stats = ent-&gt;fts_statp;</span>
+<span class="lineNum">     192 </span><span class="lineNoCov">          0 :   mode_t old_mode IF_LINT ( = 0);</span>
+<span class="lineNum">     193 </span><span class="lineNoCov">          0 :   mode_t new_mode IF_LINT ( = 0);</span>
+<span class="lineNum">     194 </span><span class="lineNoCov">          0 :   bool ok = true;</span>
+<span class="lineNum">     195 </span><span class="lineNoCov">          0 :   bool chmod_succeeded = false;</span>
+<span class="lineNum">     196 </span>            : 
+<span class="lineNum">     197 </span><span class="lineNoCov">          0 :   switch (ent-&gt;fts_info)</span>
+<span class="lineNum">     198 </span>            :     {
+<span class="lineNum">     199 </span>            :     case FTS_DP:
+<span class="lineNum">     200 </span>            :       return true;
+<span class="lineNum">     201 </span>            : 
+<span class="lineNum">     202 </span>            :     case FTS_NS:
+<span class="lineNum">     203 </span>            :       /* For a top-level file or directory, this FTS_NS (stat failed)
+<span class="lineNum">     204 </span>            :          indicator is determined at the time of the initial fts_open call.
+<span class="lineNum">     205 </span>            :          With programs like chmod, chown, and chgrp, that modify
+<span class="lineNum">     206 </span>            :          permissions, it is possible that the file in question is
+<span class="lineNum">     207 </span>            :          accessible when control reaches this point.  So, if this is
+<span class="lineNum">     208 </span>            :          the first time we've seen the FTS_NS for this file, tell
+<span class="lineNum">     209 </span>            :          fts_read to stat it &quot;again&quot;.  */
+<span class="lineNum">     210 </span><span class="lineNoCov">          0 :       if (ent-&gt;fts_level == 0 &amp;&amp; ent-&gt;fts_number == 0)</span>
+<span class="lineNum">     211 </span>            :         {
+<span class="lineNum">     212 </span><span class="lineNoCov">          0 :           ent-&gt;fts_number = 1;</span>
+<span class="lineNum">     213 </span><span class="lineNoCov">          0 :           fts_set (fts, ent, FTS_AGAIN);</span>
+<span class="lineNum">     214 </span><span class="lineNoCov">          0 :           return true;</span>
+<span class="lineNum">     215 </span>            :         }
+<span class="lineNum">     216 </span><span class="lineNoCov">          0 :       if (! force_silent)</span>
+<span class="lineNum">     217 </span><span class="lineNoCov">          0 :         error (0, ent-&gt;fts_errno, _(&quot;cannot access %s&quot;),</span>
+<span class="lineNum">     218 </span>            :                quoteaf (file_full_name));
+<span class="lineNum">     219 </span>            :       ok = false;
+<span class="lineNum">     220 </span>            :       break;
+<span class="lineNum">     221 </span>            : 
+<span class="lineNum">     222 </span>            :     case FTS_ERR:
+<span class="lineNum">     223 </span><span class="lineNoCov">          0 :       if (! force_silent)</span>
+<span class="lineNum">     224 </span><span class="lineNoCov">          0 :         error (0, ent-&gt;fts_errno, &quot;%s&quot;, quotef (file_full_name));</span>
+<span class="lineNum">     225 </span>            :       ok = false;
+<span class="lineNum">     226 </span>            :       break;
+<span class="lineNum">     227 </span>            : 
+<span class="lineNum">     228 </span>            :     case FTS_DNR:
+<span class="lineNum">     229 </span><span class="lineNoCov">          0 :       if (! force_silent)</span>
+<span class="lineNum">     230 </span><span class="lineNoCov">          0 :         error (0, ent-&gt;fts_errno, _(&quot;cannot read directory %s&quot;),</span>
+<span class="lineNum">     231 </span>            :                quoteaf (file_full_name));
+<span class="lineNum">     232 </span>            :       ok = false;
+<span class="lineNum">     233 </span>            :       break;
+<span class="lineNum">     234 </span>            : 
+<span class="lineNum">     235 </span>            :     case FTS_SLNONE:
+<span class="lineNum">     236 </span><span class="lineNoCov">          0 :       if (! force_silent)</span>
+<span class="lineNum">     237 </span><span class="lineNoCov">          0 :         error (0, 0, _(&quot;cannot operate on dangling symlink %s&quot;),</span>
+<span class="lineNum">     238 </span>            :                quoteaf (file_full_name));
+<span class="lineNum">     239 </span>            :       ok = false;
+<span class="lineNum">     240 </span>            :       break;
+<span class="lineNum">     241 </span>            : 
+<span class="lineNum">     242 </span>            :     case FTS_DC:                /* directory that causes cycles */
+<span class="lineNum">     243 </span><span class="lineNoCov">          0 :       if (cycle_warning_required (fts, ent))</span>
+<span class="lineNum">     244 </span>            :         {
+<span class="lineNum">     245 </span><span class="lineNoCov">          0 :           emit_cycle_warning (file_full_name);</span>
+<span class="lineNum">     246 </span><span class="lineNoCov">          0 :           return false;</span>
+<span class="lineNum">     247 </span>            :         }
+<span class="lineNum">     248 </span>            :       break;
+<span class="lineNum">     249 </span>            : 
+<span class="lineNum">     250 </span>            :     default:
+<span class="lineNum">     251 </span>            :       break;
+<span class="lineNum">     252 </span>            :     }
+<span class="lineNum">     253 </span>            : 
+<span class="lineNum">     254 </span><span class="lineNoCov">          0 :   if (ok &amp;&amp; ROOT_DEV_INO_CHECK (root_dev_ino, file_stats))</span>
+<span class="lineNum">     255 </span>            :     {
+<span class="lineNum">     256 </span><span class="lineNoCov">          0 :       ROOT_DEV_INO_WARN (file_full_name);</span>
+<span class="lineNum">     257 </span>            :       /* Tell fts not to traverse into this hierarchy.  */
+<span class="lineNum">     258 </span><span class="lineNoCov">          0 :       fts_set (fts, ent, FTS_SKIP);</span>
+<span class="lineNum">     259 </span>            :       /* Ensure that we do not process &quot;/&quot; on the second visit.  */
+<span class="lineNum">     260 </span><span class="lineNoCov">          0 :       ignore_value (fts_read (fts));</span>
+<span class="lineNum">     261 </span><span class="lineNoCov">          0 :       return false;</span>
+<span class="lineNum">     262 </span>            :     }
+<span class="lineNum">     263 </span>            : 
+<span class="lineNum">     264 </span><span class="lineNoCov">          0 :   if (ok)</span>
+<span class="lineNum">     265 </span>            :     {
+<span class="lineNum">     266 </span><span class="lineNoCov">          0 :       old_mode = file_stats-&gt;st_mode;</span>
+<span class="lineNum">     267 </span><span class="lineNoCov">          0 :       new_mode = mode_adjust (old_mode, S_ISDIR (old_mode) != 0, umask_value,</span>
+<span class="lineNum">     268 </span>            :                               change, NULL);
+<span class="lineNum">     269 </span>            : 
+<span class="lineNum">     270 </span><span class="lineNoCov">          0 :       if (! S_ISLNK (old_mode))</span>
+<span class="lineNum">     271 </span>            :         {
+<span class="lineNum">     272 </span><span class="lineNoCov">          0 :           if (chmodat (fts-&gt;fts_cwd_fd, file, new_mode) == 0)</span>
+<span class="lineNum">     273 </span>            :             chmod_succeeded = true;
+<span class="lineNum">     274 </span>            :           else
+<span class="lineNum">     275 </span>            :             {
+<span class="lineNum">     276 </span><span class="lineNoCov">          0 :               if (! force_silent)</span>
+<span class="lineNum">     277 </span><span class="lineNoCov">          0 :                 error (0, errno, _(&quot;changing permissions of %s&quot;),</span>
+<span class="lineNum">     278 </span>            :                        quoteaf (file_full_name));
+<span class="lineNum">     279 </span>            :               ok = false;
+<span class="lineNum">     280 </span>            :             }
+<span class="lineNum">     281 </span>            :         }
+<span class="lineNum">     282 </span>            :     }
+<span class="lineNum">     283 </span>            : 
+<span class="lineNum">     284 </span><span class="lineNoCov">          0 :   if (verbosity != V_off)</span>
+<span class="lineNum">     285 </span>            :     {
+<span class="lineNum">     286 </span><span class="lineNoCov">          0 :       bool changed = (chmod_succeeded</span>
+<span class="lineNum">     287 </span><span class="lineNoCov">          0 :                       &amp;&amp; mode_changed (fts-&gt;fts_cwd_fd, file, file_full_name,</span>
+<span class="lineNum">     288 </span>            :                                        old_mode, new_mode));
+<span class="lineNum">     289 </span>            : 
+<span class="lineNum">     290 </span><span class="lineNoCov">          0 :       if (changed || verbosity == V_high)</span>
+<span class="lineNum">     291 </span>            :         {
+<span class="lineNum">     292 </span><span class="lineNoCov">          0 :           enum Change_status ch_status =</span>
+<span class="lineNum">     293 </span>            :             (!ok ? CH_FAILED
+<span class="lineNum">     294 </span>            :              : !chmod_succeeded ? CH_NOT_APPLIED
+<span class="lineNum">     295 </span>            :              : !changed ? CH_NO_CHANGE_REQUESTED
+<span class="lineNum">     296 </span>            :              : CH_SUCCEEDED);
+<span class="lineNum">     297 </span><span class="lineNoCov">          0 :           describe_change (file_full_name, old_mode, new_mode, ch_status);</span>
+<span class="lineNum">     298 </span>            :         }
+<span class="lineNum">     299 </span>            :     }
+<span class="lineNum">     300 </span>            : 
+<span class="lineNum">     301 </span><span class="lineNoCov">          0 :   if (chmod_succeeded &amp;&amp; diagnose_surprises)</span>
+<span class="lineNum">     302 </span>            :     {
+<span class="lineNum">     303 </span><span class="lineNoCov">          0 :       mode_t naively_expected_mode =</span>
+<span class="lineNum">     304 </span><span class="lineNoCov">          0 :         mode_adjust (old_mode, S_ISDIR (old_mode) != 0, 0, change, NULL);</span>
+<span class="lineNum">     305 </span><span class="lineNoCov">          0 :       if (new_mode &amp; ~naively_expected_mode)</span>
+<span class="lineNum">     306 </span>            :         {
+<span class="lineNum">     307 </span>            :           char new_perms[12];
+<span class="lineNum">     308 </span>            :           char naively_expected_perms[12];
+<span class="lineNum">     309 </span><span class="lineNoCov">          0 :           strmode (new_mode, new_perms);</span>
+<span class="lineNum">     310 </span><span class="lineNoCov">          0 :           strmode (naively_expected_mode, naively_expected_perms);</span>
+<span class="lineNum">     311 </span><span class="lineNoCov">          0 :           new_perms[10] = naively_expected_perms[10] = '\0';</span>
+<span class="lineNum">     312 </span><span class="lineNoCov">          0 :           error (0, 0,</span>
+<span class="lineNum">     313 </span><span class="lineNoCov">          0 :                  _(&quot;%s: new permissions are %s, not %s&quot;),</span>
+<span class="lineNum">     314 </span>            :                  quotef (file_full_name),
+<span class="lineNum">     315 </span>            :                  new_perms + 1, naively_expected_perms + 1);
+<span class="lineNum">     316 </span><span class="lineNoCov">          0 :           ok = false;</span>
+<span class="lineNum">     317 </span>            :         }
+<span class="lineNum">     318 </span>            :     }
+<span class="lineNum">     319 </span>            : 
+<span class="lineNum">     320 </span><span class="lineNoCov">          0 :   if ( ! recurse)</span>
+<span class="lineNum">     321 </span><span class="lineNoCov">          0 :     fts_set (fts, ent, FTS_SKIP);</span>
+<span class="lineNum">     322 </span>            : 
+<span class="lineNum">     323 </span>            :   return ok;
+<span class="lineNum">     324 </span>            : }
+<span class="lineNum">     325 </span>            : 
+<span class="lineNum">     326 </span>            : /* Recursively change the modes of the specified FILES (the last entry
+<span class="lineNum">     327 </span>            :    of which is NULL).  BIT_FLAGS controls how fts works.
+<span class="lineNum">     328 </span>            :    Return true if successful.  */
+<a name="329"><span class="lineNum">     329 </span>            : </a>
+<span class="lineNum">     330 </span>            : static bool
+<span class="lineNum">     331 </span><span class="lineNoCov">          0 : process_files (char **files, int bit_flags)</span>
+<span class="lineNum">     332 </span>            : {
+<span class="lineNum">     333 </span><span class="lineNoCov">          0 :   bool ok = true;</span>
+<span class="lineNum">     334 </span>            : 
+<span class="lineNum">     335 </span><span class="lineNoCov">          0 :   FTS *fts = xfts_open (files, bit_flags, NULL);</span>
+<span class="lineNum">     336 </span>            : 
+<span class="lineNum">     337 </span>            :   while (1)
+<span class="lineNum">     338 </span>            :     {
+<span class="lineNum">     339 </span>            :       FTSENT *ent;
+<span class="lineNum">     340 </span>            : 
+<span class="lineNum">     341 </span><span class="lineNoCov">          0 :       ent = fts_read (fts);</span>
+<span class="lineNum">     342 </span><span class="lineNoCov">          0 :       if (ent == NULL)</span>
+<span class="lineNum">     343 </span>            :         {
+<span class="lineNum">     344 </span><span class="lineNoCov">          0 :           if (errno != 0)</span>
+<span class="lineNum">     345 </span>            :             {
+<span class="lineNum">     346 </span>            :               /* FIXME: try to give a better message  */
+<span class="lineNum">     347 </span><span class="lineNoCov">          0 :               if (! force_silent)</span>
+<span class="lineNum">     348 </span><span class="lineNoCov">          0 :                 error (0, errno, _(&quot;fts_read failed&quot;));</span>
+<span class="lineNum">     349 </span>            :               ok = false;
+<span class="lineNum">     350 </span>            :             }
+<span class="lineNum">     351 </span>            :           break;
+<span class="lineNum">     352 </span>            :         }
+<span class="lineNum">     353 </span>            : 
+<span class="lineNum">     354 </span><span class="lineNoCov">          0 :       ok &amp;= process_file (fts, ent);</span>
+<span class="lineNum">     355 </span><span class="lineNoCov">          0 :     }</span>
+<span class="lineNum">     356 </span>            : 
+<span class="lineNum">     357 </span><span class="lineNoCov">          0 :   if (fts_close (fts) != 0)</span>
+<span class="lineNum">     358 </span>            :     {
+<span class="lineNum">     359 </span><span class="lineNoCov">          0 :       error (0, errno, _(&quot;fts_close failed&quot;));</span>
+<span class="lineNum">     360 </span><span class="lineNoCov">          0 :       ok = false;</span>
+<span class="lineNum">     361 </span>            :     }
+<span class="lineNum">     362 </span>            : 
+<span class="lineNum">     363 </span><span class="lineNoCov">          0 :   return ok;</span>
+<span class="lineNum">     364 </span>            : }
+<a name="365"><span class="lineNum">     365 </span>            : </a>
+<span class="lineNum">     366 </span>            : void
+<span class="lineNum">     367 </span><span class="lineNoCov">          0 : usage (int status)</span>
+<span class="lineNum">     368 </span>            : {
+<span class="lineNum">     369 </span><span class="lineNoCov">          0 :   if (status != EXIT_SUCCESS)</span>
+<span class="lineNum">     370 </span><span class="lineNoCov">          0 :     emit_try_help ();</span>
+<span class="lineNum">     371 </span>            :   else
+<span class="lineNum">     372 </span>            :     {
+<span class="lineNum">     373 </span><span class="lineNoCov">          0 :       printf (_(&quot;\</span>
+<span class="lineNum">     374 </span>            : Usage: %s [OPTION]... MODE[,MODE]... FILE...\n\
+<span class="lineNum">     375 </span>            :   or:  %s [OPTION]... OCTAL-MODE FILE...\n\
+<span class="lineNum">     376 </span>            :   or:  %s [OPTION]... --reference=RFILE FILE...\n\
+<span class="lineNum">     377 </span>            : &quot;),
+<span class="lineNum">     378 </span>            :               program_name, program_name, program_name);
+<span class="lineNum">     379 </span><span class="lineNoCov">          0 :       fputs (_(&quot;\</span>
+<span class="lineNum">     380 </span>            : Change the mode of each FILE to MODE.\n\
+<span class="lineNum">     381 </span>            : With --reference, change the mode of each FILE to that of RFILE.\n\
+<span class="lineNum">     382 </span>            : \n\
+<span class="lineNum">     383 </span>            : &quot;), stdout);
+<span class="lineNum">     384 </span><span class="lineNoCov">          0 :       fputs (_(&quot;\</span>
+<span class="lineNum">     385 </span>            :   -c, --changes          like verbose but report only when a change is made\n\
+<span class="lineNum">     386 </span>            :   -f, --silent, --quiet  suppress most error messages\n\
+<span class="lineNum">     387 </span>            :   -v, --verbose          output a diagnostic for every file processed\n\
+<span class="lineNum">     388 </span>            : &quot;), stdout);
+<span class="lineNum">     389 </span><span class="lineNoCov">          0 :       fputs (_(&quot;\</span>
+<span class="lineNum">     390 </span>            :       --no-preserve-root  do not treat '/' specially (the default)\n\
+<span class="lineNum">     391 </span>            :       --preserve-root    fail to operate recursively on '/'\n\
+<span class="lineNum">     392 </span>            : &quot;), stdout);
+<span class="lineNum">     393 </span><span class="lineNoCov">          0 :       fputs (_(&quot;\</span>
+<span class="lineNum">     394 </span>            :       --reference=RFILE  use RFILE's mode instead of MODE values\n\
+<span class="lineNum">     395 </span>            : &quot;), stdout);
+<span class="lineNum">     396 </span><span class="lineNoCov">          0 :       fputs (_(&quot;\</span>
+<span class="lineNum">     397 </span>            :   -R, --recursive        change files and directories recursively\n\
+<span class="lineNum">     398 </span>            : &quot;), stdout);
+<span class="lineNum">     399 </span><span class="lineNoCov">          0 :       fputs (HELP_OPTION_DESCRIPTION, stdout);</span>
+<span class="lineNum">     400 </span><span class="lineNoCov">          0 :       fputs (VERSION_OPTION_DESCRIPTION, stdout);</span>
+<span class="lineNum">     401 </span><span class="lineNoCov">          0 :       fputs (_(&quot;\</span>
+<span class="lineNum">     402 </span>            : \n\
+<span class="lineNum">     403 </span>            : Each MODE is of the form '[ugoa]*([-+=]([rwxXst]*|[ugo]))+|[-+=][0-7]+'.\n\
+<span class="lineNum">     404 </span>            : &quot;), stdout);
+<span class="lineNum">     405 </span><span class="lineNoCov">          0 :       emit_ancillary_info (PROGRAM_NAME);</span>
+<span class="lineNum">     406 </span>            :     }
+<span class="lineNum">     407 </span><span class="lineNoCov">          0 :   exit (status);</span>
+<span class="lineNum">     408 </span>            : }
+<span class="lineNum">     409 </span>            : 
+<span class="lineNum">     410 </span>            : /* Parse the ASCII mode given on the command line into a linked list
+<span class="lineNum">     411 </span>            :    of 'struct mode_change' and apply that to each file argument. */
+<a name="412"><span class="lineNum">     412 </span>            : </a>
+<span class="lineNum">     413 </span>            : int
+<span class="lineNum">     414 </span><span class="lineNoCov">          0 : main (int argc, char **argv)</span>
+<span class="lineNum">     415 </span>            : {
+<span class="lineNum">     416 </span><span class="lineNoCov">          0 :   char *mode = NULL;</span>
+<span class="lineNum">     417 </span><span class="lineNoCov">          0 :   size_t mode_len = 0;</span>
+<span class="lineNum">     418 </span><span class="lineNoCov">          0 :   size_t mode_alloc = 0;</span>
+<span class="lineNum">     419 </span>            :   bool ok;
+<span class="lineNum">     420 </span><span class="lineNoCov">          0 :   bool preserve_root = false;</span>
+<span class="lineNum">     421 </span><span class="lineNoCov">          0 :   char const *reference_file = NULL;</span>
+<span class="lineNum">     422 </span>            :   int c;
+<span class="lineNum">     423 </span>            : 
+<span class="lineNum">     424 </span>            :   initialize_main (&amp;argc, &amp;argv);
+<span class="lineNum">     425 </span><span class="lineNoCov">          0 :   set_program_name (argv[0]);</span>
+<span class="lineNum">     426 </span><span class="lineNoCov">          0 :   setlocale (LC_ALL, &quot;&quot;);</span>
+<span class="lineNum">     427 </span><span class="lineNoCov">          0 :   bindtextdomain (PACKAGE, LOCALEDIR);</span>
+<span class="lineNum">     428 </span><span class="lineNoCov">          0 :   textdomain (PACKAGE);</span>
+<span class="lineNum">     429 </span>            : 
+<span class="lineNum">     430 </span><span class="lineNoCov">          0 :   atexit (close_stdout);</span>
+<span class="lineNum">     431 </span>            : 
+<span class="lineNum">     432 </span><span class="lineNoCov">          0 :   recurse = force_silent = diagnose_surprises = false;</span>
+<span class="lineNum">     433 </span>            : 
+<span class="lineNum">     434 </span><span class="lineNoCov">          0 :   while ((c = getopt_long (argc, argv,</span>
+<span class="lineNum">     435 </span>            :                            (&quot;Rcfvr::w::x::X::s::t::u::g::o::a::,::+::=::&quot;
+<span class="lineNum">     436 </span>            :                             &quot;0::1::2::3::4::5::6::7::&quot;),
+<span class="lineNum">     437 </span>            :                            long_options, NULL))
+<span class="lineNum">     438 </span>            :          != -1)
+<span class="lineNum">     439 </span>            :     {
+<span class="lineNum">     440 </span><span class="lineNoCov">          0 :       switch (c)</span>
+<span class="lineNum">     441 </span>            :         {
+<span class="lineNum">     442 </span>            :         case 'r':
+<span class="lineNum">     443 </span>            :         case 'w':
+<span class="lineNum">     444 </span>            :         case 'x':
+<span class="lineNum">     445 </span>            :         case 'X':
+<span class="lineNum">     446 </span>            :         case 's':
+<span class="lineNum">     447 </span>            :         case 't':
+<span class="lineNum">     448 </span>            :         case 'u':
+<span class="lineNum">     449 </span>            :         case 'g':
+<span class="lineNum">     450 </span>            :         case 'o':
+<span class="lineNum">     451 </span>            :         case 'a':
+<span class="lineNum">     452 </span>            :         case ',':
+<span class="lineNum">     453 </span>            :         case '+':
+<span class="lineNum">     454 </span>            :         case '=':
+<span class="lineNum">     455 </span>            :         case '0': case '1': case '2': case '3':
+<span class="lineNum">     456 </span>            :         case '4': case '5': case '6': case '7':
+<span class="lineNum">     457 </span>            :           /* Support nonportable uses like &quot;chmod -w&quot;, but diagnose
+<span class="lineNum">     458 </span>            :              surprises due to umask confusion.  Even though &quot;--&quot;, &quot;--r&quot;,
+<span class="lineNum">     459 </span>            :              etc., are valid modes, there is no &quot;case '-'&quot; here since
+<span class="lineNum">     460 </span>            :              getopt_long reserves leading &quot;--&quot; for long options.  */
+<span class="lineNum">     461 </span>            :           {
+<span class="lineNum">     462 </span>            :             /* Allocate a mode string (e.g., &quot;-rwx&quot;) by concatenating
+<span class="lineNum">     463 </span>            :                the argument containing this option.  If a previous mode
+<span class="lineNum">     464 </span>            :                string was given, concatenate the previous string, a
+<span class="lineNum">     465 </span>            :                comma, and the new string (e.g., &quot;-s,-rwx&quot;).  */
+<span class="lineNum">     466 </span>            : 
+<span class="lineNum">     467 </span><span class="lineNoCov">          0 :             char const *arg = argv[optind - 1];</span>
+<span class="lineNum">     468 </span><span class="lineNoCov">          0 :             size_t arg_len = strlen (arg);</span>
+<span class="lineNum">     469 </span><span class="lineNoCov">          0 :             size_t mode_comma_len = mode_len + !!mode_len;</span>
+<span class="lineNum">     470 </span><span class="lineNoCov">          0 :             size_t new_mode_len = mode_comma_len + arg_len;</span>
+<span class="lineNum">     471 </span><span class="lineNoCov">          0 :             if (mode_alloc &lt;= new_mode_len)</span>
+<span class="lineNum">     472 </span>            :               {
+<span class="lineNum">     473 </span><span class="lineNoCov">          0 :                 mode_alloc = new_mode_len + 1;</span>
+<span class="lineNum">     474 </span><span class="lineNoCov">          0 :                 mode = X2REALLOC (mode, &amp;mode_alloc);</span>
+<span class="lineNum">     475 </span>            :               }
+<span class="lineNum">     476 </span><span class="lineNoCov">          0 :             mode[mode_len] = ',';</span>
+<span class="lineNum">     477 </span><span class="lineNoCov">          0 :             memcpy (mode + mode_comma_len, arg, arg_len + 1);</span>
+<span class="lineNum">     478 </span><span class="lineNoCov">          0 :             mode_len = new_mode_len;</span>
+<span class="lineNum">     479 </span>            : 
+<span class="lineNum">     480 </span><span class="lineNoCov">          0 :             diagnose_surprises = true;</span>
+<span class="lineNum">     481 </span>            :           }
+<span class="lineNum">     482 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     483 </span>            :         case NO_PRESERVE_ROOT:
+<span class="lineNum">     484 </span>            :           preserve_root = false;
+<span class="lineNum">     485 </span>            :           break;
+<span class="lineNum">     486 </span>            :         case PRESERVE_ROOT:
+<span class="lineNum">     487 </span><span class="lineNoCov">          0 :           preserve_root = true;</span>
+<span class="lineNum">     488 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     489 </span>            :         case REFERENCE_FILE_OPTION:
+<span class="lineNum">     490 </span><span class="lineNoCov">          0 :           reference_file = optarg;</span>
+<span class="lineNum">     491 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     492 </span>            :         case 'R':
+<span class="lineNum">     493 </span><span class="lineNoCov">          0 :           recurse = true;</span>
+<span class="lineNum">     494 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     495 </span>            :         case 'c':
+<span class="lineNum">     496 </span><span class="lineNoCov">          0 :           verbosity = V_changes_only;</span>
+<span class="lineNum">     497 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     498 </span>            :         case 'f':
+<span class="lineNum">     499 </span><span class="lineNoCov">          0 :           force_silent = true;</span>
+<span class="lineNum">     500 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     501 </span>            :         case 'v':
+<span class="lineNum">     502 </span><span class="lineNoCov">          0 :           verbosity = V_high;</span>
+<span class="lineNum">     503 </span><span class="lineNoCov">          0 :           break;</span>
+<span class="lineNum">     504 </span><span class="lineNoCov">          0 :         case_GETOPT_HELP_CHAR;</span>
+<span class="lineNum">     505 </span><span class="lineNoCov">          0 :         case_GETOPT_VERSION_CHAR (PROGRAM_NAME, AUTHORS);</span>
+<span class="lineNum">     506 </span>            :         default:
+<span class="lineNum">     507 </span><span class="lineNoCov">          0 :           usage (EXIT_FAILURE);</span>
+<span class="lineNum">     508 </span>            :         }
+<span class="lineNum">     509 </span>            :     }
+<span class="lineNum">     510 </span>            : 
+<span class="lineNum">     511 </span><span class="lineNoCov">          0 :   if (reference_file)</span>
+<span class="lineNum">     512 </span>            :     {
+<span class="lineNum">     513 </span><span class="lineNoCov">          0 :       if (mode)</span>
+<span class="lineNum">     514 </span>            :         {
+<span class="lineNum">     515 </span><span class="lineNoCov">          0 :           error (0, 0, _(&quot;cannot combine mode and --reference options&quot;));</span>
+<span class="lineNum">     516 </span><span class="lineNoCov">          0 :           usage (EXIT_FAILURE);</span>
+<span class="lineNum">     517 </span>            :         }
+<span class="lineNum">     518 </span>            :     }
+<span class="lineNum">     519 </span>            :   else
+<span class="lineNum">     520 </span>            :     {
+<span class="lineNum">     521 </span><span class="lineNoCov">          0 :       if (!mode)</span>
+<span class="lineNum">     522 </span><span class="lineNoCov">          0 :         mode = argv[optind++];</span>
+<span class="lineNum">     523 </span>            :     }
+<span class="lineNum">     524 </span>            : 
+<span class="lineNum">     525 </span><span class="lineNoCov">          0 :   if (optind &gt;= argc)</span>
+<span class="lineNum">     526 </span>            :     {
+<span class="lineNum">     527 </span><span class="lineNoCov">          0 :       if (!mode || mode != argv[optind - 1])</span>
+<span class="lineNum">     528 </span><span class="lineNoCov">          0 :         error (0, 0, _(&quot;missing operand&quot;));</span>
+<span class="lineNum">     529 </span>            :       else
+<span class="lineNum">     530 </span><span class="lineNoCov">          0 :         error (0, 0, _(&quot;missing operand after %s&quot;), quote (argv[argc - 1]));</span>
+<span class="lineNum">     531 </span><span class="lineNoCov">          0 :       usage (EXIT_FAILURE);</span>
+<span class="lineNum">     532 </span>            :     }
+<span class="lineNum">     533 </span>            : 
+<span class="lineNum">     534 </span><span class="lineNoCov">          0 :   if (reference_file)</span>
+<span class="lineNum">     535 </span>            :     {
+<span class="lineNum">     536 </span><span class="lineNoCov">          0 :       change = mode_create_from_ref (reference_file);</span>
+<span class="lineNum">     537 </span><span class="lineNoCov">          0 :       if (!change)</span>
+<span class="lineNum">     538 </span><span class="lineNoCov">          0 :         error (EXIT_FAILURE, errno, _(&quot;failed to get attributes of %s&quot;),</span>
+<span class="lineNum">     539 </span>            :                quoteaf (reference_file));
+<span class="lineNum">     540 </span>            :     }
+<span class="lineNum">     541 </span>            :   else
+<span class="lineNum">     542 </span>            :     {
+<span class="lineNum">     543 </span><span class="lineNoCov">          0 :       change = mode_compile (mode);</span>
+<span class="lineNum">     544 </span><span class="lineNoCov">          0 :       if (!change)</span>
+<span class="lineNum">     545 </span>            :         {
+<span class="lineNum">     546 </span><span class="lineNoCov">          0 :           error (0, 0, _(&quot;invalid mode: %s&quot;), quote (mode));</span>
+<span class="lineNum">     547 </span><span class="lineNoCov">          0 :           usage (EXIT_FAILURE);</span>
+<span class="lineNum">     548 </span>            :         }
+<span class="lineNum">     549 </span><span class="lineNoCov">          0 :       umask_value = umask (0);</span>
+<span class="lineNum">     550 </span>            :     }
+<span class="lineNum">     551 </span>            : 
+<span class="lineNum">     552 </span><span class="lineNoCov">          0 :   if (recurse &amp;&amp; preserve_root)</span>
+<span class="lineNum">     553 </span>            :     {
+<span class="lineNum">     554 </span>            :       static struct dev_ino dev_ino_buf;
+<span class="lineNum">     555 </span><span class="lineNoCov">          0 :       root_dev_ino = get_root_dev_ino (&amp;dev_ino_buf);</span>
+<span class="lineNum">     556 </span><span class="lineNoCov">          0 :       if (root_dev_ino == NULL)</span>
+<span class="lineNum">     557 </span><span class="lineNoCov">          0 :         error (EXIT_FAILURE, errno, _(&quot;failed to get attributes of %s&quot;),</span>
+<span class="lineNum">     558 </span>            :                quoteaf (&quot;/&quot;));
+<span class="lineNum">     559 </span>            :     }
+<span class="lineNum">     560 </span>            :   else
+<span class="lineNum">     561 </span>            :     {
+<span class="lineNum">     562 </span><span class="lineNoCov">          0 :       root_dev_ino = NULL;</span>
+<span class="lineNum">     563 </span>            :     }
+<span class="lineNum">     564 </span>            : 
+<span class="lineNum">     565 </span><span class="lineNoCov">          0 :   ok = process_files (argv + optind,</span>
+<span class="lineNum">     566 </span>            :                       FTS_COMFOLLOW | FTS_PHYSICAL | FTS_DEFER_STAT);
+<span class="lineNum">     567 </span>            : 
+<span class="lineNum">     568 </span><span class="lineNoCov">          0 :   return ok ? EXIT_SUCCESS : EXIT_FAILURE;</span>
+<span class="lineNum">     569 </span>            : }
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.12</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>
