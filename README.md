@@ -4,12 +4,6 @@ This repository contains the material and content of the DevOps course at KTH Ro
 
 Pull-requests are welcome! (and even necessary to register a work item).
 
-## Announcements
-
-- [Short summary after the first lecture](announcement/README.md)
-- [Deadlines for different tasks](announcement/README.md)
-- [Schedule of Michelin Devops Demo Day](announcement/README.md)
-
 ## Schedule
 
 The date, time and rooms are at <https://cloud.timeedit.net/kth/web/public01/ri105v5y1850Z6QY3QQ49YgXZQ000397Y4703.html> ([ICS version](https://www.kth.se/social/course/DD2482/subgroup/vt-2019-devops19/calendar/ical/?lang=en)). The schedule and content may change over time. Lab slots do not require mandatory presence.
@@ -118,7 +112,6 @@ Books:
 ## Communication
 
 All communication for the course DD2482 should be sent to dd2482@eecs.kth.se You are also welcome to create issues here if you think the question is good to be discussed publicly. Check the announcement [here](https://github.com/KTH/devops-course/tree/master/announcement). 
-
 
 ## Team
 
