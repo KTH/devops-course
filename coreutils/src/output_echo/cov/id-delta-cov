@@ -1,2 +1,0 @@
-# id:NNNNNN*_file, cycle, src_file, coverage_type, fcn/line
-id:000000,orig:echo.txt, 0, /root/coreutils.gcov/src/echo.c, function, main()

@@ -1,3 +1,0 @@
-# id:NNNNNN*_file, cycle, src_file, coverage_type, fcn/line
-id:000000,orig:cat.txt, 0, /root/coreutils.gcov/src/cat.c, function, main()
-id:000000,orig:cat.txt, 0, /root/coreutils.gcov/src/cat.c, function, simple_cat()

@@ -1,9 +1,0 @@
--A
--B
---version
---help
--s
--t
--n
--v
--g -t
