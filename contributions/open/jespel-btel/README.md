@@ -69,6 +69,8 @@ A tone was also played depending on the return value of the hearbeat
 function, much like a normal ECG (with a continous sound being played
 during a flatline).
 
+One can also click on the animation to switch between art and monitor mode.
+
 ### The backend
 
 The backend was written in Python using the Flask framework to create
