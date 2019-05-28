@@ -1,5 +1,8 @@
 # Fuzzing of JSON Parsing Libraries w/ Open-Source Contributions
 
+## UPDATE (10 May 2019)
+Our created issue, [Heap Corruption error on several inputs](https://github.com/lemire/simdjson/issues/150), on the `simdjson` project have now been [resolved in a commit](https://github.com/lemire/simdjson/commit/f75280ac9c892406e6354ef516f7c9765d10f5ab). As part of this, the issue found was resolved and all of our JSON-files causing issues have made it into the project as test cases.
+
 ## Summary
 This project was part of the graduate course, [*DD2482 Automated Software Testing and DevOps*](https://www.kth.se/student/kurser/kurs/DD2482?l=en) at [KTH Royal Institute of Technology](https://kth.se), with the aim of detecting and possibly resolving bugs in a range of JSON parsing libraries using fuzzing.
 

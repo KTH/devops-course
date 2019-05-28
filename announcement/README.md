@@ -27,13 +27,13 @@ Note that the following time duration is for critiques to come and grade your de
 | Group Number | Group Name | Topic |
 | ------------ | ---------- | ----- |
 | #9 | anapro-parumita | Exploring ELK and present possible usage by Developers and Ops |
-| #10 | egedda-lukassz | Test amplification |
+| #10 | egedda-lukassz | Monitoring and Chaos Engineering |
 | #11 | gusgun-jakobhol | Automatic site deploys in K8s |
 | #12 | hors-yptu | CI/CD pipeline with automatic deployment |
 | #13 | jespel-felixed | Distributed Systems Tracing |
 | #14 | moanym-addibin | Automate iOS development workflow |
 | #15 | phistr-miguelmu | DevOps with OpenShift |
-| #16 | saraers-egood-fnorr | CI/CD pipeline using Docker and Microsoft Azure |
+| #16 | saraers-egood | CI/CD pipeline using Docker and Microsoft Azure |
 | #17 | tonik-krijor | Automatic Static Site Redeploys |
 | #19 | gaborn | A/B Testing using Wasabi |
 | #21 | ajjo | Manage secrets and protect sensitive data using HashiCorp Vault |
