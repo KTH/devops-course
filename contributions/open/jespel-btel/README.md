@@ -24,7 +24,14 @@ Further we got a crazy idea that it might be cool to be able to visualize the pr
 ## Main project
 [https://flaky.jesperlarsson.me](https://flaky.jesperlarsson.me) holds the final animation.
 
-## Meaning
+## Artistic meaning
+The final product contains two different animations:
+ 1. normal heartbeats, and
+ 2. flatline.
+
+We did not animate arrythmia manifesting as a double heartbeat since we deemed that it was not neccessary to deliver our artistic vision.
+
+Our vision was to create an animation that could convey the feeling of flaky tests. The normal heartbeats represents that tests passing as they should, and the site is dominated by a calming green to ensure the viewer that everything is fine. But then, suddenly, it all changes to an alarming red with a constant monotonic noise when the ECG flatlines and turns red. This represents the heartstopping fear one might feel when their normally green chekckmark suddenly turns into a red cross due to a flaky test. But just as suddenly as it flatlined, it goes back to the calming green, and momentarily calms you, but you feel that your trust has slightly diminished.
 
 ## Implementation
 The frontend was implemented as static site, with plain HTML, CSS and JS. The following sections will describe how we generated datapoints for the heartbeat and displayed them.
