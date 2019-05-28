@@ -15,3 +15,5 @@ worked much with plugins before. The steps I intend to finish are:
 3. At support for build status at least. Optionally also test result and commit info.
 4. Add at least one unit test to the new pipeline step
 5. Install and test the improved plugin on a local Jenkins instance (also needed for testing)
+
+[Prototype repository](https://github.com/netrounds-erik/slack-plugin/tree/slack-notify)
