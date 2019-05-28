@@ -27,6 +27,7 @@ Further we got a crazy idea that it might be cool to be able to visualize the pr
 ## Meaning
 
 ## Implementation
+The frontend was implemented as static site, with plain HTML, CSS and JS. The following sections will describe how we generated datapoints for the heartbeat and displayed them.
 
 ### The heartbeat function
 The heartbeat was implemented from scratch by using some simple built
