@@ -75,7 +75,7 @@ status.
 
 * `/flip-mode` switch the current mode of the canvas
 
-* `/hook` endpoint to communicate with gitlab
+* `/hook` endpoint to communicate with gitlab about the build status
 
 ## Repo structure
 
