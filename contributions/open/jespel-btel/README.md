@@ -24,6 +24,12 @@ Further we got a crazy idea that it might be cool to be able to visualize the pr
 ## Main project
 [https://flaky.jesperlarsson.me](https://flaky.jesperlarsson.me) holds the final animation.
 
+## Meaning
+
+## Implementation
+
+## Repo structure
+
 ## Side goal
 We were happy with our devops practices. Our project focused very much on the visual and artistic side of the product resulting in us forgoing unit tests, but we are proud over our automatic deployment. Our repos can be found at [https://gitlab.com/flaky_kth_devops](https://gitlab.com/flaky_kth_devops).
 
