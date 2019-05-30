@@ -1,6 +1,6 @@
-# Service Mesh
+# Service Mesh (Resubmission)
 
-### Submission Link: https://medium.com/@anonym0606/service-mesh-d8ad60ae39bd
+### Submission Link (Updated): https://medium.com/@anonym0606/service-mesh-d8ad60ae39bd
 
 **By:** Gábor Nagy gaborn@kth.se
 
