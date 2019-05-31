@@ -1,13 +1,9 @@
-# Microservice Architecture: Saga Pattern
+# The Saga Pattern: Maintaining Data Consistency in a Microservices Architecture 
 
 ## Members
 
 - Arnthor Jonsson <ajjo@kth.se>
 
 ## Topic
-I want to write an essay about the microservice architecture pattern Saga.
-
-- What it is
-- How it's implemented
-- When to use it
+How does a distributed system using a microservice architecture maintain data consistency by using the Saga pattern.
 
