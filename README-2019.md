@@ -13,7 +13,7 @@ build jobs? - Erik Johansson, Felix Eder](https://github.com/KTH/devops-course/b
     * [Automatic Static Site Redeploys - Toni Karppi, Kristian Alvarez Jörgensen](https://github.com/KTH/devops-course/tree/master/contributions-2019/demo/tonik-krijor)
 
     * [Automate iOS development workflow - Moa Nyman, Addibin Haider](https://www.youtube.com/watch?v=oSfDyHX_aig)
-    * [App deployment with Dokku and DigitalOcean - Patric Ridell, Philippa Örnell](https://www.youtube.com/watch?v=-jwq8eieCVE&feature=youtu.be)
+    * [App deployment with Dokku and DigitalOcean - Patric Ridell, Philippa Örnell](https://github.com/KTH/devops-course/releases/download/files/2019-screencast-Patric-Philippa.mp4)
     * [Dynamic Jenkins build agents using AWS - Erik Johansson](https://www.youtube.com/watch?v=qXr2THwEuIs)
 * Prototyping
     * [Fuzzing of JSON Parsing Libraries - Emil Gedda,
