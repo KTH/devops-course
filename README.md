@@ -11,7 +11,8 @@ Past edition:
 
 ## Schedule
 
-The date, time and rooms are at <https://cloud.timeedit.net/kth/web/public01/ri105v5y1850Z6QY3QQ49YgXZQ000397Y4703.html> ([ICS version](https://www.kth.se/social/course/DD2482/subgroup/vt-2019-devops19/calendar/ical/?lang=en)). The schedule and content may change over time. 
+* HTML: https://www.kth.se/social/course/DD2482/calendar/
+* ICS: https://www.kth.se/social/course/DD2482/subgroup/vt-2020-devops20/calendar/ical/?lang=en
 
 ### Week 1: Introduction
 
