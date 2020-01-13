@@ -86,6 +86,7 @@ To pass the course, the student has to collect 4 grades:
 * the grades are announced as a pull-request or issue comment on this repository.   
 * Group work is encouraged (max 3 persons) but you cannot be with the same persons for more than 2 projects. You can do a work alone for one or at most two projects.
 * A failed task requires to pass it again at the end of the course, based on the feedback from the failure. A repeated task cannot be passed with distinction. A task can only be repeated once.
+* If the whole course is failed, no grades are kept if the student registers again to the course the year after. 
 
 Group Rules
 * The pre-generated group sheets are the suggestion instead of the mandatory.
