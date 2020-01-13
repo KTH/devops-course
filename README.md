@@ -41,20 +41,20 @@ Past edition:
 
 ### Week 3: Container, microservice and orchestration
 * Preparatory reading: <https://medium.com/@nagarwal/understanding-the-docker-internals-7ccb052ce9fe>
-* Lecture: [Julien Bisconti?](https://www.linkedin.com/in/julienbisconti/)
+* Lecture: 
 * Student presentations
 
 ### Week 4: Pipelines
 * Preparatory reading: [XWiki: a use case for advanced CI](https://www.slideshare.net/vmassol/developing-xwiki-75667041)
 * Introduction to research and collaborative projects (Benoit Baudry)
-* Lecture: [Vincent Massol?](http://massol.myxwiki.org)
+* Lecture: 
 * Student presentations
 
 ### Week 5: Human and organizational Aspects of Devops
 * Preparatory reading:
   * [An Exploratory Study of DevOps Extending the Dimensions of DevOps with Practices](https://jira.dimecc.com/secure/attachment/14989/ICSEA_Lwakatare_Final.pdf)
   * [Towards DevOps in the Embedded Systems Domain: Why is It so Hard?](https://ieeexplore.ieee.org/document/7427859/) (accessible at KTH or through KTH's VPN)
-* Lecture: [Jaana Nyfjord, SAAB](https://se.linkedin.com/in/jaananyfjord)
+* Lecture: 
 * Student presentations
 
 ### Week 6: Monitoring, tracing, fault injection 
@@ -88,7 +88,6 @@ To pass the course, the student has to collect 4 grades:
 
 Group Rules
 * The pre-generated group sheets are the suggestion instead of the mandatory.
-* We have decided to drop the numbering of the groups due to poor maintainable. So there is no need to create an issue to update the group sheet.
 * When you send a pull for registration, please follow the name convention of using email addresses of two members: email-email instead of the group number.
 * We recommend 2 students. Three is also possible for ambitious essays, demos or development.
 
@@ -103,6 +102,7 @@ All communication for the course DD2482 should be sent to <dd2482@eecs.kth.se> Y
 * [Prof. Benoit Baudry](https://softwarediversity.eu/)
 * [He Ye (TA)](https://www.kth.se/profile/heye)
 * [Long Zhang (TA)](http://gluckzhang.com/)
+* [César Soto (TA)](https://cesarsotovalero.github.io/)
 
 ## See also
 
