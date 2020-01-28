@@ -45,23 +45,19 @@ Past edition:
 * Lecture CI: [Mats Skoglund](https://www.linkedin.com/in/matsskoglund/), Scania.
 * Student presentations
 
-### Week 4: Pipelines
-* Preparatory reading: [XWiki: a use case for advanced CI](https://www.slideshare.net/vmassol/developing-xwiki-75667041)
+### Week 4: DevOps and security
+* Preparatory reading: 
 * Introduction to research and collaborative projects (Benoit Baudry)
-* Lecture: 
+* Lecture: [Amir Gaber](https://www.linkedin.com/in/amirgaber/)
 * Student presentations
 
-### Week 5: Human and organizational Aspects of Devops
-* Preparatory reading:
-  * [An Exploratory Study of DevOps Extending the Dimensions of DevOps with Practices](https://jira.dimecc.com/secure/attachment/14989/ICSEA_Lwakatare_Final.pdf)
-  * [Towards DevOps in the Embedded Systems Domain: Why is It so Hard?](https://ieeexplore.ieee.org/document/7427859/) (accessible at KTH or through KTH's VPN)
-* Lecture: 
-* Student presentations
-
-### Week 6: Monitoring, tracing, fault injection 
+### Week 5: Monitoring and serverless computing
 * Preparatory reading: [Notes on monitoring](https://www.monperrus.net/martin/monitoring.pdf)
 * Lecture: [Martin Monperrus](https://www.monperrus.net/martin/)
-* Demo: [Monitoring and tracing in Kubernetes](https://docs.google.com/presentation/d/1BKhdIU8aXJB7qE2CRn6RjmXKxd0J1N4B2-DTU9OtQPs/edit?usp=sharing) (Long Zhang)
+* Lecture: [Julien Bisconti](https://www.linkedin.com/in/julienbisconti/) 
+* Student presentations
+
+### Week 6: 
 * Student presentations
 
 ### Week 7: Michelin Devops Demo Day
