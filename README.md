@@ -34,14 +34,15 @@ Past edition:
   * Goal: Full planning for March 25
 
 
-### Week 2: Automatic Testing
-* Preparatory reading: [Mutation analysis](https://medium.com/@almyre/short-circuiting-method-executions-to-assess-test-quality-2d3fda45bc7f), [Clean unit tests](https://blog.usejournal.com/3-easy-ways-to-write-cleaner-unit-tests-2ec04ca6b9df)
-* Lecture: Benoit Baudry, KTH.
+### Week 2: Software bots
+* Preparatory reading: 
+* Lecture: [Rhys Arkins](https://www.linkedin.com/in/rhys-arkins-5a643a/) 
 * Student presentations
 
-### Week 3: Container, microservice and orchestration
-* Preparatory reading: <https://medium.com/@nagarwal/understanding-the-docker-internals-7ccb052ce9fe>
-* Lecture: 
+### Week 3: Testing and CI
+* Preparatory reading: [Mutation analysis](https://medium.com/@almyre/short-circuiting-method-executions-to-assess-test-quality-2d3fda45bc7f), [Clean unit tests](https://blog.usejournal.com/3-easy-ways-to-write-cleaner-unit-tests-2ec04ca6b9df)
+* Lecture testing: Benoit Baudry, KTH.
+* Lecture CI: [Mats Skoglund](https://www.linkedin.com/in/matsskoglund/), Scania.
 * Student presentations
 
 ### Week 4: Pipelines
