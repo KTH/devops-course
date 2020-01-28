@@ -57,12 +57,12 @@ Past edition:
 * Lecture: [Julien Bisconti](https://www.linkedin.com/in/julienbisconti/) 
 * Student presentations
 
-### Week 6: 
+### Week 6: Infrastructure as code
 * Student presentations
 
 ### Week 7: Michelin Devops Demo Day
 * Location: TBA
-* Preparatory reading: [Volvo Trucks - The Epic Split](https://www.youtube.com/watch?v=M7FIvfx5J10)
+* Preparatory reading: [Playing Apart – ett unikt experiment i ett samarbete mellan Telia och Göteborgs Symfoniker](https://youtu.be/B4_GszP0k4E)
 
 ### Week 8: Wrap-up, feedback and potluck
 * 9h15 Wrap-up & Feedback
