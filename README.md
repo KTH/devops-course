@@ -29,7 +29,7 @@ Past edition:
 * Final task: find a first teammate, register one task as a pull request.
 
 ### Week 2: Software bots
-* Preparatory reading: 
+* Preparatory reading: [Introduction to Probot](https://probot.github.io/docs/)
 * Lecture: [Rhys Arkins](https://www.linkedin.com/in/rhys-arkins-5a643a/) 
 * Student presentations
 
