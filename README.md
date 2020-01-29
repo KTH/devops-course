@@ -18,21 +18,15 @@ Past edition:
 
 * Preparatory reading: <https://youtu.be/qcm0rG8EKXI>
 * Course introduction [Martin Monperrus](https://www.monperrus.net/martin/)
-  * Your/Our expectations
+  * Your/our expectations
   * Teaching philosophy, teaching values
   * Team
   * Agenda
   * Grading
-    * General rules
-    * Group management (Ye, Long)
-    * Registration of works as pull-request (Ye, Long)
   * Communication (watch this repo!)
   * Infrastructure
   * Relation to Research in Testing & DevOps 
-* Student Presentations
-  * Goal: register one work
-  * Goal: Full planning for March 25
-
+* Final task: find a first teammate, register one task as a pull request.
 
 ### Week 2: Software bots
 * Preparatory reading: 
