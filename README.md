@@ -40,9 +40,10 @@ Past edition:
 * Student presentations
 
 ### Week 4: DevOps and security
-* Preparatory reading: 
 * Introduction to research and collaborative projects (Benoit Baudry)
 * Lecture: [Amir Gaber](https://www.linkedin.com/in/amirgaber/)
+  * Material: [Guide for ConductingRisk Assessments](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-30r1.pdf)
+  * Material: [The CyberSecurity Body of Knowledge](https://www.cybok.org/media/downloads/CyBOK_version_1.0_YMKBy7a.pdf)
 * Student presentations
 
 ### Week 5: Monitoring and serverless computing
