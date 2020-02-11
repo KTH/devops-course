@@ -42,7 +42,11 @@ Past edition:
 ### Week 4: DevOps and security
 * Introduction to research and collaborative projects (Benoit Baudry)
 * Lecture: [Amir Gaber](https://www.linkedin.com/in/amirgaber/)
-  * Material: [Guide for ConductingRisk Assessments](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-30r1.pdf)
+  * Material: [Risk Management Framework for Information Systems and Organizations](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-37r2.pdf)
+    * Page 38: Asset identification
+    * Page 41: Risk assessment – system
+    * Page 42: Requirement definition
+    * Page 44: Requirement allocation
   * Material: [The CyberSecurity Body of Knowledge](https://www.cybok.org/media/downloads/CyBOK_version_1.0_YMKBy7a.pdf)
 * Student presentations
 
