@@ -75,9 +75,8 @@ Past edition:
 Lab slots do not require mandatory presence.
 
 To pass the course, the student has to collect 4 grades:
-* the grades are in category: "presentation", "demo", "essay", "competition entry", "open" (choose four out of them, at most one in the same category, it is not necessary to cover everything)
-* the student proposes a category and a topic, which is discussed and accepted by the TA. The proposal is made as a pull-request on this repository.
-* in each category, there are suggested topics, listed on issues in this repository (for instance [#9](https://github.com/KTH/devops-course/issues/9) lists topics about testing)
+* the grades are in category: "[presentation](https://github.com/KTH/devops-course/tree/master/contributions/presentation)", "[demo](https://github.com/KTH/devops-course/tree/master/contributions/demo)", "[essay](https://github.com/KTH/devops-course/tree/master/contributions/essay)", "[tutorial](https://github.com/KTH/devops-course/tree/master/contributions/tutorial)", "competition entry", "contribution to open-source" (choose four out of them, at most one in the same category, it is not necessary to cover everything).  
+* the student proposes a category and a topic, which is discussed and accepted by the TA. The proposal is made as a pull-request on this repository. The four graded contributions must have little overlap.
 * each grading category, there is a grading form, which explains how to pass / pass with distinction.
 * 4 Pass means a final E, 3 Pass / 1 Distinction means a final D, 2 Pass / 2 Distinction means a final C, 1 Pass / 3 Distinction means a final B, 4 Distinction means a final A
   * for the competition, the distinction is given to the top-25% best performing teams
