@@ -15,7 +15,6 @@ Past edition:
 * ICS: https://www.kth.se/social/course/DD2482/subgroup/vt-2020-devops20/calendar/ical/?lang=en
 
 ### Week 1: Introduction
-
 * Preparatory reading: <https://youtu.be/qcm0rG8EKXI>
 * Course introduction [Martin Monperrus](https://www.monperrus.net/martin/)
   * Your/our expectations
@@ -28,18 +27,19 @@ Past edition:
   * Relation to Research in Testing & DevOps 
 * Final task: find a first teammate, register one task as a pull request.
 
-### Week 2: Software bots
-* Preparatory reading: [Introduction to Probot](https://probot.github.io/docs/)
+### Week 2
+* Session: Grounded theory for DevOps
 * Lecture: [Rhys Arkins](https://www.linkedin.com/in/rhys-arkins-5a643a/) 
+  * Preparatory reading: [Introduction to Probot](https://probot.github.io/docs/)
 * Student presentations
 
-### Week 3: Testing and CI
-* Preparatory reading: [Mutation analysis](https://medium.com/@almyre/short-circuiting-method-executions-to-assess-test-quality-2d3fda45bc7f), [Clean unit tests](https://blog.usejournal.com/3-easy-ways-to-write-cleaner-unit-tests-2ec04ca6b9df)
+### Week 3
 * Lecture testing: Benoit Baudry, KTH.
+  * Preparatory reading: [Mutation analysis](https://medium.com/@almyre/short-circuiting-method-executions-to-assess-test-quality-2d3fda45bc7f), [Clean unit tests](https://blog.usejournal.com/3-easy-ways-to-write-cleaner-unit-tests-2ec04ca6b9df)
 * Lecture CI: [Mats Skoglund](https://www.linkedin.com/in/matsskoglund/), Scania.
 * Student presentations
 
-### Week 4: DevOps and security
+### Week 4
 * Introduction to research and collaborative projects (Benoit Baudry)
 * Lecture: [Amir Gaber](https://www.linkedin.com/in/amirgaber/)
   * Material: [Risk Management Framework for Information Systems and Organizations](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-37r2.pdf)
@@ -50,13 +50,15 @@ Past edition:
   * Material: [The CyberSecurity Body of Knowledge](https://www.cybok.org/media/downloads/CyBOK_version_1.0_YMKBy7a.pdf)
 * Student presentations
 
-### Week 5: Monitoring and serverless computing
-* Preparatory reading: [Notes on monitoring](https://www.monperrus.net/martin/monitoring.pdf)
-* Lecture: [Martin Monperrus](https://www.monperrus.net/martin/)
-* Lecture: [Julien Bisconti](https://www.linkedin.com/in/julienbisconti/) 
+### Week 5
+* Lecture: Monitoring [Martin Monperrus](https://www.monperrus.net/martin/)
+  * Preparatory reading: [Notes on monitoring](https://www.monperrus.net/martin/monitoring.pdf)
+* Lecture: Serverless computing [Julien Bisconti](https://www.linkedin.com/in/julienbisconti/) 
 * Student presentations
 
-### Week 6: Infrastructure as code
+### Week 6
+* Lecture: Infrastructure as code / Containers and orchestration 
+* Lecture: Automatic program repair [Martin Monperrus](https://www.monperrus.net/martin/)
 * Student presentations
 
 ### Week 7: Michelin Devops Demo Day
@@ -88,7 +90,6 @@ Group Rules
 * The pre-generated group sheets are the suggestion instead of the mandatory.
 * When you send a pull for registration, please follow the name convention of using email addresses of two members: email-email instead of the group number.
 * We recommend 2 students. Three is also possible for ambitious essays, demos or development.
-
 
 ## Communication
 
