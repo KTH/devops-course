@@ -42,18 +42,19 @@ Past edition:
 ### Week 4
 * Introduction to research and collaborative projects (Benoit Baudry)
 * Lecture: [Amir Gaber](https://www.linkedin.com/in/amirgaber/)
-  * Material: [Risk Management Framework for Information Systems and Organizations](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-37r2.pdf)
+  * Preparatory material: [Risk Management Framework for Information Systems and Organizations](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-37r2.pdf)
     * Page 38: Asset identification
     * Page 41: Risk assessment – system
     * Page 42: Requirement definition
     * Page 44: Requirement allocation
-  * Material: [The CyberSecurity Body of Knowledge](https://www.cybok.org/media/downloads/CyBOK_version_1.0_YMKBy7a.pdf)
+  * Preparatory Material: [The CyberSecurity Body of Knowledge](https://www.cybok.org/media/downloads/CyBOK_version_1.0_YMKBy7a.pdf)
 * Student presentations
 
 ### Week 5
 * Lecture: Monitoring [Martin Monperrus](https://www.monperrus.net/martin/)
-  * Preparatory reading: [Notes on monitoring](https://www.monperrus.net/martin/monitoring.pdf)
+  * Preparatory material: [Notes on monitoring](https://www.monperrus.net/martin/monitoring.pdf)
 * Lecture: Serverless computing [Julien Bisconti](https://www.linkedin.com/in/julienbisconti/) 
+  * Preparatory material: <https://www.youtube.com/watch?v=b7Nc_FJiosk>
 * Student presentations
 
 ### Week 6
