@@ -14,26 +14,25 @@ Among the guests, some are "critique" (in the sense of [culinary critique](https
 **Topic:**  
 **Demoers:**
 
-|                                             | Yes | No | Outstanding |
+|                                             | Yes | No | Remarkable |
 |-------------------------------------------- | ----|----|-------------|
-|The demonstration is relevant to DevOps | Yes | No | Outstanding |
-|The demonstration is difficult to do | Yes | No | Outstanding |
-|The demonstration is original | Yes | No | Outstanding |
-|The demonstration is sublime (eg visually appealing) | Yes | No | Outstanding |
-|The demonstration's length is appropriate  | Yes | No | Outstanding |
-|The live demonstration contains an easter egg | Yes | No | Outstanding |
-|The audience can play / directly interact with the demo  | Yes | No | Outstanding |
-|The demonstration triggers a conversation  | Yes | No | Outstanding |
-|The screencast contains a good title frame | Yes | No | Outstanding |
-|The screencast is less than 3 minutes | Yes | No | Outstanding |
-|The screencast contains subtitles which are clear and in proper English  | Yes | No | Outstanding |
-|The screencast contains a good and concise take-home message at the end | Yes | No | Outstanding |
+|The demonstration is clearly motivated (why it matters for Devops?) | Yes | No | Remarkable |
+|The demonstration is difficult to do | Yes | No | Remarkable |
+|The demonstration is original | Yes | No | Remarkable |
+|The demonstration is sublime (eg visually appealing) | Yes | No | Remarkable |
+|The live demonstration contains an easter egg | Yes | No | Remarkable |
+|The audience can play / directly interact with the demo  | Yes | No | Remarkable |
+|The demonstration triggers a conversation  | Yes | No | Remarkable |
+|A screencast has been made (optional) | Yes | No | Remarkable |
 
-<br/>
+To pass, you must have at least 4 "yes".
+To get a distinction, you must have at least a good screencast and at least 2 "remarkable".
 
-| Comments: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
-|----------------|
-| <br/><br/><br/>|
+Criteria for the screencast:
+* The screencast is less than 3 minutes
+* The screencast contains subtitles which are clear and in proper English
+* The screencast contains a good and concise take-home message at the end
+
 
 ## How to Register your Demo
 
