@@ -25,6 +25,7 @@ Past edition:
   * Communication (watch this repo!)
   * Infrastructure
   * Relation to Research in Testing & DevOps 
+* Testimonial from last year's student: [Julius Colliander Celik](https://github.com/juliuscc)
 * Goals: watch the repo, find a first teammate, register one first task as a pull request on this repo.
 
 ### Week 2
