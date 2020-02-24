@@ -31,7 +31,7 @@ To get a distinction, you need at least 3 "remarkable".
 
 Make a pull-request based on the following steps:
 
-- create a folder with your group name (like `T1G1`)
+- create a folder following the name convention of using email addresses of two members: email-email
 - in your folder, create a README.md file and put your topic information there
 - propose a date for your presentation
 
