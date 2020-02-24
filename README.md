@@ -14,6 +14,9 @@ Past edition:
 * HTML: https://www.kth.se/social/course/DD2482/calendar/
 * ICS: https://www.kth.se/social/course/DD2482/subgroup/vt-2020-devops20/calendar/ical/?lang=en
 
+*If you can't see any schedule events on the HTML page*  
+*Change course rounds/groups in [My settings](https://www.kth.se/social/course/DD2482/subscription/) or change the time period above so that it conforms to the course round.*
+
 ### Week 1: Introduction
 * Preparatory reading: <https://youtu.be/qcm0rG8EKXI>
 * Course introduction [Martin Monperrus](https://www.monperrus.net/martin/)
