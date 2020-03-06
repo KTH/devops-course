@@ -67,7 +67,7 @@ Past edition:
 * Student presentations
 
 ### Week 7: Michelin Devops Demo Day
-* Location: TBA
+* Location: [U31](https://www.kth.se/places/room/id/1f421a2a-40ec-4dcc-ab4b-0a39174cb067), [U31 Break-out](https://www.kth.se/places/room/id/0d4376e6-7a85-4dad-9587-c63cc3a24708)
 * Preparatory reading: [Playing Apart – ett unikt experiment i ett samarbete mellan Telia och Göteborgs Symfoniker](https://youtu.be/B4_GszP0k4E)
 
 ### Week 8: Wrap-up, feedback and potluck
