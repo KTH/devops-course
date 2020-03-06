@@ -14,8 +14,8 @@ The concept: you contribute to open-source projects related to DevOps and get me
 |The contributions add new features | Yes | No | Remarkable (hard features) |
 |The contributions are much appreciated by the community | Yes | No | Remarkable (highly praised)|
 
-To pass, you must have one significant contribution.
-To get a distinction, you must have one remarkable.
+To pass, you must have one yes.
+To get a distinction, you must have at least one remarkable contribution.
 
 Note: we are all aware that this assessment is subjective by nature. In case of disagreement, the informed judgement of the professor is the final decision.
 
@@ -24,8 +24,8 @@ Note: we are all aware that this assessment is subjective by nature. In case of 
 
 Make a pull-request based on the following steps:
 
-- create a folder with your group name (like `T1G1`)
-- in your folder, create a README.md file and put your tutorial proposal there
+- create a folder with your group name
+- in your folder, create a README.md file and put your opens-source contribution proposal there.
 
 TA will review the PR. If it is accepted, you could begin your work on this topic, and make another pull-request to submit your work in the future.
 
