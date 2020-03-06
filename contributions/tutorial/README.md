@@ -25,7 +25,7 @@ To get a distinction, you must have one browser version and at least 1 "remarkab
 
 Make a pull-request based on the following steps:
 
-- create a folder with your group name (like `T1G1`)
+- create a folder following the name convention of using email addresses of two members: email-email
 - in your folder, create a README.md file and put your tutorial proposal there, the tutorial contains a one-paragraph statement about the novelty of tutorial. The TA assesses the novelty before merging the PR.
 
 TA will review the PR. If it is accepted, you could begin your work on this topic, and make another pull-request to submit your work in the future.
