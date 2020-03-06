@@ -77,7 +77,7 @@ Past edition:
 
 ## Rules
 
-Lab slots do not require mandatory presence.
+Lab slots do not require mandatory presence. They are designed for students to meet TA and discuss questions on site. During the lab session, please use this [Queue](http://queue.csc.kth.se/#/queue/DD2482) to register your call. Our TAs will contact you in minutes according to the location you specify.
 
 To pass the course, the student has to collect 4 grades:
 * the grades are in category: "[presentation](https://github.com/KTH/devops-course/tree/master/contributions/presentation)", "[demo](https://github.com/KTH/devops-course/tree/master/contributions/demo)", "[essay](https://github.com/KTH/devops-course/tree/master/contributions/essay)", "[tutorial](https://github.com/KTH/devops-course/tree/master/contributions/tutorial)", "[competition entry](https://github.com/KTH/devops-course/tree/master/contributions/competition)", "[contribution to open-source](https://github.com/KTH/devops-course/tree/master/contributions/open-source)" (choose four out of them, at most one in the same category, it is not necessary to cover everything).  
