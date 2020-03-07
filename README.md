@@ -91,9 +91,8 @@ To pass the course, the student has to collect 4 grades:
 * If the whole course is failed, no grades are kept if the student registers again to the course the year after. 
 
 Group Rules
-* The pre-generated group sheets are the suggestion instead of the mandatory.
-* When you send a pull for registration, please follow the name convention of using email addresses of two members: email-email instead of the group number.
-* We recommend 2 students. Three is also possible for ambitious essays, demos or development.
+* When you send a pull request for registration, please follow the name convention of using email addresses of two members to create the folder: email-email.
+* We recommend 2 students. Three is also possible for ambitious essays, demos or contribution to open-source.
 
 ## Communication
 
