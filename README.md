@@ -64,6 +64,7 @@ Past edition:
 ### Week 6
 * Lecture: Infrastructure as code / Containers and orchestration 
 * Lecture: Automatic program repair [Martin Monperrus](https://www.monperrus.net/martin/)
+* Fuzzing competition results
 * Student presentations
 
 ### Week 7: Michelin Devops Demo Day
