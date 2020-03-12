@@ -99,6 +99,14 @@ Group Rules
 
 All communication for the course DD2482 should be sent to <dd2482@eecs.kth.se> You are also welcome to create issues here if you think the question is good to be discussed publicly.
 
+## Remote participation
+
+In case the conditions do not allow for in-person participation, the grading scheme changes as follows:
+
+* "essay", "tutorial", "competition entry", "contribution to open-source": the rules remain the same
+* "demo": the screencast is the unique item to be handed over and graded
+* "presentation": there is no online version of the presentation task
+
 ## Team
 
 * [Prof. Martin Monperrus](http://www.monperrus.net/martin/)
