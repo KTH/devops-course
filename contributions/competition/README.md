@@ -6,7 +6,7 @@ To participate in the fuzzing competition, you submit a solution for fuzzing tes
 
 Binaries to be fuzzed: static build of FFmpeg 4.2
 
-Note that you have a **one hour** execution time budget **in total**, i.e. the grader spends at most one hour to execute all your inputs in a top-down order. If two submissions have the same coverage, the one with less execution time gets the higher score.
+Note that you have a **one hour** execution time budget **in total**, i.e. the grader spends at most one hour to execute all your inputs in a top-down order. If two submissions have the same coverage, the one with less execution time gets the higher score. The maximum size of your submission should not exceed **1 GB**.
 
 Usually a static build of FFmpeg (e.g., https://johnvansickle.com/ffmpeg/) does not contain debugging information. If you need to analyze the coverage with the help of debugging symbols, you may need to build FFmpeg by yourself. We provide the following resource for your convenience:
 
