@@ -62,7 +62,7 @@ Past edition:
 * Student presentations
 
 ### Week 6
-* Lecture: Infrastructure as code / Containers and orchestration 
+* Webinar: Infrastructure as code [Daniel Caballero Rodriguez (Fastly)](https://www.linkedin.com/in/danicaba/) 
 * Lecture: Automatic program repair [Martin Monperrus](https://www.monperrus.net/martin/)
 * Fuzzing competition results
 * Student presentations
