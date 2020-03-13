@@ -8,10 +8,10 @@ Binaries to be fuzzed: static build of FFmpeg 4.2
 
 Note that you have a **one hour** execution time budget **in total**, i.e. the grader spends at most one hour to execute all your inputs in a top-down order. If two submissions have the same coverage, the one with less execution time gets the higher score.
 
-The offcially provided static builds of FFmpeg (https://johnvansickle.com/ffmpeg/) do not contain debugging information. If you need to analyze the coverage with the help of debugging symbols, you may need to build FFmpeg by yourself. We provide the following resource for your convenience:
+Usually a static build of FFmpeg (e.g., https://johnvansickle.com/ffmpeg/) does not contain debugging information. If you need to analyze the coverage with the help of debugging symbols, you may need to build FFmpeg by yourself. We provide the following resource for your convenience:
 
 - [Source code of ffmpeg-4.2 for direct download](http://ffmpeg.org/releases/ffmpeg-4.2.tar.bz2) ([FFmpeg Compilation Guide](https://trac.ffmpeg.org/wiki/CompilationGuide))
-- Use our [fuzzing-competition-reference-build-ffmpeg42](https://hub.docker.com/repository/docker/kthassert/fuzzing-competition-reference-build-ffmpeg42) docker image, you will find the source code in `/root/ffmpeg_sources`. The binary file `ffmpeg` is in `/root/bin`. `ffmpeg_g` is the one that contains debugging symbols.
+- Use our [fuzzing-competition-reference-build-ffmpeg42](https://hub.docker.com/repository/docker/kthassert/fuzzing-competition-reference-build-ffmpeg42) docker image, which contains the stripped binary (`/root/bin/ffmpeg`), the static binary with debugging symbols (`/root/bin/ffmpeg_g`) and the exact source code version of the binary in case you want to do specific instrumentation (`/root/ffmpeg_sources`).
 - Download `ffmpeg-v4.2-static-build.tar` [from KTH box](https://kth.box.com/) (sha1sum value `todo`). It contains all statically linked binaries, but note that we could only guarantee these binaries work correctly in Ubuntu 16.04.
 
 ## Grading Criteria
