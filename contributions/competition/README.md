@@ -12,7 +12,7 @@ Usually a static build of FFmpeg (e.g., https://johnvansickle.com/ffmpeg/) does 
 
 - [Source code of ffmpeg-4.2 for direct download](http://ffmpeg.org/releases/ffmpeg-4.2.tar.bz2) ([FFmpeg Compilation Guide](https://trac.ffmpeg.org/wiki/CompilationGuide))
 - Use our [fuzzing-competition-reference-build-ffmpeg42](https://hub.docker.com/repository/docker/kthassert/fuzzing-competition-reference-build-ffmpeg42) docker image, which contains the stripped binary (`/root/bin/ffmpeg`), the static binary with debugging symbols (`/root/bin/ffmpeg_g`) and the exact source code version of the binary in case you want to do specific instrumentation (`/root/ffmpeg_sources`).
-- Download `ffmpeg-v4.2-static-build.tar` [from KTH box](https://kth.box.com/) (sha1sum value `todo`). It contains all statically linked binaries, but note that we could only guarantee these binaries work correctly in Ubuntu 16.04.
+- Download `ffmpeg-v4.2-static-build.tar` [from KTH box](https://kth.box.com/s/22w226emhavt0gnj18gn46xrvpff6sm0) (sha1sum value `ba52f6a3b20ab0536a1cb547719ffc8b6afa0821`). It contains the statically linked binariy with debugging information. But note that we could only guarantee these binaries work correctly in Ubuntu 16.04.
 
 ## Grading Criteria
 
