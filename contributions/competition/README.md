@@ -11,8 +11,8 @@ Note that you have a **one hour** execution time budget **in total**, i.e. the g
 Usually a static build of FFmpeg (e.g., https://johnvansickle.com/ffmpeg/) does not contain debugging information. If you need to analyze the coverage with the help of debugging symbols, you may need to build FFmpeg by yourself. We provide the following resource for your convenience:
 
 - [Source code of ffmpeg-4.2 for direct download](http://ffmpeg.org/releases/ffmpeg-4.2.tar.bz2) ([FFmpeg Compilation Guide](https://trac.ffmpeg.org/wiki/CompilationGuide))
-- Use our [fuzzing-competition-reference-build-ffmpeg42](https://hub.docker.com/repository/docker/kthassert/fuzzing-competition-reference-build-ffmpeg42) docker image, which contains the stripped binary (`/root/bin/ffmpeg`), the static binary with debugging symbols (`/root/bin/ffmpeg_g`) and the exact source code version of the binary in case you want to do specific instrumentation (`/root/ffmpeg_sources`).
-- Download `ffmpeg-v4.2-static-build.tar` [from KTH box](https://kth.box.com/s/22w226emhavt0gnj18gn46xrvpff6sm0) (sha1sum value `ba52f6a3b20ab0536a1cb547719ffc8b6afa0821`). It contains the statically linked binariy with debugging information. But note that we could only guarantee these binaries work correctly in Ubuntu 16.04.
+- Use our [fuzzing-competition-reference-build-ffmpeg42](https://hub.docker.com/repository/docker/kthassert/fuzzing-competition-reference-build-ffmpeg42) docker image, which contains the stripped binary (`ffmpeg`), the static binary with debugging symbols (`ffmpeg_g`) and the exact source code version of the binary in case you want to do specific instrumentation (see folder `/root/ffmpeg-build-script/packages/ffmpeg-4.2`).
+- Download `ffmpeg-v4.2-static-build.tar` [from KTH box](https://kth.box.com/s/petg60k4r7lblcfkdp07vggswxqn148b) (sha1sum value `02d05c6914b6e098040dc8515fc739e4567d63c1`). It contains the statically linked binariy with debugging information. But note that we could only guarantee these binaries work correctly in Ubuntu 16.04.
 
 ## Grading Criteria
 
@@ -31,9 +31,16 @@ To pass, you need to achieve all the criteria above. To get a distinction, the c
 
 ## How to Submit
 
+First of all, please make a pull-request based on the following steps:
+
+- create a folder following the name convention of using email addresses of two members: `email-email`
+- in your folder, create a README.md file which contains your names and emails
+
+TA will merge the PR without any questions. This is just for the convenience of calculating registeration entries. As this is a competition, groups will not share information before the deadline. You should submit your solution via an email.
+
 We evaluate submissions in a fully automatic manner. Please strictly follow the instructions below to submit your work.
 
-You submit by email an archive which follows this structure:
+The  by email an archive which follows this structure:
 
 ```
 A folder with your group name (like email-email)
