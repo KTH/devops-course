@@ -146,4 +146,3 @@ The remote grading scheme changes as follows:
 ## Acknowledgements
 
 This course is designed with great inputs from [Chris Parnin](https://github.com/CSC-DevOps/Course), Julien Bisconti, Simone Stefani, Jaana Nyfjord, Amir Gaber, Göran Paues, Lowe Schmidt, Laurent Ploix, Diarmuid Corcoran, Jonathan Grahl, Mattias Wildeman, Tomas Ekholm, Vincent Massol, David King and others. We are very grateful for their contributions!
-
