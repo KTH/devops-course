@@ -31,11 +31,10 @@ To get a distinction, you need at least 3 "remarkable".
 
 Make a pull-request based on the following steps:
 
-- create a folder following the name convention of using email addresses of two members: email-email
+- create a subfolder in folder `weekX`, which you plan to give a presentation in, following the name convention of using email addresses of two members: email-email
 - in your folder, create a README.md file and put your topic information there
-- propose a date for your presentation
 
-TA will review the PR. If it is accepted, you could begin your work on this topic, and make another pull-request to submit your work in the future.
+TA will review the PR. If it is accepted, you could begin your work on this topic, and make another pull-request to submit your work in the future. Note that each week, no more than 9 presentations will be arranged.
 
 ## Final Submission
 
