@@ -42,6 +42,7 @@ Anders Eriksson](https://github.com/KTH/devops-course/tree/master/contributions-
   * Goal: Full planning for March 25
 
 
+
 ### Week 2: March 25 2019 13h
 * Preparatory reading: [Mutation analysis](https://medium.com/@almyre/short-circuiting-method-executions-to-assess-test-quality-2d3fda45bc7f), [Clean unit tests](https://blog.usejournal.com/3-easy-ways-to-write-cleaner-unit-tests-2ec04ca6b9df)
 * Lecture: automatic testing, CI (Benoit Baudry, KTH). The wrap-up [video](https://archive.org/details/devops-dylan).
