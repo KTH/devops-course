@@ -1,4 +1,4 @@
-#Presentation of novel decentralized discussion protocol + tool
+# Presentation of novel decentralized discussion protocol + tool
 
 I had a discussion with Prof. Benoit Baudry about how this protocol and tool for reading/creating the protocol could potentially be within the scope of devOps.
 
