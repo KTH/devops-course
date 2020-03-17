@@ -1,5 +1,7 @@
 # Michelin Devops Demo Day
 
+The deadline for the demo is the Michelin Devops Demo Day: the demo must be ready for May 5 2020, 9h00 Stockholm time.
+
 ## The concept
 
 Students prepare top-notch demonstrations. The demonstrations are really DevOps (typically involve mutliple virtual machines, likely deployed in the cloud). A demonstration is scripted and lasts 3-5 minutes. Students come with a monitor (or a laptop in best-effort mode). Students are required to prepare a screencast of the demo (in case of problems, such as demo effect, persons who cannot attend to all demos, etc).
