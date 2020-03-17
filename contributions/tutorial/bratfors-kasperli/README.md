@@ -5,4 +5,4 @@
 - Kasper Liu, kasperli@kth.se
 
 # Description
-A tutorial that teaches the reader how to install and setup a continuous integration tool on GitHub, such as Travis CI.
+A tutorial that teaches the reader how to install and setup Travis CI, a continuous integration tool, on GitHub. The tutorial should be easy to understand for anyone with experience in GitHub, but not necessarily with continuous integration.
