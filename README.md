@@ -107,8 +107,9 @@ In case the conditions do not allow for in-person participation, because of COVI
 Lectures:
 
 * the lectures will be streamed, the URLs will be posted on https://github.com/KTH/devops-course/issues/316
-* The recording and sharing of streamed lectures (full or fragments) is not allowed without explicit permission of the course professor and lecturer
-* Questions are asked on the streaming chat, not by interrupting remotely. If the lecturer explicitely asks for questions, no chat message is required.
+* the recording and sharing of streamed lectures (full or fragments) is not allowed without explicit permission of the course professor and lecturer
+* questions are asked on the streaming chat (one TA is following the chat), no audio remote interruptions are allowed.
+* the slides are shared via a link in #316, for double screening. (Zoom is not used to share slides)
 
 
 The remote grading scheme changes as follows:
