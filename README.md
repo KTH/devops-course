@@ -97,11 +97,21 @@ Group Rules
 
 ## Communication
 
-All communication for the course DD2482 should be sent to <dd2482@eecs.kth.se> You are also welcome to create issues here if you think the question is good to be discussed publicly.
+* All communication for the course DD2482 should be sent to <dd2482@eecs.kth.se>.
+* you create issues here if you think the question is good to be discussed publicly, the rules of [netiquette](https://en.wikipedia.org/wiki/Etiquette_in_technology) fully apply.
 
 ## Remote participation
 
-In case the conditions do not allow for in-person participation, the grading scheme changes as follows:
+In case the conditions do not allow for in-person participation, because of COVID-19, the course can be attended remotely.
+
+Lectures:
+
+* the lectures will be streamed, the URLs will be posted on https://github.com/KTH/devops-course/issues/316
+* The recording and sharing of streamed lectures (full or fragments) is not allowed without explicit permission of the course professor and lecturer
+* Questions are asked on the streaming chat, not by interrupting remotely. If the lecturer explicitely asks for questions, no chat message is required.
+
+
+The remote grading scheme changes as follows:
 
 * "essay", "tutorial", "competition entry", "contribution to open-source": the rules remain the same
 * "demo": the screencast is the unique item to be handed over and graded
