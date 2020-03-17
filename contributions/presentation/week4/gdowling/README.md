@@ -5,11 +5,17 @@ I had a discussion with Prof. Benoit Baudry about how this protocol and tool for
 Sketching out the features of the protocol:
 
 -one long text file containing an entire discussion topic
+
 -only ever add to it, never remove, can therefore verify with older versions
+
 -adding new discussion items
+
 -providing additional proof for items
+
 -adding fixes to items
+
 -adding proof to the contrary for items
+
 -optional identities with username/password, can be created and verified using cryptography (I am fairly certain)
 
 One use case for this could be for example if you discuss philosophy and want to prove or disprove some claim, you only need to send text files back and forth through any mean and can then add new information and even make it publically viewable, the public can still read and verify that it has not been tampered with and if enabled who wrote it and also for every claim can see how many others agree/disagree and their rationales.
