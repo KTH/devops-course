@@ -4,7 +4,7 @@
 Jonas Johansson, jonasjo5@kth.se
 Github username: jonasjohansson8908
 
-Marcus Jonsson Ewerbring (maracusew@kth.se)
+Marcus Jonsson Ewerbring, marcusew@kth.se
 Github username: Marcus9512
 
 ## Topic
