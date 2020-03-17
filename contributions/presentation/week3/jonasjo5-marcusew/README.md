@@ -12,6 +12,5 @@ Travis vs Jenkins, a comparison of two popular CI tools.
 - How do they work, what differs?
 - Different features?
 - Design differences, why?
-- How are they integrated with git?
-- (Maybe a setup example)
+- How are they integrated with git? (Maybe setup an example)
 - Pros and cons.
