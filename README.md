@@ -29,6 +29,7 @@ Past edition:
   * Infrastructure
   * Relation to Research in Testing & DevOps 
 * Testimonial from last year's student: [Julius Colliander Celik](https://github.com/juliuscc)
+  * [How to survive the KTH DevOps course](https://docs.google.com/presentation/d/1sqfWk3DmM0fNAC61k2nNR5qrg-LttAiviYhA_BkaN9o/edit?usp=sharing)
 * Goals: watch the repo, find a first teammate, register one first task as a pull request on this repo.
 
 ### Week 2
