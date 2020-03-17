@@ -8,7 +8,6 @@ Kasper Liu (kasperli@kth.se)
 Github username: Kappenn
 
 ## Topic
-Traditional unit testing vs Property based testing what is the differencies?
+Traditional unit testing vs. Property-based testing, what are the differences?
 
-What are the main differencies between these two subjects, with examples and
-when should they be used?
+What are the main differences between these two subjects, with examples, and when should they be used?
