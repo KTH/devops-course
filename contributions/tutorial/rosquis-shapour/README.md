@@ -1,32 +1,17 @@
-# Tutorials
+# Tutorial: Sentry.io
 
-The concept: you create a tutorial on a given technology related to Devops.
+**Members of the group:** 
 
-## Grading Criteria
+Christine Rosquist (rosquis@kth.se, Github: christinerosquist) and Shapour Jahanshahi (shapour@kth.se, Github: shappe)
 
-**Topic:**  
-**Members:**
+**Topic:**
+ 
+Cloud-based error monitoring using Sentry.io. 
 
-|                                             | Yes | No | Remarkable |
-|-------------------------------------------- | ----|----|-------------|
-|The TA can successful execute all the commands of the tutorial (mandatory) | Yes | No | Remarkable |
-|The tutorial gives enough background | Yes | No | Remarkable |
-|The tutorial is easy to follow  | Yes | No | Remarkable |
-|The tutorial is original, no such tutorial exists on the web | Yes | No | Remarkable |
-|The tutorial contains fun facts or easter eggs | Yes | No | Remarkable |
-|The tutorial is successful (attracts comments and success) | Yes | No | Remarkable |
-|The tutorial is doable in the browser without a local environment (eg on https://www.katacoda.com/) (optional) | Yes | No | Remarkable |
+We would like to learn more about monitoring and error tracking. Sentry.io seems like a beginner-friendly alternative and we want to know more about how to use it in our own applications. 
 
-To pass, you must have at least 4 "yes" and the TA assessment.
-To get a distinction, you must have one browser version and at least 1 "remarkable".
+#### Tutorial:
+- How to set up the platform (including installation and setup)
+- How to use the platform (the dashboard etc) in your own programs 
 
-
-## How to Register Your Topic
-
-Make a pull-request based on the following steps:
-
-- create a folder following the name convention of using email addresses of two members: email-email
-- in your folder, create a README.md file and put your tutorial proposal there, the tutorial contains a one-paragraph statement about the novelty of tutorial. The TA assesses the novelty before merging the PR.
-
-TA will review the PR. If it is accepted, you could begin your work on this topic, and make another pull-request to submit your work in the future.
-
+We will provide a background with information regarding monitoring and error tracking, but also explain the main princples of Sentry.io. We will also provide a step-by-step tutorial showing the setup and how to use the platform, in a way that is easy to follow. The tutorial will include fun facts/easter eggs that gives the viewer extra information that could be fun and useful to know about. 
