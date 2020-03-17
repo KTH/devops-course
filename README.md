@@ -112,6 +112,11 @@ Lectures:
 * questions are asked on the streaming chat (one TA is following the chat), no audio remote interruptions are allowed.
 * the slides are shared via a link in #316, for double screening. (Zoom is not used to share slides)
 
+Lab sessions:
+
+* During the planned lab time slot, please use this [Queue](http://queue.csc.kth.se/#/queue/DD2482) for booking online meetings
+* Specify your zoom meeting link (or other platforms like Skype / GoogleHanouts) when you register the queue
+* Our TAs will reach you asap
 
 The remote grading scheme changes as follows:
 
