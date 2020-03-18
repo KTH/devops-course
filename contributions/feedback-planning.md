@@ -2,12 +2,11 @@ Students are given the opportunity to receive specific feedback on their work.
 
 To register a feedback slot, please make a pull-request on this file, which adds a link to the PR number corresponding to the registered task you'd like to have feedback. Example: `* 01/01/1970 #37`
 
-* The date corresponds to the date of the feedback.
+* The date corresponds to the date where the teacher looks at the material and provides students with feedback.
 * The feedback will be given according to the material present in, or pointed from the PR, at the given date.
 * Feedback cannot be postponed
 
 There can be at most two PRs per date.
-
 
 * 03/19/20
 * 03/20/20
