@@ -17,10 +17,10 @@ This essay intends to introduce both platforms in more detail and compare how th
 - K8s
   - Introduction
 - Use of containers
+
 - Conclusions
 
 ## Resources
 https://hackernoon.com/kubernetes-vs-docker-swarm-a-comprehensive-comparison-73058543771e
 https://www.ibm.com/cloud/blog/new-builders/docker-swarm-vs-kubernetes-a-comparison
 https://www.edureka.co/blog/kubernetes-vs-docker/
-
