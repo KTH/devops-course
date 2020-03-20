@@ -15,3 +15,5 @@ We want to create a Slack bot that will notify the user of the result of SaltSta
 2. We can configure the presenting format from the bot to suit the user needs. (ie. include extra/less information, highlight important parts).
 
 This implementation will be written in Python with the API of the open-source community Salt software.
+
+Our motivation for this project is simply to learn more about the security aspects of DevOps by working with a SecOps tool like SaltStack. Seeing that Slack is a popular communication tool used for projects gave us our inspiration to create a Slack bot.
