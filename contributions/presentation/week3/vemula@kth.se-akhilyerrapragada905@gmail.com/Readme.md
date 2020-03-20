@@ -1,6 +1,15 @@
-**Topic:Chaos Engineering:Tools and Tactics**
+**Topic:Introduction to Chaos Engineering and its tools**
 
-**Subject: Diving into how Chaos Engineering is pertinent to DevOps and going through concrete cases to highlight the same**
+**Subject:Chaos Engineering**
 
-**Description:** We are very excited about chaos engineering especially in its use by commercial streaming giants such as Netflix,we want 
-to study more into that and though the topic is a little broad at the moment we will be going more into the specifics by the time of presentation.
+**Description:**
+
+Fault injection vs Chaos engineering differences.
+
+Comparision between chaos machine with other chaos engineering systems (Ex: Simian Army).
+
+Performace evaluation of a spring application using chaos machine/chaos monkey. 
+
+Please note that we will be refering to  "A Chaos Engineering System for Live Analysis and
+Falsification of Exception-handling in the JVM
+" to consider some inputs as we see very little   documentation available.
