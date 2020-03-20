@@ -5,7 +5,7 @@
 2. Philip Wester (phwe@kth.se)
 
 ## Proposal
-Creating a [SaltStack]{https://github.com/saltstack/salt} Slack bot. 
+Creating a [SaltStack](https://github.com/saltstack/salt) Slack bot. 
 
 ## Description
 SaltStack supports a SecOp orchestration of the DevOps toolchain by acting as a configuration manager as well as allow for remote execution. 
