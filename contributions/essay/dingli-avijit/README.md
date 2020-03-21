@@ -28,4 +28,4 @@
 [Serverless Computing: Current Trends and Open Problems](https://www.researchgate.net/publication/322092289_Serverless_Computing_Current_Trends_and_Open_Problems)
 [The economics of serverless computing: A real-world test](https://techbeacon.com/enterprise-it/economics-serverless-computing-real-world-test)
 [https://www.youtube.com/watch?v=-zKeLWlHUmc](https://www.youtube.com/watch?v=-zKeLWlHUmc)
-:[https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-using-automated-tests.html](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-using-automated-tests.html)
+[https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-using-automated-tests.html](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-using-automated-tests.html)
