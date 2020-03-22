@@ -1,5 +1,4 @@
-# Tutorial proposal: [gocd](https://www.gocd.org/pipelines-as-code.html)
-##  Group members
+# Tutorial proposal:
 
  - Albert Asratyan asratyan@kth.se @Goradux
  - Justas Dautaras dautaras@kth.se @sonderangebot10
