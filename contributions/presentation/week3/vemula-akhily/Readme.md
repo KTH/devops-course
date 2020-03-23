@@ -1,14 +1,14 @@
-#Presentation Proposal
+# Presentation Proposal :  "An Introduction to Application-level Chaos Engineering and Its Tools".
 
-##Members
+## Members
 Nagasudeep Vemula, vemula@kth.se
 Github:nagavem
 
 Akhil Yerrapragada, akhily@kth.se
 Github: akhilyerrapragadaa
 
-##Topic
- "An Introduction to Application-level Chaos Engineering and Its Tools".
+## Description:
+
  -Introductions to fault engineering and chaos engineering and a comparison between them.
  -Performace evaluation of a spring application using chaos machine/chaos monkey.
  -A look into the tools that would be used for chaos engineering.We will delve into the different use cases for them and the different categories of tools that are available at the moment.
@@ -19,7 +19,7 @@ Github: akhilyerrapragadaa
  -And finally, Chaos engineering maturity.
  
  
- ##Reference:
+ ## References:
  
  [Chaos Machine Deep Dive](https://doi.org/10.1109/TSE.2019.2954871)
  [Chaos Engineering in Devops] (https://medium.com/capital-one-tech/continuous-chaos-introducing-chaos-engineering-into-devops-practices-75757e1cca6d)
