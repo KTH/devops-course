@@ -10,12 +10,12 @@ tools.
 
 1. Why DevOps?
 2. What is 'Dev' in DevOps?
- - Building
- - Deployment
- - Continious integration
+    - Building
+    - Deployment
+    - Continious integration
 3. What is 'Ops' in Devops?
- - Logging
- - Monitoring
+    - Logging
+    - Monitoring
 
 ## Sources
 * C. Ebert, G. Gallardo, J. Hernantes and N. Serrano, "DevOps," in IEEE Software, vol. 33, no. 3, pp. 94-100, May-June 2016.
