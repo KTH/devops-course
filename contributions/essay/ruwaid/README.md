@@ -10,8 +10,11 @@ GitHub Username: hmellin97
 DevOps monitoring in the video games industry: 
 * What kind of data is specific to video games
 * How it is used
-* Anti Cheat
+* What tools are used
+* Anti-Cheat
 * Bug finding
+* Attacks
+* Performance
 * Viability
 * Efficiency
 
