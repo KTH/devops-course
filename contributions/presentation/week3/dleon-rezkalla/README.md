@@ -1,7 +1,7 @@
 # Presentation Proposal
 ## Members
-Diego Leon (dleon@kth.se)
-George Rezkalla (rezkalla@kth.se)
+- Diego Leon (dleon@kth.se)
+- George Rezkalla (rezkalla@kth.se)
 
 ## Topic
 Monolithic vs Microservices
