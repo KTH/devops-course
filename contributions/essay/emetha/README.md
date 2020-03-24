@@ -1,4 +1,4 @@
-# Topic: An introduction to Orchestration Frameworks Salt and Ansible
+# Topic: An introduction to Configuration Management Tools Salt and Ansible
 Initial Draft of Essay Structure (will most likely change):
 - Introduction  
 - What is Configuration Management?
