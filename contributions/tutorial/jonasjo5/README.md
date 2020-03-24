@@ -11,11 +11,10 @@ A step-by-step tutorial on how to setup and use a code coverage tool on your Git
 Suggestions:
 
 - A small introduction to code coverage.
+- A comparison between existing solutions and a motivation of how the solution covered by the tutorial was chosen.
 - Prepare the repository (if necessary).
 - Setup the code coverage tool.
 - Integrate the tool with your repository.
 - Integrate the tool with a CI solution.
 - A few examples on how to use the CC-tool.
-- Hopefully I will found some easter eggs to cover when I dive into the topic.
-
-The only problem I see is that I don't know how to make a browser version. Any suggestions on how I could do this or how I could change my topic to be able to make a browser version of my tutorial?
+- Hopefully I will find some easter eggs to cover when I dive into the topic.
