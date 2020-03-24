@@ -7,7 +7,7 @@ George Rezkalla (rezkalla@kth.se)
 Monolithic vs Microservices
 
 ## Details
-How do they work?
-What's the Difference?
-Examples of implementation
-When should you use what?
+- How do they work?
+- What's the Difference?
+- Examples of implementation
+- When should you use what?
