@@ -1,4 +1,4 @@
-# Tutorial proposal:
+# Tutorial: Deploying NET Core 3.1 services to OpenShift
 
  - Albert Asratyan asratyan@kth.se @Goradux
  - Justas Dautaras dautaras@kth.se @sonderangebot10

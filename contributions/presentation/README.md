@@ -49,3 +49,11 @@ Your group folder
 ├─ ***.pdf (the pdf version of your slides)
 └─ other files you want to share as well
 ```
+
+## Deadline
+
+All presentations are done during the lecture. The deadlines are different according to the week you are going to present. Thus the last opportunity for a presentation is Week 6 April 28.
+
+
+
+

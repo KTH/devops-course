@@ -4,8 +4,13 @@ Ruwaid Louis (ruwaid@kth.se)
 GitHub Username: ruwaid4
 
 ## Topic
-The monitoring process:
-* What tools are used
-* What is monitored for different applications
-* How the monitored data is used
-* What some standard practices are
+DevOps monitoring in the video games industry: 
+* What kind of data is specific to video games
+* How it is used
+* Viability
+* Efficiency
+
+## Sources
+https://medium.com/@helymarleena/devops-vs-gamedev-software-engineering-80b4b73bdc81
+https://dzone.com/articles/monitoring-in-the-gaming-industry
+https://dl.acm.org/doi/abs/10.1145/2700529
