@@ -3,10 +3,18 @@
 Ruwaid Louis (ruwaid@kth.se)
 GitHub Username: ruwaid4
 
+Henrik Mellin (hmellin@kth.se)
+GitHub Username: hmellin97
+
 ## Topic
 DevOps monitoring in the video games industry: 
 * What kind of data is specific to video games
 * How it is used
+* What tools are used
+* Anti-Cheat
+* Bug finding
+* Attacks
+* Performance
 * Viability
 * Efficiency
 
