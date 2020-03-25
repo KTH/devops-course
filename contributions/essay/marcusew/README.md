@@ -5,7 +5,7 @@ Marcus Jonsson Ewerbring (marcusew@kth.se)
 ## Topic
 Different ways of improving DevOps with Machine learning.
 
-My proposalis to write an essay on how you could use machine learning to improve DevOps. 
+My proposal is to write an essay on how you could use machine learning to improve DevOps. 
 I did some research and couldn't find so many solutions related to devops. I therefore propose an essay about gathering ideas on how machine learning can improve this area.
 
 Examples:
