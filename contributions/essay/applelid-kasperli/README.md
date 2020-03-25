@@ -8,12 +8,13 @@ Kasper Liu (kasperli@kth.se)
 Github username: Kappenn
 
 ## Topic
-DevOps and CI/CD in the Cloud, from a beginners perspective
+Continuous Integration, how do the practice handle the advent of cloud
 
-What are CI/CD? and description of the pipeline?
 
-What popular tools do exist and what do they do?
+Describe the general philosphy of CI.
 
-What Cloud providers offers CI/CD tools?
+What tools do exist(Jenkins and more)
 
-Compare some of the different Cloud providers?
+How do they integrate with Cloud?
+
+Comparison between cloud providers.
