@@ -14,16 +14,15 @@ Example of essays, see [last year's essays](https://github.com/KTH/devops-course
 |                                             | Yes | No | Remarkable |
 |-------------------------------------------- | ----|----|-------------|
 | The essay has a good title | Yes | No | Remarkable |
-| The essay is well structured | Yes | No | Remarkable |
+| The essay is well structured, the ideas are well presented | Yes | No | Remarkable |
 | The essay contains a good introduction | Yes | No | Remarkable |
 | The essay contains a good conclusion | Yes | No | Remarkable |
-| The ideas are well presented | Yes | No | Remarkable |
 | The essay is self-contained | Yes | No | Remarkable |
 | The essay contains innovative ideas or material | Yes | No | Remarkable |
 | The essay contains good figures or listings | Yes | No | Remarkable |
 | The essay is sound, factual, and accurate | Yes | No | Remarkable |
 | The essay contains appropriate references | Yes | No | Remarkable |
-| The essay is appealing (eg on Medium, LaTeX) | Yes | No | Remarkable |
+| The essay presentation is elegant / visually appealing (eg on Medium, LaTeX) | Yes | No | Remarkable |
 | The essay addresses a topic that is relevant for DevOps | Yes | No | Remarkable |
 
 To pass, you need at least 7 "yes".
