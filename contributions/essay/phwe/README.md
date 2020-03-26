@@ -12,11 +12,11 @@
   2. What is Chef?
   3. What is Salt?
   4. What are the main differences between Chef and Salt? 
-  5. Which one should you use? (Conclusiom)
+  5. Which one should you use? (Conclusion)
   
   ## Sources
-  1. blah
-  2. blah
-  3. blah
-  4. blah
-  5. blah
+  1. https://learning.oreilly.com/library/view/extending-saltstack/9781785888618/?ar
+  2. https://learning.oreilly.com/library/view/learning-chef/9781783285211/?ar
+  3. https://www.upguard.com/articles/salt-vs-chef
+  4. https://docs.saltstack.com/en/latest/
+  5. https://www.chef.io/
