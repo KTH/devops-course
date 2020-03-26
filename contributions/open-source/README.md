@@ -21,7 +21,7 @@ To get a distinction, you must have at least one remarkable contribution.
  - The project is related to DevOps
  - The project has more than 10 Starts
  - The project has more than 100 Commits
- - The project is has an active community on GitHub
+ - The project has an active community on GitHub
 
 Note: we are all aware that this assessment is subjective by nature. In case of disagreement, the informed judgement of the professor is the final decision.
 
