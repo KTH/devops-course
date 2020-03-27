@@ -7,4 +7,4 @@
 
 ### Description
 
-We will make a tutorial about how to implement VSTS.
+We will make a tutorial about how to use VSTS in Microsoft DevOps.
