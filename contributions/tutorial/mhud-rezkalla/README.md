@@ -1,4 +1,4 @@
-## Tutorial proposal
+## Tutorial proposal - Implementing VSTS
 
 ### Contributors
 
