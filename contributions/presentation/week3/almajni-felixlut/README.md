@@ -16,8 +16,7 @@ Code coverage
 Condition coverage, Line coverage, statement coverage, etc.
 - To what extent do the existing CIs or CDs integrate with code coverage?
 - Global vs local coverage
-- Compare some different tools in code coverage that one can use t.ex. Cobertura, Jacoco, Clover,
-testwell CTC++,
+- Compare some different tools in code coverage that one can use t.ex. Cobertura, Jacoco, Clover, testwell CTC++,
 
 ### The relevance to devops (1-3 statement)
 Code coverage is a metric that is used to measure the degree to which the source code of a program is executed by the automated tests.
