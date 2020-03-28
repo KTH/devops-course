@@ -6,12 +6,12 @@ To participate in the fuzzing competition, you submit a solution for fuzzing tes
 
 Binaries to be fuzzed: static build of FFmpeg 4.2
 
-Note that you have a **one hour** execution time budget **in total**, i.e. the grader spends at most one hour to execute all your inputs in a top-down order. If two submissions have the same coverage, the one with less execution time gets the higher score. The maximum size of your submission should not exceed **1 GB**.
+Note that you have a **one hour** execution time budget **in total**, i.e. the grading script spends at most one hour to execute all your inputs in a top-down order. If two submissions have the same coverage, the one with less execution time gets the higher score. The maximum size of your submission should not exceed **1 GB**.
 
 Usually a static build of FFmpeg (e.g., https://johnvansickle.com/ffmpeg/) does not contain debugging information. If you need to analyze the coverage with the help of debugging symbols, you may need to build FFmpeg by yourself. We provide the following resource for your convenience:
 
 - [Source code of ffmpeg-4.2 for direct download](http://ffmpeg.org/releases/ffmpeg-4.2.tar.bz2) ([FFmpeg Compilation Guide](https://trac.ffmpeg.org/wiki/CompilationGuide))
-- Use our [fuzzing-competition-reference-build-ffmpeg42](https://hub.docker.com/repository/docker/kthassert/fuzzing-competition-reference-build-ffmpeg42) docker image, which contains the stripped binary (`ffmpeg`), the static binary with debugging symbols (`ffmpeg_g`) and the exact source code version of the binary in case you want to do specific instrumentation (see folder `/root/ffmpeg-build-script/packages/ffmpeg-4.2`).
+- Use our [fuzzing-competition-reference-build-ffmpeg42](https://hub.docker.com/repository/docker/kthassert/fuzzing-competition-reference-build-ffmpeg42) docker image, which contains the stripped binary (`ffmpeg`), the static binary with debugging symbols (`ffmpeg_g`) and the exact source code version of the binary in case you want to do specific instrumentation (see folder `/root/ffmpeg-build-script/packages/ffmpeg-4.2`). The build script and Dockerfile of this image could be found [in this repo](https://github.com/gluckzhang/ffmpeg-build-script/tree/enable-debug).
 - Download `ffmpeg-v4.2-static-build.tar` [from KTH box](https://kth.box.com/s/petg60k4r7lblcfkdp07vggswxqn148b) (sha1sum value `02d05c6914b6e098040dc8515fc739e4567d63c1`). It contains the statically linked binariy with debugging information. But note that we could only guarantee these binaries work correctly in Ubuntu 16.04.
 
 ## Grading Criteria
