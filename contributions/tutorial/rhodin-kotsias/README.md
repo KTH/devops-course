@@ -19,5 +19,5 @@ BuildBot is a CI-tool which can be used to automate a number of tasks such as te
 
 Hopefully we can get some originality in there as well, since there doesn't seem to be too many BuildBot tutorials out there. 
 
-### Completed Tutorial
+# Completed Tutorial
 The tutorial is completed and can be found [here](https://www.katacoda.com/rainkurosu/scenarios/buildbot-setup).
