@@ -1,4 +1,4 @@
-# Essay Proposal
+# Essay
 ## Members
 Ruwaid Louis (ruwaid@kth.se)
 GitHub Username: ruwaid4
