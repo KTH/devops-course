@@ -15,3 +15,5 @@ DevOps teams encapsulate pieces of functionality in microservices and build larg
 - What's the Difference (testing, deployment, scalability, etc)?
 - Examples of implementation
 - When should you use what?
+
+[Presentation slides] (https://docs.google.com/presentation/d/1RS_6CRYsSxzp4mecoPnSpbVZYmcO4VsD0kiuugRUxQI/edit?usp=sharing)
