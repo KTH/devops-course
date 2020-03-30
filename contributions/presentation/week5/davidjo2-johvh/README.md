@@ -16,3 +16,7 @@ Comparing two different deployment strategies in the form of Blue/Green deployme
 * Comparing the two different strategies
   * Pros/cons
 * Take home message
+
+#### References
+* https://martinfowler.com/bliki/BlueGreenDeployment.html
+* https://www.split.io/glossary/canary-deployment/
