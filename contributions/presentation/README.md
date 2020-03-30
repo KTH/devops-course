@@ -1,8 +1,8 @@
 
 ## Presentation Task
 
-The students prepare a 7-9 minute presentation on a topic that is relevant to DevOps.
-
+The students prepare a 7-9 minute presentation on a topic that is relevant to DevOps. 
+ 
 ## Grading Criteria
 
 **Topic:**  
