@@ -25,14 +25,14 @@ The students prepare a 7-9 minute presentation on a topic that is relevant to De
 |illustration: The slides contain nice illustrations  | Yes | No | Remarkable |
 
 To pass, you need at least 7 "yes".
-To get a distinction, you need at least 3 "remarkable".
+To get a distinction, you need at least 3 "remarkable". 
 
 ## How to Register Your Topic
 
 Make a pull-request based on the following steps:
 
 - create a subfolder in folder `weekX`, which you plan to give a presentation in, following the name convention of using email addresses of two members: email-email
- - in your folder, create a README.md file and put your topic information there
+- in your folder, create a README.md file and put there:
    - the planned topic, which must be focused enough
    - a short statement (1-3 sentences) about the relevance and timeliness for testing and devops
    - bullet outline of the presentation  
