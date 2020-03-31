@@ -1,6 +1,9 @@
 ## Finished tutorial
 **Link to the complete tutorial on Katacoda: https://www.katacoda.com/sunneg/scenarios/dockertutorial**
 
+We have aimed to reach a "remarkable" for the 2nd, 3rd and 4th critera below.
+
+Hope you enjoy the tutorial! :)
 
 # Tutorial: Docker
 *Team members: Christina Sunnegårdh (sunneg@kth.se), Klara Eserstam (klaraes@kth.se)*
