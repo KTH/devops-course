@@ -1,8 +1,7 @@
 Tutorial Proposal: An investigation into Docker & Kubernetes.
 A practical investigation of Docker and Kubernetes with respect to development/testing environments.
 
-sraa@kth.se 
-nseele@kth.se 
+Authors: sraa@kth.se, nsteele@kth.se. 
 
 Sashi and I want to focus and learn about containers and their management using Kubernetes. We think this is an important topic as containers can be used in almost all parts of the DevOps lifecycle from providing a configured environment for application developers, testers and operational developers to the deployment of an application. Hence, learning containerisation management/ provisioning is a vital skill for anyone wanting to get dirty with DevOps!
 
