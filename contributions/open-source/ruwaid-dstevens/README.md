@@ -1,13 +1,13 @@
 # Open-source proposal
 ## Members
-Ruwaid Louis (ruwaid@kth.se)
-GitHub: ruwaid4
+Ruwaid Louis (ruwaid@kth.se) </br>
+GitHub: @ruwaid4
 
-David Stevens (dstevens@kth.se)
-Github: stevensdavid
+David Stevens (dstevens@kth.se) </br>
+Github: @stevensdavid
 
 ## Proposal
-Create a new rule for Wemake Python Styleguide along with all of the required tests and get it approved by the maintainer.
+Create a new rule for Wemake Python Styleguide along with all of the required tests and get it approved by the maintainer. </br>
 GitHub Repo: https://github.com/wemake-services/wemake-python-styleguide
 
 ## Description
