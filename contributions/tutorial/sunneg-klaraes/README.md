@@ -1,5 +1,10 @@
+## Finished tutorial
+**Link to the complete tutorial on Katacoda: https://www.katacoda.com/sunneg/scenarios/dockertutorial**
+
+
 # Tutorial: Docker
 *Team members: Christina Sunnegårdh (sunneg@kth.se), Klara Eserstam (klaraes@kth.se)*
+
 
 **Interactive task:** Dockerizing a client and a server (node.js/react) in an application  separately (using docker compose).
 
