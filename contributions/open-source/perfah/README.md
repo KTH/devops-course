@@ -48,6 +48,8 @@ The project would involve the following:
 
 - Rust: a programming language
 
+- Crate: A packaged library or binary in Rust 
+
 - Wayland-compositor: ~a window manager (usually for Linux)
 
 - wlroots: A library written in C for developing Wayland-compositors
