@@ -6,8 +6,9 @@ The essay will give an insight into Maven as a DevOps tool. The main points that
 
 * Introduction to Build Tools 
 * Relation to DevOps 
-* Differences between Build Tools
-* Comparison of Performance
+* Definition of Build dependencies
+* Structure of the Maven Build dependencies
+* The Maven repository
 * Concluding points
 
 **Sources**
