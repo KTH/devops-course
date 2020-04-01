@@ -2,6 +2,7 @@
 
 ## Members
 1. Per Fahlander (perfah@kth.se)
+2. Gunnar Applelid (applelid@kth.se)
 
 ## Proposal
 Patch the crate [wlroots-sys](https://github.com/swaywm/wlroots-rs/tree/master/wlroots-sys) belonging to the deprecated [wlroots-rs](https://github.com/swaywm/wlroots-rs) (rust bindings for [wlroots](https://github.com/swaywm/wlroots)) library to suit it for use in other projects directly.
