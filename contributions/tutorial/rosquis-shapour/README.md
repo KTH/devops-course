@@ -16,7 +16,7 @@ We would like to learn more about monitoring and error tracking. Sentry.io seems
 
 We will provide a background with information regarding monitoring and error tracking, but also explain the main princples of Sentry.io. We will also provide a step-by-step tutorial showing the setup and how to use the platform, in a way that is easy to follow. The tutorial will include fun facts/easter eggs that gives the viewer extra information that could be fun and useful to know about. 
 
-#### The finished tutorial 
+# The finished tutorial 
 The link to the tutorial: https://www.katacoda.com/christinerosquist/scenarios/sentry-tutorial
 We are aiming for the *distinction* pass. The Grading Criteria we aimed to fulfill are:
 
@@ -28,6 +28,6 @@ We are aiming for the *distinction* pass. The Grading Criteria we aimed to fulfi
 
 **The tutorial is original, no such tutorial exists on the web:** We think that our tutorial is original since we could not find any tutorial about Sentry that is doable in Katacoda. There do exist different tutorials about Sentry on the web, but they are not related to DevOps in the same way as ours. 
 
-**The tutorial contains fun facts or easter eggs:** The tutorial contains fun facts, for instance about the history of Sentry and how it was founded. There are also many cool facts mentioned in the tutorial that can be useful for many developers (like the integration with slack and the features mentioned in the ‚Äúwhat‚Äôs next‚Äù-part). 
+**The tutorial contains fun facts or easter eggs:** The tutorial contains fun facts, for instance about the history of Sentry and how it was founded. There are also many cool facts mentioned in the tutorial that can be useful for many developers (like the integration with slack and the features mentioned in the ìwhatís nextî-part). 
 
-**The tutorial is doable in the browser without a local environment (remarkable):** Yes! Everyone can try the tutorial in Katacoda with just the link. 
+**The tutorial is doable in the browser without a local environment (remarkable):** Yes! Everyone can try the tutorial in Katacoda with just the link.
