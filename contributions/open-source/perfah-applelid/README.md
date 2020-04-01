@@ -42,7 +42,7 @@ The project would involve the following:
 
 - Configuration of the **packaging** of the library
 
-- Making it as **self-contained** as possible
+- Making it as **self-contained** as possible (containerization)
 
 
 ## Context
