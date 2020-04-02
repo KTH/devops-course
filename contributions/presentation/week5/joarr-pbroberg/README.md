@@ -10,6 +10,8 @@ Docker is a great tool for DevOps teams since it helps avoid problems that occur
 
 ## Outline of presentation
 
-- What is docker_? What does it provide to a developer_?
-- How do you get started with Docker_? What are the main use cases?
+In three main sections we will attempt to answer these questions:
+
+- What is docker? What does it provide to a developer?
+- How do you get started with Docker? What are the main use cases?
 - How is docker implemented "under the hood"? How does it differ from using a Virtual Machine?
