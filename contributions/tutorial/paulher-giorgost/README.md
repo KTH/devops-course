@@ -9,10 +9,11 @@ A tutorial that explains what is CircleCI and how to install the CLI and run a j
 
 Idea: How to take an already existing project and add CircleCI to it.
 
-The TA can successful execute all the commands of the tutorial (mandatory)
-The tutorial gives enough background
-The tutorial is easy to follow
-The tutorial is doable in the browser without a local environment (eg on https://www.katacoda.com/) (optional)
+## Grading Criteria to be fullfilled
+- The TA can successful execute all the commands of the tutorial (mandatory)
+- The tutorial gives enough background
+- The tutorial is easy to follow
+- The tutorial is doable in the browser without a local environment (eg on https://www.katacoda.com/) (optional)
 
 Bonus: The tutorial contains fun facts or easter eggs
 
