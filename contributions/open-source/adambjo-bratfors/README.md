@@ -19,7 +19,7 @@ Solves this issue: https://github.com/strongbox/strongbox/issues/1715
 
 The following tasks will need to be carried out:
 
-- Upgrade our docker image so it uses the latest version ci-build-images/images/mkdocs/Dockerfile.mkdocs and installs the correct pip dependencies
+- Upgrade docker image so it uses the latest version ci-build-images/images/mkdocs/Dockerfile.mkdocs and installs the correct pip dependencies
 - Make any necessary configuration changes
 - Add support pymdownx.tabbed in markdown_extensions under mkdocs.yaml (this requires pymdown-extensions>=7.0)
 - Search for todo: pymdownx.tabbed within the project to
