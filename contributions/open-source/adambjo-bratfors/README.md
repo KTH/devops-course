@@ -1,4 +1,4 @@
-# Open-source proposal: Upgrade Strongbox documentation to mkdocs-material-5.0.0
+# Upgrade Strongbox documentation to mkdocs-material-5.0.0
 
 ## Contributors
 
