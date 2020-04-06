@@ -6,7 +6,7 @@
 * Richard Uggelberg, rug@kth.se, Github: richarduggelberg
 
 ## Topic
-Current data and predictions.
+Visualize the spread and future of COVID-19 using current data and predictions.
 
 ### Goal
 Effectively communicate the severity of the current situation.
@@ -15,7 +15,7 @@ Effectively communicate the severity of the current situation.
 * Display current live data
 * Make predictions from data based on mathematical models
 * Estimate number of unknown cases
-* Assess effectiveness of currently employed measures
+* Display currently employed measures and let readers assess their effectiveness
 
 ### Techniques
 * Test-Driven Development
