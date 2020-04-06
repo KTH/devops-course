@@ -3,7 +3,6 @@
 ### Contributors
 
 * Helal Uddin - mhud@kth.se
-* George Rezkalla - rezkalla@kth.se
 
 ### Description
 
@@ -15,8 +14,9 @@ have the same features on the on-premise version of TFS. Azure DevOps Is the new
 features. As it has been observed that Microsoft has changed a lot from it's a website regarding visual studio team services name
 to Azure DevOps, all of the tools and extension in the Azure portal have been modified too.  So in this tutorial, we will show:
 
-* Which changes have been made regarding VSTS into Azure DevOps?
-* How to use Azure DevOps to manage code
-* How it is related to DevOps like automated releases, automated deployment
-* How to use DevOps Artifacts
-* How to use DevOps Test Plan
+Task 1: Create Initial Project in Azure DevOps
+Task 2: Create Local Project
+Task 3: Push Local Repo to the Azure DevOps
+Task 4: Creating, Building and Deploying Pipeline in Azure DevOps
+Task 5: Create a branch policy and add a branch
+Bonus: Take home advise for working on Azure DevOps
