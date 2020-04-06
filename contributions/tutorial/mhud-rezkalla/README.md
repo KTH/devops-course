@@ -3,7 +3,6 @@
 ### Contributors
 
 * Helal Uddin - mhud@kth.se
-* George Rezkalla - rezkalla@kth.se
 
 ### Description
 
@@ -18,5 +17,3 @@ to Azure DevOps, all of the tools and extension in the Azure portal have been mo
 * Which changes have been made regarding VSTS into Azure DevOps?
 * How to use Azure DevOps to manage code
 * How it is related to DevOps like automated releases, automated deployment
-* How to use DevOps Artifacts
-* How to use DevOps Test Plan
