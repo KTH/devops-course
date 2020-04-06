@@ -15,7 +15,6 @@ Effectively communicate the severity of the current situation.
 * Display current live data
 * Make predictions from data based on mathematical models
 * Estimate number of unknown cases
-* Display currently employed measures and let readers assess their effectiveness
 
 ### Techniques
 * Test-Driven Development
