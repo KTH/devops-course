@@ -1,4 +1,4 @@
-# Essay Proposal: Maven
+# Essay Proposal: Maven and Its Handling of Build Dependencies
 **Team Members:** Sandro Lockwall Rhodin (<sandror@kth.se>) and Aristotelis Kotsias (<kotsias@kth.se>)
 
 **Description of the Topic:** 
