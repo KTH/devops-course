@@ -6,13 +6,14 @@ We want present an overview of severless computing for the students of this cour
 If we feel this way, there probably is another student that feels the same.
 
 The aim to present the following:
--Overview of serverless computing (1 min)
--Advantages/disadvantages of serverless compared to traditional (2 min)
--Devops (testing/deploying) in serverless (2 min)
--Comparison of different service providers/cloud platforms (2 min)
+  - Overview of serverless computing (1 min)
+  - Advantages/disadvantages of serverless compared to traditional (2 min)
+  - Devops (testing/deploying) in serverless (2 min)
+  - Comparison of different service providers/cloud platforms (2 min)
 
 If it turns out that we have more time on our hands, we'd also like to present:
--An example of serverless: Netflix case study (architecture)
+
+- An example of serverless: Netflix case study (architecture)
 
 
 #### Relevance
