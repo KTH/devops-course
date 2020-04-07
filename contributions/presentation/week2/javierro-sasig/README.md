@@ -32,3 +32,5 @@ Knowing how to run secure containerized applications is an important skill given
   - Control groups
   - Docker daemon considerations
   - Linux Kernel Capabilities
+  
+ [Presentation slides](https://docs.google.com/presentation/d/1plDDTCMq9wmimC12v2gSHGMCJfwp6BIHKnqI-ox6VcM/edit?usp=sharing)
