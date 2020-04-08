@@ -2,7 +2,7 @@
 _Authors: Christina Sunnegårdh & Christine Rosquist_
 
 
-We would like to write an essay about SaaS, how it enables companies to fully exploit the power of DevOps.
+We would like to write an essay about SaaS, how it enables companies to fully exploit the power of DevOps. 
 
 Overall structure of the essay:
 - Background on DevOps
