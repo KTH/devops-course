@@ -55,3 +55,17 @@ We will do our best for every criteria, but we believe that a remarkable grade i
 * loudly
 * engagement (using a interactive word cloud)
 * illustration
+
+## References
+
+A website about buildning a DevOps culture: 
+[https://www.atlassian.com/team-playbook/examples/devops-culture](https://www.atlassian.com/team-playbook/examples/devops-culture)
+
+A book about building a DevOps culture:
+[Effective DevOps](https://books.google.se/books?hl=sv&lr=&id=6e5FDAAAQBAJ&oi=fnd&pg=PP1&dq=Devops+culture&ots=-Xfcb8PN1X&sig=an8BfSJhgiMgYtbEE5ACFbqIpig&redir_esc=y#v=onepage&q=Devops%20culture&f=false)
+
+Statistics of the state of DevOps in 2019: 
+[https://services.google.com/fh/files/misc/state-of-devops-2019.pdf](https://services.google.com/fh/files/misc/state-of-devops-2019.pdf)
+
+An example of a team who created a DevOps culture: 
+[The DevOps transformation of the HP LaserJet Firmware team](https://itrevolution.com/the-amazing-devops-transformation-of-the-hp-laserjet-firmware-team-gary-gruver/)
