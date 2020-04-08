@@ -1,4 +1,4 @@
-****Topic:**** ****Testing in DevOps****
+**Topic:** **Comparison between continuous testing and automation testing**
 
 **Member**: mrhasa@kth.se
 
