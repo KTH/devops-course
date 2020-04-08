@@ -13,7 +13,7 @@ Effectively communicate the severity of the current situation.
 
 ### Key features
 * Display current live data
-* Make predictions from data based on mathematical models
+* Make predictions from data based on mathematical models such as SIR-model
 * Estimate number of unknown cases
 
 ### Techniques
