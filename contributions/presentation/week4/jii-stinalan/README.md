@@ -58,7 +58,7 @@ We will do our best for every criteria, but we believe that a remarkable grade i
 
 ## References
 
-About buildning a DevOps culture: 
+A website about buildning a DevOps culture: 
 [https://www.atlassian.com/team-playbook/examples/devops-culture](https://www.atlassian.com/team-playbook/examples/devops-culture)
 
 A book about building a DevOps culture:
