@@ -13,7 +13,7 @@ There will be two sessions, each one  with half of the students. During a sessio
 Among the guests, some are "critique" (in the sense of [culinary critique](https://en.wikipedia.org/wiki/Food_critic)), they are here to assess the relevance, the difficulty, the sublime and the originality of the demo. As food critique, those critiques are anonymous: as a presenter you do not know if a person in the audience is critique or not.  Some students will be randomly assigned the critique role on a voluntary basis.
 
 
-## Grading Criteria
+## Grading Criteria for live demo at MDDD
 
 **Topic:**  
 **Demoers:**
@@ -36,6 +36,29 @@ Criteria for the screencast:
 * The screencast is less than 3 minutes
 * The screencast contains subtitles which are clear and in proper English
 * The screencast contains a good and concise take-home message at the end
+
+## Grading Criteria for online demo due to Covid-19
+
+**Topic:**  
+**Demoers:**
+
+|                                             | Yes | No | Remarkable |
+|-------------------------------------------- | ----|----|-------------|
+|The demonstration screencast is clearly motivated (why it matters for Devops?) | Yes | No | Remarkable |
+|The demonstration screencast is difficult to do | Yes | No | Remarkable |
+|The demonstration screencast is original | Yes | No | Remarkable |
+|The demonstration screencast is sublime (eg visually appealing) | Yes | No | Remarkable |
+|The demonstration screencast contains an easter egg | Yes | No | Remarkable |
+|A accompanying Github repository has been made (optional) | Yes | No | Remarkable |
+
+To pass, you must have at least 3 "yes".
+To get a distinction, you must have at least a good accompanying Github repository and at least 2 "remarkable".
+
+Mandatory Criteria for the screencast:
+* The screencast is less than 3 minutes
+* The screencast contains subtitles which are clear and in proper English
+* The screencast contains a good and concise take-home message at the end
+
 
 
 ## How to Register your Demo
