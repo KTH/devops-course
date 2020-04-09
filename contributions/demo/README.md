@@ -49,13 +49,13 @@ Criteria for the screencast:
 |The demonstration screencast is original | Yes | No | Remarkable |
 |The demonstration screencast is sublime (eg visually appealing) | Yes | No | Remarkable |
 |The demonstration screencast contains an easter egg | Yes | No | Remarkable |
-|A accompanying Github repository has been made (optional) | Yes | No | Remarkable |
+|An accompanying Github repository has been made (optional) | Yes | No | Remarkable |
 
 To pass, you must have at least 3 "yes".
 To get a distinction, you must have at least a good accompanying Github repository and at least 2 "remarkable".
 
-Mandatory Criteria for the screencast:
-* The screencast is less than 3 minutes
+Mandatory criteria for the screencast:
+* The screencast is 3-5 minutes
 * The screencast contains subtitles which are clear and in proper English
 * The screencast contains a good and concise take-home message at the end
 
