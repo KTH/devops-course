@@ -9,3 +9,9 @@ The 3 main points of the tutorial will be:
 3. Create persistent storage, sicne the image itself is stateless.
 
 The tutorial will be created on katacoda.
+
+I aim to fulfill the following criteria:
+* The TA can successful execute all the commands of the tutorial (mandatory)
+* The tutorial gives enough background
+* The tutorial is easy to follow
+* The tutorial is doable in the browser without a local environment
