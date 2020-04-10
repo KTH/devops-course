@@ -37,9 +37,3 @@ We also include our personal opinions regarding the areas and gives a easy and m
 
 ## Medium
 The tutorial can be found [here](https://medium.com/@marcus.jonssonewerbring/tutorial-an-introduction-to-unit-test-regression-test-and-code-coverage-with-intellij-b08be1268719)
-
-
-We appreciate any kind of feedback about this tutorial proposal. 
-
-## Finished tutorial
-The tutorial can be found [here](https://medium.com/@marcus.jonssonewerbring/tutorial-an-introduction-to-unit-test-regression-test-and-code-coverage-with-intellij-b08be1268719)
