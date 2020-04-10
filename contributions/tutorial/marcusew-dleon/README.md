@@ -35,5 +35,11 @@ We are planning to publish this on medium, katacoda or some forum that fits the 
 The unique part of the tutorial is that it explains how you do unit tests, regression tests and code coverage in the same tutorial.
 We also include our personal opinions regarding the areas and gives a easy and more advance example on how to implement these methods in IntelliJ.
 
+## Medium
+The tutorial can be found [here](https://medium.com/@marcus.jonssonewerbring/tutorial-an-introduction-to-unit-test-regression-test-and-code-coverage-with-intellij-b08be1268719)
+
 
 We appreciate any kind of feedback about this tutorial proposal. 
+
+## Finished tutorial
+The tutorial can be found [here](https://medium.com/@marcus.jonssonewerbring/tutorial-an-introduction-to-unit-test-regression-test-and-code-coverage-with-intellij-b08be1268719)
