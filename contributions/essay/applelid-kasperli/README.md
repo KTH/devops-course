@@ -1,4 +1,4 @@
-# Essay Proposal
+# Essay
 
 ## Members
 Gunnar Applelid(applelid@kth.se)
