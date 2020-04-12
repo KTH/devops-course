@@ -1,4 +1,8 @@
 # Tutorial: Github Apps and Actions
+
+### Link
+[Link to tutorial](https://github.com/johannalouise/repobepo)
+
 **Team members:**
 Johanna Iivanainen (jii@kth.se) & Louise Zetterlund (louiseze@kth.se)
 
@@ -16,10 +20,10 @@ Our tutorial aim to show how to:
     - Advantages and the usage of them
 -  Find different parts/steps that you need to understand and do to be able to install and integrate the Github App or Action
     - Yaml files
-    - XML files
     - Webhooks
 - Show real examples where we install and integrate Github Apps and Actions to a repository (at least one example for each part above)
     - Step by step guide
     - Use pictures for the most difficult part
+    - Video-tutorial for one of the parts
 
-We appreciate feedback on the tutorial proposal.
+
