@@ -5,6 +5,7 @@ To register a feedback slot, please make a pull-request on this file, which adds
 * The date corresponds to the date where the teacher looks at the material and provides students with feedback.
 * The feedback will be given according to the material present in, or pointed from the PR, at the given date.
 * Feedback cannot be postponed
+* A feedback PR is not a self-assessment, and is not meant to claim a distinction.
 
 There can be at most two PRs per date.
 
