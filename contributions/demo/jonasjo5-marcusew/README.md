@@ -16,3 +16,4 @@ We want to demonstrate how to integrate and use continous delivery and continous
 We will provide a GitHub repository together with our screencast. The viewer can fork the repo and will be provided two branches, one with a complete implementation and one unfinished setup.
 
 We will show how new features can be delivered into an existing app.
+We will also highlight some features that make CircleCI a strong competitor within continous deployment. 
