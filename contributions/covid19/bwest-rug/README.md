@@ -17,6 +17,6 @@ Educate the user on the COVID-19 spread using a SIR model.
 * Make predictions from data based on mathematical models such as SIR-model
 * Allow the user to view the data in any date interval
 
-### Techniques
+### DevOps techniques
 * Test-Driven Development
 * Continuous Integration
