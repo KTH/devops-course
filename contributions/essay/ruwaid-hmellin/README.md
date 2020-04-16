@@ -7,15 +7,15 @@ Henrik Mellin (hmellin@kth.se)
 GitHub Username: hmellin97
 
 ## Topic
-DevOps monitoring in the video games industry: 
+Monitoring in the video games industry: 
 * What tools are used
 * What methods are used
-* What kind of data is used
-* How it is used for: 
-  * Anti-Cheat
-  * Bug finding
+* What kind of information is analyzed
+* How it is used to monitor for: 
+  * Cheaters
+  * Bugs
   * Attacks
-  * Performance
+  * Performance Issues
 
 ## Sources
 https://medium.com/@helymarleena/devops-vs-gamedev-software-engineering-80b4b73bdc81 </br>
