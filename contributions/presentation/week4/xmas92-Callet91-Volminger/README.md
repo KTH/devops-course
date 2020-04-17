@@ -27,6 +27,8 @@ Test Amplification in DevOps
 - Automatic Unit Test Amplification for DevOps(https://tel.archives-ouvertes.fr/tel-02396530/document and https://arxiv.org/pdf/1811.08330.pdf)
 - Increases the quality of test cases automatically and hence minimizes manual generated unit tests and labour costs. 
 
+## Slides
+[Google Slides](https://docs.google.com/presentation/d/1JJ-6zHDfeQGpPhK_k3tQ2mh2fltZ-I4RE6E1qJnmv0s/edit?usp=sharing)
 
  
 
