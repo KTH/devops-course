@@ -1,24 +1,27 @@
-# Topic: DevSecOps in Kubernetes
+# Topic: Kubernetes Security
 
 ## Members:
 - Emelie Tham (etham@kth.se)
 - Philip Wester (phwe@kth.se)
 
 ## Motivation
-Both my partner and I are interested in learning more about Kubernetes as well as the security aspect of DevOps, so we put the two together as the subject of our presentation. We are a bit unsure whether or not this topic is too broad, so any feedback is appreciated!
+Both my partner and I are interested in learning more about Kubernetes as well as the security aspect of it, so we put it as the subject of our presentation.
 
 ## Description
 Draft of Presentation Structure:
-1. What is DevSecOps and Why is it important?
-    - Case Study
-2. DevSecOps in terms of Kubernetes
-    - Security Challenges of Kubernetes
-    - "Billion Laughs" vulnerability
-    - How to strengthen Kubernetes Security
-        - Reducing Kubernetes Attack Surface
-        - Utilizing Kubernetes inbuilt security features
-        - Using open source tools for Kubernetes Security
-3. Conclusion/Summary
+1. Kubernetes Overview
+2. Kubernetes Security
+    - Why should we care about Kubernete's security?
+3. Securing Access to Kubernete's API
+    - Kubernetes Authentication
+    - Kubernetes Authorization
+    - Rolebased Access Control
+4. Securing Kubernete's Pods
+    - Security Context and Pod Security Policies
+    - Network Policies
+    - Resource Allocation Management
+5. Open source Tools
+6. Conclusion/Summary
 
 ## References
 References, if needed:
