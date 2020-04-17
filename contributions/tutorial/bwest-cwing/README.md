@@ -12,7 +12,7 @@ This would include tools that handle the following key points
 * code analysis
 * testing
 * obfuscation (and minimization)
-* compilation (non pyc)
+* compilation
 
 ### Goal
 With a completed tutorial, one should be able to chain these tools together, making it a very effective process that is essentially automated.
