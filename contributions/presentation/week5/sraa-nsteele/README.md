@@ -1,4 +1,4 @@
-#  Continuous Experimentation
+#  Canary Releases
 
 ## Members:
 
@@ -8,12 +8,12 @@
 
 ## Description:
 
-Nick and I, Sashi, found the topic of continuous experimentation very interesting. As part of the presentation we would like to cover -
+Nick and I, Sashi, found the topic of Canary Releases in continuous experimentation very interesting. As part of the presentation we would like to cover -
 
-- Some background on Continuous Experimentation.
-- Various experimentation practices such as Canary Releases, Dark Launches, etc.,
-- Implementation techniques like Feature Toggles and Runtime Traffic Routing.
-- Regression Driven and Business Driven experiments
-- A real time use-case from Regression Driven experiments that covers one of the practices and techniques.
+- Some background on Continuous Experimentation and Canary Releases.
+- Regression Driven Experiments
+- What is a Canary Release?
+- Canary Advisor by IBM Research
+- A real time use-case that Netflix is using.
 
 [Resource](http://eprints.cs.univie.ac.at/5953/1/paper-1.pdf)
