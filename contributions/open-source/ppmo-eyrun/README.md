@@ -1,5 +1,6 @@
 # Members: 
 Eyrún Þrastardóttir: eyrun@kth.se
+
 Paul-Philip Mousulet: ppmo@kth.se
 
 # Proposal
@@ -14,6 +15,7 @@ They are now working on making it Open-Source and available to the developer com
 
 
 The issue we picked is https://github.com/spotify/backstage/issues/574
-The issues get grabbed very quickly so we took this one before it was lost again.
-Link to Backstage webpage: https://backstage.io/
 
+The issues get grabbed very quickly so we took this one before it was lost again.
+
+Link to Backstage webpage: https://backstage.io/
