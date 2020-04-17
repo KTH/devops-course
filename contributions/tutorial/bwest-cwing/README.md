@@ -1,4 +1,4 @@
-# Tutorial Proposal - Tool-assisted code analysis and manipulation for Python applications
+# Tutorial Proposal - Python toolchain for deploying a release build
 
 ## Members
 * Balthazar West, bwest@kth.se, Github: balwes
