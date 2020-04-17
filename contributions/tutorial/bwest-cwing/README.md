@@ -1,4 +1,4 @@
-# Tutorial Proposal - Toolassisted code analysis, testing, obfuscation and compilation for Python applications
+# Tutorial Proposal - Tool-assisted code analysis, testing, obfuscation and compilation for Python applications
 
 ## Members
 * Balthazar West, bwest@kth.se, Github: balwes
