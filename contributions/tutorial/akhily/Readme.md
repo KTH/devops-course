@@ -15,3 +15,6 @@ implementation guide on how to integrate the application with version control an
 
 The target audience aimed for this tutorial are ServiceNow admins, developers, customers and other enthusiasts on service management platforms like
 Salesforce, ServiceNow, BMC Remedy etc
+
+# Link to tutorial:
+The article [Implementing CICD in ServiceNow Using Flow Designer](https://medium.com/@akhilyerrapragada905/implementing-cicd-in-servicenow-using-flow-designer-81152a0f4c9d) was published in medium.
