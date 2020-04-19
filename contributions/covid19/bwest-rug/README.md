@@ -5,6 +5,11 @@
 
 * Richard Uggelberg, rug@kth.se, Github: richarduggelberg
 
+## Submission
+Repo: https://github.com/bwest-uggelberg/covid19
+
+Site: https://bwest-uggelberg.github.io/covid19/
+
 ## Topic
 Visualize the spread of COVID-19 using current data.
 Also predict the spread based on previous data.
