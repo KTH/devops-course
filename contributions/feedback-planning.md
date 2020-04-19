@@ -23,7 +23,7 @@ There can be at most two PRs per date.
 * 04/16/20
 * 04/17/20 [#566](https://github.com/KTH/devops-course/pull/566) [#572](https://github.com/KTH/devops-course/pull/572)
 * 04/20/20 [#568](https://github.com/KTH/devops-course/pull/568) [#569](https://github.com/KTH/devops-course/pull/569)
-* 04/21/20
+* 04/21/20 [#593](https://github.com/KTH/devops-course/pull/593)
 * 04/22/20
 * 04/23/20
 * 04/24/20
