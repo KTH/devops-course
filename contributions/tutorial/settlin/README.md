@@ -2,6 +2,7 @@
 
 ## Members
 - Johan Settlin settlin@kth.se
+- Adam Björnberg adambjo@kth.se
 
 ## Topic
 
