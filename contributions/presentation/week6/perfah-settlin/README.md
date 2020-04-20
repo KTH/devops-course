@@ -1,0 +1,22 @@
+# Presentation proposal: Chaos Engineering (week 6)
+
+## Member
+Per Fahlander (perfah@kth.se)
+Johan Settlin (settlin@kth.se)
+
+## Topic
+A rough introduction and overview of the displine known as “Chaos Engineering”. What is the point of it? How is it used?
+
+## Relevance
+Chaos Engineering helps to contribute to the goal of continuous testing in the DevOps toolchain.
+
+## Outline
+
+Chaos Engineering
+What is it / motivation? (fallacies of distributed systems, etc...)
+Why break things on purpose?
+Methodology
+Companies that uses Chaos Engineering
+Examples
+Chaos monkey
+Results
