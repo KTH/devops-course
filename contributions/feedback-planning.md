@@ -5,6 +5,7 @@ To register a feedback slot, please make a pull-request on this file, which adds
 * The date corresponds to the date where the teacher looks at the material and provides students with feedback.
 * The feedback will be given according to the material present in, or pointed from the PR, at the given date.
 * Feedback cannot be postponed
+* A feedback PR is not a self-assessment, and is not meant to claim a distinction.
 
 There can be at most two PRs per date.
 
@@ -17,13 +18,13 @@ There can be at most two PRs per date.
 * 04/09/20
 * 04/10/20
 * 04/13/20 [#397](https://github.com/KTH/devops-course/pull/397)
-* 04/14/20
-* 04/15/20
+* 04/14/20 [#540](https://github.com/KTH/devops-course/pull/540) [#547](https://github.com/KTH/devops-course/pull/547)
+* 04/15/20 [#536](https://github.com/KTH/devops-course/pull/536)
 * 04/16/20
-* 04/17/20
-* 04/20/20
-* 04/21/20
-* 04/22/20
+* 04/17/20 [#566](https://github.com/KTH/devops-course/pull/566) [#572](https://github.com/KTH/devops-course/pull/572)
+* 04/20/20 [#568](https://github.com/KTH/devops-course/pull/568) [#569](https://github.com/KTH/devops-course/pull/569)
+* 04/21/20 [#379](https://github.com/KTH/devops-course/pull/379) [#593](https://github.com/KTH/devops-course/pull/593)
+* 04/22/20 [#596](https://github.com/KTH/devops-course/pull/596)
 * 04/23/20
 * 04/24/20
 * 04/25/20
