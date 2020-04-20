@@ -5,7 +5,7 @@ Per Fahlander (perfah@kth.se)
 Johan Settlin (settlin@kth.se)
 
 ## Topic
-A rough introduction and overview of the displine known as “Chaos Engineering”. What is the point of it? How is it used?
+A rough introduction and overview of the discipline known as “Chaos Engineering”. What is the point of it and how is it used?
 
 ## Relevance
 Chaos Engineering helps to contribute to the goal of continuous testing in the DevOps toolchain.
