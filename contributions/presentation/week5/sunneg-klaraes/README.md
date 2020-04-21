@@ -1,5 +1,5 @@
-# Planned topic
-DevOps teams - roles, responsibilities and habits
+# Topic
+DevOps in practice
 
 # Relevance and timeliness for testing and devops
 
@@ -7,6 +7,8 @@ To successfully adopt DevOps into your organization, it's important to have team
 
 # Outline of the presentation
 
-- Roles and responsibilities in DevOps teams
-- How large companies organize DevOps teams
-- If we find anyone: personal experience from a DevOps team in tech Stockholm
+- How to work according to devops
+- How Netflix organize DevOps teams
+- Personal experience from a developers in tech Stockholm
+
+Link to slides: https://docs.google.com/presentation/d/1QtjlDqTMD8mAIX8Vbl4GPfEEaWDpZbN5LW9QNK_UvLs/edit?usp=sharing

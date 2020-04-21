@@ -63,8 +63,8 @@ Past edition:
 * Student presentations
 
 ### Week 6
-* Webinar: Infrastructure as code [Daniel Caballero Rodriguez (Fastly)](https://www.linkedin.com/in/danicaba/) 
 * Lecture: Automatic program repair [Martin Monperrus](https://www.monperrus.net/martin/)
+* Lecture: Infrastructure as code [Daniel Caballero Rodriguez (Fastly)](https://www.linkedin.com/in/danicaba/) 
 * Fuzzing competition results
 * Student presentations
 
