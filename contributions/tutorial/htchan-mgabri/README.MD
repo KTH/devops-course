@@ -4,6 +4,7 @@
 ## Member
 ----
 - Ho Ting Chan (htchan)
+- Martin Gabrielsen (mgabri)
 
 ## Proposal
 ----
