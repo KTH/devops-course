@@ -63,8 +63,8 @@ Past edition:
 * Student presentations
 
 ### Week 6
-* Webinar: Infrastructure as code [Daniel Caballero Rodriguez (Fastly)](https://www.linkedin.com/in/danicaba/) 
 * Lecture: Automatic program repair [Martin Monperrus](https://www.monperrus.net/martin/)
+* Lecture: Infrastructure as code [Daniel Caballero Rodriguez (Fastly)](https://www.linkedin.com/in/danicaba/) 
 * Fuzzing competition results
 * Student presentations
 
@@ -124,7 +124,7 @@ The remote grading scheme changes as follows:
 
 * "essay", "tutorial", "competition entry", "contribution to open-source": the rules remain the same
 * "demo": the screencast is the unique item to be handed over and graded
-* "presentation": there is no online version of the presentation task
+* "presentation": presentations will be done during lecture sessions online by screen sharing
 
 ## Team
 
