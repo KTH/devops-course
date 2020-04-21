@@ -1,5 +1,8 @@
 # Covid-19 Cases by Counties
 
+## Link to repo
+The repo is available here: https://github.com/perfah/covid-19-in-my-region
+
 ## Members
 Per Fahlander (perfah@kth.se)
 Joar Ekelund (joarek@kth.se)
