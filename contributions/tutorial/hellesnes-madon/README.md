@@ -16,3 +16,9 @@ It uses katacoda for a browsable version, lasts approximately 20 minutes and is 
 - Step3: Fuzzing a simple Java program
 - Step4: Fuzzing requests to a server
 - Conclusion
+
+## What is remarkable about this tutorial
+- ability to try interactively the examples
+- we asked and received feedback from Aki Helin, the creator and maintainer of Radamsa
+- we gave installation instructions for the 3 main OS
+- we gave good and relevant links to follow up resources
