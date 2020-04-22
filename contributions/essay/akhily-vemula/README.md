@@ -17,6 +17,9 @@ going ahead the attention in the industry will shift from traditional CI pipelin
 -Advantages of using these assembly lines over existing methods.
 -Shaping the future of Devops
 
+## Link to essay:
+The article [Shifting Attention from CI Pipelines to Devops Assembly Lines] (https://medium.com/@naga.sudeep/shifting-attention-from-ci-pipelines-to-devops-assembly-lines-7970e662567c) was published in medium.
+
 ## References :
 
 [The Difference Between CI Pipelines and DevOps Assembly Lines] (https://dzone.com/articles/the-difference-between-ci-pipelines-and-devops-ass)
