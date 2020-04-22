@@ -6,6 +6,8 @@ Christina Sunnegårdh (sunneg@kth.se)
 ## Topic
 I have come across that GitLab offers their own CI/CD for projects, as opposed to the traditional way where you would have to integrate an external CI/CD. I would like to create a demo on how to integrate this in an example project. In the demo, we will create a pipeline for the application that carries out some tests, and if theese are ok, deploys the application to Heroku.
 
+The application will be a simple Node JS application and the tests will most probably be using the Jest testing framework (I will not put alot of emphasis on how the tests are written, they will be simple and using Jest is just an example).
+
 ## Outline
 
 - Background
