@@ -5,17 +5,23 @@
 
 * Richard Uggelberg, rug@kth.se, Github: richarduggelberg
 
+## Submission
+Repo: https://github.com/bwest-uggelberg/covid19
+
+Site: https://bwest-uggelberg.github.io/covid19/
+
 ## Topic
-Visualize the spread and future of COVID-19 using current data and predictions.
+Visualize the spread of COVID-19 using current data.
+Also predict the spread based on previous data.
 
 ### Goal
-Effectively communicate the severity of the current situation.
+Educate the user on the COVID-19 spread using a SIR model.
 
 ### Key features
 * Display current live data
 * Make predictions from data based on mathematical models such as SIR-model
-* Estimate number of unknown cases
+* Allow the user to view the data in any date interval
 
-### Techniques
+### DevOps techniques
 * Test-Driven Development
 * Continuous Integration
