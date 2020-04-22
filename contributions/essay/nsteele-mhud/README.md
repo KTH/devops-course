@@ -9,22 +9,22 @@ Software has become an underlying foundation for modern society, shown by use ca
 
 Overall structure of the essay:
 Contents
-1 Introduction 
-2 The CI/CD Pipeline
-3 Continous Integration
-4 Continuous Delivery
-5 Continous Deployment
-6 Continous Testing
-6.1 Shift-Left Testing
-6.2 Shift-Right Testing
-7 Continuous Improvement
-8 Amazon Web Services and CI/CD
-8.1 AWS Code Pipeline
-8.2 Code Commit
-8.3 AWS Code Build
-8.4 AWS Code Deploy
-8.5 AWS DevOps Honourble Mentions
-9 Conclusion 
+* 1 Introduction 
+* 2 The CI/CD Pipeline
+* 3 Continous Integration
+* 4 Continuous Delivery
+* 5 Continous Deployment
+* 6 Continous Testing
+* 6.1 Shift-Left Testing
+* 6.2 Shift-Right Testing
+* 7 Continuous Improvement
+* 8 Amazon Web Services and CI/CD
+* 8.1 AWS Code Pipeline
+* 8.2 Code Commit
+* 8.3 AWS Code Build
+* 8.4 AWS Code Deploy
+* 8.5 AWS DevOps Honourble Mentions
+* 9 Conclusion 
 
 The bold criterias are the ones we aim to fulfill.
 | The essay is sound, factual, and accurate                                    | **Yes** | No | Remarkable |
