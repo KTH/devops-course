@@ -26,8 +26,16 @@ Contents
 * 8.5 AWS DevOps Honourble Mentions
 * 9 Conclusion 
 
-The bold criterias are the ones we aim to fulfill.
-* | The essay is sound, factual, and accurate                                    | **Yes** | No | Remarkable |
-* | The essay contains appropriate references                                    | **Yes** | No | Remarkable |
-* | The essay presentation is elegant / visually appealing (eg on Medium, LaTeX) | **Yes** | No | **Remarkable** |
-* | The essay addresses a topic that is relevant for DevOps                      | **Yes** | No | **Remarkable** |
+* The essay has a good title	| **Yes** |	No |
+* The essay is well structured, the ideas are well presented	| **Yes** |	No |
+* The essay contains a good introduction	| Yes |	No	| **Remarkable**
+* The essay contains a good conclusion	| **Yes** |	No |
+* The essay is self-contained |	**Yes** |	No	| 
+* The essay contains innovative ideas or material	| Yes |	**No** |	
+* The essay contains good figures or listings | **Yes**	| No |
+* The essay is sound, factual, and accurate |	**Yes** |	No |
+* The essay contains appropriate references	| Yes |	No	| **Remarkable**
+* The essay presentation is elegant / visually appealing (eg on Medium, LaTeX)	|Yes |	No	| **Remarkable**
+* The essay addresses a topic that is relevant for DevOps	| Yes	| No	| **Remarkable**
+
+
