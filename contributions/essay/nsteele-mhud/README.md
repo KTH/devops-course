@@ -27,7 +27,7 @@ Contents
 * 9 Conclusion 
 
 The bold criterias are the ones we aim to fulfill.
-| The essay is sound, factual, and accurate                                    | **Yes** | No | Remarkable |
-| The essay contains appropriate references                                    | **Yes** | No | Remarkable |
-| The essay presentation is elegant / visually appealing (eg on Medium, LaTeX) | **Yes** | No | **Remarkable** |
-| The essay addresses a topic that is relevant for DevOps                      | **Yes** | No | **Remarkable** |
+* | The essay is sound, factual, and accurate                                    | **Yes** | No | Remarkable |
+* | The essay contains appropriate references                                    | **Yes** | No | Remarkable |
+* | The essay presentation is elegant / visually appealing (eg on Medium, LaTeX) | **Yes** | No | **Remarkable** |
+* | The essay addresses a topic that is relevant for DevOps                      | **Yes** | No | **Remarkable** |
