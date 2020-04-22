@@ -26,6 +26,8 @@ Contents
 * 8.5 AWS DevOps Honourble Mentions
 * 9 Conclusion 
 
+### Grading Criteria met.
+
 * The essay has a good title	| **Yes** |	No |
 * The essay is well structured, the ideas are well presented	| **Yes** |	No |
 * The essay contains a good introduction	| Yes |	No	| **Remarkable**
