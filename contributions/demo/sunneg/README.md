@@ -1,7 +1,7 @@
 # Demo proposal
 
 ## Members
-- Christina Sunnegårdh (sunneg@kth.se)
+Christina Sunnegårdh (sunneg@kth.se)
 
 ## Topic
 I have come across that GitLab offers their own CI for projects, as opposed to the traditional way where you would have to integrate an external CI. I would like to create a demo on how to integrate this in an example project.
