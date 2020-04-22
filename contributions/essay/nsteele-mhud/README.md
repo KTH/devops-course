@@ -3,22 +3,4 @@ Contributors
 Nick Steele: nsteele@kth.se
 Helal Uddin: mhud@kth.se
 
-The essay will give an introductory overview on vital AWS services/tools used to provide solutions for vital DevOps tasks such as project CI/CD.
-
-Some tools under investigation:
-
-AWS CodePipeline.
-AWS CodeCommit.
-AWS CodeBuild.
-AWS CodeDeploy.
-After reading the essay the reader will understand:
-
-DevOps philosophy and life-cycle
-Importance of using existing services/tools to support the DevOps processes and their relevance.
-Have the technical understanding so that they will have the knowledge to begin working on a DevOps project utilising AWS technology.
-Resources:
-
-https://aws.amazon.com/devops/
-https://aws.amazon.com/solutions/case-studies/capital-one-devops/
-https://www.atlassian.com/devops
-https://aws.amazon.com/training/course-descriptions/devops-engineering/
+Software has become an underlying foundation for modern society, shown by use cases within a vast array of industries and through current times of pandemic, by keeping millions of people connected throughout times of disconnect. To deliver software effectively it has become important that businesses implement appropriate processes and practices that enable them to keep up with the relentless pace of ever-changing technology-driven markets. Additionally, Modern businesses are faced with large amounts of competition, it has become increasingly difficult to stay ahead of competitors while maintaining a high degree of product quality. To get ahead in modern business, it requires the ability to deliver products at high velocity or as Mark Zuckerberg puts it \textit{"Move fast and break things"}, while maintaining overall product quality. This can be achieved by utilising the correct tools, processes and philosophies. DevOps is a methodology that allows software to be released into production environments at high speed while maintaining adequate product verification. Continuous Integration and Continuous Delivery pipelines (CI/CD) are the technical driving force of a DevOps workflow. This paper uncovers CI/CD pipelines and introduces a variety of Amazon Web Services Technology available for implementation. By gaining an educated understanding of CI/CD and then choosing the correct technology available for implementation can be the difference between project success and failure.
