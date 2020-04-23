@@ -33,6 +33,8 @@ Download the python script that will be used to try out some of the different to
 
 ``curl https://raw.githubusercontent.com/cwinge/Obfuscation-testfile/master/tutorial.py --output tutorial.py``
 
+Alternatively manually download the file from this git directory.
+
 You're all set!
 
 ### Intensio-Obfuscator
