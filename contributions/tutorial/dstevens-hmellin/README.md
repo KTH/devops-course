@@ -11,10 +11,10 @@ The tutorial will be interactive through Katacoda.
 
 ## Outline
 1. Setting up your Docker server
-2: Installing Git on your server
-3: Pushing and pulling files on your repository
-4: Configuration, security
-5: Front-ends (gogs, gitea)
+2. Installing Git on your server
+3. Pushing and pulling files on your repository
+4. Configuration, security
+5. Front-ends (gogs, gitea)
 
 ## Novelty
 There are some existing tutorials for hosting Git servers, such as [on linux.com](https://www.linux.com/training-tutorials/how-run-your-own-git-server/), however these tutorials don’t bring up security measures or adding front-ends. Furthermore, they are not interactive.
