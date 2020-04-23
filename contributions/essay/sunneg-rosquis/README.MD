@@ -1,14 +1,17 @@
+## Finished essay
+[Link to essay](./The_correlation_between_SaaS_and_DevOps.pdf)
+
 ## Essay proposal
 _Authors: Christina Sunnegårdh & Christine Rosquist_
 
 
-We would like to write an essay about SaaS, how it enables companies to fully exploit the power of DevOps. 
+We would like to write an essay about SaaS, how it enables companies to fully exploit the power of DevOps.
 
 Overall structure of the essay:
 - Background on DevOps
 - Background on SaaS
 - Adobe: from annual releases to continues updates
-- Reflections about the correlation between SaaS and Devops 
+- Reflections about the correlation between SaaS and Devops
 
 The bold criterias are the ones we aim to fulfill.
 
