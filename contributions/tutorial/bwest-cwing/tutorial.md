@@ -4,7 +4,7 @@ A tutorial intended to teach what obfuscation is, why it's relevant and how to g
 
 ### Authors
 * Balthazar West, bwest@kth.se, Github: balwes
-* Christopher Winge, cwinge@kth.se, Github: cwinge
+* Christopher Winge, cwing@kth.se, Github: cwinge
 
 ### Why obfuscate?
 
