@@ -2,7 +2,9 @@
 
 The deadline for the demo is the Michelin Devops Demo Day: the demo must be ready for May 5 2020, 9h00 Stockholm time.
 
-Annoucement: due to COVID-19, the Michelin Devops Demo Day will likely not take place, the grading criteria will be updated.
+Annoucement: due to COVID-19, the Michelin Devops Demo Day will take place online, the grading criteria will be updated.
+
+The hard deadline for the final submission of the Devops Demo: the demo can be updated based on peer feedback before Sunday May 10, 2020, 17h CET.
 
 ## The concept
 
