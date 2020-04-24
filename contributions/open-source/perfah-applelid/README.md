@@ -1,5 +1,8 @@
 # Patching wlroots-sys
 
+## Link to repo
+Here is a link to the repo where the progress will be made: https://github.com/perfah/wlroots-rs
+
 ## Members
 1. Per Fahlander (perfah@kth.se)
 2. Gunnar Applelid (applelid@kth.se)

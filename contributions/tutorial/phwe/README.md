@@ -7,8 +7,6 @@ This tutorial aims to give basic understanding of how to use docker and docker i
 2. Handle ports and communication between the Apache container to the Db container.
 3. Create persistent image storage (volumes), since the image itself is stateless.
 
-Each step will include a small introduction and/or discussion of the relevant topic. 
-
 The tutorial will be created on katacoda.
 
 ### I primarily aim to fulfill the following criteria:
