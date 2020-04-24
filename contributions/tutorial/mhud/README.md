@@ -27,4 +27,4 @@ How to create a service on Azure Portal and use it by deploying release to it.
 How to create a Release Pipeline to create a release and deploy the code to the service created on Azure Portal.
 All of the steps described above will be demonstrated by showing how to apply all these to create this tutorial.
 
-Here is the Wiki link for the complete tutorial: https://dev.azure.com/KTHDevOpsCourseTutorial/DemoProjectFOrTutorial/_wiki/wikis/DemoProjectFOrTutorial.wiki/1/Tutorial-Implementing-Azure-DevOps
+Here is the Wiki link for the complete tutorial: https://dev.azure.com/KthDevops/KthTutorial/_wiki/wikis/KthTutorial.wiki/1/-Tutorial-Implementing-Azure-DevOps
