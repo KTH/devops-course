@@ -3,4 +3,10 @@
 
 ****Subject:**** Automation Testing using selenium framework.
 
-**Description:** In our presentation we mentioned that some introduction of automation and manual testing. In technical part we was using a test case. As a example we picked up selenium webdriver and we tested facebook sign up page using C# progrmming language. 
+**Description:** In continuous testing we two different part one is automation testing and another is test automation. In this presentetion i am going to discuss about the difference about those two differences mainly after that i will be discuss about the topic which i mention in below: 
+
+* why we need automation testing and difference between manual testing and automation testing?
+* How to use Selenium framework?
+* short description about Unit testing.
+* tools we need to test?
+* example
