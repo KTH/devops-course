@@ -3,8 +3,8 @@ This project is developed for gathering information regarding COVID-19 to update
 
 ## Contributors
 Helal Uddin (mhud@kth.se/sujon2100@hotmail.com) and Nick Steele (nsteele@kth.se/njws1@outlook.com)
-Live Website link: https://kthcovid19webapp.azurewebsites.net/ (Service might be off due to fee subscription, contact if it is down)
-Wiki&DevOps Project / Help Fight COVID-19: Web App
+* Final Project Link: https://dev.azure.com/KthProject2020/NewKthCovidProject 
+* Live Website link: https://kthcovid19webapp.azurewebsites.net/ (Service might be off due to fee subscription, contact if it is down)
 
 ## Table of contents
 
@@ -53,23 +53,23 @@ This COVID-19 project is fulfilling the following criteria:
 -The contribution attracts support from other KTH students
 
 ## 4. References
-[1]https://dev.azure.com/KthProject2020/NewKthCovidProject (Link to the complete Project)
-[2] https://news.google.com/covid19/map?hl=en-US&gl=US&ceid=US:en
-[3] https://corona.lmao.ninja/v2/all
-[4] https://api.covid19api.com/country/sweden/status/confirmed
-[5] https://portal.azure.com/#home
-[6] https://visualstudio.microsoft.com/
-[7] https://covid19responsefund.org/
-[8] https://m.facebook.com/groups/815512272277849
-[9] https://www.canada.ca/en/public-health/services/publications/diseases-conditions/covid-19-information-essential-service-workers.html
-[10] https://www.canada.ca/en/public-health/services/publications/diseases-conditions/help-reduce-spread-covid-19.html
-[11] https://kth.instructure.com/courses/
-[12] https://www.kth.se/en/om/kontakt
-[13] https://polisen.se/en/the-swedish-police/contacting-the-police/
-[14] https://www.vardcentraler.sll.se/
-[15] https://www.folkhalsomyndigheten.se/the-public-health-agency-of-sweden/communicable-disease-control/covid-19/about-the-disease/
-[16] https://www.google.com/search?rlz=1C1CHBD_svSE814SE814&q=Coronavirus+Stats&stick=H4sIAAAAAAAAAONgFuLVT9c3NMwySk6OL8zJUULlPmL05hZ4-eOesJTTpDUnrzHacHEFZ-SXu-aVZJZUCulxsUFZKlyCUqg6NRik-LlQhXh2MXF7pCbmlGQElySWFC9iFXTOL8rPSyzLLCotVgCLAQCnsUMMkAAAAA&biw=1232&bih=740
-[17] https://intra.kth.se/en/campus/sakerhet/kris/corona/information-till-anstallda-med-anledning-av-coronaviruset-1.965906
-[18] https://intra.kth.se/en/campus/sakerhet/kris/corona/information-till-studenter-med-anledning-av-coronaviruset-1.965905
-[19] https://www.youtube.com/embed/k8vuUJ7hVLY
-[20] https://www.youtube.com/embed/JCw-B4Ig3DQ
+* [1]https://dev.azure.com/KthProject2020/NewKthCovidProject (Link to the complete Project)
+* [2] https://news.google.com/covid19/map?hl=en-US&gl=US&ceid=US:en
+* [3] https://corona.lmao.ninja/v2/all
+* [4] https://api.covid19api.com/country/sweden/status/confirmed
+* [5] https://portal.azure.com/#home
+* [6] https://visualstudio.microsoft.com/
+* [7] https://covid19responsefund.org/
+* [8] https://m.facebook.com/groups/815512272277849
+* [9] https://www.canada.ca/en/public-health/services/publications/diseases-conditions/covid-19-information-essential-service-workers.html
+* [10] https://www.canada.ca/en/public-health/services/publications/diseases-conditions/help-reduce-spread-covid-19.html
+* [11] https://kth.instructure.com/courses/
+* [12] https://www.kth.se/en/om/kontakt
+* [13] https://polisen.se/en/the-swedish-police/contacting-the-police/
+* [14] https://www.vardcentraler.sll.se/
+* [15] https://www.folkhalsomyndigheten.se/the-public-health-agency-of-sweden/communicable-disease-control/covid-19/about-the-disease/
+* [16] https://www.google.com/search?rlz=1C1CHBD_svSE814SE814&q=Coronavirus+Stats&stick=H4sIAAAAAAAAAONgFuLVT9c3NMwySk6OL8zJUULlPmL05hZ4-eOesJTTpDUnrzHacHEFZ-SXu-aVZJZUCulxsUFZKlyCUqg6NRik-LlQhXh2MXF7pCbmlGQElySWFC9iFXTOL8rPSyzLLCotVgCLAQCnsUMMkAAAAA&biw=1232&bih=740
+* [17] https://intra.kth.se/en/campus/sakerhet/kris/corona/information-till-anstallda-med-anledning-av-coronaviruset-1.965906
+* [18] https://intra.kth.se/en/campus/sakerhet/kris/corona/information-till-studenter-med-anledning-av-coronaviruset-1.965905
+* [19] https://www.youtube.com/embed/k8vuUJ7hVLY
+* [20] https://www.youtube.com/embed/JCw-B4Ig3DQ
