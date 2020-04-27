@@ -18,7 +18,7 @@ With VSTS, it is possible to get all of these services in the cloud. Because of 
 
 However, Microsoft changed the name of VSTS into Azure DevOps, where Azure DevOps has the not only same functionalities but more features as well. All of the tools and extensions in the Azure Portal (that offer services that can be used and connected to the features in Azure DevOps) have been modified too.
 
-Agenda
+##Agenda
 So in this tutorial, it will be shown:
 
 How to use Azure DevOps to manage code.
@@ -27,4 +27,5 @@ How to create a service on Azure Portal and use it by deploying release to it.
 How to create a Release Pipeline to create a release and deploy the code to the service created on Azure Portal.
 All of the steps described above will be demonstrated by showing how to apply all these to create this tutorial.
 
-Here is the Wiki link for the complete tutorial: https://dev.azure.com/KTHDevOpsCourseTutorial/DemoProjectFOrTutorial/_wiki/wikis/DemoProjectFOrTutorial.wiki/1/Tutorial-Implementing-Azure-DevOps
+Here is the Wiki link for the complete tutorial: https://dev.azure.com/KthDevops/KthTutorial
+Link to the website: https://kthtutorialweapp.azurewebsites.net/
