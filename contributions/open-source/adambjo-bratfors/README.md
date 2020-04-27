@@ -32,5 +32,7 @@ The following tasks will need to be carried out:
 
 ## Merged PRs
 We worked on two separate repositories, here are the merged pull requests that detail our work:
+
 https://github.com/strongbox/ci-build-images/pull/9
+
 https://github.com/strongbox/strongbox-docs/pull/82
