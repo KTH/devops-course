@@ -1,5 +1,3 @@
-### Final Demo Submission: Virtual network Peering in Microsoft Azure
-
 **Members**
 Helal Uddin (mhud@kth.se)
 Adam Björnberg (adambjo@kth.se)
