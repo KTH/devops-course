@@ -21,3 +21,6 @@ Preliminary outline:
 
 Bots can help to automate repetitive tasks in a repository. There are a huge amount of bots created for GitHub and the reason is most likely that it’s very easy to create one. Searching for bots for GitLab gives very few results and by creating a tutorial on how to create one we hope to see the number of bots created increase.
 
+## Tutorial
+
+[https://www.katacoda.com/xmas92/scenarios/gitlab-bot](https://www.katacoda.com/xmas92/scenarios/gitlab-bot)
