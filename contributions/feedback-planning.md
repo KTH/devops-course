@@ -32,7 +32,3 @@ There can be at most two PRs per date.
 * 04/26/20 [#470](https://github.com/KTH/devops-course/pull/470)
 * 04/27/20 [#676](https://github.com/KTH/devops-course/pull/676)
 * 04/28/20
-* 04/29/20
-* 04/30/20
-* 04/05/20
-* 05/05/20
