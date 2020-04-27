@@ -3,6 +3,7 @@ Students are given the opportunity to receive specific feedback on their **compl
 To register a feedback slot, please make a pull-request on this file, which adds a link to the PR number corresponding to the task submission PR you'd like to have feedback. Example: `* 01/01/1970 #37`
 
 * The date corresponds to the date where the teacher looks at the material and provides students with feedback.
+* The feedback date must be proposed and accepted at least one day before.
 * The feedback will be given according to the material present in, or pointed from the PR, at the given date.
 * Feedback cannot be postponed
 * A feedback PR is not a self-assessment, and is not meant to claim a distinction.
