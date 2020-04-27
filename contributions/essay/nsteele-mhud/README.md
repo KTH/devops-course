@@ -7,8 +7,6 @@ Helal Uddin: mhud@kth.se
 ## Description
 Software has become an underlying foundation for modern society, shown by use cases within a vast array of industries and through current times of pandemic, by keeping millions of people connected throughout times of disconnect. To deliver software effectively it has become important that businesses implement appropriate processes and practices that enable them to keep up with the relentless pace of ever-changing technology-driven markets. Additionally, Modern businesses are faced with large amounts of competition, it has become increasingly difficult to stay ahead of competitors while maintaining a high degree of product quality. To get ahead in modern business, it requires the ability to deliver products at high velocity or as Mark Zuckerberg puts it \textit{"Move fast and break things"}, while maintaining overall product quality. This can be achieved by utilising the correct tools, processes and philosophies. DevOps is a methodology that allows software to be released into production environments at high speed while maintaining adequate product verification. Continuous Integration and Continuous Delivery pipelines (CI/CD) are the technical driving force of a DevOps workflow. This paper uncovers CI/CD pipelines and introduces a variety of Amazon Web Services Technology available for implementation. By gaining an educated understanding of CI/CD and then choosing the correct technology available for implementation can be the difference between project success and failure.
 
-Essay: https://github.com/sujon2100/devops-course/blob/master/contributions/essay/nsteele-mhud/DD2482EssayNew.pdf
-
 Overall structure of the essay:
 Contents
 * 1 Introduction 

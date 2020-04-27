@@ -1,7 +1,7 @@
 
 ## Presentation Task
 
-The students prepare a 7-9 minute presentation on a topic that is relevant to DevOps. 
+The students prepare a 7-9 minute presentation on a topic that is relevant to DevOps. All students in a presentation must be present and speak in a balanced manner.
  
 ## Grading Criteria
 
@@ -37,7 +37,7 @@ Make a pull-request based on the following steps:
    - a short statement (1-3 sentences) about the relevance and timeliness for testing and devops
    - bullet outline of the presentation  
 
-TA will review the PR. If it is accepted, you could begin your work on this topic, and make another pull-request to submit your work in the future. Note that each week, no more than **7** presentations will be arranged.
+TA will review the PR. If it is accepted, you could begin your work on this topic, and make another pull-request to submit your work in the future. Note that each week, no more than **6** presentations will be arranged.
 
 ## Final Submission
 
