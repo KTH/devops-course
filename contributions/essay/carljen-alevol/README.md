@@ -18,3 +18,6 @@ https://www.docker.com/why-docker
 https://github.com/containers/buildah 
 
 https://dwalsh.fedorapeople.org/ReplacingDockerWithPodman.pdf
+
+# Link to essay
+WIP Link: https://docs.google.com/document/d/1vC35eVQpjxDziZEA4dsSM52kR4jhoZIIkLpDAeLvLyk/edit?usp=sharing
