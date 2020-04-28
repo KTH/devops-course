@@ -5,7 +5,7 @@ To register a repetition for presentations, please make a pull-request on this f
 
 * May 18 2020, starting at 13h
 
-  1.
+  1. [#673](https://github.com/KTH/devops-course/pull/673) (Nagasudeep Vemula-vemula@kth.se, Akhil Yerrapragada-akhily@kth.se)
   1.
   1.
   1.
@@ -13,6 +13,6 @@ To register a repetition for presentations, please make a pull-request on this f
 
   1.
   1. [#613](https://github.com/KTH/devops-course/pull/613) (Diego Leon - dleon@kth.se, George Rezkalla - rezkalla@kth.se)
-  1.
+  1. 
   1.
 
