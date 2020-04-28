@@ -33,7 +33,7 @@ Not everything is set in stone or figured out yet, depending on what I choose th
 Depending on time constraints, additional options could be put in
 
 ## Goal
-The goal would be a website where you are able to publish any Docker image that you want. This would be published online on the cloud using either AWS or Azure.
+The end goal would be to have a website where you are able to publish any Docker image that you want, and have access to its terminal, all through the web browser. This would be published online on the cloud using either AWS or Azure.
 I might go over how to create your own Docker image to fit your needs in the demo, but probably quite briefly and not in-depth. 
 Multiple users should be able to use seperate terminal environments at the same time.
 This could obviously be used in the same way as a Katacoda playground, but could easily be altered to just have a place where only you could access your favorite terminal workplace environment, customized to your specification.
