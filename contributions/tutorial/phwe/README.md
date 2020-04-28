@@ -5,9 +5,7 @@ This tutorial aims to give basic understanding of how to use docker and docker i
 ### The 3 main points of the tutorial will be:
 1. Set up and run Apache and an SQL DB via docker (separate containers).
 2. Handle ports and communication between the Apache container to the Db container.
-3. Create persistent image storage (volumes or bind mounts), since the image itself is stateless.
-
-Each step will include a small introduction and/or discussion of the relevant topic. Ex. step 3 will introduce and compare volumes and bind mounts. 
+3. Create persistent image storage (volumes), since the image itself is stateless.
 
 The tutorial will be created on katacoda.
 
