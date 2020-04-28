@@ -5,10 +5,10 @@
 - Adam Björnberg adambjo@kth.se
 
 ## Topic
+We have created at tutorial on how to use Flask-MonitoringDashboard in your Flask Web-application,
+We could not find any tutorials on this subject more than the documentation on the Flask-site. 
 
-I would like to create at tutorial on how to use Flask-MonitoringDashboard in your Flask Web-application,
-I could not find any tutorials on this subject more than the documentation on the Flask-site. This is something that I have never done before 
-(both creating a web-app and using monitoring).
+[Link to tutorial](https://medium.com/flask-monitoringdashboard-turtorial/monitor-your-flask-web-application-automatically-with-flask-monitoring-dashboard-d8990676ce83?source=friends_link&sk=2355f8e22eebd8fb97eef343120efcce)
 
 ## Outline
 - Introduction to monitoring
