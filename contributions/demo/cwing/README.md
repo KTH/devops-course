@@ -38,3 +38,6 @@ I might go over how to create your own Docker image to fit your needs in the dem
 Multiple users should be able to use seperate terminal environments at the same time.
 This could obviously be used in the same way as a Katacoda playground, but could easily be altered to just have a place where only you could access your favorite terminal workplace environment, customized to your specification.
 Could also prepare customized images for demos/presentations needed to be performed, without needing to bring and plug-in your own computer.
+
+### Concerns
+My main concern is how well the free tier services available might be quite deterimental to how responsive the terminals will be, especially with multiple users, but I would not think it is the fault of the idea. Could alternatively publish the website on my own desktop instead of AWS/Azure(will still be how it is done in the actual demo) during the 5th, but will see if it will be needed or not.
