@@ -20,4 +20,4 @@ https://github.com/containers/buildah
 https://dwalsh.fedorapeople.org/ReplacingDockerWithPodman.pdf
 
 # Link to essay
-WIP Link: https://docs.google.com/document/d/1vC35eVQpjxDziZEA4dsSM52kR4jhoZIIkLpDAeLvLyk/edit?usp=sharing
+Link: https://medium.com/@alexander.volminger/containers-is-it-worth-banishing-the-daemons-and-clearing-the-roots-b68c8bd4255c
