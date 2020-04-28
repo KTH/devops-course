@@ -15,13 +15,13 @@ Christer Winge cwing@kth.se
 ## Envisioned process
 Not everything is set in stone or figured out yet, depending on what I choose the title could reflect that.
 
-* The webpage will be hosted using AWS or Azure, within a simple linux VM(not sure which dist yet)
+* The web page will be hosted using AWS or Azure, within a simple Linux VM(not sure which dist yet)
 
 * The website will be deployed through the use of either Python-code and Flask, or just Golang-code
 
 * The website should support different terminal configurations and different users to use the website at the same time
 
-    * The configurations will be set by the host, while the users visiting the website can choose from those made available(could also make it possible to have an imagename as input, but would be severly limited by things such as free tier limits, size, etc)
+    * The configurations will be set by the host, while the users visiting the website can choose from those made available(could also make it possible to have an image name as input, but would be severely limited by things such as free tier limits, size, etc)
 
 * Will use Docker images to keep everything contained, which is also an easy way to reset the environment and they can be customized, so the type of environments are endless
 
