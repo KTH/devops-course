@@ -6,7 +6,7 @@
 What are the possible interactions and synergies between DevOps practices and the development of sustainable software?
 
 ## Final version
-The final version of the essay is accessible in this directory: `essay.pdf`. We hope we'll like it :)
+The final version of the essay is accessible in this file: `essay.pdf`. I hope you'll like it :)
 
 ## Outline
 - Introduction
