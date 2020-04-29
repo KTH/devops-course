@@ -1,5 +1,4 @@
 # Tutorial Proposal: Setting up Cypress with Docker
-
 **Members:** Emelie Tham (etham@kth.se)
 
 ## Structure of Topic
@@ -13,7 +12,7 @@
 5. Setting up Cypress with Docker
 7. Tests runs on the Docker and Cypress setup.
 
-I primarily aim to fulfill the following criteria:
+## I primarily aim to fulfill the following criteria:
 - The TA can successful execute all the commands of the tutorial (mandatory)
 - The tutorial gives enough background
 - The tutorial is easy to follow
