@@ -16,5 +16,6 @@ DevOps teams encapsulate pieces of functionality in microservices and build larg
 - Examples of implementation
 - When should you use what?
 
-[Presentation slides](https://docs.google.com/presentation/d/1RS_6CRYsSxzp4mecoPnSpbVZYmcO4VsD0kiuugRUxQI/edit?usp=sharing)
-
+Week 3: [presentation slides](https://docs.google.com/presentation/d/1RS_6CRYsSxzp4mecoPnSpbVZYmcO4VsD0kiuugRUxQI/edit?usp=sharing)  
+Repeat in May: [presentation slides](https://docs.google.com/presentation/d/1a3ofIV5jO7lpFqfintjIW1HGHTDnDDbwYgOpWE6gihU/edit?usp=sharing)   
+[Video for feedback](https://youtu.be/s8ZjaeWdWm0)
