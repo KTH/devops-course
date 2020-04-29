@@ -30,3 +30,4 @@ We aim to achive following criteria:
 - The essay contains appropriate references
 - The essay presentation is elegant / visually appealing (eg on Medium, LaTeX) (Distinction)
 - The essay addresses a topic that is relevant for DevOps (Distinction)
+
