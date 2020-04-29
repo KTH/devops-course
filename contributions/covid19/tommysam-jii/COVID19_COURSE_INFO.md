@@ -148,7 +148,7 @@ We aim to achieve at least these criteria:
 * A mobile and web application that helps KTH students stay updated on changes in examination due to COVID-19.
 
 **The contribution is related to / built with DevOps technology**
-* We have created our own Jenkins server, and built a small pipeline that is connected to our repository for the application. We are also using Firebase in this project, which is a serverless computing service. We are also using PWA(progressive web apps) for faster and simplified deployment.
+* We have created our own Jenkins server, and built a small pipeline that is connected to our repository for the application. We are also using Firebase in this project, which is a serverless computing service. We are also using PWA (progressive web apps) for faster and simplified deployment.
 
 **The contribution is novel**
 * We haven't found any application that is similar to ours yet.
