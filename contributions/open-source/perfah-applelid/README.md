@@ -1,7 +1,9 @@
 # Patching wlroots-sys
 
-## Repo
-Here is the repo where the progress will be made: https://github.com/perfah/wlroots-rs
+## Links to what we did
+[Repository](https://github.com/perfah/wlroots-rs)
+
+[Reflection & Contribution document](https://github.com/perfah/wlroots-rs/wiki/devops-course:-Reflection-&-Contributions)
 
 ## Members
 1. Per Fahlander (perfah@kth.se)
