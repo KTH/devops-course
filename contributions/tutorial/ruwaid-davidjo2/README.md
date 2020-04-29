@@ -14,3 +14,6 @@ https://devops.com/modeling-place-devops/ </br>
 https://modeling-languages.com/devops-modeling-workshop/ </br>
 
 But this is essentially up for discussion.
+
+## Submission Link
+https://medium.com/@ruwaid4/rodin-modelling-with-event-b-8fdab6c65003
