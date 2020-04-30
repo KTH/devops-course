@@ -1,5 +1,11 @@
 #### Tutorial Proposal: Version Control in Large-scale projects
 
+## Link to tutorial
+
+[Katacoda tutorial](https://www.katacoda.com/richarduggelberg/scenarios/git-tutorial)
+
+[Github](https://github.com/richarduggelberg/katacoda-git-tutorial)
+
 ##### Participants
 
 | Name | Email |
