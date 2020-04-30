@@ -1,5 +1,10 @@
 # Patching wlroots-sys
 
+## Links to what we did
+[Repository](https://github.com/perfah/wlroots-rs)
+
+[Reflection & Contribution document](https://github.com/perfah/wlroots-rs/wiki/devops-course:-Reflection-&-Contributions)
+
 ## Members
 1. Per Fahlander (perfah@kth.se)
 2. Gunnar Applelid (applelid@kth.se)
