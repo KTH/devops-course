@@ -11,30 +11,31 @@ Then, we will go through Ansible and Puppet in more detail, and make a compariso
 ## Structure
 
 1. Introduction
-	1.1. Why this topic?
-	1.2. What is configuration management?
-	1.3. The relationship between IaC and DevOps
-	1.4. Some tools
-2. Puppet
-	2.1. Some technical information
-		2.1.1 Facts
-		2.1.2 Manifest
-		2.1.3 Catalog
-		2.1.4 How does Puppet work?
-		2.1.5 Example
-3. Ansible
-	3.1. Some technical information
-	3.2. Ansible architecture
-		3.2.1 Inventory
-		3.2.2 Modules
-		3.2.3 Plugins
-		3.2.4 Playbook
-		3.2.5 Example
-4. Puppet Vs Ansible
-	4.1. Comparison: Ansible vs Puppet
-	4.2. Comparison as a Table
-5. Conclusion
-References
+ 1. Why this topic?
+ 1. What is configuration management?
+ 1. The relationship between IaC and DevOps
+ 1. Some tools
+1. Puppet
+ 1. Some technical information
+ 1. Puppet architecture
+  1. Facts
+	1. Manifest
+	1. Catalog
+	1. How does Puppet work?
+	1. Example
+1. Ansible
+ 1. Some technical information
+ 1. Ansible architecture
+  1. Inventory
+	1. Modules
+	1. Plugins
+	1. Playbook
+	1. Example
+1. Puppet Vs Ansible
+ 1. Comparison: Ansible vs Puppet
+ 1. Comparison as a table
+1. Conclusion  
+1. References
 
 
 ## Criteria that we want to fulfill
