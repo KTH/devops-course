@@ -1,4 +1,4 @@
-# Demo proposal
+# Demo: Continous deployment with CircleCI and Google Kubernetes Enginge
 
 ## Members
 
@@ -10,12 +10,19 @@ Marcus Jonsson Ewerbring, marcusew@kth.se
 
 Github id: Marcus9512
 
-## Continous development, delivery and pipelines with CircleCI
+## Links
 
-We want to demonstrate how to integrate and use continous delivery and continous deployment with CircleCI. 
-We will provide a GitHub repository together with our screencast. The viewer can fork the repo and will be provided two branches, one with a complete implementation and one unfinished setup.
+**Youtube video**
+https://youtu.be/QlPTto0A19c
 
-We will show how new features can be delivered into an existing app.
-We will highlight some features that make CircleCI a strong competitor within continous deployment and some features that facilitate the migration from Jenkins to CircleCI. 
+**GitHub repository**
+https://github.com/jonasjohansson8908/cd-demo
 
-Hopefully (if we manage to pull it off), we will show some examples of integration with Docker and Kubernetes.
+## About
+
+We demonstrate how to integrate and use continous deployment on a GitHub repository with CircleCI.
+The service is hosted om Google Cloud Platform, using Google Kubernetes Engine.
+
+We show how new features can be delivered into an existing, running app.
+
+We have provided a GitHub template repository together with our screencast. The viewer can fork the repo and follow the steps shown in the video. The screencast has sound to facilitate viewing the code and terminal use in the video.
