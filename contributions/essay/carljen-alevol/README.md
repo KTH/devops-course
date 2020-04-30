@@ -18,3 +18,6 @@ https://www.docker.com/why-docker
 https://github.com/containers/buildah 
 
 https://dwalsh.fedorapeople.org/ReplacingDockerWithPodman.pdf
+
+# Link to essay
+Link: https://medium.com/@alexander.volminger/containers-is-it-worth-banishing-the-daemons-and-clearing-the-roots-b68c8bd4255c
