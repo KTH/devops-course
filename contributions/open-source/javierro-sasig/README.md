@@ -32,19 +32,19 @@ We had set up the goal of making the feature as efficient as possible, this mean
  
 Conflicting state:
 
-![image conflict state](https://github.com/javierron/devops-course/blob/master/contributions/open-source/javierro-sasig/commits.jpg)
+![image conflict state](./commits.jpg)
  
 A comparison between the tip default branch (Commit N) and the tip of the ImgBot branch (Commit X) is made and the conflicting files are recompressed. A new commit with those new files is created (Commit M):
 
-![image new commit](https://github.com/javierron/devops-course/blob/master/contributions/open-source/javierro-sasig/commits1.jpg)
+![image new commit](./commits1.jpg)
  
-Commit N is then cherry-picked into the ImgBot branch and removed from the default branch:
+Commit M is then cherry-picked into the ImgBot branch and removed from the default branch:
 
-![image cherry-pick](https://github.com/javierron/devops-course/blob/master/contributions/open-source/javierro-sasig/commits2.jpg)
+![image cherry-pick](./commits2.jpg)
  
-Commit Y is created by squashing Commit X and Y together, leaving the ImgBot branch with a single commit that does not conflict with the default branch:
+Commit Y is created by squashing Commit X and M together, leaving the ImgBot branch with a single commit that does not conflict with the default branch:
 
-![image squash](https://github.com/javierron/devops-course/blob/master/contributions/open-source/javierro-sasig/commits3.jpg)
+![image squash](./commits3.jpg)
  
 This way the amount of re-compressed images was reduced to just the amount needed, by performing some git manipulation operations using LibGit2Sharp, a C# library to manipulate git repositories.
  
