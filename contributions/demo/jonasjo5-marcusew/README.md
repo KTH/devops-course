@@ -21,7 +21,7 @@ https://github.com/jonasjohansson8908/cd-demo
 ## About
 
 We demonstrate how to integrate and use continous deployment on a GitHub repository with CircleCI.
-The service is hosted om Google Cloud Platform, using Google Kubernetes Engine.
+The service is run in docker and is hosted on Google Cloud Platform, using Google Kubernetes Engine.
 
 We show how new features can be delivered into an existing, running app.
 
