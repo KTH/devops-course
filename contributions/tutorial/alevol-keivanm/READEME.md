@@ -18,3 +18,9 @@ We aim to lift GitHub Actions features such as:
 
 
 Link to tutorial: https://medium.com/@alexander.volminger/ci-cd-for-java-maven-using-github-actions-d009a7cb4b8f
+
+
+## Grading Criteria
+For the easter egg look inside the Java code, try running. If you need to take a look at https://hitchhikers.fandom.com/wiki/Deep_Thought
+
+We also hope to fullfill that the tutorial is doable in the browser without a local environment, since it is possible to do all tasks in the GitHub web interface.
