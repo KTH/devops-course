@@ -5,26 +5,39 @@
 * George Rezkalla - rezkalla@kth.se - @georgewbar
 
 ## Description
-The essay will make define what infrastructure-as-code and configuration managment is.
-Then, we will make go through Ansible and Puppet, and make a comparison between them.
+The essay will define what infrastructure-as-code, configuration managment are, and the relationship between them and DevOps.
+Then, we will go through Ansible and Puppet in more detail, and make a comparison between them.
 
-## Preliminary structure
+## Structure
 
-* Introduction
-  * Why this topic?: here, we will relate this topic to DevOps in general before going into
-  more details in later sections.
-  * Configuration Management
-  * Infrastructure-as-code
-  * Relationship to DevOps
-  * Some tools
-* Puppet
-* Ansible
-* Puppet vs Ansible
-  * General Comparison
-  * Comparison as a table
-* Conclusion
+1. Introduction
+	1.1. Why this topic?
+	1.2. What is configuration management?
+	1.3. The relationship between IaC and DevOps
+	1.4. Some tools
+2. Puppet
+	2.1. Some technical information
+		2.1.1 Facts
+		2.1.2 Manifest
+		2.1.3 Catalog
+		2.1.4 How does Puppet work?
+		2.1.5 Example
+3. Ansible
+	3.1. Some technical information
+	3.2. Ansible architecture
+		3.2.1 Inventory
+		3.2.2 Modules
+		3.2.3 Plugins
+		3.2.4 Playbook
+		3.2.5 Example
+4. Puppet Vs Ansible
+	4.1. Comparison: Ansible vs Puppet
+	4.2. Comparison as a Table
+5. Conclusion
+References
 
-## Criteria that we want to pass
+
+## Criteria that we want to fulfill
 
 * The essay has a good title
 * The essay is well structured, the ideas are well presented
