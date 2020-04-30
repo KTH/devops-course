@@ -25,3 +25,10 @@ Using Jenkins and a CD server to push new versions to IoT devices.
 ## Reference 
 platformIO: https://platformio.org/ 
 
+## Screencast link
+
+[https://www.youtube.com/watch?v=ncTp90wV9gM](https://www.youtube.com/watch?v=ncTp90wV9gM)
+
+## Demo Repository
+
+[https://github.com/Callet91/DEMO_Jenkins_PlatformIO](https://github.com/Callet91/DEMO_Jenkins_PlatformIO)

@@ -1,5 +1,8 @@
 # Presentation proposal: Chaos Engineering (week 6)
 
+## Link to presentation
+You can access the presentation [here](https://docs.google.com/presentation/d/1vfpG7QqNCpRMOz4SUx605ETP8IoDXV6sm0WpsJAzK84/edit?usp=sharing).
+
 ## Member
 Per Fahlander (perfah@kth.se)
 Johan Settlin (settlin@kth.se)

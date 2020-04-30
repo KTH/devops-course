@@ -64,7 +64,7 @@ Past edition:
 
 ### Week 6
 * Lecture: Automatic program repair [Martin Monperrus](https://www.monperrus.net/martin/)
-* Lecture: Infrastructure as code [Daniel Caballero Rodriguez (Fastly)](https://www.linkedin.com/in/danicaba/) 
+* Lecture: Infrastructure as code [(slides)](https://dcaba.github.io/slides/200428_KTH_IaC/) [Daniel Caballero Rodriguez (Fastly)](https://www.linkedin.com/in/danicaba/) 
 * Fuzzing competition results
 * Student presentations
 
