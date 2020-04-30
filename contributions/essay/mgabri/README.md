@@ -15,6 +15,13 @@ The focus will be on:
 -   Draw a parallel between these Azure approaches and the core ideas of DevOps development
 -   Give concrete examples of what Azure services correspond to what DevOps practices
 
+
+Artricle 
+
+
+The eassy is published on medium [link](https://medium.com/@martin.gabbi/azure-and-its-devops-7bdd748b8efe)
+
+
 ## [](https://github.com/KTH/devops-course/tree/master/contributions/essay/asratyan-dautaras#references)References
 
 Some of the key references that we are going to use in the essay:
