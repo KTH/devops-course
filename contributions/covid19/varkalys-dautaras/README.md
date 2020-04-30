@@ -16,3 +16,9 @@ Based on the location data, we also calculate the amount of time spent outside, 
 We won the hackathon and afterwards we were contacted by [Eurovaistinė](https://www.eurovaistine.lt/) - the biggest pharmacy chain in Lithuania. We are now planning to work with them to display in our website the availability of masks in their pharmacies.
 The project is hosted using [Netlify](https://www.netlify.com/) at [sekvirusa.lt](https://sekvirusa.lt).
 The website is completely in Lithuanian language, but I think you should understand the main idea. It uses Continuous Deployment using Netlify.
+
+## Repository of the project
+https://github.com/arnas/tracking-virus-not-people
+
+## Hosted project
+https://sekvirusa.lt
