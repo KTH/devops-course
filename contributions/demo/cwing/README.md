@@ -1,3 +1,12 @@
+
+## Updated with demo URLs
+
+Screencast URL: https://youtu.be/vfoIpUxWGOQ
+
+Github repo: https://github.com/cwinge/web-terminal
+
+----
+
 ## Inspiration behind the demo
 Just as a short background, I figured I'd give the reason I thought of doing this demo.
 
@@ -41,10 +50,3 @@ Could also prepare customized images for demos/presentations needed to be perfor
 
 ### Concerns
 My main concern is how well the free tier services available might be quite detrimental to how responsive the terminals will be, especially with multiple users, but I would not think it is the fault of the idea. Could alternatively publish the website on my own desktop instead of AWS/Azure(will still be how it is done in the actual demo) during the 5th, but will see if it will be needed or not.
-
-----
-## Updated with demo URLs
-
-Screencast URL: https://youtu.be/vfoIpUxWGOQ
-
-Github repo: https://github.com/cwinge/web-terminal
