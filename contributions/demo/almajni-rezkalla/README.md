@@ -16,5 +16,5 @@ As beginners in Kubernetes, this Demo was difficult because we needed to underst
 * The demonstration screencast is difficult to do.
 * The demonstration screencast is original. -> (Every demo or tutorial does things in other ways, and there is no one way to do things. We mixed things from different references).
 * The demonstration screencast is sublime (eg visually appealing).
-* The demonstration screencast contains an easter egg -> (there will be a surprise).
+* The demonstration screencast contains an easter egg.
 * An accompanying Github repository has been made (optional).
