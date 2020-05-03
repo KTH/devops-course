@@ -1,7 +1,9 @@
 
 ## Updated with demo URLs
 
-Screencast URL: https://youtu.be/vfoIpUxWGOQ
+Screencast URL with easter egg hint: https://youtu.be/H8R7EtumyL8
+
+Screencast URL with easter egg shown: https://youtu.be/Xd505ZyVmzw
 
 Github repo: https://github.com/cwinge/web-terminal
 
