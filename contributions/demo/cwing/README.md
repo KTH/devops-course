@@ -1,3 +1,14 @@
+
+## Updated with demo URLs
+
+Screencast URL with easter egg hint: https://youtu.be/VHttX3IZOhw
+
+Screencast URL with easter egg shown: https://youtu.be/XTmD-rRdCK4
+
+Github repo: https://github.com/cwinge/web-terminal
+
+----
+
 ## Inspiration behind the demo
 Just as a short background, I figured I'd give the reason I thought of doing this demo.
 
