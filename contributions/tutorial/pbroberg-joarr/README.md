@@ -1,3 +1,7 @@
+# Finished Tutorial:
+The tutorial is now done and can be found following this link:
+https://jrutqvist.github.io/lambdatest-tutorial/
+
 # Tutorial: Lambdatest
 **Team members:**
 Pontus Broberg (pbroberg@kth.se) & Joar Rutqvist (joarr@kth.se)
