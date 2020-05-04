@@ -1,0 +1,93 @@
+% !TeX root = ./main.tex
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[backend=biber]{biblatex}
+\usepackage{url}
+\usepackage{csquotes}
+\usepackage[pdf]{graphviz}
+\addbibresource{references.bib}
+
+\title{Automated Testing in Video Games\\\large Challenges Faced and Solutions Presented}
+\author{David Stevens}
+\date{April 2020}
+
+\begin{document}
+    \maketitle
+
+    \section{Introduction}
+    Wherever there is software, there are bugs. Writing code that functions correctly under all possible circumstances is a notoriously difficult task, as bugs can appear anywhere. Some of the most common types of bugs that affect every type of application are memory leaks, incorrect pointer usage, synchronization problems such as race conditions, and arithmetic or logical errors \parencite{vipindeep2005list}. These issues are especially common in lower-level languages such as C or C++ \parencite{ahsan2009there} as they lack many abstractions that higher level languages provide. 
+    
+    The most powerful tool that the developer has to combat these bugs is rigorous software testing. While in conventional software this is often done in an automated manner through e.g. unit testing, video game development provide an interesting case study as the field frequently lacks automated testing \parencite{murphy2014cowboys}. 
+
+    This essay strives to explore what makes video game development different, and what strategies that are employed to overcome the difficulties that are unique to the field.
+
+    \section{Challenges}
+    This section will present some of the challenges that arise when attempting to apply conventional testing techniques within video game development. 
+
+    \subsection{State space}
+    One of the most frequently cited reasons not to use automated testing within video game development is that the high degree of interactivity leads to an immense state space \parencite{murphy2014cowboys,parsons2015tdd,loubos2018automated}. This is further amplified by the frequent use of multithreading in video games, leading to further complexity \parencite{carmack2012functional,gilbert2018unit}. Unit tests are based on setting up a particular state and ensuring that the functionality is correct, therefore exploring one part of the state space at a time. When the state space is large, it becomes unfeasible to write unit tests for everything.
+
+    \subsection{Difficult reproducibility}
+    A consequence of the previously mentioned large state space of video games is that it becomes difficult to reproduce bugs. 
+
+    It is also difficult to quantify the interactivity between entities within video games. \textcite{gilbert2018unit} details how failure states are difficult to identify, as bugs can be as subtle as an AI character standing in the wrong place, or an animation not being aligned correctly with the actions on screen. \textcite{gilbert2018unit,murphy2014cowboys} also discuss the difficulty of identifying what caused a bug during gameplay. Bug reports are typically vague, and require much work to reproduce. \textcite{yarwood2020qa} goes as far as describing how user's bug reports occasionally are so difficult to reproduce that they simply wait for the bug to appear again with more information. 
+
+    A difficulty in reproducing bugs directly leads to a difficulty in identifying the specific state that should be targeted in an automated test. If the exact circumstances that trigger a bug are not identified, the resulting tests that show the bug might rely on side effects. Changes to other systems may therefore cause the tests to break \parencite{murphy2014cowboys}.
+
+    \subsection{Non-determinism}
+    The problem of reproducibility is complicated further by the frequent use of non-determinism in video games. Modern video games deliberately introduce non-determinism through the inclusion of randomized gameplay mechanics such as the behaviour of AI agents in the game \parencite{murphy2014cowboys}. However, they also include unintentionally non-deterministic behaviour due to threading or distributed computations \parencite{murphy2014cowboys}. \textcite{gilbert2018unit} describes a situation in which the persistent save data would become corrupted in a video game due to errors with multithreading in specific scenarios. Multithreaded behaviour is difficult to test in every field \parencite{jagannath2011improved,yang1997challenges}, and video games are no exception.
+
+    \subsection{Performance requirements}
+    Video games have in many ways stricter performance requirements than many other types of software. The core of a video games structure is a centralized piece of code called a \emph{game loop}, in which all logic is applied between the generation of each frame that is shown to the user \parencite{varvaressos2017automated}. Most games strive to reach a consistent frame rate of between 30 and 60 frames per second \parencite{varvaressos2017automated}, meaning that all calculations have a deadline before which they must be complete. A desired frame rate of 60 frames per second equates to all logic being handled within approximately 16 milliseconds, lest the game starts stuttering \parencite{varvaressos2017automated}. 
+
+    Because of this, video game development places a heavy emphasis on performance. While the code's efficiency is one of the top priorities, it can be difficult to test. This is both due to the previously mentioned large state space, which can have a massive impact on the performance, but even more critically due to the large variance in hardware that the game should run on. Modern games are often cross-platform, running with shared code on desktop computers, game consoles and on hand-held devices or phones \parencite{claypool2009perspectives}. Ensuring consistent frame rates across multiple resolutions and hardware configurations is critical, as the performance of the game has been shown to have a direct impact on the performance of the player \parencite{claypool2009perspectives}. 
+    
+    However, writing performance intensive code requires avoiding unnecessary branching, in order to avoid memory accesses and branch prediction misses \parencite{parsons2015tdd}. This makes it difficult to write the modularized code that would otherwise lend itself to better testing. Using functionally pure subroutines is often not an option either, as they require prohibitively expensive copying of data \parencite{carmack2012functional}.
+
+    \subsection{Unclear requirements}
+    Video games differ from conventional software in that it is difficult to define what the correct behaviour is \parencite{lewis2010went,murphy2014cowboys}. This is primarily due to the difference in goals with the software. While conventional software is intended to provide a specific functionality, video games are intended to provide enjoyment and evoke emotions \parencite{lewis2010went}. Bugs that exist in games could manifest in behaviour such as an enemy being defeated in fewer hits than the developer had intended, but this is not necessarily a problem as the true requirement is simply that the enemy is defeated in an enjoyable way \parencite{murphy2014cowboys}. 
+    
+    Perhaps the most famous example of this is \emph{rocket jumping}, a technique in multiple first-person shooter games consisting of using the blast from an explosion from a weapon such as a rocket launcher to launch the player forward. While the technique is often implemented intentionally in modern games, it was popularized in 1996's \emph{Quake} where it was an unintended consequence\footnote{Which is a nice way to say bug.} of how the physics engine functioned \parencite{killough2002doom}. Oftentimes the bugs become features, as long as they are enjoyable. However, enjoyment is of course difficult to quantify which eliminates the use of assertions to catch this type of bug, and testing therefore becomes difficult to automate. 
+
+    \section{Strategies}
+    Despite the numerous challenges that video games present, the industry has found novel ways to automate some of the testing process. This section will present some of the techniques that are employed.
+
+    \subsection{Unit tests}
+    While it oftentimes is difficult to unit test video games, there are components of video games which can be unit tested naturally. There are also components that can be rewritten in such a way that they facilitate testing.
+
+    Industry legend John Carmack\footnote{Co-founder of \emph{id Software}, makers of games such as \emph{Doom} and \emph{Quake}} discusses the benefits of increased use of functional programming at length in an article republished by industry publication Gamasutra \parencite{carmack2012functional}. \textcite{carmack2012functional} argues for functional programming for the purpose of preventing bugs, but also for the purpose of writing testable code. Whenever a method is considered complicated, \textcite{carmack2012functional} suggests refactoring it in a functionally pure manner and adding unit tests to it. Even if it cannot be made entirely pure due to performance reasons, restricting the amount of side effects allows the developer to reap most of the benefits of pure functions without complete purity \parencite{carmack2012functional}.
+    
+    Unit testing can also naturally be incorporated into backend engine functions such as texture loading or memory management systems \parencite{gilbert2018unit}. It is also natural to unit test common functionality such as procedural level generation, mathematical calculations and in-game hint systems \parencite{gulbert2017unit}. 
+
+    \subsection{Runtime monitoring}
+    Many video game developers employ strategies based on monitoring the state of the software during execution. This can be done in multiple ways.
+
+    \paragraph{Assertions}
+    While not fully automated, video game developers make frequent use of assertions in developmental builds to fail fast when something goes awry \parencite{parsons2015tdd}. This helps developers spot errors as soon as they happen, reducing the risk of side effects and easing reproducibility. 
+    
+    Assertions can also be formalized into temporal logic constraints. While this is not commonly practiced within the industry, an example of this is found in \textcite{varvaressos2013runtime} who define constraints for the gameplay mechanics of an open source reimplementation of \emph{Super Mario World}. When the constraints are violated, appropriate logs can be generated and stored in a database. This method has also been extended to games in other genres by \textcite{varvaressos2017automated}, showing potential for more widespread use.
+
+    \paragraph{Simulated playthroughs} 
+    Another common approach that is fully automated is the use of simulated playthroughs. The basic idea is to program a script or bot that plays the actual game, and compares the game state with what is expected. This is a powerful concept that can be implemented in a variety of ways to target a variety of errors. 
+    
+    \textcite{yarwood2020qa} describes how game studio \emph{Frontier Developments} makes heavy use of simulated playthroughs. One example is automating tasks such as placing every type of object on the map in roller coaster building game \emph{Planet Coaster} to ensure that every asset can be placed successfully without crashing \parencite{yarwood2020qa}. Frontier also test that games can be built and started without crashing on all supported platforms and various hardware configurations \parencite{yarwood2020qa}. However, they also use automated testing of more complex gameplay, such as flying a space ship to a station in the space exploration game \emph{Elite Dangerous} and ensuring that both flight and the information presented works as it should \parencite{yarwood2020qa}. 
+
+    \textcite{becares2017approach} present a novel approach where instead of tracking failed playthroughs through crash reports, successful human play\-throughs of video game levels are traced and logged. By modelling the state of game using \emph{Petri nets} the test suite can then use the games AI system in conjunction with the user's logged inputs to replay the successful playthrough and ensure that the modelled expected state still holds \parencite{becares2017approach}.
+
+    \textcite{gilbert2018unit} uses a playthrough technique that is similar to chaos engineering, by developing a bot that would randomly play the game, jumping from room to room and occasionally finding crash bugs. This was also helpful for finding silent build errors such as missing assets or bad packaging \parencite{gilbert2018unit}.
+
+    \paragraph{Artificial Intelligence}
+    One more recent development within the field of simulated playthroughs is the use of machine learning for automated testing. Reinforcement learning has been successfully applied in both commercial and academic situations \parencite{bedder2019ai,loubos2018automated}. Both studies train agents to solve simple tasks, and measure program correctness not only based on if the agent was successful but also based on how long it took for the agent to learn an optimal strategy and the runtime performance of the software \parencite{bedder2019ai,loubos2018automated}. This way, potential changes that unintentionally harm frame rate or make the game world more difficult to traverse can be detected in an automated manner \parencite{bedder2019ai}.
+
+    \textcite{nantes2008framework} present a framework for testing the interface layer of video games by utilizing computer vision. Their approach is to use an AI agent that navigates the game by replicating user actions that were tracked in an earlier version and checking for visual anomalies by comparing the rendered output with the logged output \parencite{nantes2008framework}. This can be used to for instance detect bugs with the rendering of shadows in the game world \parencite{nantes2008framework}. Applying computer vision in testing is a way to solve the grievances voiced by \textcite{gilbert2018unit}, as the otherwise difficult to test graphical bugs become very naturally testable.
+
+    \subsection{Data mining}
+    Bugs can also be tracked and identified automatically through large scale analysis of human gameplay. Telemetry systems can be implemented to identify where performance suffers in a video game \parencite{drachen2013game}. \textcite{drachen2013game} also mention a case where a bug with enemies that weren't supposed to be able to damage each other were doing so through analysis of logs.
+
+    Finally, \textcite{lin2019identifying} present a method for automatically classifying gameplay videos posted by users online as containing bugs based on metadata such as video titles and keywords. They propose using a random forest classifier to classify videos from both YouTube and the video game distribution platform Steam based, and achieved accuracies that were significantly higher than a simple keyword search \parencite{lin2019identifying}. This is particularly significant as a video provides more information for reproducing the bug than a log. 
+
+    \section{Conclusions}
+    The challenges faced in automated testing of video games provides a fascinating case study for anyone that is interested in more complex forms of software testing. Issues such as massive state spaces, non-determinism and strict performance requirements make it difficult to employ conventional automated testing strategies such as unit testing within the field, forcing the developers to investigate more elaborate testing strategies. Commonly, runtime monitoring is employed as the primary strategy through liberal use of assertions, but also through simulated playthroughs of the video games in question. Within academia, there has been a recent trend of employing machine learning to perform more powerful testing. While this trend has not become mainstream within the industry yet, it is a clear indication of the massive potential that exists for solving many of the challenges that have so far been preventing a more widespread adoption of automated testing. The coming years will therefore be an interesting time to follow developments within the field of video game testing, as the academical approaches start trickling down into the industry itself.
+
+    \printbibliography
+\end{document}
