@@ -1,4 +1,4 @@
-# Demo 
+# Demo: CI/CD pipeline using Docker and Github actions
 
 ## Final submission links
 
