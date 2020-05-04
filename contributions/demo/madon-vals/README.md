@@ -1,14 +1,13 @@
 # Terraform demo: webapp in Google Cloud Run
 ## Members
 Victor Josephson (vals@kth.se).
-Github username: valsen
-
+Github username: @valsen\
 Maël Madon (madon@kth.se).
-Github username: Mema5
+Github username: @Mema5
 
 ## Link
-[Link to the Youtube video](https://youtu.be/kmrmBIj0u-E)
-
+[Link to the Youtube video](https://youtu.be/kmrmBIj0u-E)\
+[Link to the source files](https://github.com/valsen/terraform-demo)\
 To see the subtitles, activate the Youtube subtitles.
 
 ## Description
