@@ -1,4 +1,5 @@
 # Grand Fuzzing Challenge 2020
 
 ## Members
-Christer Winge (cwingo@kth.se)
+
+Christer Winge (cwing@kth.se)

@@ -1,4 +1,4 @@
-# Shifting left on security: why and how
+# From DevOps to DevSecOps
 
 ## Members
 Klara Eserstam, klaraes@kth.se

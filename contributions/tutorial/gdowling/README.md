@@ -1,3 +1,9 @@
+# Finished tutorial
+
+https://www.youtube.com/watch?v=u3u_I09Y9S4&feature=youtu.be
+
+Read the description for the commands and example programs.
+
 # Mutation testing with PIT
 
 Pitest is a tool for evaluating your test suite using mutation testing.
@@ -9,6 +15,6 @@ My tutorial aims to, in chronological order:
 - and then going over some of the customization options and when you might want to use them
 - maybe something else if I can think of something interesting related to this topic or this program 
 
-I will either make a youtube video or a katacoda tutorial. There are a few tutorials or demonstrations of mutation testing with PIT on youtube but they may leave out some key parts, being too long, or bad microphone.
-
 ### Im Gustav Dowling, gdowling@kth.se is my email
+
+
