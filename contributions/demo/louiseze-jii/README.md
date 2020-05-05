@@ -10,7 +10,7 @@ Demo of mutation testing with [Pitest](https://pitest.org/) and the IDE IntelliJ
 ## Links
 [GitHub Repository](https://github.com/johannalouise/demo_pitest) (connected to the screencast)
 
-[Screencast](https://youtu.be/Jx5rfJs3-1Q)
+[Screencast](https://youtu.be/u39NtaHsziM)
 
 
 ## Details
