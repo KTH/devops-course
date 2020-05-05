@@ -4,6 +4,12 @@
 * Nour Alhuda Almajni - almajni@kth.se - @nour95
 * George Rezkalla - rezkalla@kth.se - @georgewbar
 
+## Link to the video on Youtube
+https://youtu.be/x4JH9VJT9tw
+
+## Github repo link
+https://github.com/demo-cicd-k8s/datetimeserver_demo_cicd_kubernetes
+
 ## Description
 We will create an End-to-End CI/CD pipeline with Continuous Deployment (Zero-Downtime Deployment) using Jenkins, Ansible and Kubernetes `Minikube`. The deployed application will be a Java (or Javascript; we are already done with Javascript application to be honest) application that shows the current Date and Time together with the current version of the application to show that a new version of the application was deployed with Zero-Down time.
 
