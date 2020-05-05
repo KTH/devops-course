@@ -1,9 +1,17 @@
 ## Tutorial Proposal
-Topic: Docker for Machine Learning using Nvidia Docker
+Topic: Docker for Machine Learning
+
 
 ### Members
 Louise Hui Ling Choy (lhlchoy)
 
 ### Description
 
-This tutorial aims to explore how to  run machine learning by utilizing Nvidia Docker, which includes steps to install Nvidia Docker, commands to run Nvidia Docker
+This tutorial teaches you how to utilize Docker and Flask to deploy machine learning as microservices.
+
+This is intended for beginners who want to explore how machine learning can be deployed as a microservice as well as how to utilize docker.
+
+
+The tutorial link is here: https://katacoda.com/luic/scenarios/nvidia-docker
+
+

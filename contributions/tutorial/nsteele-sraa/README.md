@@ -1,8 +1,19 @@
-Tutorial Proposal: An investigation into Docker & Kubernetes.
+###Finished Tutorial
+We have finished the tutorial and published to medium. 
+https://medium.com/@nicksteele011/a-practical-guide-to-docker-and-kubernetes-cffcaa9f7848
+
+Both Nick and I are new to container and container orchestration tools and it was fun to learn Docker and Kubernetes and how to use them.
+
+As part of the tutorial, we have demonstrated how to create a docker image for a node.js app and setup 2 development environments for different versions of the app. We realized that scaling is straightforward in Kubernetes. So, we demonstrated how Namespaces in Kubernetes can be used to setup different environments and what are the advantages of using them.
+
+We have uploaded the image to docker hub. The Kubernetes setup can be tested in a browser also with our yml configurations.  
+
+
+###Tutorial Proposal: An investigation into Docker & Kubernetes.
 A practical investigation of Docker and Kubernetes with respect to development/testing environments.
 
 
-Authors: 
+###Authors: 
 Nicholas Steele: nsteele@kth.se 
 Sashikanth Raavikanti: sraa@kth.se
 
@@ -11,7 +22,7 @@ Sashi and I want to focus and learn about containers and their management using 
 
 We want to portray their relation through a step by step tutorial:
 
-Tutorial outline: 
+###Tutorial outline: 
 •	Overview (What and why).
 •	Set up a docker development or testing environment.
 •	Provision, manage and scale using Kubernetes.

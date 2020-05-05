@@ -14,3 +14,9 @@ The tutorial will be created on katacoda.
 * The tutorial gives enough background
 * The tutorial is easy to follow
 * The tutorial is doable in the browser without a local environment
+
+## Finished Tutorial:
+**Please note that Katacoda might be slow from time to time.**
+https://www.katacoda.com/phwes/scenarios/apache-docker
+
+
