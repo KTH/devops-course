@@ -17,7 +17,7 @@ Continuous integration and continuous delivery are relevant parts of DevOps, and
 
 ## Links
 
-[Screencast](https://www.youtube.com/watch?v=DllEb7556YM&t=9s&fbclid=IwAR34kNENcsyL011gNgg2SeaRNbWfkVugDsHjcyukon3xUaprjVE1qB2nE8I)
+[Screencast](https://youtu.be/gajd39WiOgU)
 
 [GitHub Repository](https://github.com/klaraesr/my-application-react)
 
@@ -40,7 +40,7 @@ Motivation for the criterias:
 
 **The demonstration screencast is original:** Yes, we have seen variants of this demo but nothing that is completely similar to this. Also, the idea with the easter-egg is something we think is original.
 
-**The demonstration screencast is sublime:** Yes, the demo is visually appealing. For example, we highlight different buttons when they are being pressed so that the user easier can follow the demo. Also, the screen is zoomed in and with subtitles describing the different steps, so that you can follow what is happening on the screen very well.  
+**The demonstration screencast is sublime:** Yes, the demo is visually appealing. For example, we highlight different buttons when they are being pressed so that the user easier can follow the demo. Also, the screen is zoomed in and with subtitles describing the different steps, so that you can follow what is happening on the screen very well. We also provide a voice-over describing the steps in order to be extra clear.  
 
 **The demonstration screencast contains an easter egg:** Yes, we provide an easter-egg that is hidden in our application. The user must type the word "devops" in order to see the easter-egg, which is a bonus section where we describe how to also integrate code-coverage to the pipeline.  
 
