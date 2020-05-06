@@ -10,7 +10,7 @@ Demo of mutation testing with [Pitest](https://pitest.org/) and the IDE IntelliJ
 ## Links
 [GitHub Repository](https://github.com/johannalouise/demo_pitest) (connected to the screencast)
 
-[Screencast](https://youtu.be/Jx5rfJs3-1Q)
+[Screencast](https://youtu.be/u39NtaHsziM)
 
 
 ## Details
@@ -39,7 +39,7 @@ We aim to pass following criteria:
 
 - The demonstration screencast contains an easter egg
 
-  Yes.
+  Yes. If you check the output of the tests that we run in the beginning, you will se that one of them gives the output 0x6465766f7073, which is devops in hexadecimal. We also give a hint to the easter egg later in the video, by having a tab in the browser that says "Best Hex To String Converter".
 
 - An accompanying GitHub repository has been made
 
