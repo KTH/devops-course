@@ -4,6 +4,8 @@ Screencast URL: https://youtu.be/1d_tX-S8sts
 
 Github repo: https://github.com/cwinge/web-terminal
 
+Demo website URL (Kept up until after grading): http://35.228.222.20:8080/
+
 ----
 
 ## Inspiration behind the demo
