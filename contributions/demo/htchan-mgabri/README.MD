@@ -10,7 +10,7 @@ Deploying an online storage system on Microsoft Azure
 
 ## Screencast
 
-https://youtu.be/9sqdc24mobo
+https://youtu.be/EoKvmVoFCo0
 
 
 ## Motivation
