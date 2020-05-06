@@ -17,7 +17,7 @@ We want to try using Github Actions to check whether our entire configuration is
 
 ## Screencast link
 
-[https://youtu.be/xiB2oGi45Gs](https://youtu.be/xiB2oGi45Gs)
+[https://youtu.be/KeueIaFl8S8](https://youtu.be/KeueIaFl8S8)
 
 ## Demo Repository
 
