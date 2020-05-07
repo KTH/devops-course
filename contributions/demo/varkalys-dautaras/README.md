@@ -14,7 +14,7 @@ Having everything at the same place is a great benefit, so our demo will show th
 As an example, we will demonstrate the continues deployment of a simple api to Kubernetes cluster using Rancher pipelines. 
 
 ## Screencast
-https://youtu.be/eiq9HxRzEKg
+https://youtu.be/2aYWF6FCBDY
 
 ## Repository
 https://github.com/MindaugasVarkalys/sample-api
