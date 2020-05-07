@@ -73,9 +73,10 @@ Past edition:
 * Preparatory reading: [Playing Apart – ett unikt experiment i ett samarbete mellan Telia och Göteborgs Symfoniker](https://youtu.be/B4_GszP0k4E)
 
 ### Week 8: Wrap-up, feedback and potluck
-* 9h15 Wrap-up & Feedback
-* 10h15 Final Guest Lecture
-* [Final Course Potluck](https://en.wikipedia.org/wiki/Potluck)
+* 9h15 Q&A
+* 10h15 Final Guest Lecture [Cristian Deri](https://se.linkedin.com/in/cristian-deri), [Vidir Reynisson](https://se.linkedin.com/in/vidirr)
+* 11h15 Proposal festival for next year
+* 12h15 Personalized feedback break-out sessions
 
 ## Rules
 
