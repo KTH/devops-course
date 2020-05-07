@@ -36,3 +36,13 @@ An interface for using Home assistant to communicate with Jenkins has not yet
 been created (as far as we can tell). The interface could be a fun way to
 visualize relevant diagnostics from Jenkins as well as a good way to learn more
 about, and contribute to, the open source community. 
+
+## Pull requests submitted
+Here are the links to our pull requests to Home assistant. 
+
+- Pull request to home-assistant/core (Jenkins integration): 
+https://github.com/home-assistant/core/pull/34876
+- Pull request to home-assistant.io (documentation): 
+https://github.com/home-assistant/home-assistant.io/pull/13222
+- Pull request to brands (icons/logos): 
+https://github.com/home-assistant/brands/pull/1531

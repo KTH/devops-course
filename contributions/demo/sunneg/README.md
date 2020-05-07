@@ -1,3 +1,22 @@
+# Finished Demo: GitLab CI/CD pipeline (Building, Testing, Deployment to Heroku)
+
+Link to the Youtube screencast: https://youtu.be/0YTg6ryIxOE
+
+The accompanying GitLab repository: https://gitlab.com/christinasunnegardh/devops-gitlab-demo
+
+The improvements that have been made after the feedback on the Demo Day are the following:
+- Added a description to the README at the accompanying GitLab repository
+- Fixed minor issues with the subtitles
+- Removed the "prerequisites" part in the screencase and updated the description with this information instead
+- Removed the unnessecary action in the screencast where ruby is installed altought we are already on a Ruby Docker image.
+- Added information about that you can specify a specific version of the image in docker
+- Changed the easter egg completely
+- Major changes to the end/take-away part in the screencast
+    - Relate to DevOps again, what happens when the pipeline fails etc.
+    - Hint about where to fid the easter egg
+- Made updates to the description on Youtube.
+
+*Old youtube link, before feedback: https://youtube.com/watch?v=5IkDrgFSFw4*
 # Demo proposal
 
 ## Members
