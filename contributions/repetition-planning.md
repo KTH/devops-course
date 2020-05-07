@@ -11,7 +11,7 @@ To register a repetition for presentations, please make a pull-request on this f
   1.
 * May 20 2020, starting at 13h
 
-  1.
+  1. [#628](https://github.com/KTH/devops-course/pull/628) (Klara Eserstam - klaraes@kth.se, Christina Sunnegårdh - sunneg@kth.se)
   1. [#613](https://github.com/KTH/devops-course/pull/613) (Diego Leon - dleon@kth.se, George Rezkalla - rezkalla@kth.se)
   1. 
   1.
