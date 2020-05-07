@@ -1,11 +1,10 @@
+## Final screencast update
 
-## Updated with demo URLs
-
-Screencast URL with easter egg hint: https://youtu.be/VHttX3IZOhw
-
-Screencast URL with easter egg shown: https://youtu.be/XTmD-rRdCK4
+Screencast URL: https://youtu.be/1d_tX-S8sts
 
 Github repo: https://github.com/cwinge/web-terminal
+
+Demo website URL (Kept up until after grading): http://35.228.222.20:8080/
 
 ----
 
