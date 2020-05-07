@@ -4,7 +4,7 @@ This folder contains students work on essays.
 
 The students write 2000+ word essay on a topic relevant to the course.
 
-Example of essays, see [last year's essays](https://github.com/KTH/devops-course/tree/master/contributions-2019)
+Example of essays, see [last year's essays](https://github.com/KTH/devops-course/tree/master/attic/2019/README-2019.md)
 
 ## Grading Criteria
 

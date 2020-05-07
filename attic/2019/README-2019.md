@@ -4,21 +4,21 @@
 
 * Essays
      * [The Grand Fuzzing Challenge: A DevOps Retrospective Adam Hasselberg](https://medium.com/@adamhasselberg/fd89accb7ce0)
-    * [A/B Testing - A Search Based Approach - Hannes Rabo, Philippa Örnell](https://github.com/KTH/devops-course/blob/master/contributions-2019/essay/hrabo-pornell/ab-testing-a-search-based-approach.pdf)
-    * [An Introduction to Graph Databases - Simon Larsén](https://github.com/KTH/devops-course/blob/master/contributions-2019/essay/slarse/graph_db_essay.pdf)
+    * [A/B Testing - A Search Based Approach - Hannes Rabo, Philippa Örnell](https://github.com/KTH/devops-course/blob/master/attic/2019/contributions-2019/essay/hrabo-pornell/ab-testing-a-search-based-approach.pdf)
+    * [An Introduction to Graph Databases - Simon Larsén](https://github.com/KTH/devops-course/blob/master/attic/2019/contributions-2019/essay/slarse/graph_db_essay.pdf)
     * [Pipelines - A better approach to automated
-build jobs? - Erik Johansson, Felix Eder](https://github.com/KTH/devops-course/blob/master/contributions-2019/essay/felixed-erikjo9/essay.pdf)
+build jobs? - Erik Johansson, Felix Eder](https://github.com/KTH/devops-course/blob/master/attic/2019/contributions-2019/essay/felixed-erikjo9/essay.pdf)
     * [Immutability: Changing to the unchangeable - Fredrik Flovén](https://medium.com/@ffloven/immutability-4c8e0077fe9a)
 * Demos
-    * [Automatic Static Site Redeploys - Toni Karppi, Kristian Alvarez Jörgensen](https://github.com/KTH/devops-course/tree/master/contributions-2019/demo/tonik-krijor)
+    * [Automatic Static Site Redeploys - Toni Karppi, Kristian Alvarez Jörgensen](https://github.com/KTH/devops-course/tree/master/attic/2019/contributions-2019/demo/tonik-krijor)
 
     * [Automate iOS development workflow - Moa Nyman, Addibin Haider](https://www.youtube.com/watch?v=oSfDyHX_aig)
     * [App deployment with Dokku and DigitalOcean - Patric Ridell, Philippa Örnell](https://github.com/KTH/devops-course/releases/download/files/2019-screencast-Patric-Philippa.mp4)
     * [Dynamic Jenkins build agents using AWS - Erik Johansson](https://www.youtube.com/watch?v=qXr2THwEuIs)
 * Prototyping
     * [Fuzzing of JSON Parsing Libraries - Emil Gedda,
-Anders Eriksson](https://github.com/KTH/devops-course/tree/master/contributions-2019/open/aeri3-egedda)
-    * [Docker Swarm with logging and monitoring - Jakob Holm, Adibbin Haider](https://github.com/KTH/devops-course/tree/master/contributions-2019/open/jakobhol-adibbin)
+Anders Eriksson](https://github.com/KTH/devops-course/tree/master/attic/2019/contributions-2019/open/aeri3-egedda)
+    * [Docker Swarm with logging and monitoring - Jakob Holm, Adibbin Haider](https://github.com/KTH/devops-course/tree/master/attic/2019/contributions-2019/open/jakobhol-adibbin)
 
 ## Program
 
