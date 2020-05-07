@@ -1,1 +1,0 @@
-kubectl apply -f example-k8s-spec.yml --record

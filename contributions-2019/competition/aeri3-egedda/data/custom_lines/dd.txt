@@ -1,4 +1,0 @@
-dd if=/dev/sda of=/dev/sdb
-dd if =/dev/sda2 of=/tmp/hdadisk.img
-dd if=hdadisk.img of=/dev/sdb3
-dd if=data/ of=/mnt/abc.txt

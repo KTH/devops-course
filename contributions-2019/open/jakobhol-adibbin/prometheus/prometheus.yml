@@ -1,9 +1,0 @@
-# global config
-global:
-  scrape_interval:     5s 
-  evaluation_interval: 5s 
-
-scrape_configs:
-  - job_name: 'demo-backend'
-    static_configs:
-      - targets: ['backend:4004'] # the address of an application that exposes metrics for prometheus
