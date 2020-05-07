@@ -7,7 +7,7 @@ Registration: You must register to this course through the Swedish registration 
 Next course start: March 2020 (Academic Period 4).
 
 Past edition:
-* [KTH DevOps Course 2019](https://github.com/KTH/devops-course/blob/master/README-2019.md)
+* [KTH DevOps Course 2019](https://github.com/KTH/devops-course/blob/master/attic/2019/)
 
 ## Schedule
 
