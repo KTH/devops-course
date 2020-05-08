@@ -16,11 +16,15 @@ Currently, we're looking into using Google Kubernetes Engine within the Google C
 The screencast has been made available on [youtube](https://www.youtube.com/watch?v=7JW9118abpU). Enable the CC option to get subtitles.
 
 ##### Changelog
-Audio: Increased bit rate from 128 to 192 kbps
-Audio: Rerecorded parts to increase overall quality
-Slides: Changed text on slide 2,3 and take away slide to better spoken word
-Video: Increased resolution to 1080p
-Script: Changed deployment.yaml segment to include live coding
+**Audio:** Increased bit rate from 128 to 192 kbps
+
+**Audio:** Rerecorded parts to increase overall quality
+
+**Slides:** Changed text on slide 2,3 and take away slide to better spoken word
+
+**Video:** Increased resolution to 1080p
+
+**Script:** Changed deployment.yaml segment to include live coding
 
 ##### Easter Egg
 There is an easter egg in the screencast that should be visible to the perceptive person, but in case you've missed it. Pause the video around 2 minutes and 20 secs and take a look in the left side.
