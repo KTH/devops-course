@@ -4,25 +4,30 @@ Mindaugas Varkalys varkalys@kth.se @MindaugasVarkalys
 Vincent Lohse vplohse@kth.se @olapiv
 
 ## Topic
-How well does NodeJS + MariaDB API scale on Kubernetes cluster?
+NodeJS + MariaDB Galera — is it the right choice for scalable ecommerce API?
 
 ## Description
-There are tons of companies which are using MariaDB database and NodeJS for large-scale systems. However, there are articles stating that both technologies are bad at scaling. 
-So we would like to check that by doing benchmarks on NodeJS and MariaDB running on Kubernetes cluster and write an essay about the results.
-The goal is to find out how the number of nodes affects the performance of NodeJS web server and MariaDB separately as well as our API which uses both of these technologies.
+There are tons of companies which are using MariaDB Galera database and NodeJS for large-scale systems. However, there are articles stating that both technologies are bad at scaling. So we would like to check that by doing benchmarks on NodeJS and MariaDB Galera running on Kubernetes cluster and write an essay about the results. Also, we will cover other aspects when choosing these technologies.
 
-## Preliminary structure
+## Structure
 - Introduction
-- Background
-    - What is NodeJS?
+- Is JavaScript the right choice?
+    - Community
+    - Performance
+    - Scalability
+         - Testing environment
+         - Vertical scaling
+         - Horizontal scaling
+         - Ingress bottleneck
+- Is MariaDB Galera the right choice for the database? 
+    - Requirements
     - What is MariaDB?
-    - What is Kubernetes?
-- Setup 
-    - Simple API - explain our API used for benchmarking
-    - NodeJS - explain configurations used for benchmarking NodeJS
-    - MariaDB - explain configurations used for benchmarking MariaDB 
-- Benchmarking
-    - NodeJS - explain benchmarking tools and results of NodeJS web server
-    - MariaDB - explain benchmarking tools and results of MariaDB
-    - API - explain benchmarking tools and results of API which uses NodeJS and MariaDB
-- Conclusions 
+    - What is MariaDB Galera?
+    - Scalability
+        - Horizontal scaling
+    - Object-Relation mapping library for NodeJS
+- Conclusions
+- References
+
+## Link to the essay
+https://medium.com/@mindaugasvarkalys/nodejs-mariadb-galera-is-it-a-right-choice-for-scalable-ecommerce-api-9288aa682145?sk=53ace0bee7ee9db4d83d3f78c6dc926d

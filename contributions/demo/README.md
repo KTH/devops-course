@@ -2,7 +2,9 @@
 
 The deadline for the demo is the Michelin Devops Demo Day: the demo must be ready for May 5 2020, 9h00 Stockholm time.
 
-Annoucement: due to COVID-19, the Michelin Devops Demo Day will likely not take place, the grading criteria will be updated.
+Annoucement: due to COVID-19, the Michelin Devops Demo Day will take place online, the grading criteria will be updated.
+
+The hard deadline for the final submission of the Devops Demo: the demo can be updated based on peer feedback before Sunday May 10, 2020, 17h CET.
 
 ## The concept
 
@@ -15,8 +17,7 @@ Among the guests, some are "critique" (in the sense of [culinary critique](https
 
 ## Grading Criteria for live demo at MDDD
 
-**Topic:**  
-**Demoers:**
+WARNING: this is NOT the criteria used in 2020, the criteria are in "Grading Criteria for online demo due to Covid-19" below.
 
 |                                             | Yes | No | Remarkable |
 |-------------------------------------------- | ----|----|-------------|
@@ -59,6 +60,17 @@ Mandatory criteria for the screencast:
 * The screencast contains subtitles which are clear and in proper English
 * The screencast contains a good and concise take-home message at the end
 
+## Online demo day of Week 7
+
+The 4 hours session of Week 7 is as follows:
+
+* Before the day, we consolidate a list of all demo PRs together with the corresponding Youtube URLs pointing to the screencast
+* We start at 9h15 with the usual Zoom meeting
+* For each screencast, three persons register themselves to give feedback, by self-assigning on the original demo PRs
+* Each author of a demo screencast verifies that there are three persons registered to give feedback.
+* When this is done, we close the Zoom audio-video link and go full on Github
+* We all look at the screencasts and give detailed, constructive feedback by posting on the demo PRs. A conversation between the screencast author and the feeback givers happen on Github
+* At 12h15, we connect back to Zoom to debrief the session
 
 
 ## How to Register your Demo

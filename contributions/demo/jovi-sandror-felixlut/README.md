@@ -22,4 +22,4 @@ In particular this is interesting due to Kubernetes being a popular container-ma
 - An accompanying Github repository has been made (optional)
 
 ## Screencast 
-The screencast can be found [here](https://www.youtube.com/watch?v=sUdDWQPsKxM), and the accompanying repository [here](https://github.com/jvikstrom/kth-devops-demo) 
+The screencast can be found [here](https://www.youtube.com/watch?v=sUdDWQPsKxM), and the accompanying repository [here](https://github.com/jvikstrom/kth-devops-demo)
