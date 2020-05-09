@@ -74,7 +74,8 @@ Past edition:
 
 ### Week 8: Wrap-up, feedback and potluck
 * 9h15 Q&A
-* 10h15 Final Guest Lecture [Cristian Deri](https://se.linkedin.com/in/cristian-deri), [Vidir Reynisson](https://se.linkedin.com/in/vidirr)
+* 10h15 Lecture: Devops at EA/Dice [Cristian Deri](https://se.linkedin.com/in/cristian-deri), [Vidir Reynisson](https://se.linkedin.com/in/vidirr)
+  * Preparatory material: <https://www.youtube.com/watch?v=iIIxgv6CtGs>
 * 11h15 Proposal festival for next year
 * 12h15 Personalized feedback break-out sessions
 
