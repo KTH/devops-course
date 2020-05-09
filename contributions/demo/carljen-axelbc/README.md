@@ -27,7 +27,7 @@ platformIO: https://platformio.org/
 
 ## Screencast link
 
-[https://www.youtube.com/watch?v=ncTp90wV9gM](https://www.youtube.com/watch?v=ncTp90wV9gM)
+[https://www.youtube.com/watch?v=7JVxvhcz8Go&feature=youtu.be](https://www.youtube.com/watch?v=7JVxvhcz8Go&feature=youtu.be)
 
 ## Demo Repository
 
