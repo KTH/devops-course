@@ -9,10 +9,10 @@ The concept: you contribute to open-source projects related to DevOps and get me
 
 |                                             | Yes | No | Remarkable |
 |-------------------------------------------- | ----|----|-------------|
-|The contributions fixe bugs | Yes | No | Remarkable (hard bugs) 
-|The contributions improve documentation | Yes | No | Remarkable (big documentation improvements)|
-|The contributions add new features | Yes | No | Remarkable (hard features) |
-|The contributions are much appreciated by the community | Yes | No | Remarkable (highly praised)|
+|The contribution fixes bugs | Yes | No | Remarkable (hard bugs) 
+|The contribution improves documentation | Yes | No | Remarkable (big documentation improvements)|
+|The contribution adds new features | Yes | No | Remarkable (hard features) |
+|The contribution is much appreciated by the community | Yes | No | Remarkable (highly praised)|
 
 To pass, you must have one yes.
 To get a distinction, you must have at least one remarkable contribution.
