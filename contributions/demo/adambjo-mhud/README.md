@@ -8,7 +8,7 @@ Virtual Network Peering with Microsoft Azure and Terraform
 
 ## Screencast link
 
-https://youtu.be/hu8OV32nQso
+https://youtu.be/WPZPVX2ptF0
 
 ## GitHub repository
 https://github.com/adbjo/devops-demo
