@@ -18,9 +18,6 @@ According to Microsoft, Virtual network peering enables a seamless connection be
 
 In this demo, we will show how to use Terraform to create Virtual Networks in Azure and connect them with Azure Virtual Network Peering. Finally, we will add Virtual machine in the virtual networks.
 
-In the above diagram, there are two virtual networks called HelalVN1 and AdamVN1. The virtual machine (VM1) is connected with AdamVN1 and it can securely get access HelalVN1 as both of the networks are connected with Azure Virtual Network Peering
-
-
 **References:**
 
 https://docs.microsoft.com/en-us/azure/virtual-network/tutorial-connect-virtual-networks-portal
