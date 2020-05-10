@@ -22,10 +22,12 @@ In the above diagram, there are two virtual networks called HelalVN1 and AdamVN1
 
 
 **References:**
+
 https://docs.microsoft.com/en-us/azure/virtual-network/tutorial-connect-virtual-networks-portal
 https://www.terraform.io/docs/providers/azurerm/r/virtual_network_peering.html
 
 **Music:**
+
 Jeremy Blake - Sunspots
 
 ## Changes based on feedback
