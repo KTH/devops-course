@@ -14,7 +14,7 @@ https://youtu.be/WPZPVX2ptF0
 https://github.com/adbjo/devops-demo
 
 ## Description
-According to Microsoft, Virtual network peering enables a seamless connection between Azure virtual networks. By using both private and global virtual network peering, it is possible to route traffic with low-latency, high-bandwidth. Virtual machines can communicate with other virtual machines by using VNP. This communication process is connected with other resources such as Azure subscription, Azure Active Directory(AAD) in the Azure portal. As this communication is private, there is no necessity to implement encryption. In this demo, we will present how to create multiple virtual machines, virtual network peering in the Azure portal. With Terraform, deployment of such infrasctructures can be easily automated in code.
+According to Microsoft, Virtual network peering enables a seamless connection between Azure virtual networks. By using both private and global virtual network peering, it is possible to route traffic with low-latency, high-bandwidth. Virtual machines can communicate with other virtual machines by using VNP. This communication process is connected with other resources such as Azure subscription, Azure Active Directory(AAD) in the Azure portal. As this communication is private, there is no necessity to implement encryption. With Terraform, deployment of such infrasctructures can be easily automated in code.
 
 In this demo, we will show how to use Terraform to create Virtual Networks in Azure and connect them with Azure Virtual Network Peering. Finally, we will add Virtual machine in the virtual networks.
 
