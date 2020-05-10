@@ -20,4 +20,4 @@ Link to demo: https://youtu.be/LEYsYeIXDBc
 Link to GitHub repo: https://github.com/Volminger/terraform-demo
 
 **Easter Egg:**
-If you cannot see it, look at the output around 4:00 and take a look at this [link](https://www.goodreads.com/quotes/4454-three-rings-for-the-elven-kings-under-the-sky-seven-for)
+If you cannot see it, look at the output around 3:30 and take a look at this [link](https://www.goodreads.com/quotes/4454-three-rings-for-the-elven-kings-under-the-sky-seven-for)
