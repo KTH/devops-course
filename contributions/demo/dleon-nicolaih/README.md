@@ -1,5 +1,6 @@
 # Demo
-Screencast link: https://youtu.be/F1jmOZOFCLI
+
+Screencast link: https://www.youtube.com/watch?v=WrkAKSKLxwU
 
 Repository: https://github.com/dieflo4711/devops_demo
 
@@ -18,4 +19,5 @@ The pipeline starts when the developer pushes code to GitHub. Each commit automa
 CI/CD are important parts of DevOps. They bring automation, from integration and testing phases to delivery and deployment. Together they form the "CI/CD pipeline".
 
 ## Easter egg
+
 Since the application is used for division, something interesting happens when the user divides a number by zero. The easter egg is presented at the end of the screencast.
