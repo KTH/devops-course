@@ -13,7 +13,7 @@ Github id: Marcus9512
 ## Links
 
 **Youtube video**
-https://youtu.be/QlPTto0A19c
+https://youtu.be/oEZfV3XWw7w
 
 **GitHub repository**
 https://github.com/jonasjohansson8908/cd-demo
