@@ -3,7 +3,7 @@ To register a repetition for presentations, please make a pull-request on this f
 * The grading criteria for repetition are identical to the original ones.
 * See https://github.com/KTH/devops-course/ for rules
 
-* May 18 2020, starting at 13h
+* May 18 2020, starting at 14h
 
   1. [#673](https://github.com/KTH/devops-course/pull/673) (Nagasudeep Vemula-vemula@kth.se, Akhil Yerrapragada-akhily@kth.se)
   1. [#361](https://github.com/KTH/devops-course/pull/361) (Gustav Dowling gdowling@kth.se)
