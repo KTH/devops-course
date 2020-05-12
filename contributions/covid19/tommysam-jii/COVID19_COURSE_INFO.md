@@ -67,7 +67,7 @@ The server might not be up and running all the time, but down below we have a sc
 
 Click on the image below to be re-directed to the screencast at Youtube:
 
-[![](/images/jenkins_screencast.png)](https://youtu.be/TLqDoI6_AWE)
+[![](./tommysam-jii/images/jenkins_screencast.png)](https://youtu.be/TLqDoI6_AWE)
 
 The video has been cut at some points to shorten the length of the video and remove parts that does not add any new information to the filmed screencast. The music that we have used in this video is provided by https://www.bensound.com.
 
@@ -88,7 +88,7 @@ The setup is very straight forward.
     }
     ```
 
-    ![](/images/firebase_nodes.png)  
+    ![](./tommysam-jii/images/firebase_nodes.png)  
     Example of document path.
 
 Firebase allows for instant changes with its websocket communication.
@@ -109,7 +109,7 @@ In Firebase this is done by setting up security rules, by assigning read and wri
 
 The security rules can be edited in the online admin portals with a “test playground”. Allowing for testing different scenarios.
 
-![](/images/test_playground.png)
+![](./tommysam-jii/images/test_playground.png)
 
 So the complexity of safe security is handled in the end by Firebase/Google. It is also possible to tie the security rules to accounts for example, but the idea of this app is to have an open community. So editing courses for now is allowed by anyone.
 
@@ -148,7 +148,7 @@ We aim to achieve at least these criteria:
 * A mobile and web application that helps KTH students stay updated on changes in examination due to COVID-19.
 
 **The contribution is related to / built with DevOps technology**
-* We have created our own Jenkins server, and built a small pipeline that is connected to our repository for the application. We are also using Firebase in this project, which is a serverless computing service. We are also using PWA (progressive web apps) for faster and simplified deployment.
+* We have created our own Jenkins server, and built a small pipeline that is connected to our repository for the application. We are also using Firebase in this project, which is a serverless computing service. Also using PWA(progressive web apps) for faster and simplified deployment.
 
 **The contribution is novel**
 * We haven't found any application that is similar to ours yet.
