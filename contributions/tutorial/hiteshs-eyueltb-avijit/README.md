@@ -1,13 +1,26 @@
 ## Topic 
-Azure DevOps Pipeline Tutorial
+Azure DevOps Pipeline and more Tutorial
 
 ## Description
-Describing & implementing features of Azure DevOps and explaining how it provide one stop environment for implementation of CI/CD pipeline with ease.
-As far as scope of the tutorial is concerned, we wish to present the basic implementation of Java code using the features provided by Azure Cloud. Here, this Java or NodeJS are nothing but a random code just used to demonstrate the implementation of Azure CI. We are using only Azure features and YAML for the implementation of pipelines.
-It also includes, demonstrating the introduction and little implementation (not exhaustive) of Boards, Repos and Artifact- this is done to demonstrate how gracefully Azure DevOps is providing all the DevOps and Agile tools interconnected under one roof. Apart from that, the implementation of the pipeline will be more robust, using some random open-source JAVA project.
-It includes creating basic CI pipelines on Azure, providing creating a basic CI pipeline, how the user can customize the CI pipeline, involving approvers intervention in the pipeline for pushing the code to the next higher environment, how the code coverage is checked in Azure DevOps, what are 'tasks' and how we use it in Azure DevOps. It does not cover any specific test cases or test apps but we will try to include basic tests to demonstrate how they are taken care of during CI process in Azure, we will be using Linux VM (if possible in free tier). This all demonstration will be done on actual Azure DevOps environment and the document will carry sufficient screenshots for guiding the steps. It might be possible that we may not be able to write simple/ self-explanaotry details in the document due to overwhelming relevant content of CI/CD in Azure DevOps. But I don't want to reduce the scope as we have spent time in gaining the understanding and would like to express it there as much as we can.
+In one line, this document takes contains complete end to end flow of Azure DevOps (including pipelines). 
+Tutorial demonstrates how a company utilizes such tools like Azure (Boards, repositories etc.) to setup their project. The authors of this document have worked professionally more than four years in DevOps and development teams and considered framing one of the latest approach available in IT to deal with famous Agile way of working.
 
-In one like I would say it will help to understand Azure DevOps in an Agile project implementation of an organisation.
+## Criteria Fulfilled :
 
-Build repository: Azure Repos GIT/ GitHub
-Build and deploy: Java
+### Criterion: The TA can successful execute all the commands of the tutorial
+Azure CLI with DevOps extension is used to create all resources, build and run CI/CD pipeline. This makes the process faster and executable without logging into the portal. All the commands are provided with the relevant screenshots of the Azure Environment that will guide you throught the document.
+
+### Criterion: The tutorial gives enough background
+Clear background, motivation and uniquness of the tutorial is given in the start which defines the key terminology and concepts used.
+
+### Criterion: The tutorial is easy to follow
+Sufficient details are given, with good written and graphical material.
+
+### Criterion: The tutorial is original, no such tutorial exists on the web
+Originality has been described in the USP section on the first page of the tutorial.
+
+### Criterion: The tutorial contains fun facts or easter eggs
+Fun facts and embedded in the tutorial like section- 'An important fact to consider' is one example and to make it more entertaining for the readers related there several boxes- 'Do You know?' sections. These tell about the related exciting things that are not directly related to tutorial but to catch readers attention just like an extra pepper on salad. 
+
+### Criterion: The tutorial is successful
+It has been implemented successfully (screenshot proves it) and commands/ steps are given for replication of the same output.
