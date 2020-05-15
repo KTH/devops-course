@@ -1,12 +1,12 @@
 # Help Fight COVID19 : a social web portal
 
 ## Link to repo
-The repo is available here: https://github.com/sujon2100/Covid19Source
-Website: https://kthcovid19webapp.azurewebsites.net/
+* The repo is available here: https://github.com/sujon2100/Covid19Source
+* Website: https://kthcovid19webapp.azurewebsites.net/
 
 ## Members
-Helal Uddin (mhud@kth.se/sujon2100@hotmail.com), Github id: sujon2100
-Nick Steele (nsteele@kth.se/njws1@outlook.com), Github id: nsteele
+* Helal Uddin (mhud@kth.se/sujon2100@hotmail.com), Github id: sujon2100
+* Nick Steele (nsteele@kth.se/njws1@outlook.com), Github id: nsteele
 
 ## Description
 This project is developed for gathering information regarding COVID-19 to update the users. It is totally non-profit-oriented project which emphasis on novelty and helping the people by providing all related information about COVID-19. Both students and people from the community can support by using this web portal. This web app is integrated with the latest Microsoft cloud platform by using Azure DevOps and Azure WebServices. As a result, this app can ensure low cost and high efficiency.
