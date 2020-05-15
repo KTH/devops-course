@@ -1,0 +1,166 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <img src="~/images/kthcovid19.jpg" alt="ASP.NET" class="img-responsive" style="height:400px; width:100%;" />
+            <div class="carousel-caption" role="option">
+                <p style="color:black">
+                    Covid-19 is a global pandemic disease.
+                    <a class="btn btn-default" href="https://intra.kth.se/en/campus/sakerhet/kris/corona/kth-om-covid-19-coronavirus-1.965904">
+                        Learn More
+                    </a>
+                </p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="~/images/banner9.jpg" alt="Visual Studio" class="img-responsive" style="height:400px; width:100%;" />
+            <div class="carousel-caption" role="option">
+                <p>
+                    We can prevent this togather. Update yourself now!
+                    <a class="btn btn-default" href="https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection.html">
+                        Learn More
+                    </a>
+                </p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="~/images/banner7.jpg" alt="Package Management" class="img-responsive" style="height:400px; width:100%;" />
+            <div class="carousel-caption" role="option">
+                <p>
+                    To be safe and to make other safe, social distancing is must.
+                    <a class="btn btn-default" href="https://www.canada.ca/en/public-health/services/video/covid-19-physical-distancing.html">
+                        Learn More
+                    </a>
+                </p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="~/images/banner8.jpg" alt="Microsoft Azure" class="img-responsive" style="height:400px; width:100%;" />
+            <div class="carousel-caption" role="option">
+                <p>
+                    COVID-19 – Stay home
+                    <a class="btn btn-default" href="https://www.canada.ca/en/public-health/services/video/covid-19-stay-home.html">
+                        Learn More
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+<br />
+<br />
+<div class="row">
+    <div class="col-md-5">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/k8vuUJ7hVLY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div class="col-sm-1">
+
+    </div>
+    <div class="col-md-5">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/JCw-B4Ig3DQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col-md-3">
+        <h2><a asp-area="" asp-controller="Home" asp-action="Index">COVID-19 Related Update</a></h2>
+        <ul>
+            <li>Global Summary of COVID-19: <a href="https://news.google.com/covid19/map?hl=en-US&gl=US&ceid=US:en">COVID-19 Latest Update</a></li>
+            <li>Global Summary of COVID-19: <a href="https://corona.lmao.ninja/v2/all">COVID-19 Latest Update from API</a></li>
+            <li>Sweden Summary of COVID-19: <a href="https://api.covid19api.com/country/sweden/status/confirmed">COVID-19 Latest Update for Sweden</a></li>
+        </ul>
+    </div>
+    <div class="col-md-3">
+        <h2><a asp-area="" asp-controller="Home" asp-action="Devops">Built in DevOps technology</a></h2>
+        <ul>
+            <li><a href="https://dev.azure.com/KthProject2020/KthProject">Azure Devops Project for COVID-19</a></li>
+            <li><a href="https://portal.azure.com">Azure Portal</a></li>
+            <li><a href="https://visualstudio.microsoft.com/">Microsoft VS Integration with Azure DevOps</a></li>
+        </ul>
+    </div>
+    <div class="col-md-3">
+        <h2><a asp-area="" asp-controller="Home" asp-action="NoveltyHelping">Contribution to Novelty & Helping</a></h2>
+        <ul>
+            <li><a href="https://covid19responsefund.org/">HELP FIGHT CORONAVIRUS</a></li>
+            <li><a href="https://m.facebook.com/groups/815512272277849">Want to help for COVID19 people?</a></li>
+            <li><a href="https://www.canada.ca/en/public-health/services/publications/diseases-conditions/covid-19-information-essential-service-workers.html">Information for essential service workers exempt from mandatory quarantine (self-isolation)</a></li>
+            <li><a href="https://www.canada.ca/en/public-health/services/publications/diseases-conditions/help-reduce-spread-covid-19.html">Help reduce the spread of COVID-19</a></li>
+        </ul>
+    </div>
+    <div class="col-md-3">
+        <h2><a asp-area="" asp-controller="Home" asp-action="SupportStudentSociety">Support from other KTH students & Society</a></h2>
+        <ul>
+            <li><a asp-area="" asp-controller="Home" asp-action="StudentPortal">Student Portal</a></li>
+            <li><a asp-area="" asp-controller="Home" asp-action="CommunityPortal">Community Portal</a></li>
+        </ul>
+    </div>
+</div>
+
+
+<br />
+<br />
+<div class="row" style="background-color:silver; float:right">
+    <div class="col-md-3">
+        <div class="ChlgHf" aria-level="3" role="heading"><div class="HnYYW FIdh1">Overview of the Swedish Cases</div></div><div class="UDZeY">
+            <div class="mod" data-attrid="" data-md="648" data-hveid="CAIQAA" data-ved="2ahUKEwiYn8KBwPHoAhWotIsKHXBVACYQmN4FMB16BAgCEAA">
+                <!--m--><div>
+                    <div id="boxmodel1">
+                        <div class="wsV78c"><div><div class="wveNAf"><div><div class="tBWBtb"><span></span><span class="GV3Hqc"><span>Confirmed in Stockholm</span></span></div></div><table class="qyEGdc"><tbody><tr><td class="LeGwof"><div class="GQXXO sz9i9"></div><div class="yeRnY sz9i9">5&nbsp;387</div></td><td class="LeGwof"><div class="GQXXO sz9i9"></div><div class="yeRnY sz9i9"></div></td><td class="LeGwof"><div class="GQXXO sz9i9"></div><div class="yeRnY sz9i9"></div></td></tr></tbody></table></div><div class="wveNAf"><div class="Ff5uNc"><div class="tBWBtb P5My0"><span><g-img class="XnmoPc" aria-hidden="true"><img id="dimg_3" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAIAAACR5s1WAAAERElEQVR4AbxYAYdVURA+c+/dVqrNJuS5VFVQFVIIQEJBICkFFaF+Q+gvREgFFQokIKAoiFaIQmrVvk3kbVse2/N2v66d4XM/x/NCzT7nzM6ZOW/mm++ec3crAGlVFhYWhsPh8vJy+vdSlmVVVdPT0/5r5dPc3FyTQfq/0u/367qOJObn55sMVsqJV/P92YXfhRkaK9AMp+onzehY+ezy6MvJFBZzV7r4QINOK8COTWuP1OvScNh8dafTsV6vt7i4aBOTVx6/n5lbTGbeIN/465nLHswRSJY237/VjAhDMxkSo1Z17rPqSYvvdbCz4cHZA2k4mJqaKrwLLz7/mun+TOYuI8U4hsGMutHJaEnmFmPoTPfX89mfjbK0tFQ4E19+7HnW0CxECAqbBHAxVFZMbKiH5dmH740yGAwKDyqK9l7jIEFLFkDQH44EZIOysPj2Vhx89MwhfBQkWiwRgegEWDbQJGSNxcq6cVFh0VD1VI1JsIf8iQay8xwJlNileggqo3pdtdfMR1JLRQoxZkH7uAJtRxQJH6NOFpUv2x1DJ4AiYlARTkQGmUCygQt6HtAiCdtYSQj4rExJGZMrodPKSsSilOfWWU6ILsXYOChbZkWuFTMghwSZz04DIAZ81NtsANkArTLCtcmgtyZhq5t6joYMDwRaPQEjysLKBZU4PS3DiXauUaryQAkiT4pbCYFwnEGxqJy4uvPOzX2PE7x0qTbDhN65i2KJWGUhRvi8XTqd0nUiwZw5Iz5wJX+BxuhGFahP7KZSaZgWoEsUvUcEBrl1rY0t8oeVtlDrVj371GiUnjE6ChIZ2quiOkVAFrR8FBEktIjRSLCyEZ5ZTiBPGklCt8sD0Kosv7X6c+Lq3yMBaHeVBxoVAxkzBidufLj08M0JIJm1avtx/gLLMC5M3burhCaf2nkCUHuYzx+qr3WIhBs5xqbkv4/SAjlnIxx0BHkhLyYUIsFW26j3JWSuV2Spz9tSAgRSeZ8gED7wflQC0iWsYaFLa7MAlom4a/YW1SuIZJNyVIsgpejfvOUVgjT4cREzGeNZZ29O8kgPF3aUGpPICWTO4qGLJpbM40y2QTgRpZEJ+pLJjxyANPmPYuCL0JMEck4I8DqrZPsONejbtpCRdkdCi2XvQNC5qAxAI3RUHnCRHSRqioRAAS0m/5Dr/wKMXy9OanRRToAf6DWibw9evattFxrpQh60Xk0hnFheybTTGC4355h/6goqYuaXFmVZNtPeTRWfDr1GeAO00FcGAMTAozVUrrH9mycaZXJysqiqqtGObl+/a2MVxScjL7l5lvk8W3nVcoUsoSXBLbs3lsd2bPAkDID/E7M/GD599+31lx+lxeaW7OK2e3G7xxg73p49l0K4KALOEQt469PhrdPH92xZt6ZqpK5rpxi63e6n/y7Nl/q3x9PxZ8ARTeB4IhsbGwNdANAioHVASyFcAAxNagE3zQs7AAAAAElFTkSuQmCC" class="rISBZc" height="20" style="margin-right:8px" width="20" alt="Sweden" data-atf="4"></g-img></span><span class="GV3Hqc"><span>Sweden</span></span></div></div><table class="qyEGdc"><tbody><tr><td class="LeGwof"><div class="GQXXO sz9i9">Confirmed</div><div class="yeRnY sz9i9">13&nbsp;216</div></td><td class="LeGwof"><div class="GQXXO sz9i9"> -Recovered</div><div class="yeRnY sz9i9">-</div></td><td class="LeGwof"><div class="GQXXO sz9i9"> -Deaths</div><div class="yeRnY sz9i9">1&nbsp;400</div></td></tr></tbody></table></div><div class="wveNAf"><div class="Ff5uNc"><div class="tBWBtb P5My0"><span><g-img class="XnmoPc" aria-hidden="true"><img id="dimg_5" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAMAAADXqc3KAAAARVBMVEUAAABChfRChfRBhfRChfRBhPVAhvVBhfRChfRChPRBhfNChPRChfNChPRAh/dAhfRChfNBhPRBhPNBhPRBhPNAhfRBhPS7Bx6gAAAAF3RSTlMAYJ/P/09Q35DgwI/wcCAwgKCw0O9vv5uoiNwAAACdSURBVHgBndAFFsJAEATRhhQrcb//UXmDS/yvu+i40zmB5HzRN+d58E4fAsRImlpO9tmfFyWUloqc8NqHvFJNI7UUquC5W6SQOms6EqnAP+7DHyfT8KeR6aik+n5ksF0rEhmQDdR6FTA/MLNVN3/43HX/H9hJBfH1JX2l4vklDpweAv3w+kQIX9/uPWNqOUEfXOQhOn1zTQdd43TYFdiMB87SSSztAAAAAElFTkSuQmCC" class="rISBZc" height="20" style="margin-right:8px" width="20" alt="Worldwide" data-atf="4"></g-img></span><span class="GV3Hqc"><span>Worldwide</span></span></div></div><table class="qyEGdc"><tbody><tr><td class="LeGwof"><div class="GQXXO sz9i9">Confirmed</div><div class="yeRnY sz9i9">2&nbsp;240&nbsp;191</div></td><td class="LeGwof"><div class="GQXXO sz9i9">Recovered</div><div class="yeRnY sz9i9">568&nbsp;343</div></td><td class="LeGwof"><div class="GQXXO sz9i9">Deaths</div><div class="yeRnY sz9i9">153&nbsp;822</div></td></tr></tbody></table></div></div></div><div class="TrVjxd">
+                        </div>
+                    </div>
+                </div><!--n-->
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <h3>Covid19 Information for KTH Employees</h3>
+            <ul>
+                <li>Physical access to KTH</li>
+                <li>Working from home</li>
+                <li>Studies and exams</li>
+                <li>If you plan to travel or are abroad</li>
+                <li>Ban on public events</li>
+            </ul>
+            <p><a href="https://intra.kth.se/en/campus/sakerhet/kris/corona/information-till-anstallda-med-anledning-av-coronaviruset-1.965906">Click here for more</a></p>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <h3>Covid19 Information for KTH Students</h3>
+            <ul>
+                <li>Remote access to computer labs</li>
+                <li>Studies and exams</li>
+                <li>Physical access to KTH</li>
+                <li>Accomodation for students</li>
+                <li>International travel</li>
+            </ul>
+            <p><a href="https://intra.kth.se/en/campus/sakerhet/kris/corona/information-till-studenter-med-anledning-av-coronaviruset-1.965905">Click here for more</a></p>
+        </div>
+    </div>
+    <div class="col-md-1">
+        <div class="card">
+            <h3>Follow Us</h3>
+            <p><a href="https://dev.azure.com/KthProject2020/NewKthCovidProject">Our Azure DevOps Project</a></p>
+        </div>
+    </div>
+    
+</div>

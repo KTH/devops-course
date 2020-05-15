@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewData["Title"] = "SupportStudentSociety";
+}
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="~/css/DevopsStyleSheet.css" rel="stylesheet" />
+</head>
+<body>
+
+    <div class="header">
+        <h2 class="Zhv0Vb" aria-label="Statistics and news">Support from other KTH students & Society</h2>
+    </div>
+
+    <div class="row">
+        <div class="leftcolumn">
+            <div class="card">
+                <h2>Students</h2>
+                <h5>This section will give information about courses for current and future KTH students, April 19, 2020</h5>
+                <div class="fakeimg" style="height:200px;"><img src="~/images/Students1.jpg" style="width:250px;height:150px;" /> <img src="~/images/Students2.jpg" style="width:250px;height:150px;" /> <img src="~/images/Students3.jpg" style="width:250px;height:150px;" /></div>
+                <a class="btn btn-default" asp-controller="Home" asp-action="StudentPortal">
+                    Click to Enter
+                </a>
+            </div>
+            <div class="card">
+                <h2>Community</h2>
+                <h5>This section will give information about community support in this COVID-19 lockdown situation, April 19, 2020</h5>
+                <div class="fakeimg" style="height:200px;"><img src="~/images/Community1.png" style="width:250px;height:150px;" /> <img src="~/images/Community2.png" style="width:250px;height:150px;" /> <img src="~/images/Community3.png" style="width:250px;height:150px;" /></div>
+                <a class="btn btn-default" asp-controller="Home" asp-action="CommunityPortal">
+                    Click to Enter
+                </a>
+            </div>
+        </div>
+        <div class="rightcolumn">
+            <div class="card">
+                <h2>DevOps solution for COVID-19</h2>
+                <div class="fakeimg" style="height:100px;"><img src="~/images/Capture.jpg" style="width:200px;height:70px;" /></div>
+                <p>Azure Devops ensures nonstop solution to deploy/CI for COVID-19 web app.</p>
+            </div>
+            <div class="card">
+                <h3>Popular Post</h3>
+                <div class="fakeimg">
+                    <iframe width="200" height="157" src="https://www.youtube.com/embed/k8vuUJ7hVLY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="card">
+                <h3>Follow Us</h3>
+                <p><a href="https://dev.azure.com/KthProject2020/KthProject">Our Azure DevOps Project</a></p>
+            </div>
+        </div>
+    </div>
+
+</body>
+
