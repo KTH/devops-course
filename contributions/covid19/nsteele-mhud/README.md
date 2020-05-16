@@ -2,7 +2,7 @@
 
 ## Link to repo
 * The repo is available here: https://github.com/sujon2100/devops-course/tree/master/contributions/covid19/nsteele-mhud/localfolderfinal
-* Website: https://kthcovid19webapp.azurewebsites.net/
+* Website of the COVID19 project: https://kthcovid19webapp.azurewebsites.net/
 
 ## Members
 * Helal Uddin (mhud@kth.se/sujon2100@hotmail.com), Github id: sujon2100
