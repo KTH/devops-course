@@ -1,4 +1,4 @@
-# Help Fight COVID19 : a social web portal
+# Help Fight COVID19 : a social web app
 
 ## Link to repo and website
 * The repo is available here: https://github.com/sujon2100/devops-course/tree/master/contributions/covid19/nsteele-mhud/localfolderfinal
