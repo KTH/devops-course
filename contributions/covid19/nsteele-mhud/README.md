@@ -1,7 +1,7 @@
 # Help Fight COVID19 : a social web portal
 
 ## Link to repo
-* The repo is available here: https://github.com/sujon2100/Covid19Source
+* The repo is available here: https://github.com/sujon2100/devops-course/tree/master/contributions/covid19/nsteele-mhud/localfolderfinal
 * Website: https://kthcovid19webapp.azurewebsites.net/
 
 ## Members
@@ -19,3 +19,6 @@ This COVID119 project would be integrated with the following DevOps technologies
 3. Creating build-pipeline in Azure DevOps
 4. Creating deployment-pipeline in Azure DevOps
 
+## CI instructions
+
+## Test instructions
