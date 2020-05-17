@@ -1,4 +1,4 @@
-# Demo Proposal
+# Finished Demo
  ## Members
 
  Joar Ekelund (joarek@kth.se)
@@ -6,6 +6,12 @@
 
  ## Topic
 Demo of a CI/CD pipeline using Jenkings with SonarQube itegration.
- 
- ## Details
- We will show how to implement and set up a CI/CD pipeline with Jenkings and SonarQube. The demonostration wiill show how to set up the enviroment and show, using a simple system, some of the functionallity SonarQube offers. Since we have no prior experience setting up a CI/CD pipelne or using Jenkings and SonarQube this demo will be a gret oppertunity to learn.
+
+ ## What we did
+ We created local Jenkins and SonarQube servers to perform automated tests, compile tests, static code analysis, security audit and code coverage using Github webhooks.
+
+ ## Changes from feedback
+ We speed up the terminal parts, made the text more readable, added informataion for parts of the screencast. Added background information to the easter egg in the description of the video.
+
+ ## Resubmission
+[Screencast](https://youtu.be/KJyVdtHqbQk)
