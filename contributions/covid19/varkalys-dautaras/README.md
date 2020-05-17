@@ -60,4 +60,41 @@ I didn't want to include private places visits for this calculation, because vis
 - I calculated the percentage of time spent at home out of 12 hours a day. I took 12 hours instead of 24, because most people usually spend at least 12 hours a day at home while sleeping or preparing to sleep.
 So the maximum amount of time the person can spend in public places is around 12 hours.
 - All the calculated information is shown to the user: percentage of time spent at home, visited public places and the number of hours spent in public places.
+
+## Justas' contribution to the project
+
+### Future risk score
+After all the data of the current coronavirus cases is extracted from the government site I started working on evaluating the future risk score.
+At this point, it is very hard to create a mathematical model for calculating these types of calculations. Due to this reason, an expert of this science at the hackathon consulted us regarding how to make a logical model.
+In the beginning I started by simply calculating the risk which can be seen [here](https://github.com/arnas/tracking-virus-not-people/blob/master/risk-evaluation/2.%20Future%20risk%20assessment%20.ipynb). 
+Only after finishing I realized it would make more sense to also include the graphs for our calculations as well for showcasing purposes (this was a hackathon after all). For that I used the `matplotlib` library and the result can be seen [here](https://github.com/arnas/tracking-virus-not-people/blob/master/risk-evaluation/Future%20Risk%20New.ipynb).
+The model itself is a simple probability model with values which were given to use:
+```
+max_probability_of_contact = 0.2
+max_probability_of_visiting_after_infected = 0.005
+max_probability_of_visiting_unsuspicious_shop = 0.03
+```
+This produced the following results:
+
+<img src="https://i.ibb.co/g9GnBcH/1-1.jpg" width="45%"></img>
+<img src="https://i.ibb.co/wWGWjXN/2-1.jpg" width="45%"></img>
+
+Where the time (x axis) is calculated in seconds.
+
+Later on Mindaugas used these numbers for getting the chances of being infected as mentioned [here](#calculating-the-probability-of-being-infected).
+
+### Application UI
+Lastly, I helped with building the UI for our application using React framework. To be more specific, I worked on:
+- The header component which has responsive design for both mobile and desktop displays. It has two buttons - to report a new case and the 'check yourself' button which Mindaugas wokred more in-depth. 
+In mobile view, it transforms into a carousel button.
+The code can be found [here](https://github.com/arnas/tracking-virus-not-people/blob/master/app/src/features/site/Header.js).
+- The legend which allows the user to select whether he wants to see the cases or the checkpoints. 
+Is is just a very simple functional component for a better user experience. It can be found [here](https://github.com/arnas/tracking-virus-not-people/blob/master/app/src/features/site/Legend.js).
+- Amongst other collaborations throughout all the application with other teammates.
+
+### CI/CD using Netlify
+The project is hosted using [Netlify](https://www.netlify.com/) at [sekvirusa.lt](https://sekvirusa.lt). Netlify has built-in CI/CD pipelines, which build and deploy the project.
+The only settings which need to be specified for simple projects are build command and deployment folder. Our project is React project, so build command is `npm run build` and `build` directory needs to be published.
+After allowing access to the project repository, these settings were specified at Site settings -> Build & deploy -> Build settings.
+After that CI/CD is setup and the project is automatically built and deployed on every push to master branch.
    
