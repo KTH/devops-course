@@ -4,16 +4,24 @@
  - Dingli Mao (dingli@kth.se)
 
 ## Strcuture of the essay
-  1. Introduction
-  2. The definition of serverless
-  3. The advantages of serverless
-  4. The disadvantages of serverless
-  5. Use cases of serverless
-  6. The comparison between BaaS and FaaS
-     6.1 BaaS
-     6.2 FaaS
-  7. Serverless and DevOps
-  8. Conclusion
+ 
+
+	1. Introduction	
+	2. The definition of serverless	
+	3. The comparison between Serverless and Traditional  Architecture	
+	3.1 The advantages of serverless over Traditional  Architecture	
+	3.2 The disadvantages of serverless over Traditional  Architecture	
+	4. The state-of-the-art of serverless	
+	5. The comparison between BaaS and FaaS	
+	5.1 BaaS	
+	5.2 FaaS	
+	5.3 The connection between BaaS and FaaS	
+	6. Use cases of serverless	
+	7. Serverless and DevOps	
+	8. Conclusion	
+	9. Reference	
+
+
   
 ##  Criteria that i want to fulfill
 1. The essay has a good title.
