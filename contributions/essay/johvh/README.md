@@ -15,14 +15,16 @@ Load balancing servers is a crucial part of any application expected to handle l
   - What is a load balancer
   - Why is it used
 - Different types of load balancers
-  - Hardware
-  - Software
-  - Virtual
+  - Static or dynamic
+  - Application or network load balancer
 - Different load balancing algorithms
   - Round robin
   - Least connections
   - Least time
-  - etc.
+  - IP-Hash
+- State of the art
+  - Global server load balancing
+  - AWS and Azure load balancing options
 - Conclusions
 
 

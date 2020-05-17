@@ -1,4 +1,12 @@
-# Demo proposal
+# Demo: CI/CD pipeline using Docker and Github actions
+
+## Final submission links
+
+**Youtube**: https://www.youtube.com/watch?v=09Q1o0fZLrs
+
+Subtitles can be enabled by clicking the subtitles button on youtube.
+
+**Github**: https://github.com/JohanKJIP/ci-cd-demo
 
 ## Members
 
@@ -11,8 +19,6 @@ Demo of a CI/CD pipeline using Github actions.
 
 ## Details
 
-We will implement a CI/CD pipeline for a small application using Docker. The application will be a minimal python webserver hosted on DigitalOcean. The pipeline will use Github actions to set up an environment, build the app, test it and, if successfull, deploy it. 
+We have implemented a CI/CD pipeline for a small website using Docker and Github actions. The demo shortly presents how Github action works and also shows how the pipeline we set up functions. 
 
-The demo itself will show the pipeline in action as a change is pushed to the production branch. This includes showing the website before and after the change, ensuring that everything worked correctly.
-
-The motivation behind the demo is to learn more about containerization and explore Github actions which has been released relatively recently. 
+We also provide the viewers with a take-home message. The repository is also available on Github so that the viewer can fork it if they want to experiment with the pipeline. 

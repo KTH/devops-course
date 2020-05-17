@@ -7,7 +7,7 @@ Registration: You must register to this course through the Swedish registration 
 Next course start: March 2020 (Academic Period 4).
 
 Past edition:
-* [KTH DevOps Course 2019](https://github.com/KTH/devops-course/blob/master/README-2019.md)
+* [KTH DevOps Course 2019](https://github.com/KTH/devops-course/blob/master/attic/2019/)
 
 ## Schedule
 
@@ -64,7 +64,7 @@ Past edition:
 
 ### Week 6
 * Lecture: Automatic program repair [Martin Monperrus](https://www.monperrus.net/martin/)
-* Lecture: Infrastructure as code [Daniel Caballero Rodriguez (Fastly)](https://www.linkedin.com/in/danicaba/) 
+* Lecture: Infrastructure as code [(slides)](https://dcaba.github.io/slides/200428_KTH_IaC/) [Daniel Caballero Rodriguez (Fastly)](https://www.linkedin.com/in/danicaba/) 
 * Fuzzing competition results
 * Student presentations
 
@@ -73,9 +73,11 @@ Past edition:
 * Preparatory reading: [Playing Apart – ett unikt experiment i ett samarbete mellan Telia och Göteborgs Symfoniker](https://youtu.be/B4_GszP0k4E)
 
 ### Week 8: Wrap-up, feedback and potluck
-* 9h15 Wrap-up & Feedback
-* 10h15 Final Guest Lecture
-* [Final Course Potluck](https://en.wikipedia.org/wiki/Potluck)
+* 9h15 Q&A
+* 10h15 Lecture: Devops at EA/Dice [Cristian Deri](https://se.linkedin.com/in/cristian-deri), [Vidir Reynisson](https://se.linkedin.com/in/vidirr)
+  * Preparatory material: <https://www.youtube.com/watch?v=iIIxgv6CtGs>
+* 11h15 Proposal festival for next year
+* 12h15 Personalized feedback break-out sessions
 
 ## Rules
 
@@ -83,7 +85,7 @@ Lab slots do not require mandatory presence. They are designed for students to m
 
 To pass the course, the student has to collect 4 grades:
 * the grades are in category: "[presentation](https://github.com/KTH/devops-course/tree/master/contributions/presentation)", "[demo](https://github.com/KTH/devops-course/tree/master/contributions/demo)", "[essay](https://github.com/KTH/devops-course/tree/master/contributions/essay)", "[tutorial](https://github.com/KTH/devops-course/tree/master/contributions/tutorial)", "[competition entry](https://github.com/KTH/devops-course/tree/master/contributions/competition)", "[contribution to open-source](https://github.com/KTH/devops-course/tree/master/contributions/open-source)", "[covid19](https://github.com/KTH/devops-course/tree/master/contributions/covid19)" (choose four out of them, at most one in the same category, it is not necessary to cover everything).  
-* the strict deadline for essays, tutorials and contributions to open-source is April 30 2020, 23h59 Stockholm time; the deadline for competition and demos are respectively on pages "[competition entry](https://github.com/KTH/devops-course/tree/master/contributions/competition)" and "[demo](https://github.com/KTH/devops-course/tree/master/contributions/demo)"; the strict deadline for repeated tasks (all) is May 31 2020, 23h59 Stockholm time.
+* the strict deadline for essays, tutorials, covid19 and contributions to open-source is April 30 2020, 23h59 Stockholm time; the deadline for competition and demos are respectively on pages "[competition entry](https://github.com/KTH/devops-course/tree/master/contributions/competition)" and "[demo](https://github.com/KTH/devops-course/tree/master/contributions/demo)"; the strict deadline for repeated tasks (all) is May 31 2020, 23h59 Stockholm time.
 * the student proposes a category and a topic, which is discussed and accepted by the TA. The proposal is made as a pull-request on this repository. The four graded contributions must have little overlap.
 * the same student cannot choose the same topic for two different tasks. The four tasks should cover different aspects of DevOps.
 * each grading category, there is a grading form, which explains how to pass / pass with distinction.
@@ -146,4 +148,6 @@ The remote grading scheme changes as follows:
 
 ## Acknowledgements
 
-This course is designed with great inputs from [Chris Parnin](https://github.com/CSC-DevOps/Course), Julien Bisconti, Simone Stefani, Jaana Nyfjord, Amir Gaber, Göran Paues, Lowe Schmidt, Laurent Ploix, Diarmuid Corcoran, Jonathan Grahl, Mattias Wildeman, Tomas Ekholm, Vincent Massol, David King and others. We are very grateful for their contributions!
+* Chris Parnin, Julien Bisconti, Simone Stefani, Jaana Nyfjord, Amir Gaber, Göran Paues, Lowe Schmidt, Laurent Ploix, Diarmuid Corcoran, Jonathan Grahl, Mattias Wildeman, Tomas Ekholm, Vincent Massol, David King and others.
+* [fip](https://www.fip.fr/) for the musical interludes
+

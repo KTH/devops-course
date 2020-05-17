@@ -5,3 +5,5 @@
 * how circleCI is working,
 * how continous integration working in practical example
 * how react app integrate with circleci.
+
+Link of screencast: https://youtu.be/wPSBrkMYP_M
