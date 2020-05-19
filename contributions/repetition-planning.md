@@ -14,5 +14,4 @@ To register a repetition for presentations, please make a pull-request on this f
   1. [#628](https://github.com/KTH/devops-course/pull/628) (Klara Eserstam - klaraes@kth.se, Christina Sunnegårdh - sunneg@kth.se)
   1. [#613](https://github.com/KTH/devops-course/pull/613) (Diego Leon - dleon@kth.se, George Rezkalla - rezkalla@kth.se)
   1. [#524](https://github.com/KTH/devops-course/pull/524) (Pojan Shahrivar - pojans@kth.se, Akshay Sinha - akshays@kth.se)
-  1.
-
+  1. [#462](https://github.com/KTH/devops-course/pull/462) (MD Rezaul Hasan - mrhasa@kth.se, Muhammad Jahangir Zafar - mjza@kth.se)
