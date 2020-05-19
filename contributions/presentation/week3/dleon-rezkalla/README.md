@@ -1,7 +1,7 @@
 # Presentation
 ## Contributors
 * Diego Leon - dleon@kth.se - @dieflo4711
-* George Rezkalla - rezkalla@kth.se - @georgwbar
+* George Rezkalla - rezkalla@kth.se - @georgewbar
 ## Slides
 [Presentation slides](https://docs.google.com/presentation/d/1a3ofIV5jO7lpFqfintjIW1HGHTDnDDbwYgOpWE6gihU/edit?usp=sharing)
 
