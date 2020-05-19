@@ -2,6 +2,8 @@
 ## Contributors
 * Diego Leon - dleon@kth.se - @dieflo4711
 * George Rezkalla - rezkalla@kth.se - @georgwbar
+## Slides
+[Presentation slides](https://docs.google.com/presentation/d/1a3ofIV5jO7lpFqfintjIW1HGHTDnDDbwYgOpWE6gihU/edit?usp=sharing)
 
 ## Agenda
 1. Motivation
@@ -31,7 +33,7 @@ Here is a list of the criteria we want to fulfill:
 * motivation: The presentation contains a good, motivating introduction. -> we motivate why this topic is relevant to DevOps
 at the beginning and that large companies such as Netflix, Amazon and Ebay use Microservices architecture.
 * technical: The presentation contains one part that is deeply technical. -> we go through a detailed technical example. Architecture diagrams and Code snippets are used in the presentation.
-* originality: The presentation contains one part that is original. -> The way of the reflection about the design decisions using diagrams, code snippets and a trade-off table is original. No one until now as far as we know presented patterns in this way in such a short presentation.
+* originality: The presentation contains one part that is original. -> The way we reflect about the design decisions using a concrete example, diagrams, code snippets and a trade-off table between the patterns in the concrete example is original. Also, no one until now as far as we know presented patterns in the way we do in such a short presentation.
 * Reflection: The presentation contains a reflective part. -> We go though a concrete example use case that reflects and compares between trade-offs of two patterns using diagrams, code snippets and a trade-off table.
 * take-home: The last slide contains a good and concise take-home message. -> The take-home message is concrete and is grounded on facts.
 * loudly: The speakers talk loudly and clearly.
