@@ -17,8 +17,7 @@ Among the guests, some are "critique" (in the sense of [culinary critique](https
 
 ## Grading Criteria for live demo at MDDD
 
-**Topic:**  
-**Demoers:**
+WARNING: this is NOT the criteria used in 2020, the criteria are in "Grading Criteria for online demo due to Covid-19" below.
 
 |                                             | Yes | No | Remarkable |
 |-------------------------------------------- | ----|----|-------------|

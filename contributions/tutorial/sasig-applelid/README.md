@@ -1,7 +1,11 @@
-# Topic: GitOps with K8s & Flux CD
+# Tutorial: GitOps with K8s & Flux CD
 
 Sigrún Arna Sigurðardóttir sasig@kth.se @s1grun
 Gunnar Applelid applelid@kth.se @gynther-k
+
+# Tutorial link
+
+https://medium.com/@sas_65289/gitops-with-kubernetes-flux-cd-ce4c8b4734f2
 
 # Introduction
 
