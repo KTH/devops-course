@@ -12,6 +12,7 @@ Code coverage
 
 ### Outline
 - what is it?
+
 - The relationship to DevOps and CI.
 - Pros. & Cons.
 - Code Coverage vs Test Coverage.
