@@ -1,5 +1,13 @@
+## Finished tutorial
+**Link to the complete tutorial on Katacoda: https://www.katacoda.com/sunneg/scenarios/dockertutorial**
+
+We have aimed to reach a "remarkable" for the 2nd, 3rd and 4th critera below.
+
+Hope you enjoy the tutorial! :)
+
 # Tutorial: Docker
 *Team members: Christina Sunnegårdh (sunneg@kth.se), Klara Eserstam (klaraes@kth.se)*
+
 
 **Interactive task:** Dockerizing a client and a server (node.js/react) in an application  separately (using docker compose).
 
@@ -21,3 +29,6 @@ We feel like there is no current tutorial that gives a good background on docker
 - The tutorial is easy to follow
 - The tutorial contains fun facts or easter eggs
 - The tutorial is doable in the browser without a local environment (needed for distinction)
+
+#### Updates after feedback
+We have updated the tutorial after the feedback. We have added commands to the information parts of the tutorial, clarified the functionality of the application (without ruining the easter egg) as well as who the authors of it are. We have also removed one of the images on step 2 as Martin wanted us to only have 1 image per step. We have also reduced the size of some images. Finally, we have split step 5 into two parts.
