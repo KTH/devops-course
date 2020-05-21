@@ -69,15 +69,13 @@ The project would involve the following:
 - wlroots-sys: A deprecated library within wlroots-rs that offers auto-generation of "raw" bindings from C to Rust.
 
 
-## wlroots-sys
+## Project: wlroots-sys
 
 A fork intended for standalone use of the wlroots-sys subcrate (that generates "raw" Rust bindings for [wlroots](https://github.com/swaywm/wlroots) via bindgen). This means that the development is contained only within the [wlroots-sys](https://github.com/perfah/wlroots-rs/tree/master/wlroots-sys) directory. Note that this is not an attempt to revive wlroots-rs - hence the largely untouched repository root. The motivation for this fork is the benefit of being able to write Wayland-compositors based on wlroots in Rust without relying on outdated protocols, dependencies etc.... See below if you are interested in writing one yourself.
 
-( **For devops course, see the [reflection document](https://github.com/perfah/wlroots-rs/wiki/devops-course:-Reflection-&-Contributions)** )
-
 ### Changes
 
-The following changes have been merged into master (note: not this branch):
+The following changes have been merged into master:
 
 - Exposed (updated to reflect) all wlr/protocols currently available [here](https://github.com/swaywm/wlroots/tree/master/protocol)
 - Exposed (updated to reflect) all wlr/types currently available [here](https://github.com/swaywm/wlroots/tree/master/types)
@@ -86,6 +84,7 @@ The following changes have been merged into master (note: not this branch):
 - Fixed a bug where the wlroots-sys crate would recompile every time you compile another crate that depends on wlroots-sys
 - Added informative dependency checks as well as more constructive error messages for pkg-config when building default, static and unstable, for a smoother build process.
 - Fixed errors with static build with new version of wlroots.
+- Compatibility changes for wlroots-rs (makes CI pass)
 
 ### Usage
 
