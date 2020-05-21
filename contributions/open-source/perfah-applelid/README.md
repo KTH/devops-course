@@ -90,6 +90,7 @@ The following changes have been merged into master:
 
 1. `git clone https://github.com/perfah/wlroots-rs.git`
 2. `cd wlroots-rs`
+3. `git submodule update --init`
 4. `cp ./wlroots-sys <path_to_your_project>/wlroots-sys`
 5. Include a crate dependency to your project's `cargo.toml`-file:
         
