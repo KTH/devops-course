@@ -1,23 +1,20 @@
 # Demo
-
-Screencast link: https://www.youtube.com/watch?v=WrkAKSKLxwU
-
-Repository: https://github.com/dieflo4711/devops_demo
-
-## Members
-Diego Leon (dleon@kth.se)
+## Contributors
+Diego Leon (dleon@kth.se)  
 Nicolai Hellesnes (nicolaih@kth.se)
 
+# Links
+Screencast: https://youtu.be/fZesFoNM_I4  
+Repository: https://github.com/dieflo4711/devops_demo
+
 ## Description
-The demo is based on our CI/CD pipeline which uses a proof of concept web application which can perform division. This application was deployed in a Kubernetes cluster running on Google Kubernetes Engine. 
+This demo focuses on the deployment part of CI/CD. Specifically, automatic deployment. To demonstrate this, a proof of concept web app that can perform division was created and used with our CI/CD pipeline. This application was deployed in a Kubernetes cluster running on Google Kubernetes Engine.
 
-The pipeline starts when the developer pushes code to GitHub. Each commit automatically triggers a Travis-CI build which checks that the code successfully compiles and that all tests pass (there is one unit test for the division function). Once all the requirements are fulfilled, Travis-CI builds a new docker image and pushes it to Docker Hub. Travis-CI notifies Kubernetes, through Google Cloud SDK, of the new docker image available for deployment. Kubernetes then pulls the new image from Docker Hub. Lastly, Kubernetes deploys and manages the docker container.
+## Criteria we want to fulfill
 
-![pipeline](https://media.discordapp.net/attachments/689574194035687474/702564112311517344/pipe.jpg)
+Here is a list of the criteria we want to fulfill:
 
-## Motivation
-CI/CD are important parts of DevOps. They bring automation, from integration and testing phases to delivery and deployment. Together they form the "CI/CD pipeline".
-
-## Easter egg
-
-Since the application is used for division, something interesting happens when the user divides a number by zero. The easter egg is presented at the end of the screencast.
+* The demonstration screencast is clearly motivated (why it matters for Devops?) -> the demo is clearly motivated at minute 0:30.
+* The demonstration screencast is sublime (eg visually appealing) -> There is not to much text and background has been added to differentiate the text from the video. Apart from that, white-colored boxes are used to help the viewer find the parts that are being discussed in the text (e.g. min 1:16).
+* The demonstration screencast contains an easter egg -> the demo contains an easter egg that appears at minute 2:56
+* An accompanying Github repository has been made (optional) -> A link to the GitHub repository can be found in the video description box.
