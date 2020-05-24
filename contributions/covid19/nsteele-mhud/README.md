@@ -1,7 +1,7 @@
 # Help Fight COVID19 : a social web app
 
 ## Link to repo and website
-* The repo is available here: https://github.com/sujon2100/devops-course/nsteele-mhud/localfolderfinal
+* The source repo is available here: https://github.com/sujon2100/devops-course/nsteele-mhud/localfolderfinal
 * Website of the COVID19 project: https://kthcovid19webapp.azurewebsites.net/
 
 ## Members
