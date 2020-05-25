@@ -1,8 +1,9 @@
 # Help Fight COVID19 : a social web app
 
 ## Link to repo and website
-* The source repo is available here: https://github.com/sujon2100/devops-course/nsteele-mhud/localfolderfinal
+* The source repo is available here: https://github.com/KTH/devops-course/tree/master/contributions/covid19/nsteele-mhud/localfolderfinal
 * Website of the COVID19 project: https://kthcovid19webapp.azurewebsites.net/
+* Documentation: https://github.com/sujon2100/devops-course/blob/master/contributions/covid19/nsteele-mhud/Covid19_Project_Documentation_Updated.pdf
 
 ## Members
 * Helal Uddin (mhud@kth.se/sujon2100@hotmail.com), Github id: sujon2100
