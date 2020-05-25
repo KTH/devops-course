@@ -29,16 +29,16 @@ Inside of the Project Solution, a test project is added which would be expanded 
 
 ## Chnages have been made
 Based on the feedback, the following changes have been made:
-* -Marged the two repositories to keep only one that contains all the
+* Marged the two repositories to keep only one that contains all the
 code
-* -Added the CI and test instructions
-* -Added the documentation PDF
-* -The current documentation on Azure has been revised to have a clear
+* Added the CI and test instructions
+* Added the documentation PDF
+* The current documentation on Azure has been revised to have a clear
 structure, fewer screenshots
-* -Added more metrics about the project: How many tests? What code coverage? How many Locs? How long is a build?
-* -The CI instructions has been documented. 
-* -The CI/CD section of the documentation has no screenshot, but instead detail the content of
+* Added more metrics about the project: How many tests? What code coverage? How many Locs? How long is a build?
+* The CI instructions has been documented. 
+* The CI/CD section of the documentation has no screenshot, but instead detail the content of
 the configuration files that we have developed and justified this content,  the needs of your application
-* -We have added contribution on: the novel, helpful, attract support from other KTH students. 
-* -There is no self-assessment from the readme 
-* -Added motivation about how our contribution succeeds on these criteria.
+* We have added contribution on: the novel, helpful, attract support from other KTH students. 
+* There is no self-assessment from the readme 
+* Added motivation about how our contribution succeeds on these criteria.
