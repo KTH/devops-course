@@ -26,7 +26,7 @@ we think this contribution falls under this topic:
 https://github.com/KTH/devops-course/issues/9
 
 
-##Result: 
+## Result
 
 Video link: https://www.youtube.com/watch?v=J4MbfB17JjU&feature=youtu.be
 
