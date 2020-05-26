@@ -35,7 +35,7 @@ Refer to documentation for more..
 - Reference of the main project must be added in the test project to run locally
 - Currently implemented is a test on the HomeController, its purpose is to check whether the index of the home controller is empty. Once the project is ready, a test run has been made and all the test parameters have been satisfied.
 Refer to documentation for more..
-## Chnages have been made
+## Changes based on feedback
 Based on the feedback, the following changes have been made:
 * Marged the two repositories to keep only one that contains all the
 code
