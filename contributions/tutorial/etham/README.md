@@ -17,3 +17,6 @@
 - The tutorial gives enough background
 - The tutorial is easy to follow
 - The tutorial is doable in the browser without a local environment (i.e. Katacoda)
+
+
+Link to Tutorial: https://github.com/emetha/cypress-docker-tutorial

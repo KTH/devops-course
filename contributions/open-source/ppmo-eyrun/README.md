@@ -19,3 +19,5 @@ The issue we picked is https://github.com/spotify/backstage/issues/574
 The issues get grabbed very quickly so we took this one before it was lost again.
 
 Link to Backstage webpage: https://backstage.io/
+
+Merged PR: https://github.com/spotify/backstage/pull/665

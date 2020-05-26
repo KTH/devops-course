@@ -1,5 +1,7 @@
 # Tutorial: Self-Hosting Git with Docker
 
+**Tutorial link: https://www.katacoda.com/dstevens/scenarios/docker-git**
+
 ## Members
 - Henrik Mellin (hmellin@kth.se)
 - David Stevens (dstevens@kth.se)

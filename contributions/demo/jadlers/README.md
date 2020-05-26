@@ -18,3 +18,11 @@ errors.
 
 The demo will show how the data monitored is captured and also how it's
 displayed.
+
+## Screencast link
+
+[https://youtu.be/BX7Fa_DdlQc](https://youtu.be/BX7Fa_DdlQc)
+
+## Project repository
+
+The repository can be found [here](https://github.com/jadlers/bollsvenskan-api).
