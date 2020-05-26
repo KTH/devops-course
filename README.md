@@ -7,7 +7,7 @@ Registration: You must register to this course through the Swedish registration 
 Next course start: March 2020 (Academic Period 4).
 
 Past edition:
-* [KTH DevOps Course 2019](https://github.com/KTH/devops-course/blob/master/README-2019.md)
+* [KTH DevOps Course 2019](https://github.com/KTH/devops-course/blob/master/attic/2019/)
 
 ## Schedule
 
@@ -73,9 +73,11 @@ Past edition:
 * Preparatory reading: [Playing Apart – ett unikt experiment i ett samarbete mellan Telia och Göteborgs Symfoniker](https://youtu.be/B4_GszP0k4E)
 
 ### Week 8: Wrap-up, feedback and potluck
-* 9h15 Wrap-up & Feedback
-* 10h15 Final Guest Lecture
-* [Final Course Potluck](https://en.wikipedia.org/wiki/Potluck)
+* 9h15 Q&A
+* 10h15 Lecture: Devops at EA/Dice [Cristian Deri](https://se.linkedin.com/in/cristian-deri), [Vidir Reynisson](https://se.linkedin.com/in/vidirr)
+  * Preparatory material: <https://www.youtube.com/watch?v=iIIxgv6CtGs>
+* 11h15 Proposal festival for next year
+* 12h15 Personalized feedback break-out sessions
 
 ## Rules
 
@@ -146,4 +148,6 @@ The remote grading scheme changes as follows:
 
 ## Acknowledgements
 
-This course is designed with great inputs from [Chris Parnin](https://github.com/CSC-DevOps/Course), Julien Bisconti, Simone Stefani, Jaana Nyfjord, Amir Gaber, Göran Paues, Lowe Schmidt, Laurent Ploix, Diarmuid Corcoran, Jonathan Grahl, Mattias Wildeman, Tomas Ekholm, Vincent Massol, David King and others. We are very grateful for their contributions!
+* Chris Parnin, Julien Bisconti, Simone Stefani, Jaana Nyfjord, Amir Gaber, Göran Paues, Lowe Schmidt, Laurent Ploix, Diarmuid Corcoran, Jonathan Grahl, Mattias Wildeman, Tomas Ekholm, Vincent Massol, David King and others.
+* [fip](https://www.fip.fr/) for the musical interludes
+
