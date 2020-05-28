@@ -5,6 +5,8 @@
 | **Email**|axelbc@kth.se       |
 |**Github**|xmas92              |
 
+Slides: <https://docs.google.com/presentation/d/1D89W32TPN24ucSpT7el5wjv_NCbgkQ22LDoWh-ivff4/edit?usp=sharing>
+
 ## Introduction
 There were four distinct strategies used here to generate the inputs to `ffmpeg`. 
  1. Targeted input generation using existing file samples
