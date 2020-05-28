@@ -22,6 +22,10 @@ the configuration files that we have developed and justified this content,  the 
 * The source repo is available here: https://github.com/sujon2100/devops-course/tree/master/contributions/covid19/nsteele-mhud/localfolderfinal/NewKthproject
 * Website of the COVID19 project: https://kthcovid19webapp.azurewebsites.net/ (due to free subscription is ended in Azure portal, please run source code locally by using visual studio)
 * Documentation: https://github.com/sujon2100/devops-course/blob/master/contributions/covid19/nsteele-mhud/Covid19_Project_Documentation_FinalVersion.pdf
+## Link to Azure DevOps
+* Link to the Azure DevOps for features and tasks dashboard: https://dev.azure.com/KthProject2020/NewKthCovidProject/_boards/board/t/NewKthCovidProject%20Team/Features
+* Link to the Build pipelines: https://dev.azure.com/KthProject2020/NewKthCovidProject/_build
+* Link to the Release pipeline: https://dev.azure.com/KthProject2020/NewKthCovidProject/_releaseProgress?_a=release-pipeline-progress&releaseId=1
 
 ## Members
 * Helal Uddin (mhud@kth.se/sujon2100@hotmail.com), Github id: sujon2100
