@@ -8,7 +8,6 @@ David Johansson - davidjo2@kth.se @SoFoDa
 This tutorial is about how to use the tool Rodin to model a cloud resource allocation system in Event B. The tutorial goes through needed theory, proof obligations, some lesser known operators and model development. How to install Rodin is also included in the tutorial. We end the tutorial with an example of modelling a system.
 
 ## Grading criterias
-
 * The TA can successful execute all the commands of the tutorial (mandatory)
 * The tutorial gives enough background
     * Background given for DevOps, Cloud resources, Event-B theory, Rodin and Business Process Management (BPM).
