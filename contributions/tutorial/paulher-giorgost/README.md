@@ -18,3 +18,6 @@ Idea: How to take an already existing project and add CircleCI to it.
 Bonus: The tutorial contains fun facts or easter eggs
 
 April 30 2020, 23h59 Stockholm time
+
+## Tutorial
+The completed tutorial in Katacoda can be found in this [link](https://www.katacoda.com/georgiost/scenarios/circleci_cli_tutorial).
