@@ -1,13 +1,11 @@
 # Essay
 
 ## Contributors
-Diego Leon (dleon@kth.se)
+Diego Leon (dleon@kth.se)  
 Nicolai Hellesnes (nicolaih@kth.se)
 
 ## Description
-An Introduction to two Popular ContainerOrchestration Platforms Docker Swarm & K8s
-
-Docker Swarm and K8s are two of the most popular orchestration platforms today, and we believe the reader deserves to get a complete introduction to both platforms in one essay. We will also compare how both platforms manage containers.
+Docker Swarm & K8s are two of the most popular orchestration platforms today, and we believe the reader deserves to get a complete introduction to both platforms in one essay. We will also compare how both platforms manage containers.
 
 ## Structure
 - Contents
@@ -26,26 +24,32 @@ Docker Swarm and K8s are two of the most popular orchestration platforms today, 
 Here is a list of the criteria we want to fulfill:
 
 * title: The essay has a good title
+  - **Motivation**:  It is interesting to see a comparison between two different popular orchestration platforms
 
-* introduction: the concept "container" is used before being introduced (sec 2.1). Give an overall background introduction in the beginning: why the use of containers is increasing? what benefits developers will get? what challenges it brings to developers? why container orchestration is important? what is the relation between container orchestration and DevOps? -> The concept of container has been added to the introduction.
+* well-structured: The essay is well structured, the ideas are well presented. 
+  - **Motivation**: This essay properly divided into sections that first introduces the reader to the topic, describes main concepts,  introduces the reader to both orchestrations platforms, compares both platforms, and finishes with conclusions. A "contents" sections was placed in the beggining to inform the reader of this structure. 
+  - **Improvments after feedback**:  We replaced our old section 2 with a Background section, where we put a general introduction to docker and container orchestration, along with concepts as subsections for section 2.
+
+* introduction: The essay contains a good introduction
+  - **Improvments after feedback**: A overall background introduction is now placed, where it's explained why the use of containers is increasing, what the benefits developer will get, what challenges it brings to developers, why container orchestration is important, what the relation between container orchestration and DevOps is. 
 
 * self-contained: The essay is self-contained
+  - **Motivation**: This essay only focuses on introducing two container orchestration tools and discusses their differences.
 
-* well-structured: replace section 2 (Main Concepts) with a Background section, where you introduce the necessary knowledge that readers need to know before going to docker swarm and k8s. Concepts could be one of the subsections in section 2. Docker and  a general introduction to orchestration can be put in this section as well. -> The main concepts section has been replaced by a background section and a generatl introduction of orchestration has been added.
+* conclusion: The essay contains a good conclusion
+  - **Improvments after feedback**: The conclusion is no longer vague and recaps the main points of the essay.
 
+* figures: The essay contains good figures or listings
+  - **Improvments after feedback**: The figures has ben explicitly references and an explanation is given in the text.
 
-* conclusion: "Both K8s and Docker Swarm provide similar services but with slightly different approaches". The sentence is too vague. Try to be as precise as possible. Recap the 2-3 main points of the essay. -> The conclusion is no longer vague and recaps the main points of the essay.
+* references: provide title and date along the url in the list of references
+  - **Improvments after feedback**: Title and date has been added to the list of references.
 
+* elegant: The essay presentation is elegant / visually appealing (eg on Medium, LaTeX)
+  - **Motivation**: We think that the essay should pass the elegant criteria because it is visually appealing and it uses LaTeX.
 
-* figures: Avoid using something like "An image of ... can be seen below". Explicitly refer them and give explanations in text. -> The figures has ben explicitly references and an explanation is given in the text.
-
-
-* references: provide title and date along the url in the list of references -> Title and date has been added to the list of references.
-
-
-* elegant: We think that the essay should pass the elegant criteria because it is visually appealing and it uses LaTeX.
-
-
-* sound: We also think that the essay should pass the sound critiera because the essay is factual an accurate.
+* sound: The essay is sound, factual, and accurate
+  - **Motivation**: We also think that the essay should pass the sound critiera because the essay is factual an accurate.
 
 * relevant: The essay addresses a topic that is relevant for DevOps
+  - **Motivation**: The essay addresses a topic that is relevant for DevOps
