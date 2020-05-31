@@ -1,0 +1,9 @@
+In this essay I would like to present IaC using terraform. It contains a mix of:
+(i) theoretical and 
+(ii) technical/ scripting concepts
+
+Theoretically: I will logically structure my essay from introduction to relevant details like comparison, advantages and other relevant things about it.
+
+Technically: I will demonstrate a simple implementation of terraform from its code perspective, with screenshots on a Cloud platform like Azure.
+
+I am aiming for distinction. Hope this topic is apt for it!
