@@ -8,6 +8,9 @@
 ## Topic
 
 Demo of using CI/CD pipeline in gitlabs using kubernetes and azure for hosting the webapp. Focusing on CI/CD, in combination with azure staging deployment.
+
+## Details
+
 We create a website for weather where we will show we can easily update, add and change information with the help of CI/CD. Using gitlab to auto devops pipeline to look for issues and automatically deploy. We use azure to host our website and use their deployment slotting to achieve near 100% uptime by swapping host. 
 
 ## Screencast: 
