@@ -1,24 +1,24 @@
-#Demo 
+# Demo 
 
-##Contributors
+## Contributors
 
-*Paul Löwenström (paulher@kth.se)
-*Its only me now
+* Paul Löwenström (paulher@kth.se)
+* Its only me now
 
-##Topic
+## Topic
 
 Demo of using CI/CD pipeline in gitlabs using kubernetes and azure for hosting the webapp. Focusing on CI/CD, in combination with azure staging deployment.
 We create a website for weather where we will show we can easily update, add and change information with the help of CI/CD. Using gitlab to auto devops pipeline to look for issues and automatically deploy. We use azure to host our website and use their deployment slotting to achieve near 100% uptime by swapping host. 
 
-Screencast: 
+## Screencast: 
 
-https://youtu.be/JwHcEaOq99I
+https://youtu.be/bgKS6j1KaYo
 
-Gitlab repository 
+## Gitlab repository 
 
 https://gitlab.com/Kaninen/devopsweather
 
-Criteria
+## Criteria
 
 The demonstration screencast is clearly motivated (why it matters for Devops?)
 There is a slide dedicated to motivating why CI/CD matters for devops.
