@@ -12,7 +12,7 @@ We create a website for weather where we will show we can easily update, add and
 
 ## Screencast: 
 
-https://youtu.be/bgKS6j1KaYo
+https://youtu.be/XG-pcHCxLzk
 
 ## Gitlab repository 
 
