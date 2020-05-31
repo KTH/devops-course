@@ -24,7 +24,7 @@ The demonstration screencast is clearly motivated (why it matters for Devops?)
 There is a slide dedicated to motivating why CI/CD matters for devops.
 
 The demonstration screencast contains an easter egg
-The screencast contains two easter eggs one at 1.59 and 3.16
+The screencast contains two easter eggs one at 2.00 and 3.28
 
 An accompanying Github repository has been made (optional)
 I have an accompanying gitlab repository
