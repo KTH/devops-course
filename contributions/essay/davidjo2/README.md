@@ -4,7 +4,7 @@
 David Johansson (davidjo2@kth.se)
 
 ### Topic
-I got introduced to the topic of monitoring during the week 5 presentation and thought it would be interesting to delve deeper into specifically website monitoring. Website monitoring plays a crucial role in, for instance, minimizing downtime and improving performance. I would like to learn about its importance and different key considerations to make in regard to the topic.
+The essay gives an introduction to the topic of website monitoring in order for the reader to get started on their own. Different key practices to abide by as well as popular monitoring tools are outlined. 
 
 ### Structure
 * Introduction
