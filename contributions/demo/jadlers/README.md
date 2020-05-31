@@ -21,7 +21,7 @@ displayed.
 
 ## Screencast link
 
-[https://youtu.be/yPdwBRndwPY](https://youtu.be/yPdwBRndwPY)
+[https://youtu.be/BX7Fa_DdlQc](https://youtu.be/BX7Fa_DdlQc)
 
 ## Project repository
 
