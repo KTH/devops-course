@@ -17,4 +17,8 @@ With focus on application behaviour in production environment and making it sust
  -Performace evaluation of a spring application using chaos machine/chaos monkey.
  -A look into the tools that would be used for chaos engineering.We will delve into the different use cases for them and the different categories of tools that are available at the moment.
  
+ ## Additional Links
+ 
+ Over the course of our research for this presentation we also published an article on medium for the same. Link: [Application Level Chaos Engineering with Chaos Machine](https://medium.com/@akhilyerrapragada905/application-level-chaos-engineering-with-chaos-machine-c7b5bf340946)
+ 
 

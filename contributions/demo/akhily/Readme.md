@@ -16,5 +16,8 @@ This demo focuses on managing infrastructure Ops with terraform in a safe and ef
 that receives a dynamic IP webhook call from services (Linux terminal will be used to trigger the webhook in demo) and provides controlled static 
 external IP which a public service can trust. With terraform we apply the changes required to reach the desired state of configuration.
 
+## Screencast 
+Here is the [link](https://www.youtube.com/watch?v=--lVv_yhxXE&feature=youtu.be) to screencast.
 
+Here is the [link](https://www.youtube.com/watch?v=HzTJ5MdyO1E) to updated screencast.
 

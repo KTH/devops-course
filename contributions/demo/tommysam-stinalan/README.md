@@ -21,7 +21,7 @@ In this demonstration we aim to show how corrupted input data, from a file, a se
 
 Link to the deployed demo: [demo](https://dd2482-demo-data-corruption.firebaseapp.com/)
 
-Link to the screencast: [https://youtu.be/2voDWw1wz5Q](https://youtu.be/2voDWw1wz5Q)
+Link to the screencast: [https://youtu.be/5ZgAnmygYAE](https://youtu.be/5ZgAnmygYAE)
 
 Link to GitHub repository: [Data corruption](https://github.com/Zodbigt/dd2482_demo_data_corruption)
 

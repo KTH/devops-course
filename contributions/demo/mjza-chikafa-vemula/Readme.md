@@ -7,6 +7,7 @@ CI/CD pipeline for iOS application using micresoft Azure and Appcenter
 * Gibson Chikafa (chikafa@kth.se)
 * Nagasudeep Vemula (vemula@kth.se)
 
+### Screencast Link ###: https://www.youtube.com/watch?v=UWlHmGe9K30&feature=youtu.be
 
 ### Details ###
 We will implement a CI/CD pipeline using Microsoft Azure and AppCenter. In this demo we'll develop small iOS application for movies search using tvmaze api's. Pipeline will use azure repo actions to set up an environment, build, test on real devices provided by microsoft app center and if all tests will succeed then send build to specified group of testers.
