@@ -1,4 +1,4 @@
-# Essay Proposal
+# Essay
 ## Members
 Hitesh Sharma (hiteshs@kth.se)
 
