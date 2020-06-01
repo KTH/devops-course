@@ -20,9 +20,7 @@ The focus will be on:
 Artricle 
 
 
-The eassy is published on medium [link](https://medium.com/@martin.gabbi/azure-and-its-devops-7bdd748b8efe)
-
-[LINK](https://medium.com/@martin.gabbi/azure-and-its-devops-7bdd748b8efe)
+The eassy is published on medium [LINK](https://medium.com/@martin.gabbi/azure-and-its-devops-7bdd748b8efe)
 
 
 
