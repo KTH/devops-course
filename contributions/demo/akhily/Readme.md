@@ -21,3 +21,5 @@ Here is the [link](https://www.youtube.com/watch?v=--lVv_yhxXE&feature=youtu.be)
 
 Here is the [link](https://www.youtube.com/watch?v=HzTJ5MdyO1E) to updated screencast.
 
+Here is the [link](https://www.youtube.com/watch?v=Z3ukySwsMmQ) to final screencast.
+
