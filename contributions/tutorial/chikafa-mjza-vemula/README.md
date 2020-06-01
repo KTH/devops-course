@@ -10,3 +10,5 @@ We would like to make a tutotial on how to test microservice application in Spri
 # Tutorial Link
 
 The article [Testing Microservices in Spring Boot Applications: Tools and Techniques](https://medium.com/kth-distributed-systems/testing-microservices-in-spring-boot-applications-tools-and-techniques-b9c27d865f88) was published on medium.
+
+Medium was updated for repetition.
