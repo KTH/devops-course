@@ -74,7 +74,8 @@ Past edition:
 
 ### Week 8: Wrap-up, feedback and potluck
 * 9h15 Q&A
-* 10h15 Final Guest Lecture [Cristian Deri](https://se.linkedin.com/in/cristian-deri), [Vidir Reynisson](https://se.linkedin.com/in/vidirr)
+* 10h15 Lecture: Devops at EA/Dice [Cristian Deri](https://se.linkedin.com/in/cristian-deri), [Vidir Reynisson](https://se.linkedin.com/in/vidirr)
+  * Preparatory material: <https://www.youtube.com/watch?v=iIIxgv6CtGs>
 * 11h15 Proposal festival for next year
 * 12h15 Personalized feedback break-out sessions
 
@@ -147,4 +148,6 @@ The remote grading scheme changes as follows:
 
 ## Acknowledgements
 
-This course is designed with great inputs from [Chris Parnin](https://github.com/CSC-DevOps/Course), Julien Bisconti, Simone Stefani, Jaana Nyfjord, Amir Gaber, Göran Paues, Lowe Schmidt, Laurent Ploix, Diarmuid Corcoran, Jonathan Grahl, Mattias Wildeman, Tomas Ekholm, Vincent Massol, David King and others. We are very grateful for their contributions!
+* Chris Parnin, Julien Bisconti, Simone Stefani, Jaana Nyfjord, Amir Gaber, Göran Paues, Lowe Schmidt, Laurent Ploix, Diarmuid Corcoran, Jonathan Grahl, Mattias Wildeman, Tomas Ekholm, Vincent Massol, David King and others.
+* [fip](https://www.fip.fr/) for the musical interludes. In 2020, DD2482 was fully online, in corona times. During the breaks for our online lectures, we broadcasted [FIP](https://tunein.com/radio/FIP-1051-s15200/), a quirky blend of jazz, pop and rock, Dizzy Gillespie and Jimmy Hendrix. “It’s just one of those cool stations” according to [David Mounfield](https://lovefip.wordpress.com/your-comments/) or even the  "Best radio in the world" for [Jack Dorsey](https://twitter.com/jack/status/907608254091599876).
+

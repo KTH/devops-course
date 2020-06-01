@@ -34,3 +34,4 @@ Measuring certain aspects of code to determine where errors are most likely to a
 * Conclusion
   * Key points
   
+## Resubmitted to conform to guidelines for repetition 2020-05-30

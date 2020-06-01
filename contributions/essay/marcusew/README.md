@@ -3,6 +3,23 @@
 Marcus Jonsson Ewerbring (marcusew@kth.se)
 Github username: Marcus9512
 
+# Feedback
+The essay has been updated with the given feedback in mind. The changes where rather large, but the general idea is to get a better structure and technical depths to the essay. Bellow is the changes presented.
+
+* The essay got a new title that is more connected to the content of the essay, which is improving the workflow of DevOps.
+* Chapter 2 has been removed because it was irrelevant for the essay and replaced with a longer introduction and more content related to DevOps.
+* The suggested model is presented in chapter 2 instead of chapter 4 as suggested by the TA, and more details surrounding each component of the model has been added. The previous chapter 3 has been merged into chapter 2.
+* The log filtering technique has been elaborated and refers to different papers.
+* All Wikipedia references except 1 has been remove. Approximately 12 conference papers have been added. The Wikipedia link that was kept is a reference to where I got one of the images.
+* The applicability chapter has been extended with more information about log filtering and the used methods has been added.
+* Several spelling mistakes have been fixed.
+
+The previous passed criteria where: introduction, conclusion, figures, elegant and relevant.
+
+With this version I aim to pass: introduction, conclusion, figures, elegant, relevant, title, well-structured, self-contained, references, sound.
+
+# Initial proposal
+
 ## Topic
 Different ways of improving DevOps with Machine learning.
 
