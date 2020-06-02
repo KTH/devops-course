@@ -16,10 +16,12 @@ The focus will be on:
 -   Give concrete examples of what Azure services correspond to what DevOps practices
 
 
+
 Artricle 
 
 
-The eassy is published on medium [link](https://medium.com/@martin.gabbi/azure-and-its-devops-7bdd748b8efe)
+The eassy is published on medium [LINK](https://medium.com/@martin.gabbi/azure-and-its-devops-7bdd748b8efe)
+
 
 
 ## [](https://github.com/KTH/devops-course/tree/master/contributions/essay/asratyan-dautaras#references)References
