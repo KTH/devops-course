@@ -8,6 +8,8 @@
 ## Submission
 Repo: https://github.com/bwest-uggelberg/covid19
 
+Commits for repetition: https://github.com/bwest-uggelberg/covid19/commits/master
+
 Site: https://bwest-uggelberg.github.io/covid19/
 
 ## Topic
