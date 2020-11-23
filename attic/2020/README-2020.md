@@ -11,6 +11,10 @@
 
 * Prototyping
 
+* Fuzzing
+* [Combined fuzzing with afl-mux, afl-enc, afl-fast and libFuzzer (Axel Boldt-Christmas)](https://github.com/KTH/devops-course/tree/master/attic/2020/contributions-2020/competition/axelbc)
+* [Fuzzing with AFL and DynamicRIO (Stina Långström, Tommy Samuelsson)](https://github.com/KTH/devops-course/tree/master/attic/2020/contributions-2020/competition/tommysam-stinalan)
+
 ## Program
 
 ### Week 1: Introduction
