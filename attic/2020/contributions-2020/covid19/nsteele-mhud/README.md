@@ -2,26 +2,26 @@
 
 ## Changes based on feedback
 Based on the feedback, the following changes have been made:
-* Marged the two repositories to keep only one that contains all the code: https://github.com/sujon2100/devops-course/tree/master/contributions/covid19/nsteele-mhud/localfolderfinal/NewKthproject <br/><br/>
-* Added the CI and test instructions: see below in the readme file https://github.com/sujon2100/devops-course/blob/master/contributions/covid19/nsteele-mhud/README.md <br/><br/>
-* Added the documentation PDF in the github repo: https://github.com/sujon2100/devops-course/blob/master/contributions/covid19/nsteele-mhud/Covid19_Project_Documentation_FinalVersion.pdf <br/><br/>
-* The current documentation on Azure has been revised to have a clear structure, fewer screenshots but we have decided to use PDF for the documentation: https://github.com/sujon2100/devops-course/blob/master/contributions/covid19/nsteele-mhud/Covid19_Project_Documentation_FinalVersion.pdf <br/><br/>
-* Added more metrics about the project: https://github.com/sujon2100/devops-course/blob/master/contributions/covid19/nsteele-mhud/Covid19_Project_Documentation_FinalVersion.pdf <br/>
+* Marged the two repositories to keep only one that contains all the code: https://github.com/sujon2100/devops-course/tree/master/attic/2020/contributions-2020/covid19/nsteele-mhud/localfolderfinal/NewKthproject <br/><br/>
+* Added the CI and test instructions: see below in the readme file https://github.com/sujon2100/devops-course/blob/master/attic/2020/contributions-2020/covid19/nsteele-mhud/README.md <br/><br/>
+* Added the documentation PDF in the github repo: https://github.com/sujon2100/devops-course/blob/master/attic/2020/contributions-2020/covid19/nsteele-mhud/Covid19_Project_Documentation_FinalVersion.pdf <br/><br/>
+* The current documentation on Azure has been revised to have a clear structure, fewer screenshots but we have decided to use PDF for the documentation: https://github.com/sujon2100/devops-course/blob/master/attic/2020/contributions-2020/covid19/nsteele-mhud/Covid19_Project_Documentation_FinalVersion.pdf <br/><br/>
+* Added more metrics about the project: https://github.com/sujon2100/devops-course/blob/master/attic/2020/contributions-2020/covid19/nsteele-mhud/Covid19_Project_Documentation_FinalVersion.pdf <br/>
 How many tests? : see on the documentation PDF section 3.<br/>
 How many Locs? : see on the documentation PDF section 4.<br/>
 What code coverage? : see on the documentation PDF section 5.<br/>
 How long is a build? : see on the documentation PDF section 6. <br/><br/>
-* The CI instructions has been documented: see below in the readme as well as section 7 in the documentation https://github.com/sujon2100/devops-course/blob/master/contributions/covid19/nsteele-mhud/Covid19_Project_Documentation_FinalVersion.pdf <br/><br/>
+* The CI instructions has been documented: see below in the readme as well as section 7 in the documentation https://github.com/sujon2100/devops-course/blob/master/attic/2020/contributions-2020/covid19/nsteele-mhud/Covid19_Project_Documentation_FinalVersion.pdf <br/><br/>
 * The CI/CD section of the documentation has no screenshot, but instead detail the content of
-the configuration files that we have developed and justified this content,  the needs of our application: on the documentation PDF section 7 to 8 https://github.com/sujon2100/devops-course/blob/master/contributions/covid19/nsteele-mhud/Covid19_Project_Documentation_FinalVersion.pdf. <br/><br/>
-* We have added contribution on: the novel, helpful, attract support from other KTH students: on the documentation PDF section 6 https://github.com/sujon2100/devops-course/blob/master/contributions/covid19/nsteele-mhud/Covid19_Project_Documentation_FinalVersion.pdf. <br/> <br/>
+the configuration files that we have developed and justified this content,  the needs of our application: on the documentation PDF section 7 to 8 https://github.com/sujon2100/devops-course/blob/master/attic/2020/contributions-2020/covid19/nsteele-mhud/Covid19_Project_Documentation_FinalVersion.pdf. <br/><br/>
+* We have added contribution on: the novel, helpful, attract support from other KTH students: on the documentation PDF section 6 https://github.com/sujon2100/devops-course/blob/master/attic/2020/contributions-2020/covid19/nsteele-mhud/Covid19_Project_Documentation_FinalVersion.pdf. <br/> <br/>
 * There is no self-assessment in the readme. <br/><br/>
-* Added motivation about how our contribution succeeds on these criteria: see motivation description below in the readme https://github.com/sujon2100/devops-course/blob/master/contributions/covid19/nsteele-mhud/README.md. <br/><br/>
+* Added motivation about how our contribution succeeds on these criteria: see motivation description below in the readme https://github.com/sujon2100/devops-course/blob/master/attic/2020/contributions-2020/covid19/nsteele-mhud/README.md. <br/><br/>
 
 ## Link to repo and website
-* The source repo is available here: https://github.com/sujon2100/devops-course/tree/master/contributions/covid19/nsteele-mhud/localfolderfinal/NewKthproject
+* The source repo is available here: https://github.com/sujon2100/devops-course/tree/master/attic/2020/contributions-2020/covid19/nsteele-mhud/localfolderfinal/NewKthproject
 * Website of the COVID19 project: https://kthcovid19webapp.azurewebsites.net/ (due to free subscription is ended in Azure portal, please run source code locally by using visual studio)
-* Documentation: https://github.com/sujon2100/devops-course/blob/master/contributions/covid19/nsteele-mhud/Covid19_Project_Documentation_FinalVersion.pdf
+* Documentation: https://github.com/sujon2100/devops-course/blob/master/attic/2020/contributions-2020/covid19/nsteele-mhud/Covid19_Project_Documentation_FinalVersion.pdf
 ## Link to Azure DevOps
 * Link to the Azure DevOps for features and tasks dashboard: https://dev.azure.com/KthProject2020/NewKthCovidProject/_boards/board/t/NewKthCovidProject%20Team/Features
 * Link to the Build pipelines: https://dev.azure.com/KthProject2020/NewKthCovidProject/_build

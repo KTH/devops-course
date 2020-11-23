@@ -3,7 +3,7 @@
 * Here is the link for the final report(Wiki): https://dev.azure.com/KthDevops/KthTutorial 
 * Link to the source : https://github.com/sujon2100/DevOpsTutorialSource/blob/master/KthTutorial.zip
 * Link to the website: https://kthtutorialweapp.azurewebsites.net
-* Link to Kth Github README.md: https://github.com/KTH/devops-course/edit/master/contributions/tutorial/mhud/README.md
+* Link to Kth Github README.md: https://github.com/KTH/devops-course/edit/master/attic/2020/contributions-2020/tutorial/mhud/README.md
 
 ### Contributors
 

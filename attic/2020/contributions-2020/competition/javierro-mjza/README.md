@@ -6,7 +6,7 @@
 - Muhammad Jahangir Zafar (mjza@kth.se)
 
 ## Introduction
-In this document we will explain how we approached and generated our submission data for the [Grand Fuzzying Challenge 2020](https://github.com/KTH/devops-course/tree/master/contributions/competition)
+In this document we will explain how we approached and generated our submission data for the [Grand Fuzzying Challenge 2020](https://github.com/KTH/devops-course/tree/master/attic/2020/contributions-2020/competition)
  
 The binary to fuzz was 'ffmpeg' a tool created to process video and audio, it is very popular and famous for its countless features, and the great amount of formats supported.
  
