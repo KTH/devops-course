@@ -10,8 +10,8 @@
 
 * Demos
   * [Demo of using Calico policies in Kubernetes  (Robin Bråtfors, Kasper Liu)](https://youtu.be/Nz0DZyXkcu4)
-  * [Demo of using PlatformIO together with Jenkins](https://youtu.be/7JVxvhcz8Go)
-  * [Continuous deployment with CircleCI and Google Kubernetes Engine](https://youtu.be/oEZfV3XWw7w)
+  * [Demo of using PlatformIO together with Jenkins (Carl Jensen, Axel Boldt-Christmas)](https://youtu.be/7JVxvhcz8Go)
+  * [Continuous deployment with CircleCI and Google Kubernetes Engine  (Jonas Johansson, Marcus Jonsson Ewerbring)](https://youtu.be/oEZfV3XWw7w)
 
 * Prototyping
 
