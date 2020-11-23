@@ -11,13 +11,16 @@
 * Demos
   * [Demo of using Calico policies in Kubernetes  (Robin Bråtfors, Kasper Liu)](https://youtu.be/Nz0DZyXkcu4)
   * [Demo of using PlatformIO together with Jenkins (Carl Jensen, Axel Boldt-Christmas)](https://youtu.be/7JVxvhcz8Go)
-  * [Continuous deployment with CircleCI and Google Kubernetes Engine  (Jonas Johansson, Marcus Jonsson Ewerbring)](https://youtu.be/oEZfV3XWw7w)
+  * [Demo of Continuous deployment with CircleCI and Google Kubernetes Engine  (Jonas Johansson, Marcus Jonsson Ewerbring)](https://youtu.be/oEZfV3XWw7w)
 
-* Prototyping
+* Software development
+
+  * [Jenkins integration for Home Assistant (Jacob Adlers, Carl Jensen)](/attic/2020/contributions-2020/open-source/jadlers-carljen)
+  * [ImgBot rebase feature (Javier Ron Arteaga, Sigrún Arna Sigurdardóttir)](/attic/2020/contributions-2020/open-source/jadlers-carljen)
 
 * Fuzzing
-  * [Combined fuzzing with afl-mux, afl-enc, afl-fast and libFuzzer (Axel Boldt-Christmas)](https://github.com/KTH/devops-course/tree/master/attic/2020/contributions-2020/competition/axelbc)
-  * [Fuzzing with AFL and DynamicRIO (Stina Långström, Tommy Samuelsson)](https://github.com/KTH/devops-course/tree/master/attic/2020/contributions-2020/competition/tommysam-stinalan)
+  * [Combined fuzzing with afl-mux, afl-enc, afl-fast and libFuzzer (Axel Boldt-Christmas)](/attic/2020/contributions-2020/competition/axelbc)
+  * [Fuzzing with AFL and DynamicRIO (Stina Långström, Tommy Samuelsson)](/attic/2020/contributions-2020/competition/tommysam-stinalan)
 
 ## Program
 
