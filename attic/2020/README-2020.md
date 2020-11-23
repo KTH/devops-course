@@ -3,13 +3,13 @@
 ## Outstanding student achievements
 
 * Essays
-  * [Introduction to load balancers (Johan von Hacht)](https://github.com/KTH/devops-course/blob/master//attic/2020/contributions-2020/essay/johvh/Introduction_to_Load_Balancers.pdf)
+  * [Introduction to load balancers (Johan von Hacht)](/attic/2020/contributions-2020/essay/johvh/Introduction_to_Load_Balancers.pdf)
   * [NodeJS + MariaDB Galera — is it the right choice for scalable ecommerce API? (Mindaugas Varkalys)](https://medium.com/swlh/nodejs-mariadb-galera-is-it-a-right-choice-for-scalable-ecommerce-api-9288aa682145?sk=53ace0bee7ee9db4d83d3f78c6dc926d)
-  * [VMs, containers and their relation to DevOps (Jonas Johansson)](https://github.com/KTH/devops-course/blob/master/attic/2020/contributions-2020/essay/jonasjo5/Essay_vms_containers.pdf)
+  * [VMs, containers and their relation to DevOps (Jonas Johansson)](/attic/2020/contributions-2020/essay/jonasjo5/Essay_vms_containers.pdf)
 
 
 * Demos
-  * [Demo of using Calico policies in Kubernetes](https://youtu.be/Nz0DZyXkcu4)
+  * [Demo of using Calico policies in Kubernetes  (Robin Bråtfors, Kasper Liu)](https://youtu.be/Nz0DZyXkcu4)
   * [Demo of using PlatformIO together with Jenkins](https://youtu.be/7JVxvhcz8Go)
   * [Continuous deployment with CircleCI and Google Kubernetes Engine](https://youtu.be/oEZfV3XWw7w)
 
