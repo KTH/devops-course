@@ -21,6 +21,12 @@
 * Fuzzing
   * [Combined fuzzing with afl-mux, afl-enc, afl-fast and libFuzzer (Axel Boldt-Christmas)](/attic/2020/contributions-2020/competition/axelbc)
   * [Fuzzing with AFL and DynamicRIO (Stina Långström, Tommy Samuelsson)](/attic/2020/contributions-2020/competition/tommysam-stinalan)
+ 
+* Tutorials
+  * [CI/CD for Java Maven using GitHub Actions (Alexander Volminger)](https://medium.com/@alexander.volminger/ci-cd-for-java-maven-using-github-actions-d009a7cb4b8f)
+  * [fuzzing with Radamsa (Nicolai Hellesnes, Maël Madon)](https://www.katacoda.com/mema5/scenarios/radamsa)
+  * [Dockerizing your Favorite Game (Per Fahlander, Joar Ekelund)](https://www.katacoda.com/perfah/scenarios/dockerizing_your_favorite_game)
+
 
 ## Program
 
