@@ -5,6 +5,9 @@
 * Essays
 
 * Demos
+  * [Demo of using Calico policies in Kubernetes](https://youtu.be/Nz0DZyXkcu4)
+  * [Demo of using PlatformIO together with Jenkins](https://youtu.be/7JVxvhcz8Go)
+  * [Continuous deployment with CircleCI and Google Kubernetes Engine](https://youtu.be/oEZfV3XWw7w)
 
 * Prototyping
 
