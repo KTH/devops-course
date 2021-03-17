@@ -23,7 +23,7 @@ The schedule is at <https://www.kth.se/social/course/DD2482/calendar/>
 * Preparatory reading: <https://youtu.be/qcm0rG8EKXI>
 * Course introduction [Martin Monperrus](https://www.monperrus.net/martin/)
   * Your/our expectations
-  * Teaching philosophy, teaching values
+  * Teaching philosophy, teaching values, [flipped classroom](https://en.wikipedia.org/wiki/Flipped_classroom)
   * Team
   * Agenda
   * Grading
