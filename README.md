@@ -74,7 +74,6 @@ The schedule is at <https://www.kth.se/social/course/DD2482/calendar/>
 
 ## Rules
 
-Lab slots do not require mandatory presence. They are designed for students to meet TA and discuss questions on site. During the lab session, please use this [Queue](http://queue.csc.kth.se/#/queue/DD2482) to register your call. Our TAs will contact you in minutes according to the location you specify.
 
 To pass the course, the student has to collect 4 grades:
 * the grades are in category: "[presentation](https://github.com/KTH/devops-course/tree/master/contributions/presentation)", "[demo](https://github.com/KTH/devops-course/tree/master/contributions/demo)", "[essay](https://github.com/KTH/devops-course/tree/master/contributions/essay)", "[tutorial](https://github.com/KTH/devops-course/tree/master/contributions/tutorial)", "[competition entry](https://github.com/KTH/devops-course/tree/master/contributions/competition)", "[contribution to open-source](https://github.com/KTH/devops-course/tree/master/contributions/open-source)", "[covid19](https://github.com/KTH/devops-course/tree/master/contributions/covid19)" (choose four out of them, at most one in the same category, it is not necessary to cover everything).  
@@ -106,11 +105,11 @@ Lectures:
 
 * the lectures will be streamed, the URLs will be posted on https://github.com/KTH/devops-course/issues/316
 * the recording and sharing of streamed lectures (full or fragments) is not allowed without explicit permission of the course professor and lecturer
-* questions are asked on the streaming chat (one TA is following the chat), no audio remote interruptions are allowed.
-* the slides are shared via a link in #316, for double screening. (Zoom is not used to share slides)
+* questions are asked on shared gdoc (one TA is following the gdoc), no audio remote interruptions are allowed, the Zoom chat is not used.
 
 Lab sessions:
 
+* Lab slots do not require mandatory presence. They are designed for students to meet TA and discuss all questions in person.
 * During the planned lab time slot, please use this [Queue](http://queue.csc.kth.se/#/queue/DD2482) for booking online meetings
 * Specify your zoom meeting link (or other platforms like Skype / GoogleHanouts) when you register the queue
 * Our TAs will reach you asap
