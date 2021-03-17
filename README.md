@@ -76,14 +76,12 @@ The schedule is at <https://www.kth.se/social/course/DD2482/calendar/>
 
 
 To pass the course, the student has to collect 4 grades:
-* the grades are in category: "[presentation](https://github.com/KTH/devops-course/tree/master/contributions/presentation)", "[demo](https://github.com/KTH/devops-course/tree/master/contributions/demo)", "[essay](https://github.com/KTH/devops-course/tree/master/contributions/essay)", "[tutorial](https://github.com/KTH/devops-course/tree/master/contributions/tutorial)", "[competition entry](https://github.com/KTH/devops-course/tree/master/contributions/competition)", "[contribution to open-source](https://github.com/KTH/devops-course/tree/master/contributions/open-source)", "[covid19](https://github.com/KTH/devops-course/tree/master/contributions/covid19)" (choose four out of them, at most one in the same category, it is not necessary to cover everything).  
-* the strict deadline for essays, tutorials, covid19 and contributions to open-source is April 30, 23h59 Stockholm time; the deadline for competition and demos are respectively on pages "[competition entry](https://github.com/KTH/devops-course/tree/master/contributions/competition)" and "[demo](https://github.com/KTH/devops-course/tree/master/contributions/demo)"; the strict deadline for repeated tasks (all) is May 31, 23h59 Stockholm time.
-* the student proposes a category and a topic, which is discussed and accepted by the TA. The proposal is made as a pull-request on this repository. The four graded contributions must have little overlap.
-* the same student cannot choose the same topic for two different tasks. The four tasks should cover different aspects of DevOps.
-* each grading category, there is a grading form, which explains how to pass / pass with distinction.
+* The grades are in category: "[presentation](https://github.com/KTH/devops-course/tree/2021/contributions/presentation)", "[essay](https://github.com/KTH/devops-course/tree/2021/contributions/essay)", "[demo](https://github.com/KTH/devops-course/tree/2021/contributions/demo)", "[executable tutorial](https://github.com/KTH/devops-course/tree/2021/contributions/executable-tutorial)", "[contribution to open-source](https://github.com/KTH/devops-course/tree/2021/contributions/open-source)", "[course automation](https://github.com/KTH/devops-course/tree/2021/contributions/course-automation)" (choose four out of them, at most one in the same category, it is not necessary to cover everything).
+* The [grading criteria page](grading-criteria.md) is the unique reference which explains how to pass / pass with distinction.
+* The strict deadline for essays, tutorials, contributions to open-source, course automation is April 30, 23h59 Stockholm time; and "[demo](https://github.com/KTH/devops-course/tree/2021/contributions/demo)"; the strict deadline for repeated tasks (all) is May 31, 23h59 Stockholm time.
+* The student proposes a category and a topic, which is discussed and accepted by the TA. The proposal is made as a pull-request on this repository. The four graded contributions must have little overlap.
+* The same student cannot choose the same topic for two different tasks. The four tasks should cover different aspects of DevOps.
 * 4 Pass means a final E, 3 Pass / 1 Distinction means a final D, 2 Pass / 2 Distinction means a final C, 1 Pass / 3 Distinction means a final B, 4 Distinction means a final A
-  * for the competition, the distinction is given to the top-25% best performing teams
-* the grades are announced as a pull-request or issue comment on this repository.   
 * Group work is encouraged (max 3 persons) but you cannot be with the same persons for more than 2 projects. You can do a work alone for one or at most two projects.
 * A failed task requires to pass it again at the end of the course, based on the feedback from the failure. A repeated task cannot be passed with distinction. A task can only be repeated once.
 * If the whole course is failed, no grades are kept if the student registers again to the course the year after. 
@@ -99,8 +97,6 @@ Group Rules
 
 ## Remote participation
 
-In case the conditions do not allow for in-person participation, because of COVID-19, the course can be attended remotely.
-
 Lectures:
 
 * the lectures will be streamed, the URLs will be posted on https://github.com/KTH/devops-course/issues/316
@@ -113,12 +109,6 @@ Lab sessions:
 * During the planned lab time slot, please use this [Queue](http://queue.csc.kth.se/#/queue/DD2482) for booking online meetings
 * Specify your zoom meeting link (or other platforms like Skype / GoogleHanouts) when you register the queue
 * Our TAs will reach you asap
-
-The remote grading scheme changes as follows:
-
-* "essay", "tutorial", "competition entry", "contribution to open-source": the rules remain the same
-* "demo": the screencast is the unique item to be handed over and graded
-* "presentation": presentations will be done during lecture sessions online by screen sharing
 
 ## Team
 
