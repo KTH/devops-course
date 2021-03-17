@@ -36,6 +36,10 @@ jobs:
           python -m pip install --upgrade pip
           if [ -f ./tools/requirements.txt ]; then pip install -r ./tools/requirements.txt; fi
 
+      # Set timezone to Europe/Stockholm
+      - name: Set timezone
+        run: sudo timedatectl set-timezone Europe/Stockholm
+
       # Runs a single command using the runners shell
       - name: Update the statistic issue
         env:
