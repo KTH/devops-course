@@ -38,5 +38,9 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Update the statistic issue
-        run: python ./tools/stat_submissions.py -p ../attic/2020/contributions-2020 --printInMarkdown --printStudentStat
-          echo test, and deploy your project.
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO_FULLNAME: ${{ github.repository }}
+          CONTRIBUTIONS_PATH: ${{ secrets.ASSIGNMENT_STAT_CONTRIBUTIONS_PATH }}
+          ISSUE_NUMBER: ${{ secrets.ASSIGNMENT_STAT_ISSUE_NUMBER }}
+        run: python ./tools/stat_submissions.py -p ../attic/2020/contributions-2020 --printInMarkdown --printStudentStat --publish
