@@ -19,7 +19,58 @@ The schedule is at <https://www.kth.se/social/course/DD2482/calendar/>
 
 ## Program
 
-TBA
+### Week 1: Introduction <https://kth-se.zoom.us/j/62331342060>
+* Preparatory reading: <https://youtu.be/qcm0rG8EKXI>
+* Course introduction [Martin Monperrus](https://www.monperrus.net/martin/)
+  * Your/our expectations
+  * Teaching philosophy, teaching values, [flipped classroom](https://en.wikipedia.org/wiki/Flipped_classroom)
+  * Team
+  * Agenda
+  * Grading
+  * Communication
+  * Infrastructure
+  * Relation to Research in Testing & DevOps 
+* Testimonial from last year's student: [Julius Colliander Celik](https://github.com/juliuscc)
+  * [How to survive the KTH DevOps course](https://docs.google.com/presentation/d/1sqfWk3DmM0fNAC61k2nNR5qrg-LttAiviYhA_BkaN9o/edit?usp=sharing)
+* Goals: watch the repo, find a first teammate, register one first task as a pull request on this repo.
+
+### Week 2
+* Technical Briefing (B. Baudry)
+* Guest Lecture: Continuous Integration [Mats Skoglund (Scania)](https://www.linkedin.com/in/matsskoglund/).
+* Student presentations
+
+### Week 3
+* Technical Briefing (M. Monperrus)
+* Guest Lecture: Containers [Julien Bisconti](https://www.linkedin.com/in/julienbisconti/) 
+* Student presentations
+
+### Week 4
+* Technical Briefing (B. Baudry)
+* Guest Lecture: MLOps [Alex Nodet (King)](https://www.linkedin.com/in/alexnodet/)
+* Student presentations
+
+### Week 5
+* Technical Briefing (M. Monperrus)
+* Guest Lecture: Supply-chain security [Rhys Arkins (Whitesource)](https://www.linkedin.com/in/rhys-arkins-5a643a/) 
+* Student presentations
+
+### Week 6
+* Technical Briefing (B. Baudry)
+* TBA
+* Student presentations
+
+### Week 7: Michelin Devops Demo Day
+* Technical Briefing (M. Monperrus)
+* Guest lecture: Devops in Sweden [Jörgen Damberg (Zington)](https://www.linkedin.com/in/kejsardamberg/)
+* Browsing and Highlights of Demos
+
+### Week 8: Wrap-up, feedback and potluck
+* Technical Briefing (B. Baudry)
+* 10h15 Lecture: Devops at EA/Dice [Cristian Deri](https://se.linkedin.com/in/cristian-deri), [Vidir Reynisson](https://se.linkedin.com/in/vidirr)
+  * Preparatory material: <https://www.youtube.com/watch?v=iIIxgv6CtGs>
+* 11h15 Proposal and improvement festival for next year
+* 12h15 Personalized feedback, final clarifications
+
 
 ## Rules
 
