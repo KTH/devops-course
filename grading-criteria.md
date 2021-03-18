@@ -11,16 +11,15 @@ The concept: The students prepare a 7 minute presentation on a topic that is rel
  
 |                                             | Yes | No | Remarkable |
 |-------------------------------------------- | ----|----|-------------|
-|timing: The presentation's length is exactly in 7 minutes  | Yes | No | n-a |
-|relevance: The presentation mostly contains relevant information | Yes | No | Remarkable |
-|well-structured: The presentation is well structured  | Yes | No | Remarkable |
-|motivation: The presentation contains a good, motivating introduction  | Yes | No | Remarkable |
-|technical: The presentation contains one part that is deeply technical  | Yes | No | Remarkable |
-|originality: The presentation contains one part that is original | Yes | No | Remarkable |
+|timing: The presentation's length is exactly in 7 minutes (hard limit)  | Yes | No | n-a |
+|well-structured: The presentation is well structured  | Yes | No | Structure is announced and graphically visible |
+|motivation: The presentation contains a good, motivating introduction  | Yes | No | Contains good story-telling |
+|technical: The presentation contains one part that is deeply technical  | Yes | No | Valuable and readable code snippets |
+|originality: The presentation contains one part that is original | Yes | No | Less than 100 results on Google on this topic. |
 |reflection: The presentation contains a reflective part  | Yes | No | Remarkable |
 |take-home: The last slide contains a good and concise take-home message | Yes | No | Remarkable |
 |loudly: The speakers talk loudly and  clearly  | Yes | No | Remarkable |
-|engagement: The speakers engage with the audience (eg eye-contact)  | Yes | No | Remarkable |
+|engagement: The speakers engage with the audience | Yes | No | Real interaction (survey, kahoot) |
 |humour: The speakers are fun, have humour  | Yes | No | Remarkable |
 |readable-slides: The slides don't have too much text  | Yes | No | n-a |
 |illustration: The slides contain nice illustrations  | Yes | No | Remarkable |
