@@ -129,7 +129,22 @@ Suggestions for course automation tasks: https://github.com/KTH/devops-course/is
 
 
 To pass, you must have at least 4 "yes" and the TA assessment.
-To get a distinction, you must have one browser version and at least 1 "remarkable".
+To get a distinction, you must pass and have at least 1 "remarkable".
 
 
+## Feedback
 
+The concept: you provide constructive and timely feeback about one essay or one video demo or one executable tutorial.
+The feedback is provided in a written manner, as a well-structured comment on the PR of the task.
+
+|                                             | Yes | No | Remarkable  |
+|-------------------------------------------- | ----|----|-------------|
+|The feedback includes both strengths and weaknesses about the task | Yes | No | n-a |
+|The feedback is provided 4 business days before the task deadline | Yes | No | Within 24h after the task submission |
+|All points are clearly actionable | Yes | No | PR on PR |
+|The feedback is substantiated | Yes (at least 500 words) | No | At least 1000 words |
+|The feedback contains pointers to additional material | Yes | No | One pointer is less than one week |
+|The students  act upon the feedback they receive | Yes | No | Document the changes made after feedback|
+
+To pass, you must have at least 4 "yes" and the TA assessment.
+To get a distinction, you must pass and have at least 1 "remarkable".
