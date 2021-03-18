@@ -41,7 +41,8 @@ The schedule is at <https://www.kth.se/social/course/DD2482/calendar/>
 
 ### Week 3
 * Technical Briefing (M. Monperrus)
-* Guest Lecture: Containers [Julien Bisconti](https://www.linkedin.com/in/julienbisconti/) 
+* Guest Lecture: Containers [Julien Bisconti](https://www.linkedin.com/in/julienbisconti/)
+  * Preparatory material: [Docker tutorial](https://www.katacoda.com/courses/docker) and [Awesome Docker](https://github.com/veggiemonk/awesome-docker/#where-to-start)
 * Student presentations
 
 ### Week 4
