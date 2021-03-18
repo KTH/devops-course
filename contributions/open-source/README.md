@@ -2,29 +2,7 @@
 
 The concept: you contribute to open-source projects related to DevOps and get merged pull-requests.
 
-## Grading Criteria
-
-**Topic:**  
-**Members:**
-
-|                                             | Yes | No | Remarkable |
-|-------------------------------------------- | ----|----|-------------|
-|The contributions fixe bugs | Yes | No | Remarkable (hard bugs) 
-|The contributions improve documentation | Yes | No | Remarkable (big documentation improvements)|
-|The contributions add new features | Yes | No | Remarkable (hard features) |
-|The contributions are much appreciated by the community | Yes | No | Remarkable (highly praised)|
-
-To pass, you must have one yes.
-To get a distinction, you must have at least one remarkable contribution.
-
- Criteria for the selection of the open-source project:
- - The project is related to DevOps
- - The project has more than 10 Starts
- - The project has more than 100 Commits
- - The project has an active community on GitHub
-
-Note: we are all aware that this assessment is subjective by nature. In case of disagreement, the informed judgement of the professor is the final decision.
-
+Grading criteria: https://github.com/KTH/devops-course/blob/2021/grading-criteria.md
 
 ## How to Register Your Topic
 
