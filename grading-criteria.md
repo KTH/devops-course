@@ -49,30 +49,25 @@ The concept: The students write a 2000-word essay on a topic relevant to the cou
 
 ## Video Demos
 
-The concept: Students prepare top-notch demonstrations. The demonstrations are really DevOps (typically involve mutliple virtual machines, likely deployed in the cloud). A demonstration is scripted and lasts 3-5 minutes. Students are required to prepare a screencast of the demo (in case of problems, such as demo effect, persons who cannot attend to all demos, etc).
-
-There will be two sessions, each one  with half of the students. During a session, the other half of the students, plus the course teaching team, plus invited guests (colleagues, etc) go from demos to demos, in small informal groups. 
+The concept: Students prepare top-notch demonstrations and deliver them as an online video. The demonstrations are really DevOps. For example, a demo typically involves multiple virtual machines, likely deployed in the cloud. A demonstration is scripted and lasts 3 minutes. Students are required to prepare a video of the demo. 
+There will be two sessions, each one  with half of the students. During a session, the other half of the students,  the course teaching team, as well as invited guests (colleagues, industry collaborators) watch the videos and provide feedback. 
 
 Among the guests, some are "critique" (in the sense of [culinary critique](https://en.wikipedia.org/wiki/Food_critic)), they are here to assess the relevance, the difficulty, the sublime and the originality of the demo. As food critique, those critiques are anonymous: as a presenter you do not know if a person in the audience is critique or not.  Some students will be randomly assigned the critique role on a voluntary basis.
 
 |                                             | Yes | No | Remarkable |
 |-------------------------------------------- | ----|----|-------------|
-|The demonstration is clearly motivated (why it matters for Devops?) | Yes | No | Remarkable |
-|The demonstration is difficult to do | Yes | No | Remarkable |
-|The demonstration is original | Yes | No | Remarkable |
-|The demonstration is sublime (eg visually appealing) | Yes | No | Remarkable |
-|The live demonstration contains an easter egg | Yes | No | Remarkable |
-|The audience can play / directly interact with the demo  | Yes | No | Remarkable |
-|The demonstration triggers a conversation  | Yes | No | Remarkable |
-|A screencast has been made (optional) | Yes | No | Remarkable |
+|The demonstration is clearly motivated (why it matters for Devops?) | Yes | No | Relates to a hard problem |
+|The demonstration is difficult to do | Yes | No | Relies on a non trivial infrastructure |
+|The demonstration is original | Yes | No | The are less than 10 demos on the topic on Internet |
+|The video is sublime (eg visually appealing) | Yes | No | Excellent narrative |
+|The video contains an [easter egg](https://github.com/OrkoHunter/python-easter-eggs) | Yes | No | Related to the demo |
+|There is a code repo to run the demo  | Yes | No | Code repo with a solid readme |
+|The video must contain subtitles which are clear and in proper English | Yes | No | Clearly understandable voice over |
+|The video includes a take-home message | Yes | No | Actionable takeaway |
 
 To pass, you must have at least 4 "yes".
-To get a distinction, you must have at least a good screencast and at least 2 "remarkable".
+To get a distinction, you must have at least 2 "remarkable".
 
-Criteria for the screencast:
-* The screencast is less than 3 minutes
-* The screencast contains subtitles which are clear and in proper English
-* The screencast contains a good and concise take-home message at the end
 
 ## Open-source contributions
 
