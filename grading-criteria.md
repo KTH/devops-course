@@ -114,12 +114,19 @@ To get a distinction, you must have one browser version and at least 1 "remarkab
 
 ## Course automation
 
-The concept: you create an automation task for the course to improve the teaching experience and effectiveness (eg a Github action task).
+The concept: you create an automation task for the course to improve the teaching experience and effectiveness (eg a Github action task). Simple tasks can be bundled in a package to get a pass.
 
-Suggestions for course automation tasks: <link>
+Suggestions for course automation tasks: https://github.com/KTH/devops-course/issues/916
 
-|                                             | Yes | No | Remarkable |
+|                                             | Yes | No | Remarkable  |
 |-------------------------------------------- | ----|----|-------------|
+|The work is done before April 6, 2021 (in order to be useful for the course) | Yes | No | n-a|
+|The automation task produces a PR status or issue / PR comment | Yes | No | Points to a generated page with valuable additional information |
+|The automation task is reusable | Yes (next year for this course) | No | In other courses than this one |
+|The task runs on a standard platform | Yes (Github action) | No | Other platforms (e.g. Moodle, Canvas) |
+|The task is praised by the other students of this course | Yes | No | n-a |
+|The code for the task is available | Yes (public repo) | No | Well documented repo |
+
 
 To pass, you must have at least 4 "yes" and the TA assessment.
 To get a distinction, you must have one browser version and at least 1 "remarkable".
