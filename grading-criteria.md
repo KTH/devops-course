@@ -1,5 +1,10 @@
 # Grading Criteria of the KTH Devops Course
 
+This page presents the grading criteria to assess the contribution in each category: "[presentation](https://github.com/KTH/devops-course/tree/2021/contributions/presentation)", "[essay](https://github.com/KTH/devops-course/tree/2021/contributions/essay)", "[video demo](https://github.com/KTH/devops-course/tree/2021/contributions/demo)", "[executable tutorial](https://github.com/KTH/devops-course/tree/2021/contributions/executable-tutorial)", "[contribution to open-source](https://github.com/KTH/devops-course/tree/2021/contributions/open-source)", "[course automation](https://github.com/KTH/devops-course/tree/2021/contributions/course-automation)" 
+
+Note: we are all aware that this assessment is subjective by nature. In case of disagreement, the informed judgement of the Professor is the final decision.
+
+
 ## Presentations
 
 The concept: The students prepare a 7 minute presentation on a topic that is relevant to DevOps. All students in a presentation must be present and speak in a balanced manner.
@@ -71,25 +76,24 @@ Criteria for the screencast:
 
 ## Open-source contributions
 
-The concept: you contribute to open-source projects related to DevOps and get merged pull-requests.
+The concept: you contribute to one open-source project related to DevOps. Yout get at least one merged pull-request.
+
+ Criteria for the selection of the open-source project:
+ - The project is related to DevOps
+ - The project has more than 10 Stars
+ - The project has more than 100 Commits
+ - The project has an active community on GitHub
 
 |                                             | Yes | No | Remarkable |
 |-------------------------------------------- | ----|----|-------------|
-|The contribution fixes bugs | Yes | No | Remarkable (hard bugs) 
-|The contribution improves documentation | Yes | No | Remarkable (big documentation improvements)|
-|The contribution adds new features | Yes | No | Remarkable (hard features) |
-|The contribution is much appreciated by the community | Yes | No | Remarkable (highly praised)|
+|The contribution fixes bugs | Yes | No | hard bugs |
+|The contribution improves documentation | Yes | No | big documentation improvements|
+|The contribution adds new features | Yes | No | hard features |
+|The contribution is much appreciated by the community | Yes | No | highly praised|
 
 To pass, you must have one yes.
 To get a distinction, you must have at least one remarkable contribution.
 
- Criteria for the selection of the open-source project:
- - The project is related to DevOps
- - The project has more than 10 Starts
- - The project has more than 100 Commits
- - The project has an active community on GitHub
-
-Note: we are all aware that this assessment is subjective by nature. In case of disagreement, the informed judgement of the professor is the final decision.
 
 ## Executable Tutorials
 
@@ -103,7 +107,7 @@ An executable tutorial is not a youtube video.
 |If local execution, runs on Linux | Yes | No | Easy to setup and run  |
 |The tutorial gives enough background | Yes | No | Comprehensive background |
 |The tutorial is easy to follow  | Yes | No | Well documented |
-|The tutorial is original, no such tutorial exists on the web | Yes | No | Novel technology |
+|The tutorial is original, no such tutorial exists on the web | Yes | No | The teaching team never heard about it |
 |The tutorial contains [easter eggs](https://github.com/OrkoHunter/python-easter-eggs) | Yes | No | Subtle and fun |
 |The tutorial is successful (attracts comments and success) | Yes | No | Lively discussion |
 |The language is correct | Yes | No | Interesting narrative  |
