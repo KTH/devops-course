@@ -116,7 +116,7 @@ Lectures:
 
 Lab sessions:
 
-* During the planned lab time slot, please use this [Queue](http://queue.csc.kth.se/#/queue/DD2482) for booking online meetings
+* During the planned lab time slot, please use this [Queue](https://queue.csc.kth.se/Queue/DD2482) for booking online meetings
 * Specify your zoom meeting link (or other platforms like Skype / GoogleHanouts) when you register the queue
 * Our TAs will reach you asap
 
