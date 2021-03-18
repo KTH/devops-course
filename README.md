@@ -102,6 +102,7 @@ Lectures:
 
 * the lectures will be streamed, the URLs will be posted on https://github.com/KTH/devops-course/issues/316
 * the recording and sharing of streamed lectures (full or fragments) is not allowed without explicit permission of the course professor and lecturer
+* the lectures are recorded by the TA team, and privately shared over KTH Box
 * questions are asked on shared gdoc (one TA is following the gdoc), no audio remote interruptions are allowed, the Zoom chat is not used.
 
 Lab sessions:
