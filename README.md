@@ -107,10 +107,10 @@ Lectures:
 
 Lab sessions:
 
-* Lab slots do not require mandatory presence. They are designed for students to meet TA and discuss all questions in person.
-* During the planned lab time slot, please use this [Queue](http://queue.csc.kth.se/#/queue/DD2482) for booking online meetings
-* Specify your zoom meeting link (or other platforms like Skype / GoogleHanouts) when you register the queue
-* Our TAs will reach you asap
+* Lab slots do not require mandatory presence. They are designed for students to meet TA and discuss all questions in person
+* During the planned lab time slot, please use this [Queue](https://queue.csc.kth.se/Queue/DD2482) for booking online meetings
+* Specify your zoom meeting link when you register the queue
+* Our TAs will reach you ASAP
 
 ## Team
 
