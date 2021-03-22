@@ -30,8 +30,8 @@ The schedule is at <https://www.kth.se/social/course/DD2482/calendar/>
   * Communication
   * Infrastructure
   * Relation to Research in Testing & DevOps 
-* Testimonial from last year's student: [Julius Colliander Celik](https://github.com/juliuscc)
-  * [How to survive the KTH DevOps course](https://docs.google.com/presentation/d/1sqfWk3DmM0fNAC61k2nNR5qrg-LttAiviYhA_BkaN9o/edit?usp=sharing)
+* Testimonial from last year's student: Julius Colliander Celik ([github](https://github.com/juliuscc)) ([linkedin](https://www.linkedin.com/in/jcelik/)) ([twitter](https://twitter.com/julius_celik))
+  * [How to survive the KTH DevOps course](https://docs.google.com/presentation/d/1SxHftBTBefN8jA6nVhlgKFP6BypdyV3Q_Gh1R8IwWK4/edit?usp=sharing)
 * Goals: watch the repo, find a first teammate, register one first task as a pull request on this repo.
 
 ### Week 2
