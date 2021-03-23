@@ -20,7 +20,7 @@ The schedule is at <https://www.kth.se/social/course/DD2482/calendar/>
 ## Program
 
 ### Week 1: Introduction <https://kth-se.zoom.us/j/62331342060>
-* Preparatory reading: <https://youtu.be/qcm0rG8EKXI>
+* Preparatory reading: "DevOps principles" in <https://www.atlassian.com/devops/what-is-devops>
 * Course introduction [Martin Monperrus](https://www.monperrus.net/martin/)
   * Your/our expectations
   * Teaching philosophy, teaching values, [flipped classroom](https://en.wikipedia.org/wiki/Flipped_classroom)
