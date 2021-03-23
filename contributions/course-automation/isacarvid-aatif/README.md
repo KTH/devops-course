@@ -1,5 +1,5 @@
 
-# Course automation: Send notification to all team members when a new PR-comment is made
+# Course automation: Email notification for proposal-PR new comments
 
 ## Members
 Ayub Atif (aatif@kth.se)
