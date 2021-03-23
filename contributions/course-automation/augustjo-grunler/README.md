@@ -1,4 +1,4 @@
-Course automation: Check Feedback Requirements
+# Course automation: Check Feedback Requirements
 
 ## Members
 August Jönsson: 
