@@ -15,5 +15,6 @@ In this demo we will show how to create a simple Java package and deploying it t
 The action will:
 
 -   run when commits are pushed to main branch
+-   update the version of the artifact to be published
 -   authenticate with Maven Central
 -   use encrypted Github Secrets to securely handle authentication
