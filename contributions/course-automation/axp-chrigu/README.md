@@ -1,4 +1,4 @@
-# Course automation: Dashboard for each category
+# Course automation: Dashboard for tasks
 
 ## Members
 
