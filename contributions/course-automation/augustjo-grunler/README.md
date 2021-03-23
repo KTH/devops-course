@@ -2,11 +2,15 @@ Course automation: Check Feedback Requirements
 
 ## Members
 August Jönsson: 
+
 Github: Augustjon
+
 KTH: augustjo (@kth.se)
 
 Daniel Grünler: 
+
 Github: Grunler
+
 KTH: grunler (@kth.se)
 
 ## Proposal:
