@@ -8,10 +8,17 @@
  Github username: [heeenkie](https://github.com/heeenkie)
 
  ## Proposal
- Docker vs Kubernetes
+ DevOps practises in a Sundsvall company
 
--introduction to containerization.
--A brief summary of the two tools.
--Differens between the tools
+ The intension is to interview a DevOps manager in a medium sized software company and share the knowledge.
+ 
+ -Time and money is two of the main factors in the decision of automation in DevOps. What is the priority for a manager of this kind.
+ -which tools is the company using?
+ -any own invention of automation?
+ -future plans and aims in the aspect of automation? is CD relevant? why? why not?
+ 
+  
+ 
+ 
 
 
