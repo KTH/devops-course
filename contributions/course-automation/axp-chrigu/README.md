@@ -10,7 +10,7 @@ Github: [ChristopherGustafson](https://github.com/ChristopherGustafson)
 
 ## Proposal
 
-Create a GitHub action that is triggered when new tasks / proposals are commited to the repository, this will then generate a dashboard of all the contributions made overall, including thoese in the previous years.
+Create a GitHub action that is triggered when new tasks / proposals are committed to the repository, this will then generate a dashboard of all the contributions made overall, including those submitted in the previous years.
 
 The requirements for the actions is:
 
