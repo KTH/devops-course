@@ -1,4 +1,4 @@
-# (WIP) Proposal ML_OPS: Current applications and future possibilities
+# Proposal ML_OPS: Current applications and future possibilities
 
 
 ## Members
