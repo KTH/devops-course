@@ -1,0 +1,46 @@
+name: Task dashboard generator
+
+on:
+    pull_request
+    # types: [closed]
+
+jobs:
+    generate-dashboard:
+        # if: github.event.pull_request.merged == 'true'
+        name: Generate dashboard
+        runs-on: ubuntu-20.04
+        steps:
+            - uses: actions/checkout@v2.3.4
+              with:
+                  ref: automation/task-dashboard
+                  # ref: 2021
+
+            - name: Use Node LTS
+              uses: actions/setup-node@v2.1.5
+              with:
+                  node-version: 12.13.0
+
+            - name: Generate dashboard
+              uses: ./contributions/course-automation/axp-chrigu/src/
+              id: dashboard
+
+            - name: Push new dashboard
+              run: |
+                  echo "${{ steps.dashboard.outputs.dashboard }}" > dashboard.md
+                  git config --global user.name 'Dashboard bot'
+                  git config --global user.email 'dashboard-bot-dd2482@users.noreply.github.com'
+                  git add ./dashboard.md
+                  git commit -m "Generated dashboard"
+                  git push
+
+            - name: Comment on PR
+              uses: actions/github-script@v3.1.0
+              with:
+                  github-token: ${{ secrets.GITHUB_TOKEN }}
+                  script: |
+                      github.issues.createComment({
+                        issue_number: context.issue.number,
+                        owner: context.repo.owner,
+                        repo: context.repo.repo,
+                        body: 'You're task is now in the dashboard!'
+                      })
