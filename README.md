@@ -4,92 +4,85 @@ This repository contains the material and content of the DevOps course at KTH Ro
 
 Registration: You must register to this course through the Swedish registration system <https://antagning.se>.
 
-Next course start: March 2020 (Academic Period 4).
+Next course start: March 2021 (Academic Period 4).
 
 Past edition:
-* [KTH DevOps Course 2019](https://github.com/KTH/devops-course/blob/master/README-2019.md)
+* [KTH DevOps Course 2020](https://github.com/KTH/devops-course/blob/master/attic/2020/)
+* [KTH DevOps Course 2019](https://github.com/KTH/devops-course/blob/master/attic/2019/)
 
 ## Schedule
 
-* HTML: https://www.kth.se/social/course/DD2482/calendar/
-* ICS: https://www.kth.se/social/course/DD2482/subgroup/vt-2020-devops20/calendar/ical/?lang=en
+The schedule is at <https://www.kth.se/social/course/DD2482/calendar/>
 
 *If you can't see any schedule events on the HTML page*  
 *Change course rounds/groups in [My settings](https://www.kth.se/social/course/DD2482/subscription/) or change the time period above so that it conforms to the course round.*
 
-### Week 1: Introduction
-* Preparatory reading: <https://youtu.be/qcm0rG8EKXI>
+## Program
+
+### Week 1: Introduction <https://kth-se.zoom.us/j/62331342060>
+* Preparatory reading: "DevOps principles" in <https://www.atlassian.com/devops/what-is-devops>
 * Course introduction [Martin Monperrus](https://www.monperrus.net/martin/)
   * Your/our expectations
-  * Teaching philosophy, teaching values
+  * Teaching philosophy, teaching values, [flipped classroom](https://en.wikipedia.org/wiki/Flipped_classroom)
   * Team
   * Agenda
   * Grading
-  * Communication (watch this repo!)
+  * Communication
   * Infrastructure
   * Relation to Research in Testing & DevOps 
-* Testimonial from last year's student: [Julius Colliander Celik](https://github.com/juliuscc)
-  * [How to survive the KTH DevOps course](https://docs.google.com/presentation/d/1sqfWk3DmM0fNAC61k2nNR5qrg-LttAiviYhA_BkaN9o/edit?usp=sharing)
+* Testimonial from last year's student: Julius Colliander Celik ([github](https://github.com/juliuscc)) ([linkedin](https://www.linkedin.com/in/jcelik/)) ([twitter](https://twitter.com/julius_celik))
+  * [How to survive the KTH DevOps course](https://docs.google.com/presentation/d/1SxHftBTBefN8jA6nVhlgKFP6BypdyV3Q_Gh1R8IwWK4/edit?usp=sharing)
 * Goals: watch the repo, find a first teammate, register one first task as a pull request on this repo.
 
 ### Week 2
-* Session: Grounded theory for DevOps
-* Lecture: [Rhys Arkins](https://www.linkedin.com/in/rhys-arkins-5a643a/) 
-  * Preparatory reading: [Introduction to Probot](https://probot.github.io/docs/)
+* Technical Briefing (B. Baudry)
+* Guest Lecture: Continuous Integration [Mats Skoglund (Scania)](https://www.linkedin.com/in/matsskoglund/).
 * Student presentations
 
 ### Week 3
-* Lecture testing: Benoit Baudry, KTH.
-  * Preparatory reading: [Mutation analysis](https://medium.com/@almyre/short-circuiting-method-executions-to-assess-test-quality-2d3fda45bc7f), [Clean unit tests](https://blog.usejournal.com/3-easy-ways-to-write-cleaner-unit-tests-2ec04ca6b9df)
-* Lecture CI: [Mats Skoglund](https://www.linkedin.com/in/matsskoglund/), Scania.
+* Technical Briefing (M. Monperrus)
+* Guest Lecture: Containers [Julien Bisconti](https://www.linkedin.com/in/julienbisconti/)
+  * Preparatory material: [Docker tutorial](https://www.katacoda.com/courses/docker) and [Awesome Docker](https://github.com/veggiemonk/awesome-docker/#where-to-start)
 * Student presentations
 
 ### Week 4
-* Introduction to research and collaborative projects (Benoit Baudry)
-* Lecture: [Amir Gaber](https://www.linkedin.com/in/amirgaber/)
-  * Preparatory material: [Risk Management Framework for Information Systems and Organizations](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-37r2.pdf)
-    * Page 38: Asset identification
-    * Page 41: Risk assessment – system
-    * Page 42: Requirement definition
-    * Page 44: Requirement allocation
-  * Preparatory Material: [The CyberSecurity Body of Knowledge](https://www.cybok.org/media/downloads/CyBOK_version_1.0_YMKBy7a.pdf)
+* Technical Briefing (B. Baudry)
+* Guest Lecture: MLOps [Alex Nodet (King)](https://www.linkedin.com/in/alexnodet/)
 * Student presentations
 
 ### Week 5
-* Lecture: Monitoring [Martin Monperrus](https://www.monperrus.net/martin/)
-  * Preparatory material: [Notes on monitoring](https://www.monperrus.net/martin/monitoring.pdf)
-* Lecture: Serverless computing [Julien Bisconti](https://www.linkedin.com/in/julienbisconti/) 
-  * Preparatory material: <https://www.youtube.com/watch?v=b7Nc_FJiosk>
+* Technical Briefing (M. Monperrus)
+* Guest Lecture: Supply-chain security [Rhys Arkins (Whitesource)](https://www.linkedin.com/in/rhys-arkins-5a643a/) 
 * Student presentations
 
 ### Week 6
-* Webinar: Infrastructure as code [Daniel Caballero Rodriguez (Fastly)](https://www.linkedin.com/in/danicaba/) 
-* Lecture: Automatic program repair [Martin Monperrus](https://www.monperrus.net/martin/)
-* Fuzzing competition results
+* Technical Briefing (B. Baudry)
+* TBA
 * Student presentations
 
 ### Week 7: Michelin Devops Demo Day
-* Location: [U31](https://www.kth.se/places/room/id/1f421a2a-40ec-4dcc-ab4b-0a39174cb067), [U31 Break-out](https://www.kth.se/places/room/id/0d4376e6-7a85-4dad-9587-c63cc3a24708)
-* Preparatory reading: [Playing Apart – ett unikt experiment i ett samarbete mellan Telia och Göteborgs Symfoniker](https://youtu.be/B4_GszP0k4E)
+* Technical Briefing (M. Monperrus)
+* Guest lecture: Devops in Sweden [Jörgen Damberg (Zington)](https://www.linkedin.com/in/kejsardamberg/)
+* Browsing and Highlights of Demos
 
 ### Week 8: Wrap-up, feedback and potluck
-* 9h15 Wrap-up & Feedback
-* 10h15 Final Guest Lecture
-* [Final Course Potluck](https://en.wikipedia.org/wiki/Potluck)
+* Technical Briefing (B. Baudry)
+* 10h15 Lecture: Devops at EA/Dice [Cristian Deri](https://se.linkedin.com/in/cristian-deri), [Vidir Reynisson](https://se.linkedin.com/in/vidirr)
+  * Preparatory material: <https://www.youtube.com/watch?v=iIIxgv6CtGs>
+* 11h15 Proposal and improvement festival for next year
+* 12h15 Personalized feedback, final clarifications
+
 
 ## Rules
 
-Lab slots do not require mandatory presence. They are designed for students to meet TA and discuss questions on site. During the lab session, please use this [Queue](http://queue.csc.kth.se/#/queue/DD2482) to register your call. Our TAs will contact you in minutes according to the location you specify.
 
 To pass the course, the student has to collect 4 grades:
-* the grades are in category: "[presentation](https://github.com/KTH/devops-course/tree/master/contributions/presentation)", "[demo](https://github.com/KTH/devops-course/tree/master/contributions/demo)", "[essay](https://github.com/KTH/devops-course/tree/master/contributions/essay)", "[tutorial](https://github.com/KTH/devops-course/tree/master/contributions/tutorial)", "[competition entry](https://github.com/KTH/devops-course/tree/master/contributions/competition)", "[contribution to open-source](https://github.com/KTH/devops-course/tree/master/contributions/open-source)", "[covid19](https://github.com/KTH/devops-course/tree/master/contributions/covid19)" (choose four out of them, at most one in the same category, it is not necessary to cover everything).  
-* the strict deadline for essays, tutorials and contributions to open-source is April 30 2020, 23h59 Stockholm time; the deadline for competition and demos are respectively on pages "[competition entry](https://github.com/KTH/devops-course/tree/master/contributions/competition)" and "[demo](https://github.com/KTH/devops-course/tree/master/contributions/demo)"; the strict deadline for repeated tasks (all) is May 31 2020, 23h59 Stockholm time.
-* the student proposes a category and a topic, which is discussed and accepted by the TA. The proposal is made as a pull-request on this repository. The four graded contributions must have little overlap.
-* the same student cannot choose the same topic for two different tasks. The four tasks should cover different aspects of DevOps.
-* each grading category, there is a grading form, which explains how to pass / pass with distinction.
+* The grades are in category: "[presentation](https://github.com/KTH/devops-course/tree/2021/contributions/presentation)", "[essay](https://github.com/KTH/devops-course/tree/2021/contributions/essay)", "[video demo](https://github.com/KTH/devops-course/tree/2021/contributions/demo)", "[executable tutorial](https://github.com/KTH/devops-course/tree/2021/contributions/executable-tutorial)", "[contribution to open-source](https://github.com/KTH/devops-course/tree/2021/contributions/open-source)", "[course automation](https://github.com/KTH/devops-course/tree/2021/contributions/course-automation)", "[feedback](https://github.com/KTH/devops-course/tree/2021/contributions/feedback)" (choose four out of them, at most one in the same category, it is not necessary to cover everything).
+* The [grading criteria page](grading-criteria.md) is the unique reference which explains how to pass / pass with distinction.
+* The strict deadline for essays, tutorials, contributions to open-source, course automation is April 30, 23h59 Stockholm time; and "[demo](https://github.com/KTH/devops-course/tree/2021/contributions/demo)"; the strict deadline for repeated tasks (all) is May 31, 23h59 Stockholm time.
+* The student proposes a category and a topic, which is discussed and accepted by the TA. The proposal is made as a pull-request on this repository. The four graded contributions must have little overlap.
+* The same student cannot choose the same topic for two different tasks. The four tasks should cover different aspects of DevOps.
 * 4 Pass means a final E, 3 Pass / 1 Distinction means a final D, 2 Pass / 2 Distinction means a final C, 1 Pass / 3 Distinction means a final B, 4 Distinction means a final A
-  * for the competition, the distinction is given to the top-25% best performing teams
-* the grades are announced as a pull-request or issue comment on this repository.   
 * Group work is encouraged (max 3 persons) but you cannot be with the same persons for more than 2 projects. You can do a work alone for one or at most two projects.
 * A failed task requires to pass it again at the end of the course, based on the feedback from the failure. A repeated task cannot be passed with distinction. A task can only be repeated once.
 * If the whole course is failed, no grades are kept if the student registers again to the course the year after. 
@@ -105,34 +98,28 @@ Group Rules
 
 ## Remote participation
 
-In case the conditions do not allow for in-person participation, because of COVID-19, the course can be attended remotely.
-
 Lectures:
 
 * the lectures will be streamed, the URLs will be posted on https://github.com/KTH/devops-course/issues/316
 * the recording and sharing of streamed lectures (full or fragments) is not allowed without explicit permission of the course professor and lecturer
-* questions are asked on the streaming chat (one TA is following the chat), no audio remote interruptions are allowed.
-* the slides are shared via a link in #316, for double screening. (Zoom is not used to share slides)
+* the lectures are recorded by the TA team, and privately shared over KTH Box
+* questions are asked on shared gdoc (one TA is following the gdoc), no audio remote interruptions are allowed, the Zoom chat is not used.
 
 Lab sessions:
 
-* During the planned lab time slot, please use this [Queue](http://queue.csc.kth.se/#/queue/DD2482) for booking online meetings
-* Specify your zoom meeting link (or other platforms like Skype / GoogleHanouts) when you register the queue
-* Our TAs will reach you asap
-
-The remote grading scheme changes as follows:
-
-* "essay", "tutorial", "competition entry", "contribution to open-source": the rules remain the same
-* "demo": the screencast is the unique item to be handed over and graded
-* "presentation": there is no online version of the presentation task
+* Lab slots do not require mandatory presence. They are designed for students to meet TA and discuss all questions in person
+* During the planned lab time slot, please use this [Queue](https://queue.csc.kth.se/Queue/DD2482) for booking online meetings
+* Specify your zoom meeting link when you register the queue
+* Our TAs will reach you ASAP
 
 ## Team
 
 * [Prof. Martin Monperrus](http://www.monperrus.net/martin/)
 * [Prof. Benoit Baudry](https://softwarediversity.eu/)
 * [He Ye (TA)](https://www.kth.se/profile/heye)
-* [Long Zhang (TA)](http://gluckzhang.com/)
 * [César Soto (TA)](https://cesarsotovalero.github.io/)
+* [Deepika Tiwari (TA)](https://www.kth.se/profile/deepikat)
+* [Khashayar Etemadi (TA)](https://www.kth.se/profile/khaes)
 
 ## See also
 
@@ -144,6 +131,4 @@ The remote grading scheme changes as follows:
 * A software engineering course (eg [DD2480](https://www.kth.se/student/kurser/kurs/DD2480))
 * A networking course (eg [IK2218](https://www.kth.se/student/kurser/kurs/IK2218?l=en))
 
-## Acknowledgements
 
-This course is designed with great inputs from [Chris Parnin](https://github.com/CSC-DevOps/Course), Julien Bisconti, Simone Stefani, Jaana Nyfjord, Amir Gaber, Göran Paues, Lowe Schmidt, Laurent Ploix, Diarmuid Corcoran, Jonathan Grahl, Mattias Wildeman, Tomas Ekholm, Vincent Massol, David King and others. We are very grateful for their contributions!
