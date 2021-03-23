@@ -1,4 +1,4 @@
-# (WIP) Proposal ML_OPS: History, current applications and future possibilities
+# (WIP) Proposal ML_OPS: Current applications and future possibilities
 
 
 ## Members
@@ -7,7 +7,7 @@
 * Matej Sestak, sestak@kth.se, Github: sestys
 
 ## Topic
-The idea is that the presentation will outline MLOPS, its difference from DevOps, its history, use cases, and some of the barriers of entry.
+The idea is that the presentation will outline MLOPS, its difference from DevOps, its history, best practice.
 
 ## Slides
 To be created
