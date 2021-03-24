@@ -1,8 +1,10 @@
 name: Task dashboard generator
 
 on:
-    pull_request
-    # types: [closed]
+    pull_request:
+      # types: [closed]
+      paths:
+        - 'contributions/**'
 
 jobs:
     generate-dashboard:
