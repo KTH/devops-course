@@ -1,0 +1,43 @@
+# This is a basic workflow to help you get started with Actions
+
+name: check_feedback_requirements
+
+# Controls when the action will run. 
+on:
+  # Triggers the workflow on comments but only for the test branch
+  issue_comment:
+    branches: [ test ]
+    types: [ created ]
+
+    
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  pr_commented:
+    # This job only runs for pull request comments
+    name: PR comment
+    if: ${{ github.event.issue.pull_request }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "Comment on PR #${{ github.event.issue.number }}"
+  
+  
+  # This workflow contains a single job called "build"
+  #build:
+    # The type of runner that the job will run on
+    #runs-on: ubuntu-latest
+    #Check comment
+    #Create response text
+    #Use create comment action
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    #steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      #- uses: actions/checkout@v2
+      
+      #- name: Get Comment
+        #run: echo ${{ github.event.comment.id }}  
+        #if: pull_request
+          echo test, and deploy your project.
