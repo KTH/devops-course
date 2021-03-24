@@ -5,13 +5,13 @@ Name: Carl Piehl
 
 Mail: cpiehl@kth.se
 
-Github: cpiehl1
+Github: [cpiehl1](https://github.com/cpiehl1)
 
 Name: Patricia Naccachian
 
 Mail: nacca@kth.se
 
-Github: patricia-naccachian
+Github: [patricia-naccachian](https://github.com/patricia-naccachian)
 
 ### Proposal:
 
