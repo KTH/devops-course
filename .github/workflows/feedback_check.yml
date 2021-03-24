@@ -22,22 +22,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo "Comment on PR #${{ github.event.issue.number }}"
-  
-  
-  # This workflow contains a single job called "build"
-  #build:
-    # The type of runner that the job will run on
-    #runs-on: ubuntu-latest
-    #Check comment
-    #Create response text
-    #Use create comment action
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    #steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      #- uses: actions/checkout@v2
-      
-      #- name: Get Comment
-        #run: echo ${{ github.event.comment.id }}  
-        #if: pull_request
-          echo test, and deploy your project.
+          echo "Comment on PR #${{ github.event.issue.number }}
