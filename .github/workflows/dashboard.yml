@@ -33,14 +33,8 @@ jobs:
                   git commit -m "Generated dashboard"
                   git push
 
-            - name: Comment on PR
-              uses: actions/github-script@v3.1.0
+            - name: Comment PR
+              uses: ./contributions/course-automation/axp-chrigu/pr-comment/
               with:
-                  github-token: ${{ secrets.GITHUB_TOKEN }}
-                  script: |
-                      github.issues.createComment({
-                        issue_number: context.issue.number,
-                        owner: context.repo.owner,
-                        repo: context.repo.repo,
-                        body: 'You're task is now in the dashboard!'
-                      })
+                message: 'This task is available in the dashboard'
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
