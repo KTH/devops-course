@@ -15,11 +15,6 @@ jobs:
                   ref: automation/task-dashboard
                   # ref: 2021
 
-            - name: Use Node LTS
-              uses: actions/setup-node@v2.1.5
-              with:
-                  node-version: 12.13.0
-
             - name: Generate dashboard
               uses: ./contributions/course-automation/axp-chrigu/dashboard-generator/
               id: dashboard
