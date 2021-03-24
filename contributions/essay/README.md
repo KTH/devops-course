@@ -1,12 +1,24 @@
-## How to Register Your Topic
+# Essay: Comparison of Azure, AWS, and GCP based on DevOps.
 
-Make a pull-request based on the following steps:
+### Members
 
-- create a folder following the name convention of using email addresses of two members: email-email
-- in your folder, create a README.md file and put your topic information there
+Megha Gangwal (ved.megha@gmail.com)
+GitHub: [gangwalmegha](https://github.com/gangwalmegha/)
 
-TA will review the PR. If it is accepted, you could begin your work on this topic, and make another pull-request to submit your work in the future.
+Md Rezaul Hasan (mrhasa@kth.se)
+GitHub: [MDRezaulHasan](https://github.com/MDRezaulHasan/)
 
-## Final Submission
+### Proposal
 
-You should make another pull-request which contains your PDF file of the essay.
+We are planning to do a comparison of Azure, AWS, and GCP based on DevOps. We will do a comparison of each setup on different parameters(to be decided).
+
+### Topics to covered
+
+**Introductions to DevOps
+**Different DevOps Solutions on Public Cloud, Private Cloud
+**Reasons for selecting AWS, GCP, and Azure for comparison
+**Description of DevOps set up on each of three clouds
+**Comparison of each setup on the parameters like service integration
+**Compare with Example
+**Summary
+**Conclusion
