@@ -8,10 +8,12 @@ GitHub: [heeenkie](https://github.com/heeenkie)
 ## Proposal
 
 I want to create a GitHub action (on pull requests) that automatically checks whether the youtube link to the demovideo exists and that it is valid.
+Also if any accompanying Github repository is given .
 
 In order, this action should:
 
 - Determine if the pull request concerns an demo submission
 - Find the submitted readme file
 - Check that the link exists and is valid
+- Checks if a accompanying Github repository is named in the readme
 - Report the status on the PR
