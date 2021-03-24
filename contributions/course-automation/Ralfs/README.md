@@ -12,6 +12,6 @@ For example: files and folders follow correct naming schema and the contents of 
 ## Description
 1. When creating/editing a pull request tests are run
 2. Check changed .md file contents
-3. Verify that the member names are represented in the containing name
+3. Verify that the member names are represented in the containing folder name
 4. Confirm that file structure follows the rules (no changes outside permitted folders: 7 task categories)
 5. Disallow pull request approval if any checks failed
