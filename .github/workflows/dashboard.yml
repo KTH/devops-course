@@ -21,7 +21,7 @@ jobs:
                   node-version: 12.13.0
 
             - name: Generate dashboard
-              uses: ./contributions/course-automation/axp-chrigu/src/
+              uses: ./contributions/course-automation/axp-chrigu/dashboard-generator/
               id: dashboard
 
             - name: Push new dashboard

@@ -1,7 +1,7 @@
 const core = require("@actions/core");
 const github = require("@actions/github");
 
-async function main() {
+const main = async () => {
     try {
         const message = core.getInput("message");
         const githubToken = core.getInput("GITHUB_TOKEN");
@@ -23,6 +23,6 @@ async function main() {
     } catch (error) {
         core.setFailed(error.message);
     }
-}
+};
 
 main();
