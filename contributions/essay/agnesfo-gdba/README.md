@@ -8,7 +8,7 @@ Our essay will be a comprehensive comparision between SRE (site reliability engi
 
 The topics that will be compared are:
 - Concepts and philosophies
-- Work flow
+- Workflow
 - Work culture
 - Reliability
 - And more
