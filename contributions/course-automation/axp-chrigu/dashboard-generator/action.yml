@@ -5,4 +5,4 @@ outputs:
         description: "The dashboard as a string"
 runs:
     using: "node12"
-    main: "src/index.js"
+    main: "dist/index.js"
