@@ -11,13 +11,14 @@ jobs:
     # test
     - name: changed files
       uses: jitterbit/get-changed-files@v1
-        with:
-          # Format of the steps output context.
-          # Can be 'space-delimited', 'csv', or 'json'.
-          # Default: 'space-delimited'
-          format: ''
-      id: hello
+      id: changed-files
+      with:
+        # Format of the steps output context.
+        # Can be 'space-delimited', 'csv', or 'json'.
+        # Default: 'space-delimited'
+        format: 'json'
     # Run
       - name: Match PR author with course registered KTH ids
         uses: ./contributions/course-automation/kalpet-andnil5 # Uses an action in the root directory
-      
+        with: 
+          changed-files: '${{ steps.changed-files.outputs }}'
