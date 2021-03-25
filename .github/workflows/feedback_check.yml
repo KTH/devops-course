@@ -23,4 +23,4 @@ jobs:
     steps:
       - run: |
           body=${{ github.event.comment.body }} |
-          echo $body | wc -w
+          echo "$body" | wc -w
