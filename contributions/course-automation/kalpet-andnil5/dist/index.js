@@ -8,19 +8,20 @@ module.exports =
 const core = __nccwpck_require__(66);
 const github = __nccwpck_require__(608);
 
-const kthIDs = (/* unused pure expression or super */ null && ([
+const kthIDs = [
   'andnil5',
   'kalpet',
   'johanbes',
   'KallePettersson'
-]));
+];
 
 try {
   // Get the JSON webhook payload for the event that triggered the workflow
   const payload = JSON.stringify(github.context.payload, undefined, 2)
-  console.log(github.event.pull_request.user.login);
+  console.log(payload.pull_request.user.login);
   console.log(`The event payload: ${payload}`);
-  // throw Error('');
+  if (!kthIDs.includes(github.event.pull_request.user.login))
+    throw Error('The user is not registered in the course.');
 } catch (error) {
   core.setFailed(error.message);
 }
