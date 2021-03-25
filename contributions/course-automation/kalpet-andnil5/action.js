@@ -1,5 +1,5 @@
 const core = require('@actions/core');
-import { context, GitHub } from '@actions/github'
+import { context, getOctokit } from '@actions/github'
 
 
 const kthIDs = [
@@ -18,7 +18,7 @@ try {
   // console.log(changedFiles)
 
   // const client = new GitHub(core.getInput('token', {required: true}))
-  const client = github.getOctokit(core.getInput('token'));
+  const client = getOctokit(core.getInput('token'));
 
   const baseSHA = context.payload.pull_request?.base?.sha
   const headSHA = context.payload.pull_request?.head?.sha

@@ -29,7 +29,7 @@ try {
   // console.log(changedFiles)
 
   // const client = new GitHub(core.getInput('token', {required: true}))
-  const client = github.getOctokit(core.getInput('token'));
+  const client = (0,_actions_github__WEBPACK_IMPORTED_MODULE_0__.getOctokit)(core.getInput('token'));
 
   const baseSHA = _actions_github__WEBPACK_IMPORTED_MODULE_0__.context.payload.pull_request.base.sha
   const headSHA = _actions_github__WEBPACK_IMPORTED_MODULE_0__.context.payload.pull_request.head.sha
