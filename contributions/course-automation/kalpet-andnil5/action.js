@@ -38,7 +38,11 @@ try {
   }).then(response => {
     if (response.status !== 200) throw Error('Could not fetch changed files!');
     const files = response.data.files;
-    console.log(files);
+    const filteredFiles = files
+      .map(file => file.filename.split('/'))
+      .filter(file => file[0] === 'contribution');
+    
+    console.log(filteredFiles);
     if (!kthIDs.includes(context.payload.pull_request.user.login))
     throw Error('The user is not registered in the course.');
   }).catch(error => {
