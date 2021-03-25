@@ -17,6 +17,7 @@ We want to solve the issue described by baudry in #916.
 * Create a GitHub javascript action to be run on each PR.
 * Extract the GitHub id of the PR author.
 * Create a list of valid kth ids (from students registered to course).
-* If GitHub id matches kth id, approve PR.
-* Otherwise, check that the Member mail address in the README match.
+* If GitHub id matches kth id, set a status check flag to success.
+* Otherwise, check that the Member mail address in the README match, and set the status check flag to success.
+* If both of the above fails, set the status check flag to failure.
 * Utilize Status checks API to visualize the result.
