@@ -1,4 +1,6 @@
 const core = require("@actions/core");
+const { collectDashboardData } = require("./dataCollection");
+const { parseJson } = require("./markdown");
 
 /**
  * Result type of data collection
@@ -21,9 +23,23 @@ const core = require("@actions/core");
  * }}
  */
 
-try {
-    const time = new Date().toTimeString();
-    core.setOutput("dashboard", `dashboard - ${time}`);
-} catch (error) {
-    core.setFailed(error.message);
+// try {
+//     const time = new Date().toTimeString();
+//     core.setOutput("dashboard", `dashboard - ${time}`);
+// } catch (error) {
+//     core.setFailed(error.message);
+// }
+
+async function generateDashboard(){
+    try{
+        const data = await collectDashboardData();
+        console.log(data);
+        const md = parseJson(data);
+        console.log(md);
+
+    } catch(error) {
+        core.setFailed(error.message);
+    }
 }
+
+generateDashboard();
