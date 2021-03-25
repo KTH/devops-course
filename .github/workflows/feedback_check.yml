@@ -23,4 +23,4 @@ jobs:
     steps:
       - run: |
           body=${{ github.event.comment.body }} |
-          echo "Number of words: $(wc -w $body)"
+          echo $body | wc -w
