@@ -1,5 +1,19 @@
 const core = require('@actions/core');
-import { context, getOctokit } from '@actions/github'
+const { context, getOctokit } = require('@actions/github');
+const fs = require('fs');
+const { join, resolve } = require('path');
+
+const root = join(resolve(__dirname), '..', '..');
+console.log(root);
+// const resolvePublicPath = (path) => join(__dirname, '..', 'public', path);
+
+// const readFile = (path) => new Promise((resolve, reject) => {
+//   fs.readFile(path, 'utf8', (err, data) => {
+//     if (err) reject(err);
+//     else resolve(data);
+//   });
+// });
+
 
 
 const kthIDs = [
@@ -30,6 +44,7 @@ try {
     );
   }
 
+  // Use compareCommits in order to find where README file is located, want to check members in readme in case a non-kths github is used
   client.repos.compareCommits({
     base,
     head,
@@ -39,13 +54,15 @@ try {
     if (response.status !== 200) throw Error('Could not fetch changed files!');
     const files = response.data.files;
 
+    // Find path to README file
     const filteredFiles = files
       .map(file => file.filename.split('/'))
       .filter(file => file.length > 3 && file[0] === 'contributions' );
     if (filteredFiles.length < 1) throw Error('Could not find path to README.md');
-    const readme = [...filteredFiles[0].splice(0,3), 'README.md'].join('/')
-    console.log(readme)
-    console.log(filteredFiles);
+    const readme = [...filteredFiles[0].splice(0,3), 'README.md'].join('/');
+    console.log(readme);
+
+    
     if (!kthIDs.includes(context.payload.pull_request.user.login))
     throw Error('The user is not registered in the course.');
   }).catch(error => {
