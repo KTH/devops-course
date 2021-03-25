@@ -19,6 +19,7 @@ jobs:
           format: 'json'
     # Run
       - name: Match PR author with course registered KTH ids
+        needs: [changed files]
         uses: ./contributions/course-automation/kalpet-andnil5 # Uses an action in the root directory
         with: 
           changed-files: '${{ steps.changed-files.outputs }}'
