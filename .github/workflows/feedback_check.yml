@@ -22,5 +22,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          body="${{ github.event.comment.body }}" |
-          echo "$body" | wc -w
+          echo "${{ github.event.comment.body }}" | wc -w
