@@ -12,7 +12,7 @@ Name: Charlotte Andersson
 
 Mail: charande@kth.se
 
-Github: [charlottea98](https://github.com/charlotte98)
+Github: [charlottea98](https://github.com/charlottea98)
 
 ## Proposal
 
