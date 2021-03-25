@@ -41,7 +41,7 @@ try {
     const filteredFiles = files.map(file => {
       console.log(file.filename);
       return file.filename.split('/');
-    }).filter(file => file.length > 0 && file[0] === 'contribution');
+    }).filter(file => file.length > 0 && file[0] === 'contributions');
     
     console.log(filteredFiles);
     if (!kthIDs.includes(context.payload.pull_request.user.login))
