@@ -12,11 +12,13 @@ const kthIDs = (/* unused pure expression or super */ null && ([
   'andnil5',
   'kalpet',
   'johanbes',
+  'KallePettersson'
 ]));
 
 try {
   // Get the JSON webhook payload for the event that triggered the workflow
   const payload = JSON.stringify(github.context.payload, undefined, 2)
+  console.log(github.event.pull_request.user.login);
   console.log(`The event payload: ${payload}`);
   // throw Error('');
 } catch (error) {

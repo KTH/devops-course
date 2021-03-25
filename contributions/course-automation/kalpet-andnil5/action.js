@@ -5,6 +5,7 @@ const kthIDs = [
   'andnil5',
   'kalpet',
   'johanbes',
+  'KallePettersson'
 ];
 
 try {
