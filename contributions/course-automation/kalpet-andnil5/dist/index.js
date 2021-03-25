@@ -49,9 +49,10 @@ try {
   }).then(response => {
     if (response.status !== 200) throw Error('Could not fetch changed files!');
     const files = response.data.files;
-    const filteredFiles = files
-      .map(file => file.filename.split('/'))
-      .filter(file => file[0] === 'contribution');
+    const filteredFiles = files.map(file => {
+      console.log(file.filename);
+      return file.filename.split('/');
+    }).filter(file => file.length > 0 && file[0] === 'contribution');
     
     console.log(filteredFiles);
     if (!kthIDs.includes(_actions_github__WEBPACK_IMPORTED_MODULE_0__.context.payload.pull_request.user.login))
