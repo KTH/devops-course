@@ -25,4 +25,4 @@ jobs:
           echo "${{ github.event.comment.body }}" | wc -w
           echo "Comment creates at: ${{ github.event.comment.created_at }}"
           echo "Pull Request URL: ${{ github.event.comment.html_url }}"
-          echo "Issue API URL: ${{ github.event.issue.created_at }}"
+          echo "Issue/PR created at: ${{ github.event.issue.created_at }}"
