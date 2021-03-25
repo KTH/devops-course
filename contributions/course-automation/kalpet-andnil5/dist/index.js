@@ -18,9 +18,9 @@ const kthIDs = [
 try {
   // Get the JSON webhook payload for the event that triggered the workflow
   const payload = JSON.stringify(github.context.payload, undefined, 2)
-  console.log(payload.pull_request.user.login);
+  console.log(github.context.payload.pull_request.user.login);
   console.log(`The event payload: ${payload}`);
-  if (!kthIDs.includes(github.event.pull_request.user.login))
+  if (!kthIDs.includes(github.context.payload.pull_request.user.login))
     throw Error('The user is not registered in the course.');
 } catch (error) {
   core.setFailed(error.message);
