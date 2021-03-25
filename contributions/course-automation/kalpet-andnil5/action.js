@@ -38,11 +38,13 @@ try {
   }).then(response => {
     if (response.status !== 200) throw Error('Could not fetch changed files!');
     const files = response.data.files;
-    const filteredFiles = files.map(file => {
-      console.log(file.filename);
-      return file.filename.split('/');
-    }).filter(file => file.length > 0 && file[0] === 'contributions');
-    
+
+    const filteredFiles = files
+      .map(file => file.filename.split('/'))
+      .filter(file => file.length > 3 && file[0] === 'contributions' );
+    if (filteredFiles.length < 1) throw Error('Could not find path to README.md');
+    const readme = [...filteredFiles[0].splice(0,3), 'README.md'].join('/')
+    console.log(readme)
     console.log(filteredFiles);
     if (!kthIDs.includes(context.payload.pull_request.user.login))
     throw Error('The user is not registered in the course.');
