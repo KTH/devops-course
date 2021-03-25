@@ -22,4 +22,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo "Comment on PR #${{ github.event.issue.number }}: ${{ github.event.comment.body }}"
+          echo "Comment on PR #${{ github.event.issue.number }}: ${{ github.event.comment.body }}" |
+          echo "Number of words: $(wc - w ${{ github.event.comment.body }})"
