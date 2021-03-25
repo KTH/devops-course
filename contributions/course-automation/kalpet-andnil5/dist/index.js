@@ -31,10 +31,10 @@ try {
   // const client = new GitHub(core.getInput('token', {required: true}))
   const client = (0,_actions_github__WEBPACK_IMPORTED_MODULE_0__.getOctokit)(core.getInput('token'));
 
-  const baseSHA = _actions_github__WEBPACK_IMPORTED_MODULE_0__.context.payload.pull_request.base.sha
-  const headSHA = _actions_github__WEBPACK_IMPORTED_MODULE_0__.context.payload.pull_request.head.sha
+  const base = _actions_github__WEBPACK_IMPORTED_MODULE_0__.context.payload.pull_request.base.sha
+  const head = _actions_github__WEBPACK_IMPORTED_MODULE_0__.context.payload.pull_request.head.sha
 
-  if (!baseSHA || !headSHA) {
+  if (!base || !head) {
     core.setFailed(
       `The base and head commits are missing from the payload for this ${_actions_github__WEBPACK_IMPORTED_MODULE_0__.context.eventName} event. ` +
         "Please submit an issue on this action's GitHub repo."
@@ -42,8 +42,8 @@ try {
   }
 
   client.repos.compareCommits({
-    baseSHA,
-    headSHA,
+    base,
+    head,
     owner: _actions_github__WEBPACK_IMPORTED_MODULE_0__.context.repo.owner,
     repo: _actions_github__WEBPACK_IMPORTED_MODULE_0__.context.repo.repo
   }).then(response => {

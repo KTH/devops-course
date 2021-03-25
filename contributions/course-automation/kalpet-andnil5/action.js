@@ -20,10 +20,10 @@ try {
   // const client = new GitHub(core.getInput('token', {required: true}))
   const client = getOctokit(core.getInput('token'));
 
-  const baseSHA = context.payload.pull_request?.base?.sha
-  const headSHA = context.payload.pull_request?.head?.sha
+  const base = context.payload.pull_request?.base?.sha
+  const head = context.payload.pull_request?.head?.sha
 
-  if (!baseSHA || !headSHA) {
+  if (!base || !head) {
     core.setFailed(
       `The base and head commits are missing from the payload for this ${context.eventName} event. ` +
         "Please submit an issue on this action's GitHub repo."
@@ -31,8 +31,8 @@ try {
   }
 
   client.repos.compareCommits({
-    baseSHA,
-    headSHA,
+    base,
+    head,
     owner: context.repo.owner,
     repo: context.repo.repo
   }).then(response => {
