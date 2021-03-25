@@ -8,15 +8,14 @@ Github username: arxra
 Fredrik Björkman (fbjorkma@kth.se)
 Github username: fbjorkman
 
-## Monitoring and why system feedback matters
+## Prometheus, monitor your system
 
-We want to present on why monitoring your pipelines and automations matter,
-as there seems to be an undervaluation of feedback.
+We want to present on the monitoring-tool Prometheus
 
 We aim to answer questions such as:
 
-- What is monitoring?
-- What are metrics?
-- What is the value of deploying often?
-- What is the value of the feedback from the system?
-- How to act upon the feedback gained from the system?
+- What is monitoring? (briefly)
+- What are metrics? (briefly)
+- What is Prometheus?
+- How is Prometheus used?
+- What are the advantages of using Prometheus?
