@@ -17,7 +17,8 @@ try {
   // const changedFiles = core.getInput("changed-files");
   // console.log(changedFiles)
 
-  const client = new GitHub(core.getInput('token', {required: true}))
+  // const client = new GitHub(core.getInput('token', {required: true}))
+  const client = github.getOctokit(core.getInput('token'));
 
   const baseSHA = context.payload.pull_request?.base?.sha
   const headSHA = context.payload.pull_request?.head?.sha
