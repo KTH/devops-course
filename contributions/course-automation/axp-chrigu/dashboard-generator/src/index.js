@@ -33,10 +33,8 @@ const { parseJson } = require("./markdown");
 async function generateDashboard(){
     try{
         const data = await collectDashboardData();
-        console.log(data);
         const md = parseJson(data);
-        console.log(md);
-
+        core.setOutput("dashboard", md);
     } catch(error) {
         core.setFailed(error.message);
     }
