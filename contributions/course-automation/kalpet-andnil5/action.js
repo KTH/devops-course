@@ -3,18 +3,7 @@ import { context, getOctokit } from '@actions/github';
 const fs = require('fs');
 const { join, resolve } = require('path');
 
-const root = join(resolve(__dirname), '..', '..');
-console.log('Contributions', root);
-// const resolvePublicPath = (path) => join(__dirname, '..', 'public', path);
-
-// const readFile = (path) => new Promise((resolve, reject) => {
-//   fs.readFile(path, 'utf8', (err, data) => {
-//     if (err) reject(err);
-//     else resolve(data);
-//   });
-// });
-
-
+const root = join(resolve(__dirname), '..', '..', '..');
 
 const kthIDs = [
   'andnil5',
@@ -56,8 +45,13 @@ try {
       .filter(file => file.length > 3 && file[0] === 'contributions' );
     if (filteredFiles.length < 1) throw Error('Could not find path to README.md');
     const readme = [...filteredFiles[0].splice(0,3), 'README.md'].join('/');
-    console.log(readme);
 
+    // Read file
+    fs.readFile(readme, 'utf8', (err, data) => {
+      if (err) throw Error(err);
+      return data;
+    }).then(res => console.log(res))
+    .catch(err => {throw Error(err)});
     
     if (!kthIDs.includes(context.payload.pull_request.user.login))
     throw Error('The user is not registered in the course.');
