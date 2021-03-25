@@ -13,7 +13,7 @@ try {
   // Get the JSON webhook payload for the event that triggered the workflow
   const payload = JSON.stringify(context, undefined, 2)
   // console.log(context);
-  console.log(`The event payload: ${payload}`);
+  // console.log(`The event payload: ${payload}`);
   // const changedFiles = core.getInput("changed-files");
   // console.log(changedFiles)
 
@@ -36,11 +36,11 @@ try {
     owner: context.repo.owner,
     repo: context.repo.repo
   }).then(response => {
-    if (response.status !== 200) throw Error('Could not fetch changed files!');
-    const files = response.data.files;
-    console.log(files);
-    if (!kthIDs.includes(context.payload.pull_request.user.login))
-    throw Error('The user is not registered in the course.');
+    // if (response.status !== 200) throw Error('Could not fetch changed files!');
+    // const files = response.data.files;
+    // console.log(files);
+    // if (!kthIDs.includes(context.payload.pull_request.user.login))
+    // throw Error('The user is not registered in the course.');
   }).catch(error => {
     core.setFailed(error.message);
   });

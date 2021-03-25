@@ -13,18 +13,18 @@ const core = __nccwpck_require__(66);
 
 
 
-const kthIDs = [
+const kthIDs = (/* unused pure expression or super */ null && ([
   'andnil5',
   'kalpet',
   'johanbes',
   'KallePettersson'
-];
+]));
 
 try {
   // Get the JSON webhook payload for the event that triggered the workflow
   const payload = JSON.stringify(_actions_github__WEBPACK_IMPORTED_MODULE_0__.context, undefined, 2)
   // console.log(context);
-  console.log(`The event payload: ${payload}`);
+  // console.log(`The event payload: ${payload}`);
   // const changedFiles = core.getInput("changed-files");
   // console.log(changedFiles)
 
@@ -47,11 +47,11 @@ try {
     owner: _actions_github__WEBPACK_IMPORTED_MODULE_0__.context.repo.owner,
     repo: _actions_github__WEBPACK_IMPORTED_MODULE_0__.context.repo.repo
   }).then(response => {
-    if (response.status !== 200) throw Error('Could not fetch changed files!');
-    const files = response.data.files;
-    console.log(files);
-    if (!kthIDs.includes(_actions_github__WEBPACK_IMPORTED_MODULE_0__.context.payload.pull_request.user.login))
-    throw Error('The user is not registered in the course.');
+    // if (response.status !== 200) throw Error('Could not fetch changed files!');
+    // const files = response.data.files;
+    // console.log(files);
+    // if (!kthIDs.includes(context.payload.pull_request.user.login))
+    // throw Error('The user is not registered in the course.');
   }).catch(error => {
     core.setFailed(error.message);
   });
