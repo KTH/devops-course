@@ -8,19 +8,17 @@ module.exports =
 const core = __nccwpck_require__(66);
 const github = __nccwpck_require__(608);
 
-console.log('hej');
+const kthIDs = (/* unused pure expression or super */ null && ([
+  'andnil5',
+  'kalpet',
+  'johanbes',
+]));
 
 try {
-  // `who-to-greet` input defined in action metadata file
-  const nameToGreet = core.getInput('who-to-greet');
-  console.log(`Hello ${nameToGreet}!`);
-  const time = (new Date()).toTimeString();
-  core.setOutput("time", time);
   // Get the JSON webhook payload for the event that triggered the workflow
   const payload = JSON.stringify(github.context.payload, undefined, 2)
   console.log(`The event payload: ${payload}`);
-  core.setFailed("Test fail");
-
+  // throw Error('');
 } catch (error) {
   core.setFailed(error.message);
 }

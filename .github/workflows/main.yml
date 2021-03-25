@@ -1,15 +1,15 @@
-on: [push]
+on: [pull_request] # change to on pullrequest when ready
 
 jobs:
   hello_world_job:
     runs-on: ubuntu-latest
-    name: A job to say hello
+    name: Match PR author with course registered KTH ids
     steps:
-      # To use this repository's private action,
-      # you must check out the repository
+    # Checkout latest version of repository
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Hello world action step
+    # Run
+      - name: Match PR author with course registered KTH ids
         uses: ./contributions/course-automation/kalpet-andnil5 # Uses an action in the root directory
         id: hello
         with:

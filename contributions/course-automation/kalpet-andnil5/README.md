@@ -20,4 +20,4 @@ We want to solve the issue described by baudry in #916.
 * If GitHub id matches kth id, set a status check flag to success.
 * Otherwise, check that the Member mail address in the README match, and set the status check flag to success.
 * If both of the above fails, set the status check flag to failure.
-* Utilize Status checks API to visualize the result.
+* Utilize Status checks API to visualize the result for the TA:s.
