@@ -1,4 +1,4 @@
-# Presentation - Monitoring
+# Presentation - Monitoring with Prometheus
 
 ## Members
 
@@ -17,5 +17,7 @@ We aim to answer questions such as:
 - What is monitoring? (briefly)
 - What are metrics? (briefly)
 - What is Prometheus?
+- How to set up Prometheus?
 - How is Prometheus used?
 - What are the advantages of using Prometheus?
+- What makes Prometheus different from other tools?-
