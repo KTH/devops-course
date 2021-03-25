@@ -47,6 +47,7 @@ try {
     owner: _actions_github__WEBPACK_IMPORTED_MODULE_0__.context.repo.owner,
     repo: _actions_github__WEBPACK_IMPORTED_MODULE_0__.context.repo.repo
   }).then(response => {
+    console.log(response);
     // if (response.status !== 200) throw Error('Could not fetch changed files!');
     // const files = response.data.files;
     // console.log(files);
