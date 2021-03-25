@@ -9,14 +9,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
     # test
-    - name: changed files
-      uses: jitterbit/get-changed-files@v1
-      id: changed-files
-      with:
-        # Format of the steps output context.
-        # Can be 'space-delimited', 'csv', or 'json'.
-        # Default: 'space-delimited'
-        format: 'json'
+      - name: changed files
+        uses: jitterbit/get-changed-files@v1
+        id: changed-files
+        with:
+          # Format of the steps output context.
+          # Can be 'space-delimited', 'csv', or 'json'.
+          # Default: 'space-delimited'
+          format: 'json'
     # Run
       - name: Match PR author with course registered KTH ids
         uses: ./contributions/course-automation/kalpet-andnil5 # Uses an action in the root directory
