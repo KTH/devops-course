@@ -19,3 +19,5 @@ The requirements for the actions are:
 -   Include title of PR.
 -   Include the new comment.
 -   Send email to all group members.
+
+Note: The student can set on/off the notification (it will be off by default). This way, students who don't want to be notified are not going to receive email alerts.
