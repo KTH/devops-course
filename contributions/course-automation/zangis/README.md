@@ -11,5 +11,5 @@ Ensuring that pull request can be approved only if the formatting requirements a
 ## Description
 - Check changed .md file contents (contains: task name, members, and description)
 - Verify that the member names (from README.md) are represented in the containing folder name
-- Confirm that file structure follows the rules (no changes outside members folder for all 7 task categories)
+- Confirm that file structure follows the rules (no changes outside members folder in the selected category)
 - Disallow pull request approval if any checks have failed
