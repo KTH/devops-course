@@ -23,5 +23,5 @@ jobs:
     steps:
       - run: |
           echo "${{ github.event.comment.body }}" | wc -w
-          echo "${{ github.event.issue.comment }}"
-          echo "${{ github.event.pull_request.body }}"
+          echo "${{ github.event.issue }}"
+          echo "${{ github.event.issue.pull_request }}"
