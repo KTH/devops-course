@@ -1,10 +1,10 @@
 const core = require('@actions/core');
-const { context, getOctokit } = require('@actions/github');
+import { context, getOctokit } from '@actions/github';
 const fs = require('fs');
 const { join, resolve } = require('path');
 
 const root = join(resolve(__dirname), '..', '..');
-console.log(root);
+console.log('Contributions', root);
 // const resolvePublicPath = (path) => join(__dirname, '..', 'public', path);
 
 // const readFile = (path) => new Promise((resolve, reject) => {
@@ -26,16 +26,12 @@ const kthIDs = [
 try {
   // Get the JSON webhook payload for the event that triggered the workflow
   const payload = JSON.stringify(context, undefined, 2)
-  // console.log(context);
-  // console.log(`The event payload: ${payload}`);
-  // const changedFiles = core.getInput("changed-files");
-  // console.log(changedFiles)
 
   // const client = new GitHub(core.getInput('token', {required: true}))
   const client = getOctokit(core.getInput('token'));
 
-  const base = context.payload.pull_request?.base?.sha
-  const head = context.payload.pull_request?.head?.sha
+  const base = context.payload.pull_request?.base?.sha;
+  const head = context.payload.pull_request?.head?.sha;
 
   if (!base || !head) {
     core.setFailed(
