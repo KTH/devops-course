@@ -5,17 +5,19 @@
  *  summary: {
  *    nrTotal: number
  *  },
- *  [year: number]: {
- *      nrTotal: number,
- *      categories: {
- *          name: string,
- *          tasks: {
- *              authors: string[],
- *              link: string,
- *              title: string
- *          }[]
- *       }[]
- *  }
+ *  year: {
+*  [year: number]: {
+*      nrTotal: number,
+*      categories: {
+*          name: string,
+*          tasks: {
+*              authors: string[],
+*              link: string,
+*              title: string
+*          }[]
+*       }[]
+*  }
+ * }
  * }}
  */
 
@@ -25,7 +27,8 @@
  * @returns
  */
 const parseAuthors = (authors) => {
-    return authors.join(" & ");
+    if(authors) return authors.join(" & ");
+    return "Authors not found";
 };
 
 /**
@@ -37,7 +40,7 @@ const parseCategory = (markdown, category) => {
     markdown.push(`### ${category.name}`);
     category.tasks.forEach((task) => {
         markdown.push(
-            `- ${parseAuthors(task.authors)} - [${task.title}](${task.authors})`
+            `- ${parseAuthors(task.authors)} - [${task.title || "Title not found"}](${task.link})`
         );
     });
     return markdown;
@@ -56,11 +59,10 @@ const parseJson = (result) => {
     markdown.push(`Total submissions: ${result.summary.nrTotal}`);
 
     // Add years
-    Object.keys(result)
-        .filter((key) => key !== "summary")
+    [...result.year.keys()]
         .sort((a, b) => parseInt(b) - parseInt(a))
         .forEach((yearKey) => {
-            const year = result[parseInt(yearKey)];
+            const year = result.year.get(yearKey);
             markdown.push(`## ${yearKey}`);
             markdown.push(`Submissions this year: ${year.nrTotal}`);
 
