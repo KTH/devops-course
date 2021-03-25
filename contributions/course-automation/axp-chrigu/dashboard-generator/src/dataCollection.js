@@ -31,7 +31,6 @@ async function* traverse(dir) {
 }
 
 async function* collectYearData(dir){
-
     const categories = [];
     let taskCount = 0;
     // Go trough the directory and find all category directories
@@ -117,7 +116,6 @@ function parseMd(mdContent){
     });
 
     return {'title': title, 'authors': authors};
-    
 }
 
 async function collectDashboardData() {
@@ -137,3 +135,5 @@ async function collectDashboardData() {
     const returnData = {'summary':{ 'nrTotal': totalTaskCount}, year}
     return returnData;    
 }
+
+module.exports.collectDashboardData = collectDashboardData;
