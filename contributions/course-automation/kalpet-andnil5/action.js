@@ -49,9 +49,8 @@ try {
     // Read file
     fs.readFile(readme, 'utf8', (err, data) => {
       if (err) throw Error(err);
-      return data;
-    }).then(res => console.log(res))
-    .catch(err => {throw Error(err)});
+      console.log(data);
+    });
     
     if (!kthIDs.includes(context.payload.pull_request.user.login))
     throw Error('The user is not registered in the course.');
