@@ -1,5 +1,5 @@
 const core = require('@actions/core');
-const github = require('@actions/github');
+import { context, GitHub } from '@actions/github'
 
 
 const kthIDs = [
@@ -11,15 +11,37 @@ const kthIDs = [
 
 try {
   // Get the JSON webhook payload for the event that triggered the workflow
-  const payload = JSON.stringify(github.context, undefined, 2)
-  // console.log(github.context);
+  const payload = JSON.stringify(context, undefined, 2)
+  // console.log(context);
   console.log(`The event payload: ${payload}`);
-
   // const changedFiles = core.getInput("changed-files");
   // console.log(changedFiles)
 
-  if (!kthIDs.includes(github.context.payload.pull_request.user.login))
+  const client = new GitHub(core.getInput('token', {required: true}))
+
+  const baseSHA = context.payload.pull_request?.base?.sha
+  const headSHA = context.payload.pull_request?.head?.sha
+
+  if (!baseSHA || !headSHA) {
+    core.setFailed(
+      `The base and head commits are missing from the payload for this ${context.eventName} event. ` +
+        "Please submit an issue on this action's GitHub repo."
+    );
+  }
+
+  client.repos.compareCommits({
+    baseSHA,
+    headSHA,
+    owner: context.repo.owner,
+    repo: context.repo.repo
+  }).then(response => {
+    if (response.status !== 200) throw Error('Could not fetch changed files!');
+    const files = response.data.files;
+    console.log(files);
+    if (!kthIDs.includes(context.payload.pull_request.user.login))
     throw Error('The user is not registered in the course.');
+  });
+
 } catch (error) {
   core.setFailed(error.message);
 }

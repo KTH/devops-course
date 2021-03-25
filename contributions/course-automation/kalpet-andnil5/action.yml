@@ -1,5 +1,12 @@
 name: 'Verify KTH GitHub id'
 description: 'Greet someone and record the time'
+inputs:
+  token:
+    description: >
+      GitHub token for GitHub API requests.
+      Users shouldn't need to set this themselves.
+    required: true
+    default: ${{ github.token }}
 # inputs:
 #   changed-files:  # id of input
 #     required: true

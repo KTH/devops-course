@@ -3,10 +3,14 @@ module.exports =
 /******/ 	var __webpack_modules__ = ({
 
 /***/ 957:
-/***/ ((__unused_webpack_module, __unused_webpack_exports, __nccwpck_require__) => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __nccwpck_require__) => {
 
+"use strict";
+__nccwpck_require__.r(__webpack_exports__);
+/* harmony import */ var _actions_github__WEBPACK_IMPORTED_MODULE_0__ = __nccwpck_require__(608);
+/* harmony import */ var _actions_github__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__nccwpck_require__.n(_actions_github__WEBPACK_IMPORTED_MODULE_0__);
 const core = __nccwpck_require__(66);
-const github = __nccwpck_require__(608);
+
 
 
 const kthIDs = [
@@ -18,15 +22,37 @@ const kthIDs = [
 
 try {
   // Get the JSON webhook payload for the event that triggered the workflow
-  const payload = JSON.stringify(github.context, undefined, 2)
-  // console.log(github.context);
+  const payload = JSON.stringify(_actions_github__WEBPACK_IMPORTED_MODULE_0__.context, undefined, 2)
+  // console.log(context);
   console.log(`The event payload: ${payload}`);
-
   // const changedFiles = core.getInput("changed-files");
   // console.log(changedFiles)
 
-  if (!kthIDs.includes(github.context.payload.pull_request.user.login))
+  const client = new _actions_github__WEBPACK_IMPORTED_MODULE_0__.GitHub(core.getInput('token', {required: true}))
+
+  const baseSHA = _actions_github__WEBPACK_IMPORTED_MODULE_0__.context.payload.pull_request.base.sha
+  const headSHA = _actions_github__WEBPACK_IMPORTED_MODULE_0__.context.payload.pull_request.head.sha
+
+  if (!baseSHA || !headSHA) {
+    core.setFailed(
+      `The base and head commits are missing from the payload for this ${_actions_github__WEBPACK_IMPORTED_MODULE_0__.context.eventName} event. ` +
+        "Please submit an issue on this action's GitHub repo."
+    );
+  }
+
+  client.repos.compareCommits({
+    baseSHA,
+    headSHA,
+    owner: _actions_github__WEBPACK_IMPORTED_MODULE_0__.context.repo.owner,
+    repo: _actions_github__WEBPACK_IMPORTED_MODULE_0__.context.repo.repo
+  }).then(response => {
+    if (response.status !== 200) throw Error('Could not fetch changed files!');
+    const files = response.data.files;
+    console.log(files);
+    if (!kthIDs.includes(_actions_github__WEBPACK_IMPORTED_MODULE_0__.context.payload.pull_request.user.login))
     throw Error('The user is not registered in the course.');
+  });
+
 } catch (error) {
   core.setFailed(error.message);
 }
@@ -6010,6 +6036,46 @@ module.exports = require("zlib");;
 /******/ 	}
 /******/ 	
 /************************************************************************/
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__nccwpck_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => module['default'] :
+/******/ 				() => module;
+/******/ 			__nccwpck_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__nccwpck_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__nccwpck_require__.o(definition, key) && !__nccwpck_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__nccwpck_require__.o = (obj, prop) => Object.prototype.hasOwnProperty.call(obj, prop)
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__nccwpck_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/compat */
 /******/ 	
 /******/ 	__nccwpck_require__.ab = __dirname + "/";/************************************************************************/
