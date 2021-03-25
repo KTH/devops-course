@@ -36,12 +36,11 @@ try {
     owner: context.repo.owner,
     repo: context.repo.repo
   }).then(response => {
-    console.log(response);
-    // if (response.status !== 200) throw Error('Could not fetch changed files!');
-    // const files = response.data.files;
-    // console.log(files);
-    // if (!kthIDs.includes(context.payload.pull_request.user.login))
-    // throw Error('The user is not registered in the course.');
+    if (response.status !== 200) throw Error('Could not fetch changed files!');
+    const files = response.data.files;
+    console.log(files);
+    if (!kthIDs.includes(context.payload.pull_request.user.login))
+    throw Error('The user is not registered in the course.');
   }).catch(error => {
     core.setFailed(error.message);
   });
