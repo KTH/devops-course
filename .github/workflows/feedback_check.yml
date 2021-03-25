@@ -24,4 +24,4 @@ jobs:
       - run: |
           body=${{ github.event.comment.body }} |
           echo "Comment on PR #${{ github.event.issue.number }}: $body" |
-          echo "Number of words: $(wc - w $body)"
+          echo "Number of words: $(wc -w $body)"
