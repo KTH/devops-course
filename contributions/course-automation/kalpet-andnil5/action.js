@@ -41,6 +41,8 @@ try {
     console.log(files);
     if (!kthIDs.includes(context.payload.pull_request.user.login))
     throw Error('The user is not registered in the course.');
+  }).catch(error => {
+    core.setFailed(error.message);
   });
 
 } catch (error) {
