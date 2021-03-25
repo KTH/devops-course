@@ -1,8 +1,8 @@
 name: 'Verify KTH GitHub id'
 description: 'Greet someone and record the time'
-inputs:
-  changed-files:  # id of input
-    required: true
+# inputs:
+#   changed-files:  # id of input
+#     required: true
 # outputs:
 #   time: # id of output
 #     description: 'The time we greeted you'

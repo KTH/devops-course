@@ -22,8 +22,8 @@ try {
   // console.log(github.context);
   console.log(`The event payload: ${payload}`);
 
-  const changedFiles = core.getInput("changed-files");
-  console.log(changedFiles)
+  // const changedFiles = core.getInput("changed-files");
+  // console.log(changedFiles)
 
   if (!kthIDs.includes(github.context.payload.pull_request.user.login))
     throw Error('The user is not registered in the course.');
