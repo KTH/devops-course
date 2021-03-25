@@ -1,8 +1,8 @@
 # Presentation Proposal
 
  ## Members
- Hugo Heyman (isacarv@kth.se)
- Github username: [hallon-heyman](https://github.com/isacarvid)
+ Hugo Heyman (hheyman@kth.se)
+ Github username: [hallon-heyman](https://github.com/hallon-heyman)
 
  Patricia Naccachian (nacca@kth.se)
  Github username: [patricia-naccachian](https://github.com/patricia-naccachian)
