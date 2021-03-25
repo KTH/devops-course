@@ -22,4 +22,4 @@ During the presentation we will introduce what DevSecOps is and talk about its i
 
 
 ## Presentation Slides
-[Presentation](TBA)
+[Presentation] TBA
