@@ -22,8 +22,8 @@ const parser = {
     return res;
   },
 };
-
-const root = join(resolve(__dirname), '..', '..', '..');
+const actionDirectory = resolve(__dirname);
+const root = join(actionDirectory, '..', '..', '..');
 
 // Felhantering...
 const kthIDs = parser.readFile(__nccwpck_require__.ab + "kth-ids.txt").split(/\n/);
