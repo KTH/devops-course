@@ -22,15 +22,22 @@ jobs:
               id: dashboard
 
             - name: Push new dashboard
+              id: push
               run: |
                   echo "${{ steps.dashboard.outputs.dashboard }}" > dashboard.md
-                  git config --global user.name 'Dashboard bot'
-                  git config --global user.email 'dashboard-bot-dd2482@users.noreply.github.com'
-                  git add ./dashboard.md
-                  git commit -m "Generated dashboard"
-                  git push
+                  if [ -z "$(git status --porcelain)" ]; then
+                    echo "::set-output name=did_push::false"
+                  else
+                    git config --global user.name 'Dashboard bot'
+                    git config --global user.email 'dashboard-bot-dd2482@users.noreply.github.com'
+                    git add ./dashboard.md
+                    git commit -m "Generated dashboard"
+                    git push
+                    echo "::set-output name=did_push::true"
+                  fi
 
             - name: Comment PR
+              if: steps.push.outputs.did_push == 'true'
               uses: ./contributions/course-automation/axp-chrigu/pr-comment/
               with:
                 message: 'This task is available in the dashboard'
