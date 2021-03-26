@@ -14,3 +14,5 @@ I plan to use Katacoda to be able to run the tutorial interactively with a termi
 ## Execution
 
 I made a tutorial and it's available at https://www.katacoda.com/christian-stj.
+
+The repo for my tutorial can be found here: https://github.com/christian-stj/katacoda-scenarios.
