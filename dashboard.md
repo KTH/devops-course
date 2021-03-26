@@ -2,7 +2,7 @@
 Total submissions: 276
 ## Submissions per year
 | Category | 2021 | 2019 | 2020 |
-|-|-|-|
+|-|-|-|-|
 | open-source | 0 | 0 | 8 |
 | essay | 1 | 30 | 36 |
 | feedback | 0 | 0 | 0 |
