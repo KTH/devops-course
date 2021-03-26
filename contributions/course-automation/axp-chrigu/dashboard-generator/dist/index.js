@@ -2,7 +2,7 @@ module.exports =
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 286:
+/***/ 188:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
@@ -16,7 +16,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const os = __importStar(__nccwpck_require__(87));
-const utils_1 = __nccwpck_require__(653);
+const utils_1 = __nccwpck_require__(911);
 /**
  * Commands
  *
@@ -88,7 +88,7 @@ function escapeProperty(s) {
 
 /***/ }),
 
-/***/ 903:
+/***/ 36:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
@@ -110,9 +110,9 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const command_1 = __nccwpck_require__(286);
-const file_command_1 = __nccwpck_require__(252);
-const utils_1 = __nccwpck_require__(653);
+const command_1 = __nccwpck_require__(188);
+const file_command_1 = __nccwpck_require__(953);
+const utils_1 = __nccwpck_require__(911);
 const os = __importStar(__nccwpck_require__(87));
 const path = __importStar(__nccwpck_require__(622));
 /**
@@ -333,7 +333,7 @@ exports.getState = getState;
 
 /***/ }),
 
-/***/ 252:
+/***/ 953:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
@@ -351,7 +351,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 /* eslint-disable @typescript-eslint/no-explicit-any */
 const fs = __importStar(__nccwpck_require__(747));
 const os = __importStar(__nccwpck_require__(87));
-const utils_1 = __nccwpck_require__(653);
+const utils_1 = __nccwpck_require__(911);
 function issueCommand(command, message) {
     const filePath = process.env[`GITHUB_${command}`];
     if (!filePath) {
@@ -369,7 +369,7 @@ exports.issueCommand = issueCommand;
 
 /***/ }),
 
-/***/ 653:
+/***/ 911:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -395,7 +395,7 @@ exports.toCommandValue = toCommandValue;
 
 /***/ }),
 
-/***/ 0:
+/***/ 14:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 const fs = __nccwpck_require__(747);
@@ -475,13 +475,14 @@ async function collectCategoryData(categoryPath){
 }
 
 function collectDataFromFile(entry){
-    const result = {'title': null, 'authors': null, 'link': (repoUrl+entry).slice(0, -10)}
+    const result = {'title': null, 'authors': null, 'link': (repoUrl+entry).slice(0, -10), 'content': null}
     try{
         const data = fs.readFileSync(entry, 'utf-8');
         // Parse md file for authors, title and link
         const {title: t, authors: a} = parseMd(data);
-        result.title = t;
+        result.title = t.replace(/`/g, "");;
         result.authors = a;
+        result.content = data.replace(/`/g, "");;
     } catch(error){
         console.log(error.message);
     }
@@ -534,12 +535,12 @@ module.exports.collectDashboardData = collectDashboardData;
 
 /***/ }),
 
-/***/ 47:
+/***/ 736:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __nccwpck_require__) => {
 
-const core = __nccwpck_require__(903);
-const { collectDashboardData } = __nccwpck_require__(0);
-const { parseJson } = __nccwpck_require__(998);
+const core = __nccwpck_require__(36);
+const { collectDashboardData } = __nccwpck_require__(14);
+const { parseJson } = __nccwpck_require__(589);
 
 /**
  * Result type of data collection
@@ -583,7 +584,7 @@ generateDashboard();
 
 /***/ }),
 
-/***/ 998:
+/***/ 589:
 /***/ ((module) => {
 
 /**
@@ -729,6 +730,6 @@ module.exports = require("path");;
 /******/ 	// module exports must be returned from runtime so entry inlining is disabled
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
-/******/ 	return __nccwpck_require__(47);
+/******/ 	return __nccwpck_require__(736);
 /******/ })()
 ;

@@ -80,9 +80,9 @@ function collectDataFromFile(entry){
         const data = fs.readFileSync(entry, 'utf-8');
         // Parse md file for authors, title and link
         const {title: t, authors: a} = parseMd(data);
-        result.title = t;
+        result.title = t.replace(/`/g, "");;
         result.authors = a;
-        result.content = data;
+        result.content = data.replace(/`/g, "");;
     } catch(error){
         console.log(error.message);
     }
