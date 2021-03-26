@@ -15,7 +15,6 @@ We aim to fulfill the following criteria:
 * Introduction: The essay contains a good introduction
 * Conclusion: The essay contains a good conclusion
 * Self-contained: The essay is self-contained, one can understand it without reading something else (expected knowledge of the reader: a master student in computer science)
-* Innovative: The essay contains innovative ideas or material
 * Figures: The essay contains good figures or listings
 * Sound: The essay is sound, factual, and accurate 
 * References: The essay contains references, appropriate  in number and quality (10 good refs is a minimum)
