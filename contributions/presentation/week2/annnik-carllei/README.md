@@ -7,18 +7,13 @@ Github username: annsudo
 Carl Leijonberg (carllei@kth.se)
 Github username: carllei
 
+## Topic "Third Party Software Dependency Management" 
+During the presentation we will talk about the importance of managing third party software dependencies. We will highlight issues such management of a large number of software dependencies and  how vulnerabilities in third party software can affect your software. We will also discuss tools that can be used to automatically identify security issues in software dependencies.
+
 ## Agenda
- - 📖  Introduction (What is it?) 
- - ❓  Motivation (Why do we need to secure CI/CD Pipelines?)
- - 🛡 Secure CI/ CD Pipelines (+ some tools)
- - 🛠️  Even more tools
- - 🔑  Best Practices
+ - 📖  Introduction (issues with third party software dependencies) 
+ - 🛡  Dependency-check  with OWASP
  - 📝  Reflecion + Take home message + engagement
-
-## Topic "Secure CI/ CD Pipelines: tools and best practices" 
-Security should be integrated throughout the entire DevOps lifecycle and it is important to improve security of CI/CD Pinpelines without hampering speed, agility, and other essentials of DevOps.
-
-During the presentation we will introduce the secure CI/CD Pipelines and DevSecOps concept and talk about its importance throughout stages of the lifecycle. Then we will outline best practices, explain how security can be integrated into CI/CD Pipeline and introduce tools that can help you with it.  
 
 
 ## Presentation Slides
