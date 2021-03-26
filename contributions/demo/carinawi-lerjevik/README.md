@@ -17,4 +17,4 @@ We aim to fulfill the following criteria:
 |The video contains an [easter egg](https://github.com/OrkoHunter/python-easter-eggs) | **Yes** | No | **Related to the demo** |
 |There is a code repo to run the demo  | **Yes** | No | **Code repo with a solid readme** |
 |The video must contain subtitles which are clear and in proper English | **Yes** | No | **Clearly understandable voice over** |
-|The video includes a take-home message | **Yes** | No | Actionable takeaway |
+|The video includes a take-home message | **Yes** | No | **Actionable takeaway** |
