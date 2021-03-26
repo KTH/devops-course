@@ -11,7 +11,7 @@ Lara Rostami (larasm@kth.se) GitHub: [LaraRos](https://github.com/LaraRos)
 We propose a demonstration of how to create a simple React app using Firebase hosting and Cloud Functions to create app logic. The app will be hosted in a serverless manner.
 
 ## Related to DevOps ## 
-* The server will use cloud functions that are being run in Firebase as opposed to the sersver itselfd
+* The server will use cloud functions that are being run in Firebase as opposed to the server itself
 * We will automatically deploy the main branch to Firebase
 
 ## Plan ##
