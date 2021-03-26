@@ -1,8 +1,26 @@
 const core = require('@actions/core');
-const { context, getOctokit } = require('@actions/github');
+import {context, getOctokit } from '@actions/github';
 const fs = require('fs');
 const { join, resolve } = require('path');
-const { parseKTHEmail, readFile } = require('./parser');
+// const { parseKTHEmail, readFile } = require('./parser');
+const parser = {
+  readFile(file) {
+    return fs.readFile(file, 'utf8', (err, data) => {
+        if (err) throw Error(err);
+        return data;
+    });
+  },
+  parseKTHEmail(file) {
+    // TODO: FIXA FELHANTERING
+    return this.readFile(file)
+    .then(data =>{
+        const ma = data.match(/-----[^-----]+-----/)[0];
+        const res = ma.match(/(([\w\d\._%+-]+)@kth.se)/g)
+        .map(mail => mail.replace('@kth.se', ''));
+        return res
+    });
+  },
+};
 
 const root = join(resolve(__dirname), '..', '..', '..');
 
@@ -46,7 +64,7 @@ try {
       .filter(file => file.length > 3 && file[0] === 'contributions' );
     if (filteredFiles.length < 1) throw Error('Could not find path to README.md');
     const readme = [...filteredFiles[0].splice(0,3), 'README.md'].join('/');
-    parseKTHEmail(readme).then(ids => {
+    parser.parseKTHEmail(readme).then(ids => {
       const correctIDs = ids.filter(id => kthIDs.includes(id));
       console.log(correctIDs, ids);
       
