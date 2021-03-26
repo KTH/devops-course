@@ -5,13 +5,7 @@ const { join, resolve } = require('path');
 // const { parseKTHEmail, readFile } = require('./parser');
 const parser = {
   readFile(file) {
-    const res = fs.readFileSync(file, 'utf8');
-    console.log('Results', res);
-    return res;
-    // return fs.readFile(file, 'utf8', (err, data) => {
-    //   if (err) throw Error(err);
-    //   return data;
-    // });
+    return fs.readFileSync(file, 'utf8');
   },
   parseKTHEmail(file) {
     // TODO: FIXA FELHANTERING
@@ -19,16 +13,8 @@ const parser = {
     const ma = data.match(/-----[^-----]+-----/)[0];
     const res = ma.match(/(([\w\d\._%+-]+)@kth.se)/g)
       .map(mail => mail.replace('@kth.se', ''));
-    return res
+    return res;
   },
-    // return this.readFile(file)
-    //   .then(data =>{
-    //     const ma = data.match(/-----[^-----]+-----/)[0];
-    //     const res = ma.match(/(([\w\d\._%+-]+)@kth.se)/g)
-    //     .map(mail => mail.replace('@kth.se', ''));
-    //     return res
-    //   });
-  // },
 };
 
 const root = join(resolve(__dirname), '..', '..', '..');
@@ -74,12 +60,11 @@ try {
     if (filteredFiles.length < 1) throw Error('Could not find path to README.md');
     const readme = [...filteredFiles[0].splice(0,3), 'README.md'].join('/');
     console.log('File', readme);
-    parser.parseKTHEmail(readme).then(ids => {
-      console.log('In parse...', ids);
-      const correctIDs = ids.filter(id => kthIDs.includes(id));
-      console.log(correctIDs, ids);
-      
-    });
+    const ids = parser.parseKTHEmail(readme);
+    console.log('In parse...', ids);
+    const correctIDs = ids.filter(id => kthIDs.includes(id));
+    console.log(correctIDs, ids);
+
   }).catch(error => {
     core.setFailed(error.message);
   });
