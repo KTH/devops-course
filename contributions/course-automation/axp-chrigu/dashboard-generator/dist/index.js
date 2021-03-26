@@ -2486,15 +2486,15 @@ const generateSummaryTable = (yearsData) => {
     const data = getYearPerCategory(yearsData);
     let markdown = [];
     const years = Array.from(yearsData.keys());
-    // Header
+    // Header and alignment
     let header = "| Category |";
+    let alignment = "|-|";
     years.forEach((year) => {
         header += ` ${year} |`;
+        alignment += "-|";
     });
     markdown.push(header);
-
-    // Specify alignment
-    markdown.push("|-|-|-|");
+    markdown.push(alignment);
 
     // Generate rows in the form | category | submissions year X | submissions year X+1 | ... |
     for (const [key, value] of data) {
