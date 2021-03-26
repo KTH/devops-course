@@ -10,8 +10,8 @@ We would like to create an easy-to-follow video demo that demonstrates how to de
 We aim to fulfill the following criteria:
 |                                             | Yes | No | Remarkable |
 |-------------------------------------------- | ----|----|-------------|
-|The demonstration is clearly motivated (why it matters for Devops?) | **Yes** | No | Relates to a hard problem |
-|The demonstration is difficult to do | Yes | No | Relies on a non trivial infrastructure |
+|The demonstration is clearly motivated (why it matters for Devops?) | **Yes** | No | **Relates to a hard problem** |
+|The demonstration is difficult to do | **Yes** | No | Relies on a non trivial infrastructure |
 |The demonstration is original | Yes | No | The are less than 10 demos on the topic on Internet |
 |The video is sublime (eg visually appealing) | **Yes** | No | **Excellent narrative** |
 |The video contains an [easter egg](https://github.com/OrkoHunter/python-easter-eggs) | **Yes** | No | **Related to the demo** |
