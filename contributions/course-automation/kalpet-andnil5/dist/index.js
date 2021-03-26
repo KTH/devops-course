@@ -61,7 +61,7 @@ try {
       .map(file => file.filename.split('/'))
       .filter(file => file.length > 3 && file[0] === 'contributions' );
     if (filteredFiles.length < 1) throw Error('Could not find path to README.md');
-    const readme = join([...filteredFiles[0].splice(0,3), 'README.md']);
+    const readme = [...filteredFiles[0].splice(0,3), 'README.md'].join('/');
     console.log('File', readme);
     const ids = parser.parseKTHEmail(readme);
     console.log('In parse...', ids);
