@@ -21,7 +21,6 @@ const root = join(resolve(__dirname), '..', '..', '..');
 
 const kthIDs = [
   'andnil5',
-  'kalpet',
   'johanbes',
   'KallePettersson'
 ];
