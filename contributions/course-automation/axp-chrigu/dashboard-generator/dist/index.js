@@ -2,7 +2,7 @@ module.exports =
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 188:
+/***/ 286:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
@@ -16,7 +16,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const os = __importStar(__nccwpck_require__(87));
-const utils_1 = __nccwpck_require__(911);
+const utils_1 = __nccwpck_require__(653);
 /**
  * Commands
  *
@@ -88,7 +88,7 @@ function escapeProperty(s) {
 
 /***/ }),
 
-/***/ 36:
+/***/ 903:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
@@ -110,9 +110,9 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const command_1 = __nccwpck_require__(188);
-const file_command_1 = __nccwpck_require__(953);
-const utils_1 = __nccwpck_require__(911);
+const command_1 = __nccwpck_require__(286);
+const file_command_1 = __nccwpck_require__(252);
+const utils_1 = __nccwpck_require__(653);
 const os = __importStar(__nccwpck_require__(87));
 const path = __importStar(__nccwpck_require__(622));
 /**
@@ -333,7 +333,7 @@ exports.getState = getState;
 
 /***/ }),
 
-/***/ 953:
+/***/ 252:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
@@ -351,7 +351,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 /* eslint-disable @typescript-eslint/no-explicit-any */
 const fs = __importStar(__nccwpck_require__(747));
 const os = __importStar(__nccwpck_require__(87));
-const utils_1 = __nccwpck_require__(911);
+const utils_1 = __nccwpck_require__(653);
 function issueCommand(command, message) {
     const filePath = process.env[`GITHUB_${command}`];
     if (!filePath) {
@@ -369,7 +369,7 @@ exports.issueCommand = issueCommand;
 
 /***/ }),
 
-/***/ 911:
+/***/ 653:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -395,12 +395,11 @@ exports.toCommandValue = toCommandValue;
 
 /***/ }),
 
-/***/ 14:
+/***/ 0:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 const fs = __nccwpck_require__(747);
 const path = __nccwpck_require__(622);
-const { title } = __nccwpck_require__(765);
 
 // collectDashboardData().then(data => {
 //     console.log(data);
@@ -432,87 +431,82 @@ async function* traverse(dir) {
 
 async function* collectYearData(dir){
     const categories = [];
-    let taskCount = 0;
+    let totalTaskCount = 0;
     // Go trough the directory and find all category directories
     for await (const categoryDir of await fs.promises.opendir(dir)) {
         if(categoryDir.isDirectory()){
-            let categoryData = [];
-            let entry = "";
             const categoryPath = path.join(dir, categoryDir.name);
-            // Go trough all the task in a given category directory
-            for await (const taskDir of await fs.promises.opendir(categoryPath)) {
-                if(taskDir.isDirectory()){
-                    // If folder is called weekX, its the presentation folder where tasks are divided into weeks,
-                    // iterate over the specific week folders
-                    if(taskDir.name.includes("week") || taskDir.name.includes("weak")){
-                        entry = path.join(categoryPath, taskDir.name); 
-                        for await (const presentationTaskDir of await fs.promises.opendir(entry)) {
-                            if(presentationTaskDir.isDirectory()){
-                                const presentationEntry = path.join(entry, presentationTaskDir.name+"/README.md");
-                                
-                                fs.readFile(presentationEntry, 'utf-8', (err, data) => {
-                                    if(err){
-                                        //console.error(err);
-                                    }
-                                    else{
-                                        // Parse md file for authors, title and link
-                                        const {title: t, authors: a} = parseMd(data);
-                                        taskCount++;
-                                        categoryData.push({'title': t, 'authors': a, 'link': repoUrl+entry});
-                                    }
-                                })
-                            }
-                        }
-                    }
-                    // Not the presentation folder, task folders are located here, read the task README and collect the data
-                    else{
-                        entry = path.join(categoryPath, taskDir.name+"/README.md");
-                        fs.readFile(entry, 'utf-8', (err, data) => {
-                            if(err){
-                                //console.error(err);
-                            }
-                            else{
-                                // Parse md file for authors, title and link
-                                const {title: t, authors: a} = parseMd(data);
-                                taskCount++;
-                                categoryData.push({'title': t, 'authors': a, 'link': repoUrl+entry});
-                            }
-                        })
-                    }
-                }
-            }
-            categories.push({'name': categoryDir.name, 'tasks': categoryData});
+            const {taskCount, data} = await collectCategoryData(categoryPath);
+            totalTaskCount += taskCount;
+            categories.push({'name': categoryDir.name, 'tasks': data});
         }
     }
-    categories.unshift(taskCount);
+    categories.unshift(totalTaskCount);
     yield* categories;
 }
 
-// Parse a given string in md format, return authors, title and link of the task
+async function collectCategoryData(categoryPath){
+    const categoryData = [];
+    let taskCount = 0;
+    // Go trough all the task in a given category directory
+    for await (const taskDir of await fs.promises.opendir(categoryPath)) {
+        if(taskDir.isDirectory()){
+            // If folder is called weekX, its the presentation folder where tasks are divided into weeks,
+            // iterate over the specific week folders
+            if(taskDir.name.includes("week") || taskDir.name.includes("weak")){
+                const entry = path.join(categoryPath, taskDir.name); 
+                for await (const presentationTaskDir of await fs.promises.opendir(entry)) {
+                    if(presentationTaskDir.isDirectory()){
+                        const presentationEntry = path.join(entry, presentationTaskDir.name+"/README.md");
+                        taskCount++;
+                        categoryData.push(collectDataFromFile(presentationEntry));
+                    }
+                }
+            }
+            // Not the presentation folder, task folders are located here, read the task README and collect the data
+            else{
+                const entry = path.join(categoryPath, taskDir.name+"/README.md");
+                taskCount++;
+                categoryData.push(collectDataFromFile(entry));
+            }
+        }
+    }
+    return {taskCount, categoryData};
+}
+
+function collectDataFromFile(entry){
+    const result = {'title': null, 'authors': null, 'link': (repoUrl+entry).slice(0, -10)}
+    try{
+        const data = fs.readFileSync(entry, 'utf-8');
+        // Parse md file for authors, title and link
+        const {title: t, authors: a} = parseMd(data);
+        result.title = t;
+        result.authors = a;
+    } catch(error){
+        console.log(error.message);
+    }
+    return result;
+}
+
+// Parse a given string in md format, return authors and title
 function parseMd(mdContent){
     
-    //Find title
+    // Find title by locating first h1 in the markdown, and taking that as title
     const titleRegex = /^# (.*$)/gim
-    let title = titleRegex.exec(mdContent);
-    if(title != null) {
-        title = title[1];
-    }
+    let title = mdContent.match(titleRegex);
+    if(title != null) title = title[0].slice(2);
 
-    // Find author
+    // Find author by locating line where kth-email is listed, taking it as the author
     const authorRegex = /(.*@kth.se.*)/gim
     let authors = mdContent.match(authorRegex);
     if(authors != null ) authors = authors.map(authString => {
-        // Remove any unnessecary characters from beginning of author string
-        let i = 0;
-        while(i < authString.length) {
-            if(authString[i] == " " | authString[i] == "*" | authString[i] == "-"){
-                i++;
-            }
-            else{
-                break;
-            }
-        }
-        return authString.substring(i);
+        // Remove all characters of type (#,*,|,-), leading whitespace and line breaks
+        const result = authString
+        .replace(/[#*|-]/g, "")
+        .replace(/^[ \t0-9.]+/, "")
+        .replace("</br>", "")
+        .replace("<br>", "");
+        return result;
     });
 
     return {'title': title, 'authors': authors};
@@ -540,12 +534,12 @@ module.exports.collectDashboardData = collectDashboardData;
 
 /***/ }),
 
-/***/ 736:
+/***/ 47:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __nccwpck_require__) => {
 
-const core = __nccwpck_require__(36);
-const { collectDashboardData } = __nccwpck_require__(14);
-const { parseJson } = __nccwpck_require__(589);
+const core = __nccwpck_require__(903);
+const { collectDashboardData } = __nccwpck_require__(0);
+const { parseJson } = __nccwpck_require__(998);
 
 /**
  * Result type of data collection
@@ -589,7 +583,7 @@ generateDashboard();
 
 /***/ }),
 
-/***/ 589:
+/***/ 998:
 /***/ ((module) => {
 
 /**
@@ -695,14 +689,6 @@ module.exports = require("os");;
 "use strict";
 module.exports = require("path");;
 
-/***/ }),
-
-/***/ 765:
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("process");;
-
 /***/ })
 
 /******/ 	});
@@ -743,6 +729,6 @@ module.exports = require("process");;
 /******/ 	// module exports must be returned from runtime so entry inlining is disabled
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
-/******/ 	return __nccwpck_require__(736);
+/******/ 	return __nccwpck_require__(47);
 /******/ })()
 ;
