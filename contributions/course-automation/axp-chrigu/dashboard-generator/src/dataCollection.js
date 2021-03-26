@@ -100,17 +100,13 @@ function parseMd(mdContent){
     const authorRegex = /(.*@kth.se.*)/gim
     let authors = mdContent.match(authorRegex);
     if(authors != null ) authors = authors.map(authString => {
-        // Remove any unnessecary characters from beginning of author string
-        let i = 0;
-        while(i < authString.length) {
-            if(authString[i] == " " | authString[i] == "*" | authString[i] == "-"){
-                i++;
-            }
-            else{
-                break;
-            }
-        }
-        return authString.substring(i);
+        // Remove all characters of type (#,*,|,-), leading whitespace and line breaks
+        const result = authString
+        .replace(/[#*|-]/g, "")
+        .replace(/^[ \t0-9.]+/, "")
+        .replace("</br>", "")
+        .replace("<br>", "");
+        return result;
     });
 
     return {'title': title, 'authors': authors};
