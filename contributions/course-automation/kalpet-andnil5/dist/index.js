@@ -9,26 +9,14 @@ const core = __nccwpck_require__(66);
 const { context, getOctokit } = __nccwpck_require__(608);
 const fs = __nccwpck_require__(747);
 const { join, resolve } = __nccwpck_require__(622);
-// const { parseKTHEmail, readFile } = require('./parser');
+const Parser = __nccwpck_require__(449);
 
-const parser = {
-  readFile(file) {
-    return fs.readFileSync(file, 'utf8');
-  },
-  parseKTHEmail(file) {
-    // TODO: FIXA FELHANTERING
-    const data = this.readFile(file);
-    const ma = data.match(/-----[^-----]+-----/)[0];
-    const res = ma.match(/(([\w\d\._%+-]+)@kth.se)/g);
-    return res;
-  },
-};
 const actionDirectory = resolve(__dirname);
 const root = join(actionDirectory, '..', '..', '..');
 
 // Felhantering...
 console.log('Retreving valid kthIDs');
-const kthIDs = parser.readFile(__nccwpck_require__.ab + "kth-ids.txt").split(/\n/);
+const kthIDs = Parser.readFile(__nccwpck_require__.ab + "kth-ids.txt").split(/\n/);
 
 try {
   console.log("Finding README file location")
@@ -63,10 +51,10 @@ try {
     if (filteredFiles.length < 1) throw Error('Could not find path to README.md');
     const readme = [...filteredFiles[0].splice(0,3), 'README.md'].join('/');
     console.log('README File location:', readme);
-    const ids = parser.parseKTHEmail(readme);
-    console.log('In parse...', ids);
+    const ids = Parser.parseKTHEmail(readme);
+    console.log('KthIDs found in README', ids);
     const correctIDs = ids.filter(id => kthIDs.includes(id));
-    console.log('calid kthIDs found: ',correctIDs);
+    console.log('Valid kthIDs found: ',correctIDs);
     if(correctIDs.length === 0){
       core.setFailed("Invalid KTHids in README file");
     }
@@ -5910,6 +5898,28 @@ function wrappy (fn, cb) {
     return ret
   }
 }
+
+
+/***/ }),
+
+/***/ 449:
+/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
+
+const fs = __nccwpck_require__(747);
+const { join, resolve } = __nccwpck_require__(622);
+
+module.exports = {
+  readFile(file) {
+    return fs.readFileSync(file, 'utf8');
+  },
+  parseKTHEmail(file) {
+    // TODO: FIXA FELHANTERING
+    const data = this.readFile(file);
+    const ma = data.match(/-----[^-----]+-----/)[0];
+    const res = ma.match(/(([\w\d\._%+-]+)@kth.se)/g);
+    return res;
+  },
+};
 
 
 /***/ }),
