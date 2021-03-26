@@ -1,8 +1,9 @@
 const core = require('@actions/core');
-const github = require('@actions/github');
+const { context, getOctokit } = require('@actions/github');
 const fs = require('fs');
 const { join, resolve } = require('path');
 // const { parseKTHEmail, readFile } = require('./parser');
+
 const parser = {
   readFile(file) {
     return fs.readFileSync(file, 'utf8');
@@ -19,22 +20,21 @@ const actionDirectory = resolve(__dirname);
 const root = join(actionDirectory, '..', '..', '..');
 
 // Felhantering...
+console.log('Retreving valid kthIDs');
 const kthIDs = parser.readFile(join(actionDirectory, 'kth-ids.txt')).split(/\n/);
-console.log('KTH id', kthIDs);
 
 try {
+  console.log("Finding README file location")
   // Get the JSON webhook payload for the event that triggered the workflow
-  const payload = JSON.stringify(github.context, undefined, 2)
+  const payload = JSON.stringify(context, undefined, 2)
 
-  // const client = new GitHub(core.getInput('token', {required: true}))
-  const client = github.getOctokit(core.getInput('token'));
-
-  const base = github.context.payload.pull_request.base.sha;
-  const head = github.context.payload.pull_request.head.sha;
+  const client = getOctokit(core.getInput('token'));
+  const base = context.payload.pull_request.base.sha;
+  const head = context.payload.pull_request.head.sha;
 
   if (!base || !head) {
     core.setFailed(
-      `The base and head commits are missing from the payload for this ${github.context.eventName} event. ` +
+      `The base and head commits are missing from the payload for this ${context.eventName} event. ` +
         "Please submit an issue on this action's GitHub repo."
     );
   }
@@ -43,8 +43,8 @@ try {
   client.repos.compareCommits({
     base,
     head,
-    owner: github.context.repo.owner,
-    repo: github.context.repo.repo
+    owner: context.repo.owner,
+    repo: context.repo.repo
   }).then(response => {
     if (response.status !== 200) throw Error('Could not fetch changed files!');
     const files = response.data.files;
@@ -55,11 +55,11 @@ try {
       .filter(file => file.length > 3 && file[0] === 'contributions' );
     if (filteredFiles.length < 1) throw Error('Could not find path to README.md');
     const readme = [...filteredFiles[0].splice(0,3), 'README.md'].join('/');
-    console.log('File', readme);
+    console.log('README File location:', readme);
     const ids = parser.parseKTHEmail(readme);
     console.log('In parse...', ids);
     const correctIDs = ids.filter(id => kthIDs.includes(id));
-    console.log(correctIDs, ids);
+    console.log('calid kthIDs found: ',correctIDs);
     if(correctIDs.length === 0){
       core.setFailed("Invalid KTHids in README file");
     }
