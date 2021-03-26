@@ -4,21 +4,22 @@ const { join, resolve } = require('path');
 const { KTH_IDS_FILE, ROOT } = require('./config');
 const Parser = require('./parser');
 
-// Felhantering...
-console.log('Retreving valid kthIDs');
-const kthIDs = Parser.readFile().split(/\n/);
 
 try {
+  console.log('Retreving valid kthIDs');
+  const { data: kthIDs, error } = Parser.readFile().split(/\n/);
+  if (error) throw Error(error);
+
   console.log("Finding README file location");
-  const cont = Parser.parseContext(context);
-  if (!cont.base || !cont.head || !cont.owner || !cont.repo) {
+  const { data, error } = Parser.parseContext(context);
+  if (error) {
     throw Error(`Head, base, owner or repo are missing from the payload for this `+
     `${context.eventName} event. Please submit an issue on this action's GitHub repo.`
     );
   }
 
   // Use compareCommits in order to find where README file is located, want to check members in readme in case a non-kths github is used
-  getOctokit(core.getInput('token')).repos.compareCommits(cont)
+  getOctokit(core.getInput('token')).repos.compareCommits(data)
     .then(response => {
       if (response.status !== 200) throw Error('Could not fetch changed files!');
       const files = response.data.files;
@@ -34,7 +35,8 @@ try {
       console.log('KthIDs found in README', ids);
       const correctIDs = ids.filter(id => kthIDs.includes(id));
       console.log('Valid kthIDs found: ',correctIDs);
-      if(correctIDs.length === 0){ //Borde vi faila ifall ett av id:na är ogiltiga? Kan testa
+      // Fixar errorhantering i readfile
+      if(correctIDs.length === 0){
         core.setFailed("Invalid KTHids in README file");
       }
   }).catch(error => {
