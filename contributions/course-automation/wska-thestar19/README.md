@@ -12,5 +12,5 @@ We would like to propose a task that will parse and links to demo-showcases and 
 This will thus be a bot that:
 * Parses updates in the demo section.
 * Looks for updates to the link section in the readme (such as a youtube.com link).
-* Takes the link and queries relevant APIs for metadata information.
+* Takes the link and queries relevant APIs for metadata information (there is a lot of metadeta, so a subset of relevant information will be selected).
 * Summarizes the data in a table and posts it back to the issue. Could also update tags if neccesary. 
