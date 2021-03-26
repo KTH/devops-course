@@ -2,8 +2,9 @@
   "name": "kalpet-andnil5",
   "version": "1.0.0",
   "description": "## Members",
-  "main": "index.js",
+  "main": "action.js",
   "scripts": {
+    "start": "node action.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

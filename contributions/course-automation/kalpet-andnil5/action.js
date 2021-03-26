@@ -1,5 +1,5 @@
 const core = require('@actions/core');
-import { context, getOctokit } from '@actions/github';
+const { context, getOctokit } = require('@actions/github');
 const fs = require('fs');
 const { join, resolve } = require('path');
 const { parseKTHEmail, readFile } = require('./parser');
