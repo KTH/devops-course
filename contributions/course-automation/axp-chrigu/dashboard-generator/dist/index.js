@@ -471,7 +471,7 @@ async function collectCategoryData(categoryPath){
             }
         }
     }
-    return {taskCount, categoryData};
+    return {'taskCount': taskCount, 'data': categoryData};
 }
 
 function collectDataFromFile(entry){
