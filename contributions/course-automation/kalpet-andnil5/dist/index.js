@@ -23,7 +23,7 @@ const parser = {
   },
 };
 
-const root = join(resolve(__dirname));
+const root = join(resolve(__dirname), '..', '..', '..');
 
 // Felhantering...
 const kthIDs = parser.readFile(__nccwpck_require__.ab + "kth-ids.txt").split(/\n/);

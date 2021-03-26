@@ -16,10 +16,10 @@ const parser = {
   },
 };
 
-const root = join(resolve(__dirname));
+const root = join(resolve(__dirname), '..', '..', '..');
 
 // Felhantering...
-const kthIDs = parser.readFile(join(root, 'kth-ids.txt')).split(/\n/);
+const kthIDs = parser.readFile(join(resolve(__dirname), 'kth-ids.txt')).split(/\n/);
 console.log('KTH id', kthIDs);
 
 try {
