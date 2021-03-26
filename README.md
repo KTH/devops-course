@@ -36,6 +36,7 @@ The schedule is at <https://www.kth.se/social/course/DD2482/calendar/>
 
 ### Week 2 <https://kth-se.zoom.us/j/67189910023>
 * Technical Briefing (B. Baudry)
+  * Preparatory material [Testing at scale](https://increment.com/testing/testing-at-scale/)
 * Guest Lecture: Continuous Integration [Mats Skoglund (Scania)](https://www.linkedin.com/in/matsskoglund/).
 * Student presentations
 
