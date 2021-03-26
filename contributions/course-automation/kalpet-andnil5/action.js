@@ -20,8 +20,8 @@ try {
   // const client = new GitHub(core.getInput('token', {required: true}))
   const client = getOctokit(core.getInput('token'));
 
-  const base = context.payload.pull_request?.base?.sha;
-  const head = context.payload.pull_request?.head?.sha;
+  const base = context.payload.pull_request.base.sha;
+  const head = context.payload.pull_request.head.sha;
 
   if (!base || !head) {
     core.setFailed(
