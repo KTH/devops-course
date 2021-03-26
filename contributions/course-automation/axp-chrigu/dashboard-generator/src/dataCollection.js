@@ -1,6 +1,5 @@
 const fs = require("fs");
 const path = require("path");
-const { title } = require("process");
 
 // collectDashboardData().then(data => {
 //     console.log(data);
@@ -32,73 +31,72 @@ async function* traverse(dir) {
 
 async function* collectYearData(dir){
     const categories = [];
-    let taskCount = 0;
+    let totalTaskCount = 0;
     // Go trough the directory and find all category directories
     for await (const categoryDir of await fs.promises.opendir(dir)) {
         if(categoryDir.isDirectory()){
-            let categoryData = [];
-            let entry = "";
             const categoryPath = path.join(dir, categoryDir.name);
-            // Go trough all the task in a given category directory
-            for await (const taskDir of await fs.promises.opendir(categoryPath)) {
-                if(taskDir.isDirectory()){
-                    // If folder is called weekX, its the presentation folder where tasks are divided into weeks,
-                    // iterate over the specific week folders
-                    if(taskDir.name.includes("week") || taskDir.name.includes("weak")){
-                        entry = path.join(categoryPath, taskDir.name); 
-                        for await (const presentationTaskDir of await fs.promises.opendir(entry)) {
-                            if(presentationTaskDir.isDirectory()){
-                                const presentationEntry = path.join(entry, presentationTaskDir.name+"/README.md");
-                                
-                                fs.readFile(presentationEntry, 'utf-8', (err, data) => {
-                                    if(err){
-                                        //console.error(err);
-                                    }
-                                    else{
-                                        // Parse md file for authors, title and link
-                                        const {title: t, authors: a} = parseMd(data);
-                                        taskCount++;
-                                        categoryData.push({'title': t, 'authors': a, 'link': repoUrl+entry});
-                                    }
-                                })
-                            }
-                        }
-                    }
-                    // Not the presentation folder, task folders are located here, read the task README and collect the data
-                    else{
-                        entry = path.join(categoryPath, taskDir.name+"/README.md");
-                        fs.readFile(entry, 'utf-8', (err, data) => {
-                            if(err){
-                                //console.error(err);
-                            }
-                            else{
-                                // Parse md file for authors, title and link
-                                const {title: t, authors: a} = parseMd(data);
-                                taskCount++;
-                                categoryData.push({'title': t, 'authors': a, 'link': repoUrl+entry});
-                            }
-                        })
-                    }
-                }
-            }
-            categories.push({'name': categoryDir.name, 'tasks': categoryData});
+            const {taskCount, data} = await collectCategoryData(categoryPath);
+            totalTaskCount += taskCount;
+            categories.push({'name': categoryDir.name, 'tasks': data});
         }
     }
-    categories.unshift(taskCount);
+    categories.unshift(totalTaskCount);
     yield* categories;
 }
 
-// Parse a given string in md format, return authors, title and link of the task
+async function collectCategoryData(categoryPath){
+    const categoryData = [];
+    let taskCount = 0;
+    // Go trough all the task in a given category directory
+    for await (const taskDir of await fs.promises.opendir(categoryPath)) {
+        if(taskDir.isDirectory()){
+            // If folder is called weekX, its the presentation folder where tasks are divided into weeks,
+            // iterate over the specific week folders
+            if(taskDir.name.includes("week") || taskDir.name.includes("weak")){
+                const entry = path.join(categoryPath, taskDir.name); 
+                for await (const presentationTaskDir of await fs.promises.opendir(entry)) {
+                    if(presentationTaskDir.isDirectory()){
+                        const presentationEntry = path.join(entry, presentationTaskDir.name+"/README.md");
+                        taskCount++;
+                        categoryData.push(collectDataFromFile(presentationEntry));
+                    }
+                }
+            }
+            // Not the presentation folder, task folders are located here, read the task README and collect the data
+            else{
+                const entry = path.join(categoryPath, taskDir.name+"/README.md");
+                taskCount++;
+                categoryData.push(collectDataFromFile(entry));
+            }
+        }
+    }
+    return {taskCount, categoryData};
+}
+
+function collectDataFromFile(entry){
+    const result = {'title': null, 'authors': null, 'link': (repoUrl+entry).slice(0, -10)}
+    try{
+        const data = fs.readFileSync(entry, 'utf-8');
+        // Parse md file for authors, title and link
+        const {title: t, authors: a} = parseMd(data);
+        result.title = t;
+        result.authors = a;
+    } catch(error){
+        console.log(error.message);
+    }
+    return result;
+}
+
+// Parse a given string in md format, return authors and title
 function parseMd(mdContent){
     
-    //Find title
+    // Find title by locating first h1 in the markdown, and taking that as title
     const titleRegex = /^# (.*$)/gim
-    let title = titleRegex.exec(mdContent);
-    if(title != null) {
-        title = title[1];
-    }
+    let title = mdContent.match(titleRegex);
+    if(title != null) title = title[0].slice(2);
 
-    // Find author
+    // Find author by locating line where kth-email is listed, taking it as the author
     const authorRegex = /(.*@kth.se.*)/gim
     let authors = mdContent.match(authorRegex);
     if(authors != null ) authors = authors.map(authString => {
