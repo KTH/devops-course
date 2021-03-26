@@ -1,12 +1,14 @@
 # Course automation proposal: Verify PR submitted have Github id's and KTH ids matching students registered to the course 
 
  ## Members
+-----
+Kalle Pettersson (kalpet@kth.se)
+GitHub: [KallePettersson](https://github.com/KallePettersson)
 
- Kalle Pettersson (kalpet@kth.se)
- GitHub: [KallePettersson](https://github.com/KallePettersson)
+Anders Nillson (andnil5@kth.se)
+GitHub: [andnil5](https://github.com/andnil5)
 
- Anders Nillson (andnil5@kth.se)
- GitHub: [andnil5](https://github.com/andnil5)
+-----
 
  ## Proposal
 We want to solve the issue described by baudry in #916.

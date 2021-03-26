@@ -13,6 +13,7 @@ const core = __nccwpck_require__(66);
 
 const fs = __nccwpck_require__(747);
 const { join, resolve } = __nccwpck_require__(622);
+const { parseKTHEmail, readFile } = __nccwpck_require__(449);
 
 const root = join(resolve(__dirname), '..', '..', '..');
 
@@ -56,15 +57,11 @@ try {
       .filter(file => file.length > 3 && file[0] === 'contributions' );
     if (filteredFiles.length < 1) throw Error('Could not find path to README.md');
     const readme = [...filteredFiles[0].splice(0,3), 'README.md'].join('/');
-
-    // Read file
-    fs.readFile(readme, 'utf8', (err, data) => {
-      if (err) throw Error(err);
-      console.log(data);
+    parseKTHEmail(readme).then(ids => {
+      const correctIDs = ids.filter(id => kthIDs.includes(id));
+      console.log(correctIDs, ids);
+      
     });
-    
-    if (!kthIDs.includes(_actions_github__WEBPACK_IMPORTED_MODULE_0__.context.payload.pull_request.user.login))
-    throw Error('The user is not registered in the course.');
   }).catch(error => {
     core.setFailed(error.message);
   });
@@ -5905,6 +5902,33 @@ function wrappy (fn, cb) {
   }
 }
 
+
+/***/ }),
+
+/***/ 449:
+/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
+
+const fs = __nccwpck_require__(747);
+const { join, resolve } = __nccwpck_require__(622);
+
+module.exports = {
+  parseKTHEmail(file) {
+    // TODO: FIXA FELHANTERING
+    return this.readFile(file)
+      .then(data =>{
+        const ma = data.match(/-----[^-----]+-----/)[0];
+        const res = ma.match(/(([\w\d\._%+-]+)@kth.se)/g)
+          .map(mail => mail.replace('@kth.se', ''));
+        return res
+      });
+  },
+  readFile(file) {
+    return fs.readFile(file, 'utf8', (err, data) => {
+      if (err) throw Error(err);
+      return data;
+    });
+  },
+};
 
 /***/ }),
 
