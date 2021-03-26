@@ -5,21 +5,30 @@ const { join, resolve } = require('path');
 // const { parseKTHEmail, readFile } = require('./parser');
 const parser = {
   readFile(file) {
-    return fs.readFile(file, 'utf8', (err, data) => {
-      if (err) throw Error(err);
-      return data;
-    });
+    const res = fs.readFileSync(file, 'utf8');
+    console.log('Results', res);
+    return res;
+    // return fs.readFile(file, 'utf8', (err, data) => {
+    //   if (err) throw Error(err);
+    //   return data;
+    // });
   },
   parseKTHEmail(file) {
     // TODO: FIXA FELHANTERING
-    return this.readFile(file)
-      .then(data =>{
-        const ma = data.match(/-----[^-----]+-----/)[0];
-        const res = ma.match(/(([\w\d\._%+-]+)@kth.se)/g)
-        .map(mail => mail.replace('@kth.se', ''));
-        return res
-      });
+    const data = this.readFile(file);
+    const ma = data.match(/-----[^-----]+-----/)[0];
+    const res = ma.match(/(([\w\d\._%+-]+)@kth.se)/g)
+      .map(mail => mail.replace('@kth.se', ''));
+    return res
   },
+    // return this.readFile(file)
+    //   .then(data =>{
+    //     const ma = data.match(/-----[^-----]+-----/)[0];
+    //     const res = ma.match(/(([\w\d\._%+-]+)@kth.se)/g)
+    //     .map(mail => mail.replace('@kth.se', ''));
+    //     return res
+    //   });
+  // },
 };
 
 const root = join(resolve(__dirname), '..', '..', '..');
