@@ -23,3 +23,32 @@ We want to solve the issue described by baudry in #916.
 * Otherwise, check that the Member mail address in the README match, and set the status check flag to success.
 * If both of the above fails, set the status check flag to failure.
 * Utilize Status checks API to visualize the result for the TA:s.
+
+
+## Solution
+
+### Requierments for solution to run
+This solution is written with two big assumptions in mind. First there needs to be a textfile called "kth-ids.txt" with the email addresses of students registered to the course. The file needs to have the following format:
+
+````
+...
+Username1@kth.se
+Username2@kth.se
+...
+````
+
+Secondly each README file for a given PullRequest needs to placed in the correct folder, as follows: 
+````
+devops-course/contributions/<Category>/<StudentName(s)>/README.md"
+````
+And the Members section of the README file needs to be written with the following syntax:
+````
+## Members
+-----
+<Student1Name> (<Username1>@kth)
+Github: [<GithubID1>](<linkToGithubProfile1>)
+
+<Student2Name> (<Username2>@kth)
+Github: [<GithubID2>](<linkToGithubProfile2>)
+-----
+````

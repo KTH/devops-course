@@ -7,58 +7,43 @@ module.exports =
 
 const core = __nccwpck_require__(66);
 const { context, getOctokit } = __nccwpck_require__(608);
-const fs = __nccwpck_require__(747);
 const { join, resolve } = __nccwpck_require__(622);
+const { KTH_IDS_FILE, ROOT } = __nccwpck_require__(288);
 const Parser = __nccwpck_require__(449);
-
-const actionDirectory = resolve(__dirname);
-const root = join(actionDirectory, '..', '..', '..');
 
 // Felhantering...
 console.log('Retreving valid kthIDs');
-const kthIDs = Parser.readFile(__nccwpck_require__.ab + "kth-ids.txt").split(/\n/);
+const kthIDs = Parser.readFile().split(/\n/);
 
 try {
-  console.log("Finding README file location")
-  // Get the JSON webhook payload for the event that triggered the workflow
-  const payload = JSON.stringify(context, undefined, 2)
-
-  const client = getOctokit(core.getInput('token'));
-  const base = context.payload.pull_request.base.sha;
-  const head = context.payload.pull_request.head.sha;
-
-  if (!base || !head) {
-    core.setFailed(
-      `The base and head commits are missing from the payload for this ${context.eventName} event. ` +
-        "Please submit an issue on this action's GitHub repo."
+  console.log("Finding README file location");
+  const cont = Parser.parseContext(context);
+  if (!cont.base || !cont.head || !cont.owner || !cont.repo) {
+    throw Error(`Head, base, owner or repo are missing from the payload for this `+
+    `${context.eventName} event. Please submit an issue on this action's GitHub repo.`
     );
   }
 
   // Use compareCommits in order to find where README file is located, want to check members in readme in case a non-kths github is used
-  client.repos.compareCommits({
-    base,
-    head,
-    owner: context.repo.owner,
-    repo: context.repo.repo
-  }).then(response => {
-    if (response.status !== 200) throw Error('Could not fetch changed files!');
-    const files = response.data.files;
+  getOctokit(core.getInput('token')).repos.compareCommits(cont)
+    .then(response => {
+      if (response.status !== 200) throw Error('Could not fetch changed files!');
+      const files = response.data.files;
 
-    // Find path to README file
-    const filteredFiles = files
-      .map(file => file.filename.split('/'))
-      .filter(file => file.length > 3 && file[0] === 'contributions' );
-    if (filteredFiles.length < 1) throw Error('Could not find path to README.md');
-    const readme = [...filteredFiles[0].splice(0,3), 'README.md'].join('/');
-    console.log('README File location:', readme);
-    const ids = Parser.parseKTHEmail(readme);
-    console.log('KthIDs found in README', ids);
-    const correctIDs = ids.filter(id => kthIDs.includes(id));
-    console.log('Valid kthIDs found: ',correctIDs);
-    if(correctIDs.length === 0){
-      core.setFailed("Invalid KTHids in README file");
-    }
-
+      // Find path to README file
+      const filteredFiles = files
+        .map(file => file.filename.split('/'))
+        .filter(file => file.length > 3 && file[0] === 'contributions' );
+      if (filteredFiles.length < 1) throw Error('Could not find path to README.md');
+      const readme = [ROOT, ...filteredFiles[0].splice(0,3), 'README.md'].join('/');
+      console.log('README File location:', readme);
+      const ids = Parser.parseKTHEmail(readme);
+      console.log('KthIDs found in README', ids);
+      const correctIDs = ids.filter(id => kthIDs.includes(id));
+      console.log('Valid kthIDs found: ',correctIDs);
+      if(correctIDs.length === 0){ //Borde vi faila ifall ett av id:na är ogiltiga? Kan testa
+        core.setFailed("Invalid KTHids in README file");
+      }
   }).catch(error => {
     core.setFailed(error.message);
   });
@@ -66,6 +51,20 @@ try {
 } catch (error) {
   core.setFailed(error.message);
 }
+
+/***/ }),
+
+/***/ 288:
+/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
+
+const { join, resolve } = __nccwpck_require__(622);
+const ACTION_DIRECTORY = resolve(__dirname);
+module.exports = {
+  KTH_IDS_FILE: __nccwpck_require__.ab + "kth-ids.txt",
+  ROOT: join(ACTION_DIRECTORY, '..', '..', '..'),
+};
+
+
 
 /***/ }),
 
@@ -5911,6 +5910,24 @@ const { join, resolve } = __nccwpck_require__(622);
 module.exports = {
   readFile(file) {
     return fs.readFileSync(file, 'utf8');
+  },
+  parseContext(context) {
+    return { 
+      base: context.payload.pull_request &&
+            context.payload.pull_request.base &&
+            context.payload.pull_request.base.sha
+            ? context.payload.pull_request.base.sha
+            : undefined,
+      head: context.payload.pull_request &&
+            context.payload.pull_request.head &&
+            context.payload.pull_request.head.sha
+            ? context.payload.pull_request.head.sha
+            : undefined,
+      owner: context.repo && context.repo.owner
+              ? context.repo.owner : undefined,
+      repo:  context.repo && context.repo.repo
+              ? context.repo.repo : undefined,
+    };
   },
   parseKTHEmail(file) {
     // TODO: FIXA FELHANTERING
