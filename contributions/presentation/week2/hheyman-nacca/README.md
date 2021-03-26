@@ -8,14 +8,14 @@
  Github username: [patricia-naccachian](https://github.com/patricia-naccachian)
 
  ## Proposal
-The inner workings of git
+Theh history of DevOps
 
-Our intention is to to give our viewers a deeper understanding of git beyond the more basic commands-and-branches understanding, such as the abstract object model that drives the functionality.
+Our intention is to to give our viewers a deeper understanding of why and how devops as a concept, practice and profession came to be in the last decade.
  
  Slide draft
- - Short history of git (also including purpose)
- - Why git is so succesfull
- - Branching
- - Object-model in the deeper mechanics of git
- - Why inner mechanics matter
+ - The problem of separating ops from dev
+ - the growth of devops as a concept
+ - Important influencers and their contribution
+ - the creation of devops as an academic and professional subject and role
+ - the future of devops
  
