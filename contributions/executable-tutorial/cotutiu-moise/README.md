@@ -1,7 +1,7 @@
 # Executable tutorial: nginx on vagrant box (with provisioning)
 
 ## Group
-Ioana Cotutiu (cotutiu@kth.se), [IC-kth](https://github.com/IC-kth)
+Ioana Cotutiu (cotutiu@kth.se), [IC-kth](https://github.com/IC-kth)  
 Theodor Moise (moise@kth.se), [iriediese](https://github.com/iriediese)
 
 ## Content
