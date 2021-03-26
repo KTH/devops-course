@@ -75,13 +75,14 @@ async function collectCategoryData(categoryPath){
 }
 
 function collectDataFromFile(entry){
-    const result = {'title': null, 'authors': null, 'link': (repoUrl+entry).slice(0, -10)}
+    const result = {'title': null, 'authors': null, 'link': (repoUrl+entry).slice(0, -10), 'content': null}
     try{
         const data = fs.readFileSync(entry, 'utf-8');
         // Parse md file for authors, title and link
         const {title: t, authors: a} = parseMd(data);
         result.title = t;
         result.authors = a;
+        result.content = data;
     } catch(error){
         console.log(error.message);
     }
