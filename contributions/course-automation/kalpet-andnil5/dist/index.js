@@ -5908,22 +5908,23 @@ const fs = __nccwpck_require__(747);
 const { join, resolve } = __nccwpck_require__(622);
 
 module.exports = {
-  parseKTHEmail(file) {
-    // TODO: FIXA FELHANTERING
-    return this.readFile(file)
-      .then(data =>{
-        const ma = data.match(/-----[^-----]+-----/)[0];
-        const res = ma.match(/(([\w\d\._%+-]+)@kth.se)/g)
-          .map(mail => mail.replace('@kth.se', ''));
-        return res
-      });
-  },
-  readFile(file) {
-    return fs.readFile(file, 'utf8', (err, data) => {
-      if (err) throw Error(err);
-      return data;
-    });
-  },
+    readFile(file) {
+        return fs.readFile(file, 'utf8', (err, data) => {
+            if (err) throw Error(err);
+            return data;
+        });
+    },
+    parseKTHEmail(file) {
+        // TODO: FIXA FELHANTERING
+        return this.readFile(file)
+        .then(data =>{
+            const ma = data.match(/-----[^-----]+-----/)[0];
+            const res = ma.match(/(([\w\d\._%+-]+)@kth.se)/g)
+            .map(mail => mail.replace('@kth.se', ''));
+            return res
+        });
+    },
+  
 };
 
 /***/ }),
