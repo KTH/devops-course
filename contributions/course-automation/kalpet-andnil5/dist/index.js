@@ -3,14 +3,10 @@ module.exports =
 /******/ 	var __webpack_modules__ = ({
 
 /***/ 957:
-/***/ ((__unused_webpack_module, __webpack_exports__, __nccwpck_require__) => {
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
-__nccwpck_require__.r(__webpack_exports__);
-/* harmony import */ var _actions_github__WEBPACK_IMPORTED_MODULE_0__ = __nccwpck_require__(608);
-/* harmony import */ var _actions_github__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__nccwpck_require__.n(_actions_github__WEBPACK_IMPORTED_MODULE_0__);
 const core = __nccwpck_require__(66);
-
+const { context, getOctokit } = __nccwpck_require__(608);
 const fs = __nccwpck_require__(747);
 const { join, resolve } = __nccwpck_require__(622);
 const { parseKTHEmail, readFile } = __nccwpck_require__(449);
@@ -26,17 +22,17 @@ const kthIDs = [
 
 try {
   // Get the JSON webhook payload for the event that triggered the workflow
-  const payload = JSON.stringify(_actions_github__WEBPACK_IMPORTED_MODULE_0__.context, undefined, 2)
+  const payload = JSON.stringify(context, undefined, 2)
 
   // const client = new GitHub(core.getInput('token', {required: true}))
-  const client = (0,_actions_github__WEBPACK_IMPORTED_MODULE_0__.getOctokit)(core.getInput('token'));
+  const client = getOctokit(core.getInput('token'));
 
-  const base = _actions_github__WEBPACK_IMPORTED_MODULE_0__.context.payload.pull_request.base.sha;
-  const head = _actions_github__WEBPACK_IMPORTED_MODULE_0__.context.payload.pull_request.head.sha;
+  const base = context.payload.pull_request?.base?.sha;
+  const head = context.payload.pull_request?.head?.sha;
 
   if (!base || !head) {
     core.setFailed(
-      `The base and head commits are missing from the payload for this ${_actions_github__WEBPACK_IMPORTED_MODULE_0__.context.eventName} event. ` +
+      `The base and head commits are missing from the payload for this ${context.eventName} event. ` +
         "Please submit an issue on this action's GitHub repo."
     );
   }
@@ -45,8 +41,8 @@ try {
   client.repos.compareCommits({
     base,
     head,
-    owner: _actions_github__WEBPACK_IMPORTED_MODULE_0__.context.repo.owner,
-    repo: _actions_github__WEBPACK_IMPORTED_MODULE_0__.context.repo.repo
+    owner: context.repo.owner,
+    repo: context.repo.repo
   }).then(response => {
     if (response.status !== 200) throw Error('Could not fetch changed files!');
     const files = response.data.files;
@@ -6076,46 +6072,6 @@ module.exports = require("zlib");;
 /******/ 	}
 /******/ 	
 /************************************************************************/
-/******/ 	/* webpack/runtime/compat get default export */
-/******/ 	(() => {
-/******/ 		// getDefaultExport function for compatibility with non-harmony modules
-/******/ 		__nccwpck_require__.n = (module) => {
-/******/ 			var getter = module && module.__esModule ?
-/******/ 				() => module['default'] :
-/******/ 				() => module;
-/******/ 			__nccwpck_require__.d(getter, { a: getter });
-/******/ 			return getter;
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/define property getters */
-/******/ 	(() => {
-/******/ 		// define getter functions for harmony exports
-/******/ 		__nccwpck_require__.d = (exports, definition) => {
-/******/ 			for(var key in definition) {
-/******/ 				if(__nccwpck_require__.o(definition, key) && !__nccwpck_require__.o(exports, key)) {
-/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
-/******/ 				}
-/******/ 			}
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
-/******/ 	(() => {
-/******/ 		__nccwpck_require__.o = (obj, prop) => Object.prototype.hasOwnProperty.call(obj, prop)
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/make namespace object */
-/******/ 	(() => {
-/******/ 		// define __esModule on exports
-/******/ 		__nccwpck_require__.r = (exports) => {
-/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
-/******/ 			}
-/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
-/******/ 		};
-/******/ 	})();
-/******/ 	
 /******/ 	/* webpack/runtime/compat */
 /******/ 	
 /******/ 	__nccwpck_require__.ab = __dirname + "/";/************************************************************************/
