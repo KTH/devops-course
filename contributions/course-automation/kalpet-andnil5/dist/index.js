@@ -43,8 +43,8 @@ try {
       console.log('\tKTH-ids found in README:\n', ids);
       const validIDs = ids.filter(id => kthIDs.includes(id));
       const invalidIDs = ids.filter(id => !validIDs.includes(id));
-      console.log('\tValid KTH-ids found in README:\n', validIDs, '\n');
-      if (invalidIDs.length > 0) throw Error('\tInvalid KTH-ids in README:', invalidIDs, '\n');
+      console.log('\tValid KTH-ids found in README:\n', '\t', validIDs, '\n');
+      if (invalidIDs.length > 0) throw Error('\tInvalid KTH-ids in README:', '\t', invalidIDs, '\n');
   }).catch(error => {
     core.setFailed(error.message);
   });
