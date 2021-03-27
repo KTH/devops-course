@@ -84,4 +84,19 @@ module.exports = {
     const data = this.readFile(KTH_IDS_FILE);
     return data.split(/[\s,;]+/g);
   },
+  /**
+   * Find path of the `README.md` file of the contribution directory.
+   * 
+   * @param {Object} response commit comparison object.
+   * @returns {string} The path of the `README.md` file.
+   */
+  parseReadmePath(response) {
+    const filteredFiles = response.data.files
+      .map(file => file.filename.split('/'))
+      .filter(file => file.length > 3 && file[0] === 'contributions' );
+    if (filteredFiles.length < 1) {
+      throw Error('Could not find path of the README.md file in the contribution directory.');
+    }
+    return [...filteredFiles[0].splice(0,3), 'README.md'].join('/');
+  }
 };

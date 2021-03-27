@@ -36,13 +36,7 @@ try {
       if (response.status !== 200) throw Error('Could not fetch changed files!');
 
       console.log('Finding README file location');
-      // Find path to README file
-      const files = response.data.files;
-      const filteredFiles = files.map(file => file.filename.split('/'))
-        .filter(file => file.length > 3 && file[0] === 'contributions' );
-      if (filteredFiles.length < 1) throw Error('Could not find path to README.md');
-
-      const readme = [...filteredFiles[0].splice(0,3), 'README.md'].join('/');
+      const readme = parseReadmePath(response);
       console.log('README File location:', readme);
       const ids = Parser.parseKTHEmail(readme);
       console.log('KthIDs found in README:\n', ids);
@@ -5981,6 +5975,21 @@ module.exports = {
     const data = this.readFile(KTH_IDS_FILE);
     return data.split(/[\s,;]+/g);
   },
+  /**
+   * Find path of the `README.md` file of the contribution directory.
+   * 
+   * @param {Object} response commit comparison object.
+   * @returns {string} The path of the `README.md` file.
+   */
+  parseReadmePath(response) {
+    const filteredFiles = response.data.files
+      .map(file => file.filename.split('/'))
+      .filter(file => file.length > 3 && file[0] === 'contributions' );
+    if (filteredFiles.length < 1) {
+      throw Error('Could not find path of the README.md file in the contribution directory.');
+    }
+    return [...filteredFiles[0].splice(0,3), 'README.md'].join('/');
+  }
 };
 
 
