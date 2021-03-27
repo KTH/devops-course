@@ -17,13 +17,14 @@ try {
 
       console.log('Finding README file location');
       const readme = Parser.parseReadmePath(response);
-      console.log('README File location:', readme);
+      console.log('README File location:', readme, '\n');
       const ids = Parser.parseKTHEmail(readme);
-      console.log('KthIDs found in README:\n', ids);
+      console.log('RESULT:');
+      console.log('\tKTH-ids found in README:\n', ids);
       const validIDs = ids.filter(id => kthIDs.includes(id));
       const invalidIDs = ids.filter(id => !validIDs.includes(id));
-      console.log('Valid kthIDs found:\n', validIDs, '\n');
-      if (invalidIDs.length > 0) throw Error('Invalid KTHids in README file:', invalidIDs, '\n');
+      console.log('\tValid KTH-ids found in README:\n', validIDs, '\n');
+      if (invalidIDs.length > 0) throw Error('\tInvalid KTH-ids in README:', invalidIDs, '\n');
   }).catch(error => {
     core.setFailed(error.message);
   });
