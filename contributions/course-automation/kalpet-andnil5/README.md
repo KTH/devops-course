@@ -64,12 +64,17 @@ opening and closing tags `-----` are present.
 
 ## Contribution
 
-### Installation
 
+### Installation
+1. Clone this repo (https://github.com/KallePettersson/devops-course.git) 
+2. Download and install Node.js 12.x, which includes npm.(https://nodejs.org/en/download/current/)
+3. Cd into `devops-course/contributions/course-automation/kalpet-andnil5/src` and run `npm install`
+4. Install `vercel/ncc` by running this command in your terminal: `npm i -g @vercel/ncc`
+5. Now all tools needed are installed and setup.
 
 
 ### Compilation
-
+All changes to the github action needs to be compiled into the `/dist/index.js` file in order to run. This can be done with the following command executed from the src folder.
 ```
 ncc build index.js -o ../dist
 ```
