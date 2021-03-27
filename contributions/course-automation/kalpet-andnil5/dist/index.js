@@ -2,63 +2,59 @@ module.exports =
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 957:
+/***/ 515:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __nccwpck_require__) => {
 
-const core = __nccwpck_require__(66);
-const { context, getOctokit } = __nccwpck_require__(608);
-const { join, resolve } = __nccwpck_require__(622);
-const { KTH_IDS_FILE, ROOT } = __nccwpck_require__(288);
-const Parser = __nccwpck_require__(449);
+const core = __nccwpck_require__(136);
+const { context, getOctokit } = __nccwpck_require__(453);
+const { ROOT } = __nccwpck_require__(300);
+const Parser = __nccwpck_require__(715);
 
-// Felhantering...
-console.log('Retreving valid kthIDs');
-const kthIDs = Parser.readFile().split(/\n/);
 
 try {
-  console.log("Finding README file location");
-  const cont = Parser.parseContext(context);
-  if (!cont.base || !cont.head || !cont.owner || !cont.repo) {
-    throw Error(`Head, base, owner or repo are missing from the payload for this `+
-    `${context.eventName} event. Please submit an issue on this action's GitHub repo.`
-    );
-  }
+  console.log('Retreving valid kthIDs');
+  const kthIDs = Parser.parseKTHIdsFile();
 
-  // Use compareCommits in order to find where README file is located, want to check members in readme in case a non-kths github is used
-  getOctokit(core.getInput('token')).repos.compareCommits(cont)
+  console.log('Parsing PR payload and repo data.');
+  const contextData = Parser.parseContext(context);
+
+  // Use compareCommits in order to find where README file is located,
+  // want to check members in readme in case a non-kths github is used
+  getOctokit(core.getInput('token')).repos.compareCommits(contextData)
     .then(response => {
       if (response.status !== 200) throw Error('Could not fetch changed files!');
-      const files = response.data.files;
 
+      console.log('Finding README file location');
       // Find path to README file
-      const filteredFiles = files
-        .map(file => file.filename.split('/'))
+      const files = response.data.files;
+      const filteredFiles = files.map(file => file.filename.split('/'))
         .filter(file => file.length > 3 && file[0] === 'contributions' );
       if (filteredFiles.length < 1) throw Error('Could not find path to README.md');
+
       const readme = [ROOT, ...filteredFiles[0].splice(0,3), 'README.md'].join('/');
       console.log('README File location:', readme);
       const ids = Parser.parseKTHEmail(readme);
-      console.log('KthIDs found in README', ids);
-      const correctIDs = ids.filter(id => kthIDs.includes(id));
-      console.log('Valid kthIDs found: ',correctIDs);
-      if(correctIDs.length === 0){ //Borde vi faila ifall ett av id:na är ogiltiga? Kan testa
-        core.setFailed("Invalid KTHids in README file");
-      }
+      console.log('KthIDs found in README:\n', ids, '\n');
+      const validIDs = ids.filter(id => kthIDs.includes(id));
+      const invalidIDs = ids.filter(id => !validIDs.includes(id));
+      console.log('Valid kthIDs found:\n', validIDs, '\n');
+      if (invalidIDs.length > 0) throw Error('Invalid KTHids in README file:', invalidIDs, '\n');
   }).catch(error => {
     core.setFailed(error.message);
   });
-
 } catch (error) {
   core.setFailed(error.message);
 }
 
 /***/ }),
 
-/***/ 288:
+/***/ 300:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 const { join, resolve } = __nccwpck_require__(622);
+
 const ACTION_DIRECTORY = resolve(__dirname);
+
 module.exports = {
   KTH_IDS_FILE: __nccwpck_require__.ab + "kth-ids.txt",
   ROOT: join(ACTION_DIRECTORY, '..', '..', '..'),
@@ -68,7 +64,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 366:
+/***/ 567:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
@@ -82,7 +78,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const os = __importStar(__nccwpck_require__(87));
-const utils_1 = __nccwpck_require__(631);
+const utils_1 = __nccwpck_require__(506);
 /**
  * Commands
  *
@@ -154,7 +150,7 @@ function escapeProperty(s) {
 
 /***/ }),
 
-/***/ 66:
+/***/ 136:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
@@ -176,9 +172,9 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const command_1 = __nccwpck_require__(366);
-const file_command_1 = __nccwpck_require__(762);
-const utils_1 = __nccwpck_require__(631);
+const command_1 = __nccwpck_require__(567);
+const file_command_1 = __nccwpck_require__(73);
+const utils_1 = __nccwpck_require__(506);
 const os = __importStar(__nccwpck_require__(87));
 const path = __importStar(__nccwpck_require__(622));
 /**
@@ -399,7 +395,7 @@ exports.getState = getState;
 
 /***/ }),
 
-/***/ 762:
+/***/ 73:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
@@ -417,7 +413,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 /* eslint-disable @typescript-eslint/no-explicit-any */
 const fs = __importStar(__nccwpck_require__(747));
 const os = __importStar(__nccwpck_require__(87));
-const utils_1 = __nccwpck_require__(631);
+const utils_1 = __nccwpck_require__(506);
 function issueCommand(command, message) {
     const filePath = process.env[`GITHUB_${command}`];
     if (!filePath) {
@@ -435,7 +431,7 @@ exports.issueCommand = issueCommand;
 
 /***/ }),
 
-/***/ 631:
+/***/ 506:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -461,7 +457,7 @@ exports.toCommandValue = toCommandValue;
 
 /***/ }),
 
-/***/ 482:
+/***/ 697:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
@@ -518,7 +514,7 @@ exports.Context = Context;
 
 /***/ }),
 
-/***/ 608:
+/***/ 453:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
@@ -544,8 +540,8 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getOctokit = exports.context = void 0;
-const Context = __importStar(__nccwpck_require__(482));
-const utils_1 = __nccwpck_require__(333);
+const Context = __importStar(__nccwpck_require__(697));
+const utils_1 = __nccwpck_require__(423);
 exports.context = new Context.Context();
 /**
  * Returns a hydrated octokit ready to use for GitHub Actions
@@ -561,7 +557,7 @@ exports.getOctokit = getOctokit;
 
 /***/ }),
 
-/***/ 150:
+/***/ 239:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
@@ -587,7 +583,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getApiBaseUrl = exports.getProxyAgent = exports.getAuthString = void 0;
-const httpClient = __importStar(__nccwpck_require__(389));
+const httpClient = __importStar(__nccwpck_require__(416));
 function getAuthString(token, options) {
     if (!token && !options.auth) {
         throw new Error('Parameter token or opts.auth is required');
@@ -611,7 +607,7 @@ exports.getApiBaseUrl = getApiBaseUrl;
 
 /***/ }),
 
-/***/ 333:
+/***/ 423:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
@@ -637,12 +633,12 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getOctokitOptions = exports.GitHub = exports.context = void 0;
-const Context = __importStar(__nccwpck_require__(482));
-const Utils = __importStar(__nccwpck_require__(150));
+const Context = __importStar(__nccwpck_require__(697));
+const Utils = __importStar(__nccwpck_require__(239));
 // octokit + plugins
-const core_1 = __nccwpck_require__(128);
-const plugin_rest_endpoint_methods_1 = __nccwpck_require__(522);
-const plugin_paginate_rest_1 = __nccwpck_require__(791);
+const core_1 = __nccwpck_require__(10);
+const plugin_rest_endpoint_methods_1 = __nccwpck_require__(433);
+const plugin_paginate_rest_1 = __nccwpck_require__(962);
 exports.context = new Context.Context();
 const baseUrl = Utils.getApiBaseUrl();
 const defaults = {
@@ -672,7 +668,7 @@ exports.getOctokitOptions = getOctokitOptions;
 
 /***/ }),
 
-/***/ 389:
+/***/ 416:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
@@ -680,7 +676,7 @@ exports.getOctokitOptions = getOctokitOptions;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const http = __nccwpck_require__(605);
 const https = __nccwpck_require__(211);
-const pm = __nccwpck_require__(536);
+const pm = __nccwpck_require__(916);
 let tunnel;
 var HttpCodes;
 (function (HttpCodes) {
@@ -1099,7 +1095,7 @@ class HttpClient {
         if (useProxy) {
             // If using proxy, need tunnel
             if (!tunnel) {
-                tunnel = __nccwpck_require__(317);
+                tunnel = __nccwpck_require__(823);
             }
             const agentOptions = {
                 maxSockets: maxSockets,
@@ -1215,7 +1211,7 @@ exports.HttpClient = HttpClient;
 
 /***/ }),
 
-/***/ 536:
+/***/ 916:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -1280,7 +1276,7 @@ exports.checkBypass = checkBypass;
 
 /***/ }),
 
-/***/ 24:
+/***/ 572:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -1337,7 +1333,7 @@ exports.createTokenAuth = createTokenAuth;
 
 /***/ }),
 
-/***/ 128:
+/***/ 10:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
@@ -1345,11 +1341,11 @@ exports.createTokenAuth = createTokenAuth;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 
-var universalUserAgent = __nccwpck_require__(419);
-var beforeAfterHook = __nccwpck_require__(424);
-var request = __nccwpck_require__(828);
-var graphql = __nccwpck_require__(238);
-var authToken = __nccwpck_require__(24);
+var universalUserAgent = __nccwpck_require__(189);
+var beforeAfterHook = __nccwpck_require__(955);
+var request = __nccwpck_require__(28);
+var graphql = __nccwpck_require__(55);
+var authToken = __nccwpck_require__(572);
 
 function _objectWithoutPropertiesLoose(source, excluded) {
   if (source == null) return {};
@@ -1520,7 +1516,7 @@ exports.Octokit = Octokit;
 
 /***/ }),
 
-/***/ 356:
+/***/ 443:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
@@ -1528,8 +1524,8 @@ exports.Octokit = Octokit;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 
-var isPlainObject = __nccwpck_require__(444);
-var universalUserAgent = __nccwpck_require__(419);
+var isPlainObject = __nccwpck_require__(431);
+var universalUserAgent = __nccwpck_require__(189);
 
 function lowercaseKeys(object) {
   if (!object) {
@@ -1918,7 +1914,7 @@ exports.endpoint = endpoint;
 
 /***/ }),
 
-/***/ 238:
+/***/ 55:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
@@ -1926,8 +1922,8 @@ exports.endpoint = endpoint;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 
-var request = __nccwpck_require__(828);
-var universalUserAgent = __nccwpck_require__(419);
+var request = __nccwpck_require__(28);
+var universalUserAgent = __nccwpck_require__(189);
 
 const VERSION = "4.6.1";
 
@@ -2042,7 +2038,7 @@ exports.withCustomRequest = withCustomRequest;
 
 /***/ }),
 
-/***/ 791:
+/***/ 962:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -2194,7 +2190,7 @@ exports.paginatingEndpoints = paginatingEndpoints;
 
 /***/ }),
 
-/***/ 522:
+/***/ 433:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -3379,7 +3375,7 @@ exports.restEndpointMethods = restEndpointMethods;
 
 /***/ }),
 
-/***/ 961:
+/***/ 546:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
@@ -3389,8 +3385,8 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
-var deprecation = __nccwpck_require__(399);
-var once = _interopDefault(__nccwpck_require__(442));
+var deprecation = __nccwpck_require__(981);
+var once = _interopDefault(__nccwpck_require__(612));
 
 const logOnce = once(deprecation => console.warn(deprecation));
 /**
@@ -3442,7 +3438,7 @@ exports.RequestError = RequestError;
 
 /***/ }),
 
-/***/ 828:
+/***/ 28:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
@@ -3452,11 +3448,11 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
-var endpoint = __nccwpck_require__(356);
-var universalUserAgent = __nccwpck_require__(419);
-var isPlainObject = __nccwpck_require__(444);
-var nodeFetch = _interopDefault(__nccwpck_require__(97));
-var requestError = __nccwpck_require__(961);
+var endpoint = __nccwpck_require__(443);
+var universalUserAgent = __nccwpck_require__(189);
+var isPlainObject = __nccwpck_require__(431);
+var nodeFetch = _interopDefault(__nccwpck_require__(148));
+var requestError = __nccwpck_require__(546);
 
 const VERSION = "5.4.14";
 
@@ -3598,12 +3594,12 @@ exports.request = request;
 
 /***/ }),
 
-/***/ 424:
+/***/ 955:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var register = __nccwpck_require__(0)
-var addHook = __nccwpck_require__(294)
-var removeHook = __nccwpck_require__(315)
+var register = __nccwpck_require__(326)
+var addHook = __nccwpck_require__(610)
+var removeHook = __nccwpck_require__(838)
 
 // bind with array of arguments: https://stackoverflow.com/a/21792913
 var bind = Function.bind
@@ -3662,7 +3658,7 @@ module.exports.Collection = Hook.Collection
 
 /***/ }),
 
-/***/ 294:
+/***/ 610:
 /***/ ((module) => {
 
 module.exports = addHook;
@@ -3715,7 +3711,7 @@ function addHook(state, kind, name, hook) {
 
 /***/ }),
 
-/***/ 0:
+/***/ 326:
 /***/ ((module) => {
 
 module.exports = register;
@@ -3749,7 +3745,7 @@ function register(state, name, method, options) {
 
 /***/ }),
 
-/***/ 315:
+/***/ 838:
 /***/ ((module) => {
 
 module.exports = removeHook;
@@ -3775,7 +3771,7 @@ function removeHook(state, name, method) {
 
 /***/ }),
 
-/***/ 399:
+/***/ 981:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -3803,7 +3799,7 @@ exports.Deprecation = Deprecation;
 
 /***/ }),
 
-/***/ 444:
+/***/ 431:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -3849,7 +3845,7 @@ exports.isPlainObject = isPlainObject;
 
 /***/ }),
 
-/***/ 97:
+/***/ 148:
 /***/ ((module, exports, __nccwpck_require__) => {
 
 "use strict";
@@ -4014,7 +4010,7 @@ FetchError.prototype.name = 'FetchError';
 
 let convert;
 try {
-	convert = __nccwpck_require__(863).convert;
+	convert = __nccwpck_require__(297).convert;
 } catch (e) {}
 
 const INTERNALS = Symbol('Body internals');
@@ -5506,10 +5502,10 @@ exports.FetchError = FetchError;
 
 /***/ }),
 
-/***/ 442:
+/***/ 612:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var wrappy = __nccwpck_require__(654)
+var wrappy = __nccwpck_require__(822)
 module.exports = wrappy(once)
 module.exports.strict = wrappy(onceStrict)
 
@@ -5555,21 +5551,21 @@ function onceStrict (fn) {
 
 /***/ }),
 
-/***/ 317:
+/***/ 823:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-module.exports = __nccwpck_require__(594);
+module.exports = __nccwpck_require__(764);
 
 
 /***/ }),
 
-/***/ 594:
+/***/ 764:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-var net = __nccwpck_require__(937);
+var net = __nccwpck_require__(631);
 var tls = __nccwpck_require__(16);
 var http = __nccwpck_require__(605);
 var https = __nccwpck_require__(211);
@@ -5835,7 +5831,7 @@ exports.debug = debug; // for test
 
 /***/ }),
 
-/***/ 419:
+/***/ 189:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -5861,7 +5857,7 @@ exports.getUserAgent = getUserAgent;
 
 /***/ }),
 
-/***/ 654:
+/***/ 822:
 /***/ ((module) => {
 
 // Returns a wrapper function that returns a wrapped callback
@@ -5901,47 +5897,101 @@ function wrappy (fn, cb) {
 
 /***/ }),
 
-/***/ 449:
+/***/ 715:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 const fs = __nccwpck_require__(747);
-const { join, resolve } = __nccwpck_require__(622);
+const { KTH_IDS_FILE } = __nccwpck_require__(300);
 
 module.exports = {
+  /**
+   * Reads the content of the file with the given path.
+   * 
+   * @param {string} file the full path of the file.
+   * @returns {string} the content of the file.
+   */
   readFile(file) {
-    return fs.readFileSync(file, 'utf8');
+    const data = fs.readFileSync(file, 'utf8');
+    return data;
   },
+  /**
+   * Uses context in @actions/Github to find data associated with PullRequest.
+   * Data is used when comparing two commits.
+   * @param {context} context in @actions/Github
+   * @returns data = {base:base sha for PR, head:head sha for PR, owner:owner of repo, repo: the repo  }
+   */
   parseContext(context) {
-    return { 
-      base: context.payload.pull_request &&
-            context.payload.pull_request.base &&
-            context.payload.pull_request.base.sha
-            ? context.payload.pull_request.base.sha
-            : undefined,
-      head: context.payload.pull_request &&
-            context.payload.pull_request.head &&
-            context.payload.pull_request.head.sha
-            ? context.payload.pull_request.head.sha
-            : undefined,
-      owner: context.repo && context.repo.owner
-              ? context.repo.owner : undefined,
-      repo:  context.repo && context.repo.repo
-              ? context.repo.repo : undefined,
+    const data = {
+        base: context.payload.pull_request &&
+              context.payload.pull_request.base &&
+              context.payload.pull_request.base.sha
+              ? context.payload.pull_request.base.sha
+              : undefined,
+        head: context.payload.pull_request &&
+              context.payload.pull_request.head &&
+              context.payload.pull_request.head.sha
+              ? context.payload.pull_request.head.sha
+              : undefined,
+        owner: context.repo && context.repo.owner
+                ? context.repo.owner : undefined,
+        repo:  context.repo && context.repo.repo
+                ? context.repo.repo : undefined,
     };
+    if (!data.base || !data.head || !data.owner || !data.repo) {
+      throw Error(`Head, base, owner or repo are missing from the payload for this `+
+      `${context.eventName} event. Please submit an issue on this action's GitHub repo.`
+      );
+    }
+    return data;
   },
+  /**
+   * Extracts kth addresses from file, format of the file needs to 
+   * have a specific structure, structured is described in README.
+   * @param {string} file the full path of the README file.
+   * @returns array of kth addresses in README file
+   */
   parseKTHEmail(file) {
-    // TODO: FIXA FELHANTERING
+    const error = (type) => `
+      Incorrect format for the member section
+      - ${type}
+      
+      Make sure to use the following format:
+      ## Members
+      -----
+      <Student1Name> (<Username1>@kth)
+      Github: [<GithubID1>](<linkToGithubProfile1>)
+
+      <Student2Name> (<Username2>@kth)
+      Github: [<GithubID2>](<linkToGithubProfile2>)
+
+      -----`;
+
     const data = this.readFile(file);
-    const ma = data.match(/-----[^-----]+-----/)[0];
-    const res = ma.match(/(([\w\d\._%+-]+)@kth.se)/g);
-    return res;
+    const memberSection = data.match(/-----[^-----]+-----/);
+    if (!memberSection) throw Error(
+      error('Could not find the opening and closing \'-----\' tag.')
+    );
+    const addresses = memberSection[0].match(/(([\w\d\._%+-]+)@kth.se)/g);
+    if (!addresses) throw Error(error('Could not find the kth email addresses.'))
+
+    return addresses
+  },
+  /**
+   * Retrives valid kthIDs from the file `KTH_IDS_FILE` defined
+   * in config.
+   * 
+   * @returns {string[]} An array of valid KTH ids.
+   */
+  parseKTHIdsFile() {
+    const data = this.readFile(KTH_IDS_FILE);
+    return data.split(/[\s,;]+/g);
   },
 };
 
 
 /***/ }),
 
-/***/ 863:
+/***/ 297:
 /***/ ((module) => {
 
 module.exports = eval("require")("encoding");
@@ -5989,7 +6039,7 @@ module.exports = require("https");;
 
 /***/ }),
 
-/***/ 937:
+/***/ 631:
 /***/ ((module) => {
 
 "use strict";
@@ -6091,6 +6141,6 @@ module.exports = require("zlib");;
 /******/ 	// module exports must be returned from runtime so entry inlining is disabled
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
-/******/ 	return __nccwpck_require__(957);
+/******/ 	return __nccwpck_require__(515);
 /******/ })()
 ;

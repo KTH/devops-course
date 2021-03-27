@@ -27,6 +27,8 @@ We want to solve the issue described by baudry in #916.
 
 ## Solution
 
+ncc build action.js -o dist
+
 ### Requierments for solution to run
 This solution is written with two assumptions in mind. First there needs to be a textfile called **kth-ids.txt** with the email addresses of students registered to the course. The file needs to have the following format:
 
