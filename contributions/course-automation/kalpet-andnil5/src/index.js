@@ -16,7 +16,7 @@ try {
       if (response.status !== 200) throw Error('Could not fetch changed files!');
 
       console.log('Finding README file location');
-      const readme = parseReadmePath(response);
+      const readme = Parser.parseReadmePath(response);
       console.log('README File location:', readme);
       const ids = Parser.parseKTHEmail(readme);
       console.log('KthIDs found in README:\n', ids);
