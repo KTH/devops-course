@@ -1,5 +1,5 @@
 const fs = require('fs');
-const { KTH_IDS_FILE } = require('./config');
+const { KTH_IDS_FILE } = require('../config/config');
 
 module.exports = {
   /**

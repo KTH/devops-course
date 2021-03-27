@@ -7,12 +7,6 @@ inputs:
       Users shouldn't need to set this themselves.
     required: true
     default: ${{ github.token }}
-# inputs:
-#   changed-files:  # id of input
-#     required: true
-# outputs:
-#   time: # id of output
-#     description: 'The time we greeted you'
 runs:
   using: 'node12'
   main: 'dist/index.js'

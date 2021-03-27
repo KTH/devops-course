@@ -1,8 +1,6 @@
 const core = require('@actions/core');
 const { context, getOctokit } = require('@actions/github');
-const { ROOT } = require('./config');
-const Parser = require('./parser');
-
+const Parser = require('./utils/parser');
 
 try {
   console.log('Retreving valid kthIDs');
@@ -27,7 +25,7 @@ try {
       const readme = [...filteredFiles[0].splice(0,3), 'README.md'].join('/');
       console.log('README File location:', readme);
       const ids = Parser.parseKTHEmail(readme);
-      console.log('KthIDs found in README:\n', ids, '\n');
+      console.log('KthIDs found in README:\n', ids);
       const validIDs = ids.filter(id => kthIDs.includes(id));
       const invalidIDs = ids.filter(id => !validIDs.includes(id));
       console.log('Valid kthIDs found:\n', validIDs, '\n');
