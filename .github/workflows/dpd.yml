@@ -16,11 +16,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: "checkout and setup python"
+    - name: "checkout current SHA"
       uses: "actions/checkout@v2"
     - name: "setup python"
       uses: "actions/setup-python@v2"
     - name: "Install dep"
       run: python -m pip install pygithub spacy
+    - name: Download NLP-files
+      run: python -m spacy download en_core_web_md
     - name: "Run check"
       run: python dpd.py
