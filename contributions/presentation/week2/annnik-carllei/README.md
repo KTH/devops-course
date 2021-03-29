@@ -7,20 +7,16 @@ Github username: annsudo
 Carl Leijonberg (carllei@kth.se)
 Github username: carllei
 
+## Topic "Third Party Software Dependency Management" 
+During the presentation we will talk about the importance of managing third party software dependencies. We will highlight issues such management of a large number of software dependencies and  how vulnerabilities in third party software can affect your software. We will also discuss tools that can be used to automatically identify security issues in software dependencies.
+
 ## Agenda
- - 📖  Introduction to DevSecOps (What is it?) 
- - ❓  Motivation (Why do we need it?)
- - 🛡 Secure CI/ CD Pipelines (+ some tools)
- - 🛠️  Even more tools
- - 🔑  Best Practices
+ - 📖  Problem and intro (issues with third party software dependencies) 
+ - 🛡  Dependency-check with OWASP
  - 📝  Reflecion + Take home message + engagement
 
-## Topic "DevSecOps throughout the DevOps lifecycle"
-Security should be integrated throughout the entire DevOps lifecycle and DevSecOps makes it possible to improve it without hampering speed, agility, and other essential DevOps.
-
-During the presentation we will introduce what DevSecOps is and talk about its importance throughout stages of DevOps lifecycle. Then we will outline best practices, explain how DevSecOps can be integrated into CI/CD Pipeline to make it secure and introduce tools that can help you with it.  
 
 
 ## Presentation Slides
-[Presentation](TBA)
+See the pdf file
 
