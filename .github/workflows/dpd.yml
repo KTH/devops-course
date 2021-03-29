@@ -23,4 +23,4 @@ jobs:
     - name: "Install dep"
       run: python -m pip install pygithub spacy
     - name: "Run check"
-      run: python /contributions/course-automation/badal-johennin/dpd.py
+      run: python tree/automation/contributions/course-automation/badal-johennin/dpd.py
