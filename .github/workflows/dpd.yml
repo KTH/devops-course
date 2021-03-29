@@ -25,4 +25,4 @@ jobs:
     - name: Download NLP-files
       run: python -m spacy download en_core_web_md
     - name: "Run check"
-      run: python dpd.py
+      run: python /contributions/course-automation/badal-johennin/dpd.py
