@@ -1,4 +1,4 @@
-# Course automation: Post metadata information for demo links
+# Course automation: Post hemingway editor score, readability and feedback
 
 ## Members
 
@@ -6,11 +6,10 @@ William Skagerström (wska@kth.se) (@wska)
 Alexander Kruger (alekru@kth.se) (@thestar19)
 ## Proposal
 
-We would like to propose a task that will parse and links to demo-showcases and publishes metadata-information about the video in a short table-summary. We are thinking of making initially making it work with youtube and its API, but if a correponding API solution exists for Vimeo we may include that aswell.
+We would like to propose a task that will create a bot that takes submitted essays and submits them to the hemingway editor (https://hemingwayapp.com/) and returns some useful feedback on the essay in the form of a comment.
 
 
 This will thus be a bot that:
-* Parses updates in the demo section.
-* Looks for updates to the link section in the readme (such as a youtube.com link).
-* Takes the link and queries relevant APIs for metadata information (there is a lot of metadeta, so a subset of relevant information will be selected).
-* Summarizes the data in a table and posts it back to the issue. Could also update tags if neccesary. 
+* Takes the submitted essay PDF and converts it into a workable format.
+* Submits the text and takes the feedback.
+* Restructures it into a suitable comment and posts it back on the issue.
