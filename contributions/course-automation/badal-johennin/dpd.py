@@ -1,6 +1,6 @@
 import os
 import spacy
-from github import Github
+#from github import Github
 all_readme = []
 nlp = spacy.load('en_core_web_md')
 stopwords = nlp.Defaults.stop_words
@@ -8,10 +8,10 @@ stopwords |= {"#",} ##add additional to default stopwords
 
 ## Preprocess the current readme's into a list of all_readme's
 print("start walk")
-for root, dirs, files in os.walk("/home/runner/work/devops-course/devops-course/devops-course/contributions/", topdown=True):
-    print(root,dirs,files)
+for root, dirs, files in os.walk("../../", topdown=True):
+    #print(root,dirs,files)
     
-    if (root.count("/")==5 and not("presentation" in root)) or (root.count("/")==6 and ("presentation" in root)):
+    if (root.count("/")==3 and not("presentation" in root)) or (root.count("/")==4 and ("presentation" in root)):
         print(root,files)
         if "README.md" in files:
             current_readme = open(root+"/README.md")
