@@ -7,7 +7,7 @@ stopwords = nlp.Defaults.stop_words
 stopwords |= {"#",} ##add additional to default stopwords
 
 ## Preprocess the current readme's into a list of all_readme's
-
+print("start walk")
 for root, dirs, files in os.walk("/home/runner/work/devops-course/devops-course/devops-course/contributions/", topdown=True):
     print(root,dirs,files)
     
