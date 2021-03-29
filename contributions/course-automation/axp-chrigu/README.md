@@ -25,7 +25,7 @@ The requirements for the actions are:
 
 ## Final Solution
 
-In this folder, you can find the source code of the final solution for the course repo dashboard. It is divided into two separate GitHub actions, one for generating the dashboard and one for commenting on a pull request that the dashboard has been generated. Instructions on how to set up these actions can be found in the README's of the respective folders. A preview of the final solution can also be found in this [fork.](https://github.com/Ackuq/devops-course) where the ```dashboard.md``` file is the final result when someone creates a pull request.
+In this folder, you can find the source code of the final solution for the course repo dashboard. It is divided into two separate GitHub actions, one for generating the dashboard and one for commenting on a pull request that the dashboard has been generated. Instructions on how to set up these actions can be found in the README's of the respective folders. A preview of the final solution can also be found in this [fork](https://github.com/Ackuq/devops-course) where the ```dashboard.md``` file is the final result when someone creates a pull request.
 
 During the project, some limitations were found that led us to alter or disregard some of the proposed requirements above. The following requirements were revised:
 
