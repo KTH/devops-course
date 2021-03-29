@@ -18,7 +18,7 @@ jobs:
     - uses: "actions/checkout@v2"
     - uses: "actions/setup-python@v2"
     - name: "Install dependencies"
-        run: python -m pip install pygithub spacy        
+      run: python -m pip install pygithub spacy        
 
     - name: "Run script"
       run: python /contributions/course-automation/badal-johennin/dpd.py
