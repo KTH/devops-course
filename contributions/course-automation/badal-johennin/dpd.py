@@ -1,9 +1,13 @@
 import os
 import spacy
-from spacy.lang.en.stop_words import STOP_WORDS
-print(is_stop)
+from github import Github
 all_readme = []
-depth = 0
+nlp = spacy.load('en_core_web_md')
+stopwords = nlp.Defaults.stop_words
+stopwords |= {"#",} ##add additional to default stopwords
+
+## Preprocess the current readme's into a list of all_readme's
+
 for root, dirs, files in os.walk("../../../../", topdown=True):
     #print(root,dirs,files)
     
@@ -14,20 +18,21 @@ for root, dirs, files in os.walk("../../../../", topdown=True):
             string = "".join(current_readme.readlines())
             temp_string = []
             for word in string.split():
-                if not(word.is_stop):
+                if not(word in stopwords):
                     temp_string.append(word)
-            all_readme.append("".join(temp_string))
+            all_readme.append(" ".join(temp_string)) ##joining without space yields better results?
 
     
 
-#all_readme = ["".join(i) for i in all_readme]
-
-print(len(all_readme))
-nlp = spacy.load('en_core_web_md')
-check = nlp(all_readme[4].replace("#",""))
-#print(all_readme[0])
+check = nlp(all_readme[4])
 
 for readme in all_readme:
-    #print(readme)
-    x = nlp(readme.replace("#",""))
+    x = nlp(readme)
     print(check.similarity(x))
+
+#GITHUB_TOKEN = os.environ('GITHUB_TOKEN')
+g = Github(GITHUB_TOKEN)
+ref = os.environ('GITHUB_REF')
+repo = "johennin/devops-course"
+pr = repo.get_pull(ref)
+pr.create_issue_comment('test')
