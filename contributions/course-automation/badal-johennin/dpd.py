@@ -8,7 +8,7 @@ stopwords |= {"#",} ##add additional to default stopwords
 
 ## Preprocess the current readme's into a list of all_readme's
 
-for root, dirs, files in os.walk("../../../../", topdown=True):
+for root, dirs, files in os.walk("/home/runner/work/devops-course/devops-course/", topdown=True):
     #print(root,dirs,files)
     
     if (root.count("/")==5 and not("presentation" in root)) or (root.count("/")==6 and ("presentation" in root)):
