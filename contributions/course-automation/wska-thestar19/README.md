@@ -3,7 +3,7 @@
 ## Members
 
 William Skagerström (wska@kth.se) (@wska)
-Alexander Kruger (alekru@kth.se) (@thestar19)
+Alexander Kruger (alekru@kth.se) (@TheStar19)
 ## Proposal
 
 We would like to propose a task that will create a bot that takes submitted essays and submits them to the hemingway editor (https://hemingwayapp.com/) and returns some useful feedback on the essay in the form of a comment.
