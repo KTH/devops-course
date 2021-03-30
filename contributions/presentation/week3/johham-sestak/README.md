@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# WIP Presentation week 3, Topic TBA
-=======
 # Proposal ML_OPS: Current applications and future possibilities
 
 
@@ -16,4 +13,3 @@ The idea is that the presentation will outline MLOPS, its difference from DevOps
 To be created
 ## References
 To be read
->>>>>>> upstream/2021
