@@ -118,6 +118,7 @@ def getMemberDirectory(category_folder, markupFile, members):
 
 # Gets users markup file location
 def getMarkupFileLocation(fileLocation):
+    print(fileLocation)
     m = re.search('(' + CHANGE_LOCATION + '.+/.+/)', fileLocation)
     if m:
         return m.group(1) + MARKUP
