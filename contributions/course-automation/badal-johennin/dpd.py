@@ -1,6 +1,6 @@
 import os
 import spacy
-#from github import Github
+from github import Github
 all_readme = []
 nlp = spacy.load('en_core_web_md')
 stopwords = nlp.Defaults.stop_words
@@ -15,7 +15,7 @@ print("start walk")
 for root, dirs, files in os.walk(cwd_search):
     #print(root,dirs,files)
     
-    if any(x in root.split("/")[-1] for x in matches):
+    if not(any(x in root.split("/")[-1] for x in matches)) and not("attic" in root):
         print(root,files)
         if "README.md" in files:
             current_readme = open(root+"/README.md")
@@ -34,7 +34,7 @@ for readme in all_readme:
     x = nlp(readme)
     print(check.similarity(x))
 
-#GITHUB_TOKEN = os.environ('GITHUB_TOKEN')
+GITHUB_TOKEN = os.environ('GITHUBTOKEN')
 g = Github(GITHUB_TOKEN)
 ref = os.environ('GITHUB_REF')
 repo = "johennin/devops-course"
