@@ -21,6 +21,5 @@ We are planning to do a comparison of Azure, AWS, and GCP based on DevOps. We wi
 5. Compare with large scale storage
 6. CI/CD Pipeline pros and cons in different platform
 7. Comparison of each setup on the parameters like service integration
-8. Compare with Example
-9. Summary
-10. Conclusion
+8. Summary
+9. Conclusion
