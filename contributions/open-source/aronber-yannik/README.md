@@ -2,7 +2,7 @@
 
 [`deploy-rs`](https://github.com/serokell/deploy-rs) is a tool to deploy [nix](https://nixos.org) managed remote machines.
 
-The contribution is to address  [#43](https://github.com/serokell/deploy-rs/issues/430) and in extension [#60](https://github.com/serokell/deploy-rs/issues/60).
+The contribution is to address  [#43](https://github.com/serokell/deploy-rs/issues/43) and in extension [#60](https://github.com/serokell/deploy-rs/issues/60).
 
 ## Contributors
 
