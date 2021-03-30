@@ -1,6 +1,10 @@
 import os
 import spacy
 from github import Github
+import sys
+
+ref = sys.argv[1]
+
 all_readme = []
 nlp = spacy.load('en_core_web_md')
 stopwords = nlp.Defaults.stop_words
@@ -36,7 +40,8 @@ for readme in all_readme:
 
 GITHUB_TOKEN = os.environ('GITHUBTOKEN')
 g = Github(GITHUB_TOKEN)
-ref = os.environ('GITHUB_REF')
+print(ref)
+print(g)
 repo = "johennin/devops-course"
 pr = repo.get_pull(ref)
 pr.create_issue_comment('test')
