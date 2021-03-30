@@ -7,11 +7,15 @@ stopwords = nlp.Defaults.stop_words
 stopwords |= {"#",} ##add additional to default stopwords
 
 ## Preprocess the current readme's into a list of all_readme's
+cwd = os.path.abspath(os.getcwd())
+cwd_search = "/".join(cwd.split("/")[:-2])
+matches = ["week","course","presentation","contributions","feedback","executable","demo","essay","open-source"]
+
 print("start walk")
-for root, dirs, files in os.walk("../../", topdown=True):
+for root, dirs, files in os.walk(cwd_search):
     #print(root,dirs,files)
     
-    if (root.count("/")==3 and not("presentation" in root)) or (root.count("/")==4 and ("presentation" in root)):
+    if any(x in root.split("/")[-1] for x in matches):
         print(root,files)
         if "README.md" in files:
             current_readme = open(root+"/README.md")
