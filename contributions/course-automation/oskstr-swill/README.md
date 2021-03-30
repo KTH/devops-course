@@ -13,6 +13,51 @@ The action should check that repo has:
 - More than 100 commits
 - An active community
   - open to interpretation
-  - provide stats on what has happend the last year (comments, PRs, commits)
+  - provide stats on what has happened the last year (comments, PRs, commits)
 
 We believe that checking that a project is related to DevOps may be too difficult for the purposes of this project.
+
+## Final Submission
+We have created a GitHub action at: https://github.com/sfkwww/milkyway
+
+The action can be used to find a link to an open-source GitHub repository in a body of text, like a pull request, and 
+get the following stats:
+ - stars
+ - watchers
+ - contributors
+ - forks
+ - commits
+ - commits last year
+ - open issues
+ 
+ The action can test that those stats satisfy some minimum requirement, e.g. 10 stars and 100 commits.
+ 
+ With this pull request we have added a file at `.github/workflows/open-source-requirement.yml` that 
+ would run this action whenever a pull request to `2021` gets the label `contribution_to_opensource`.
+ 
+ The minimum requirements currently in place are:
+ - stars: 10
+ - watchers: 10
+ - contributors: 10
+ - forks: 1
+ - commits: 100
+ - commits last year: 10
+ - open issues: 10
+ 
+ If needed they can be changed or removed. The default requirement is 0. 
+ 
+ The current workflow also uses `github-script` to comment a table of stats on the pull request.
+
+An example would be:
+
+>  [ rust-lang/rust ]
+>  -----------------------
+>  | Stat  |  Number |  Pass | 
+>  |---|---|---|
+>  |Stars ⭐              | 53440             | ✔️   |
+>  |Commits 📦            | 141152           | ✔️ |
+>  |Commits Last Year ⏱️  | 14472 | ✔️ |
+>  |Watchers 👀           | 1489          | ✔️ |
+>  |Contributors 🧑🏻‍🤝‍🧑🏻       | 4135      | ✔️ |
+>  |Forks 🍴               | 7696             | ✔️ |
+>  |Open Issues 🟢        | 7056       | ✔️ |
