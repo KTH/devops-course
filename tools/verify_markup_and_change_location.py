@@ -137,4 +137,6 @@ def reviewChanges(changes):
     (category_folder, members) = checkMD(getLinesFromFile(markupFile))
     member_directory = getMemberDirectory(category_folder, markupFile, members)
     verifyChangeLocation(changed_files, member_directory)
-    
+
+if __name__ == '__main__':
+    globals()[sys.argv[1]](sys.argv[2])

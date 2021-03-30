@@ -28,4 +28,4 @@ jobs:
     
     - name: Check pull request contents
       run: |
-        python -c 'import tools/verify_markup_and_change_location; verify_markup_and_change_location.reviewChanges(${{ steps.changed-files.outputs.all }})'
+        python tools/verify_markup_and_change_location.py reviewChanges ${{ steps.changed-files.outputs.all }}'
