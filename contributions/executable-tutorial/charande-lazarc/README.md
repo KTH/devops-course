@@ -24,4 +24,4 @@ deployed, while continuous delivery is not.
 
 There are no awesome tutorials on Katacoda that illustrates how to create a CI/CD on GitLab. 
 Although, CI/CD are common tools that are used by many software developers, along with many
-types of DevOps tools. 
+types of DevOps tools. We are planning to use GitLab (Tech stack) own internal CI/CD server in order to automatize an already existing project (to be chosen soon). 
