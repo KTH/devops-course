@@ -11,7 +11,7 @@ class Member:
     def getLastName(self):
         return self.name.split(" ")[-1]
 
-CHANGE_LOCATION = "/devops-course/contributions/"
+CHANGE_LOCATION = "devops-course/contributions/"
 CATEGORY = ["presentation",
             "essay",
             "demo",
@@ -122,7 +122,7 @@ def getMarkupFileLocation(fileLocation):
     if m:
         return m.group(1) + MARKUP
     else:
-        sys.exit("Change performed outside users folder")
+        sys.exit("Change performed in wrong folder")
 
 # Ensure all changes are within the members folder
 def verifyChangeLocation(changes, member_directory):
