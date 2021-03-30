@@ -3,4 +3,4 @@
 - "Monitoring with Prometheus" (Aron Hansen Berggren, Fredrik Björkman) [slides](TBD)
 - "The history of DevOps" (Hugo Heyman, Patricia Naccachian) [slides](TBD)
 - "DevOps practices in a Sundsvall company" (Isac Arvidsson, Andreas Henriksson) [slides](TBD)
-- "Reproducible Builds with Nix"
+- "Reproducible Builds with Nix" (Yannick) [slides](https://github.com/KTH/devops-course/blob/2021/contributions/presentation/week2/yannik/Introduction%20to%20Nix.pdf)
