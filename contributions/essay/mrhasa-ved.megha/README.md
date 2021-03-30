@@ -14,13 +14,13 @@ We are planning to do a comparison of Azure, AWS, and GCP based on DevOps. We wi
 
 ### Topics to covered
 
-**Introductions to DevOps**
-**Different DevOps Solutions on Public Cloud, Private Cloud**
-**Reasons for selecting AWS, GCP, and Azure for comparison**
-**Description of DevOps set up on each of three clouds**
-**Compare with large scale storage**
-**CI/CD Pipeline pros and cons in different platform**
-**Comparison of each setup on the parameters like service integration**
-**Compare with Example**
-**Summary**
-**Conclusion**
+1. Introductions to DevOps
+2. Different DevOps Solutions on Public Cloud, Private Cloud
+3. Reasons for selecting AWS, GCP, and Azure for comparison
+4. Description of DevOps set up on each of three clouds
+5. Compare with large scale storage
+6. CI/CD Pipeline pros and cons in different platform
+7. Comparison of each setup on the parameters like service integration
+8. Compare with Example
+9. Summary
+10. Conclusion
