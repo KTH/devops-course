@@ -1,4 +1,4 @@
-# Video demo proposal: Docker monitoring using Prometheus + Grafana
+# Video demo proposal: Docker monitoring using Datadog
 
 ## Members
 
@@ -10,9 +10,7 @@ GitHub: [Måns](https://github.com/mansand1)
 
 ## Proposal
 Demoing the process of setting up a monitoring service for Docker using
-Prometheus and Grafana. Prometheus is used as a back-end to gather 
-statistics and logs. Grafana is used to visualize the statistics in a 
-nice way. Both tools are open-source.
+Datadog.
 
 We will have some Docker containers running on a local machine and 
 after the monitoring service has been set up we will show statistics
