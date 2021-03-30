@@ -11,5 +11,5 @@ The pattern used will include a work queue (with a producer and multiple compete
 Source code will be included.   
 
 ## Link
-Youtube link: TBA
+Youtube link: TBA  
 Repository: TBA
