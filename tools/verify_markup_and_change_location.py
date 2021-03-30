@@ -11,7 +11,7 @@ class Member:
     def getLastName(self):
         return self.name.split(" ")[-1]
 
-CHANGE_LOCATION = ".github/devops-course/contributions/"
+CHANGE_LOCATION = "/devops-course/contributions/"
 CATEGORY = ["presentation",
             "essay",
             "demo",
