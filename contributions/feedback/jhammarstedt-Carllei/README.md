@@ -1,4 +1,4 @@
-# Feedback on BDD in DevOps #
+# Feedback on Sustainability of DevOps and Internet of things #
 
 ## Members ##
 * Johan Hammarstedt johhamm@kth.se, Github: [jhammarstedt](https://github.com/jhammarstedt)
