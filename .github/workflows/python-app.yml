@@ -30,4 +30,4 @@ jobs:
     
     - name: Check pull request contents
       run: |
-        python tools/verify_markup_and_change_location.py review_changes ${{ steps.changed-files.outputs.all }}
+        python tools/verify_markdown_and_change_location.py review_changes ${{ steps.changed-files.outputs.all }}
