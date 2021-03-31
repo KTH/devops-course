@@ -61,6 +61,17 @@ CATEGORY = ["presentation",
 MARKDOWN = "README.md"
 MAX_MEMBERS = 3
 
+def inform_user(text):
+    '''
+    Informs user of issue.
+    
+    Showcases the provided text before exiting.
+    
+    Args:
+        text: Informative text regarding issue.
+    '''
+    sys.exit("\nEncountered Problem:" +
+             "\n" + text + "\n")
 
 def get_lines_from_file(file_name):
     '''
@@ -82,7 +93,7 @@ def get_lines_from_file(file_name):
         lines = [s.strip() for s in lines]
         return lines
     except:
-        sys.exit("Cant open file: " + file_name)
+        inform_user("Cant open file: " + file_name)
 
 def category_to_folder_name(category):
     '''
@@ -119,7 +130,7 @@ def get_expected_content(lines, text, necassary = True):
         return lines.pop(0)
     else:
         if necassary:
-            sys.exit("Expected, but not found: " + text)
+            inform_user("Expected, but not found: " + text)
         else:
             return None
 
@@ -141,7 +152,7 @@ def verify_content(regex, line):
     if m:
         return m.group(1)
     else:
-        sys.exit("Wrong formating for line: " + line)
+        inform_user("Wrong formating for line: " + line)
 
 def check_markdown(lines):
     '''
@@ -169,7 +180,7 @@ def check_markdown(lines):
             found = True
             break
     if(not found):
-        sys.exit("Bad task name")
+        inform_user("Bad task name")
     
     # Members are must have
     get_expected_content(lines, "## members")
@@ -199,7 +210,7 @@ def check_markdown(lines):
         members.append(Member(name, email, github))
         
         if(len(lines) == 0):
-            sys.exit("Proposal section is missing")
+            inform_user("Proposal section is missing")
         
         #leave loop if see that next section starts
         if lines[0].startswith("##"):
@@ -209,7 +220,7 @@ def check_markdown(lines):
     get_expected_content(lines, "## proposal")
     
     if(len(members) > MAX_MEMBERS):
-        sys.exit("Too many members")
+        inform_user("Too many members")
         
     return (category_folder, members)
 
@@ -238,7 +249,7 @@ def get_member_directory(category_folder, markdown_file, members):
         if(markdown_file == markdown.format(i)):
             return category_folder + i
     
-    sys.exit("Markup file in wrong folder, expected location: " +
+    inform_user("Markup file in wrong folder, expected location: " +
              markdown.format(perms[0]))
 
 def get_markdown_file_location(file_location):
@@ -257,7 +268,7 @@ def get_markdown_file_location(file_location):
     if m:
         return m.group(1) + MARKDOWN
     else:
-        sys.exit("Change performed outside users folder")
+        inform_user("Change performed outside users folder")
 
 def verify_change_location(changed_files, folder):
     '''
@@ -271,7 +282,7 @@ def verify_change_location(changed_files, folder):
     '''
     for change in changed_files:
         if(not change.startswith(folder)):
-            sys.exit("Change performed outside users folder")
+            inform_user("Change performed outside users folder")
 
 def review_changes(changes):
     '''
