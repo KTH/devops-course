@@ -9,7 +9,7 @@ import json
 def get_req(api_url):
     headers = {'content-type': 'application/json'}
     response = requests.get(api_url,allow_redirects=False,headers=headers).json()
-    return request[0]['filename']
+    return response[0]['filename']
 
 
 
