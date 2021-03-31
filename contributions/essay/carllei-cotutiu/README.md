@@ -2,6 +2,7 @@
 
 ### Members
 Carl Leijonberg (carllei@kth.se), GitHub: [carllei](https://github.com/carllei)
+
 Ioana Cotutiu (cotutiu@kth.se), GitHub: [IC-kth](https://github.com/IC-kth)
 
 ### Proposal
