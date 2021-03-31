@@ -4,7 +4,7 @@
 
 Félix Fonteneau, felixfon@kth.se (github username: [FelixFonteneau](https://github.com/FelixFonteneau))
 
-Hilaire Bouaddi, bouaddi@kth.se (github username: [hilaire-bouaddi](https://github.com/Hilaire-Bouaddi))
+Hilaire Bouaddi, bouaddi@kth.se (github username: [Hilaire-Bouaddi](https://github.com/Hilaire-Bouaddi))
 
 ## Abstract
 
