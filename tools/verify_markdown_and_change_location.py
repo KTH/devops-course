@@ -130,7 +130,8 @@ def get_expected_content(lines, text, necassary = True):
         return lines.pop(0)
     else:
         if necassary:
-            inform_user("Expected, but not found: " + text)
+            inform_user("Expected: " + text + 
+                        "\nFound: " + lines[0] if 0 < len(lines) else "")
         else:
             return None
 
@@ -152,7 +153,7 @@ def verify_content(regex, line):
     if m:
         return m.group(1)
     else:
-        inform_user("Wrong formating for line: " + line)
+        inform_user("Wrong line formating: " + line)
 
 def check_markdown(lines):
     '''
@@ -210,7 +211,7 @@ def check_markdown(lines):
         members.append(Member(name, email, github))
         
         if(len(lines) == 0):
-            inform_user("Proposal section is missing")
+            inform_user("Missing proposal section")
         
         #leave loop if see that next section starts
         if lines[0].startswith("##"):
@@ -249,8 +250,9 @@ def get_member_directory(category_folder, markdown_file, members):
         if(markdown_file == markdown.format(i)):
             return category_folder + i
     
-    inform_user("Markup file in wrong folder, expected location: " +
-             markdown.format(perms[0]))
+    inform_user("Markdown file in wrong group member folder"
+                "\nExpected: " + markdown.format(perms[0]) +
+                "\nFound: " + markdown_file)
 
 def get_markdown_file_location(file_location):
     '''
@@ -268,7 +270,7 @@ def get_markdown_file_location(file_location):
     if m:
         return m.group(1) + MARKDOWN
     else:
-        inform_user("Change performed outside users folder")
+        inform_user("Change performed in wrong path")
 
 def verify_change_location(changed_files, folder):
     '''
@@ -282,7 +284,7 @@ def verify_change_location(changed_files, folder):
     '''
     for change in changed_files:
         if(not change.startswith(folder)):
-            inform_user("Change performed outside users folder")
+            inform_user("Change performed in wrong path")
 
 def review_changes(changes):
     '''
