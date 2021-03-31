@@ -2,37 +2,55 @@ import sys
 import re
 from itertools import permutations
 
-'''
-Member: Class used for storing group member info
-
-name- full name
-email- email adress
-github- link to github account
-
-At this time only the name is used to extract the family name, with other
-variables left for furture use.
-
-'''
 class Member:
+    '''
+    Member
+    
+    Holds information about each member
+    '''
     
     def __init__(self, name, email, github):
+        """
+        Initialize Member class.
+        
+        Sets up Member variables.
+        
+        Args:
+            name: Group members full name.
+            email: Group members email address.
+            github: Link to group members github page.
+        """
         self.name = name
         self.email = email
         self.github = github
     
-    '''
-    Extracts family name from name
-    '''
+    
     def get_family_name(self):
+        '''
+        Gets family name.
+        
+        Extracts family name from name.
+        
+        Returns:
+            family name.
+        '''
         return self.name.split(" ")[-1]
 
-'''
-CHANGE_LOCATION: constant variable used for defining location of changes
-'''
+"""
+Verify markdown and change location module.
+
+Verifies that data provided within markdown file is sufficient and correct, 
+while also ensuring that no changes have been performed outside dedicated 
+member folder.
+
+Attributes:
+    CHANGE_LOCATION: Defines location where changes can take place.
+    CATEGORY: List of possible categories for work.
+    MARKDOWN: Necassary markdown file name (must be present in member folder).
+    MAX_MEMBERS: Variable defining maximum team size.
+"""
+
 CHANGE_LOCATION = "contributions/"
-'''
-CATEGORY: constant variable used for defining possible categories of work 
-'''
 CATEGORY = ["presentation",
             "essay",
             "demo",
@@ -40,23 +58,23 @@ CATEGORY = ["presentation",
             "executable tutorial",
             "course automation",
             "feedback"]
-'''
-MARKUP: constant variable used for defining the name of a markdown file (it is
-a must have within the member folder)
-'''
 MARKDOWN = "README.md"
-'''
-MAX_MEMBERS: constant variable used for defining the number of members allowed
-in one group
-'''
 MAX_MEMBERS = 3
 
-'''
-Extracts lines from a file
 
-Returns a list of non empty lines, with all leters transformed to lower case
-'''
 def get_lines_from_file(file_name):
+    '''
+    Gets lines from file
+    
+    Extracts lines from a list of non empty lines, with all leters transformed
+    to lower case.
+    
+    Args:
+        file_name: Name of the file to be read.
+        
+    Returns:
+        List of lines.
+    '''
     try:
         file = open(file_name, 'r')
         lines = file.read().lower().splitlines()
@@ -66,18 +84,37 @@ def get_lines_from_file(file_name):
     except:
         sys.exit("Cant open file: " + file_name)
 
-'''
-Transforms category string to valid folder name
-'''
 def category_to_folder_name(category):
-    return category.replace(" ", "-") + "/"
+    '''
+    Converts category to folder name
+    
+    Transforms category string to valid folder name.
+    
+    Args:
+        category: Text to be transformed.
+        
+    Returns:
+        Folder name.
+    '''
+    return category.replace(" ", "-")
 
-'''
-Gets line from lines iff the current line starts with the necassary text, 
-otherwise, depending on the "necassary" variable either None will be returned
-or exit will be performed.
-'''
+
 def get_expected_content(lines, text, necassary = True):
+    '''
+    Gets contents if it was expected.
+    
+    Gets line from lines iff the current line starts with the provided text, 
+    otherwise, depending on the "necassary" variable either None will be
+    returned or exit will be performed.
+    
+    Args:
+        lines: Lines read from file.
+        text: String value indicating how line should start.
+        necassary: Boolean used to decide if line must start with text.
+        
+    Returns:
+        Line.
+    '''
     if(len(lines) != 0 and lines[0].startswith(text)):
         return lines.pop(0)
     else:
@@ -86,22 +123,39 @@ def get_expected_content(lines, text, necassary = True):
         else:
             return None
 
-'''
-Returns the first group of search using regex if it was succesful, otherwise,
-exit will be performed.
-'''
 def verify_content(regex, line):
+    '''
+    Verifies contents of line.
+    
+    Returns the first group of search using regex if it was succesful,
+    otherwise, exit will be performed.
+    
+    Args:
+        regex: Regex formated string value.
+        line: text to search using regex.
+        
+    Returns:
+        first group found.
+    '''
     m = re.search(regex, line)
     if m:
         return m.group(1)
     else:
         sys.exit("Wrong formating for line: " + line)
 
-'''
-Verifies that the lines read from a markdown file are following the necassary
-format.
-'''
 def check_markdown(lines):
+    '''
+    Checks markdown files contents.
+    
+    Verifies that the lines read from a markdown file are following the
+    necassary format.
+    
+    Args:
+        lines: Lines read from file.
+        
+    Returns:
+        Expected category folder and group members.
+    '''
     members = []
     category_folder = ""
     
@@ -111,7 +165,7 @@ def check_markdown(lines):
     for t in CATEGORY:
         line = get_expected_content(lines, txt.format(t), False)
         if line != None:
-            category_folder = CHANGE_LOCATION + category_to_folder_name(t)
+            category_folder = CHANGE_LOCATION + category_to_folder_name(t) + "/"
             found = True
             break
     if(not found):
@@ -144,7 +198,6 @@ def check_markdown(lines):
             
         members.append(Member(name, email, github))
         
-        
         if(len(lines) == 0):
             sys.exit("Proposal section is missing")
         
@@ -160,12 +213,22 @@ def check_markdown(lines):
         
     return (category_folder, members)
 
-'''
-Verify that the location where markdown file is strored is correct, this is
-done based on markdown file info and it returns location of folder where
-members should have been working in.
-'''
 def get_member_directory(category_folder, markdown_file, members):
+    '''
+    Gets member directory path.
+    
+    Verify that the location where markdown file is strored is correct, this is
+    done based on markdown file info and it returns location of folder where
+    members should have been working in.
+    
+    Args:
+        category_folder: Path to directory where all changes should be present.
+        markdown_file: Path to markdown file.
+        members: List of group members.
+        
+    Returns:
+        Path inside which all changes should be performed.
+    '''
     lastNames = [m.get_family_name() for m in members]
     perms = ['-'.join(p) for p in permutations(lastNames)]
     
@@ -173,33 +236,53 @@ def get_member_directory(category_folder, markdown_file, members):
     
     for i in perms:
         if(markdown_file == markdown.format(i)):
-            return markdown_file
+            return category_folder + i
     
     sys.exit("Markup file in wrong folder, expected location: " +
              markdown.format(perms[0]))
 
-'''
-Gets users markdown file location, based one changed file location 
-'''
 def get_markdown_file_location(file_location):
+    '''
+    Gets markdown files location.
+    
+    Gets users markdown file location, based single changed file path. 
+    
+    Args:
+        file_location: Path to one of the changed files.
+        
+    Returns:
+        Expected markdown file path.
+    '''
     m = re.search('^(' + CHANGE_LOCATION + '.+/.+/)', file_location)
     if m:
         return m.group(1) + MARKDOWN
     else:
-        sys.exit("Change performed in wrong folder")
+        sys.exit("Change performed outside users folder")
 
-'''
-Ensure all changes are done within the provided folder
-'''
 def verify_change_location(changed_files, folder):
+    '''
+    Verify change locations
+    
+    Ensure that all changes are done within the provided folder.
+    
+    Args:
+        changed_files: List of files changed.
+        folder: Directory that should contain all changes.
+    '''
     for change in changed_files:
         if(not change.startswith(folder)):
             sys.exit("Change performed outside users folder")
 
-'''
-Main entry point for the program
-'''
 def review_changes(changes):
+    '''
+    Review changes
+    
+    Main entry point for the program.
+    
+    Args:
+        changes: Text value indicating changed file locations separated by
+        single space.
+    '''
     #Creates list of changed files from string
     changed_files = changes.split(" ")
     
