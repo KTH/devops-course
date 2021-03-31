@@ -110,7 +110,7 @@ def category_to_folder_name(category):
     return category.replace(" ", "-")
 
 
-def search_line(lines, regex, necassary = True):
+def search_line(lines, regex, info, necassary = True):
     '''
     Searches line.
     
@@ -133,7 +133,8 @@ def search_line(lines, regex, necassary = True):
              return m
          else:
              if necassary:
-                 inform_user("Expression to sattisfy: " + regex +
+                 inform_user("Problem retreiving line for: " + info +
+                             "\nExpression to sattisfy: " + regex +
                              "\nCurrent line formating: " + lines[0])
     else:
         if necassary:
@@ -159,7 +160,7 @@ def check_markdown(lines):
     txt = "^# {}:.*$"
     found = False
     for t in CATEGORY:
-        search_result = search_line(lines, txt.format(t), False)
+        search_result = search_line(lines, txt.format(t), "Title", False)
         if search_result != None:
             category_folder = CHANGE_LOCATION + category_to_folder_name(t) + "/"
             found = True
@@ -168,20 +169,18 @@ def check_markdown(lines):
         inform_user("Bad task name")
     
     # Members are must have
-    search_line(lines, "^## members$")
+    search_line(lines, "^## members$", "Members")
     
     while(True):
-        # Name is must have
-        regex = "^name: ([a-z]+( [a-z]+)* [a-z]+)$"
-        name = search_line(lines, regex).group(1)
-        
-        # Email is must have
-        regex = "^email: ([a-z]+@kth.se)$"
-        email = search_line(lines, regex).group(1)
+        # Name and Email is must have
+        regex = "^([a-z]+( [a-z]+)* [a-z]+) (\([a-z]+@kth.se\))$"
+        match = search_line(lines, regex, "Name and Email")
+        name = match.group(1)
+        email = match.group(2)
         
         #GitHub is optional
         regex = "^github: (https://github.com/[a-z]+)$"
-        match = search_line(lines, regex, False)
+        match = search_line(lines, regex, "Github", False)
         github = None
         if match:
             github = match.group(1)
@@ -196,7 +195,7 @@ def check_markdown(lines):
             break
     
     # Proposal is must have
-    search_line(lines, "^## proposal$")
+    search_line(lines, "^## proposal$", "Proposal")
     
     if(len(members) > MAX_MEMBERS):
         inform_user("Too many members")

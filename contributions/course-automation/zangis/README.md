@@ -2,8 +2,7 @@
 
 ## Members
 
-Name: Ralfs Zangis Zangis
-Email: zangis@kth.se
+Ralfs Zangis (zangis@kth.se)
 GitHub: https://github.com/bubriks
 
 ## Proposal
