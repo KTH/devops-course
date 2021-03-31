@@ -31,7 +31,7 @@ print("start walk")
 for root, dirs, files in os.walk(cwd_search):
     #print(root,dirs,files)
     
-    if not(any(x in root.split("/")[-1] for x in matches)) and not("attic" in root):
+    if not(any(x in root.split("/")[-1] for x in matches)) and not("attic" in root) and ("contributions" in root):
 
         if "README.md" in files:
             print(root,files)
