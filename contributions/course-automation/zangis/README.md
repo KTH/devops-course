@@ -14,7 +14,7 @@ Ensuring that pull requests can be approved only if the formatting requirements 
 - Confirm that file structure follows the rules (no changes outside members folder in the selected category)
 - Inform user if any checks have failed (for more details on what has failed check build)
 
--------------------------------
+## Final solution
 Code testing validity of markdown files and the change location is run only on pull-requests.
 
 Example markdown file provided in EXAMPLE_README.md
