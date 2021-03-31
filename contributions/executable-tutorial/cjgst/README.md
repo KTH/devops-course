@@ -16,3 +16,7 @@ I plan to use Katacoda to be able to run the tutorial interactively with a termi
 I made a tutorial and it's available at https://www.katacoda.com/christian-stj.
 
 The repo for my tutorial can be found here: https://github.com/christian-stj/katacoda-scenarios.
+
+## Feedback
+
+I have received feedback from @andreaskth and @EleonoraBorzis and acted upon it, the diff can be found [here](https://github.com/christian-stj/katacoda-scenarios/commit/992a247b6f5e7350c4b5c3a9fcc1b1e98f19de04).
