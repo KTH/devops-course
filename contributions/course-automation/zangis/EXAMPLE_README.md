@@ -7,7 +7,7 @@ Email: bar@kth.se
 GitHub: https://github.com/bar
 
 Name: FirstName MiddleName LastName
-Email: example@kth.se
+Email: example@kth.se 
 GitHub: https://github.com/example
 
 ## Proposal
