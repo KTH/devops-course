@@ -34,9 +34,10 @@ The schedule is at <https://www.kth.se/social/course/DD2482/calendar/>
   * [How to survive the KTH DevOps course](https://docs.google.com/presentation/d/1SxHftBTBefN8jA6nVhlgKFP6BypdyV3Q_Gh1R8IwWK4/edit?usp=sharing)
 * Goals: watch the repo, find a first teammate, register one first task as a pull request on this repo.
 
-### Week 2
+### Week 2 <https://kth-se.zoom.us/j/67189910023>
 * Technical Briefing (B. Baudry)
-* Guest Lecture: Continuous Integration [Mats Skoglund (Scania)](https://www.linkedin.com/in/matsskoglund/).
+  * Preparatory material [Testing at scale](https://increment.com/testing/testing-at-scale/)
+* Guest Lecture: Continuous Integration [Mats Skoglund (Scania)](https://www.linkedin.com/in/matsskoglund/). [Slides for the guest lecture](https://kth.box.com/s/0qs9tab2tdip66dia3a6k4dbie463ytg)
 * Student presentations
 
 ### Week 3
