@@ -110,50 +110,34 @@ def category_to_folder_name(category):
     return category.replace(" ", "-")
 
 
-def get_expected_content(lines, text, necassary = True):
+def search_line(lines, regex, necassary = True):
     '''
-    Gets contents if it was expected.
+    Searches line.
     
-    Gets line from lines iff the current line starts with the provided text, 
-    otherwise, depending on the "necassary" variable either None will be
-    returned or exit will be performed.
+    Returns Match from lines iff the current line can find something by searching
+    using regex, otherwise, depending on the "necassary" variable either None
+    will be returned or exit will be performed.
     
     Args:
         lines: Lines read from file.
-        text: String value indicating how line should start.
+        regex: Regex formated string value.
         necassary: Boolean used to decide if line must start with text.
         
     Returns:
-        Line.
+        Match (allowing for extaction of data based on query).
     '''
-    if(len(lines) != 0 and lines[0].startswith(text)):
-        return lines.pop(0)
+    if(len(lines) != 0):
+         m = re.search(regex, lines[0])
+         if m:
+             lines.pop(0)
+             return m
+         else:
+             if necassary:
+                 inform_user("Expression to sattisfy: " + regex +
+                             "\nCurrent line formating: " + lines[0])
     else:
         if necassary:
-            inform_user("Expected: " + text + 
-                        "\nFound: " + lines[0] if 0 < len(lines) else "")
-        else:
-            return None
-
-def verify_content(regex, line):
-    '''
-    Verifies contents of line.
-    
-    Returns the first group of search using regex if it was succesful,
-    otherwise, exit will be performed.
-    
-    Args:
-        regex: Regex formated string value.
-        line: text to search using regex.
-        
-    Returns:
-        first group found.
-    '''
-    m = re.search(regex, line)
-    if m:
-        return m.group(1)
-    else:
-        inform_user("Wrong line formating: " + line)
+            inform_user("Out of lines, cannot sattisfy regex expression: " + regex)
 
 def check_markdown(lines):
     '''
@@ -172,11 +156,11 @@ def check_markdown(lines):
     category_folder = ""
     
     # Title is must have
-    txt = "# {}:"
+    txt = "^# {}: .*$"
     found = False
     for t in CATEGORY:
-        line = get_expected_content(lines, txt.format(t), False)
-        if line != None:
+        search_result = search_line(lines, txt.format(t), False)
+        if search_result != None:
             category_folder = CHANGE_LOCATION + category_to_folder_name(t) + "/"
             found = True
             break
@@ -184,29 +168,23 @@ def check_markdown(lines):
         inform_user("Bad task name")
     
     # Members are must have
-    get_expected_content(lines, "## members")
+    search_line(lines, "^## members$")
     
     while(True):
         # Name is must have
-        start_with = "name:"
-        line = get_expected_content(lines, start_with)
-        name = verify_content("^" + start_with +
-                              " ([a-z]+( [a-z]+)* [a-z]+)$", line)
+        regex = "^name: ([a-z]+( [a-z]+)* [a-z]+)$"
+        name = search_line(lines, regex).group(1)
         
         # Email is must have
-        start_with = "email:"
-        line = get_expected_content(lines, start_with)
-        email = verify_content("^" + start_with + " ([a-z]+@kth.se)$", line)
+        regex = "^email: ([a-z]+@kth.se)$"
+        email = search_line(lines, regex).group(1)
         
         #GitHub is optional
-        start_with = "github:"
-        line = get_expected_content(lines, start_with, False)
-        if line != None:
-            github = verify_content("^" + start_with +
-                                    " (https://github.com/[a-z]+)$", line)
-        else:
-            github = None
-            print("Github not provided")
+        regex = "^github: (https://github.com/[a-z]+)$"
+        match = search_line(lines, regex, False)
+        github = None
+        if match:
+            github = match.group(1)
             
         members.append(Member(name, email, github))
         
@@ -218,7 +196,7 @@ def check_markdown(lines):
             break
     
     # Proposal is must have
-    get_expected_content(lines, "## proposal")
+    search_line(lines, "^## proposal$")
     
     if(len(members) > MAX_MEMBERS):
         inform_user("Too many members")
