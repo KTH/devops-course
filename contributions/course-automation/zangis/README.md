@@ -6,7 +6,7 @@ Name: Ralfs Zangis Zangis
 Email: zangis@kth.se
 GitHub: https://github.com/bubriks
 
-## Proposal s
+## Proposal
 Ensuring that pull request can be approved only if the formatting requirements are met. 
 
 ## Description
