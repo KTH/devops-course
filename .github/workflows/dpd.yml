@@ -14,15 +14,16 @@ jobs:
     name: Lint code base
     # Set the type of machine to run on
     runs-on: ubuntu-latest
-
     steps:
     - name: "checkout current SHA"
       uses: "actions/checkout@v2"
     - name: "setup python"
       uses: "actions/setup-python@v2"
+    - name: "test"
+      run: echo "${{ github.event.number }}"
     - name: "Install dep"
       run: python -m pip install pygithub spacy
     - name: Download NLP-files
       run: python -m spacy download en_core_web_md
     - name: "Run check"
-      run: python contributions/course-automation/badal-johennin/dpd.py
+      run: python contributions/course-automation/badal-johennin/dpd.py ${{ github.event.number }}
