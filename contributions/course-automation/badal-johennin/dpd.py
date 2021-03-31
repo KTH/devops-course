@@ -2,8 +2,20 @@ import os
 import spacy
 from github import Github
 import sys
+import requests
+
+import json
+
+def get_req(api_url):
+    headers = {'content-type': 'application/json'}
+    response = requests.get(api_url,allow_redirects=False,headers=headers).json()
+    return request[0]['filename']
+
+
 
 ref = sys.argv[1]
+api_URL = f'https://api.github.com/repos/johennin/devops-course/pulls/{ref}/files'
+filename = get_req(api_URL)
 
 all_readme = []
 nlp = spacy.load('en_core_web_md')
@@ -28,20 +40,24 @@ for root, dirs, files in os.walk(cwd_search):
             for word in string.split():
                 if not(word in stopwords):
                     temp_string.append(word)
-            all_readme.append(" ".join(temp_string)) ##joining without space yields better results?
+            if filename in root:
+                check = " ".join(temp_string)
+            else:
+                all_readme.append(" ".join(temp_string)) ##joining without space yields better results?
 
     
 
-check = nlp(all_readme[4])
+check = nlp(check)
 
 for readme in all_readme:
     x = nlp(readme)
     print(check.similarity(x))
 
-GITHUB_TOKEN = os.environ('GITHUBTOKEN')
-g = Github(GITHUB_TOKEN)
-print(ref)
-print(g)
-repo = "johennin/devops-course"
-pr = repo.get_pull(ref)
-pr.create_issue_comment('test')
+
+#GITHUB_TOKEN = os.environ('GITHUBTOKEN')
+#g = Github(GITHUB_TOKEN)
+#print(ref)
+#print(g)
+#repo = "johennin/devops-course"
+#pr = repo.get_pull(ref)
+#pr.create_issue_comment('test')
