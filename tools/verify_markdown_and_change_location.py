@@ -270,7 +270,7 @@ def get_markdown_file_location(file_location):
     if m:
         return m.group(1) + MARKDOWN
     else:
-        inform_user("Change performed in wrong path")
+        inform_user("Change performed in wrong path: " + file_location)
 
 def verify_change_location(changed_files, folder):
     '''
@@ -284,7 +284,9 @@ def verify_change_location(changed_files, folder):
     '''
     for change in changed_files:
         if(not change.startswith(folder)):
-            inform_user("Change performed in wrong path")
+            inform_user("Change performed in wrong path"
+                "\nExpected path: " + folder +
+                "\nChange location: " + change)
 
 def review_changes(changes):
     '''
