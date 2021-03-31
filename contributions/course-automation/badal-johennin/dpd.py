@@ -32,8 +32,9 @@ for root, dirs, files in os.walk(cwd_search):
     #print(root,dirs,files)
     
     if not(any(x in root.split("/")[-1] for x in matches)) and not("attic" in root):
-        print(root,files)
+
         if "README.md" in files:
+            print(root,files)
             current_readme = open(root+"/README.md")
             string = "".join(current_readme.readlines())
             temp_string = []
