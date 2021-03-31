@@ -12,5 +12,3 @@ GitHub: https://github.com/example
 
 ## Proposal
 Description of proposal
-
-Example path where this markdown file should be saved: course-automation/bar-lastname/ (members folder last names can be in other orders, but both must be present)

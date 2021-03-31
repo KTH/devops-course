@@ -156,7 +156,7 @@ def check_markdown(lines):
     category_folder = ""
     
     # Title is must have
-    txt = "^# {}: .*$"
+    txt = "^# {}:.*$"
     found = False
     for t in CATEGORY:
         search_result = search_line(lines, txt.format(t), False)
