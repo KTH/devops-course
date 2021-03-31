@@ -4,7 +4,6 @@ name: Duplicate Proposal Detector
 on:
   pull_request:
     types: [opened]
-  push:
 
 jobs:
   # Set the job key. The key is displayed as the job name
