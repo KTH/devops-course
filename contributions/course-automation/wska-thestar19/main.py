@@ -5,7 +5,7 @@ import time
 #Constants
 REPO_ID = 337456664 #Used to find which repo to look at
 REPO_NAME = "daTest"
-TOKEN = "5f838b52a05a615518b23fc8d6c965a30813c580" #Used by Github library to find User
+TOKEN = "" #Used by Github library to find User
 USER = Github(TOKEN) #This is the user that is nav Github
 def test():
     # using an access token
