@@ -9,6 +9,7 @@ Github: [andreaskth](https://github.com/andreaskth)
 Eleonora Borzi (borzi@kth.se)  
 Github: [EleonoraBorzis](https://github.com/EleonoraBorzis)
 
+
 # Feedback by Eleonora Borzi 
 ## Summary:
 The tutorial is well planned, everything was clear and easy to follow. The steps were divided in a logical way, I did not feel rushed or confused. The tutorial provides all the guidance to complete it, even if something went wrong. The text was divided into paragraphs with titles, the commands and actions were written in bold which makes the tutorial more intuitive. These features show that you have put some thought into how to best guide the user. Some changes would make the tutorial better, such as more info about Docker and references where the user can find some information.
@@ -118,3 +119,4 @@ Almost don't want to add this point because I feel silly for misunderstanding bu
 - Awesome that you include info on "what to do now"! If you could also find one or two resources detailing these "future steps" further then you could add that, but you already give some pointers for it so it's not strictly necessary, I think.
 ## Final thoughts
 As you can see, some clarification-suggestions are a bit minor; I figured it was better to note down everything I thought about and you can decide which make sense to change! Anyways as I said in the start, overall really really nice and interesting tutorial. Good job and good luck with your other assignments. 🎉 🥇
+
