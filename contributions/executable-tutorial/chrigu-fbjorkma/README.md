@@ -14,3 +14,4 @@ I want to create a tutorial where the Jenkins tool will be set up to automatical
 
 The tutorial will not be run in a web-based environment. It is intended to be run locally. The reason for this is that the tutorial is intended to be used to set up a local Jenkins environment that can be used for developing applications. It will thus be beneficial to have the resulting Jenkins Pipeline setup on your local machine. The tutorial steps will be given as an article on https://medium.com/.
 
+The plan right now is to use https://www.katacoda.com/ for the tutorial.
