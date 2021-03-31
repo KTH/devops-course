@@ -2,7 +2,6 @@
 
 ## Members
 
-
 Name: Ralfs Zangis
 Email: zangis@kth.se
 GitHub: https://github.com/bubriks
