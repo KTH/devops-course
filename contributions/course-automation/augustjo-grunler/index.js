@@ -15,7 +15,7 @@ async function doSomething() {
     console.log(`Pull request to: ${repoName}`)
 
     changed_files = github.context.payload.pull_request.changed_files;
-    core.setOutput('changed_files', changed_files);
+    core.setOutput('changed_files', changed_files); 
   } catch (error) {
     core.setFailed(error.message);
   } 
