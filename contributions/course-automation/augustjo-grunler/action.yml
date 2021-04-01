@@ -1,5 +1,5 @@
-name: 'Hello World'
-description: 'Greet someone and record the time'
+name: 'check feedback'
+description: 'check that the feedback lives up to certain requirements'
 inputs:
   repo-token:  # id of input
     description: 'Token for the repo'

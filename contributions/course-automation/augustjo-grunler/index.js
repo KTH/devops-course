@@ -10,9 +10,10 @@ async function doSomething() {
     // Get the JSON webhook payload for the event that triggered the workflow
     const payload = JSON.stringify(github.context.payload, undefined, 2);
     console.log(`The event payload: ${payload}`);
+
     const repoName = github.context.payload.repository.full_name;
     console.log(`Pull request to: ${repoName}`)
-    const time = (new Date()).toTimeString();
+
     changed_files = github.context.payload.pull_request.changed_files;
     core.setOutput("Number of changed files: ", changed_files);
   } catch (error) {
