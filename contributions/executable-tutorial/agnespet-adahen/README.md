@@ -1,7 +1,8 @@
-# Proposal
-A locally hosted tutorial with the goal to teach the user how to set up a test-environment for React-Redux projects using Jest, and integrating it with the github actions pipeline.
+# Learn to integrate Jest in your React-Redux projects
+A Katakoda hosted tutorial with the goal to teach the user how to set up a test-environment for React-Redux projects using Jest. Jest is a  testing library for JavaScript code. With it, you can create, run, and structure tests. It can be installed using npm (which we will do). 
 
-The user will learn how to write unit and integration tests, integrate it with a github repository and get a better understanding of why it is important and relevant to have good test coverage.
+The user will learn how to write unit and integration tests, integrate them with a GitHub repository and get a better understanding of why it is important and relevant to have good test coverage. 
+
 
 
 
