@@ -1,4 +1,4 @@
-# Demo proposal: CD of Node App on Heroku with designated realese branch
+# Demo proposal: CD of Node Express App on Google Cloud with designated realese branch using github actions
 
 ## Members
 
@@ -10,8 +10,12 @@ GitHub: [andnil5](https://github.com/andnil5)
 
 ## Proposal
 
-In this demo we will show how to configure a CD environment using GitHub and Heroku.
+In this demo we will show how to configure a CD environment using GitHub actions and Google Cloud.
 
 ## Solution
 
-TBA
+In the demo, we will demonstrate:
+
+* How to set up a Google Cloud project.
+* How to deploy a Node app on Google Cloud.
+* How to create a GitHub action that automatically deploys the Node Express App from a designated release branch.
