@@ -20,4 +20,4 @@ jobs:
         repo-token: ${{secrets.GITHUB_TOKEN}}
     # Use the output from the `hello` step
     - name: Get the output time
-      run: echo "The time was ${{ steps.feedback.outputs.changed_files}}"
+      run: echo "Number of changed ${{ steps.feedback.outputs.changed_files}}"
