@@ -13,7 +13,7 @@ async function doSomething() {
     const repoName = github.context.payload.repository.full_name;
     console.log(`Pull request to: ${repoName}`)
     const time = (new Date()).toTimeString();
-    changed_files = github.payload.pull_request.changed_files;
+    changed_files = github.context.payload.pull_request.changed_files;
     core.setOutput("Number of changed files: ", changed_files);
   } catch (error) {
     core.setFailed(error.message);
