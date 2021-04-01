@@ -1,7 +1,9 @@
 name: workflow
 
-on: [push, pull_request]
-#todo: only activate on issue comment or pull request with correct path
+on: [pull_request]
+  paths:
+    - '/contributions/course-automation/**'
+#todo: add branch check?
 jobs:
   action:
     runs-on: ubuntu-latest
