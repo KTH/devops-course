@@ -16,3 +16,4 @@ We are planning to automated testing of a user story from an aplication using se
 
 ** Making test case 
 ** Run using Selenium framework
+** Tool: to be decided either katacoda or GitHub Actions
