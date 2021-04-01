@@ -1,8 +1,9 @@
 name: workflow
 
-on: [pull_request]
-  paths:
-    - '/contributions/course-automation/**'
+on: 
+  pull_request:
+    paths:
+      - '/contributions/course-automation/**'
 #todo: add branch check?
 jobs:
   action:
