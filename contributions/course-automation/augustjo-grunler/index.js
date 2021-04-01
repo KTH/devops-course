@@ -19,12 +19,15 @@ async function doSomething() {
   } 
 }
 
-function calculateWords() {
+function calculateWords(fileName) {
+//check file type
 //TODO
 }
 
-function getFiles() {
+function getChangedFiles(owner, repo, path, callingBranch='master') {
   //TODO
+  //const files = octokit.repos.getContents({owner, repo, path, branch});
+  //return files;
 }
 
 doSomething()
