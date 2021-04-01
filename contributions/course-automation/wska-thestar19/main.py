@@ -1,6 +1,7 @@
 #python
 from github import Github
 import time
+import aPDF
 
 #Constants
 REPO_ID = 337456664 #Used to find which repo to look at
@@ -25,13 +26,33 @@ def findTheRepo():
         return repo
     else:
         raise Exception("Repo ID and repo name does not match")
+def getPDFsFromPullObj(pulls):
+    myList = []
+    for pull in pulls:
+        files = pull.get_files()
+        if files.totalCount > 0:
+            for file in files:
+                if ".pdf" in file.filename:
+                    #We have found a report, add to list with obj
+                    newPDF = aPDF.aPDF(file.filename, file.raw_url, file.sha, pull)
+                    myList.append(newPDF)
+    return myList
 
+def checkFiles(myPull):
+    files = myPull.get_files()
+    if files.totalCount > 0:
+        for file in files:
+            if ".pdf" in file.filename:
+                return True
+    return False
     
 def removeWrongPRs(aList):
     returnList = []
     #pr is a Finalized thingy & is a essay & has not yet a comment from me:
     for pull in aList:
-        if "final" in pull.title.lower() and ("essay" in pull.body.lower()  or "essay" in pull.title.lower() ):
+        if "final" in pull.title.lower() and \
+        ("essay" in pull.body.lower()  or "essay" in pull.title.lower() ) and \
+        checkFiles(pull):
             for comment in pull.get_comments():
                 if "Hemingway" in comment.body:
                     #A hemingway comment was found, nogo
@@ -54,11 +75,18 @@ while True:
     allPRs = currentRepo.get_pulls()
     #Remove all pull requests that are unrelated to this bot
     validPRs = removeWrongPRs(allPRs)
-    #Do da hemingway thing for valid PRs
+    
     print("These posts need hemingway comments:")
     for item in validPRs:
         print("\t" + str(item.number) + "," + item.title)
+    
+    #Find all valid pdf's and give them to me, with their pull obj
+    pdfsAndPulls = getPDFsFromPullObj(validPRs)
+    print("These files need to be Hemingway'd")
+    for item in pdfsAndPulls:
+        print(item.name)
     #Sleep 30 seconds
+    print("Sleeping")
     time.sleep(10)
 
 
