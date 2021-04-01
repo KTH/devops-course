@@ -13,4 +13,3 @@ The essay will cover:
 
 ## Members
 Johan Mallo Bakken <johanmb@kth.se> [johanmb](https://github.com/johanmallobakken)
-Daniel Sharifi <dsharifi@kth.se> [dsharifi](https://github.com/dsharifi)
