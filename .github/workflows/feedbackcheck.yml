@@ -10,7 +10,7 @@ jobs:
     
     - name: Hello world action step
       id: hello
-      uses: ./contributions/course-automation/augustjo-grunler/@feedbackcheck
+      uses: Grunler/devops-course/contributions/course-automation/augustjo-grunler/@feedbackcheck
       with:
         who-to-greet: 'Mona the Octocat'
     # Use the output from the `hello` step
