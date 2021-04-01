@@ -1,7 +1,7 @@
 name: workflow
 
 on: [push, pull_request]
-
+#todo: only activate on issue comment or pull request with correct path
 jobs:
   action:
     runs-on: ubuntu-latest
