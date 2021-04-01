@@ -13,11 +13,11 @@ jobs:
       with:
         ref: feedbackcheck
     
-    - name: Hello world action step
-      id: hello
+    - name: check feedback
+      id: fb
       uses: ./contributions/course-automation/augustjo-grunler
       with:
         repo-token: ${{secrets.GITHUB_TOKEN}}
     # Use the output from the `hello` step
     - name: Get the output time
-      run: echo "The time was ${{ steps.hello.outputs.time }}"
+      run: echo "The time was ${{ steps.hello.outputs.changed_files }}"

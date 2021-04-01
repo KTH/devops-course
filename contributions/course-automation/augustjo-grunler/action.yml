@@ -5,8 +5,8 @@ inputs:
     description: 'Token for the repo'
     required: true
 outputs:
-  time: # id of output
-    description: 'The time we greeted you'
+  changed_files: # id of output
+    description: 'The number of files changed in the pull request'
 runs:
   using: 'node12'
   main: 'index.js'
