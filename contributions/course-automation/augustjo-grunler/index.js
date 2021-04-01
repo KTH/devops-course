@@ -7,14 +7,14 @@ async function doSomething() {
     // `who-to-greet` input defined in action metadata file
     const token = core.getInput('repo-token');
     const octokit = github.getOctokit(token);
+    // Get the JSON webhook payload for the event that triggered the workflow
+    const payload = JSON.stringify(github.context.payload, undefined, 2);
+    console.log(`The event payload: ${payload}`);
     const repoName = github.context.payload.repository.full_name;
     console.log(`Pull request to: ${repoName}`)
     const time = (new Date()).toTimeString();
     changed_files = github.payload.pull_request.changed_files;
     core.setOutput("Number of changed files: ", changed_files);
-    // Get the JSON webhook payload for the event that triggered the workflow
-    const payload = JSON.stringify(github.context.payload, undefined, 2)
-    console.log(`The event payload: ${payload}`);
   } catch (error) {
     core.setFailed(error.message);
   } 
