@@ -1,13 +1,16 @@
+name: workflow
+
 on: [push, pull_request]
 
 jobs:
-  hello_world_job:
+  action:
     runs-on: ubuntu-latest
-    name: A job to say hello
     steps:
+    - uses: actions/checkout@v2
+    
     - name: Hello world action step
       id: hello
-      uses: ../../contributions/course-automation/augustjo-grunler/@feedbackcheck
+      uses: ./contributions/course-automation/augustjo-grunler/@feedbackcheck
       with:
         who-to-greet: 'Mona the Octocat'
     # Use the output from the `hello` step
