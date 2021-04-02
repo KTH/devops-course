@@ -11,7 +11,6 @@
   "license": "ISC",
   "dependencies": {
     "@actions/core": "^1.2.6",
-    "@actions/github": "^4.0.0",
-    "@octokit/rest": "^18.5.2"
+    "@actions/github": "^4.0.0"
   }
 }

@@ -1,6 +1,5 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
-const { Octokit } = require("@octokit/rest");
 
 
 async function doSomething() {
@@ -34,9 +33,18 @@ function calculateWords(fileName) {
 
 function getChangedFiles(octokit, owner, repo, path, callingBranch='master') {
   //TODO
-  Octokit.rest.repos.getContents({owner, repo, path}).then(file => {
+  /*
+  octokit.rest.repos.getContents({owner, repo, path}).then(file => {
     console.log(file)
   });
+  */
+  await octokit.request('GET /repos/{owner}/{repo}/contents/{path}/files', {
+    owner: owner,
+    repo: repo,
+    path: path
+  }).then(file =>{ 
+    console.log(file)
+  })
   //return files;
 }
 
