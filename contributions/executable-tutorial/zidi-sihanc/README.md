@@ -4,7 +4,7 @@
 
 Chen, Zidi: zidi@kth.se, https://github.com/Chen-Zidi
 
-waiting for others to join
+Chen, Sihan: sihanc@kth.se, https://github.com/Spycsh
 
 ## Proposal
 
