@@ -1,8 +1,11 @@
 ## Automatic Duplicate Detection for Pull Requests Proposals
 ### Members
 Lee Badal (badal@kth.se)
+
 GitHub: [@LeeBadal](https://github.com/LeeBadal)
+
 Johan Henning (johennin@kth.se)
+
 GitHub [@johennin](https://github.com/johennin)
 
 ## Submission
@@ -21,7 +24,9 @@ This tool was specifically tailored for the course DevOps DD2482 at KTH and the 
 
 ## Examples
 Here is a example output of a submission that was similar to another and therefore failed. By simply pressing the details which is highlighted in the picture below it will display all necessary information.
+
 ![failed1](https://i.imgur.com/89lnQHo.png)
+
 ![failed2](https://i.imgur.com/YgSoyya.png)
 
 Here is an example of a 99.4% similarity score of 2 README files which result in a fail:
