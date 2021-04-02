@@ -9,6 +9,7 @@ import json
 def get_req(api_url):
     headers = {'content-type': 'application/json'}
     response = requests.get(api_url,allow_redirects=False,headers=headers).json()
+
     return "/".join(response[0]['filename'].split("/")[:-1])
 
 
@@ -47,12 +48,23 @@ for root, dirs, files in os.walk(cwd_search):
                 all_readme.append(" ".join(temp_string)) ##joining without space yields better results?
 
     
-
+if not(check):
+    sys.exit("No readme in pull request")
 check = nlp(check)
-
+failed = []
 for readme in all_readme:
     x = nlp(readme)
-    print(check.similarity(x))
+    similarity = check.similarity(x)
+    if similarity >= 0.99:
+        print(check.similarity(x))
+        failed.append(x)
+
+
+if failed:
+    sys.exit("Similar README found in repository")
+
+
+    
 
 
 #GITHUB_TOKEN = os.environ('GITHUBTOKEN')
