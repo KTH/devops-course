@@ -10,9 +10,9 @@ GitHub: [MDRezaulHasan](https://github.com/MDRezaulHasan/)
 In this demo I am focusing on how to deploy an asp.net web application in azure devops. 
 ### Topics to covered
 
-**Build an asp.net project and push it on azure devops
-**Creating azure devops environment.
-**Build new pipeline for CI/CD.
-**Explaining about yml file.
-**Build a release pipeline for deployment.
+1. Build an asp.net project and push it on azure devops
+2. Creating azure devops environment.
+3. Build new pipeline for CI/CD.
+4. Explaining about yml file.
+5. Build a release pipeline for deployment.
 
