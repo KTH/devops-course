@@ -31,7 +31,7 @@ function calculateWords(fileName) {
 //TODO
 }
 
-function getChangedFiles(octokit, owner, repo, path, callingBranch='master') {
+async function getChangedFiles(octokit, owner, repo, path, callingBranch='master') {
   //TODO
   /*
   octokit.rest.repos.getContents({owner, repo, path}).then(file => {
