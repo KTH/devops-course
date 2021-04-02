@@ -3,26 +3,25 @@ name: Duplicate Proposal Detector
 # Run this workflow every time a new commit pushed to your repository
 on:
   pull_request:
-    types: [opened, edited]
+    types: [opened]
 
 jobs:
   # Set the job key. The key is displayed as the job name
   # when a job name is not provided
   duplicateDetector:
+    if: contains(github.event.pull_request.labels.*.name, 'proposal')
     # Name the Job
     name: Lint code base
     # Set the type of machine to run on
     runs-on: ubuntu-latest
     steps:
-    - name: "checkout current SHA"
+    - name: "checkout v2"
       uses: "actions/checkout@v2"
     - name: "setup python"
       uses: "actions/setup-python@v2"
-    - name: "test"
-      run: echo "${{ github.event.number }}"
     - name: "Install dep"
       run: python -m pip install pygithub spacy
     - name: Download NLP-files
       run: python -m spacy download en_core_web_md
-    - name: "Run check"
+    - name: "Run check on PR"
       run: python contributions/course-automation/badal-johennin/dpd.py ${{ github.event.number }}

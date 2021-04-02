@@ -64,7 +64,7 @@ for fp,readme in all_readme:
 
 
 if failed:
-    print(f'{len(failed)}/{len(all_readme)} checks failed')
+    print(f'Current README is similar to {len(failed)}/{len(all_readme)} READMEs')
     sys.exit("Similar README found in repository")
 else:
     print(f'All checks have passed')
