@@ -1,4 +1,4 @@
-# Course automation proposal: Verify PR submitted have Github id's and KTH ids matching students registered to the course 
+# Course automation: Verify PR submitted have GitHub ids and KTH ids matching students registered to the course 
 
 ## Members
 -----
