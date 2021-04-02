@@ -48,5 +48,14 @@ async function getChangedFiles(octokit, owner, repo, path, callingBranch='master
   //return files;
 }
 
-doSomething()
+function getWordCountVerdict(wordCount, acceptableLimit, remarkableLimit) {
+  let wc = parseInt(wordCount);
+  let verdict = (wc < acceptableLimit) ? 'no': (wc >= remarkableLimit ? 'yes, remarkable' : 'yes');
+  return verdict;
+}
+
+//doSomething()
+
+let message = getWordCountVerdict('600', '500', "1000")
+console.log(message);
 
