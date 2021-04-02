@@ -16,3 +16,6 @@ Creating an easy to follow guide on why/how to use backups.
 - Setting up azure
 - Establishing automated backup for SQL database
 - Showcasing results
+
+## Resubmission
+[Screencast](https://youtu.be/GGqW3pk-sCg)
