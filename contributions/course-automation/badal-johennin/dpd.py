@@ -1,6 +1,5 @@
 import os
 import spacy
-from github import Github
 import sys
 import requests
 
@@ -15,23 +14,22 @@ def get_req(api_url):
 
 
 ref = sys.argv[1]
-api_URL = f'https://api.github.com/repos/johennin/devops-course/pulls/{ref}/files'
+api_URL = f'https://api.github.com/repos/KTH/devops-course/pulls/{ref}/files' ## The URL to the repository to check
 filename = get_req(api_URL)
 
 all_readme = []
 nlp = spacy.load('en_core_web_md')
 stopwords = nlp.Defaults.stop_words
-stopwords |= {"#",} ##add additional to default stopwords
+stopwords |= {"#",} ##add additional to default stopwords if wanted
 
-## Preprocess the current readme's into a list of all_readme's
+
 cwd = os.path.abspath(os.getcwd())
 cwd_search = "/".join(cwd.split("/")[:-2])
-matches = ["week","course","presentation","contributions","feedback","executable","demo","essay","open-source"]
+matches = ["week","course","presentation","contributions","feedback","executable","demo","essay","open-source"] ## Add additional top level folders to exclude
 
 print("Start walk")
 print("Listing all filepaths and files to compare")
 for root, dirs, files in os.walk(cwd_search):
-    #print(root,dirs,files)
     
     if not(any(x in root.split("/")[-1] for x in matches)) and not("attic" in root) and ("contributions" in root):
 
@@ -46,7 +44,7 @@ for root, dirs, files in os.walk(cwd_search):
             if filename in root:
                 check = " ".join(temp_string)
             else:
-                all_readme.append((root," ".join(temp_string))) ##joining without space yields better results?
+                all_readme.append((root," ".join(temp_string)))
 print(f'{len(all_readme)} READMEs found in repository')
     
 if not(check):
@@ -68,15 +66,3 @@ if failed:
     sys.exit("Similar README found in repository")
 else:
     print(f'All checks have passed')
-
-
-    
-
-
-#GITHUB_TOKEN = os.environ('GITHUBTOKEN')
-#g = Github(GITHUB_TOKEN)
-#print(ref)
-#print(g)
-#repo = "johennin/devops-course"
-#pr = repo.get_pull(ref)
-#pr.create_issue_comment('test')

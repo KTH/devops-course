@@ -1,18 +1,13 @@
 name: Duplicate Proposal Detector
 
-# Run this workflow every time a new commit pushed to your repository
 on:
   pull_request:
     types: [opened, labeled]
 
 jobs:
-  # Set the job key. The key is displayed as the job name
-  # when a job name is not provided
   duplicateDetector:
     if: contains(github.event.pull_request.labels.*.name, 'proposal')
-    # Name the Job
     name: Lint code base
-    # Set the type of machine to run on
     runs-on: ubuntu-latest
     steps:
     - name: "checkout v2"
