@@ -34,9 +34,10 @@ The schedule is at <https://www.kth.se/social/course/DD2482/calendar/>
   * [How to survive the KTH DevOps course](https://docs.google.com/presentation/d/1SxHftBTBefN8jA6nVhlgKFP6BypdyV3Q_Gh1R8IwWK4/edit?usp=sharing)
 * Goals: watch the repo, find a first teammate, register one first task as a pull request on this repo.
 
-### Week 2
+### Week 2 <https://kth-se.zoom.us/j/67189910023>
 * Technical Briefing (B. Baudry)
-* Guest Lecture: Continuous Integration [Mats Skoglund (Scania)](https://www.linkedin.com/in/matsskoglund/).
+  * Preparatory material [Testing at scale](https://increment.com/testing/testing-at-scale/)
+* Guest Lecture: Continuous Integration [Mats Skoglund (Scania)](https://www.linkedin.com/in/matsskoglund/). [Slides for the guest lecture](https://kth.box.com/s/0qs9tab2tdip66dia3a6k4dbie463ytg)
 * Student presentations
 
 ### Week 3
@@ -77,7 +78,7 @@ The schedule is at <https://www.kth.se/social/course/DD2482/calendar/>
 
 
 To pass the course, the student has to collect 4 grades:
-* The grades are in category: "[presentation](https://github.com/KTH/devops-course/tree/2021/contributions/presentation)", "[essay](https://github.com/KTH/devops-course/tree/2021/contributions/essay)", "[video demo](https://github.com/KTH/devops-course/tree/2021/contributions/demo)", "[executable tutorial](https://github.com/KTH/devops-course/tree/2021/contributions/executable-tutorial)", "[contribution to open-source](https://github.com/KTH/devops-course/tree/2021/contributions/open-source)", "[course automation](https://github.com/KTH/devops-course/tree/2021/contributions/course-automation)", "[feedback](https://github.com/KTH/devops-course/tree/2021/contributions/feedback)" (choose four out of them, at most one in the same category, it is not necessary to cover everything).
+* The grades are in category: "[presentation](https://github.com/KTH/devops-course/blob/2021/grading-criteria.md#presentations)", "[essay](https://github.com/KTH/devops-course/blob/2021/grading-criteria.md#essays)", "[video demo](https://github.com/KTH/devops-course/blob/2021/grading-criteria.md#video-demos)", "[executable tutorial](https://github.com/KTH/devops-course/blob/2021/grading-criteria.md#executable-tutorials)", "[contribution to open-source](https://github.com/KTH/devops-course/blob/2021/grading-criteria.md#open-source-contributions)", "[course automation](https://github.com/KTH/devops-course/blob/2021/grading-criteria.md#course-automation)", "[feedback](https://github.com/KTH/devops-course/blob/2021/grading-criteria.md#feedback)" (choose four out of them, at most one in the same category, it is not necessary to cover everything).
 * The [grading criteria page](grading-criteria.md) is the unique reference which explains how to pass / pass with distinction.
 * The strict deadline for essays, tutorials, contributions to open-source, course automation is April 30, 23h59 Stockholm time; and "[demo](https://github.com/KTH/devops-course/tree/2021/contributions/demo)"; the strict deadline for repeated tasks (all) is May 31, 23h59 Stockholm time.
 * The student proposes a category and a topic, which is discussed and accepted by the TA. The proposal is made as a pull-request on this repository. The four graded contributions must have little overlap.
