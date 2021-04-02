@@ -20,7 +20,10 @@ Link to the files in the fork: [dpd.py](https://github.com/johennin/devops-cours
 - Only checks for student READMEs in the folder `contributions`
 
 ## Installation
-This tool was specifically tailored for the course DevOps DD2482 at KTH and the respective repository. Which means that it only works for that specific folder structure and naming.
+This tool was specifically tailored for the course DevOps DD2482 at KTH and the respective repository. Which means that it only works for that specific folder structure and naming. By accepting this PR in to the repo it will automatically be enabled.
+
+If this tool is to be reused in other years of DD2482 respecifying the path to the dpd.py file is required.
+If any tasks are added or changed this can be added in the dpd.py file.
 
 ## Examples
 Here is a example output of a submission that was similar to another and therefore failed. By simply pressing the details which is highlighted in the picture below it will display all necessary information.
