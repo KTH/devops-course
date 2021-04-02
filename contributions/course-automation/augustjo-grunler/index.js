@@ -10,7 +10,7 @@ async function doSomething() {
     // Get the JSON webhook payload for the event that triggered the workflow
     const payload = JSON.stringify(github.context.payload, undefined, 2);
     console.log(`The event payload: ${payload}`);
-    const owner = github.context.payload.repository.login;
+    const owner = github.context.payload.repository.owner.login;
     console.log(`The owner of the repo is ${owner}`)
     const pathOfFiles = '/contributions/course-automation/augustjo-grunler/*.md'
 
