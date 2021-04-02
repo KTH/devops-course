@@ -2,6 +2,8 @@
 from github import Github
 import time
 import aPDF
+import urllib.request
+import subprocess
 
 #Constants
 REPO_ID = 337456664 #Used to find which repo to look at
@@ -45,7 +47,10 @@ def checkFiles(myPull):
             if ".pdf" in file.filename:
                 return True
     return False
-    
+def runCommand(command):
+    return subprocess.run(
+        command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE
+    )    
 def removeWrongPRs(aList):
     returnList = []
     #pr is a Finalized thingy & is a essay & has not yet a comment from me:
@@ -70,23 +75,43 @@ currentRepo = findTheRepo()
 
 #Start loop:
 while True:
-    print("New Loop")
     #Get all pull requests
     allPRs = currentRepo.get_pulls()
+    
     #Remove all pull requests that are unrelated to this bot
     validPRs = removeWrongPRs(allPRs)
-    
     print("These posts need hemingway comments:")
     for item in validPRs:
-        print("\t" + str(item.number) + "," + item.title)
-    
+        print("\t" + str(item.number) + "," + item.title) 
+        
     #Find all valid pdf's and give them to me, with their pull obj
-    pdfsAndPulls = getPDFsFromPullObj(validPRs)
-    print("These files need to be Hemingway'd")
-    for item in pdfsAndPulls:
-        print(item.name)
+    PDFobj = getPDFsFromPullObj(validPRs)
+    
+    #Download PDF's and convert to txt
+    for item in PDFobj:
+        #Download a PDF using link
+        onlyName = item.name.split("/").pop()
+        item.nameOfFile = onlyName
+        fileName = urllib.request.urlretrieve(item.url, "PDF/" + str(onlyName))
+        #Save path of download to obj
+        item.path = "PDF/" + str(onlyName)
+    
+    #Convert to txt
+    for item in PDFobj:
+        #Remove .pdf from filename
+        runCommand("python3 Tools/pdf2txt.py " + item.path + " > Text/" + item.nameOfFile.replace(".pdf",".txt"))
+        #Save txt to obj
+        f = open("Text/" + item.nameOfFile.replace(".pdf",".txt"), "r+")
+        allOfText = ""
+        for line in f:
+            allOfText = allOfText + line
+        item.asText = allOfText
+    #Send text to Hemingway
+    
+    #Make PR request
+    
     #Sleep 30 seconds
-    print("Sleeping")
+    print("Sleeping---------------------------------")
     time.sleep(10)
 
 
