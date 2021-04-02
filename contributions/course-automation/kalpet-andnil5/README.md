@@ -62,15 +62,20 @@ Github: [<GithubID2>](<linkToGithubProfile2>)
 Note: It is important that student email addresses are encapsulated with parenthesis and that the
 opening and closing tags `-----` are present.
 
+
+### TA-NOTE
+
+For the GitHub action to work one must move the file `./contributions/course-automation/kalpet-andnil5/.github/workflows/kthID-validator.yml` to the root of the repo `.github/workflows/kthID-validator.yml`.
+
 ## Contribution
 
-
 ### Installation
-1. Clone this repo (https://github.com/KallePettersson/devops-course.git) 
-2. Download and install Node.js 12.x, which includes npm.(https://nodejs.org/en/download/current/)
-3. Cd into `devops-course/contributions/course-automation/kalpet-andnil5/src` and run `npm install`
-4. Install `vercel/ncc` by running this command in your terminal: `npm i -g @vercel/ncc`
-5. Now all tools needed are installed and setup.
+1. Clone this repo (https://github.com/KallePettersson/devops-course.git)  
+2. Checkout course-automation branch
+3. Download and install Node.js 12.x, which includes npm.(https://nodejs.org/en/download/current/)
+4. Cd into `devops-course/contributions/course-automation/kalpet-andnil5/src` and run `npm install`
+5. Install `vercel/ncc` by running this command in your terminal: `npm i -g @vercel/ncc`
+6. Now all tools needed are installed and setup.
 
 
 ### Compilation
