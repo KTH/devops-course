@@ -17,7 +17,7 @@ async function doSomething() {
     const repoName = github.context.payload.repository.full_name;
     console.log(`Pull request to: ${repoName}`)
 
-    getChangedFiles(owner,repoName,pathOfFiles)
+    getChangedFiles(octokit,owner,repoName,pathOfFiles)
 
     changed_files = github.context.payload.pull_request.changed_files;
     core.setOutput('changed_files', changed_files); 
@@ -31,7 +31,7 @@ function calculateWords(fileName) {
 //TODO
 }
 
-function getChangedFiles(owner, repo, path, callingBranch='master') {
+function getChangedFiles(octokit, owner, repo, path, callingBranch='master') {
   //TODO
   octokit.repos.getContents({owner, repo, path}).then(file => {
     console.log(file)
