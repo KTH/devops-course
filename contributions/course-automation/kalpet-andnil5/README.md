@@ -62,8 +62,7 @@ Github: [<GithubID2>](<linkToGithubProfile2>)
 Note: It is important that student email addresses are encapsulated with parenthesis and that the
 opening and closing tags `-----` are present.
 
-
-### TA-NOTE
+## TA-NOTE
 
 For the GitHub action to work one must move the file `./contributions/course-automation/kalpet-andnil5/.github/workflows/kthID-validator.yml` to the root of the repo `.github/workflows/kthID-validator.yml`.
 
@@ -76,7 +75,6 @@ For the GitHub action to work one must move the file `./contributions/course-aut
 4. Cd into `devops-course/contributions/course-automation/kalpet-andnil5/src` and run `npm install`
 5. Install `vercel/ncc` by running this command in your terminal: `npm i -g @vercel/ncc`
 6. Now all tools needed are installed and setup.
-
 
 ### Compilation
 All changes to the github action needs to be compiled into the `/dist/index.js` file in order to run. This can be done with the following command executed from the src folder.
