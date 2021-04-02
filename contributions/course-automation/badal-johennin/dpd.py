@@ -28,7 +28,8 @@ cwd = os.path.abspath(os.getcwd())
 cwd_search = "/".join(cwd.split("/")[:-2])
 matches = ["week","course","presentation","contributions","feedback","executable","demo","essay","open-source"]
 
-print("start walk")
+print("Start walk")
+print("Listing all filepaths and files to compare")
 for root, dirs, files in os.walk(cwd_search):
     #print(root,dirs,files)
     
@@ -45,23 +46,28 @@ for root, dirs, files in os.walk(cwd_search):
             if filename in root:
                 check = " ".join(temp_string)
             else:
-                all_readme.append(" ".join(temp_string)) ##joining without space yields better results?
-
+                all_readme.append((root," ".join(temp_string))) ##joining without space yields better results?
+print(f'{len(all_readme)} READMEs found in repository')
     
 if not(check):
     sys.exit("No readme in pull request")
+
+print("Starting NLP check")
 check = nlp(check)
 failed = []
-for readme in all_readme:
+for fp,readme in all_readme:
     x = nlp(readme)
     similarity = check.similarity(x)
     if similarity >= 0.99:
-        print(check.similarity(x))
-        failed.append(x)
+        print(f'Current README is {similarity*100}% similar to the README on filepath: {fp} ')
+        failed.append(similarity)
 
 
 if failed:
+    print(f'{len(failed)}/{len(all_readme)} checks failed')
     sys.exit("Similar README found in repository")
+else:
+    print(f'All checks have passed')
 
 
     
