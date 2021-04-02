@@ -33,7 +33,7 @@ function calculateWords(fileName) {
 
 function getChangedFiles(octokit, owner, repo, path, callingBranch='master') {
   //TODO
-  octokit.repos.getContents({owner, repo, path}).then(file => {
+  octokit.rest.repos.getContents({owner, repo, path}).then(file => {
     console.log(file)
   });
   //return files;
