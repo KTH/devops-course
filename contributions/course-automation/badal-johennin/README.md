@@ -35,3 +35,4 @@ Here is a example output of a submission that was similar to another and therefo
 Here is an example of a 99.4% similarity score of 2 README files which result in a fail:
 
 ![similar1](https://i.imgur.com/H0bbDmE.png)
+
