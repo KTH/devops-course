@@ -1,4 +1,4 @@
-# Essay: Security challenges that arise in DevOps (Title WIP)
+# Essay: Managing security flaws with container images in DevOps (Title WIP)
 
 ## Member
 
@@ -7,9 +7,9 @@ Natan Teferi Asegehegn (ntas@kth.se)
 
 ## Proposal 
 
-The essay aims to cover what security related challenges arise when using DevOps techniques.
+The essay aims to cover what security related challenges arise when using containers in DevOps
 
-* What security flaws arise
+* What security flaws arise with the use of containers 
 * How do we deal with such flaws
 
 
