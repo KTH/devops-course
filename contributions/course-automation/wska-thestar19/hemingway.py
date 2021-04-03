@@ -1,5 +1,6 @@
 #Hemingway python
 from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
 import time
 chromedriverPath = "./chromedrivers/chromedriver84.0.4147.30" # Driver depends on your chrome version. Mine is 84.0.4147.30. See https://chromedriver.chromium.org/downloads
 
@@ -20,20 +21,22 @@ def getHemingwayScore(text):
     
     driver = webdriver.Chrome(chromedriverPath) 
     driver.get("https://hemingwayapp.com/")
+    time.sleep(1)
 
     # Finding and pasting
     hemingwaycontainer = '//*[@id=\"hemingway-container\"]/div[2]/div/div[2]/div/div/div'
     driver.find_element_by_xpath(hemingwaycontainer).click() # Click on the primary text container
-    driver.find_element_by_xpath(hemingwaycontainer).clear() # Clear it of any default text
-    driver.find_element_by_xpath(hemingwaycontainer).send_keys("") # Paste the text (string) to the container
-    driver.find_element_by_xpath(hemingwaycontainer).send_keys(text) # Paste the text (string) to the container
+    driver.find_element_by_xpath(hemingwaycontainer).send_keys(Keys.CONTROL, 'a', Keys.BACKSPACE)
+
+    draftContainer = "//*[@id=\"hemingway-container\"]/div[2]/div/div[2]" # The container is converted into an alternative container when it is empty, so use this for the paste.
+    driver.find_element_by_xpath(draftContainer).send_keys(text) # Paste the text (string) to the container
 
     time.sleep(3) # Incase the hemingway editor needs a bit of time. Not sure if needed at all or if long enough. 
 
     # Gathering information
     gradeValue = getElementText("//*[@id=\"hemingway-container\"]/div[1]/div[2]/div[1]/h4", driver)
     gradeWord = getElementText("//*[@id=\"hemingway-container\"]/div[1]/div[2]/div[1]/p/p/strong", driver) 
-    wordCount = int(getElementText("//*[@id=\"hemingway-container\"]/div[1]/div[2]/div[2]/div[1]/strong", driver)) - 133 # For some reason, the default value is not reset upon clear. The length of the default text is 133.
+    wordCount = int(getElementText("//*[@id=\"hemingway-container\"]/div[1]/div[2]/div[2]/div[1]/strong", driver))
     adverbs = getElementText("//*[@id=\"hemingway-container\"]/div[1]/div[2]/div[3]/div[1]/strong", driver)
     passiveVoice = getElementText("//*[@id=\"hemingway-container\"]/div[1]/div[2]/div[3]/div[2]/strong", driver)
     complexWords = getElementText("//*[@id=\"hemingway-container\"]/div[1]/div[2]/div[3]/div[3]/strong", driver)
@@ -56,5 +59,5 @@ def getHemingwayScore(text):
     print(verdict)
     return verdict
 
-getHemingwayScore("Testing more words for hemingway")
+getHemingwayScore("Testing more words for hemingway.")
 
