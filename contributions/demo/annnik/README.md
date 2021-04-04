@@ -1,4 +1,4 @@
-# DEMO: Testing and running Github actions locally with Act
+# DEMO 🎥 : Testing and running Github actions locally with Act
 
 ## Members
 Anna Nikolskaya (annnik@kth.se)
