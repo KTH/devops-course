@@ -57,6 +57,7 @@ def getHemingwayScore(text):
     
     
     print(verdict)
+    driver.quit()
     return verdict
 
 getHemingwayScore("Testing more words for hemingway.")
