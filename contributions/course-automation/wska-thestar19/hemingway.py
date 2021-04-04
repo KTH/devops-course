@@ -2,7 +2,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import time
-chromedriverPath = "./chromedrivers/chromedriver84.0.4147.30" # Driver depends on your chrome version. Mine is 84.0.4147.30. See https://chromedriver.chromium.org/downloads
+chromedriverPath = "./chromedrivers/chromedriver89.0.4389.114" # Driver depends on your chrome version. Mine is 84.0.4147.30. See https://chromedriver.chromium.org/downloads
 
 
 def getElement(xpath, driver):
@@ -56,9 +56,9 @@ def getHemingwayScore(text):
 
     
     
-    print(verdict)
+    #print(verdict)
     driver.quit()
     return verdict
 
-getHemingwayScore("Testing more words for hemingway.")
+#getHemingwayScore("Testing more words for hemingway.")
 

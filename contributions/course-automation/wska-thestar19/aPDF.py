@@ -6,7 +6,8 @@ class aPDF:
     pull = None
     path = None
     asText = ""
-    def __init__(self,name,url,hash,pull,path = None, asText = None, nameOfFile = ""):
+    hemingwayReponse = ""
+    def __init__(self,name,url,hash,pull,path = None, asText = None, nameOfFile = "", hemingwayReponse = None):
         self.name = name
         self.url = url
         self.hash = hash
@@ -14,3 +15,4 @@ class aPDF:
         self.path = path
         self.asText = asText
         self.nameOfFile = nameOfFile = ""
+        self.hemingwayReponse = hemingwayReponse

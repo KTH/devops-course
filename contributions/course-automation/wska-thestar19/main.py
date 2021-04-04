@@ -4,23 +4,13 @@ import time
 import aPDF
 import urllib.request
 import subprocess
+import hemingway
 
 #Constants
 REPO_ID = 337456664 #Used to find which repo to look at
 REPO_NAME = "daTest"
 TOKEN = "" #Used by Github library to find User
 USER = Github(TOKEN) #This is the user that is nav Github
-def test():
-    # using an access token
-    #REMOVE THIS!
-    
-    for repo in g.get_user().get_repos():
-        if repo.name == "daTest":
-            print("I found daTest")
-            #repo.create_issue(title="test repo hopefully this is right")
-            print(str(repo.get_pulls().totalCount))
-            
-            #print(dir(repo))
      
 def findTheRepo():
     repo = USER.get_repo(REPO_ID)
@@ -55,17 +45,21 @@ def removeWrongPRs(aList):
     returnList = []
     #pr is a Finalized thingy & is a essay & has not yet a comment from me:
     for pull in aList:
+        doAdd = True
         if "final" in pull.title.lower() and \
         ("essay" in pull.body.lower()  or "essay" in pull.title.lower() ) and \
         checkFiles(pull):
-            for comment in pull.get_comments():
-                if "Hemingway" in comment.body:
+            for comment in pull.get_issue_comments():
+                if "hemingway" in comment.body.lower():
                     #A hemingway comment was found, nogo
-                    print("This pull request " + str(pull.title) + " was not added to list")
-                    continue
+                    print("This pull request " + str(pull.title) + \
+                    " was not added to list")
+                    doAdd = False
+                    break
             #No Hemingway in any comment means that I need to write a comment for this pull
-            returnList.append(pull)
-            print("This pull request " + str(pull.title) + " was added to list")
+            if doAdd:
+                returnList.append(pull)
+                print("This pull request " + str(pull.title) + " was added to list")
     return returnList
 
 #Find repo
@@ -80,9 +74,12 @@ while True:
     
     #Remove all pull requests that are unrelated to this bot
     validPRs = removeWrongPRs(allPRs)
-    print("These posts need hemingway comments:")
-    for item in validPRs:
-        print("\t" + str(item.number) + "," + item.title) 
+    if len(validPRs) < 1:
+        print("Debug: No posts found, please add some in daTest")
+    else:
+        print("These posts need hemingway comments:")
+        for item in validPRs:
+            print("\t" + str(item.number) + "," + item.title) 
         
     #Find all valid pdf's and give them to me, with their pull obj
     PDFobj = getPDFsFromPullObj(validPRs)
@@ -107,12 +104,15 @@ while True:
             allOfText = allOfText + line
         item.asText = allOfText
     #Send text to Hemingway
-    
+    for item in PDFobj:
+        item.hemingwayReponse = hemingway.getHemingwayScore(item.asText)
     #Make PR request
-    
+    #This is right now buggy if commit includes more than one file
+    for item in PDFobj:
+        results = item.pull.create_issue_comment(item.hemingwayReponse)
     #Sleep 30 seconds
     print("Sleeping---------------------------------")
-    time.sleep(10)
+    time.sleep(20)
 
 
 
