@@ -1,7 +1,7 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
 const base64 = require('base-64');
-
+const require = require('utf8');
 
 async function doSomething() {
   try {
@@ -45,7 +45,8 @@ async function getChangedFiles(octokit, owner, repo, dir, callingBranch='master'
     dir: dir
   }).then(data =>{ 
     console.log(data)
-    text = base64.decode(data.content)
+    bytes = base64.decode(data.content)
+    text = utf8.decode(bytes)
     console.log(text)
   }).catch(err => {
     console.log(err)
