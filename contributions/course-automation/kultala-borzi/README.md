@@ -1,5 +1,5 @@
 
-# Course Automation Proposal: Checking legal group composition
+# Course Automation: Checking legal group composition
 
 ## Members: 
  Henrik Kultala (kultala@kth.se)  
