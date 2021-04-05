@@ -54,8 +54,17 @@ function getWordCountVerdict(wordCount, acceptableLimit, remarkableLimit) {
   return verdict;
 }
 
-//doSomething()
+//TODO: add time aspect
+function createCommentBody(filename, wc, verdict ) {
+  let comment = '';
+  let fileString = `File checked: ${filename}. \n`;
+  let wordCountString = `Substantiated: ${verdict} (${wc} words) \n`;
+  comment = comment + fileString + wordCountString;
+  return comment;
+}
 
-let message = getWordCountVerdict('600', '500', "1000")
+let words = '600'
+let verdict = getWordCountVerdict(words, '500', "1000");
+let comment = createCommentBody('README.md', words, verdict)
 console.log(message);
 
