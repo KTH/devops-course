@@ -2,6 +2,7 @@ const core = require('@actions/core');
 const github = require('@actions/github');
 const base64 = require('base-64');
 const utf8 = require('utf8');
+var atob = require('atob');
 
 async function doSomething() {
   try {
