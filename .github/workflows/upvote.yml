@@ -1,0 +1,108 @@
+#!/bin/bash 
+
+name: Upvote
+
+on:
+  pull_request_target: 
+    types: [labeled]
+  schedule:
+    - cron: '*/5 * * * *'
+jobs:
+  new_issue:
+    
+    if: ${{ github.event.label.name == 'Upvote - Course Automation' }} && ${{ github.repository == 'KTH/devops-course'}}
+    runs-on: ubuntu-latest
+    name: Create an issue if none exists
+    outputs:
+          output1: ${{ steps.issue.outputs.number }}
+          output2: ${{ steps.fc.outputs.comment-id}}
+    steps:
+      - uses: actions/checkout@v2
+      - name: Create issue    
+        uses: JasonEtco/create-an-issue@v2
+        env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+            update_existing: true
+        id: issue
+      - name: Find Comment
+        uses: peter-evans/find-comment@v1.2.0
+        id: fc
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }} 
+          repository: ${{github.repository}}
+          issue-number: ${{ steps.issue.outputs.number }}
+          body-includes: Toplist (Updated every 5 min)
+        
+              
+  first_comment:
+    needs: new_issue
+    if: ${{needs.new_issue.outputs.output2 == 0}}
+    runs-on: ubuntu-latest
+    name: Create first comment
+    steps:
+      - uses: actions/checkout@v2  
+      - uses: peter-evans/create-or-update-comment@v1
+        with:
+          issue-number: ${{ needs.new_issue.outputs.output1 }}
+          body: |
+            Toplist (Updated every 5 min)
+
+
+  other_comments:
+    needs: new_issue
+    if: ${{github.event_name != 'schedule'}}
+    runs-on: ubuntu-latest
+    name: Create comment
+    steps:
+      - uses: peter-evans/create-or-update-comment@v1
+        with:
+          issue-number: ${{  needs.new_issue.outputs.output1}}
+          body: |
+            Title of pull request: ${{ github.event.pull_request.title }}
+            Link to pull request: ${{ github.event.pull_request.html_url }}
+            You can view the repository [here](https://github.com/${{github.event.pull_request.head.repo.full_name}}/tree/${{ github.head_ref }})       
+      - name: Comment on PR
+        uses: thollander/actions-comment-pull-request@master
+        with:
+          message: 'A comment has been added to the following thread: #${{  needs.new_issue.outputs.output1 }}. People can now upvote your project!'
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Test json echo
+        id: commentid 
+        run: |
+          curl -s https://api.github.com/repos/${{github.repository}}/issues/${{  needs.new_issue.outputs.output1}}/comments | jq -c '.[].id' | while read id ; do
+              echo ${id} $( curl -s -H "Accept: application/vnd.github.squirrel-girl-preview+json" https://api.github.com/repos/${{github.repository}}/issues/comments/${id}/reactions | jq 'map(select(.content=="+1"))' | jq length) titles  $(curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/${{github.repository}}/issues/comments/${id} | jq '.body' | cut -d '\' -f1 | cut -d: -f2 ) >> output.txt
+              echo "'{${id}:$( curl -s -H "Accept: application/vnd.github.squirrel-girl-preview+json" https://api.github.com/repos/${{github.repository}}/issues/comments/${id}/reactions | jq 'map(select(.content=="+1"))' | jq length), title: $(curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/${{github.repository}}/issues/comments/${id} | jq '.body' | cut -d '\' -f1 | cut -d: -f2 ) }'"
+          done
+          echo test
+
+          while read p; do 
+              echo $p
+          done < output.txt
+           
+  update_comment:
+    needs: new_issue
+    if: github.event_name == 'schedule'
+    runs-on: ubuntu-latest
+    name: Update table every 5 minutes
+    steps:
+      - name: Find first comment
+        uses: peter-evans/find-comment@v1
+        id: fc
+        with:
+          issue-number:  ${{  needs.new_issue.outputs.output1}}
+          comment-author: 'github-actions[bot]'
+      - name: Print comment-ID
+        run: echo "${{ steps.fc.outputs.comment-id }}"
+
+      - name: Update comment
+        uses: jungwinter/comment@v1
+        with:
+          type: edit
+          body: |
+            
+            Toplist (Updated every 5 min):
+
+            ...
+          comment_id: ${{ steps.fc.outputs.comment-id }}
+          token: ${{ secrets.GITHUB_TOKEN }}
