@@ -34,14 +34,14 @@ This section describes how the functionality is installed on a repository. We re
 We believed that we have fulfilled the following criteria:
  
 * Deadline before April 6, 2021 (in order to be useful for the course)
-1. Yes, PR submitted on April 5.
+    * Yes, PR submitted on April 5.
 * The automation task produces a PR status or issue / PR comment and points to a generated page with valuable additional information
-2. Yes, please see the section `Description of functionality` above.
+    * Yes, please see the section `Description of functionality` above.
 * The automation task is reusable in other courses
-3. Yes, any course that uses GitHub. Please see the section `Using functionality` for more information.
+    * Yes, any course that uses GitHub. Please see the section `Using functionality` for more information.
 * The task runs on a standard platform (GitHub Action)
-4. Yes, the solution uses the GitHub Action platform.
+    * Yes, the solution uses the GitHub Action platform.
 * The code for the task is available and the repo is well documented.
-5. Yes, please see repository [here](https://github.com/dmariel/devops-course/tree/course-automation/contributions/course-automation/lerjevik-renstr)
+    * Yes, please see repository [here](https://github.com/dmariel/devops-course/tree/course-automation/contributions/course-automation/lerjevik-renstr)
 
 Furthermore, we hope that the following criteria will be fulfilled: "The task is praised by the other students of this course", this is hard to determine since our functionality is to be launched just now. However, so far, we have recieved positive feedback when we've mentioned the idea to other students.   
