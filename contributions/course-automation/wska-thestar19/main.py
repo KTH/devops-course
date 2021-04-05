@@ -106,7 +106,7 @@ while True:
         fileName = urllib.request.urlretrieve(item.url, "PDF/" + str(onlyName))
         #Save path of download to obj
         item.path = "PDF/" + str(onlyName)
-    
+    print("I GOT HERE!")
     #Convert to txt
     for item in PDFobj:
         #Remove .pdf from filename
