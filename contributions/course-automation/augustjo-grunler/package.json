@@ -12,6 +12,7 @@
   "dependencies": {
     "@actions/core": "^1.2.6",
     "@actions/github": "^4.0.0",
+    "atob": "^2.1.2",
     "base-64": "^1.0.0",
     "utf8": "^3.0.0"
   }
