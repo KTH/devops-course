@@ -63,6 +63,17 @@ function createCommentBody(filename, wc, verdict ) {
   return comment;
 }
 
+//TODO: issue number
+async function buildAndPostComment(issue_number, message) {
+
+  const comment = await octokit.issues.createComment({
+    owner: github.context.repo.owner,
+    repo: github.context.repo.repo,
+    issue_number,
+    body: message,
+  });
+}
+
 let words = '600'
 let verdict = getWordCountVerdict(words, '500', "1000");
 let message = createCommentBody('README.md', words, verdict)
