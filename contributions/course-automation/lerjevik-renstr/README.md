@@ -20,7 +20,7 @@ We have integrated a functionality that enables students to upvote other student
 
 ## Using the functionality
 
-This section describes how the functionality is installed on a repository. We recommend following this guide when introducing the functionality to future courses:
+This section describes how the functionality is installed on a repository. We recommend following this guide when introducing the functionality to future courses. **However, for the DevOps course, the only thing needed for the functionality to run is for the course-administrators to merge our PR and create a label `Upvote - Course Automation`.** 
 
 1. Include a `.github/workflows` directory to the repository.
 2. In the `.github/workflows` directory, create a file `upvote.yml` and add the contents of this [file](https://github.com/dmariel/devops-course/blob/course-automation/.github/workflows/upvote.yml) to it.
@@ -31,10 +31,8 @@ This section describes how the functionality is installed on a repository. We re
  
 ## Criteria fulfilled 
 
-We believed that we have fulfilled the following criteria:
+We believed that we have fulfilled the following 5 criteria:
  
-* Deadline before April 6, 2021 (in order to be useful for the course)
-    * Yes, PR submitted on April 5.
 * The automation task produces a PR status or issue / PR comment and points to a generated page with valuable additional information
     * Yes, please see the section `Description of functionality` above.
 * The automation task is reusable in other courses
@@ -43,5 +41,5 @@ We believed that we have fulfilled the following criteria:
     * Yes, the solution uses the GitHub Action platform.
 * The code for the task is available and the repo is well documented.
     * Yes, please see repository [here](https://github.com/dmariel/devops-course/tree/course-automation/.github).
-
-Furthermore, we hope that the following criteria will be fulfilled: "The task is praised by the other students of this course", this is hard to determine since our functionality is to be launched just now. However, so far, we have recieved positive feedback when we've mentioned the idea to other students.   
+* The task is praised by the other students of this course.
+    * This is a bit difficult to determine since our functionality has not yet been launched. However, so far, we have recieved positive feedback when we've mentioned the idea to other students.   
