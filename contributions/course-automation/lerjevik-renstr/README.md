@@ -22,9 +22,9 @@ We have integrated a functionality that enables students to upvote other student
 
 This section describes how the functionality is installed on a repository. We recommend following this guide when introducing the functionality to future courses:
 
-1. Include a `.github/workflows` directory to the repository
-2. In this folder, create a file and add the contents of the `upvote.yml` [file](https://github.com/dmariel/devops-course/blob/course-automation/.github/workflows/upvote.yml) to it
-3. Specify the path to the repository that you want the script to run from on `line 13` of the `upvote.yml` file
+1. Include a `.github/workflows` directory to the repository.
+2. In the `.github/workflows` directory, create a file `upvote.yml` and add the contents of this [file](https://github.com/dmariel/devops-course/blob/course-automation/.github/workflows/upvote.yml) to it.
+3. Specify the path to the repository that you want the script to run from on `line 13` of the `upvote.yml` file.
 4. Create a file `ISSUE_TEMPLATE.md` in the `.github` directory. Use the following [template](https://github.com/dmariel/devops-course/blob/course-automation/.github/ISSUE_TEMPLATE.md).
 5. Create a label `Upvote - Course Automation`
 6. Now the functionality is installed and ready to use!
@@ -42,6 +42,6 @@ We believed that we have fulfilled the following criteria:
 * The task runs on a standard platform (GitHub Action)
     * Yes, the solution uses the GitHub Action platform.
 * The code for the task is available and the repo is well documented.
-    * Yes, please see repository [here](https://github.com/dmariel/devops-course/tree/course-automation/contributions/course-automation/lerjevik-renstr)
+    * Yes, please see repository [here](https://github.com/dmariel/devops-course/tree/course-automation/.github).
 
 Furthermore, we hope that the following criteria will be fulfilled: "The task is praised by the other students of this course", this is hard to determine since our functionality is to be launched just now. However, so far, we have recieved positive feedback when we've mentioned the idea to other students.   
