@@ -1,0 +1,4 @@
+pdfminer==20191125
+selenium==3.141.0
+chromedriver_autoinstaller==0.2.2
+PyGithub==1.54.1
