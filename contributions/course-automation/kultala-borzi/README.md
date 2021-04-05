@@ -27,6 +27,7 @@ When a new project is proposed, the readme and the folder name are checked for t
 ## Tools:
 Github Actions   
 Bonus: Status Check on GitHub  
+Docker
 
 ## Implementation:
 The action can be found on the public repo: https://github.com/EleonoraBorzis/group-validity-action
