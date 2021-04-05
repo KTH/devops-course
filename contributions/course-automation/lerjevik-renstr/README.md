@@ -33,13 +33,13 @@ This section describes how the functionality is installed on a repository. We re
 
 We believed that we have fulfilled the following 5 criteria:
  
-* The automation task produces a PR status or issue / PR comment and points to a generated page with valuable additional information
-    * Yes, please see the section `Description of functionality` above.
-* The automation task is reusable in other courses
-    * Yes, any course that uses GitHub. Please see the section `Using functionality` for more information.
+* The automation task produces a PR status or issue / PR comment 
+    * Yes, please see the section `Description of functionality` above. Furthermore, the PR comment and the "Top-list" comment generated for the issue includes links to the generated issue or a comment. **Thus, we believe that the criteria for "Pass with distinction" is fulfilled.**
+* The automation task is reusable
+    * Yes, the task can be reused next year for the DevOps course. Moreover, the task can be used for other courses that use GitHub. **Thus, we believe that the criteria for "Pass with distinction" is fulfilled.** Please see the section `Using functionality` for more information.
 * The task runs on a standard platform (GitHub Action)
     * Yes, the solution uses the GitHub Action platform.
-* The code for the task is available and the repo is well documented.
-    * Yes, please see repository [here](https://github.com/dmariel/devops-course/tree/course-automation/.github).
-* The task is praised by the other students of this course.
+* The code for the task is available
+    * Yes, please see repository [here](https://github.com/dmariel/devops-course/tree/course-automation/.github). Furthermore, we believe that the repository is properly [documentated](https://github.com/dmariel/devops-course/edit/course-automation/contributions/course-automation/lerjevik-renstr/README.md). **Thus, we believe that the criteria for "Pass with distinction" is fulfilled.**
+* The task is praised by the other students of this course
     * This is a bit difficult to determine since our functionality has not yet been launched. However, so far, we have recieved positive feedback when we've mentioned the idea to other students.   
