@@ -45,7 +45,7 @@ async function getChangedFiles(octokit, owner, repo, dir, callingBranch='master'
     dir: dir
   }).then(data =>{ 
     console.log(data)
-    bytes = base64.decode(data.content)
+    bytes = atob(data.content)
     text = utf8.decode(bytes)
     console.log(text)
   }).catch(err => {
