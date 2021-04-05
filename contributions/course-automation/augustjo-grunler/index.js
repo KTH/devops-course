@@ -65,6 +65,6 @@ function createCommentBody(filename, wc, verdict ) {
 
 let words = '600'
 let verdict = getWordCountVerdict(words, '500', "1000");
-let comment = createCommentBody('README.md', words, verdict)
+let message = createCommentBody('README.md', words, verdict)
 console.log(message);
 
