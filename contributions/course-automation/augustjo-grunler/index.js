@@ -14,7 +14,7 @@ async function doSomething() {
     console.log(`The owner of the repo is ${owner}`)
     const dir = '/contributions/course-automation/augustjo-grunler'
 
-    const repoName = github.context.payload.repository.full_name;
+    const repoName = github.context.repo.repo
     console.log(`Pull request to: ${repoName}`)
 
     getChangedFiles(octokit,owner,repoName,dir)
