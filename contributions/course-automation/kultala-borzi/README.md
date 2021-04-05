@@ -51,3 +51,6 @@ The requirements that we think we have achieved are:
 |The automation task is reusable | Yes (next year for this course) |  | |
 |The task runs on a standard platform | Yes (Github action) | | |
 |The code for the task is available | Yes (public repo) | | Well documented repo |
+
+Improvements:
+One improvement could be to use a secondary action that discern when the pull request is from a student proposal or from a TA. This would help us to give the proper feedback to the pull request. 
