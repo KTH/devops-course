@@ -12,12 +12,12 @@ async function doSomething() {
     console.log(`The event payload: ${payload}`);
     const owner = github.context.payload.repository.owner.login;
     console.log(`The owner of the repo is ${owner}`)
-    const pathOfFiles = '/contributions/course-automation/augustjo-grunler/*.md'
+    const dir = '/contributions/course-automation/augustjo-grunler'
 
     const repoName = github.context.payload.repository.full_name;
     console.log(`Pull request to: ${repoName}`)
 
-    getChangedFiles(octokit,owner,repoName,pathOfFiles)
+    getChangedFiles(octokit,owner,repoName,dir)
 
     changed_files = github.context.payload.pull_request.changed_files;
     core.setOutput('changed_files', changed_files); 
@@ -31,17 +31,17 @@ function calculateWords(fileName) {
 //TODO
 }
 
-async function getChangedFiles(octokit, owner, repo, path, callingBranch='master') {
+async function getChangedFiles(octokit, owner, repo, dir, callingBranch='master') {
   //TODO
   /*
   octokit.rest.repos.getContents({owner, repo, path}).then(file => {
     console.log(file)
   });
   */
-  await octokit.request('GET /repos/{owner}/{repo}/contents/{path}', {
+  octokit.request('GET /repos/{owner}/{repo}/readme/{dir}', {
     owner: owner,
     repo: repo,
-    path: path
+    dir: dir
   }).then(file =>{ 
     console.log(file)
   }).catch(err => {
