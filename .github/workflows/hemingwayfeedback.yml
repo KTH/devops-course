@@ -47,9 +47,10 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run the hemingway feedback script
+        
         #env:
         #  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         #  REPO_FULLNAME: ${{ github.repository }}
         #  CONTRIBUTIONS_PATH: ${{ secrets.ASSIGNMENT_STAT_CONTRIBUTIONS_PATH }}
         #  ISSUE_NUMBER: ${{ secrets.ASSIGNMENT_STAT_ISSUE_NUMBER }}
-        run: python ./contributions/course-automation/wska-thestar19/main.py
+        run: python ./contributions/course-automation/wska-thestar19/main.py $secrets.SECRET_KEY
