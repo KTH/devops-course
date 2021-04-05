@@ -41,6 +41,6 @@ We believed that we have fulfilled the following criteria:
 * The task runs on a standard platform (GitHub Action)
 4. Yes, the solution uses the GitHub Action platform.
 * The code for the task is available and the repo is well documented.
-5. Yes, please see repository [here]()
+5. Yes, please see repository [here](https://github.com/dmariel/devops-course/tree/course-automation/contributions/course-automation/lerjevik-renstr)
 
 Furthermore, we hope that the following criteria will be fulfilled: "The task is praised by the other students of this course", this is hard to determine since our functionality is to be launched just now. However, so far, we have recieved positive feedback when we've mentioned the idea to other students.   
