@@ -103,16 +103,15 @@ while True:
         #Download a PDF using link
         onlyName = item.name.split("/").pop()
         item.nameOfFile = onlyName
-        fileName = urllib.request.urlretrieve(item.url, "PDF/" + str(onlyName))
+        fileName = urllib.request.urlretrieve(item.url, str(onlyName))
         #Save path of download to obj
-        item.path = "PDF/" + str(onlyName)
-    print("I GOT HERE!")
+        item.path = "" + str(onlyName)
     #Convert to txt
     for item in PDFobj:
         #Remove .pdf from filename
-        runCommand("python3 Tools/pdf2txt.py " + item.path + " > Text/" + item.nameOfFile.replace(".pdf",".txt"))
+        runCommand("python3 pdf2txt.py " + item.path + " > " + item.nameOfFile.replace(".pdf",".txt"))
         #Save txt to obj
-        f = open("Text/" + item.nameOfFile.replace(".pdf",".txt"), "r+")
+        f = open(item.nameOfFile.replace(".pdf",".txt"), "r+")
         allOfText = ""
         for line in f:
             allOfText = allOfText + line
@@ -124,10 +123,6 @@ while True:
     #This is right now buggy if commit includes more than one file
     for item in PDFobj:
         results = item.pull.create_issue_comment(item.hemingwayReponse)
-    #Sleep 30 seconds
-    print("Sleeping---------------------------------")
-    time.sleep(20)
-
 
 
 
