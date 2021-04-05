@@ -2,8 +2,9 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import time
-chromedriverPath = "./chromedrivers/chromedriver89.0.4389.114" # Driver depends on your chrome version. Mine is 84.0.4147.30. See https://chromedriver.chromium.org/downloads
-
+#chromedriverPath = "./chromedrivers/chromedriver89.0.4389.114" # Driver depends on your chrome version. Mine is 84.0.4147.30. See https://chromedriver.chromium.org/downloads
+import chromedriver_autoinstaller
+chromedriver_autoinstaller.install()
 
 def getElement(xpath, driver):
     return driver.find_element_by_xpath(xpath)
@@ -19,7 +20,8 @@ def getHemingwayScore(text):
         file = open(text, "r") 
         text = file.read()
     
-    driver = webdriver.Chrome(chromedriverPath) 
+    #driver = webdriver.Chrome(chromedriverPath) 
+    driver = webdriver.Chrome() 
     driver.get("https://hemingwayapp.com/")
     time.sleep(1)
 
