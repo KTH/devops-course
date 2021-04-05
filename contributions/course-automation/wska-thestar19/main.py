@@ -5,12 +5,12 @@ import aPDF
 import urllib.request
 import subprocess
 import hemingway
+import sys
 
 #Constants
 REPO_ID = 337456664 #Used to find which repo to look at
 REPO_NAME = "daTest"
 TOKEN = "" #Used by Github library to find User
-USER = Github(TOKEN) #This is the user that is nav Github
      
 def findTheRepo():
     repo = USER.get_repo(REPO_ID)
@@ -61,6 +61,20 @@ def removeWrongPRs(aList):
                 returnList.append(pull)
                 print("This pull request " + str(pull.title) + " was added to list")
     return returnList
+
+#take in arguments
+if len(sys.argv) < 1:
+    if len(TOKEN) < 10:
+        print("No token in main AND no token in arguments, exiting")
+        raise Exception("No token given, please pass as arg or set in main")
+    else:
+        print("Using token from main, do not git push this")
+else:
+    if len(sys.argv[1]) > 0:
+        TOKEN = sys.argv[1]
+
+#Create user that will navigate Github
+USER = Github(TOKEN)
 
 #Find repo
 currentRepo = findTheRepo()
