@@ -1,8 +1,8 @@
-## Feedback
+# Feedback
 
-### Members
+## Members
 Fredrik Björkman (fbjorkma@kth.se) Github: https://github.com/fbjorkman
 
-### Proposal
+## Proposal
 I would like to give feedback on this essay
 Essay: BDD in DevOps (#1032)
