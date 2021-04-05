@@ -1,5 +1,6 @@
 #Hemingway python
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
 import time
 #chromedriverPath = "./chromedrivers/chromedriver89.0.4389.114" # Driver depends on your chrome version. Mine is 84.0.4147.30. See https://chromedriver.chromium.org/downloads
@@ -21,7 +22,16 @@ def getHemingwayScore(text):
         text = file.read()
     
     #driver = webdriver.Chrome(chromedriverPath) 
-    driver = webdriver.Chrome() 
+    
+    options = Options()
+    options.add_argument("--headless")
+    options.add_argument('--no-sandbox')
+    options.add_argument('--disable-gpu')
+    options.add_argument('--disable-dev-shm-usage')
+    options.add_argument('disable-infobars')
+    options.add_argument("--disable-extensions")
+    driver = webdriver.Chrome(chrome_options=options, executable_path='/usr/bin/chromedriver')
+    #driver = webdriver.Chrome() 
     driver.get("https://hemingwayapp.com/")
     time.sleep(1)
 
