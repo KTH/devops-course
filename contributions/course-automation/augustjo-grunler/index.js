@@ -44,6 +44,8 @@ async function getChangedFiles(octokit, owner, repo, path, callingBranch='master
     path: path
   }).then(file =>{ 
     console.log(file)
+  }).catch(err => {
+    console.log(err)
   })
   //return files;
 }
