@@ -38,7 +38,7 @@ async function getChangedFiles(octokit, owner, repo, path, callingBranch='master
     console.log(file)
   });
   */
-  await octokit.request('GET /repos/{owner}/{repo}/contents/{path}/files', {
+  await octokit.request('GET /repos/{owner}/{repo}/contents/{path}', {
     owner: owner,
     repo: repo,
     path: path
@@ -73,9 +73,10 @@ async function buildAndPostComment(issue_number, message) {
     body: message,
   });
 }
-
+/*
 let words = '600'
 let verdict = getWordCountVerdict(words, '500', "1000");
 let message = createCommentBody('README.md', words, verdict)
 console.log(message);
-
+*/
+doSomething()
