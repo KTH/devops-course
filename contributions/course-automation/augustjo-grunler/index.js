@@ -32,7 +32,7 @@ async function main() {
 
     //build comment body
     var comment = createCommentBody(file.name, wordCount, wordCountReached)
-    buildAndPostComment(issue_number,comment)
+    buildAndPostComment(issue_number,comment, octokit)
 
     changed_files = github.context.payload.pull_request.changed_files;
     core.setOutput('changed_files', changed_files); 
@@ -78,7 +78,7 @@ function createCommentBody(filename, wc, verdict ) {
 }
 
 //TODO: issue number
-async function buildAndPostComment(issue_number, message) {
+async function buildAndPostComment(issue_number, message, octokit) {
   const comment = await octokit.issues.createComment({
     owner: github.context.repo.owner,
     repo: github.context.repo.repo,
