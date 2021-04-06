@@ -41,9 +41,10 @@ async function main() {
   } 
 }
 
-function calculateWords(fileName) {
-//check file type
-//TODO
+function getMDwordCount(string) {
+  str = string.replace(/([#*>+|/_@±/\[\]\\{}<-`]+)/g,"");
+  str = str.replace(/(\s)+/g," ");
+  return str.split(" ").length;
 }
 
 var getReadme = function(octokit, owner, repo, dir, callingBranch='master') {
