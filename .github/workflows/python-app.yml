@@ -35,7 +35,7 @@ jobs:
         
     - name: Verify content
       id: verify-markdown
-      uses: bubriks/file-content-checker@0.1.0
+      uses: bubriks/file-content-checker@0.1.1
       with:
         path: ${{ steps.verify-location.outputs.markdown }}
         structure: >
