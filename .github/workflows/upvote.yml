@@ -2,15 +2,18 @@
 
 name: Upvote
 
+# The jobs in this file are triggered on either a PR or sheduled to be triggered every 5 min
 on:
   pull_request_target: 
     types: [labeled]
   schedule:
     - cron: '*/5 * * * *'
 jobs:
+  
+  # First job: Triggered on a PR labeled with 'Upvote - Course Automation' to the repository listed on line 16
   new_issue:
     
-    if: ${{ github.event.label.name == 'Upvote - Course Automation' }} && ${{ github.repository == 'KTH/devops-course'}}
+    if: github.event.label.name == 'Upvote - Course Automation'  && github.repository == 'Renstrom/upvote'
     runs-on: ubuntu-latest
     name: Create an issue if none exists
     outputs:
@@ -18,6 +21,7 @@ jobs:
           output2: ${{ steps.fc.outputs.comment-id}}
     steps:
       - uses: actions/checkout@v2
+        # An issue is created if none exists
       - name: Create issue    
         uses: JasonEtco/create-an-issue@v2
         env:
@@ -25,6 +29,7 @@ jobs:
         with:
             update_existing: true
         id: issue
+        # Looks for the first comment, the "Top-list"
       - name: Find Comment
         uses: peter-evans/find-comment@v1.2.0
         id: fc
@@ -34,10 +39,11 @@ jobs:
           issue-number: ${{ steps.issue.outputs.number }}
           body-includes: Toplist (Updated every 5 min)
         
-              
+  # Second job: Triggered on a PR labeled with 'Upvote - Course Automation' to the repository listed on line 16           
   first_comment:
     needs: new_issue
-    if: ${{needs.new_issue.outputs.output2 == 0}}
+    # The "Top-list" is created if there is no first comment
+    if: ${{needs.new_issue.outputs.output2 == 0}}  
     runs-on: ubuntu-latest
     name: Create first comment
     steps:
@@ -48,11 +54,12 @@ jobs:
           body: |
             Toplist (Updated every 5 min)
 
-
+  # Third job: Triggered on a PR labeled with 'Upvote - Course Automation' to the repository listed on line 16       
   other_comments:
     needs: new_issue
-    if: ${{github.event_name != 'schedule'}}
+    if: ${{github.event_name != 'schedule'}} 
     runs-on: ubuntu-latest
+    # Creates a comment in the issue thread including the title of the PR, a link to the PR and a link to the repository
     name: Create comment
     steps:
       - uses: peter-evans/create-or-update-comment@v1
@@ -61,48 +68,62 @@ jobs:
           body: |
             Title of pull request: ${{ github.event.pull_request.title }}
             Link to pull request: ${{ github.event.pull_request.html_url }}
-            You can view the repository [here](https://github.com/${{github.event.pull_request.head.repo.full_name}}/tree/${{ github.head_ref }})       
+            You can view the repository [here](https://github.com/${{github.event.pull_request.head.repo.full_name}}/tree/${{ github.head_ref }})   
+        # Creates a comment on the PR, with a link to the issue-thread   
       - name: Comment on PR
         uses: thollander/actions-comment-pull-request@master
         with:
           message: 'A comment has been added to the following thread: #${{  needs.new_issue.outputs.output1 }}. People can now upvote your project!'
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  # Fourth job: Scheduled to run every 5 minutes       
+  update_comment:
+    needs: new_issue
+    if: ${{github.event_name == 'schedule'}}
+    runs-on: ubuntu-latest
+    # Updates the table with information that is accquired by looping through the comments and listing the comments with 1 or more upvotes
+    name: Update table every 5 minutes
+    steps:
       - name: Test json echo
         id: commentid 
         run: |
-          curl -s https://api.github.com/repos/${{github.repository}}/issues/${{  needs.new_issue.outputs.output1}}/comments | jq -c '.[].id' | while read id ; do
-              echo ${id} $( curl -s -H "Accept: application/vnd.github.squirrel-girl-preview+json" https://api.github.com/repos/${{github.repository}}/issues/comments/${id}/reactions | jq 'map(select(.content=="+1"))' | jq length) titles  $(curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/${{github.repository}}/issues/comments/${id} | jq '.body' | cut -d '\' -f1 | cut -d: -f2 ) >> output.txt
-              echo "'{${id}:$( curl -s -H "Accept: application/vnd.github.squirrel-girl-preview+json" https://api.github.com/repos/${{github.repository}}/issues/comments/${id}/reactions | jq 'map(select(.content=="+1"))' | jq length), title: $(curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/${{github.repository}}/issues/comments/${id} | jq '.body' | cut -d '\' -f1 | cut -d: -f2 ) }'"
+          curl -s https://api.github.com/repos/Renstrom/upvote/issues/${{  needs.new_issue.outputs.output1}}/comments | jq -c '.[].id' | while read id ; do          
+              echo ${id}:$( curl -s -H "Accept: application/vnd.github.squirrel-girl-preview+json" https://api.github.com/repos/Renstrom/upvote/issues/comments/${id}/reactions | jq 'map(select(.content=="+1"))' | jq length):title:$(curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/Renstrom/upvote/issues/comments/${id} | jq '.body' | cut -d '\' -f1 | cut -d: -f2 ) >> output.txt
           done
-          echo test
-
-          while read p; do 
-              echo $p
+      - run: | 
+          while read t; do 
+            a=$(echo $t | cut -d':' -f2)
+            if [ $a -ne 0 ]
+            then
+              b=$(echo $t | cut -d':' -f1)
+              c=$(echo $t | cut -d':' -f3)
+              d=$(echo $t | cut -d':' -f4)
+              e=" | [${d}](https://github.com/${{ github.repository }}/issues/${{  needs.new_issue.outputs.output1}}#issuecomment-${b})"
+              echo ${a} ${e}  >> result.txt
+            fi
           done < output.txt
-           
-  update_comment:
-    needs: new_issue
-    if: github.event_name == 'schedule'
-    runs-on: ubuntu-latest
-    name: Update table every 5 minutes
-    steps:
-      - name: Find first comment
-        uses: peter-evans/find-comment@v1
-        id: fc
+          # Sorts the "Top-list"-table in descending order and insert to textfile
+          sort -k1,1nr -k2,2 result.txt >> resultSorted.txt
+        
+        # Reads result from textfile
+      - name: Read result
+        id: package
+        uses: juliangruber/read-file-action@v1
         with:
-          issue-number:  ${{  needs.new_issue.outputs.output1}}
-          comment-author: 'github-actions[bot]'
-      - name: Print comment-ID
-        run: echo "${{ steps.fc.outputs.comment-id }}"
-
-      - name: Update comment
-        uses: jungwinter/comment@v1
+          path: ./resultSorted.txt
+          
+        # Updates the "Top-list with a table containing the outputs given when reading the result"
+      - name: Update first comment ("Top-list")
+        uses: peter-evans/create-or-update-comment@v1
         with:
-          type: edit
+          comment-id: ${{ needs.new_issue.outputs.output2 }}
           body: |
-            
             Toplist (Updated every 5 min):
+            Points | Title
+            ------------ | -------------
+            ${{ steps.package.outputs.content }}        
 
-            ...
-          comment_id: ${{ steps.fc.outputs.comment-id }}
-          token: ${{ secrets.GITHUB_TOKEN }}
+
+          edit-mode: replace
+          reactions: 
+    
