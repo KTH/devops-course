@@ -26,6 +26,64 @@ jobs:
       name: Get changed files
       uses: jitterbit/get-changed-files@v1
     
-    - name: Check pull request contents
+    
+    
+    - name: Verify location
+      id: verify-location
       run: |
-        python tools/verify_markdown_and_change_location.py review_changes ${{ steps.changed-files.outputs.all }}
+        python tools/verify_location.py main ${{ steps.changed-files.outputs.all }}
+        
+    - name: Verify content
+      id: verify-markdown
+      uses: bubriks/file-content-checker@0.1.0
+      with:
+        path: ${{ steps.verify-location.outputs.markdown }}
+        structure: >
+          {
+            "title": [
+              "^# presentation:.*$",
+              "^# essay:.*$",
+              "^# demo:.*$",
+              "^# open-source:.*$",
+              "^# executable tutorial:.*$",
+              "^# course automation:.*$",
+              "^# feedback:.*$"
+            ],
+            "member": {
+              "title": "^## members$",
+              "memberOne": [
+                {
+                  "nameAndEmail": "^[a-z]+( [a-z]+)* [a-z]+ \([a-z]+@kth.se\)$",
+                  "gitHub": "^github: https://github.com/[a-z]+$"
+                },
+                {
+                  "nameAndEmail": "^[a-z]+( [a-z]+)* [a-z]+ \([a-z]+@kth.se\)$"
+                }
+              ],
+              "memberTwo": [
+                {
+                  "nameAndEmail": "^[a-z]+( [a-z]+)* [a-z]+ \([a-z]+@kth.se\)$",
+                  "gitHub": "^github: https://github.com/[a-z]+$"
+                },
+                {
+                  "nameAndEmail": "^[a-z]+( [a-z]+)* [a-z]+ \([a-z]+@kth.se\)$"
+                },
+                {}
+              ],
+              "memberThree": [
+                {
+                  "nameAndEmail": "^[a-z]+( [a-z]+)* [a-z]+ \([a-z]+@kth.se\)$",
+                  "gitHub": "^github: https://github.com/[a-z]+$"
+                },
+                {
+                  "nameAndEmail": "^[a-z]+( [a-z]+)* [a-z]+ \([a-z]+@kth.se\)$"
+                },
+                {}
+              ]
+            },
+            "proposal": "^## proposal$"
+          }
+
+    - name: Verify folder names
+      run: |
+        python tools/verify_folder_names.py main ${{ steps.verify-markdown.outputs.result }} ${{ steps.verify-location.outputs.categoryfolder }} ${{ steps.verify-location.outputs.memberfolder }}
