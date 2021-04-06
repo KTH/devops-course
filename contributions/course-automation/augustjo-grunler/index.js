@@ -34,15 +34,14 @@ function calculateWords(fileName) {
 //TODO
 }
 
-function getReadme(octokit, owner, repo, dir, callingBranch='master') {
-  //TODO
+var getReadme = function(octokit, owner, repo, dir, callingBranch='master') {
   return new Promise(octokit.request('GET /repos/{owner}/{repo}/readme/{dir}', {
     owner: owner,
     repo: repo,
     dir: dir
   }).then(file =>{ 
     x = atob(file.data.content)
-    return file.data
+    resolve(file.data)
   }).catch(err => {
     console.log(err)
   }))
