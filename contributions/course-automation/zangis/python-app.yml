@@ -26,8 +26,6 @@ jobs:
       name: Get changed files
       uses: jitterbit/get-changed-files@v1
     
-    
-    
     - name: Verify location
       id: verify-location
       run: |
