@@ -86,10 +86,6 @@ async function buildAndPostComment(issue_number, message, octokit) {
     body: message,
   });
 }
-/*
-let words = '600'
-let verdict = getWordCountVerdict(words, '500', "1000");
-let message = createCommentBody('README.md', words, verdict)
-console.log(message);
-*/
+
+// run main function
 main()
