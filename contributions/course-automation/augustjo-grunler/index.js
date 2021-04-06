@@ -42,7 +42,7 @@ function getReadme(octokit, owner, repo, dir, callingBranch='master') {
     dir: dir
   }).then(file =>{ 
     x = atob(file.data.content)
-    resolve(file.data)
+    return file.data
   }).catch(err => {
     console.log(err)
   }))
