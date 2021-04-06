@@ -1,10 +1,8 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
-const base64 = require('base-64');
-const utf8 = require('utf8');
 var atob = require('atob');
 
-async function doSomething() {
+async function main() {
   try {
     // `who-to-greet` input defined in action metadata file
     const token = core.getInput('repo-token');
@@ -18,8 +16,10 @@ async function doSomething() {
 
     const repoName = github.context.repo.repo
     console.log(`Pull request to: ${repoName}`)
-
-    getChangedFiles(octokit,owner,repoName,dir)
+    // Extract The file with the feedback
+    const file = getReadme(octokit,owner,repoName,dir)
+    const path = file.path
+    core.setOutput("readme_path", path)
 
     changed_files = github.context.payload.pull_request.changed_files;
     core.setOutput('changed_files', changed_files); 
@@ -33,25 +33,20 @@ function calculateWords(fileName) {
 //TODO
 }
 
-async function getChangedFiles(octokit, owner, repo, dir, callingBranch='master') {
+async function getReadme(octokit, owner, repo, dir, callingBranch='master') {
   //TODO
-  /*
-  octokit.rest.repos.getContents({owner, repo, path}).then(file => {
-    console.log(file)
-  });
-  */
   octokit.request('GET /repos/{owner}/{repo}/readme/{dir}', {
     owner: owner,
     repo: repo,
     dir: dir
-  }).then(data =>{ 
-    console.log(data.data.content)
-    x = atob(data.data.content)
+  }).then(file =>{ 
+    console.log(file.data.content)
+    x = atob(file.data.content)
     console.log(x)
+    return file.data
   }).catch(err => {
     console.log(err)
   })
-  //return files;
 }
 
 function getWordCountVerdict(wordCount, acceptableLimit, remarkableLimit) {
@@ -85,4 +80,4 @@ let verdict = getWordCountVerdict(words, '500', "1000");
 let message = createCommentBody('README.md', words, verdict)
 console.log(message);
 */
-doSomething()
+main()
