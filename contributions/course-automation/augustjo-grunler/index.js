@@ -35,7 +35,7 @@ function calculateWords(fileName) {
 }
 
 var getReadme = function(octokit, owner, repo, dir, callingBranch='master') {
-  return new Promise(octokit.request('GET /repos/{owner}/{repo}/readme/{dir}', {
+  return new Promise((resolve,reject) => {octokit.request('GET /repos/{owner}/{repo}/readme/{dir}', {
     owner: owner,
     repo: repo,
     dir: dir
@@ -44,7 +44,9 @@ var getReadme = function(octokit, owner, repo, dir, callingBranch='master') {
     resolve(file.data)
   }).catch(err => {
     console.log(err)
-  }))
+  }) 
+  })
+ 
 }
 
 function getWordCountVerdict(wordCount, acceptableLimit, remarkableLimit) {
