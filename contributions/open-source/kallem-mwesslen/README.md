@@ -20,5 +20,5 @@ The project could then be extended in the future, to include more complex rules,
 We believe that this project is suitable for the open-source category, as it is not generally useful for the course-repo, 
 but could be useful for many different projects.
 
-*I (Kalle) have to note that I have already submitted a course-automation contibution (a github action that automatically labels pull requests).
+*I (Kalle) have to note that I have already submitted a course-automation contribution (a Github action that automatically labels pull requests).
 Would this project be considered to be overlapping, since both are github actions, or are they dissimilar enough? I really like this idea and would like to pursue it.*
