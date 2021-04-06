@@ -26,4 +26,4 @@ jobs:
        pip install markdown-word-count
        pwd
        ls
-       mwc steps.feedback.outputs.readme_path
+       mwc ${{steps.feedback.outputs.readme_path}}
