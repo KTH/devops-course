@@ -19,7 +19,7 @@ async function main() {
     // Extract The file with the feedback
     var file = await getReadme(octokit,owner,repoName,dir)
     const path = file.path
-    console.log(`file is: ${file}`)
+    console.log(`path is: ${path}`)
     core.setOutput("readme_path", path)
 
     changed_files = github.context.payload.pull_request.changed_files;
