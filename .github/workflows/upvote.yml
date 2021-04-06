@@ -13,7 +13,7 @@ jobs:
   # First job: Triggered on a PR labeled with 'Upvote - Course Automation' to the repository listed on line 16
   new_issue:
     
-    if: github.event.label.name == 'Upvote - Course Automation'  && github.repository == 'KTH/devops-course'
+    if: github.repository == 'dmariel/devops-course'
     runs-on: ubuntu-latest
     name: Create an issue if none exists
     outputs:
@@ -43,7 +43,7 @@ jobs:
   first_comment:
     needs: new_issue
     # The "Top-list" is created if there is no first comment
-    if: ${{needs.new_issue.outputs.output2 == 0}}  
+    if: needs.new_issue.outputs.output2 == 0 && github.event.label.name == 'Upvote - Course Automation'  
     runs-on: ubuntu-latest
     name: Create first comment
     steps:
@@ -57,7 +57,7 @@ jobs:
   # Third job: Triggered on a PR labeled with 'Upvote - Course Automation' to the repository listed on line 16       
   other_comments:
     needs: new_issue
-    if: ${{github.event_name != 'schedule'}} 
+    if: github.event_name != 'schedule' && github.event.label.name == 'Upvote - Course Automation'
     runs-on: ubuntu-latest
     # Creates a comment in the issue thread including the title of the PR, a link to the PR and a link to the repository
     name: Create comment
@@ -87,8 +87,8 @@ jobs:
       - name: Test json echo
         id: commentid 
         run: |
-          curl -s https://api.github.com/repos/Renstrom/upvote/issues/${{  needs.new_issue.outputs.output1}}/comments | jq -c '.[].id' | while read id ; do          
-              echo ${id}:$( curl -s -H "Accept: application/vnd.github.squirrel-girl-preview+json" https://api.github.com/repos/Renstrom/upvote/issues/comments/${id}/reactions | jq 'map(select(.content=="+1"))' | jq length):title:$(curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/Renstrom/upvote/issues/comments/${id} | jq '.body' | cut -d '\' -f1 | cut -d: -f2 ) >> output.txt
+          curl -s https://api.github.com/repos/${{github.repository}}/issues/${{  needs.new_issue.outputs.output1}}/comments | jq -c '.[].id' | while read id ; do          
+              echo ${id}:$( curl -s -H "Accept: application/vnd.github.squirrel-girl-preview+json" https://api.github.com/repos/${{github.repository}}/issues/comments/${id}/reactions | jq 'map(select(.content=="+1"))' | jq length):title:$(curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/Renstrom/upvote/issues/comments/${id} | jq '.body' | cut -d '\' -f1 | cut -d: -f2 ) >> output.txt
           done
       - run: | 
           while read t; do 
