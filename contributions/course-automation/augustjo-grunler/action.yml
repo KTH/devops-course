@@ -9,6 +9,8 @@ outputs:
     description: 'The number of files changed in the pull request'
   readme_path:
     description: path of readme to wordcheck
+  word_count:
+    description: wordcount of file
 runs:
   using: 'node12'
   main: 'index.js'
