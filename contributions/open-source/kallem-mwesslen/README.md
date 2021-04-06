@@ -6,11 +6,11 @@ Markus Wesslen (mwesslen@kth.se) Github: m4reko
 
 ## Proposal
 We would like to create an open-source project from scratch. Our idea is to create a github action/ workflow, 
-that scores contibutors to a repository based on user-defined rulesets. A rule might for instance be that 
+that scores contributors to a repository based on user-defined rulesets. A rule might for instance be that 
 commits should link to an issue. Each contributor would then have a score of (commits with linked issues)/(total commits) 
 and this score would be kept in a scoreboard (perhaps as a pinned issue).
 
-The point of this is to encourage good practices in contibutors, which would improve workflow.
+The point of this is to encourage good practices in contributors, which would improve workflow.
 
 The scope of this project is potentially very large, as there are many rules of varying degrees of complexity 
 that different projects might have. Our goal is, however, not to implement every rule one can think of, 
