@@ -13,7 +13,7 @@ jobs:
   # First job: Triggered on a PR labeled with 'Upvote - Course Automation' to the repository listed on line 16
   new_issue:
     
-    if: github.event.label.name == 'Upvote - Course Automation'  && github.repository == 'Renstrom/upvote'
+    if: github.event.label.name == 'Upvote - Course Automation'  && github.repository == 'KTH/devops-course'
     runs-on: ubuntu-latest
     name: Create an issue if none exists
     outputs:
