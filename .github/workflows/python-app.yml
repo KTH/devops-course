@@ -86,4 +86,4 @@ jobs:
 
     - name: Verify folder names
       run: |
-        python tools/verify_folder_names.py main ${{ steps.verify-markdown.outputs.result }} ${{ steps.verify-location.outputs.categoryfolder }} ${{ steps.verify-location.outputs.memberfolder }}
+        python tools/verify_folder_names.py main '${{ steps.verify-markdown.outputs.result }}' '${{ steps.verify-location.outputs.categoryfolder }}' '${{ steps.verify-location.outputs.memberfolder }}'
