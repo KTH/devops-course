@@ -18,7 +18,7 @@ We have integrated a functionality that enables students to upvote other student
 * This enables other students to upvote their classmates projects, by inserting :thumbsup: on the comments in the issue `Upvote projects - Course Automation`.
 * The upvotes are collected and visualized in the “Top-list”, which is sheduled to be automatically updated every 5 minutes.
 
-## Usage 
+## Using the functionality
 
 Since this repository has not yet been merged to the KTH DevOps-course repository, a [simulation](https://github.com/dmariel/devops-course/tree/student-fork/contributions/course-automation/lerjevik-renstr) of the process has been performed, where a `student-fork` branch (corresponding to a student's course-automation fork) makes a labeled PR to the `2021` branch of this repository.
 
@@ -32,7 +32,7 @@ Since this repository has not yet been merged to the KTH DevOps-course repositor
 
 **An issue is created if none already exists:**
 
-<img src="https://github.com/dmariel/devops-course/blob/course-automation/contributions/course-automation/lerjevik-renstr/images/issue_created.png?raw=true" width="800">
+<img src="https://github.com/dmariel/devops-course/blob/course-automation/contributions/course-automation/lerjevik-renstr/images/issue_created.png?raw=true" width="400">
 
 **A comment linking to the issue is added to student's PR:**
 
