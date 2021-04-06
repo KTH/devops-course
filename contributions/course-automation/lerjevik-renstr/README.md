@@ -22,6 +22,10 @@ We have integrated a functionality that enables students to upvote other student
 
 Since this repository has not yet been merged to the KTH DevOps-course repository, a [simulation](https://github.com/dmariel/devops-course/tree/student-fork/contributions/course-automation/lerjevik-renstr) of the process has been performed, where a `student-fork` branch (corresponding to a student's course-automation fork) makes a labeled PR to the `2021` branch of this repository.
 
+The results can be seen here:
+* Example PR: https://github.com/dmariel/devops-course/pull/4
+* Issue: https://github.com/dmariel/devops-course/issues/5
+
 **The student creates a PR with the correct label:**
 
 <img src="https://github.com/dmariel/devops-course/blob/course-automation/contributions/course-automation/lerjevik-renstr/images/creating_PR_with_label.png?raw=true" width="800">
