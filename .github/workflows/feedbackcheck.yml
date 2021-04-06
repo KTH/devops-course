@@ -23,3 +23,5 @@ jobs:
       run: |
        echo "Number of changed files ${{ steps.feedback.outputs.changed_files}}" 
        echo "the path to the readme is ${{ steps.feedback.outputs.readme_path}}"
+       pip install markdown-word-count
+       mwc steps.feedback.outputs.readme_path
