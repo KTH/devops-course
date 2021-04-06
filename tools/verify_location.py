@@ -21,7 +21,7 @@ def verify_change_locations(changed_files, change_location):
 def main(changes):
     changed_files = changes.split(" ")
     match = get_change_location(changed_files[0])
-    verify_change_locations(changed_files, match.group())
+    #verify_change_locations(changed_files, match.group())
     
     markdown_file = match.group() + MARKDOWN
     print(f"::set-output name=markdown::{markdown_file}")
