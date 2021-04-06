@@ -24,10 +24,11 @@ This section describes how the functionality is installed on a repository. We re
 
 1. Include a `.github/workflows` directory to the repository.
 2. In the `.github/workflows` directory, create a file `upvote.yml` and add the contents of this [file](https://github.com/dmariel/devops-course/blob/course-automation/.github/workflows/upvote.yml) to it.
-3. Specify the path to the repository that you want the script to run from on `line 13` of the `upvote.yml` file.
-4. Create a file `ISSUE_TEMPLATE.md` in the `.github` directory. Use the following [template](https://github.com/dmariel/devops-course/blob/course-automation/.github/ISSUE_TEMPLATE.md).
-5. Create a label `Upvote - Course Automation`
-6. Now the functionality is installed and ready to use!
+3. Specify the path to the repository that you want the script to run from on `line 16` of the `upvote.yml` file.
+4. (Optional) Edit the label name on line `16`, if you want to adapt the code for other courses.
+5. Create a file `ISSUE_TEMPLATE.md` in the `.github` directory. Use the following [template](https://github.com/dmariel/devops-course/blob/course-automation/.github/ISSUE_TEMPLATE.md). It's possible to adjust course name etc. in order to adapt the code for other courses.
+6. Create a label `Upvote - Course Automation` (alternatively a label with the name you choose in step 4). 
+7. Now the functionality is installed and ready to use!
  
 ## Criteria fulfilled 
 
