@@ -25,4 +25,5 @@ jobs:
        echo "the path to the readme is ${{ steps.feedback.outputs.readme_path}}"
        pip install markdown-word-count
        pwd
+       ls
        mwc steps.feedback.outputs.readme_path
