@@ -21,5 +21,5 @@ jobs:
     # Use the output from the `hello` step
     - name: Print number of changed files
       run: |
-      echo "Number of changed files ${{ steps.feedback.outputs.changed_files}}" 
-      echo "the path to the readme is ${{ steps.feedback.outputs.readme_path}}"
+       echo "Number of changed files ${{ steps.feedback.outputs.changed_files}}" 
+       echo "the path to the readme is ${{ steps.feedback.outputs.readme_path}}"
