@@ -63,3 +63,4 @@ The uses path will only work for the course when the code has been merged into t
 ### Course-specific
 The action triggers on a PR when the files that are modified matches this path in the devops structure `**/feedback/**/README.md`. 
 This means that if someone adds their feedback in the README (which they should) of their folder in the feedback folder, this action will trigger and check the requirements. After the feedback is checked by the action the action will produce a pr comment on the person submiting feedback's PR stating whether the feedback is sufficient or not.
+
