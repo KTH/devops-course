@@ -4,13 +4,17 @@ inputs:
   repo-token:  # id of input
     description: 'Token for the repo'
     required: true
+  minimal-wordcount:
+    description: The minmal wordcount requirement for acceptable feedback
+    required: true
+  remarkable-wordcount:
+    description: the limit for remarkable feedback
+    required: true    
 outputs:
   changed_files: # id of output
     description: 'The number of files changed in the pull request'
   readme_path:
     description: path of readme to wordcheck
-  word_count:
-    description: wordcount of file
 runs:
   using: 'node12'
   main: 'index.js'

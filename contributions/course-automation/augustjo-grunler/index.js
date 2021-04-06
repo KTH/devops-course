@@ -6,6 +6,8 @@ async function main() {
   try {
     // `who-to-greet` input defined in action metadata file
     const token = core.getInput('repo-token');
+    const minimalWordCountLimit = core.getInput('minimal-wordcount')
+    const remarkableWordCountLimit = core.getInput('remarkable-wordcount')
     const octokit = github.getOctokit(token);
     // Get the JSON webhook payload for the event that triggered the workflow
     const payload = JSON.stringify(github.context.payload, undefined, 2);
@@ -14,6 +16,9 @@ async function main() {
     console.log(`The owner of the repo is ${owner}`)
     const dir = '/contributions/course-automation/augustjo-grunler'
 
+    var issue_number = payload.pull_request._links.issue.href.split("/")
+    issue_number = issue_number[issue_number.length-1]
+    
     const repoName = github.context.repo.repo
     console.log(`Pull request to: ${repoName}`)
     // Extract The file with the feedback
@@ -21,6 +26,13 @@ async function main() {
     const path = file.path
     console.log(`path is: ${path}`)
     core.setOutput("readme_path", path)
+    var rawText = atob(file.content)
+    var wordCount = wordCount(rawText)
+    var wordCountReached = getWordCountVerdict(wordCount,minimalWordCountLimit,remarkableWordCountLimit)
+
+    //build comment body
+    var comment = createCommentBody(file.name, wordCount, wordCountReached)
+    buildAndPostComment(issue_number,comment)
 
     changed_files = github.context.payload.pull_request.changed_files;
     core.setOutput('changed_files', changed_files); 
@@ -66,7 +78,6 @@ function createCommentBody(filename, wc, verdict ) {
 
 //TODO: issue number
 async function buildAndPostComment(issue_number, message) {
-
   const comment = await octokit.issues.createComment({
     owner: github.context.repo.owner,
     repo: github.context.repo.repo,
