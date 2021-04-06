@@ -19,7 +19,7 @@ async function main() {
     // Extract The file with the feedback
     const file = getReadme(octokit,owner,repoName,dir)
     const path = file.path
-    console.log(`path to the readme is: ${path}`)
+    console.log(`file is: ${file}`)
     core.setOutput("readme_path", path)
 
     changed_files = github.context.payload.pull_request.changed_files;
@@ -41,9 +41,7 @@ async function getReadme(octokit, owner, repo, dir, callingBranch='master') {
     repo: repo,
     dir: dir
   }).then(file =>{ 
-    console.log(file.data.content)
     x = atob(file.data.content)
-    console.log(x)
     return file.data
   }).catch(err => {
     console.log(err)
