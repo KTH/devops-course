@@ -17,7 +17,7 @@ async function main() {
     const repoName = github.context.repo.repo
     console.log(`Pull request to: ${repoName}`)
     // Extract The file with the feedback
-    const file = getReadme(octokit,owner,repoName,dir)
+    var file = await getReadme(octokit,owner,repoName,dir)
     const path = file.path
     console.log(`file is: ${file}`)
     core.setOutput("readme_path", path)
@@ -34,18 +34,18 @@ function calculateWords(fileName) {
 //TODO
 }
 
-async function getReadme(octokit, owner, repo, dir, callingBranch='master') {
+function getReadme(octokit, owner, repo, dir, callingBranch='master') {
   //TODO
-  octokit.request('GET /repos/{owner}/{repo}/readme/{dir}', {
+  return new Promise(octokit.request('GET /repos/{owner}/{repo}/readme/{dir}', {
     owner: owner,
     repo: repo,
     dir: dir
   }).then(file =>{ 
     x = atob(file.data.content)
-    return file.data
+    resolve(file.data)
   }).catch(err => {
     console.log(err)
-  })
+  }))
 }
 
 function getWordCountVerdict(wordCount, acceptableLimit, remarkableLimit) {
