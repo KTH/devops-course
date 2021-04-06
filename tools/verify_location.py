@@ -19,7 +19,7 @@ def verify_change_locations(changed_files, change_location):
                 "\nChange location: " + change)
 
 def main(changes):
-    changes = ["contributions/course-automation/zangis/README.md"]
+    changes = "contributions/course-automation/zangis/README.md"
     changed_files = changes.split(" ")
     match = get_change_location(changed_files[0])
     verify_change_locations(changed_files, match.group())
