@@ -16,7 +16,7 @@ async function main() {
     console.log(`The owner of the repo is ${owner}`)
     const dir = '/contributions/course-automation/augustjo-grunler'
 
-    var issue_number = payload.pull_request._links.issue.href.split("/")
+    var issue_number = github.context.payload.pull_request._links.issue.href.split("/")
     issue_number = issue_number[issue_number.length-1]
     
     const repoName = github.context.repo.repo
