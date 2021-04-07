@@ -16,7 +16,7 @@ We have integrated a functionality that enables students to upvote other student
   2. Next, a comment is automatically added to the issue thread. The comment includes: the title of the student's PR, a link to the PR and a link to the repository. This information enables other students to read about the project.
   3. The student recieves a comment on their PR, stating that a comment has been added to the issue `Upvote projects - Course Automation` (including a link to the issue).
 * This enables other students to upvote their classmates projects, by inserting :thumbsup: on the comments in the issue `Upvote projects - Course Automation`.
-* The upvotes are collected and visualized in the “Top-list”, which is sheduled to be automatically updated every 5 minutes.
+* The upvotes are collected and visualized in the “Top-list”, which is sheduled to be automatically updated. As of now, the update takes place a few times every hour.
 
 ## Installation
 
@@ -25,7 +25,7 @@ This section describes how the functionality is installed on a repository. We re
 1. Include a `.github/workflows` directory to the repository.
 2. In the `.github/workflows` directory, create a file `upvote.yml` and add the contents of this [file](https://github.com/dmariel/devops-course/blob/course-automation/.github/workflows/upvote.yml) to it.
 3. Specify the path to the repository that you want the script to run from on `line 16` of the `upvote.yml` file.
-4. (Optional) Edit the label name on line `16`, if you want to adapt the code for other courses.
+4. (Optional) Edit the label name on `line 16`, if you want to adapt the code for other courses.
 5. Create a file `ISSUE_TEMPLATE.md` in the `.github` directory. Use the following [template](https://github.com/dmariel/devops-course/blob/course-automation/.github/ISSUE_TEMPLATE.md). It's possible to adjust course name etc. in order to adapt the code for other courses.
 6. Create a label `Upvote - Course Automation` (alternatively a label with the name you choose in step 4). 
 7. Now the functionality is installed and ready to use!
@@ -43,7 +43,7 @@ We believed that we have fulfilled the following 5 criteria:
 * The code for the task is available
     * Yes, please see repository [here](https://github.com/dmariel/devops-course/tree/course-automation/.github). Furthermore, we believe that the repository is properly [documentated](https://github.com/dmariel/devops-course/edit/course-automation/contributions/course-automation/lerjevik-renstr/README.md). **Thus, we believe that the criteria for "Pass with distinction" is fulfilled.**
 * The task is praised by the other students of this course
-    * This is a bit difficult to determine since our functionality has not yet been launched. However, so far, we have recieved positive feedback when we've mentioned the idea to other students.   
+    * Yes, so far, we have recieved positive feedback when we've mentioned the idea to other students.   
     
 ## Using the functionality
 
