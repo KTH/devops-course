@@ -11,7 +11,7 @@ We have integrated a functionality that enables students to upvote other student
  
 ## Description of functionality
  
-* A student includes the label `Upvote - Course Automation` in a PR to the DevOps Course-repository.
+* A student or TA includes the label `Upvote - Course Automation` in a PR to the DevOps Course-repository.
   1. An issue `Upvote projects - Course Automation` is created, if no such issue already exists. The issue body includes a description of how to use the functionality, directed to the students. Furthermore, a “Top-list” that is going to show the most upvoted projects is incorporated to the issue, in the form of a comment.
   2. Next, a comment is automatically added to the issue thread. The comment includes: the title of the student's PR, a link to the PR and a link to the repository. This information enables other students to read about the project.
   3. The student recieves a comment on their PR, stating that a comment has been added to the issue `Upvote projects - Course Automation` (including a link to the issue).
@@ -55,7 +55,7 @@ The results can be seen here:
 * Example PR: https://github.com/dmariel/devops-course/pull/4
 * Issue: https://github.com/dmariel/devops-course/issues/5
 
-**The student creates a PR with the correct label:**
+**The student creates a PR with the correct label (if the student is not able to add the label, this could be done by a TA):**
 
 <img src="https://github.com/dmariel/devops-course/blob/course-automation/contributions/course-automation/lerjevik-renstr/images/creating_PR_with_label.png?raw=true" width="700">
 
