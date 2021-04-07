@@ -2,7 +2,7 @@
 
 name: Upvote
 
-# The jobs in this file are triggered on either a PR or sheduled to be triggered every 5 min
+# The jobs in this file are triggered on either a PR or sheduled 
 on:
   pull_request_target: 
     types: [labeled]
@@ -10,7 +10,7 @@ on:
     - cron: '* * * * *'
 jobs:
   
-  # First job: Triggered on a PR labeled with 'Upvote - Course Automation' to the repository listed on line 16
+  # First job: Triggered on a PR to the repository listed on line 16
   new_issue:
     
     if: github.repository == 'KTH/devops-course'
@@ -76,7 +76,7 @@ jobs:
           message: 'A comment has been added to the following thread: #${{  needs.new_issue.outputs.output1 }}. People can now upvote your project!'
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-  # Fourth job: Scheduled to run every 5 minutes       
+  # Fourth job: Scheduled to run        
   update_comment:
     needs: new_issue
     if: ${{github.event_name == 'schedule'}}
@@ -89,7 +89,7 @@ jobs:
         run: |  
           curl -s https://api.github.com/repos/${{github.repository}}/issues/${{  needs.new_issue.outputs.output1}}/comments | jq -c '.[].id' | while read id ; do
           
-              echo -e ${id}:$( curl -s -H "Accept: application/vnd.github.squirrel-girl-preview+json" https://api.github.com/repos/${{github.repository}}/issues/comments/${id}/reactions | jq 'map(select(.content=="+1"))' | jq length):title:$(curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/${{github.repository}}/issues/comments/${id} | jq '.body' | sed -n '1p' | cut -d: -f2  ) >> output.txt
+              echo -e ${id}:$( curl -s -H "Accept: application/vnd.github.squirrel-girl-preview+json" https://api.github.com/repos/${{github.repository}}/issues/comments/${id}/reactions | jq 'map(select(.content=="+1"))' | jq length):title:$(curl -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/${{github.repository}}/issues/comments/${id} | jq '.body' | sed -n '1p' | cut -d: -f1-2 ) >> output.txt
           done
       - run: | 
           while read t; do 
@@ -98,10 +98,14 @@ jobs:
             then
               b=$(echo $t | cut -d':' -f1)
               c=$(echo $t | cut -d':' -f3)
-              d=$(echo $t | cut -d':' -f4)
-              echo ${b} ${c} ${d} ${a}
+              d=$(echo $t | cut -d':' -f5)
+              f=$(echo $t | cut -d':' -f4 | cut -c 2-)
+              echo ${b} ${c} ${d} ${a} $f
               e=" | [${d}](https://github.com/${{ github.repository }}/issues/${{  needs.new_issue.outputs.output1}}#issuecomment-${b})"
-              echo ${a} ${e}  >> result.txt
+              if [[ ${f} == "Title of pull request" ]]
+              then
+                echo ${a} ${e}  >> result.txt
+              fi
             fi
           done < output.txt
           # Sorts the "Top-list"-table in descending order and insert to textfile
