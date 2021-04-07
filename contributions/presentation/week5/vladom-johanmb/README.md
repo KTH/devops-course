@@ -14,5 +14,5 @@ The goal is to present different agile methodologies approaches (scrum, kanban, 
 
 - Introduction to agile methods
 - Scrum vs Kanban vs Scrumban
-- Tools examples (JIRA, Azure DevOps Boards, Tuleap, ...)
+- How devops tools are used to implement agile methodology (JIRA, Azure DevOps Boards, Tuleap, ...)
 - Conclusion / Summary
