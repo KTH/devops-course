@@ -2,4 +2,4 @@
 I would like to give feedback to the executable-tutorial: integrate TeamCity with Docker
 
 ## Contact
-- Agnes Petäjävaara <agnespet@kth.se> anorangesky(https://github.com/anorangesky)
+- Agnes Petäjävaara <agnespet@kth.se> [anorangesky](https://github.com/anorangesky)
