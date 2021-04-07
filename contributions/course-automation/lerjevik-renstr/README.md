@@ -22,7 +22,7 @@ We have integrated a functionality that enables students to upvote other student
 
 This section describes how the functionality is installed on a repository. We recommend following this guide when introducing the functionality to future courses. **However, for the DevOps course, the only thing needed for the functionality to run is for the course-administrators to merge our PR and create a label `Upvote - Course Automation`.** 
 
-1. Include a `.github/workflows` directory to the repository.
+1. Include a `.github/workflows` directory to the repository in the default branch.
 2. In the `.github/workflows` directory, create a file `upvote.yml` and add the contents of this [file](https://github.com/dmariel/devops-course/blob/course-automation/.github/workflows/upvote.yml) to it.
 3. Specify the path to the repository that you want the script to run from on `line 16` of the `upvote.yml` file.
 4. (Optional) Edit the label name on `line 46`, if you want to adapt the code for other courses.
