@@ -16,7 +16,7 @@ We have integrated a functionality that enables students to upvote other student
   2. Next, a comment is automatically added to the issue thread. The comment includes: the title of the student's PR, a link to the PR and a link to the repository. This information enables other students to read about the project.
   3. The student recieves a comment on their PR, stating that a comment has been added to the issue `Upvote projects - Course Automation` (including a link to the issue).
 * This enables other students to upvote their classmates projects, by inserting :thumbsup: on the comments in the issue `Upvote projects - Course Automation`.
-* The upvotes are collected and visualized in the “Top-list”, which is sheduled to be automatically updated. As of now, the update takes place a few times every hour.
+* The upvotes are collected and visualized in the “Top-list”, which is sheduled to be automatically updated. As of now, the update is scheduled every 5 min, meaning that it takes place a few times every hour.
 
 ## Installation
 
@@ -77,7 +77,7 @@ The results can be seen here:
 
 <img src="https://github.com/dmariel/devops-course/blob/course-automation/contributions/course-automation/lerjevik-renstr/images/add_reaction.png?raw=true" width="700">
 
-**A "Top-list" is created and updated every 5 min**
+**A "Top-list" is created and updated automatically (scheduled every 5 min):**
 
 <img src="https://github.com/dmariel/devops-course/blob/course-automation/contributions/course-automation/lerjevik-renstr/images/toplist_table.png?raw=true" width="700">
 
