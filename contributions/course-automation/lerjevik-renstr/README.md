@@ -47,7 +47,7 @@ We believed that we have fulfilled the following 5 criteria:
     
 ## Using the functionality
 
-Since this repository has not yet been merged to the KTH DevOps-course repository, a [simulation](https://github.com/dmariel/devops-course/tree/student-fork/contributions/course-automation/lerjevik-renstr) of the process has been performed, where a `student-fork` branch (corresponding to a student's course-automation fork) makes a labeled PR to the `2021` branch of this repository.
+Since this repository has not yet been merged to the KTH DevOps-course repository, a simulation of the process has been performed, where a `student-fork` branch (corresponding to a student's course-automation fork) makes a labeled PR to the `2021` branch of this repository.
 
 The results can be seen here:
 * Example PR: https://github.com/dmariel/devops-course/pull/4
