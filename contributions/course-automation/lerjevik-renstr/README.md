@@ -55,11 +55,11 @@ The results can be seen here:
 
 **The student creates a PR with the correct label:**
 
-<img src="https://github.com/dmariel/devops-course/blob/course-automation/contributions/course-automation/lerjevik-renstr/images/creating_PR_with_label.png?raw=true" width="800">
+<img src="https://github.com/dmariel/devops-course/blob/course-automation/contributions/course-automation/lerjevik-renstr/images/creating_PR_with_label.png?raw=true" width="700">
 
 **This enables the checks of the action to start running:**
 
-<img src="https://github.com/dmariel/devops-course/blob/course-automation/contributions/course-automation/lerjevik-renstr/images/running_checks.png?raw=true" width="800">
+<img src="https://github.com/dmariel/devops-course/blob/course-automation/contributions/course-automation/lerjevik-renstr/images/running_checks.png?raw=true" width="700">
 
 **An issue is created if none already exists:**
 
@@ -67,14 +67,17 @@ The results can be seen here:
 
 **A comment linking to the issue is added to student's PR:**
 
-<img src="https://github.com/dmariel/devops-course/blob/course-automation/contributions/course-automation/lerjevik-renstr/images/comment_added_to_PR.png?raw=true" width="800">
+<img src="https://github.com/dmariel/devops-course/blob/course-automation/contributions/course-automation/lerjevik-renstr/images/comment_added_to_PR.png?raw=true" width="700">
 
 **Information about the student's course automation project is posted in the issue-thread:**
 
-<img src="https://github.com/dmariel/devops-course/blob/course-automation/contributions/course-automation/lerjevik-renstr/images/issue_thread.png?raw=true" width="800">
+<img src="https://github.com/dmariel/devops-course/blob/course-automation/contributions/course-automation/lerjevik-renstr/images/issue_thread.png?raw=true" width="700">
 
 **Other students can upvote the project by inserting a :thumbsup::**
 
-<img src="https://github.com/dmariel/devops-course/blob/course-automation/contributions/course-automation/lerjevik-renstr/images/add_reaction.png?raw=true" width="800">
+<img src="https://github.com/dmariel/devops-course/blob/course-automation/contributions/course-automation/lerjevik-renstr/images/add_reaction.png?raw=true" width="700">
 
+**A "Top-list" is created and updated every 5 min**
+
+<img src="https://github.com/dmariel/devops-course/blob/course-automation/contributions/course-automation/lerjevik-renstr/images/toplist_table.png?raw=true" width="700">
 
