@@ -1,5 +1,5 @@
-# Demo proposal: Creating & publishing tested Node.js packages with Github Actions
- 
+# Demo proposal: Automatically publishing tested Node.js packages on npm with Github Actions 
+
 ## Member
 Oscar Almqvist (oscaralm@kth.se)    
 Github: [oscaralmqvist](https://github.com/oscaralm)
