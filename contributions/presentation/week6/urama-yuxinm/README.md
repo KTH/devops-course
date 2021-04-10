@@ -8,7 +8,7 @@
  Github username: [yuxinmmmm](https://github.com/yuxinmmmm)
 
  ## Proposal
- Infastructure Automation using Ansible
+ Infastructure Automation using Ansible.
 
  We want to present how to automate infastructure using Ansible.
 
