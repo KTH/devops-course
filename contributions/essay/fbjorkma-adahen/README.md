@@ -1,4 +1,4 @@
-## Essay: How to align teams with business goals using DevOps
+## Essay: How to use Jira for agile project managment
 
 ### Members:
 Fredrik Björkman (fbjorkma@kth.se) Github: [fbjorkman](https://github.com/fbjorkman)
@@ -6,4 +6,4 @@ Fredrik Björkman (fbjorkma@kth.se) Github: [fbjorkman](https://github.com/fbjor
 Adam Henriksson (adahen@kth.se) Github: [Adamih](https://github.com/Adamih) 
 
 ### Proposal:
-We want to investigate the importance of working with business goals when developing software and how companies use DevOps to help teams align themselves with the needs of the customers/users. 
+We want to dive into how Jira works, the advantages you can gain from using Jira in your projects and the value of implementing agile project managment in your company using these kind of tools.
