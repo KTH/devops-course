@@ -10,7 +10,7 @@
  ## Proposal
  Infastructure Automation using Ansible
 
- We want to present how to automate infastructure using Ansible
+ We want to present how to automate infastructure using Ansible.
 
  Outline:
 
