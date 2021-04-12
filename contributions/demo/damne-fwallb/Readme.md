@@ -1,4 +1,4 @@
-# How to get coverage reports for a repo on GitHub
+# How to get coverage reports for a GitHub repo
 
 ### Contributors:
 
