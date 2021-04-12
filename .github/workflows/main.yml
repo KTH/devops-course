@@ -1,0 +1,21 @@
+name: Contribution categories Readme generation
+
+on:
+  push:
+    branches:
+      - "2021"
+    paths:
+      - contributions/*/**
+
+  workflow_dispatch:
+
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+      - name: Run the one-line script
+        run: python3 contributions/course-automation/felixfon/readme_generation.py
+
