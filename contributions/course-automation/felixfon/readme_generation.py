@@ -8,6 +8,7 @@ import re
 
 CONTRIBUTIONS_BASE_PATH = '../../'
 
+
 def main():
     """
     - todo
@@ -17,36 +18,41 @@ def main():
     """
     if len(sys.argv) >= 1:
 
-        contributions_folder = filter(lambda x: os.path.isdir(CONTRIBUTIONS_BASE_PATH + '/' + x), os.listdir(CONTRIBUTIONS_BASE_PATH))
+        contributions_folder = filter(lambda x: os.path.isdir(CONTRIBUTIONS_BASE_PATH + '/' + x),
+                                      os.listdir(CONTRIBUTIONS_BASE_PATH))
         for category in contributions_folder:
             if not category == 'presentation':
-                build_readme(CONTRIBUTIONS_BASE_PATH + category + '/')
+                build_readme(CONTRIBUTIONS_BASE_PATH + category + '/', category)
+    print("job finished")
 
 
-def build_readme(path):
+def build_readme(path, contribution_type):
     """
-    For a contribution folder, build the readme:
+    For a type of contribution folder, build the readme:
     - get the rules/information of the old readme
     - get information for every contribution
     - update the readme file with the list of the contributions
-    :param path:
+
+    :param path: path to the contribution folder
+    :param contribution_type: e.g. 'demo', 'essay'...
     :return:
     """
     files = os.listdir(path)
-    contribution_dir_list =  filter(lambda f: os.path.isdir(path + f), files)
+    contribution_dir_list = filter(lambda f: os.path.isdir(path + f), files)
     contribution_path_list = list(map(lambda dir: path + dir, contribution_dir_list))
     readme_path = path + 'README.md'
 
-    # a
-    generated_readme = reduce((lambda readme, contribution: readme + '\n' + get_contribution_information(contribution)),
+    generated_readme = reduce((lambda readme, contribution: readme + '\n' + get_contribution_information(contribution, contribution_type)),
                               contribution_path_list,
                               get_initial_readme_info(readme_path))
-    print(generated_readme)
+    with open(readme_path, "w") as readme_file:
+        readme_file.write(generated_readme)
 
 
 def get_initial_readme_info(readme_path):
     """
     Get the initial lines of a readme, ignoring the list of contributions generated previously
+
     :param readme_path: the path of the readme
     :return: the initial lines of a the readme as string separated by '\n'
     """
@@ -61,27 +67,27 @@ def get_initial_readme_info(readme_path):
         return base_readme + '## List of contributions'
 
 
-def get_contribution_information(path):
+def get_contribution_information(path, contribution_type):
     """
-
+    From a specific directory, retrieve the information (tittle, names, emails, github...) and format it to a list item
     :param path: the path of contribution folder
-    :return: list of information
+    :param contribution_type: e.g. 'demo', 'essay'...
+    :return: formatted markdown list item with the information of the directory concerned
     """
-    print("aaaa: " + path)
+    print("analyzing dir: " + path)
 
     # get the readme of the folder as list of string (per lines)
-    # get the contribution title
-    # get the members information
-    # analyse the members part to retrieve names/mails/github...
     readme_path = path + '/README.md'
     try:
         with open(readme_path) as f:
             readme = f.read()
-    except: # readme not found or not readable
+    except:  # readme not found or not readable
         return ''
-    # getting the tittle
-    first_line = readme.splitlines()[0]
-    tittle = first_line.replace('#', '').strip()
+
+    # getting the tittle formatted
+    first_line = list(filter(lambda line: line != '', readme.splitlines()))[0].strip()
+    tittle = get_tittle(first_line, contribution_type, path.split('/')[-1])
+
     # getting the member section
     try:
         # here we match the part where the contributor(s) are presented.
@@ -118,17 +124,47 @@ def get_contribution_information(path):
             if len(second_contributor) > 0:
                 second_contributor += ', '
             second_contributor += 'github: ' + contributors_info["githubs"][1]
-    base = '- __' + tittle + '__ by ' + first_contributor
+    base = "- " + tittle + ' by: \n  * ' + first_contributor
     if second_contributor:
-        return base + ' and ' + second_contributor
+        return base + '\n  * ' + second_contributor
     return base
+
+
+def get_tittle(first_line, contribution_type, directory_relative_path):
+    """
+    From the first line of a repo, get the tittle properly formatted
+    :param first_line: the first line of the readme dir
+    :param contribution_type: the type of contribution (see dict below)
+    :param directory_relative_path: the name of the directory to create the link
+    :return: the formatted tittle linked to it
+    """
+    base_regex = {
+        'course-automation': '[cC]ourse [aA]utomation',
+        'demo': '([vV]ideo )?[dD]emo',
+        'essay': '[eE]ssay',
+        'executable-tutorial': '([eE]xecutable )?[tT]utorial',
+        'feedback': '[fF]eedback',
+        'open-source': '[oO]pen [sS]ource',
+        'presentation': '[pP]resentation',
+    }.get(contribution_type, '')
+
+    # remove surplus #
+    tittle = first_line.replace('#', '').strip()
+
+    # remove redundant pre-tittle, e.g. the type of the contribution
+    regex_tittle_to_remove = base_regex + '(( [sS]ubmission)|( [pP]roposal))?:?'
+    tittle = re.sub(regex_tittle_to_remove, '', tittle).strip()
+
+    return '[__' + tittle + '__](' + directory_relative_path + ')'
 
 
 def get_contributor_information(members_text, number_of_contributors=2):
     """
     from the lines in the member section,
     retrieve the name, the email and the github username of each contributors
-    :param member_lines: the lines of the members section
+
+    :param members_text: the lines of the members section
+    :param number_of_contributors: how much contributor should we try to retrieve
     :return: lists of information by contributor
     """
     names = []
@@ -136,7 +172,9 @@ def get_contributor_information(members_text, number_of_contributors=2):
     github = []
     # kth_user = []
 
-    name_pattern = re.compile("([A-ZÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ]{1}[a-zàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšž]+ [A-ZÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ]{1}[a-zàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšž]+)")
+    # get the names (international students so big regex)
+    name_pattern = re.compile(
+        "([A-ZÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ]{1}[a-zàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšž]+ [A-ZÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ]{1}[a-zàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšž]+)")
     email_pattern = re.compile("([\w\.-]+@[\w\.-]+\.[\w]+)")
     github_pattern = re.compile("(\[[a-zA-Z]+\]\(https://github\.com/[a-z]+/?\))")
 
