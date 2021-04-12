@@ -1,3 +1,3 @@
-# Feedback proposal (Demo): Designing integration tests with cypress #1029
+# Feedback proposal (Essay) for #1141 - The rust language build pipelines
 ## Members
 Adam Henriksson (adahen@kth.se)
