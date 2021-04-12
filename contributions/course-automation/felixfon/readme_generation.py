@@ -6,7 +6,7 @@ import os
 from functools import reduce
 import re
 
-CONTRIBUTIONS_BASE_PATH = '../../'
+CONTRIBUTIONS_BASE_PATH = 'contributions/'
 
 
 def main():
