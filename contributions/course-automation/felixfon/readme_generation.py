@@ -7,6 +7,7 @@ from functools import reduce
 import re
 
 CONTRIBUTIONS_BASE_PATH = 'contributions/'
+# CONTRIBUTIONS_BASE_PATH = '../../'
 
 
 def main():
@@ -42,9 +43,10 @@ def build_readme(path, contribution_type):
     contribution_path_list = list(map(lambda dir: path + dir, contribution_dir_list))
     readme_path = path + 'README.md'
 
-    generated_readme = reduce((lambda readme, contribution: readme + '\n' + get_contribution_information(contribution, contribution_type)),
-                              contribution_path_list,
-                              get_initial_readme_info(readme_path))
+    generated_readme = reduce(
+        (lambda readme, contribution: readme + '\n' + get_contribution_information(contribution, contribution_type)),
+        contribution_path_list,
+        get_initial_readme_info(readme_path))
     with open(readme_path, "w") as readme_file:
         readme_file.write(generated_readme)
 
@@ -81,7 +83,8 @@ def get_contribution_information(path, contribution_type):
     try:
         with open(readme_path) as f:
             readme = f.read()
-    except:  # readme not found or not readable
+    except IOError:
+        print('readme: ' + readme_path + ' not accessible.')
         return ''
 
     # getting the tittle formatted
@@ -89,15 +92,19 @@ def get_contribution_information(path, contribution_type):
     tittle = get_tittle(first_line, contribution_type, path.split('/')[-1])
 
     # getting the member section
-    try:
-        # here we match the part where the contributor(s) are presented.
-        pattern = '(#+?\s((Members?)|(Contributors?)|(Authors?)))(((.)|(\s))*?)(#+?\s\w*?)'
-        match = re.search(pattern, readme)
-        members_section = match.group(6)
-    except:
-        # if the readme doesn't correspond, we send the whole readme hoping that we will find the right data on the
-        # contributors
+    # here we match the part where the contributor(s) are presented.
+    pattern = '(#+?\s((Members?)|(Contributors?)|(Authors?)))(((.)|(\s))*?)(#+?\s?\w*?)'
+    match = re.search(pattern, readme)
+
+
+
+    if match == None:
         members_section = readme
+    else:
+        members_section = match.group(6)
+    # if the readme doesn't correspond, we send the whole readme hoping that we will find the right data on the
+    # contributors
+    # members_section = readme
     contributors_info = get_contributor_information(members_section)
 
     # building of a list item
@@ -196,5 +203,6 @@ def get_contributor_information(members_text, number_of_contributors=2):
         "emails": emails,
         "githubs": githubs
     }
+
 
 main()
