@@ -1,4 +1,4 @@
-# Feedback: Executable tutorial proposal [#1014](https://github.com/KTH/devops-course/pull/1014)
+# Feedback proposal: Learn to integrate Jest in your React-Redux projects [#1036](https://github.com/KTH/devops-course/pull/1036)
 
 ## Members:
 
@@ -10,4 +10,4 @@ GitHub: [nwessman](https://github.com/nwessman)
 
 ## Proposal:
 
-We plan to give feedback on tutorial [#1014](https://github.com/KTH/devops-course/pull/1014).
+We plan to give feedback on tutorial [#1036](https://github.com/KTH/devops-course/pull/1036).
