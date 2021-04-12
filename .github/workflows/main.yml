@@ -2,8 +2,8 @@ name: Contribution categories Readme generation
 
 on:
   push:
-    branches:
-      - "2021"
+    # branches:
+    #   - "2021"
     paths:
       - contributions/*/**
 
