@@ -1,4 +1,4 @@
-# Presentation
+# Presentation - Devops with Tuleap
 
 
  ## Members
@@ -10,9 +10,10 @@
  
  ## Topic
  
-The goal is to present different agile methodologies approaches (scrum, kanban, scrumban, ...) and how they are related to Devops.
+Devops with [Tuleap](https://www.tuleap.org/)
 
 - Introduction to agile methods
-- Scrum vs Kanban vs Scrumban
-- How devops tools are used to implement agile methodology (JIRA, Azure DevOps Boards, Tuleap, ...)
+- What is Tuleap ?
+- How is Tuleap used ?
+- Difference with other tools
 - Conclusion / Summary
