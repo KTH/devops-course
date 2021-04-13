@@ -22,8 +22,7 @@ def main():
         contributions_folder = filter(lambda x: os.path.isdir(CONTRIBUTIONS_BASE_PATH + '/' + x),
                                       os.listdir(CONTRIBUTIONS_BASE_PATH))
         for category in contributions_folder:
-            if not category == 'presentation':
-                build_readme(CONTRIBUTIONS_BASE_PATH + category + '/', category)
+            build_readme(CONTRIBUTIONS_BASE_PATH + category + '/', category)
     print("job finished")
 
 
@@ -42,11 +41,15 @@ def build_readme(path, contribution_type):
     contribution_dir_list = filter(lambda f: os.path.isdir(path + f), files)
     contribution_path_list = list(map(lambda dir: path + dir, contribution_dir_list))
     readme_path = path + 'README.md'
-
-    generated_readme = reduce(
-        (lambda readme, contribution: readme + '\n' + get_contribution_information(contribution, contribution_type)),
-        contribution_path_list,
-        get_initial_readme_info(readme_path))
+    generated_readme = ''
+    if contribution_type == 'presentation':
+        # todo: scan the different
+        generate_readme = ''
+    else:
+        generated_readme = reduce(
+            (lambda readme, contribution: readme + '\n' + get_contribution_information(contribution, contribution_type)),
+            contribution_path_list,
+            get_initial_readme_info(readme_path))
     with open(readme_path, "w") as readme_file:
         readme_file.write(generated_readme)
 
