@@ -1,7 +1,7 @@
 # Proposal MLOps: Overview and current use
 
 ## Members
-* Johan Hammarstedt, johham@kth.se, Github: [jhammarstedt](https://github.com/jhammarstedt)
+* Johan Hammarstedt, johhamm@kth.se, Github: [jhammarstedt](https://github.com/jhammarstedt)
 
 * Matej Sestak, sestak@kth.se, Github: [sestys](https://github.com/sestys)
 
