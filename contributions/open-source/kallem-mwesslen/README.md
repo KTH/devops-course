@@ -18,4 +18,3 @@ which scores commits based on word count. The word count is a simplified measure
 
 We believe that this project is suitable for the open-source category, as it is not generally useful for the course-repo, 
 but could be useful for many different projects.
-
