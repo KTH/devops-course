@@ -1,4 +1,4 @@
-# Demo proposal: CD of Node Express App on Google Cloud with designated release branch using github actions
+# Demo: CD of Node Express App on Google Cloud with designated release branch using GitHub actions
 
 In this demo, we will demonstrate how to create a continuous deployment workflow using GitHub Actions that automate deployment of a simple Express server to Google App Engine (GAE), a fully managed, serverless platform for developing and hosting web applications at scale. We will go through the following:
 1. How to create a project on Google Cloud
@@ -22,8 +22,8 @@ GitHub: [andnil5](https://github.com/andnil5)
 ## Motivation
 
 The motivation for why this demo matters to DevOps is twofold.
-- It shows how to deploy an application on Google Cloud which increases productivity and flexibility, frees up developers by taking away the demands of managing infrastructure and provides automatic scaling.
-- It demonstrates how to create a continuous deployment workflow using GitHub actions, which is one of the cornerstones of DevOps.
+- It shows how to deploy an application on Google Cloud, which increases productivity and flexibility, frees up developers by taking away the demands of managing infrastructure, and provides automatic scaling.
+- It demonstrates how to create a continuous deployment workflow using GitHub actions, one of DevOps' cornerstones.
 
 ## Take home message
 
