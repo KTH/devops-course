@@ -5,7 +5,7 @@
 Taqui - taqui@kth.se
 GitHub: [Internet-Person-IP](https://github.com/Internet-Person-IP)
 
-Carina Wickström - 
+Carina Wickström - carinawi@kth.se
 
 Md Rezaul Hasan - mrhasa@kth.se
 Github: [MDRezaulHasan](https://github.com/MDRezaulHasan)
