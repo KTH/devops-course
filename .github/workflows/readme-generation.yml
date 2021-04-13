@@ -31,7 +31,7 @@ jobs:
           delete-branch: true
           title: '[ReadMe Generation] Update the different type contribution readmes'
           body: |
-            [__GENERATED READMEs]
+            [__GENERATED READMEs__]
             Updated the readmes with the new contributions
           labels: |
             automated pr
