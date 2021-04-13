@@ -19,5 +19,5 @@ In the tutorial we will:
 ## Authors
 
 - Yannik Sander ([yannik@kth.se](mailto:yannik@kth.se))
-- Felix F.
-- Daniel H.
+- Félix Fonteneau ([felixfon@kth.se](mailto:felixfon@kth.se), [FelixFonteneau](https://github.com/FelixFonteneau))
+- (Daniel H.)
