@@ -8,20 +8,34 @@ In this demo, we will demonstrate how to create a continuous deployment workflow
 
 ## Members
 
-Kalle Pettersson (kalpet@kth.se)
+Kalle Pettersson (kalpet@kth.se)  
 GitHub: [KallePettersson](https://github.com/KallePettersson)
 
-Anders Nillson (andnil5@kth.se)
+Anders Nilsson (andnil5@kth.se)  
 GitHub: [andnil5](https://github.com/andnil5)
 
 ## Screencast link
-<YOUTUBE-LINK TODO>
+[YouTube link](https://www.youtube.com/watch?v=lY5Uj_VzClc).
 
 ## GitHub repository
-https://github.com/KallePettersson/Continous-Deployment-on-gCloud
+[GitHub link](https://github.com/KallePettersson/Continous-Deployment-on-gCloud).
 
-## Prerequisites:
-1. A Cloud account, could be created using this [link](https://console.cloud.google.com/freetrial?_ga=2.23823484.712324435.1617348446-1668699610.1617348446) .
-2. Google Cloud SDK, providing the gcloud command-line tool, [installation instructions](https://cloud.google.com/sdk/docs/install).
-3. [Node.js](https://nodejs.org/en/).
-4. A GitHub repository for your project, clone it and cd into it.
+
+## Motivation
+
+The motivation for why this demo matters to DevOps is twofold.
+- It shows how to deploy an application on Google Cloud which increases productivity and flexibility, frees up developers by taking away the demands of managing infrastructure and provides automatic scaling.
+- It demonstrates how to create a continuous deployment workflow using GitHub actions, which is one of the cornerstones of DevOps.
+
+## Take home message
+Make sure to **NOT** commit your `gcloud_secret.json` file to GitHub. This could give malicious actors remote access to your Google Cloud account.
+
+## Grading - We strive to meet the following grading criteria
+
+|                                             | Yes | No | Remarkable |
+|-------------------------------------------- | ----|----|-------------|
+|The demonstration is clearly motivated (why it matters for Devops?) | X |  | |
+|The video is sublime (eg visually appealing) | X |  |  |
+|There is a code repo to run the demo  | X |  | X |
+|The video must contain subtitles which are clear and in proper English | X |  |  |
+|The video includes a take-home message | X |  |  |
