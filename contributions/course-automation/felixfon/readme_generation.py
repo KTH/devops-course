@@ -6,8 +6,8 @@ import os
 from functools import reduce
 import re
 
-CONTRIBUTIONS_BASE_PATH = 'contributions/'
-# CONTRIBUTIONS_BASE_PATH = '../../'
+# CONTRIBUTIONS_BASE_PATH = 'contributions/'
+CONTRIBUTIONS_BASE_PATH = '../../'
 
 
 def main():
@@ -33,22 +33,35 @@ def build_readme(path, contribution_type):
     - get information for every contribution
     - update the readme file with the list of the contributions
 
-    :param path: path to the contribution folder
+    :param path: path to the contribution folder with a '/' at the end
     :param contribution_type: e.g. 'demo', 'essay'...
     :return:
     """
     files = os.listdir(path)
-    contribution_dir_list = filter(lambda f: os.path.isdir(path + f), files)
-    contribution_path_list = list(map(lambda dir: path + dir, contribution_dir_list))
+    contribution_dir_list = list(filter(lambda f: os.path.isdir(path + f), files))
+    # contribution_path_list = list(map(lambda dir: path + dir, contribution_dir_list))
+
     readme_path = path + 'README.md'
     generated_readme = ''
     if contribution_type == 'presentation':
         # todo: scan the different
-        generate_readme = ''
+        generated_readme = get_initial_readme_info(readme_path)
+        for week in contribution_dir_list:
+            week_path = path + week + '/'
+            week_files = os.listdir(week_path)
+            week_dirs = list(filter(lambda f: os.path.isdir(week_path + f), week_files))
+            print(week_dirs)
+            generated_readme += reduce(
+                (lambda readme, contribution:
+                 readme + '\n  ' + get_contribution_information(week_path + contribution, contribution_type)),
+                week_dirs,
+                '\n- [' + week + '](' + path + week + ')\n')
+
     else:
         generated_readme = reduce(
-            (lambda readme, contribution: readme + '\n' + get_contribution_information(contribution, contribution_type)),
-            contribution_path_list,
+            (lambda readme, contribution: readme + '\n' + get_contribution_information(path + contribution,
+                                                                                       contribution_type)),
+            contribution_dir_list,
             get_initial_readme_info(readme_path))
     with open(readme_path, "w") as readme_file:
         readme_file.write(generated_readme)
@@ -99,8 +112,6 @@ def get_contribution_information(path, contribution_type):
     pattern = '(#+?\s((Members?)|(Contributors?)|(Authors?)))(((.)|(\s))*?)(#+?\s?\w*?)'
     match = re.search(pattern, readme)
 
-
-
     if match == None:
         members_section = readme
     else:
@@ -134,9 +145,9 @@ def get_contribution_information(path, contribution_type):
             if len(second_contributor) > 0:
                 second_contributor += ', '
             second_contributor += 'github: ' + contributors_info["githubs"][1]
-    base = "- " + tittle + ' by: \n  * ' + first_contributor
+    base = "- " + tittle + ' by: \n      + ' + first_contributor
     if second_contributor:
-        return base + '\n  * ' + second_contributor
+        return base + '\n      + ' + second_contributor
     return base
 
 
@@ -153,18 +164,19 @@ def get_tittle(first_line, contribution_type, directory_relative_path):
         'demo': '([vV]ideo )?[dD]emo',
         'essay': '[eE]ssay',
         'executable-tutorial': '([eE]xecutable )?[tT]utorial',
-        'feedback': '[fF]eedback',
-        'open-source': '[oO]pen [sS]ource',
-        'presentation': '[pP]resentation',
+        'feedback': '[fF][eE][eE][dD][bB][aA][cC][kK]',
+        'open-source': '[oO][pP][eE][nN] [sS][oO][uU][rR][cC][eE]',
+        'presentation': '[pP][rR][eE][sS][eE][nN][tT][aA][tT][iI][oO][nN]',
     }.get(contribution_type, '')
 
     # remove surplus #
     tittle = first_line.replace('#', '').strip()
 
     # remove redundant pre-tittle, e.g. the type of the contribution
-    regex_tittle_to_remove = base_regex + '(( [sS]ubmission)|( [pP]roposal))?:?'
+    regex_tittle_to_remove = base_regex + '(( [sS]ubmission)|( [pP]roposal))?,?:?'
     tittle = re.sub(regex_tittle_to_remove, '', tittle).strip()
-
+    if tittle == '':
+        tittle = contribution_type
     return '[__' + tittle + '__](' + directory_relative_path + ')'
 
 
