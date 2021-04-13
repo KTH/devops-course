@@ -18,6 +18,6 @@ In the tutorial we will:
 
 ## Authors
 
-- Yannik Sander ([yannik@kth.se](mailto:yannik@kth.se))
+- Yannik Sander ([yannik@kth.se](mailto:yannik@kth.se)), [ysndr](https://github.com/ysndr)
 - Félix Fonteneau ([felixfon@kth.se](mailto:felixfon@kth.se), [FelixFonteneau](https://github.com/FelixFonteneau))
-- (Daniel H.)
+- Daniel Sharifi ([dsharifi@kth.se](mailto:dsharifi@kth.se)), [dsharifi](https://github.com/dsharifi)
