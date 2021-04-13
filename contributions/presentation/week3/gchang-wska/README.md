@@ -12,6 +12,7 @@ We want to give a presentation that focuses on the key differences between Conti
 
 ## Outline
 * What is Continuous Testing in Devops?
+* Why Do We Need Continuous Testing?
 * What problems Continuous testing seeks to address
 * Continuous Testing vs Automated Testing
 
