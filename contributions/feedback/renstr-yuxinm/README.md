@@ -2,8 +2,9 @@
 
 ## Members
 
-Yuxin Meng [@yuxinm](https://github.com/yuxinmmmm)
-Anders Renström [@renstr](https://github.com/Renstrom)
+Yuxin Meng [@yuxinm](https://github.com/yuxinmmmm) email: yuxinm@kth.se
+
+Anders Renström [@renstr](https://github.com/Renstrom) email: renstr@kth.se
 
 ## Proposal
 
