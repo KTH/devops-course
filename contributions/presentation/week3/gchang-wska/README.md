@@ -8,15 +8,12 @@ William Skagerström (wska@kth.se)
 Github username: wska
 
 ## Topic
-We want to give an overview of Continuous Testing and its role in devops. How does it relate to CI/CD?
-See outline for more detail.
+We want to give a presentation that focuses on the key differences between Continuous testing and Automated testing. 
 
 ## Outline
 * What is Continuous Testing in Devops?
+* What problems Continuous testing seeks to address
 * Continuous Testing vs Automated Testing
-* Advantages and challenges of Continuous Testing
-* Continuous Testing Tools
-* The future of Continuous Testing
 
 
 ## Slides:
