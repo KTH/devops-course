@@ -35,10 +35,6 @@ jobs:
             Updated the readmes with the new contributions
           labels: |
             automated pr
-          team-reviewers: |
-            owners
-            maintainers
-          milestone: 1
           draft: false
 
       - name: Check outputs
