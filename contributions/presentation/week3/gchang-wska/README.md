@@ -20,4 +20,4 @@ See outline for more detail.
 
 
 ## Slides:
-[Presentation](TBA)
+[Presentation] https://docs.google.com/presentation/d/1N6KpiCEkm6owG7egvKTaZSbWV0e1SknnybzgpzI4XVc/edit?usp=sharing
