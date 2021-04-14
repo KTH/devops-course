@@ -118,7 +118,7 @@ The concept: you create an automation task for the course to improve the teachin
 
 Make sure that you meet the following requirements in your final submission:
 1. The automation task (ex., Github Action) should be implemented in a stand-alone repository, not as a part of the Deveops-Course repository.
-2. You should demonstrate that the Github Action actually works and automatically produces some results. For example, you can have your implemented Github Action activated in a fork of the Devops-Course repository.
+2. You should demonstrate that your automation technique actually works and automatically produces some results. For example, you can activate implemented Github Action in a fork of the Devops-Course repository and show how it works by making changes in your forked repo.
 
 Suggestions for course automation tasks: https://github.com/KTH/devops-course/issues/916
 
