@@ -8,7 +8,7 @@ GitHub: [Ackuq](https://github.com/Ackuq)
 Felix Seifert (fseifert@kth.se)
 Github: [felix-seifert](https://github.com/felix-seifert)
 
-## Proposal
+## Description
 
 Heroku is a webservice where users can run simple web applications for free for a limited number of hours per month. The obvious approach is to run serverless applications which are billed per second. However, Heroku does not offer the option to deploy serverless applications of-the-shelf.
 
