@@ -5,7 +5,7 @@ Kitty Thai (kittyt@kth.se)
 Github: [kittytinythai](https://github.com/kittytinythai)
 
 Sebastian Fagerlind (sebene@kth.se)
-Github: [https://github.com/Sebberh]
+Github: [Sebberh](https://github.com/Sebberh)
 
 ### Proposal
 We plan to give a introductory presentation about whitebox fuzzing tests, its role in DevOps and future potential in the industry.
