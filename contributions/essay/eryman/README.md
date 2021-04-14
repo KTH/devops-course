@@ -1,15 +1,15 @@
-# Essay proposal: DevOps or Agile 
+# Essay proposal: Introduction to ChatOps
 
 ## Member
 Elin Ryman (eryman@kth.se)
 github: rymane
 
 ## Proposal
-I want to write an essay about DevOps and Agile methodology.
+I want to write an essay about bots in DevOps, specifically ChatOps.
 
-I will include:
-* Introduction about what DevOps is.
-* Introduction about what Agile is.
-* Is one better than the other?
-* What are the differences and similarities?
-* Can Agile and DevOps coexist? 
+My essay would include:
+- What is ChatOps?
+- When can ChatOps be used to automate tasks in DevOps pipelines?
+- Cover some examples.
+- Advantages and disadvantages. 
+- Discussion and conclusion.
