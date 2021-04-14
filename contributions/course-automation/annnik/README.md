@@ -23,6 +23,3 @@ I structured this automation as 2 parts with goal of making it reusable for othe
 
 ## Code + documentation + how to use
 The head project is found [here](https://github.com/annsudo/comment-to-Discord-action) 
-
-
-
