@@ -116,6 +116,10 @@ To get a distinction, you must have one browser version and at least 1 "remarkab
 
 The concept: you create an automation task for the course to improve the teaching experience and effectiveness (eg a Github action task). Simple tasks can be bundled in a package to get a pass.
 
+Make sure that you meet the following requirements in your final submission:
+1. The automation task (ex., Github Action) should be implemented in a stand-alone repository, not as a part of the Deveops-Course repository.
+2. You should demonstrate that the Github Action actually works and automatically produces some results. For example, you can have your implemented Github Action activated in a fork of the Devops-Course repository.
+
 Suggestions for course automation tasks: https://github.com/KTH/devops-course/issues/916
 
 |                                             | Yes | No | Remarkable  |
