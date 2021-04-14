@@ -12,7 +12,7 @@ could be run using the output of a CI-server action. The point of this is to enc
 which would improve workflow.
 
 We will implement the scoreboard functionality in our main action, as well as an example integrating action,
-which scores commits based on word count. The word count is a simplified measure of the usefulness of a commit message.
+which scores commits based on word count of their messages. The word count is a simplified measure of the usefulness of a commit message.
 
 To enable others to create integrating actions, our scoreboard action will have a simple, well defined API.
 
