@@ -4,17 +4,21 @@
 
 In the tutorial we will:
 
-1. concepts
+1. discuss concepts
    - introduce patch-based version control
    - its differences to snapshot based version control
-3. show how to install `pijul` (as of now its not yet included in most distributions)
-4. compare it to `git` the de facto standard tool
+2. show how to install `pijul` (as of now its not yet included in most distributions)
+3. compare it to `git` the de facto standard tool
    - how to clone a repo
    - tracking changes
    - ~`git branch`~ `pijul channels`
    - undoing changes
    - pushing
    - contributing
+
+The tutorial will be available preferably on Katacoda or an equivalent platform.
+
+Link to the tutorial: *TBA*
 
 ## Authors
 
