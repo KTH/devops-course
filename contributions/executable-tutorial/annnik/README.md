@@ -1,4 +1,4 @@
-# Executable tutorial: Migrating a monolithic application to microservices one
+# Executable tutorial: 👩‍🏫 Migrating a monolithic application to microservices
 
 ## Members
 Anna Nikolskaya (annnik@kth.se)
