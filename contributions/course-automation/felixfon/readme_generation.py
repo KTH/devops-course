@@ -3,16 +3,14 @@
 
 import sys
 import os
-from functools import reduce
 import re
 
-CONTRIBUTIONS_BASE_PATH = 'contributions/'
-# CONTRIBUTIONS_BASE_PATH = '../../'
+CONTRIBUTIONS_BASE_PATH = 'contributions/' # path to execute the script from the action
+# CONTRIBUTIONS_BASE_PATH = '../../'  # path to execute the script locally
 
 
 def main():
     """
-    - todo
     - check what readme to generate
     - get metadata for every contribution folder
     :return: nothing
@@ -42,27 +40,28 @@ def build_readme(path, contribution_type):
     # contribution_path_list = list(map(lambda dir: path + dir, contribution_dir_list))
 
     readme_path = path + 'README.md'
-    generated_readme = ''
+    generated_readme = get_initial_readme_info(readme_path) + '\n\n'
     if contribution_type == 'presentation':
-        # todo: scan the different
         generated_readme = get_initial_readme_info(readme_path)
-        for week in contribution_dir_list:
+        for week in sorted(contribution_dir_list):
             week_path = path + week + '/'
             week_files = os.listdir(week_path)
             week_dirs = list(filter(lambda f: os.path.isdir(week_path + f), week_files))
-            print(week_dirs)
-            generated_readme += reduce(
-                (lambda readme, contribution:
-                 readme + '\n  ' + get_contribution_information(week_path + contribution, contribution_type)),
-                week_dirs,
-                '\n- [' + week + '](' + path + week + ')\n')
 
+            generated_readme += '\n- [' + week + '](' + path + week + ')\n'
+            for contribution in week_dirs:
+                information = get_contribution_information(week_path + contribution, contribution_type)
+                if information:
+                    generated_readme += '   * ' + information.get("tittle") + " by:\n"
+                    for contributor in information.get("contributors"):
+                        generated_readme += "      + " + contributor + "\n"
     else:
-        generated_readme = reduce(
-            (lambda readme, contribution: readme + '\n' + get_contribution_information(path + contribution,
-                                                                                       contribution_type)),
-            contribution_dir_list,
-            get_initial_readme_info(readme_path))
+        for contribution in contribution_dir_list:
+            information = get_contribution_information(path + contribution, contribution_type)
+            if information:
+                generated_readme += '- ' + information.get("tittle") + " by:\n"
+                for contributor in information.get("contributors"):
+                    generated_readme += "   * " + contributor + "\n"
     with open(readme_path, "w") as readme_file:
         readme_file.write(generated_readme)
 
@@ -90,7 +89,7 @@ def get_contribution_information(path, contribution_type):
     From a specific directory, retrieve the information (tittle, names, emails, github...) and format it to a list item
     :param path: the path of contribution folder
     :param contribution_type: e.g. 'demo', 'essay'...
-    :return: formatted markdown list item with the information of the directory concerned
+    :return: a dict with formatted markdown information of the tittle and members
     """
     print("analyzing dir: " + path)
 
@@ -112,18 +111,19 @@ def get_contribution_information(path, contribution_type):
     pattern = '(#+?\s((Members?)|(Contributors?)|(Authors?)))(((.)|(\s))*?)(#+?\s?\w*?)'
     match = re.search(pattern, readme)
 
-    if match == None:
+    if match is None:
         members_section = readme
     else:
         members_section = match.group(6)
     # if the readme doesn't correspond, we send the whole readme hoping that we will find the right data on the
     # contributors
-    # members_section = readme
+
     contributors_info = get_contributor_information(members_section)
 
-    # building of a list item
+    # format the contributors to markdown
     first_contributor = ''
     second_contributor = ''
+    contributors = []
     if contributors_info["names"]:
         first_contributor += contributors_info["names"][0]
         if len(contributors_info["names"]) > 1:
@@ -145,10 +145,13 @@ def get_contribution_information(path, contribution_type):
             if len(second_contributor) > 0:
                 second_contributor += ', '
             second_contributor += 'github: ' + contributors_info["githubs"][1]
-    base = "- " + tittle + ' by: \n      + ' + first_contributor
+    contributors.append(first_contributor)
     if second_contributor:
-        return base + '\n      + ' + second_contributor
-    return base
+        contributors.append(second_contributor)
+    return {
+        "tittle": tittle,
+        "contributors": contributors
+    }
 
 
 def get_tittle(first_line, contribution_type, directory_relative_path):
@@ -196,7 +199,9 @@ def get_contributor_information(members_text, number_of_contributors=2):
 
     # get the names (international students so big regex)
     name_pattern = re.compile(
-        "([A-ZÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ]{1}[a-zàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšž]+ [A-ZÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ]{1}[a-zàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšž]+)")
+        "([A-ZÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ]{1}"
+        "[a-zàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšž]+ [A-ZÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ]{1}"
+        "[a-zàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšž]+)")
     email_pattern = re.compile("([\w\.-]+@[\w\.-]+\.[\w]+)")
     github_pattern = re.compile("(\[[a-zA-Z]+\]\(https://github\.com/[a-z]+/?\))")
 
