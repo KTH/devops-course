@@ -30,6 +30,6 @@ The second python file (verify_folder_names.py)  is used to ensure that the cont
 ### Getting started:
 To get started a YML file is provided and it showcases how all of the aforementioned solutions can be used in tandem (this file is supposed to be placed inside the workflow folder and it assumes that the python files are located inside the tool folder). To modify the preferred file contents simply change the JSON used within the YML file. Remember that the JSON is composed of regex expressions by which file lines must abide by.
 
-Example of deployed solution can be found in: https://github.com/bubriks/devops-course/tree/course-automation-deployed
+Example of deployed solution can be found in: https://github.com/bubriks/devops-course/tree/course-automation-deployed (changes done from submision pr can be seen here: https://github.com/bubriks/devops-course/pull/9)
 
 And tests performed by forking the deployed solotion can be seen here: https://github.com/bubriks/devops-course/pull/12 (with each commit being a separate test, read comments for more info)
