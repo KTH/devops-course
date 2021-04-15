@@ -91,4 +91,3 @@ The essay is really interesting and has clear relevance for automation and DevOp
 
 What I liked most about the essay is how self-contained it is. You have found a perfect balance between explaining the concept and assumptions of previous knowledge. The essay gives the foundation of the topic and inspires further reading. Well done!
 
-
