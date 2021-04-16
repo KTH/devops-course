@@ -1,8 +1,11 @@
+
 # Demo Submission: Setting up Drone CI with Bitbucket
+
 
 ## Contributors
 * Sebastian Fagerlind - sebene@kth.se - @sebberh
 * Maja Tennander - majate@kth.se - @majate
+
 
 ## Links
 [Video](https://youtu.be/JXhdkpANQqs)
@@ -30,6 +33,4 @@ The demonstration is clearly relevant to the DevOps subject. One major part of D
 - **The video includes a take-home message**
   - In the end of the video we have included a slide with clear actions for a viewer to take if they try to do the setup on their own and find any troubles on the way.
 
-<!---
-## Changes after feedback
--->
+
