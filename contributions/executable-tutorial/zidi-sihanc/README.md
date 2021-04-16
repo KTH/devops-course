@@ -1,4 +1,4 @@
-# Executable-tutorial: integrate TeamCity with Docker
+# Executable-tutorial: deploy php web application using docker
 
 ## Members
 
@@ -8,9 +8,11 @@ Chen, Sihan: sihanc@kth.se, https://github.com/Spycsh
 
 ## Proposal
 
-I would like to write a toturial on katacoda. 
-The idea is to have a small scenario to integrate TeamCity with Docker.
-TeamCity is a powerful CI tool, so it should fit the purpose of the course.
-By the way, I am new to Docker and TeamCity, so if there are more suggestions, 
+We want to write a toturial on katacoda. 
+The idea is about to deploy a php web application using docker. 
+Docker is a useful too for CI/CD, which should fit the purpose of the course. 
+Since there is no such toturial on katacoda, we want to help to improve.
+
+If there are more suggestions, 
 please tell me :)
 
