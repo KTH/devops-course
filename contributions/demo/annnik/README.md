@@ -28,7 +28,7 @@ with help of open source project Nektos Act and Docker you can run, test and deb
 
 ## Aiming for
                                                        💥 Remarkable 💥 
-           
+
 
 
 |                                             | Yes | No | Remarkable |
