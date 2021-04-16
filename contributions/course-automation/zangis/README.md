@@ -16,20 +16,22 @@ Ensuring that pull requests can be approved only if the formatting requirements 
 
 ## Final solution
 
-### Overview:
+### Overview
 Code testing the validity of markdown files and the change location is expected to be run on pull requests.
 This solution should allow for relatively easy future updates requiring few modifications, as the most complex part is handled by the referenced GitHub action.
+[KTH course content verifier](https://github.com/bubriks/KTH-Course-content-verifier)
 
-### Info about the solution:
-To confirm that the file structure follows rules and all changes are within a specific folder a separate python file was created (This was done since this part of the task is unique for this specific problem) and it is called verify_location.py.
+### Info about the solution
 
-For file content validation a GitHub action was created [file content checker](https://github.com/marketplace/actions/file-content-checker). (More detailed description of it can be found following the provided link).
+An example solution is provided and explained within the provided GitHub link and an aditional file for implementation is provided ("validation.yml"), this file only needs to be copied into the following folder for it to work: DevOps-course\.github\workflows. 
 
-The second python file (verify_folder_names.py)  is used to ensure that the contents presented in the markdown file are represented in the folder names (for example last names of members and category titles).
+Since single action was necassary the functionality of the following actions is incorporated in this repository (in addition to logic related to folder naming):
+- https://github.com/bubriks/string-verifier
+- https://github.com/bubriks/file-content-checker
+
+They were made to allow for usage of the implemented functions outside of this curse (As the provided solution could be considered specialized for the task at hand).
 
 ### Getting started:
-To get started a YML file is provided and it showcases how all of the aforementioned solutions can be used in tandem (this file is supposed to be placed inside the workflow folder and it assumes that the python files are located inside the tool folder). To modify the preferred file contents simply change the JSON used within the YML file. Remember that the JSON is composed of regex expressions by which file lines must abide by.
+Example of deployed solution can be found in: https://github.com/bubriks/devops-course/tree/course-automation-deployed
 
-Example of deployed solution can be found in: https://github.com/bubriks/devops-course/tree/course-automation-deployed (changes done from submision pr can be seen here: https://github.com/bubriks/devops-course/pull/9)
-
-And tests performed by forking the deployed solotion can be seen here: https://github.com/bubriks/devops-course/pull/12 (with each commit being a separate test, read comments for more info)
+And tests performed by forking the deployed solotion can be seen here: https://github.com/bubriks/devops-course/pull/25 (with each commit being a separate test, read comments for more info)

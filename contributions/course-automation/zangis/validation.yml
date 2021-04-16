@@ -1,7 +1,4 @@
-# This workflow will install Python dependencies, run tests and lint with a single version of Python
-# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
-
-name: Python application
+name: Markdown content and change location validation
 
 on: pull_request
 
@@ -12,30 +9,16 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    
-    - name: Set up Python 3.9
-      uses: actions/setup-python@v2
-      with:
-        python-version: 3.9
-        
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        
+
     - id: changed-files
       name: Get changed files
       uses: jitterbit/get-changed-files@v1
-    
-    - name: Verify location
-      id: verify-location
-      run: |
-        python tools/verify_location.py main ${{ steps.changed-files.outputs.all }}
-        
-    - name: Verify content
-      id: verify-markdown
-      uses: bubriks/file-content-checker@0.1.1
+
+    - name: Verify submission details
+      uses: bubriks/KTH-Course-content-verifier@master
       with:
-        path: ${{ steps.verify-location.outputs.markdown }}
+        location: ^contributions/(.+)/(.+)/
+        changes: ${{ steps.changed-files.outputs.all }}
         structure: >
           {
             "title": [
@@ -81,7 +64,3 @@ jobs:
             },
             "proposal": "^## proposal$"
           }
-
-    - name: Verify folder names
-      run: |
-        python tools/verify_folder_names.py main '${{ steps.verify-markdown.outputs.result }}' '${{ steps.verify-location.outputs.categoryfolder }}' '${{ steps.verify-location.outputs.memberfolder }}'
