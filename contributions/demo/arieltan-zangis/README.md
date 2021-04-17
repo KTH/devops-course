@@ -18,4 +18,4 @@ Creating an easy-to-follow guide on why/how to use backups.
 - Showcasing results
 
 ## Submission
-[Screencast](https://youtu.be/GGqW3pk-sCg)
+[Screencast](https://www.youtube.com/watch?v=GQ9qroAbqr4)
