@@ -4,7 +4,7 @@
 
  ## Member
  Sihan Chen (sihanc@kth.se)
- Github: [Spycsh](https://github.com/Spycs)
+ Github: [Spycsh](https://github.com/Spycsh)
  
  ## Proposal
  
