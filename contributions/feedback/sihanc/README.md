@@ -8,4 +8,4 @@
  
  ## Proposal
  
- I would like to give feedback on the essay [#1230](https://github.com/KTH/devops-course/pull/1230)
+ I would like to give feedback on [#1230](https://github.com/KTH/devops-course/pull/1230)
