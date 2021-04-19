@@ -11,14 +11,14 @@
  
  ## Topic
  
-We want to make a demo on how to setup github action to have a continous deployment for an Android app on Google Play Store.
+We want to make a demo on how to setup Github action to have a continuous deployment for an Android app on Google Play Store.
 
 
 - Create access for Google Play Console
   - Service account on Google Cloud Platform
   - Authorize access to the app on Google Play Console
   
-- Setup the github action
+- Setup the Github action
   - Add actions secrets
   - Generate and sign the APK
-  - Upload the relase to Google Play Store
+  - Upload the release to Google Play Store
