@@ -2,11 +2,11 @@
 # Presentation Proposal
 
 ## Members 
-Lara Rostami
-
-larasm@kth.se
-
+Lara Rostami - larasm@kth.se
 GitHub: [LaraRos](https://github.com/LaraRos)
+
+Christian Stjernberg - cjgst@kth.se
+GitHub: [christian-stj](https://github.com/christian-stj)
 
 ## Topic
 
