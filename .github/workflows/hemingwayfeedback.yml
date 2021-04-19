@@ -28,7 +28,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          if [ -f ./contributions/course-automation/wska-thestar19/requirements.txt ]; then pip install -r ./contributions/course-automation/wska-thestar19/requirements.txt; fi
+          if [ -f ./contributions/course-automation/wska-alekru/requirements.txt ]; then pip install -r ./contributions/course-automation/wska-alekru/requirements.txt; fi
 
       # Setup Chrome 
       - name: Setup Chrome
@@ -51,4 +51,4 @@ jobs:
         env:
           SUPER_SECRET: ${{ secrets.SECRET_KEY }}
 
-        run: python ./contributions/course-automation/wska-thestar19/main.py $SUPER_SECRET
+        run: python ./contributions/course-automation/wska-alekru/main.py $SUPER_SECRET
