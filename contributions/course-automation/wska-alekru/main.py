@@ -114,8 +114,8 @@ for item in PDFobj:
 #Convert to txt
 for item in PDFobj:
     #Remove .pdf from filename
-    print("python3 contributions/course-automation/wska-thestar19/pdf2txt.py " + item.path + " > " + item.nameOfFile.replace(".pdf",".txt"))
-    print(runCommand("python3 contributions/course-automation/wska-thestar19/pdf2txt.py " + item.path + " > " + item.nameOfFile.replace(".pdf",".txt")))
+    print("python3 contributions/course-automation/wska-alekru/pdf2txt.py " + item.path + " > " + item.nameOfFile.replace(".pdf",".txt"))
+    print(runCommand("python3 contributions/course-automation/wska-alekru/pdf2txt.py " + item.path + " > " + item.nameOfFile.replace(".pdf",".txt")))
     #Save txt to obj
     f = open(item.nameOfFile.replace(".pdf",".txt"), "r+")
     allOfText = ""
