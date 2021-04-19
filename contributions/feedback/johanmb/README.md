@@ -1,4 +1,4 @@
-# Feedback: Polyglot programming with GraalVM 
+# Feedback: Low-code Ops and the art of abstraction
 
 
 
@@ -8,4 +8,4 @@
  
  ## Proposal
  
- I would like to give feedback on the essay *Polyglot programming with GraalVM* [#1201](https://github.com/KTH/devops-course/pull/1201)
+ I would like to give feedback on the essay *Low-code Ops and the art of abstraction* [#1205](https://github.com/KTH/devops-course/pull/1205)
