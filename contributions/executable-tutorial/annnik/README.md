@@ -7,7 +7,7 @@ Github username: annsudo
 
 ## Description
 In this tutorial is aiming to explain the way to think and go when splitting a monolithic Java application to micro services. By hands-on tasks it will teach about main principles behind changing architecture from monolithic to micro services, as well as educate about pros and cons with micro services architecture
-   
+
 ## Structure of tutorial
 
  - ✅    Getting to know monolithic application and Katacoda - enviroment
@@ -38,7 +38,7 @@ In this tutorial is aiming to explain the way to think and go when splitting a m
  - 📂   final version for all parts os Micro services application
 
 ## Aiming for --> 💥  Distinction 
-           
+
 |                                             | Yes | No | Remarkable |
 |-------------------------------------------- | ----|----|-------------|
 |The TA can successful execute all the commands of the tutorial (mandatory) |💥  Yes | No |💥  In the browser  |
