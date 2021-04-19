@@ -19,5 +19,4 @@ The demo shows
 [demo-badge-setup](https://github.com/damnePers/demo-coverage-setup/blob/main/README.md)
 
 ### Link to YouTube video
-[How to add code coverage badge + report using codecov and clover](https://www.youtube.com/watch?v=X3kEkXOSUrM)
-
+[How to add code coverage badge + report using codecov and clover](https://www.youtube.com/watch?v=i-0lTgYovg8&ab_channel=SaraDamne)
