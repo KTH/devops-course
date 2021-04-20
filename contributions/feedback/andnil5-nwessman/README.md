@@ -56,4 +56,10 @@ This step could benefit from explaining the structure of the dummy project at le
 
 It is very nice that you attach links to other sites for more information on topics. 
 
-In *Give it a try* the `Copy to editor` button does not work. You should be able to set it up so it automaticly creates the file for you so the user does not need to manually add the files. Except from that the language is clear and engaging, which is very nice. 
+In *Give it a try* the `Copy to editor` button does not work. You should be able to set it up so it automaticly creates the file for you so the user does not need to manually add the files. Except from that the language is clear and engaging, which is very nice.
+
+## Step 3
+
+Good introduction to Snapshot tests. I think the examples are good and gives a nice introduction to the concept. 
+
+One point of improvement in this slide is that the user needs to find row 40 in `loginForm.jsx` instead of you just creating a replace button in Katacoda for it. You could argue that it makes the user more aware of what is happening, and I could agree. The Katacoda documentation states that the user should ideally never have to write any code in a tutorial, so it could be something to take into consideration. There is also a typo that says that I should look for a folder called `component` but it is called `components` in the project. 
