@@ -63,3 +63,7 @@ In *Give it a try* the `Copy to editor` button does not work. You should be able
 Good introduction to Snapshot tests. I think the examples are good and gives a nice introduction to the concept. 
 
 One point of improvement in this slide is that the user needs to find row 40 in `loginForm.jsx` instead of you just creating a replace button in Katacoda for it. You could argue that it makes the user more aware of what is happening, and I could agree. The Katacoda documentation states that the user should ideally never have to write any code in a tutorial, so it could be something to take into consideration. There is also a typo that says that I should look for a folder called `component` but it is called `components` in the project. 
+
+## Step 4
+
+This is a very good slide. It explains the concept in an easy way and the single question in the end of the slide forces me to think about the test and the code and what is actually happening. I think this is something you should apply to all the slides. One single question that forces me to take one extra second to think about what I am doing. This works much better than the first slide when it instead where three questions. 
