@@ -19,7 +19,7 @@ GitHub: [nwessman](https://github.com/nwessman)
 
 ## Feedback by Anders Nilsson
 
-The tutorial is overall well written and easy to follow. It was interesting as well as instructive, which resulted in a delightful experience. I would argue that most of the steps were nicely formatted and ordered in a logical order. I have written some comments and improvement suggestions for each step below, but remember that they are suggestions and only chose to implement what you think will improve the tutorial.
+The tutorial is well written and easy to follow. It was interesting as well as instructive, which resulted in a delightful experience. I would argue that most of the steps were nicely formatted and ordered in a logical order. I have written some comments and improvement suggestions for each step below, but remember that they are suggestions and only chose to implement what you think will improve the tutorial.
 
 ### General suggestions:
 - **Comment:** I like the short metatexts on each page, which increase the user experience.
@@ -81,10 +81,10 @@ The tutorial is overall well written and easy to follow. It was interesting as w
 - **Language:** Substitute "will" to "with" in: "Integration test will full mocking".
 
 ## Step 8:
-- **Comment** It is satisfying that you include test coverage, well done!
+- **Comment:** It is satisfying that you include test coverage, well done!
 - **Content:** Even though the part about `Docker` is well written, it feels a bit out of topic.
 - **Content:** I think it is convenient to write a short statement about the other coverage measurements as well. At least branch coverage should be covered.
 - **Language:** Missing "tests," after Jest in the sentence: "To check the Code Coverage of our written Jest we have added a code coverage command in our scripts in the package.jsonfile:".
 
 ## Summary page
-- **Comment** It is nice that you have included a few suggestions of what to do next. To further improve it, you could include additional links to some resources you find good for each topic!
+- **Comment:** It is nice that you have included a few suggestions of what to do next. To further improve it, you could include additional links to some resources you find good for each topic!
