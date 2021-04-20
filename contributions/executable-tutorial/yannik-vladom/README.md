@@ -23,4 +23,4 @@ Link to the tutorial: *TBA*
 ## Authors
 
 - Yannik Sander ([yannik@kth.se](mailto:yannik@kth.se)), [ysndr](https://github.com/ysndr)
-- Daniel Sharifi ([dsharifi@kth.se](mailto:dsharifi@kth.se)), [dsharifi](https://github.com/dsharifi)
+- Vlado Mitrovic ([vladom@kth.se](mailto:vladom@kth.se)), [vladomitrovic](https://github.com/vladomitrovic)
