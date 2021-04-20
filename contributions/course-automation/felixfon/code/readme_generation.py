@@ -6,7 +6,7 @@ import os
 import re
 
 CONTRIBUTIONS_BASE_PATH = 'contributions/' # path to execute the script from the action
-# CONTRIBUTIONS_BASE_PATH = '../../'  # path to execute the script locally
+# CONTRIBUTIONS_BASE_PATH = '../../../'  # path to execute the script locally
 
 
 def main():
@@ -37,7 +37,6 @@ def build_readme(path, contribution_type):
     """
     files = os.listdir(path)
     contribution_dir_list = list(filter(lambda f: os.path.isdir(path + f), files))
-    # contribution_path_list = list(map(lambda dir: path + dir, contribution_dir_list))
 
     readme_path = path + 'README.md'
     generated_readme = get_initial_readme_info(readme_path) + '\n\n'
@@ -104,50 +103,43 @@ def get_contribution_information(path, contribution_type):
 
     # getting the tittle formatted
     first_line = list(filter(lambda line: line != '', readme.splitlines()))[0].strip()
-    tittle = get_tittle(first_line, contribution_type, path.split('/')[-1])
+    directory_relative_path = path.split('/')[-1]
+    tittle = get_tittle(first_line, contribution_type, directory_relative_path)
 
     # getting the member section
     # here we match the part where the contributor(s) are presented.
-    pattern = '(#+?\s((Members?)|(Contributors?)|(Authors?)))(((.)|(\s))*?)(#+?\s?\w*?)'
+    pattern = '(#+?\s((Members?)|(Contributors?)|(Authors?))[ ]*#*[\\n]?)(((.)|(\s))*?)(#+?\s?\w*?#*?)'
     match = re.search(pattern, readme)
+
 
     if match is None:
         members_section = readme
     else:
         members_section = match.group(6)
     # if the readme doesn't correspond, we send the whole readme hoping that we will find the right data on the
-    # contributors
 
-    contributors_info = get_contributor_information(members_section)
+    # contributors
+    number_of_contributors = len(directory_relative_path.split('-'))
+    if (directory_relative_path == "mwesslen-larasm-cjgst"):
+        print("aaa")
+        print(number_of_contributors)
+    contributors_info = get_contributor_information(members_section, number_of_contributors)
 
     # format the contributors to markdown
-    first_contributor = ''
-    second_contributor = ''
     contributors = []
-    if contributors_info["names"]:
-        first_contributor += contributors_info["names"][0]
-        if len(contributors_info["names"]) > 1:
-            second_contributor += contributors_info["names"][1]
-    if contributors_info["emails"]:
-        if len(first_contributor) > 0:
-            first_contributor += ', '
-        first_contributor += 'email: ' + contributors_info["emails"][0]
-        if len(contributors_info["emails"]) > 1:
-            if len(second_contributor) > 0:
-                second_contributor += ', '
-            second_contributor += 'email: ' + contributors_info["emails"][1]
+    for i in range(number_of_contributors):
+        contributors.append("")
+        if contributors_info["names"] and len(contributors_info["names"]) > i:
+            contributors[i] = contributors_info["names"][i]
+        if contributors_info["emails"] and len(contributors_info["emails"]) > i:
+            if len(contributors[i]) > 0:
+                contributors[i] += ', '
+            contributors[i] += 'email: ' + contributors_info["emails"][i]
+        if contributors_info["githubs"] and len(contributors_info["githubs"]) > i:
+            if len(contributors[i]) > 0:
+                contributors[i] += ', '
+            contributors[i] += 'github: ' + contributors_info["githubs"][i]
 
-    if contributors_info["githubs"]:
-        if len(first_contributor) > 0:
-            first_contributor += ', '
-        first_contributor += 'github: ' + contributors_info["githubs"][0]
-        if len(contributors_info["githubs"]) > 1:
-            if len(second_contributor) > 0:
-                second_contributor += ', '
-            second_contributor += 'github: ' + contributors_info["githubs"][1]
-    contributors.append(first_contributor)
-    if second_contributor:
-        contributors.append(second_contributor)
     return {
         "tittle": tittle,
         "contributors": contributors
@@ -183,7 +175,7 @@ def get_tittle(first_line, contribution_type, directory_relative_path):
     return '[__' + tittle + '__](' + directory_relative_path + ')'
 
 
-def get_contributor_information(members_text, number_of_contributors=2):
+def get_contributor_information(members_text, number_of_contributors):
     """
     from the lines in the member section,
     retrieve the name, the email and the github username of each contributors
@@ -192,10 +184,6 @@ def get_contributor_information(members_text, number_of_contributors=2):
     :param number_of_contributors: how much contributor should we try to retrieve
     :return: lists of information by contributor
     """
-    names = []
-    email = []
-    github = []
-    # kth_user = []
 
     # get the names (international students so big regex)
     name_pattern = re.compile(
@@ -203,7 +191,7 @@ def get_contributor_information(members_text, number_of_contributors=2):
         "[a-zàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšž]+ [A-ZÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ]{1}"
         "[a-zàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšž]+)")
     email_pattern = re.compile("([\w\.-]+@[\w\.-]+\.[\w]+)")
-    github_pattern = re.compile("(\[[a-zA-Z]+\]\(https://github\.com/[a-z]+/?\))")
+    github_pattern = re.compile("(\[[a-zA-Z]+\]\(https://github\.com/[a-z\d](?:[a-z\d]|-(?=[a-z\d])){0,38}/?\))")
 
     names = name_pattern.findall(members_text)[:number_of_contributors]
 
@@ -212,10 +200,10 @@ def get_contributor_information(members_text, number_of_contributors=2):
     githubs = github_pattern.findall(members_text)[:number_of_contributors]
 
     if not githubs:
-        github_pattern2 = re.compile("(https://github\.com/[a-z]+/?)")
+        github_pattern2 = re.compile("(https://github\.com/[a-z\d](?:[a-z\d]|-(?=[a-z\d])){0,38}/?)")
         githubs = github_pattern2.findall(members_text)[:number_of_contributors]
         if not githubs:
-            github_pattern3 = re.compile("Github: ([a-z]+/?)")
+            github_pattern3 = re.compile("Github: ([a-z\d](?:[a-z\d]|-(?=[a-z\d])){0,38}/?)")
             githubs = github_pattern3.findall(members_text)[:number_of_contributors]
 
     return {
