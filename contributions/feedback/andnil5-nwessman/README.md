@@ -23,7 +23,7 @@ The tutorial is well written and easy to follow. It was interesting as well as i
 
 ### General suggestions:
 - **Comment:** I like the short metatexts on each page, which increase the user experience.
-- **Format:** Change the title of each step. For now, it says *Step i*, which is contradictory to the title above that says *Step (i+1) of 8*. Configure the step titles in the file `index.json` by changing the label `title` of each step. Also, I recommend using the subtitles in the steps as step title instead of *step i*.
+- **Format:** Change the title of each step. For now, it says *Step i*, which is contradictory to the title above that says *Step (i+1) of 8*. Configure the titles in the file `index.json` by changing the label `title` of each step. Also, I recommend using the subtitles in the steps as step title instead of *step i*.
 - **Language:** Make sure to conduct a final language check before the final submission, for instance, with the automated tool [`Grammarly`](https://app.grammarly.com/).
 
 ## Intro page:
@@ -38,7 +38,7 @@ The tutorial is well written and easy to follow. It was interesting as well as i
 ## Step 1:
 - **Comment:** The theory in this step is well presented and gives the user an excellent introduction to why testing is practical. Especially the content under the header: *What are some test strategies?* was satisfying.
 - **Content:** I would recommend describing the difference between a stable and a flaky test. I believe that it would be enough with one or two sentences for this. For inspiration, see [this link](https://docs.gitlab.com/ee/development/testing_guide/flaky_tests.html).
-- **Content:** It's great that you give some examples of different  test strategies. To further imporve, you could mention that *step ...* covers TDD later in the tutorial.
+- **Content:** It's great that you give some examples of different test strategies. To further improve, you could mention that *step ...* covers TDD later in the tutorial.
 - **Format:** I suggest changing the title to "What is a meaningful test?", remove the header "Short on testing", and write its content in italic style.
 - **Format:** It's nice that you get an introduction to testing, but you might want to fast forward to the next step without answering the quiz if you are already familiar with testing. Thus, a shortcut is beneficial for experienced users.
 - **Language:** Substitute "To be able to" to "To" for clarity.
@@ -59,10 +59,10 @@ The tutorial is well written and easy to follow. It was interesting as well as i
 - **Language:** Missing "are" or "," after "Here" in "Here six good reasons why:".
 - **Language:** Clarify the sentence: "It runs test in parallel which makes it has a high speed of test execution". You could rewrite it to something similar to: "It runs tests in parallel, which makes test execution more efficient".
 - **Reference:** Even though I strongly like the introduction under *React Testing Library* and I believe that you cover enough in its description, I am missing a link to where you can read more about it. I would recommend adding a link for this. For instance, you could add: "[Click here to learn more about React Testing Library](https://testing-library.com/docs/react-testing-library/intro)" to the end of the paragraph.
-- **Reference:** In addition to the `Jest CheatSheet` link, I would also recommend referencing the well-documented [`Jest API`](https://jestjs.io/docs/api).
+- **Reference:** In addition to the `Jest CheatSheet` link, I would recommend referencing the well-documented [`Jest API`](https://jestjs.io/docs/api).
 
 ## Step 4:
-- **Comment:** It was satisfying to test both correct and incorrect code to further understand the behavior of the Jest framework.
+- **Comment:** It was satisfying to test both correct and incorrect code to understand the behavior of the Jest framework further.
 - **Content:** The Katacoda command {{open}}, can be used to open files automatically in the editor. I would recommend utilizing it when asking the user to open the file `loginForm.jsx-`. You can read more about it [here](https://www.katacoda.community/scenario-syntax.html#katacoda-s-markdown-extensions).
 - **Content:** Change the instruction: "In components/loginForm.jsx on row 40, change the title from Login form to just Login." to make use of `Copy to Editor` as done in previous steps. For instance, you could create a code block and make use of insert, which replaces <code>Login from</code> by <code>Login</code> with the following code when `Copy to Editor` is clicked:
 ```html
@@ -70,18 +70,18 @@ The tutorial is well written and easy to follow. It was interesting as well as i
 ```
 
 ## Step 5:
-- **Comment:** Overall, a very good page!
+- **Comment:** Overall, an excellent page!
 - **Content:** The only thing I think could be clarified is the Jest tests. A short description of each test is sufficient, especially for users who are not used to testing with Jest.
 
 ## Step 6:
-- **Content:** The first code block is a bit messy. You could make use of the keyword `replace` to get it nicely formatted and highlighted, as in the case of the other code blocks. You can read more about it [here](https://www.katacoda.community/scenario-syntax.html#katacoda-s-markdown-extensions).
-- **Content:** As part of the first quiz, the correct answer of test naming does, in my opinion, not match well with the naming of the implemented tests. This could be resolved by making the naming in the quiz more general and not so specific to the input numbers.
+- **Content:** The first code block is a bit messy. You could use the keyword `replace` to get it nicely formatted and highlighted, as in the case of the other code blocks. You can read more about it [here](https://www.katacoda.community/scenario-syntax.html#katacoda-s-markdown-extensions).
+- **Content:** As part of the first quiz, the correct answer of test naming does, in my opinion, not match well with the naming of the implemented tests. Resolve this by making the naming in the quiz more general and not specific to the input numbers.
 
 ## Step 7:
 - **Language:** Substitute "will" to "with" in: "Integration test will full mocking".
 
 ## Step 8:
-- **Comment:** It is satisfying that you include test coverage, well done!
+- **Comment:** It is satisfying that you include test coverage. Well done!
 - **Content:** Even though the part about `Docker` is well written, it feels a bit out of topic.
 - **Content:** I think it is convenient to write a short statement about the other coverage measurements as well. At least branch coverage should be covered.
 - **Language:** Missing "tests," after Jest in the sentence: "To check the Code Coverage of our written Jest we have added a code coverage command in our scripts in the package.jsonfile:".
