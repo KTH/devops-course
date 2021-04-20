@@ -14,6 +14,16 @@ GitHub: [andnil5](https://github.com/andnil5)
 Name: Niklas Wessman (nwessman@kth.se)  
 GitHub: [nwessman](https://github.com/nwessman)
 
+## Grading - We strive to meet the following grading criteria
+
+|                                             | Yes | No | Remarkable  |
+|-------------------------------------------- | ----|----|-------------|
+|The feedback includes both strengths and weaknesses about the task | X |  |  |
+|The feedback is provided 4 business days before the task deadline | X |  | X |
+|All points are clearly actionable | X |  | PR on PR? |
+|The feedback is substantiated | X |  | X |
+|The feedback contains pointers to additional material | X |  |  |
+|The students act upon the feedback they receive | X |  | X |
 
 # Feedback
 
