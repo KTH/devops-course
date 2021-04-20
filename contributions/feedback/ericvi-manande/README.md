@@ -1,4 +1,4 @@
-# Feedback on #1134: Deploying scheduled functions on Kubernetes using Kubeless
+# Feedback on #1271: Deploying scheduled functions on Kubernetes using Kubeless
 
 ## Members
 
@@ -9,7 +9,9 @@ Måns Andersson (manande@kth.se)
 GitHub: [Måns](https://github.com/mansand1)
 
 ## Pull request
-https://github.com/KTH/devops-course/pull/1134
+Proposal: https://github.com/KTH/devops-course/pull/1134
+
+Submission: https://github.com/KTH/devops-course/pull/1271
 
 ## Summary
 Simon Persson and Martijn Atema made a comprehensive tutorial on how to use Kubeless to run scheduled functions. 
