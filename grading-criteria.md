@@ -134,8 +134,9 @@ To get a distinction, you must pass and have at least 1 "remarkable".
 
 ## Feedback
 
-The concept: you provide constructive and timely feeback about one essay or one video demo or one executable tutorial.
+The concept: you provide constructive and timely feeback about one task from categories "essay" and "executable tutorial".
 The feedback is provided in a written manner, as a well-structured comment on the PR of the task.
+This constraint means that to register a feedback task, you must also register either an "essay" or an "executable tutorial".
 
 |                                             | Yes | No | Remarkable  |
 |-------------------------------------------- | ----|----|-------------|
