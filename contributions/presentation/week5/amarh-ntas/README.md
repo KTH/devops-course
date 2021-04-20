@@ -1,17 +1,19 @@
-# Presentation Proposal: What is Github Actions
+# Presentation Proposal: :closed_lock_with_key: Managing secrets in dynamic environments with HashiCorp Vault
 
 ## Members
 Amar Hodzic (amarh@kth.se)
 
+Github: [amarhod](https://github.com/amarhod)
+
 Natan Teferi Asegehegn (ntas@kth.se)
 
+Github: [callmeGoldenboy](https://github.com/callmeGoldenboy)
+
 ## Topic
-We would like to present the tool Github Actions and give an overview of its features and also what problems it tries to solve.
+We would like to give an overview of the challenges with storing and managing secrets. More specifically in dynamic environments and how a tool such as HashiCorp Vault solves that problem.
 
 ## Outline
-* What is Github Actions?
-* What are workflows?
-* How Github Actions automates workflows 
-* A CI/CD workflow example
+* What are secrets?
+* What are the challenges with storing and managing them?
+* How HashiCorp Vault solves it
 * Takeaway
-
