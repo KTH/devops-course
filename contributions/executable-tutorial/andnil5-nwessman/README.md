@@ -1,4 +1,4 @@
-# Executable tutorial: CI workflow using GitHub actions for Node.js, Express app, Jest and Eslint
+# Executable tutorial: CI workflow using GitHub actions for Node.js, Express app, Jest and ESLint
 
 Continuous Integration (CI) is the practice of creating a smooth integration process on your software projects by continuously merging the developers' branches into the main branch. For this, to work we need to assert each merge's correctness before they can be integrated into the main repository, and for this, we use automated tests.   
 
