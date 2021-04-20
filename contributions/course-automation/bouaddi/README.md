@@ -17,3 +17,8 @@ I would like to try to create a GitHub Action. This action would:
   - if the URL is referenced in a contribution for feedback, put the label "feedbacked" to the PR, delete other labels "feedbackable" and "feedback claimed"
   - else if the URL is referenced in a feedback PR that waits to be merged, put the label "feedback claimed" to the PR, delete other labels "feedbackable" and "feedbacked"
   - else put the label "feedbackable" to the PR, delete other labels "feedback claimed" and "feedbacked"
+
+### Legend 
+* "feedbackable": nobody claimed the feedback for this task yet
+* "feedback claimed": a PR is waiting to be merged for the feedback of this contribution
+* "feedbacked": the feedback for this contribution has been claimed
