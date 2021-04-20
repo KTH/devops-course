@@ -61,3 +61,13 @@ An example would be:
 >  |Contributors 🧑🏻‍🤝‍🧑🏻       | 4135      | ✔️ |
 >  |Forks 🍴               | 7696             | ✔️ |
 >  |Open Issues 🟢        | 7056       | ✔️ |
+
+### Update according to change in grading criteria
+In a proposed update [#1209](https://github.com/KTH/devops-course/pull/1209) to the grading criteria for this task there are two additional requirements.
+
+1. Implemented in stand-alone repository (already done, no issue here)
+2. Demonstrate that automation technique actually works, for example in fork of [KTH/devops-course](https://github.com/KTH/devops-course) (we have tested but haven't provided a link)
+
+Here is a link to the Pull Request where we did our testing: [sfkwww/milkyway#2](https://github.com/sfkwww/milkyway/pull/2).
+
+Here is a link to the actions invoked during said testing: [sfkwww/milkyway/actions](https://github.com/sfkwww/milkyway/actions).
