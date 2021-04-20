@@ -3,11 +3,11 @@
 ### Members 
 Lee Badal
 Github: LeeBadal
-KTH: badal
+KTH Email: badal@kth.se
 
 Daniel Grünler
 Github: Grunler
-KTH: grunler
+KTH Email: grunler@kth.se
 
 ### Proposal
 
