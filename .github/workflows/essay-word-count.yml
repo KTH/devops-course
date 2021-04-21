@@ -5,7 +5,7 @@ name: Checking the Word Count of Submitted Essay
 jobs:
   check-essay:
     runs-on: ubuntu-18.04
-    if: contains(github.ref, 'essay')
+    if: contains('essay', 'essay')
     steps:
       - uses: actions/checkout@v2
       - name: Install xpdf
