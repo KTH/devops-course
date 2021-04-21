@@ -8,16 +8,16 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Install xpdf
-        run: sudo apt-get update && sudo apt-get install -y xpdf
+        run: sudo apt-get install -y xpdf
       - id: files
         uses: jitterbit/get-changed-files@v1
       - name: Check the submitted essays
         run: >
           for added_modified_file in ${{ steps.files.outputs.added_modified  }}; do
             echo "Checking file: $added_modified_file"
+            words = $(pdftotext ${added_modified_file} | wc -w)
+            echo "Word Count: ${words}"
             if [ "${added_modified_file}" == *"contributions/essay/"* ] && [ "${added_modified_file}" == *"pdf" ] ; then
-              words = $(pdftotext ${added_modified_files[@]} | wc -w)
-              echo "Word Count: ${words}"
               if [ "$words" -lt 1800 ] || [ "$words" -gt 2200 ]; then
                 exit 1
               fi
