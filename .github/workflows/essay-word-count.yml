@@ -54,6 +54,7 @@ jobs:
               if [ ${added_modified_files[@]} == *"/contributions/essay/"* ]; then
                 words = $(pdftotext ${added_modified_files[@]} | wc -w)
                 if [ "$words" -lt 1800 ] || [ "$words" -gt 2200 ]; then
+                  exit 1
                 fi
               fi
             done
