@@ -17,6 +17,8 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - uses: actions/labeler@v2
+      with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
     - name: setup python
       uses: actions/setup-python@v2
       with: 
