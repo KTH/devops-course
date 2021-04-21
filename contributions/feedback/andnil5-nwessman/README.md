@@ -18,7 +18,7 @@ GitHub: [nwessman](https://github.com/nwessman)
 |-------------------------------------------- | ----|----|-------------|
 |The feedback includes both strengths and weaknesses about the task | X |  |  |
 |The feedback is provided 4 business days before the task deadline | X |  | X |
-|All points are clearly actionable | X |  | PR on PR? |
+|All points are clearly actionable | X |  | ? |
 |The feedback is substantiated | X |  | X |
 |The feedback contains pointers to additional material | X |  |  |
 |The students act upon the feedback they receive | X |  | X |
