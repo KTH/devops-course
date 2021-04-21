@@ -43,7 +43,10 @@ As mentioned later, I had to install the Docker Pipeline plugin, so just to be s
 ### Continuous Integration
 Again, I would add link to Socketxp homepage the first time you mention it. The reader has to go there anyway to sign up.
 
-I had a problem with Github webhook, it did not want to connect to the Socketxp, I could not find a fix for it so I had to send data to Jenkins `curl -X POST`. Did you tested the webhooks with Socketxp thoroughly? ![Bug](https://github.com/sestys/devops-course/raw/d55d63cd98529ac51da470a4d49342bb5b506e58/contributions/feedback/sestak/socket-problem.png)
+I had a problem with Github webhook, it did not want to connect to the Socketxp, I could not find a fix for it so I had to send data to Jenkins `curl -X POST`. Did you tested the webhooks with Socketxp thoroughly? 
+
+![Bug](https://github.com/sestys/devops-course/raw/d55d63cd98529ac51da470a4d49342bb5b506e58/contributions/feedback/sestak/socket-problem.png)
+
 Ask someone else to test the tutorial and if they hve the same bug, try to fix it. If not, it may just be my problem 😅️.
 
 In the part about setting up the Freestyle project, you do not mention anything about the "Add timestep ..." tick in the Build Enviroment section, even though it is selected in image.
