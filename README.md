@@ -55,6 +55,7 @@ The schedule is at <https://www.kth.se/social/course/DD2482/calendar/>
 ### Week 5
 * Technical Briefing (M. Monperrus)
 * Guest Lecture: Supply-chain security [Rhys Arkins (Whitesource)](https://www.linkedin.com/in/rhys-arkins-5a643a/) 
+  * Preparatory material: [A 'Worst Nightmare' Cyberattack: The Untold Story Of The SolarWinds Hack](https://www.npr.org/2021/04/16/985439655/a-worst-nightmare-cyberattack-the-untold-story-of-the-solarwinds-hack)
 * Student presentations
 
 ### Week 6
