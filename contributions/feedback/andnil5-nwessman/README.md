@@ -162,4 +162,4 @@ Very good that you add a note on how to tackle the problem with e-mail validatio
 ## Step 7, Step 8 and Finish
 Very good slides. This should be the standard in how you tackle each slide. Good language and easy to follow. 
 
-The Finish page is also very good. I think it is nice to get a summary of what content I have gone through and what steps I should take next if I want to learn more about the topic. Especially good that you include a link to other sources so the user can easily continue exploring. This could be improved by adding even more links to more 
+The Finish page is also very good. I think it is nice to get a summary of what content I have gone through and what steps I should take next if I want to learn more about the topic. Especially good that you include a link to other sources so the user can easily continue exploring. This could be improved by adding even more links to more sources.
