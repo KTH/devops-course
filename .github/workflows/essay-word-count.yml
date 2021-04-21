@@ -9,15 +9,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Set timezone
-        run: sudo timedatectl set-timezone Europe/Stockholm
       - name: Install xmllint
         run: sudo apt-get install -y xpdf
-      - name: Check the submitted essays
-        id: files
+      - id: files
         uses: jitterbit/get-changed-files@v1
         with:
           format: csv
+      - name: Check the submitted essays
         run: >
           mapfile -d ',' -t added_modified_files < <(printf '%s,' '${{ steps.files.outputs.added_modified }}')
 
