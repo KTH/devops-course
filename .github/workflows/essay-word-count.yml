@@ -1,8 +1,6 @@
 name: Checking the Word Count of Submitted Essay
 'on':
-  pull_request:
-    branches:
-      - '2021'
+  pull_request
   workflow_dispatch: null
 jobs:
   check-essay:
