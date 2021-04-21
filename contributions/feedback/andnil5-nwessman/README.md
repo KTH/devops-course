@@ -100,7 +100,7 @@ The tutorial is well written and easy to follow. It was interesting as well as i
 I enjoyed taking your tutorial, it was overall a very good experience! My feedback starts with general suggestions that I believe applies to all slides, and below that, I go more into the depth of each individual slide of what features I liked and where I saw the potential for improvement. 
 
 ## General suggestions
-Change your slide indexing to start with 1, Katacoda uses 1-indexing and it is a bit confusing when it says "Step 1" directly above your text that says "Step 0". In my feedback, I will use your indexing starting with 0.
+Change your slide indexing to start with 1, Katacoda uses 1-indexing and it is a bit confusing when it says "Step 1" directly above your text that says "Step 0". In my feedback, I will use Katacoda's indexing starting with 1.
 
 Before the final submission, you should go through your text and check for errors in spelling and grammar, there are a lot of small mistakes. Grammarly is a good free tool.
 
