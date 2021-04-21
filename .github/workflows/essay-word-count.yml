@@ -43,7 +43,7 @@ jobs:
         run: sudo apt-get install -y xpdf
 
       # Runs a single command using the runners shell
-      - name: Update the statistic issue
+      - name: Check the submitted essays
         - id: files
           uses: jitterbit/get-changed-files@v1
           with:
