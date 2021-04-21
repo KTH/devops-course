@@ -14,10 +14,10 @@ jobs:
         uses: trilom/file-changes-action@v1.2.3
       - name: Check the submitted essays
         run: >
-          added_files='${{ steps.file_changes.outputs.files_added  }}'
-          added_files=${added_files/\"/ }
-          added_files=${added_files/[/ }
-          added_files=${added_files/]/ }
+          added_files='${{ steps.file_changes.outputs.files_added  }}';
+          added_files=${added_files/\"/ };
+          added_files=${added_files/[/ };
+          added_files=${added_files/]/ };
           for added_modified_file in ${added_files[@]}; do
             echo "Checking file: $added_modified_file"
             if [[ "$added_modified_file" == *"contributions/essay/"* ]] && [[ "$added_modified_file" == *"pdf" ]] ; then
