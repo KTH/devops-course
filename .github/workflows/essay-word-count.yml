@@ -15,7 +15,7 @@ jobs:
         run: >
           for added_modified_file in ${{ steps.files.outputs.added_modified  }}; do
             echo "Checking file: $added_modified_file"
-            if [ $added_modified_file == *"contributions/essay/"* ] && [ $added_modified_file == *"pdf" ] ; then
+            if [ "$added_modified_file" == *"contributions/essay/"* ] && [ "$added_modified_file" == *"pdf" ] ; then
               words = $(pdftotext ${added_modified_files[@]} | wc -w)
               echo "Word Count: ${words}"
               if [ "$words" -lt 1800 ] || [ "$words" -gt 2200 ]; then
