@@ -14,7 +14,7 @@ jobs:
       - name: Check the submitted essays
         run: >
           for added_modified_file in ${{ steps.files.outputs.added_modified  }}; do
-            if [ "$added_modified_file" == *"contributions/essay/"* ] && [ "$added_modified_file" == *"pdf" ] ; then
+            if [[ "$added_modified_file" == *"contributions/essay/"* ]] && [[ "$added_modified_file" == *"pdf" ]] ; then
               words = $(sudo pdftotext $added_modified_file - | wc -w)
               echo "File $added_modified_file has $words words"
               if [ $words -lt 1800 ] || [ $words -gt 2200 ]; then
