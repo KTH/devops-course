@@ -9,4 +9,4 @@ TA will review the PR. If it is accepted, you could begin your work on this topi
 
 ## Final Submission
 
-You should make another pull-request which contains your PDF file of the essay.
+You should make another pull-request which contains your PDF file of the essay. The PDF filename should end with ".pdf" and should not include white space or special characters.
