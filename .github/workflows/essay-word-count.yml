@@ -10,6 +10,7 @@ jobs:
       - name: Install xpdf
         run: sudo apt-get install -y xpdf
       - id: files
+        if: github.context.payload && github.context.payload.pull_request && github.context.payload.pull_request.title == 'HI'
         uses: jitterbit/get-changed-files@v1
       - name: Check the submitted essays
         run: >
