@@ -15,7 +15,9 @@ jobs:
         run: >
           for added_modified_file in ${{ steps.files.outputs.added_modified  }}; do
             echo "Checking file: $added_modified_file"
-            words = $(sudo pdftotext ${added_modified_file} | wc -w)
+            sudo pdftotext contributions/essay/khaes/Turing_Chinese_Room.pdf | wc -w
+            echo "DONE"
+            #words = $(sudo pdftotext ${added_modified_file} | wc -w)
             echo "Word Count: ${words}"
             if [ "${added_modified_file}" == *"contributions/essay/"* ] && [ "${added_modified_file}" == *"pdf" ] ; then
               if [ "$words" -lt 1800 ] || [ "$words" -gt 2200 ]; then
