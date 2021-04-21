@@ -10,10 +10,11 @@ Sebastian Fagerlind (sebene@kth.se)
 Github: [Sebberh](https://github.com/Sebberh)
 
 ## Proposal
-In this tutorial is aiming to explain the basics of Renovate and how set up and configure Renovate bot with a web application using NodeJS.
+In this tutorial is aiming to explain the basics of Renovate and how set up a Renovate bot.
+
+Link to tutorial: [Github](https://github.com/Sebberh/RenovateTutorial)
 
 ## Planing to use (can change)
 
- - Katakoda or educative
- - Aplication for demo: javascript
+ - Aplication for demo: Github apps & javascript 
  - Renovate
