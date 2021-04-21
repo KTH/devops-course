@@ -127,7 +127,7 @@ I think this needs to be changed so it:
 2. Give tips when you are stuck.
 3. Check if the bug with non-visible check marker is in your code or Katacoda. (Probably Katacoda, since it has a lot of problems.)
 
-*Note* I noticed another bug where you can check every box in the last question and it will accept it.
+**Note:** I noticed another bug where you can check every box in the last question and it will accept it.
 
 ## Step 2
 I like your easter egg, it is cute and makes the tutorial more colourful. I also think it was cool that you could run your project in Katacoda, I did not know you could get access to localhost like that in Katacoda. Very nice.
