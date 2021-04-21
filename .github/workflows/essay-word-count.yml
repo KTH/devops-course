@@ -15,7 +15,7 @@ jobs:
         run: >
           for added_modified_file in ${{ steps.files.outputs.added_modified  }}; do
             echo "Checking file: $added_modified_file"
-            sudo ls -lh $added_modified_file | wc -w
+            sudo pdftotext $added_modified_file - | wc -w
             echo "DONE"
             #words = $(sudo pdftotext ${added_modified_file} | wc -w)
             echo "Word Count: ${words}"
