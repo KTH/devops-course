@@ -53,7 +53,7 @@ The tutorial is well written and easy to follow. It was interesting as well as i
 - **Language:** Consider changing the word "read" in "The test is easy to read." to either interpret or understand.
 
 ## Step 2
-- **Comment:** I enjoyed that you have utilized the Katacoda {{execute}} keyword for the commands since it makes them much easier to execute and further the smoothness of conducting the tutorial.
+- **Comment:** I enjoyed that you have utilized the Katacoda {{execute}} keyword for the commands since it makes them much easier to execute and improves the smoothness of conducting the tutorial.
 - **Comment:** It was nice that it is stated that the installation might take a while and that you provide the user with things to do during the installation.
 - **Content:** Remove "We have created a dummy project for you to work on within this tutorial. It is a react project describing a login flow." from point 1 in the setup. It is a bit superfluous since it's stated in the paragraph above.
 - **Content:** Remove the `ls` command.
