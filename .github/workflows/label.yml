@@ -24,6 +24,6 @@ jobs:
       with: 
         python-version: '3.7.7'
     - name: run python script 
-      run: python script.py
+      run: python .github/workflows/script.py
 
     
