@@ -1,4 +1,4 @@
-# Executable tutorial: CI workflow using GitHub actions for Node.js, Express app, Jest and ESLint
+# Executable tutorial: CI workflow using GitHub actions for Node.js, Express app, Jest and ESLint - PR [#1269](https://github.com/KTH/devops-course/pull/1269)
 
 Continuous Integration (CI) is the practice of creating a smooth integration process on your software projects by continuously merging the developers' branches into the main branch. For this, to work we need to assert each merge's correctness before they can be integrated into the main repository, and for this, we use automated tests.   
 
@@ -18,11 +18,17 @@ This tutorial will go through the steps of setting up a pre-built Express applic
 
 - [Katacoda Executable Tutorial](https://www.katacoda.com/nwessman/scenarios/ci)
 
-## GitHub link
+## GitHub links
 
 - [GitHub - Katacoda branch](https://github.com/nwessman/katacoda-scenarios)
 - [GitHub - Tutorial project](https://github.com/nwessman/katacoda-scenarios/tree/express-app)
 - [GitHub - Complete Tutorial project](https://github.com/nwessman/katacoda-scenarios/tree/express-app-complete)
+
+## Feedback links
+
+- [Feedback - Elin Ryman](https://github.com/KTH/devops-course/pull/1269#issuecomment-823304162)
+- [Feedback - Agnes Forsberg](https://github.com/KTH/devops-course/pull/1269#issuecomment-823306034)
+- [Feedback - Follow up documentation](https://github.com/KTH/devops-course/pull/1269#issuecomment-824204630)
 
 ## Members
 Anders Nilsson (andnil5@kth.se)  
