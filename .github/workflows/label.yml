@@ -17,5 +17,11 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - uses: actions/labeler@v2
-      with:
-        repo-token: "${{ secrets.GITHUB_TOKEN }}"
+    - name: setup python
+      uses: actions/setup-python@v2
+      with: 
+        python-version: '3.7.7'
+    - name: run python script 
+      run: python script.py
+
+    
