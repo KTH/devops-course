@@ -15,7 +15,7 @@ jobs:
       - name: Check the submitted essays
         run: >
           added_files='${{ steps.file_changes.outputs.files_added  }}'
-          added_files=${added_files/"/ }
+          added_files=${added_files/\"/ }
           added_files=${added_files/[/ }
           added_files=${added_files/]/ }
           for added_modified_file in ${added_files[@]}; do
