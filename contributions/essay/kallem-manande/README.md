@@ -9,7 +9,7 @@ Måns Andersson (manande@kth.se)
 GitHub: [Måns](https://github.com/mansand1)
 
 ## Proposal
-An essay describing in short the how modern DevOps pipelines work
+An essay describing in short how modern DevOps pipelines work
 and the important revolutions leading to where we are today. 
 
 An idea for sections:
