@@ -18,7 +18,7 @@ jobs:
           if [[ $added_files == *" "* ]]; then
             echo "The added file names should not contain whitespace"
             exit 1
-          fi
+          fi;
           added_files=${added_files//\"/ };
           added_files=${added_files/[/};
           added_files=${added_files/]/};
