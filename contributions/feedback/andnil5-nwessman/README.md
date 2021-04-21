@@ -1,10 +1,8 @@
 # Feedback: Learn to integrate Jest in your React projects
 
-## Links
-
- - [Tutorial directory](https://github.com/KTH/devops-course/tree/2021/contributions/executable-tutorial/agnespet-adahen)
- - [Tutorial proposal (given feedback to) - #1242](https://github.com/KTH/devops-course/pull/1242)  
- - [Feedback proposal - #1113](https://github.com/KTH/devops-course/pull/1113)  
+[Tutorial directory](https://github.com/KTH/devops-course/tree/2021/contributions/executable-tutorial/agnespet-adahen)  
+[Tutorial proposal - #1242](https://github.com/KTH/devops-course/pull/1242)  
+[Feedback proposal - #1113](https://github.com/KTH/devops-course/pull/1113)  
 
 ## Members:
 
