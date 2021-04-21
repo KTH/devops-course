@@ -11,15 +11,12 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y xpdf
       - id: files
         uses: jitterbit/get-changed-files@v1
-        with:
-          format: csv
       - name: Check the submitted essays
         run: >
-          mapfile -d ',' -t added_modified_files < <(printf '%s,' '${{ steps.files.outputs.added_modified }}')
-
-          for added_modified_file in "${added_modified_files[@]}"; do
+          for added_modified_file in ${{ steps.files.outputs.added_modified  }}; do
             if [ ${added_modified_files[@]} == *"/contributions/essay/"* ] && [ ${added_modified_files[@]} == *"pdf" ] ; then
               words = $(pdftotext ${added_modified_files[@]} | wc -w)
+              echo "Word Count: ${words}"
               if [ "$words" -lt 1800 ] || [ "$words" -gt 2200 ]; then
                 exit 1
               fi
