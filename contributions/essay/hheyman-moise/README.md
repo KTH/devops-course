@@ -31,7 +31,7 @@ Initial PR: [#1092](https://github.com/KTH/devops-course/pull/1092)
 
 |                                             | Yes | No | Remarkable |
 |-------------------------------------------- | ----|----|-------------|
-| format: The essay is in PDF | Mandatory | :heavy_check_mark: | - |
+| format: The essay is in PDF | :heavy_check_mark: Mandatory | - | - |
 | title: The essay has a good title | Yes | No | :heavy_check_mark: Remarkable |
 | well-structured: The essay is well structured, the ideas are well presented | Yes | No | :heavy_check_mark: Remarkable |
 | introduction: The essay contains a good introduction | :heavy_check_mark: Yes | No | Remarkable |
