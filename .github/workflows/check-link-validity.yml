@@ -1,0 +1,17 @@
+name: check-link-validity
+on: 
+    pull_request_target:
+      types: [opened]
+
+jobs:
+  label:
+
+    runs-on: windows-latest
+    name: check link validity
+    
+    steps:
+    - name: check validity
+      uses: Chen-Zidi/check-modified-contents-link-validity-action@main
+      id: check-validity
+    - name: print validity result
+      run: echo "validity - ${{ steps.check-validity.outputs.validity}}"
