@@ -1,4 +1,4 @@
-# Executable Tutorial: Setting up and configuring your own docker container
+# Executable Tutorial: Setting up Splunk in a docker container
 ## Members
 Hugo Heyman (hheyman@kth.se) 
 Github: hallon-heyman
@@ -7,12 +7,11 @@ August Jönsson, kth: augustjo@kth.se
 Github: augustjon
 
 ## Proposal:
-Many tutorials teach docker in relation to other tools, but this requires an initial, basic docker and docker containers. We create a web-based tutorial on how to set up a docker container and how to configure it for specific requirements. Docker is perhaps the most popular devops tool in the world and its relevance need hardly be stated. This tutorial would aim to be a very effective crash course for our fellow students in how to get started with docker and provide a fundament for future learning.
+Splunk is a popular tool that helps companies analys streams of big data comming from security systems, tech infrastructure and other applications. Splunk makes it easy to analyse and visualize data. With the help of docker you can install splunk enterprize in a container for easy access. So our proposal is how to set up splunk in a docker containe also how to configure splunk to your needs. We will also show users how they can upload data and manipulate it with splunk. The tutorial is planned to be donned in Katacoda.
 
 
 ### What the user learns:
-- How to set up a docker container
-- How to configure a docker container for individual needs
-- Relevant inner mechanics of docker
-- Different strategies of using docker effectively, adapted to context
-
+- Basic introduction to docker containers
+- introduction into splunk
+- how to set up splunk in a docker container.
+- loading data into splunk to analyse
