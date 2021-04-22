@@ -33,3 +33,7 @@ We aim to fulfill the following criteria:
 |The task runs on a standard platform	|**Yes (Github action)**	|No|	Other platforms (e.g. Moodle, Canvas)|
 |The task is praised by the other students of this course|	**Yes**|	No|	n-a|
 |The code for the task is available	|**Yes (public repo)**|	No	|**Well documented repo**|
+
+## Final Submission
+
+Our submission is available at: https://github.com/marketplace/actions/legal-teammates  
