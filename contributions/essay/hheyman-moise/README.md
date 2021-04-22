@@ -12,19 +12,20 @@ Github: [iriediese](https://github.com/iriediese)
 
 Git is the worlds leading software development tool. Pretty much everyone in software works with git. Far fewer however knows about the inner mechanics of git. Beyond branches, commits and pulls, what actually happens down below? 
 In this essay, we want to present the inner object-model of git and discuss its design. What makes it so strong? What are the potential drawbacks? What is the future of git?  
-Initial PR: #1092
+We bring more insight regarding git's abstract object model, and the ways it enables the distributed structure it uses.
+Initial PR: [#1092](https://github.com/KTH/devops-course/pull/1092)
 
 ## Preliminary Outline:
 
 * Introduction - Git
-* Gits inner mechanics, its abstract object model
+* Git's inner mechanics
+* Git's abstract object model
+* Git's distributed structure
 * Discussion 
   * Pros and cons of gits design, arguments
   * Potential alternative designs
-  * Potential future development of git
 * Conclusion
   * Summary with our thoughts
-  * Take aways
 
 ## Grading criteria aimed for:
 
@@ -44,4 +45,4 @@ Initial PR: #1092
 | relevant: The essay addresses a topic that is relevant for DevOps | Yes | No | :heavy_check_mark: Remarkable |
 
 ## Feedback
-Receiving feedback as per PR #1095
+Receiving feedback as per PR [#1095](https://github.com/KTH/devops-course/pull/1095)
