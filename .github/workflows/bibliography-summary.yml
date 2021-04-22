@@ -16,7 +16,7 @@ jobs:
         BRANCH_DIFF: origin/2021
       run: |
         git diff-tree --no-commit-id --name-status -r $BRANCH_DIFF ${{ github.sha }} > CHANGED_FILES_PATHS.txt
-    - uses: amarhod/pdf-bibliography-action@main
+    - uses: amarhod/pdf-bibliography-action@v1
       with:
         token: ${{ github.token }}
         repo_path: ./
