@@ -1,4 +1,4 @@
-# Essay: The inner workings of git "
+# Essay: The inner workings of git
 
 ## Members: 
 
