@@ -60,7 +60,7 @@ The schedule is at <https://www.kth.se/social/course/DD2482/calendar/>
 
 ### Week 6
 * Technical Briefing (B. Baudry)
-* TBA
+* Guest Lecture: Resilient Software [Heidi Waterhouse](https://heidiwaterhouse.com/)
 * Student presentations
 
 ### Week 7: Michelin Devops Demo Day
