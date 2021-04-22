@@ -37,3 +37,11 @@ We aim to fulfill the following criteria:
 ## Final Submission
 
 Our submission is available at: https://github.com/marketplace/actions/legal-teammates  
+
+Our demo is viewable here with simplified course structure and fake names: https://github.com/Agriad/devops-course/tree/demo
+
+More specifically with the demo issue can be viewed here: https://github.com/Agriad/devops-course/issues/56
+
+GitHub Actions can be viewed here: https://github.com/Agriad/devops-course/actions
+
+One issue that shows it works for the real course enviroment can be viewed here: https://github.com/Agriad/devops-course/issues/58
