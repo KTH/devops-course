@@ -21,3 +21,8 @@ To do this, we will create a ”To-Do” application with a simple frontend and 
 * The user will create a free trial account on DataDog (No credit card required)
 * The user will integrate the existing application with DataDog
 * The user can see logs in DataDog as traffic comes in
+
+### Link to finished tutorial (ready for feedback) 
+
+https://www.katacoda.com/andreeva/scenarios/datadog-tutorial
+
