@@ -15,8 +15,8 @@ jobs:
         run: >
           added_files='${{ steps.file_changes.outputs.files_added  }},${{ steps.file_changes.outputs.files_modified  }}';
           added_files=${added_files//\"/};
-          added_files=${added_files/[/};
-          added_files=${added_files/]/};
+          added_files=${added_files//[/};
+          added_files=${added_files//]/};
           added_files=${added_files// /;};
           added_files=${added_files//,/ };
           for item in ${added_files[@]}; do
