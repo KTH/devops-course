@@ -20,11 +20,15 @@ jobs:
           added_files=${added_files// /;};
           added_files=${added_files//,/ };
           for item in ${added_files[@]}; do
-            added_modified_file=${item//;/ };
-            echo "Checking file: $added_modified_file"
-            if [[ "$added_modified_file" == *"contributions/essay/"* ]] && [[ "$added_modified_file" == *"pdf" ]] ; then
-              words=$(sudo pdftotext $added_modified_file - | wc -w)
-              echo "File $added_modified_file has $words words"
+            added_file=${item//;/ };
+            echo "Checking file: $added_file"
+            if [[ "$added_file" == *"contributions/essay/"* ]] && [[ "$added_file" == *"pdf" ]] ; then
+                if [[ $added_file == *" "* ]]; then
+                  echo "The added file names should not contain whitespace"
+                  exit 1
+                fi;
+              words=$(sudo pdftotext $added_file - | wc -w)
+              echo "File $added_file has $words words"
               if [ $words -lt 1800 ] || [ $words -gt 2200 ]; then
                 exit 1
               fi
