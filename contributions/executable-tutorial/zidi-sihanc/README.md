@@ -21,8 +21,8 @@ Our target:
 |  criteria   | what we do  |
 |  ----  | ----  |
 | successfully execute all the commands | yes, also in browser |
-| run on Linux  | yes |
-| gives enough background  | yes  |
-| easy to follow  | yes  |
+| run on Linux  | easy to setup and run |
+| gives enough background  | comprehensive background  |
+| easy to follow  | well documented  |
 | contains easter eggs | yes, we have three tips to show interesting things |
 | language is correct  | yes |
