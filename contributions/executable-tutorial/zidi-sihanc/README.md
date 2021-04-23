@@ -17,9 +17,9 @@ This is a free online tool. Readers need to register to use this tool.
  
 Our target:
 
-| successfully execute all the commands| yes, also in browser       |
-| run on Linux                         | yes                        |
-| gives enough background              | yes                        |
-| easy to follow                       | yes                        |
-| contains easter eggs                 | yes, three tips in tutorial|
-| language is correct                  | yes                        |
+| successfully execute all the commands | yes, also in browser |
+| run on Linux  | yes |
+| gives enough background  | yes  |
+| easy to follow  | yes  |
+| contains easter eggs | yes, we have three tips to show interesting things |
+| language is correct  | yes |
