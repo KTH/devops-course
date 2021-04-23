@@ -7,8 +7,7 @@ with lots of buildtargets, advanced conditions and bots for building just what i
 ## Preliminary Outline
 -  introduction
   - What is Rust
-  - What is a buildpipe
-  - What are GitHub Actions
+  - What is a CI
 - Parts of the Rust Build buildpipe
   - bots
      - [\@bors](https://bors.rust-lang.org/)
@@ -18,7 +17,8 @@ with lots of buildtargets, advanced conditions and bots for building just what i
       - docs
       - trying builds
       - releasing
-- General Contribution process (linking bots and actions together)
+   - The branches and repositories used
+- Summary
 
 ## Contributors
 
