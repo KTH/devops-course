@@ -10,5 +10,3 @@ TA will review the PR. If it is accepted, you could begin your work on this topi
 ## Final Submission
 
 You should make another pull-request which contains your PDF file of the essay.
-
-The PDF filename should end with ".pdf" and should not contain whitespace. Also, the branch from which you create the pull request should contain `essay-submission` in its name. These are required for our Github Action to check if your essay's word count is in the limits.
