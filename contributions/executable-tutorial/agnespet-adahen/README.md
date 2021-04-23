@@ -11,6 +11,3 @@ The user will not only get a better understanding of some basic testing knowledg
 ## Members
 - Agnes Petäjävaara <agnespet@kth.se> [anorangesky](https://github.com/anorangesky)
 - Adam Henriksson <adahen@kth.se> [adamih](https://github.com/Adamih)
- 
-
-

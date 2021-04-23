@@ -8,7 +8,7 @@
 
 
 ## Links
-[Video](https://youtu.be/JXhdkpANQqs)
+[Video](https://youtu.be/lAP04JPB78g)
 
 ## Description
 Our video demonstrates how to set up a simple CI pipeline with [Drone](https://www.drone.io/) for repos on [Bitbucket](https://bitbucket.org). We show how to configure your own Drone server to connect to a specific Bitbucket repo and demonstrate how Drone will automatically start building your code whenever you push to the repo.
@@ -32,5 +32,3 @@ The demonstration is clearly relevant to the DevOps subject. One major part of D
   - There is a voice over that is clearly understandable.  We put effort into writing a good script and recoding the voice over.
 - **The video includes a take-home message**
   - In the end of the video we have included a slide with clear actions for a viewer to take if they try to do the setup on their own and find any troubles on the way.
-
-
