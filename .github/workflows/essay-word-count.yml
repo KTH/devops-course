@@ -25,7 +25,7 @@ jobs:
             if [[ "$added_file" == *"contributions/essay/"* ]] && [[ "$added_file" == *"pdf" ]] ; then
               words=$(sudo pdftotext "${added_file}" - | wc -w)
               echo "File $added_file has $words words"
-              if [ $words -lt 1800 ] || [ $words -gt 2200 ]; then
+              if [ $words -lt 1900 ] || [ $words -gt 2100 ]; then
                 exit 1
               fi
             fi
