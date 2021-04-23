@@ -17,6 +17,9 @@ This is a free online tool. Readers need to register to use this tool.
  
 Our target:
 
+
+|  criteria   | what we do  |
+|  ----  | ----  |
 | successfully execute all the commands | yes, also in browser |
 | run on Linux  | yes |
 | gives enough background  | yes  |
