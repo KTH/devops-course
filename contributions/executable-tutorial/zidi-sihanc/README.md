@@ -1,4 +1,4 @@
-# Executable-tutorial: deploy php web application using docker
+# Executable-tutorial: Run TeamCity on Docker
 
 ## Members
 
@@ -6,13 +6,20 @@ Chen, Zidi: zidi@kth.se, https://github.com/Chen-Zidi
 
 Chen, Sihan: sihanc@kth.se, https://github.com/Spycsh
 
-## Proposal
+## Content
 
-We want to write a toturial on katacoda. 
-The idea is about to deploy a php web application using docker. 
-Docker is a useful too for CI/CD, which should fit the purpose of the course. 
-Since there is no such toturial on katacoda, we want to help to improve.
+TeamCity is a great CI/CD tool and Docker is a open platform for containerizing, which strongly related 
+to DevOps.
 
-If there are more suggestions, 
-please tell me :)
+We have wrote a blog on Dev.to [here](https://dev.to/chenzidi/run-teamcity-on-docker-5f8b). As explained in the
+blog, our tutorial can be executed on the web browser by [Play-With-Docker](https://labs.play-with-docker.com/#).
+This is a free online tool. Readers need to register to use this tool.
+ 
+Our target:
 
+| successfully execute all the commands| yes, also in browser       |
+| run on Linux                         | yes                        |
+| gives enough background              | yes                        |
+| easy to follow                       | yes                        |
+| contains easter eggs                 | yes, three tips in tutorial|
+| language is correct                  | yes                        |
