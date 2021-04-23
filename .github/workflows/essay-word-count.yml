@@ -5,7 +5,6 @@ name: Checking the Word Count of Submitted Essay
 jobs:
   check-essay:
     runs-on: ubuntu-18.04
-    if: ${{ contains(github.head_ref, 'essay-submission') }}
     steps:
       - uses: actions/checkout@v2
       - name: Install xpdf
@@ -22,7 +21,10 @@ jobs:
           added_files=${added_files//\"/ };
           added_files=${added_files/[/};
           added_files=${added_files/]/};
-          for added_modified_file in ${added_files[@]}; do
+          added_files=${added_files// /;};
+          added_files=${added_files//,/ };
+          for item in ${added_files[@]}; do
+            added_modified_file=${item//;/ };
             echo "Checking file: $added_modified_file"
             if [[ "$added_modified_file" == *"contributions/essay/"* ]] && [[ "$added_modified_file" == *"pdf" ]] ; then
               words=$(sudo pdftotext $added_modified_file - | wc -w)
