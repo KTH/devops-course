@@ -25,6 +25,8 @@ I was quite engaged with the tutorial. Overall nice work and a good topic. I onl
 
 4.	There were issues in performing the actual activities in steps 2 and 3, which I am highlighting in the feedback for specific steps.
 
+5.       There are some grammatical mistakes are present like missing semicolon, period etc. 
+
 
 ## Introduction
 
