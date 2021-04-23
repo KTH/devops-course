@@ -40,21 +40,23 @@ In complex.cpp file inclusion of iostream was missing, now it is included in rev
 
 Step 2 was dedicated for creating the test cases and running the CxxTest. The instructions in this step could be broken down into smaller sub instructions for better readability. However, the information provided in this section was good from understanding the structure of the code and rationale behind it.
 
-This step got bit complicated due to indentation issues in the makefile. It required some effort to fix the errors with the help of tutorial author. The makefile did generate the complex.o file, but it did not generate simple_test.out file.  I try to debug the error for 4 to 5 times and also updated the environment using the following command provided by the tutorial auther
+This step got bit complicated due to indentation issues in the makefile. It required some effort to fix the errors with the help of tutorial author. The makefile did generate the complex.o file, but it did not generate simple_test.out file.  It took 3 attempts to debug all the issues and also an  update to the environment using the following command provided by the tutorial author
 
 “ apt-get update -y” and “apt-get install -y cxxtest”
 
-I then did all the steps again, but it did not help. The tutorial author was quite helpful while I was trying to fix the issue.
+ The tutorial author was quite helpful while issues were being fixed. After fixing the issues, all the instructions were executed as per the tutorial without difficulties.
+
+
+
 
 ## Step 3
 
-I was not able execute the Step 3 completely because of the above mentioned issues. I could only execute the first command on step 3 and then the next command was not getting executed. If the errors in previous are debugged, then Step 3 could be performed in a quick succession.
 
-However, the activities provided in step3 with regards to Travis CI are  clear and easy to understand.  Link to the repo has been given, which is helpful for the tutorial learner.
+After fixing the issues by the author, now all instructions are executing properly in step 3 as well. Kudos to the author for quickly fixing the issue. The instructions provided in step 3 with regards to Travis CI are able to create the needed level of understanding for the learners, however to improve the readability, the instructions can be broken down in to smaller sub instructions.  Link to the repo has been given, which is helpful.
 
 ## End
 
 It would be helpful for the tutorial learner if you include resources or links to read more about topic for e.g. Travis CI: https://docs.travis-ci.com/user/tutorial/ , difference between Travis CI and Jenkins: https://www.guru99.com/jenkins-vs-travis.html for understanding CxxTest: https://cxxtest.com/
 
-Overall it is a good tutorial, nice efforts by the author..
+Overall it is a good tutorial, nice effort by the author..
 
