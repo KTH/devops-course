@@ -13,10 +13,10 @@ jobs:
         uses: trilom/file-changes-action@v1.2.3
       - name: Check the submitted essays
         run: >
-          added_files='${{ steps.file_changes.outputs.files_added  }}';
+          added_files='${{ steps.file_changes.outputs.files_added  }},${{ steps.file_changes.outputs.files_modified  }}';
           added_files=${added_files//\"/};
-          added_files=${added_files/[/};
-          added_files=${added_files/]/};
+          added_files=${added_files//[/};
+          added_files=${added_files//]/};
           added_files=${added_files// /;};
           added_files=${added_files//,/ };
           for item in ${added_files[@]}; do
