@@ -1,0 +1,66 @@
+name: Markdown content and change location validation
+
+on: pull_request
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - id: changed-files
+      name: Get changed files
+      uses: jitterbit/get-changed-files@v1
+
+    - name: Verify submission details
+      uses: bubriks/KTH-Course-content-verifier@master
+      with:
+        location: ^contributions/(.+)/(.+)/
+        changes: ${{ steps.changed-files.outputs.all }}
+        structure: >
+          {
+            "title": [
+              "^# presentation:.*$",
+              "^# essay:.*$",
+              "^# demo:.*$",
+              "^# open-source:.*$",
+              "^# executable tutorial:.*$",
+              "^# course automation:.*$",
+              "^# feedback:.*$"
+            ],
+            "member": {
+              "title": "^## members$",
+              "memberOne": [
+                {
+                  "nameAndEmail": "^[a-z]+( [a-z]+)* [a-z]+ \([a-z]+@kth.se\)$",
+                  "gitHub": "^github: https://github.com/[a-z]+$"
+                },
+                {
+                  "nameAndEmail": "^[a-z]+( [a-z]+)* [a-z]+ \([a-z]+@kth.se\)$"
+                }
+              ],
+              "memberTwo": [
+                {
+                  "nameAndEmail": "^[a-z]+( [a-z]+)* [a-z]+ \([a-z]+@kth.se\)$",
+                  "gitHub": "^github: https://github.com/[a-z]+$"
+                },
+                {
+                  "nameAndEmail": "^[a-z]+( [a-z]+)* [a-z]+ \([a-z]+@kth.se\)$"
+                },
+                {}
+              ],
+              "memberThree": [
+                {
+                  "nameAndEmail": "^[a-z]+( [a-z]+)* [a-z]+ \([a-z]+@kth.se\)$",
+                  "gitHub": "^github: https://github.com/[a-z]+$"
+                },
+                {
+                  "nameAndEmail": "^[a-z]+( [a-z]+)* [a-z]+ \([a-z]+@kth.se\)$"
+                },
+                {}
+              ]
+            },
+            "proposal": "^## proposal$"
+          }

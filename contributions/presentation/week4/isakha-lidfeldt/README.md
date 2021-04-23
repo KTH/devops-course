@@ -18,3 +18,7 @@ The topics that will be covered are:
 * Open-source DevOps tools, brief overview
 * Open-source attacks
 * Workflow for importing new tools 
+
+## Slides
+The slides are vailable as a PDF in this folder. 
+Or use this link for the Google presentation: [Link to the slides](https://docs.google.com/presentation/d/1yg-VugFIyyxxv-h4Ub4S-z_xPuxzIwfyyPAEkVlGgHA/edit?usp=sharing)
