@@ -5,7 +5,6 @@ name: Checking the Word Count of Submitted Essay
 jobs:
   check-essay:
     runs-on: ubuntu-18.04
-    if: ${{ contains(github.head_ref, 'essay-submission') }}
     steps:
       - uses: actions/checkout@v2
       - name: Install xpdf
@@ -15,18 +14,17 @@ jobs:
       - name: Check the submitted essays
         run: >
           added_files='${{ steps.file_changes.outputs.files_added  }}';
-          if [[ $added_files == *" "* ]]; then
-            echo "The added file names should not contain whitespace"
-            exit 1
-          fi;
-          added_files=${added_files//\"/ };
+          added_files=${added_files//\"/};
           added_files=${added_files/[/};
           added_files=${added_files/]/};
-          for added_modified_file in ${added_files[@]}; do
-            echo "Checking file: $added_modified_file"
-            if [[ "$added_modified_file" == *"contributions/essay/"* ]] && [[ "$added_modified_file" == *"pdf" ]] ; then
-              words=$(sudo pdftotext $added_modified_file - | wc -w)
-              echo "File $added_modified_file has $words words"
+          added_files=${added_files// /;};
+          added_files=${added_files//,/ };
+          for item in ${added_files[@]}; do
+            added_file=${item//;/ };
+            echo "Checking file: $added_file"
+            if [[ "$added_file" == *"contributions/essay/"* ]] && [[ "$added_file" == *"pdf" ]] ; then
+              words=$(sudo pdftotext "${added_file}" - | wc -w)
+              echo "File $added_file has $words words"
               if [ $words -lt 1800 ] || [ $words -gt 2200 ]; then
                 exit 1
               fi
