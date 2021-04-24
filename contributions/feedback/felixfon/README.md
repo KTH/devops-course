@@ -8,6 +8,8 @@ Essay proposal pull-request: [#1069](https://github.com/KTH/devops-course/pull/1
 
 Essay submission pull-request: [#1294](https://github.com/KTH/devops-course/pull/1294)
 
+Correction proposal to the essay submission pull-request: [#3](https://github.com/isacarvid/devops-course/pull/3)
+
 # Feedback
 
 In summary, it was a good essay to read and learn about this subject. The text was appropriate and present a problem of DevOps and testing. I pinpointed some elements that are good to work on in my opinion!
@@ -62,7 +64,7 @@ Good work overall! :)
 | -----------------
 | The feedback includes both strengths and weaknesses about the task
 | The feedback is provided 4 business days before the task deadline
-| All points are clearly actionable (PR on PR)
+| All points are clearly actionable ([PR on PR](https://github.com/isacarvid/devops-course/pull/3))
 | The feedback is substantiated (676 words)
 | The feedback contains pointers to additional material
 | The students act upon the feedback they receive
