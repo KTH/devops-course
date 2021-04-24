@@ -67,4 +67,3 @@ There was a couple of warnings during the demo:
 - No decription field, can eliminated by adding to the package.json
 - No repository field, can eliminated by adding to the package.json
 - npm compadible with lockfileVersion@1, but package-lock.json was generated for lockfileVersion@2.
-
