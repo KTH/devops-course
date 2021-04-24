@@ -41,6 +41,9 @@ I like the presentation of the references, the page is clear and dated. However,
 
 Note to read your essay again before submitting, there some typos and easy mistakes to correct. (e.g. “_for instance, let say_” without majuscule at the second paragraph of part 2.4).
 
+Also, I didn't see any occurrence of the reference [9].
+
+
 Good work overall! :)
 
 
