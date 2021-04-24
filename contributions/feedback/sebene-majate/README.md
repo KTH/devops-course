@@ -14,10 +14,7 @@ Feedback to the executable tutorial "[Integrate DataDog in existing app](https:/
 
 ### Overall feedback
 In general, the tutorial was easy to follow, and no problems were encountered during the execution. Furthermore, the content was relevant, and the structure seemed thought trough. We especially liked that you included step 2 where one runs the application without DataDog. This step helps demonstrate how cumbersome logs can be and why DataDog is useful.
-<!---
-Add some sentence about the `Next` sections being appreciated??
-Add a comment mentioning that they used Katakoda in a good way?
--->
+
 
 However, some things could be explained further to give us reader a better understanding of what we do and how it works. If you feel that some explanations are outside the scope of the tutorial, it could also be an idea to link sources for readers who want to learn more. You might also want to add references to images you have not created yourself.
 
