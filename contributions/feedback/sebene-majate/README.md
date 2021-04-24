@@ -52,6 +52,7 @@ Even if these points do not make the tutorial less clear or easy to follow, it r
 - In the code snippet in section `Application Environment` the indentation of the env variables looks a bit off. Is it possible to fix it, or is that a problem with Katakoda? The indentation is correct if the code is copied, so it is not really a problem.
 - Where does port 8126 (in the code snippet) come from? Is this defined by DataDog or by the to-do app? This type of information would be useful for a reader that want to follow the tutorial when implementing DataDog for their own application.
 - In the `Next` section it is stated that "In the next step, you will build and run your compose file". However, this does not happen until step 5. This sentence could be removed. If you still want to mention that we will soon be able to run the program you could instead write something like "In the next step, you will ... , which will be the final step before we can build and run ..."
+- It could be clearer that the user doesn't need to install anything on their local machine in this step.
 
 ### Step 4
 - The sentence in the intro is missing a period.
@@ -63,3 +64,10 @@ Even if these points do not make the tutorial less clear or easy to follow, it r
 
 ### Congratulations
 - It is great that you put DataDog in a greater context and inspire us readers to explore other topics within DevOps.
+
+### Nitpicks
+There was a couple of warnings during the demo: 
+- No decription field, can eliminated by adding to the package.json
+- No repository field, can eliminated by adding to the package.json
+- npm compadible with lockfileVersion@1, but package-lock.json was generated for lockfileVersion@2.
+
