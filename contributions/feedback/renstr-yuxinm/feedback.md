@@ -34,3 +34,5 @@ As an essay, the number of references meets the requirements. References are pre
 
 ## Structure
 I have some personal suggestions for the structure of the article. I think Section 2 is a bit long, and use cases about tools can not be part of the background section.Alternatively, you can merge the two sections (section 2.3 and Section 2.5) into a higher level new section, such as Section 4, after section 3comparison.
+
+In addition, if you want to modify the essay, you should pay attention to the word limit. I hope you can successfully complete the revision of the paper.
