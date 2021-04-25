@@ -8,7 +8,7 @@ GitHub: [ChangGabriel](https://github.com/ChangGabriel)
 
 I would like to give feedback on the essay *DevSecOps - the new DevOps?*, [#995](https://github.com/KTH/devops-course/pull/995).
 
-# Feedback for essay "DevSecOps - the new DevOps?"(PR #1249)
+# Feedback for essay "DevSecOps - the new DevOps?"[PR #1249](https://github.com/KTH/devops-course/pull/1249)
 
 ## General feedback
 Overall this is a very well written essay. It was interesting  to read about the importance and challenges of integrating the security aspects in the DevOps process. The essay shows balance in argumentation as it brings up whether DevSecOps is needed as a new term or if security aspects are already included in DevOps.
@@ -21,7 +21,7 @@ Overall this is a very well written essay. It was interesting  to read about the
 * Despite the limited wordcount, the essay has a good conclusion that rounds the essay nicely. You answer the question asked in the beginning.
 * Correct use of references and are appropriate in number and quality. References are presented well and clearly.
 
-### primary improvements
+### Primary improvements
 * There are some grammatical errors and wrongly formulated sentences that unfortunately disturbs the flow of the text.
 * It would be interesting if the essay expanded on the part about whether DevSecOps is needed as a term. Due to limited word count I can understand why this wasn't elaborated on more.
 * If possible include even more figures in your text. e.g in the DevSecOps practices section, have a figure for the tool security incident process' different parts.
