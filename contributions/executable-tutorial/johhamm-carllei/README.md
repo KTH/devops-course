@@ -9,9 +9,11 @@ This project was aimed to teach others how to setup a github action with continu
 
 This will help developers easily compare benchmark results and alert on worse performance when making a new commits. The statistics from the latest run is found in `output.json` and the historical comparission table is visualized in the generated page available [here](https://jhammarstedt.github.io/Benchmarking-DevOps/). 
 
-## Katacoda tutorial
-We have created a katacoda tutorial that walks through every step of how to build and set up this repo.
-It's available [here](https://www.katacoda.com/jhamm/scenarios/ghactiondemo)
+## Relevant links
+* Katacoda tutorial is found [here](https://www.katacoda.com/jhamm/scenarios/ghactiondemo)
+* Project repository is found [here](https://github.com/jhammarstedt/Benchmarking-DevOps)
+* First PR is found [here](https://github.com/KTH/devops-course/pull/1158)
+
 
 ## Description and usage (when not running the tutorial)
 To try this project out (if not running the tutorial) simply fork this repository and create a commit. 
@@ -39,9 +41,7 @@ If you want to reset the table simply run
   Did you collect the 🥚 from scripts?
 </details>
 
-
-## Future work
-* Add support for more languages
+## Grading table
 
 |                                             | Yes | No | Remarkable |
 |-------------------------------------------- | ----|----|-------------|
@@ -53,5 +53,11 @@ If you want to reset the table simply run
 |The tutorial contains [easter eggs](https://github.com/OrkoHunter/python-easter-eggs) | Yes | No |👍 Subtle and fun |
 |The tutorial is successful (attracts comments and success) | Yes | No | Lively discussion |
 |The language is correct |👍 Yes | No | Interesting narrative  |
+
+
+
+## Future work
+* Add support for more languages
+
 
 
