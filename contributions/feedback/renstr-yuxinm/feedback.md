@@ -1,8 +1,9 @@
 # Feedback for essay "Comparison of Splunk and Nagios Devop monitoring tools and their use cases"
 
 ## Member
-Yuxin Meng (yuxinm@kth.se) 
+Yuxin Meng [@yuxinm](https://github.com/yuxinmmmm) email: yuxinm@kth.se
 
+Anders Renström [@renstr](https://github.com/Renstrom) email: renstr@kth.se
 
 ## Pull-requests 
 Essay proposal pull-request: [#1021](https://github.com/KTH/devops-course/pull/1021)
