@@ -5,7 +5,7 @@
 * Carl Leijonberg (carllei@kth.se), Github : [carllei](https://github.com/carllei)
 
 ## Task
-This project was aimed to teach others how to setup a github action with continuous benchmarking using pytest and visualizing it with github pages. 
+This project was aimed to teach others how to setup a github action with continuous benchmarking using pytest and visualizing it with Github Pages. 
 
 This will help developers easily compare benchmark results and alert on worse performance when making a new commits. The statistics from the latest run is found in `output.json` and the historical comparission table is visualized in the generated page available [here](https://jhammarstedt.github.io/Benchmarking-DevOps/). 
 
