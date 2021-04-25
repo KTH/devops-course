@@ -3,6 +3,7 @@
 ## Member
 Yuxin Meng (yuxinm@kth.se) 
 
+
 ## Pull-requests 
 Essay proposal pull-request: [#1021](https://github.com/KTH/devops-course/pull/1021)
 
@@ -23,10 +24,13 @@ For example, in the section on Nagios use cases, there are detailed descriptions
 
 ## Comparison
 I think it makes sense to select three metrics for comparison, which are really elements to consider when choosing which monitoring tool to use.
-I think you can also compare the differences from the monitoring features mentioned in the introduction to the monitoring tools in Section2.1 and the advantages and disadvantages of the two tools mentioned in Section2.2 and 2.4.
+But I think the comparison between the two tools is not just in terms of the metrics used to select the tool, but also in terms of their own characteristics. So I think you can also compare the differences from the monitoring features mentioned in the introduction to the monitoring tools in Section2.1 and the advantages and disadvantages of the two tools mentioned in Section2.2 and 2.4.
 
 ## Conclusion
 The conclusion section summarizes the differences between the two by comparison. But there seems to be a lack of conclusions about use cases. This can be added after a description of the pros and cons of each tool. Splunk, for example, has advantages that make it a priority to use it in certain cases, and then you can talk about these use cases.
 
 ## References
-References are presented well, clearly, and in the proper order. Both the reference in the article and the URL mentioned in the reference have clickable links, which I think is well done. Perhaps a little understated is the lack of references to academic journals or studies.
+As an essay, the number of references meets the requirements. References are presented well, clearly, and in the proper order. Both the reference in the article and the URL mentioned in the reference have clickable links, which I think is well done. Perhaps a little understated is the lack of references to academic journals or studies.
+
+## Structure
+I have some personal suggestions for the structure of the article. I think Section 2 is a bit long, and use cases about tools can not be part of the background section.Alternatively, you can merge the two sections (section 2.3 and Section 2.5) into a higher level new section, such as Section 4, after section 3comparison.
