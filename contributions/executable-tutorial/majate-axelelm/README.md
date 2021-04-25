@@ -12,3 +12,6 @@ There will also be a section about why CI is good.
 We plan writing it on medium.com
 
 Our previous PR (#1214) was not approved, so we changed to Python and hope that it is okay.
+
+## Execution
+The tutorial is available [here](https://github.com/elmaxe/devops-tutorial#readme).
