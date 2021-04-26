@@ -32,7 +32,7 @@ print(feedbacked)
 
 
 #THIS SECTION CREATES LABELS IF THEY DON'T EXIST IN THE REPO
-labels_repo = [l.name for l in repo.labels]
+labels_repo = [l.name for l in repo.get_labels()]
 
 label_names = ["feedbackable", "feedback claimed", "feedbacked"]
 colors = ["FFDC73", "97B1F3", "3D5BA5"]
