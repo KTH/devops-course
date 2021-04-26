@@ -36,4 +36,5 @@ pr_number = feedbacked[0][1:]
 pr = repo.get_pull(1)
 pr_labels = pr.labels
 
+print(pr.title)
 print(pr_labels)
