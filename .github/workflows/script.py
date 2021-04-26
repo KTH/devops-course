@@ -24,15 +24,12 @@ for name in feedback_folders_names:
         if regex_search:
             feedbacked.append(int(regex_search.group()[1:]))
 
-print(feedbacked)
 
 
 #THIS SECTION FINDS THE PRs THAT WILL BE FEEDBACKED 
 feedbacks_claimed = []
-print(repo.get_pulls(state="open"))
 for pr in repo.get_pulls(state="open"):
     regex_search = re.search("#[0-9]+", pr.body)
-    print(pr.body)
     if regex_search:
         feedbacks_claimed.append(int(regex_search.group()[1:]))
 
