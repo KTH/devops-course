@@ -1,4 +1,6 @@
 import os, re
+from github import Github 
+import sys
 
 path_to_feedback = "contributions/feedback/"
 feedback_folders_names = list(filter(lambda name: os.path.isdir(path_to_feedback+name), os.listdir(path_to_feedback)))
@@ -18,9 +20,9 @@ for name in feedback_folders_names:
 
 print(feedbacked)
 
-from github import Github 
 
-g = Github(login_or_token="access_token")
+g = Github(login_or_token=sys.argv[1])
 
-import sys
-print(sys.argv)
+
+for repo in g.get_user().get_repos():
+    print(repo.name)
