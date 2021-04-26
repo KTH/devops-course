@@ -23,4 +23,4 @@ from github import Github
 g = Github(login_or_token="access_token")
 
 import sys
-print(sys.argv[1])
+print(sys.argv)
