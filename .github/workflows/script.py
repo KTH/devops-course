@@ -23,6 +23,6 @@ print(feedbacked)
 
 g = Github(login_or_token=sys.argv[1])
 
+repo = g.get_repo("Hilaire-Bouaddi/devops-course")
 
-for repo in g.get_user().get_repos():
-    print(repo.name)
+print(repo.name)
