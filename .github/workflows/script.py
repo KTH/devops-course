@@ -2,10 +2,16 @@ import os, re
 from github import Github 
 import sys
 
+
+g = Github(login_or_token=sys.argv[1])
+repo = g.get_repo("Hilaire-Bouaddi/devops-course")
+#print(repo.name)
+
+#THIS SECTION FINDS THE PRs THAT ARE FEEDBACKED
+
 path_to_feedback = "contributions/feedback/"
 feedback_folders_names = list(filter(lambda name: os.path.isdir(path_to_feedback+name), os.listdir(path_to_feedback)))
-
-feedbacked = []
+feedbacked = [] # this will be the list of feedbacked PR 
 
 for name in feedback_folders_names:
     files = os.listdir(path_to_feedback+name)
@@ -21,8 +27,13 @@ for name in feedback_folders_names:
 print(feedbacked)
 
 
-g = Github(login_or_token=sys.argv[1])
+#THIS SECTION FINDS THE PRs THAT WILL BE FEEDBACKED 
 
-repo = g.get_repo("Hilaire-Bouaddi/devops-course")
 
-print(repo.name)
+#THIS SECTION APPLIES THE LABELS
+
+pr_number = feedbacked[0][1:]
+pr = repo.get_pull(pr_number)
+pr_labels = pr.labels
+
+print(pr_labels)
