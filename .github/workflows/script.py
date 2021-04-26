@@ -32,10 +32,13 @@ print(feedbacked)
 
 
 #THIS SECTION CREATES LABELS IF THEY DON'T EXIST IN THE REPO
+labels = repo.labels
+
 label_names = ["feedbackable", "feedback claimed", "feedbacked"]
 colors = ["FFDC73", "97B1F3", "3D5BA5"]
 for i in range(3):
-    repo.create_label(label_names[i], colors[i])
+    if label_names[i] not in label_names:
+        repo.create_label(label_names[i], colors[i])
 
 #THIS SECTION APPLIES THE LABELS
 
