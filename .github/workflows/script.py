@@ -19,16 +19,23 @@ for name in feedback_folders_names:
     if len(files) == 1 and files[0][-3:].lower()==".md":
         markdown = files[0]
         content = open(path_to_feedback+name+"/"+markdown, encoding="utf-8").read()
-        results = re.search("#[0-9]+", content)
+        regex_search = re.search("#[0-9]+", content)
 
-        if results:
-            feedbacked.append(int(results.group()[1:]))
+        if regex_search:
+            feedbacked.append(int(regex_search.group()[1:]))
 
 print(feedbacked)
 
 
 #THIS SECTION FINDS THE PRs THAT WILL BE FEEDBACKED 
+feedbacks_claimed = []
+for pr in repo.get_pulls(state="open"):
 
+    for pr_comment in pr.get_comments():
+
+        regex_search = re.search("#[0-9]+", pr_comment.body)
+        if regex_search:
+            feedbacks_claimed.append(int(regex_search.group()[1:]))
 
 
 #THIS SECTION CREATES LABELS IF THEY DON'T EXIST IN THE REPO
@@ -52,5 +59,7 @@ for pr in repo.get_pulls(state="closed"):
         
         if pr.number in feedbacked:
             pr.add_to_labels("feedbacked")
+        elif pr.number in feedbacks_claimed:
+            pr.add_to_labels("feedback claimed")
         else:
             pr.add_to_labels("feedbackable")
