@@ -26,6 +26,6 @@ jobs:
     - name: install dependencies
       run: pip install PyGithub
     - name: run python script 
-      run: python .github/workflows/script.py
+      run: python .github/workflows/script.py ${{ secrets.GITHUB_TOKEN }}
 
     
