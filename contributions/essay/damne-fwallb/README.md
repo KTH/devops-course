@@ -10,7 +10,7 @@ The essay will compare devops to devsecops and discuss what is required to get f
 
 Overview
 
-- Inrtoduction
+- Intoduction
 - Description of DevOps
 - Description of DevSecOps
 - Tools and practicies in DevSecOps
