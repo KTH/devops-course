@@ -1,0 +1,1 @@
+I want to talk about life and DevOps.
