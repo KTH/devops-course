@@ -33,7 +33,7 @@ print(feedbacked)
 #THIS SECTION APPLIES THE LABELS
 
 pr_number = feedbacked[0][1:]
-pr = repo.get_pull(pr_number)
+pr = repo.get_pull("1")
 pr_labels = pr.labels
 
 print(pr_labels)
