@@ -16,11 +16,11 @@ Check the length of the video and if it is between 3 and 5 minutes
 Update PR status
 
 ## Result
-The developed Github Action can be found [here](https://github.com/marketplace/actions/youtube-checker) 
+The developed Github Action can be found [here](https://github.com/marketplace/actions/youtube-checker).
 All requirments and full setup is described on the frontpage of the provided link above.
 
-Demos can be found [here](https://github.com/heeenkie/youtube-link-checker-action/pulls)
-The above demo have copied the path from KTH/devops-course github repository 
+Demos can be found [here](https://github.com/heeenkie/youtube-link-checker-action/pulls).
+The repo have copied the path from KTH/devops-course github repository 
 and a pull with a readme file including a youtube link have been requested.
 
 The action runs on pull requests inside the demo folder. It checks all youtube links provided in the readme file. 
