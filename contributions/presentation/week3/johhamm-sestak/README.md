@@ -1,15 +1,15 @@
-# Proposal ML_OPS: Current applications and future possibilities
-
+# Proposal MLOps: Overview and current use
 
 ## Members
-* Johan Hammarstedt, johham@kth.se, Github: jhammarstedt
+* Johan Hammarstedt, johhamm@kth.se, Github: [jhammarstedt](https://github.com/jhammarstedt)
 
-* Matej Sestak, sestak@kth.se, Github: sestys
+* Matej Sestak, sestak@kth.se, Github: [sestys](https://github.com/sestys)
 
-## Topic
-The idea is that the presentation will outline MLOPS, its difference from DevOps, its history, best practice.
+## Agenda
+* Motivation for MLOps
+* MLOps vs DevOps
+* MLOps workflow
+* Current trends within MLOps
 
 ## Slides
-To be created
-## References
-To be read
+The slides are in the PDF.
