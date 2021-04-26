@@ -26,6 +26,7 @@ We includes:
 - suggestions about when to use
 
 ## Our target
+
 |           criteria                                  | Target |
 |-------------------------------------------- | ---- |
 | format: The essay is in PDF | :fire: |
@@ -40,4 +41,23 @@ We includes:
 | elegant: The essay presentation is elegant / visually appealing (eg LaTeX, InDesign) | :fire: By LateX |
 | relevant: The essay addresses a topic that is relevant for DevOps | :fire: |
 
+## What we have done according to feedback
 
+Thanks a lot for the feedback from @charlottea98. Quick feedback within 24 hours and really good suggestions.
+
+- Section 1 : introduce the concept of shrinking and generator in the first paragraph
+- Section 1 : change the last paragraph according to the suggestion because it is not in an understandable manner
+- Section 2 : change the section title from "What is property-based testing" to "property-based testing"
+- Section 2 : clarify the first sentence
+- Section 2 : add a few words to explain how the problems in different categories are detected. Since we are writing a brief introduction, we think it would be too much to go into concrete examples of how the problems are found.
+- Section 2.1 : delete "As known to all"
+- Section 2.2 : clarify the idea of combining basic generators using a small example.
+- Section 2.3 : state the fault implementation before showing the figure
+- Section 3 : change "boring" to "tedious" and "time consuming" 
+- Section 4 : clarify the sentence of QuickCheck and QuviQ
+- Section 4 : clarify the last paragraph "Developers should choose tools based on their own situations"
+- Section 5 : rewrite the sentence "If there are a lot of possible combinations of inputs..."
+- Section 5 : add "or not" in the last sentence
+- Section 5 and 6 : move the statement of future work to the discussion seciton
+- Section 6 : add the last sentence to summarize
+- delete unnecessary sentences and one unnecessary reference
