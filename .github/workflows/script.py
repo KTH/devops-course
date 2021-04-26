@@ -22,7 +22,7 @@ for name in feedback_folders_names:
         results = re.search("#[0-9]+", content)
 
         if results:
-            feedbacked.append(results.group())
+            feedbacked.append(int(results.group()[1:]))
 
 print(feedbacked)
 
@@ -42,9 +42,15 @@ for i in range(3):
 
 #THIS SECTION APPLIES THE LABELS
 
-pr_number = feedbacked[0][1:]
-pr = repo.get_pull(1)
-pr_labels = pr.labels
 
-print(pr.title)
-print(pr_labels)
+for pr in repo.get_pulls(state="closed"):
+    if pr.is_merged(): # we are only interested in merged pull requests
+        pr_labels = pr.labels
+        for label in pr_labels:
+            if label.title in label_names:
+                pr.remove_from_labels(label)
+        
+        if pr.number in feedbacked:
+            pr.add_to_labels("feedbacked")
+        else:
+            pr.add_to_labels("feedbackable")
