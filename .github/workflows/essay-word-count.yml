@@ -1,0 +1,32 @@
+name: Checking the Word Count of Submitted Essay
+'on':
+  pull_request:
+  workflow_dispatch: []
+jobs:
+  check-essay:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install xpdf
+        run: sudo apt-get install -y xpdf
+      - id: file_changes
+        uses: trilom/file-changes-action@v1.2.3
+      - name: Check the submitted essays
+        run: >
+          added_files='${{ steps.file_changes.outputs.files_added  }},${{ steps.file_changes.outputs.files_modified  }}';
+          added_files=${added_files//\"/};
+          added_files=${added_files//[/};
+          added_files=${added_files//]/};
+          added_files=${added_files// /;};
+          added_files=${added_files//,/ };
+          for item in ${added_files[@]}; do
+            added_file=${item//;/ };
+            echo "Checking file: $added_file"
+            if [[ "$added_file" == *"contributions/essay/"* ]] && [[ "$added_file" == *"pdf" ]] ; then
+              words=$(sudo pdftotext "${added_file}" - | tr -d '.' | wc -w)
+              echo "File $added_file has $words words"
+              if [ $words -lt 1900 ] || [ $words -gt 2100 ]; then
+                exit 1
+              fi
+            fi
+          done
