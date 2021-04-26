@@ -30,6 +30,13 @@ print(feedbacked)
 #THIS SECTION FINDS THE PRs THAT WILL BE FEEDBACKED 
 
 
+
+#THIS SECTION CREATES LABELS IF THEY DON'T EXIST IN THE REPO
+label_names = ["feedbackable", "feedback claimed", "feedbacked"]
+colors = ["yellow", "red", "black"]
+for i in range(3):
+    repo.create_label(label_names[i], colors[i])
+
 #THIS SECTION APPLIES THE LABELS
 
 pr_number = feedbacked[0][1:]
