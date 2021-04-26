@@ -32,7 +32,7 @@ feedbacks_claimed = []
 for pr in repo.get_pulls(state="open"):
 
     for pr_comment in pr.get_comments():
-
+        print(pr_comment.body)
         regex_search = re.search("#[0-9]+", pr_comment.body)
         if regex_search:
             feedbacks_claimed.append(int(regex_search.group()[1:]))
