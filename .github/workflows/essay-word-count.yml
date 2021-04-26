@@ -23,7 +23,7 @@ jobs:
             added_file=${item//;/ };
             echo "Checking file: $added_file"
             if [[ "$added_file" == *"contributions/essay/"* ]] && [[ "$added_file" == *"pdf" ]] ; then
-              words=$(sudo pdftotext "${added_file}" - | wc -w)
+              words=$(sudo pdftotext "${added_file}" - | tr -d '.' | wc -w)
               echo "File $added_file has $words words"
               if [ $words -lt 1900 ] || [ $words -gt 2100 ]; then
                 exit 1
