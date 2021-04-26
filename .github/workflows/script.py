@@ -47,7 +47,7 @@ for pr in repo.get_pulls(state="closed"):
     if pr.is_merged(): # we are only interested in merged pull requests
         pr_labels = pr.labels
         for label in pr_labels:
-            if label.title in label_names:
+            if label.name in label_names:
                 pr.remove_from_labels(label)
         
         if pr.number in feedbacked:
