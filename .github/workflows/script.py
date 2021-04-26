@@ -31,10 +31,19 @@ print(feedbacked)
 feedbacks_claimed = []
 for pr in repo.get_pulls(state="open"):
 
+    # we are only interested in the PRs that propose contributions in executable tutorial or essay
+    proposal = False
+    valid_contribution = False
+    for label in pr.labels:
+        if label.name == "proposal":
+            proposal = True
+        elif label.name == "essay" or label.name == "tutorial":
+            valid_contribution = True 
 
-    regex_search = re.search("#[0-9]+", pr.body)
-    if regex_search:
-        feedbacks_claimed.append(int(regex_search.group()[1:]))
+    if proposal and valid_contribution:
+        regex_search = re.search("#[0-9]+", pr.body)
+        if regex_search:
+            feedbacks_claimed.append(int(regex_search.group()[1:]))
 
 
 #THIS SECTION CREATES LABELS IF THEY DON'T EXIST IN THE REPO
