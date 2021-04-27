@@ -16,3 +16,11 @@ When I have worked with this on a personal project I wasn't able to find anythin
 While it would probably look better and be more useful on Medium, I'll probably have to go with one of the browser platforms like Katacoda based on the grading criteria.
 
 Question: Would it work if I create one version on Katacoda and one on Medium?
+
+## Submission For Feedback
+I have opted to only do a version for Katacoda for now. 
+
+The tutorial can be found at [katacoda.com/oskstr/scenarios/lambda-authorizer-with-serverless](https://www.katacoda.com/oskstr/scenarios/lambda-authorizer-with-serverless)
+and the repo can be found at [oskstr/katacoda-scenarios](https://github.com/oskstr/katacoda-scenarios).
+
+Looking forward to feedback from @sfkwww as per [#1162](https://github.com/KTH/devops-course/pull/1162).
