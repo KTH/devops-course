@@ -5,11 +5,10 @@ Sara Damne - [damne@kth.se](damne@kth.se) - [@damnePers](github.com/damnePers)
 
 Frida Wallberg - [fwallb@kth.se](fwallb@kth.se) - [@fwallb](github.com/fwallb)
 
-### Proposal
-The essay will compare devops to devsecops and discuss what is required to get from devops to devsecops and what challenges that brings. 
+### Description
+The essay compares DevOps and DevSecOps. It describes what is required to go from DevOps to DevSecOps and what challenges that brings, and disuss the question _if DevSecOps is the new DevOps_.
 
 Overview
-
 - Intoduction
 - Description of DevOps
 - Description of DevSecOps
