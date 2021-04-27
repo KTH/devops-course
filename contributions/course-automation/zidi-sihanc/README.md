@@ -6,15 +6,12 @@ Chen, Zidi: zidi@kth.se, https://github.com/Chen-Zidi
 Chen, Sihan sihanc@kth.se, https://github.com/Spycsh
 
 
-## Proposal
+## Content
 
-We want to check the validity of the deadlinks in the course github 
-text descriptions, for example, readme files. Because sometimes 
-the links might be not accessible or out of date.
+You can view the concrete implementation code and the usage of this automation tool with the link below:
 
+[https://github.com/Chen-Zidi/check-modified-contents-link-validity-action](https://github.com/Chen-Zidi/check-modified-contents-link-validity-action)
 
-## Proposed solution
+This project creates GitHub action, which checks the validity of the links in the modified content for a pull request. If there are invalid links in the added content, the output of the GitHub action should be false, and the pull request will be **closed**. Meanwhile, the invalid links are **commented** in the closed pull request so contributers can be notified about the invalid links. This action should be triggered by pull_request_target event, which means it can serve as an early-check before manual merging. Notice that we only check the links which start with **http://** and **https://**.
 
-After finding a broken link, our idea is:
-- to create a github action and whenever there is a pull request, the action should automatically parse the children or descendant pages under the course website (KTH/devops-course) to find all the broken links
-- to show the detail information (time of when the action find the broken link, the corresponding commit log and who writes this dead link, using git blame maybe) of all the broken links in a list of one issue
+You can view a demo of our action here [https://github.com/Chen-Zidi/devops-course/](https://github.com/Chen-Zidi/devops-course/), and the action name is `check-link-validity`.
