@@ -24,11 +24,29 @@ I would like to show a totural about how to creat multi systemd-nspawn container
 
 * Multiple Jenkins containers running simultaneously
 
-~~I will try to use katacoda platform firstly, if it can not provide a needed environment.~~ I will write a local totural and post on my blog.
+## How to read the totural
 
-## The totural link
+~~I will try to use katacoda platform firstly, if it can not provide a needed environment. I will write a local totural and post on my blog.~~
+
+I write a document and an executable script. The best way to learn this tutorial is to combine the two. My blog posts are comprehensive and detailed. And the script is concise and comes with 6 quizzes.
+
+The script is divided into four sections, corresponding to the four chapters of the body of the article.
+
+### The totural link
+
 * [My Blog](https://amao.run/en/posts/systemd-nspwan/)
 * [The Github](https://github.com/amaothree/amaothree.github.io/blob/master/content/en/posts/Systemd-nspwan.md)
+* [The Executable Script](https://gist.github.com/amaothree/d8bac64e5225b15db84aaf8e3aa6e08d#file-totural-sh)
+
+### How to download and run the script.
+
+1. Open a new terminal tab. If you using WSL, open a wsl tab in Windows terminal.
+2. Copy and Execute:
+    ```bash
+    curl -o totural.sh https://gist.githubusercontent.com/amaothree/d8bac64e5225b15db84aaf8e3aa6e08d/raw/fdff92ffddac8626584ad823a3b01ce0795c9f4a/totural.sh
+    chmod +x ./totural.sh
+    ./totural.sh
+    ```
 
 
 ## My goals
