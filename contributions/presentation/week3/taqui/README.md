@@ -1,4 +1,4 @@
-# Presentation Proposal: Cloud and the journey for a start-up to Fortune 500
+# Presentation Submission: Cloud and the journey for a start-up to Fortune 500
 
 ## Members
 
