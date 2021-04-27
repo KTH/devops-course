@@ -5,6 +5,6 @@
 - [Dina Lerjevik](https://github.com/dmariel) (lerjevik@kth.se)
 - [Anders Renström](https://github.com/Renstrom) (renstr@kth.se)
  
-## Link to public code repository
+## Link to public repository
  
-The code is available [here](https://github.com/dmariel/upvote-action)
+The project is available [here](https://github.com/dmariel/upvote-action), including code, documentation and motivation of fulfillment of grading criteria.
