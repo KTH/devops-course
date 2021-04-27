@@ -12,13 +12,14 @@ by @monperrus on the Devops and Security issue.
  
 See outline for more detail.
 
-## Outline
+## Agenda
 * What is Google Cloud Deployment Manager?
 * Short reminder of the DevSecOps concept.
 * What sort of approach is taken to find the vulnerabilties? (multiple options via audience interaction)
 * Where were the actual vulnerabilities?
 * Relating the vulnerabilities to other DevOps platforms you may work on.
 * Challenges and compromises in your DevSecOps solutions.
-* Takeaway introduction to bug bounty programs.
+* Takeaway introduction to bug bounty programs and hacking state of mind.
 
-The contents may be altered to fit the strict presentation timeframe, but the core content should remain.
+## Presentation slides
+The presentation slides are available [here](https://docs.google.com/presentation/d/16sdfGezzHIV5zrj4Zrnc6chD7GEFIIUABk7AieBxOv8/edit?usp=sharing).

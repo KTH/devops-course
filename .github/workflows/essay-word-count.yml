@@ -1,0 +1,33 @@
+name: Checking the Word Count of Submitted Essay
+'on':
+  pull_request:
+  workflow_dispatch: []
+jobs:
+  check-essay:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install xpdf
+        run: sudo apt-get install -y xpdf
+      - id: file_changes
+        uses: trilom/file-changes-action@v1.2.3
+      - name: Check the submitted essays
+        run: >
+          added_files='${{ steps.file_changes.outputs.files_added  }},${{ steps.file_changes.outputs.files_modified  }}';
+          added_files=${added_files//\"/};
+          added_files=${added_files//[/};
+          added_files=${added_files//]/};
+          added_files=${added_files// /;};
+          added_files=${added_files//,/ };
+          for item in ${added_files[@]}; do
+            added_file=${item//;/ };
+            echo "Checking file: $added_file"
+            if [[ "$added_file" == *"contributions/essay/"* ]] && [[ "$added_file" == *"pdf" ]] ; then
+              words_with_periods=$(sudo pdftotext "${added_file}" - | wc -w)
+              words_without_periods=$(sudo pdftotext "${added_file}" - | tr -d '.' | wc -w)
+              echo "File $added_file has $words_with_periods words with periods and $words_without_periods without periods"
+              if [[ ($words_with_periods -lt 1900 || $words_with_periods -gt 2100) && ($words_without_periods -lt 1900 || $words_without_periods -gt 2100) ]]; then
+                exit 1
+              fi
+            fi
+          done
