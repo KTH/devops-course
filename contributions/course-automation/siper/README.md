@@ -6,13 +6,33 @@ Simon Persson (siper@kth.se)
 GitHub: altaired
 
 
-## Proposal
+## Submission
 
-I plan to make a github action that automatially asigns labels depending on the category of the proposal and a "proposal" label (if it is a new proposal). The action should also validate the folder naming structure and that a README file is included properly. This would allow the TA's to easily filter out what PR:s to check.
+The action can be found at [https://github.com/altaired/devops-label](https://github.com/altaired/devops-label). The code is documented, tested and more information can be found in the repository itself.
 
-In order to achive this, the following will have to be done:
-* Validate the folder structure and README on each push
-* Check on each PR what file / files has been modified, to determine what category the PR is related to. Also check if files that should't have been modified are  included and if that's the case, return an error to the user.
-* Assign the appropriate labels
-* Report back the status if the PR is following the required structure.
-* Create a report showing statistics over the number of proposals.
+The action does the following:
+* Checks that only a single category is modified on each checked PR
+* Checks that only a single folder in that category is modified
+* That the naming structure of the authors folder holds, e.g 'name1-name2'
+* If the PR is a proposal or not and assign a label if it is a proposal
+* Fetches statistics of all pull requests with the proposal label and updates a provided issue with stats
+
+In order to include the action in this repository, all details can be found in the repository above. A suggested configuration file is included in this directory as well (see [here](/contributions/course-automation/siper/config.yml)), the issue number has to be set though. Simply create an issue with an appropriate title and add the issue number in the configuration file where it currently says `<ISSUE_NUMBER>`. The version to use of this action is the latest (currently @v1.3).
+
+Below is an example of how to use the action.
+```
+name: Validate and label PR
+  id: vlpr
+  uses: altaired/devops-label@v1.3
+  with:
+    github-token: ${{ secrets.GITHUB_TOKEN }}
+    configuration-path: .github/config.yml
+```
+
+I recomend triggering it on each pull request, even if this does not update the stats when a PR is merged. As pull requests are made and updated regularly this should not be a problem.
+
+
+
+
+
+

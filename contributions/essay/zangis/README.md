@@ -13,4 +13,4 @@ Document the reasons for using different forms of deployments (Rolling, blue/gre
 - Give reasons for their usage
 - Explain their drawbacks
 - Examples from industry
-- Final thoughs on the subject
+- Final thoughts on the subject
