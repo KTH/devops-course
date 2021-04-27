@@ -22,3 +22,6 @@ The topics that will be discussed in the presentation:
 - Load Balancing
 - Elasticity
 - Disaster Recovery
+
+
+Here is the link to the final presenation: https://docs.google.com/presentation/d/1G6VyrDoZ5KmUYP_jNvEuLKHqLyG0sOVEy5qYX7Q56vM/edit?usp=sharing
