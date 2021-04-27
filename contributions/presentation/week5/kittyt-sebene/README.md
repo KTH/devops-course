@@ -21,3 +21,4 @@ An introductory presentation about whitebox fuzzing, its role in DevOps and futu
 
 ### Presentation slides
 The presentation slides are available [here](https://docs.google.com/presentation/d/1OZs4koC_frkFE0DcEIY7-ZF4Ps5pZboEm4S4ugwu8jc/edit?usp=sharing).
+
