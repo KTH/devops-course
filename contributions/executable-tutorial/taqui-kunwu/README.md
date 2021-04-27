@@ -32,3 +32,13 @@ The final product can be found [here](https://www.katacoda.com/taqui/scenarios/c
 |The tutorial is successful (attracts comments and success) | Yes | No | Lively discussion |
 |The language is correct | Yes | No | Interesting narrative  💥|
 
+## Changes Implemented After Feedback
+
+- Added what GCP stands for
+- changed the project name from our to make it more clear that people should have their own unique project name
+- Added a message regarding adding credit card to the tutorial
+- Added a Reason why google needs a credit card for using GCP
+- Made the process more clear on Step 3 by adding more appropriate language and changing the naming of some variables to make it more clear
+- Explained Each File in Step 4 in more detail
+- Explained Why the Container Registry needed to be public
+- Added a Picture in Step 6 to make it more clear where you will find your IP Adress and I also mentioned here how you can find the easter egg
