@@ -16,3 +16,11 @@ Splunk is a popular tool that helps companies analyse streams of big data commin
 - how to set up splunk in a docker container.
 - loading data into splunk to analyse
 - using the splunk interface to interact with data
+
+## Submission
+
+We have created a tutorial on how to set up splunk in a docker container.  
+The tutorial can be done here https://katacoda.com/hallon/scenarios/hallon123
+
+And the repo can be seen here
+https://github.com/hallon-heyman/katacoda-scenarios
