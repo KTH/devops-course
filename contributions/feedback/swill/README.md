@@ -2,7 +2,6 @@
 
 Feedback for [this](https://www.katacoda.com/oskstr/scenarios/lambda-authorizer-with-serverless) tutorial.
 
-- Tutorial proposal PR: [#1161](https://github.com/KTH/devops-course/pull/1161)
 - Tutorial submission PR: [#1387](https://github.com/KTH/devops-course/pull/1387)
 - Feedback proposal PR: [#1162](https://github.com/KTH/devops-course/pull/1162)
 
@@ -40,3 +39,13 @@ Feedback for [this](https://www.katacoda.com/oskstr/scenarios/lambda-authorizer-
 + (+) The language is very fun and engaging. I found myself enjoying reading through each step and experimenting with new material.
 + (+) Most steps are easy to follow and teach the user about the different components in a brief and concise way. Overall I had no trouble following the instructions and executing the tutorial.
 - (-) Most code snippets seem to replace the entire file when using the copy to editor Katacoda function. Instead of using replace, appending code to the file would shorten the code snippets making the tutorial code changes more readable. To make this change simply change the data target from `replace` to `append`
+
+## Changes based on Feedback
+These are the changes I've made based on the feedback from @oskstr
+
+- Added an example scenario of why using Lambda like this could be useful in the intro.
+- Rewrote parts of step 2 to make it more clear.
+- Add explanation on how to send emails to unverified email addresses.
+- Added some more details to step 4 to reduce confusion.
+- Added background information on what Lambda Triggers are.
+- Added a link for instructions on invoking AWS Lambda on received emails.
