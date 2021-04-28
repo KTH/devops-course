@@ -1,5 +1,5 @@
 # Feedback Proposal
-I would like to give feedback on Essay: **Git - why is it so hard? And how to "Git gud"** - PR ID: [#1165](https://github.com/KTH/devops-course/pull/1165)
+I would like to give feedback on Essay: **End-to-end testing: Useful practice or frustrating time sink?** - PR ID: [#1369](https://github.com/KTH/devops-course/pull/1369)
 
 
 ## Member
