@@ -7,7 +7,7 @@
 
 name: Labeler for Feedbackable contributions
 on: 
-  push
+  [push, pull_request]
 
 jobs:
   label:
