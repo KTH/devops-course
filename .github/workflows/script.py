@@ -19,16 +19,19 @@ for name in feedback_folders_names:
     if len(files) == 1 and files[0][-3:].lower()==".md":
         markdown = files[0]
         content = open(path_to_feedback+name+"/"+markdown, encoding="utf-8").read()
-        results = re.search("#[0-9]+", content)
+        regex_search = re.search("#[0-9]+", content)
 
-        if results:
-            feedbacked.append(int(results.group()[1:]))
+        if regex_search:
+            feedbacked.append(int(regex_search.group()[1:]))
 
-print(feedbacked)
 
 
 #THIS SECTION FINDS THE PRs THAT WILL BE FEEDBACKED 
-
+feedbacks_claimed = []
+for pr in repo.get_pulls(state="open"):
+    regex_search = re.search("#[0-9]+", pr.body)
+    if regex_search:
+        feedbacks_claimed.append(int(regex_search.group()[1:]))
 
 
 #THIS SECTION CREATES LABELS IF THEY DON'T EXIST IN THE REPO
@@ -45,12 +48,23 @@ for i in range(3):
 
 for pr in repo.get_pulls(state="closed"):
     if pr.is_merged(): # we are only interested in merged pull requests
-        pr_labels = pr.labels
-        for label in pr_labels:
-            if label.name in label_names:
-                pr.remove_from_labels(label)
-        
-        if pr.number in feedbacked:
-            pr.add_to_labels("feedbacked")
-        else:
-            pr.add_to_labels("feedbackable")
+        # we are only interested in the PRs that propose contributions in executable tutorial or essay
+        proposal = False
+        valid_contribution = False
+        for label in pr.labels:
+            if label.name == "proposal":
+                proposal = True
+            elif label.name == "essay" or label.name == "tutorial":
+                valid_contribution = True 
+
+        if proposal and valid_contribution:
+            for label in pr.labels:
+                if label.name in label_names:
+                    pr.remove_from_labels(label)
+            
+            if pr.number in feedbacked:
+                pr.add_to_labels("feedbacked")
+            elif pr.number in feedbacks_claimed:
+                pr.add_to_labels("feedback claimed")
+            else:
+                pr.add_to_labels("feedbackable")
