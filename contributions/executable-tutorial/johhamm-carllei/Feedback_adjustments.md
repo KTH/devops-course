@@ -28,7 +28,7 @@ The content of the workflow file on top is different from the one at the bottom.
 ### Step 4
 A nice addition would be to explain the steps shown in the log (how the relate to the steps in the workflow file) making it more intuitive why that subsection should be selected.
 
-* <em>To be fixed</em>
+* **Fixed by adding a explanation for why each step exists in the log**
 
 ### Step 5
 Would be nice if you gave some more info about what python benchmark does (what measures it takes a.s.o), I know that there is a link, but a short inline explanation would be nice. 
