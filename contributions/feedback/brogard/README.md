@@ -86,6 +86,8 @@ Maybe you could end the tutorial with the above pointer, that you could reflect 
 
 My strong **STRONG** advise is to create a step by step tutorial on Katacoda. However this is a transition completely to a ubuntu environemnt. If you are unsure of what is possible or struggle with syntax in the configuration. You can check out my executable tutorial (git: [Github](https://github.com/andrebrogard/katacoda-scenarios), katacoda: [Katacoda scenario](https://www.katacoda.com/andreeva/scenarios/datadog-tutorial) and use it as a template/starting point for Katacoda. 
 
+Do look over grammar, there quite some mistakes with spelling and formatting. You can use a tool like grammar.ly! I also think you misspell tutorial.  
+
 Preferably, the tutorial should be step by step where you offer the reader a chance to learn what is happening, but the reader should not really have to think about what they are doing to reach the end goal (launching the jenkins containers). Simply following instructions, but you should offer the reader the chance to understand everything that they are doing and why. 
 * Either, fix the tutorial to only run on Windows or Arch Linux. Or, generalize to some ubuntu distro that more people may have access to.
 
