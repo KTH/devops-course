@@ -58,7 +58,7 @@ The schedule is at <https://www.kth.se/social/course/DD2482/calendar/>
   * Preparatory material: [A 'Worst Nightmare' Cyberattack: The Untold Story Of The SolarWinds Hack](https://www.npr.org/2021/04/16/985439655/a-worst-nightmare-cyberattack-the-untold-story-of-the-solarwinds-hack)
 * Student presentations
 
-### Week 6
+### Week 6 <https://kth-se.zoom.us/j/66650222454>
 * Technical Briefing (B. Baudry)
 * Guest Lecture: Resilient Software [Heidi Waterhouse](https://heidiwaterhouse.com/)
 * Student presentations
