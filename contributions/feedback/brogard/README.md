@@ -8,28 +8,29 @@ Github: [andrebrogard](https://github.com/andrebrogard)
 ## Related PRs
 Tutorial Proposal PR [#1169](https://github.com/KTH/devops-course/pull/1169)
 Tutorial Submission PR [#1393](https://github.com/KTH/devops-course/pull/1393)
-Feedback Proposal PR [#1193](https://github.com/KTH/devops-course/pull/1193)
+Feedback Proposal PR [#1198](https://github.com/KTH/devops-course/pull/1198)
 
-PR where i responded to feedback and documented changes (with a referenced commit) [#1330](https://github.com/KTH/devops-course/pull/1330)
+PR where I responded to feedback and documented changes (with a referenced commit) [#1330](https://github.com/KTH/devops-course/pull/1330)
 
 ## Feedback
-
 
 
 ### Overall
 
 I can see that you are passionate about the tutorial, I can really see the effort you have put in offering a fun experience executing the tutorial (for example, with the quiz). But for someone who is unfamiliar with the 'what' and 'why' of these technologies. It is very difficult to follow along.
 
-I will go over what i think can be improved to really teach a reader like me the usefulness and relevance of this tutorial and allow me to complete it!
+I will go over what I think can be improved to really teach a reader like me the usefulness and relevance of this tutorial and allow me to complete it!
 
 ### Getting started
 
-I am not very familiar with Linux distros or "WSL" so it was very difficult to get started. It took me quite a while to figure out where i should run the tutorial (On windows, on Linux? Do I have to use a specific Linux?). 
+I am not very familiar with Linux distros or "WSL" so it was very difficult to get started. It took me quite a while to figure out where I should run the tutorial (On windows, on Linux? Do I have to use a specific Linux?). 
 * Where to run the tutorial needs to be more clear.
 
-I interpreted it as. 'Choose windows or Arch Linux, but any linux works with some changes'. So I attempted to use Ubuntu. But it failed. In the introducton you say that the preparations step can be skipped on any Linux distro that uses systemd. Which is what i did on Ubuntu, I do now know what Systemd is... so I assumed a typical Linux distro like ubuntu supports it. However, the instructions after Preparations are related to genie, wsl and Arch Linux. Therefore using Ubuntu failed for me, it looks like i need WSL or genie. 
+Prepare the reader for the heavy preparation and what it means to the local computer. If necassary, include a clean up section at the end and let the reader know this.
 
-It's hard for me to tell, because i know nothing of these technologies. Furthermore, i was reluctant to install WSL2 on my Windows machine, as I would have wanted to install this in a virtual environment instead of making system changes on my main PC. 
+I interpreted it as. 'Choose windows or Arch Linux, but any linux works with some changes'. So I attempted to use Ubuntu. But it failed. In the introducton you say that the preparations step can be skipped on any Linux distro that uses systemd. Which is what I did on Ubuntu, I do now know what Systemd is... so I assumed a typical Linux distro like ubuntu supports it. However, the instructions after Preparations are related to genie, wsl and Arch Linux. Therefore using Ubuntu failed for me, it looks like I need WSL or genie. 
+
+It's hard for me to tell, because I know nothing of these technologies. Furthermore, I was reluctant to install WSL2 on my Windows machine, as I would have wanted to install this in a virtual environment instead of making system changes on my main PC. 
 
 I advise to:
 * Maybe, generalize the tutorial to be titled 'CREATE MULTI JENKINS CONTAINERS BASED ON SYSTEMD-NSPAWN'. Then in the prep section you can include the WSL2 install for windows users. You could then have a description of WSL2 and how good it is. 
@@ -37,10 +38,10 @@ I advise to:
 
 ###  Introduction
 Good summary of what this tutorial is and what will happen. But you introduce alot of technologies here that I do not understand.
-* I think you need to add sections/paragraphs describing 'WSL2', 'Systemd', 'Systemd-nspwan container technology' and 'Jenkins'. What are they, how are they used and why do we use them? You could of course describe 'Jenkins' later when it is actually isntalled and first mentioned in section 3. But importantly, do not know what any of these technologies are, before i use them i should know them. 
+* I think you need to add sections/paragraphs describing 'WSL2', 'Systemd', 'Systemd-nspwan container technology' and 'Jenkins'. What are they, how are they used and why do we use them? You could of course describe 'Jenkins' later when it is actually isntalled and first mentioned in section 3. But importantly, I do not know what any of these technologies are, before I use them I should know them. 
 
 About the tutorial script. I like the quiz! But I think that tutorial script should not be introduced here, maybe it is best to not have it at all. It is also confusing to run this script while following the rest of the tutorial, even if it is organized into the sections. My advise is to:
-* Keep the quiz! It adds a personal touch to the tutorial which i like. But add it as transitions into new sections of the tutorial. Such as after 0x02 and before 0x03. Then you could have answers to the quiz at the bottom, for example.
+* Keep the quiz! It adds a personal touch to the tutorial which I like. But add it as transitions into new sections of the tutorial. Such as after 0x02 and before 0x03. Then you could have answers to the quiz at the bottom, for example.
 * Add the information/trivia that is in the tutorial script to the tutorial itself and to the different sections instead of having a seperate script. This help me learn what is happening. 
 
 ### Preparations
@@ -63,14 +64,14 @@ You say that I can choose any WSL2 distribution, like Ubuntu, Debian, Alpine or 
 ### Create our first Systemd-nspwan container
 
 * Missing an explaination of what 'Systemd-nspawn container' is
-* It is nice that you explain 'Systemd-nspwan' in section 2, but with more context i think i could understand this. What is namespace virtualization, what is the chroot command. Please give examples and provide more in depth, in detail descriptions. 
+* It is nice that you explain 'Systemd-nspwan' in section 2, but with more context I think I could understand this. What is namespace virtualization, what is the chroot command. Please give examples and provide more in depth, in detail descriptions. 
 * Please explain why we do 2.5 Boot container, change root password
 
 #### Jenkins 
 
 Nice step 4!
 
-* Missing explaination of Jenkins in step 3. What does it do, how will we use it in this tutorial. I am not sure if this information is covered later, but as a reader it helps to learn if I know before i install or use it. 
+* Missing explaination of Jenkins in step 3. What does it do, how will we use it in this tutorial. I am not sure if this information is covered later, but as a reader it helps to learn if I know about it before I install or use it. 
 
 ### Second Container and Packing containers
 
@@ -79,7 +80,7 @@ I think this stage is rather clear and straight forward. Good job!
 
 * It would be nice to maybe reflect on the purpose of multiple Containers, why and when would we use this? Isn't one file system enough?
 
-Maybe you could end the tutorial with the above pointer, that you could reflect on how these techniques may enable ... somehthing? If there is relevance to DevOps a.s.o. How can we use Jenkins now, unlike before. And so on. As a reader, that is unfamiliar with these things, I cannot do those deductions on my own.
+Maybe you could end the tutorial with the above pointer, that you could reflect on how these techniques may enable ... somehthing? If there is relevance to DevOps a.s.o. How can we use Jenkins now, unlike before. As a reader, that is unfamiliar with these things, I cannot do those deductions on my own.
 
 
 ### General advise
