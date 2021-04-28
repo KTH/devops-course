@@ -4,7 +4,6 @@
 
 Sara Damne, damne@kth.se, [@damnePers](https://github.com/damnePers)
 
-## Overview
 
 This tutorial will teach the user to configure a CI/CD pipeline for a react app using Heroku and CircleCI. 
 
