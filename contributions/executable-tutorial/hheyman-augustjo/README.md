@@ -35,3 +35,5 @@ These are the grading criterias we feel we have reached, Checkmarks marks the re
 |The tutorial contains [easter eggs](https://github.com/OrkoHunter/python-easter-eggs) | Yes | No | :heavy_check_mark: Subtle and fun |
 |The tutorial is successful (attracts comments and success) | Yes | No | Lively discussion |
 |The language is correct | Yes | No | :heavy_check_mark: Interesting narrative  |
+
+I @Augustjon need to receive feedback in order to pass the feedback task so if anyone could give feedback to this tutorial that would be greatly appriciated.
