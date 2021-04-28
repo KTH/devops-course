@@ -2,7 +2,7 @@
 
 ## Memeber
 
-Sara Damne, damne@kth.se, @damnePers
+Sara Damne, damne@kth.se, [@damnePers](https://github.com/damnePers)
 
 ## Overview
 
@@ -21,6 +21,8 @@ Note that this is different from the proposal.
 Medium article 
 - https://medium.com/saradamne/how-to-setup-a-ci-cd-pipeline-for-a-react-application-cfdc511e893f
 
+
+## Grading Cirteria
 
 |                                             | Yes | No | Remarkable |
 |-------------------------------------------- | ----|----|-------------|
