@@ -14,7 +14,7 @@ This is DevOps related since it is a flavor of test automation.
 
 We have created a tutorial that is available [here](https://www.katacoda.com/m4reko/scenarios/automatic-frontend-testing). The repo is available [here](https://github.com/m4reko/katacoda-scenarios).
 
-## Feedback ##
+## Feedback response ##
 We received feedback from August and Christian which can be seen in [this PR](https://github.com/KTH/devops-course/pull/1213).
 
 We modified the following after the feedback:
