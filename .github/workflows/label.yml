@@ -11,14 +11,9 @@ on:
 
 jobs:
   label:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v2
-    - uses: actions/labeler@v2
-      with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
     - name: setup python
       uses: actions/setup-python@v2
       with: 
