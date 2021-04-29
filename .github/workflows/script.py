@@ -45,7 +45,6 @@ for i in range(3):
 
 #THIS SECTION APPLIES THE LABELS
 
-
 for pr in repo.get_pulls(state="closed"):
     if pr.is_merged(): # we are only interested in merged pull requests
         # we are only interested in the PRs that propose contributions in executable tutorial or essay
