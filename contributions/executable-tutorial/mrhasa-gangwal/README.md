@@ -19,5 +19,5 @@ In this tutorial we are focusing on how to test a C# application in RestSharp to
 3. Integration of RestSharp in the project.
 4. API Testing using RestSharp.
 
-### [Tutorial Link](https://github.com/user/repo/blob/branch/other_file.md)
+### [Tutorial Link](https://rezaulhasan0168.medium.com/executable-tutorial-api-testing-using-restsharp-2f814bccd8ea)
 
