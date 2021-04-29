@@ -66,3 +66,7 @@ isakha
 kallem
 yuehao
 lukasgut
+yannik
+vladom
+johann
+felixfon

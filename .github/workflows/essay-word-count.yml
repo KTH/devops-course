@@ -23,9 +23,10 @@ jobs:
             added_file=${item//;/ };
             echo "Checking file: $added_file"
             if [[ "$added_file" == *"contributions/essay/"* ]] && [[ "$added_file" == *"pdf" ]] ; then
-              words=$(sudo pdftotext "${added_file}" - | wc -w)
-              echo "File $added_file has $words words"
-              if [ $words -lt 1900 ] || [ $words -gt 2100 ]; then
+              words_with_periods=$(sudo pdftotext "${added_file}" - | wc -w)
+              words_without_periods=$(sudo pdftotext "${added_file}" - | tr -d '.' | wc -w)
+              echo "File $added_file has $words_with_periods words with periods and $words_without_periods without periods"
+              if [[ ($words_with_periods -lt 1900 || $words_with_periods -gt 2100) && ($words_without_periods -lt 1900 || $words_without_periods -gt 2100) ]]; then
                 exit 1
               fi
             fi

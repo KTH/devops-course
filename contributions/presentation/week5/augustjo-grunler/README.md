@@ -1,6 +1,6 @@
-## Presentation proposal
+## Presentation
 
-#### contributors
+#### Contributors
 August Jönsson 
 KTH: Augustjo@kth.se
 github: Augustjon
@@ -9,11 +9,16 @@ Daniel Grünler
 KTH: grunler@kth.se
 github: grunler
 
-### Proposal
-We plan to give a introductory presentation about Flaky tests and their role in DevOps. Flaky tests could make testing hard to automate because you cant fully rely on the results.
+#### Outline
 
-#### outline
-* What are flaky tests
-* How do they happen
-* How are they handeled in DevOps
-* Why you might still include flaky tests
+The presentation is an introducton to flaky tests and their relation to DevOps. 
+
+It includes the following sections:
+
+* What are flaky tests?
+* Why are they a problem?
+* When do they appear?
+* How are they handled in DevOps?
+
+### Slides
+The slides for the presentation are in the document "Flaky-test-presentation.pdf".
