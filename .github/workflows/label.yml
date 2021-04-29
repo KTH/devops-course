@@ -12,7 +12,7 @@ on:
     - "2021" ## TO BE UPDATED MANUALLY (GitHub workflows don't provide dynamic access to the name of the default branch :( )
 
 jobs:
-  label:
+  label-feedback:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
