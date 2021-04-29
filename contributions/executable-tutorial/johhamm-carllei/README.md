@@ -6,9 +6,14 @@
 * Carl Leijonberg (carllei@kth.se), Github : [carllei](https://github.com/carllei)
 
 ## Relevant links
-* Katacoda tutorial is found [here](https://www.katacoda.com/jhamm/scenarios/ghactiondemo)
-* Project repository is found [here](https://github.com/jhammarstedt/Benchmarking-DevOps)
-* First PR is found [here](https://github.com/KTH/devops-course/pull/1158)
+📚 Katacoda tutorial is found [here](https://www.katacoda.com/jhamm/scenarios/ghactiondemo)
+
+🗝 Project repository is found [here](https://github.com/jhammarstedt/Benchmarking-DevOps) 
+
+📣 First PR [#1158](https://github.com/KTH/devops-course/pull/1158) 
+
+📝 Feedback is found in this PR [#1358](https://github.com/KTH/devops-course/pull/1358) and modifications are found in the `feedback_modifications.md`
+
 
 ## Task
 This project was aimed to teach others how to set up a Github Action to create continuous benchmarking with pytest. We also added a simple visualization with Github Pages that we walk through briefly in the tutorial. 
@@ -41,40 +46,6 @@ You will learn how to:
 |The tutorial is successful (attracts comments and success) |💥  Yes | No | Lively discussion |
 |The language is correct | 💥 Yes | No | 💥 Interesting narrative  |
 
-
-## Description and usage (If you're not planning on doing the tutorial)
-To try this project out simply fork this repository and create a commit. 
-
-```
-# Clone the repository
-$ git clone https://github.com/jhammarstedt/Benchmarking-DevOps.git
-$ cd Benchmarking-DevOps
-# Clear the table
-$ chmod +x ./scripts/clear_table.sh
-$ ./scripts/clear_table.sh
-```
-To make the workflow run commit these changes to your repository.
-
-Compare our test functions or write your own in the [benchmarking.py script](https://github.com/jhammarstedt/Benchmarking-DevOps/blob/master/src/benchmarking.py) script.
-We have 2 test functions, a slower `turtle` and faster `cheetah` which are just used to test the benchmarking and display some results in the workflow and on your github page.
-
-* The workflow file is found in [`.github/workflows/python.yml`](https://github.com/jhammarstedt/Benchmarking-DevOps/tree/master/.github/workflows)
-* The configurations for the webpage is found in [docs](https://github.com/jhammarstedt/Benchmarking-DevOps/tree/master/docs)
-* All python scripts are found in [`src`](https://github.com/jhammarstedt/Benchmarking-DevOps/tree/master/src)
-
-
-### Enable Github Pages 
-1. Go to settings for your cloned repository
-2. Find pages (almost all the way down to the left)
-3. The source should be `master` and also specify `/docs` as there is an HTML file running it.
-4. Press the link generated (might take up to 30 sec after enabling it)
-
-### Clean the table in Gh Pages
-
-If you want to reset the table again  simply run
-```$ ./scripts/clear_table.sh```
-
-<img src="https://static.wikia.nocookie.net/egg-inc/images/2/28/Egg_easter.png/revision/latest?cb=20190520212958" height = 80 width = 60 align ="right" />
 
 ## Easter egg hint for tutorial
 
