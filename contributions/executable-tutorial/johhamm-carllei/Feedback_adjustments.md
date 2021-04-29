@@ -1,6 +1,10 @@
+Thanks for great feedback! 
+
+Here are our modifications after going through it:
+
 # Feedback adjustments
 
-* **Extra fix**: Got a question from another student that did the tutorial about the possibility to benchmark the two functions simuntaniously. So modified the tutorial, scipts and benchmarks to compare both of them in the same workflow. Also added support for this in the GitHub pages table
+ **Extra fix**: Got a question from another student that did the tutorial about the possibility to benchmark the two functions simuntaniously. So modified the tutorial, scipts and benchmarks to compare both of them in the same workflow. Also added support for this in the GitHub pages table
 
 ### Step 1
 
@@ -23,7 +27,7 @@ I have one complaint on this page that follows to some of the other pages. It's 
 ### Step 3
 The content of the workflow file on top is different from the one at the bottom. I didn't notice this until the workflow failed when I pushed it, please fix that (missing "src/" prefixed in the python command).
 
-* **Fixed by correction**
+* **Fixed by correcting the paths**
 
 ### Step 4
 A nice addition would be to explain the steps shown in the log (how the relate to the steps in the workflow file) making it more intuitive why that subsection should be selected.
@@ -33,25 +37,25 @@ A nice addition would be to explain the steps shown in the log (how the relate t
 ### Step 5
 Would be nice if you gave some more info about what python benchmark does (what measures it takes a.s.o), I know that there is a link, but a short inline explanation would be nice. 
 
-* **Fixed: Added a section about benchmarking and what it outputs**
+* **Fixed by adding a section about benchmarking and what it outputs**
 
 Also suggest you add a note what the functions do and why you chose them (it is fairly obvious if you know python, but not everyone do) .
 
-* **Fixed by adding comments explaning the purpose of the functions in the benchmarking.py script.**
+* **Fixed by adding comments explaining the purpose of the functions in the benchmarking.py script.**
 
 ### Step 6
 Same thing with the copying of code messing with the indentation, other than that the content is good. 
 
-* **Fixed: Added explanation and a fully formated snippet at the end**
+* **Fixed by adding explanation and a fully formatted snippet at the end**
 
 This is where I had an issue with a merge conflict though. Previous steps seems to have produced files that i had to pull before i could push it. Not sure if that was supposed to happen, if not, look into it. If it is on purpose, then I suggest you add a note about it.
 
-* **Fixed: Added note about merge conflict**
+* **Fixed by adding note about merge conflict**
 
 ### Step 7
 Since you say that the tutorial does not cover bs4, which is completely reasonable, but it feels weird to copy or manually write that code, if it is not explained. Maybe you can include that file automatically and only tell the user that it exists.
 
-* **Fixed: Added the generate_output.json file so user won't have to fix it**
+* **Fixed by adding the generate_output.json file so user won't have to do it**
 
 ### Outro
 Feel bad that I missed the easter egg, had to go back and try it. It was a really cool one, definitely subtle and fun. Maybe include some kind of hint earlier somehow, or just get the user to check out the scripts folder.
