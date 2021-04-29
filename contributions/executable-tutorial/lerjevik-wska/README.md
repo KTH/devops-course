@@ -32,14 +32,14 @@ We aim to fulfill the following criteria:
 
 |                                             | Yes | No | Remarkable |
 |-------------------------------------------- | ----|----|-------------|
-|The TA can successful execute all the commands of the tutorial (mandatory)* | **Yes** ✅| No | **In the browser** ✅|
-|If local execution, runs on Linux | Yes | **No** ❌| Easy to setup and run  |
-|The tutorial gives enough background | **Yes** ✅| No | **Comprehensive background** ✅|
-|The tutorial is easy to follow  | **Yes** ✅ | No | **Well documented** ✅|
-|The tutorial is original, no such tutorial exists on the web | **Yes** ✅ | No | The teaching team never heard about it |
-|The tutorial contains [easter eggs](https://github.com/OrkoHunter/python-easter-eggs)** | **Yes** ✅ | No | **Subtle and fun** ✅|
-|The tutorial is successful (attracts comments and success) | Yes | **No** ❌| Lively discussion |
-|The language is correct | **Yes** ✅| No | **Interesting narrative** ✅ |
+|The TA can successful execute all the commands of the tutorial (mandatory)* | **Yes**✅| No | **In the browser**✅|
+|If local execution, runs on Linux | Yes | **No**❌| Easy to setup and run  |
+|The tutorial gives enough background | **Yes**✅| No | **Comprehensive background**✅|
+|The tutorial is easy to follow  | **Yes**✅ | No | **Well documented**✅|
+|The tutorial is original, no such tutorial exists on the web | **Yes**✅ | No | The teaching team never heard about it |
+|The tutorial contains [easter eggs](https://github.com/OrkoHunter/python-easter-eggs)** | **Yes**✅ | No | **Subtle and fun**✅|
+|The tutorial is successful (attracts comments and success) | Yes | **No**❌| Lively discussion |
+|The language is correct | **Yes**✅| No | **Interesting narrative**✅ |
 
 *We have included three easter eggs in our tutorial. </br>
 **The tutorial has been user tested by an external tester (mid-range programming level proficiency) and the test was sucessful. However, the Katacoda editor seems to have some trouble with saving sometimes, so if you ever recieve a JSON error at step 10, make sure that the code written in step 8 was saved and/or restart the Flask application.
