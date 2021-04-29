@@ -1,4 +1,4 @@
-# Feedback proposal: Implementing AWS Lambda and invoking it with AWS SES [#1160](https://github.com/KTH/devops-course/pull/1160)
+# Implementing AWS Lambda and invoking it with AWS SES [#1160](https://github.com/KTH/devops-course/pull/1160)
 
 ## Members:
 
