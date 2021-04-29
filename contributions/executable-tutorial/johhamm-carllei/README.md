@@ -5,6 +5,11 @@
 * Johan Hammarstedt (johhamm@kth.se), Github: [jhammarstedt](https://github.com/jhammarstedt)
 * Carl Leijonberg (carllei@kth.se), Github : [carllei](https://github.com/carllei)
 
+## Relevant links
+* Katacoda tutorial is found [here](https://www.katacoda.com/jhamm/scenarios/ghactiondemo)
+* Project repository is found [here](https://github.com/jhammarstedt/Benchmarking-DevOps)
+* First PR is found [here](https://github.com/KTH/devops-course/pull/1158)
+
 ## Task
 This project was aimed to teach others how to set up a Github Action to create continuous benchmarking with pytest. We also added a simple visualization with Github Pages that we walk through briefly in the tutorial. 
 
@@ -22,12 +27,6 @@ You will learn how to:
 * Create your first Github Page that will display the results from your testing
 
 <img src="https://github.com/jhammarstedt/katacoda-scenarios/blob/main/ghactionDemo/images/Summary_tutorial.PNG?raw=true" />
-
-
-## Relevant links
-* Katacoda tutorial is found [here](https://www.katacoda.com/jhamm/scenarios/ghactiondemo)
-* Project repository is found [here](https://github.com/jhammarstedt/Benchmarking-DevOps)
-* First PR is found [here](https://github.com/KTH/devops-course/pull/1158)
 
 ## Aiming for --> 💥  Distinction  (Extra header for DevOps course)
 
