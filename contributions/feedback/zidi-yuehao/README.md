@@ -2,13 +2,16 @@
 
 ## Members
 Zidi Chen, zidi@kth.se, https://github.com/Chen-Zidi
+
 Yuehao Sui, yuehao@kth.se, https://github.com/amaothree
 
 
 ## Content
 
 Feedback proposal: #1061 
-Essay proposal: Comparison of DevOps and SRE #965.
+
+Essay proposal: Comparison of DevOps and SRE #965
+
 Essay submission: #1419
 
 ## Our target:
