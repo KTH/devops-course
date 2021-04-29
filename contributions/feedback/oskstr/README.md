@@ -63,3 +63,21 @@ Any reason why we are going with an `HTTP API` instead of a `REST API`?
 I would also like to see some more information about what a trigger is. 
 
 If I would like to trigger it based on incoming emails, how would I do that? If you go with explaining that is what you ultimately would like to do. Maybe point me in the right direction at least.
+
+## Changes made based on feedback
+
+- [6c9ebab](https://github.com/oskstr/katacoda-scenarios/commit/6c9ebab) Change verbatim text to code blocks 
+- [084bc62](https://github.com/oskstr/katacoda-scenarios/commit/084bc62) Format policy snippet as JSON
+- [563582d](https://github.com/oskstr/katacoda-scenarios/commit/563582d) Change from replace to append/insert
+- [aea9485](https://github.com/oskstr/katacoda-scenarios/commit/aea9485) Fix typo
+- [ed6f7ec](https://github.com/oskstr/katacoda-scenarios/commit/ed6f7ec) Add explanation to image
+- [f59c842](https://github.com/oskstr/katacoda-scenarios/commit/f59c842) Add warning about error messages
+- [f1d6222](https://github.com/oskstr/katacoda-scenarios/commit/f1d6222) Explain bug where command isn't being run
+- [7109af6](https://github.com/oskstr/katacoda-scenarios/commit/7109af6) Make curl calls executable
+- [64dda2c](https://github.com/oskstr/katacoda-scenarios/commit/64dda2c) Explain which header we are looking for
+- [e0a040d](https://github.com/oskstr/katacoda-scenarios/commit/e0a040d) Explain how to set up an AWS user
+- [9c0e73a](https://github.com/oskstr/katacoda-scenarios/commit/9c0e73a) Add more spacing
+- [2444cbf](https://github.com/oskstr/katacoda-scenarios/commit/6c9ebab) Remove space that caused graphical bug
+- [85ad312](https://github.com/oskstr/katacoda-scenarios/commit/6c9ebab) Increase expected time for scenario
+
+Diff log: https://github.com/oskstr/katacoda-scenarios/compare/756b829...85ad312
