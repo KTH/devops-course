@@ -15,7 +15,7 @@ The aim of the proposal is to automate the labelization of PR to mark the ones t
 
 ## The finished contribution 
 
-This work resulted in a new workflow for the DevOps repository. This workflow named label is in charge of labelling merged PRs.
+This work resulted in a new workflow for the DevOps repository. This workflow named label.yml is in charge of labelling merged PRs.
 This is the implemented behavior:
 ```
 every time a push occures (including merge) to the 2021 branch / every time that a PR is created for the branch 2021:
