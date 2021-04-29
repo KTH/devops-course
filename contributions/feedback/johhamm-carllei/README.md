@@ -8,13 +8,21 @@
 ## Essay to give feedback on ##
 We plan to give feedback on this essey: [#988](https://github.com/KTH/devops-course/tree/2021/contributions/essay/charande-lazarc)
 
-## Links to relevant PRs
-Initial PR: 
-Essay: DevOps in IoT: Solution or challenge for sustainable development? [#988](https://github.com/KTH/devops-course/tree/2021/contributions/essay/charande-lazarc)
+## Links to relevant PRs 
+* Essay: DevOps in IoT: Solution or challenge for sustainable development? [#988](https://github.com/KTH/devops-course/tree/2021/contributions/essay/charande-lazarc)
+* Essay submission: [#1308](https://github.com/KTH/devops-course/pull/1308)
+* Original Feedback proposal for the essay [#1185](https://github.com/KTH/devops-course/pull/1185)
+* Our own feedback and adjustments [#1358](https://github.com/KTH/devops-course/pull/1358)
 
-Essay submission: [#1308](https://github.com/KTH/devops-course/pull/1308)
-
-Original Feedback proposal for the essay [#1185](https://github.com/KTH/devops-course/pull/1185)
+## Aiming for --> Distinction 👍👍 
+|                                             | Yes | No | Remarkable  |
+|-------------------------------------------- | ----|----|-------------|
+|The feedback includes both strengths and weaknesses about the task |✔ Yes | No | n-a |
+|The feedback is provided 4 business days before the task deadline | Yes | No |✔ Within 24h after the task submission |
+|All points are clearly actionable |Yes | No |✔ PR on PR |
+|The feedback is substantiated | Yes (at least 500 words) | No |✔ At least 1000 words |
+|The feedback contains pointers to additional material | Yes | No | One pointer is less than one week |
+|The students  act upon the feedback they receive | Yes | No |✔ Document the changes made after feedback|
 
 ## Feedback for Essay
 
