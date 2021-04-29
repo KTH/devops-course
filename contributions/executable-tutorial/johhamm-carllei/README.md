@@ -12,7 +12,7 @@
 
 📣 First PR [#1158](https://github.com/KTH/devops-course/pull/1158) 
 
-📝 Feedback is found in this PR [#1358](https://github.com/KTH/devops-course/pull/1358) and modifications are found in the `feedback_modifications.md`
+📝 Feedback is found in this PR [#1358](https://github.com/KTH/devops-course/pull/1358) and modifications are found in the `Feedback_adjustments.md`
 
 
 ## Task
