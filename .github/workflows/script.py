@@ -23,7 +23,6 @@ for name in feedback_folders_names:
 
         if regex_search:
             feedbacked.append(int(regex_search.group()[1:]))
-            print(name)
 
 
 
