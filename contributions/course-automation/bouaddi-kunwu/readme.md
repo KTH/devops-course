@@ -8,6 +8,11 @@ Hilaire Bouaddi, bouaddi@kth.se [https://github.com/Hilaire-Bouaddi]
 
 [NEW MEMBER] Kun Wu, kunwu@kth.se [https://github.com/Wkkkkk]
 
+## Rationale 
+
+It takes some minutes to check if a contribution we are interested in will receive feedback or not. This can generate frustration.
+The aim of the proposal is to automate the labelization of PR to mark the ones that can be feedbacked. 
+
 ## The finished contribution 
 
 This work resulted in a new workflow for the DevOps repository. This workflow named label is in charge of labelling merged PRs.
