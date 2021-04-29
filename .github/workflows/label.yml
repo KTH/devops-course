@@ -20,7 +20,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       with:
-      ref: "2021"
+        ref: "2021"
     - name: setup python
       uses: actions/setup-python@v2
       with: 
