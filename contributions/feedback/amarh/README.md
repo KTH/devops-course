@@ -40,6 +40,7 @@ The author does a great job supporting claims with references wherever applicabl
 There is an issue with the clickable link for reference number 2. The hyperref does not include the complete domain and path, only consisting of "https://martinfowler/".
 
 ### Criterias
+The criterias achieved for the whole feedback task
 |                                             | Yes | No | Remarkable  |
 |-------------------------------------------- | ----|----|-------------|
 |The feedback includes both strengths and weaknesses about the task | Yes :small_orange_diamond:| No | n-a |
@@ -47,5 +48,5 @@ There is an issue with the clickable link for reference number 2. The hyperref d
 |All points are clearly actionable | Yes :small_orange_diamond:| No | PR on PR |
 |The feedback is substantiated | Yes (at least 500 words) :small_orange_diamond:| No | At least 1000 words |
 |The feedback contains pointers to additional material | Yes | No | One pointer is less than one week |
-|The students  act upon the feedback they receive | Yes | No | Document the changes made after feedback|
+|The students act upon the feedback they receive | Yes | No | Document the changes made after feedback :small_orange_diamond:|
 
