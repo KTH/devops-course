@@ -40,8 +40,8 @@ The directory **contributions** is made for testing. It contains 2 additional di
 
 This will trigger the workflow, and a comment will be written on the pull request. If the test was made on a "submission" with 3 names, a "GroupOfThree" label will also be added to the pull request. If the group size is change to 2 in a later stage, the "GroupOfThree" label is removed.
 
-
 We think we have fulfilled the following criterion: 
+
 
 |                                             | Yes | No | Remarkable  |
 |-------------------------------------------- | ----|----|-------------|
