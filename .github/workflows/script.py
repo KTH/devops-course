@@ -13,7 +13,6 @@ path_to_feedback = "contributions/feedback/"
 feedback_folders_names = list(filter(lambda name: os.path.isdir(path_to_feedback+name), os.listdir(path_to_feedback)))
 feedbacked = [] # this will be the list of feedbacked PR 
 
-# look both on body and file
 for name in feedback_folders_names:
     files = os.listdir(path_to_feedback+name)
     
@@ -24,6 +23,7 @@ for name in feedback_folders_names:
 
         if regex_search:
             feedbacked.append(int(regex_search.group()[1:]))
+            print(name)
 
 
 
