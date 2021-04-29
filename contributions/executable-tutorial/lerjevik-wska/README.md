@@ -41,5 +41,5 @@ We aim to fulfill the following criteria:
 |The tutorial is successful (attracts comments and success) | Yes | **No** ❌| Lively discussion |
 |The language is correct | **Yes** ✅| No | **Interesting narrative** ✅ |
 
-*We have included three easter eggs in our tutorial. </br>
-**The tutorial has been user tested by an external tester (mid-range programming level proficiency) and the test was sucessful. However, the Katacoda editor seems to have some trouble with saving sometimes, so if you ever recieve a JSON error at step 10, make sure that the code written in step 8 was saved and/or restart the Flask application.
+*The tutorial has been user tested by an external tester (mid-range programming level proficiency) and the test was sucessful. However, the Katacoda editor seems to have some trouble with saving sometimes, so if you ever recieve a JSON error at step 10, make sure that the code written in step 8 was saved and/or restart the Flask application. </br>
+**We have included three easter eggs in our tutorial.
