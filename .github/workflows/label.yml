@@ -8,6 +8,8 @@
 name: Labeler for Feedbackable contributions
 on: 
   [push, pull_request]
+  branches:
+    - "2021" ## TO BE UPDATED MANUALLY (GitHub workflows don't provide dynamic access to the name of the default branch :( )
 
 jobs:
   label:
@@ -19,8 +21,8 @@ jobs:
       with: 
         python-version: '3.7.7'
     - name: install dependencies
-      run: pip install PyGithub
+      run: pip install PyGithub 
     - name: run python script 
-      run: python .github/workflows/script.py ${{ secrets.GITHUB_TOKEN }}
+      run: python .github/workflows/script_label.py ${{ secrets.GITHUB_TOKEN }}
 
     
