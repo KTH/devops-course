@@ -7,9 +7,12 @@
 
 name: Labeler for Feedbackable contributions
 on: 
-  [push, pull_request]
-  branches:
-    - "2021" ## TO BE UPDATED MANUALLY (GitHub workflows don't provide dynamic access to the name of the default branch :( )
+  push: 
+    branches:
+      - "2021" ## TO BE UPDATED MANUALLY (GitHub workflows don't provide dynamic access to the name of the default branch :( )
+  pull_request:
+    branches:
+      - "2021" ## SAME
 
 jobs:
   label-feedback:
