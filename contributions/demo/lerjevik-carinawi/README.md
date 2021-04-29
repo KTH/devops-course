@@ -1,4 +1,4 @@
-# Demo: CI/CD Deployment using AWS and GitLab
+# Demo: CI/CD Deployment using GitLab and AWS
 
  ## Members
  - [Dina Lerjevik](https://github.com/dmariel) (lerjevik@kth.se)
@@ -9,7 +9,8 @@
 **The video is available [here](https://youtu.be/mGFS2zUL8mo).**
 
 Description: 
-* Our video demo demonstrates how to create a CI/CD pipeline in GitLab for deploying a HTML-file to Amazon S3. Furthermore, we have chosen to include the creation of a custom GitLab runner in our demo, which we believe distinguishes this video from other videos on the same topic.
+
+Our video demo demonstrates how to create a CI/CD pipeline in GitLab for deploying a HTML-file to Amazon S3. Furthermore, we have chosen to include the creation of a custom GitLab runner in our demo, which we believe distinguishes this video from other videos on the same topic.
 
 Prerequisites: 
 * GitLab account (https://about.gitlab.com)
@@ -20,6 +21,10 @@ GitLab Documentation:
 
 YAML- Adapted from Documentation:  
 * https://gitlab.com/carinawi/gitlab-demo
+
+## Grading criteria
+
+We aim to fulfill the following criteria:
 
 |                                             | Yes | No | Remarkable |
 |-------------------------------------------- | ----|----|-------------|
