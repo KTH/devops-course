@@ -49,4 +49,3 @@ The criterias achieved for the whole feedback task
 |The feedback is substantiated | Yes (at least 500 words) :small_orange_diamond:| No | At least 1000 words |
 |The feedback contains pointers to additional material | Yes | No | One pointer is less than one week |
 |The students act upon the feedback they receive | Yes | No | Document the changes made after feedback :small_orange_diamond:|
-
