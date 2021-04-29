@@ -1,7 +1,3 @@
-Thanks for great feedback! 
-
-Here are our modifications after going through it:
-
 # Feedback adjustments
 
  **Extra fix**: Got a question from another student that did the tutorial about the possibility to benchmark the two functions simuntaniously. So modified the tutorial, scipts and benchmarks to compare both of them in the same workflow. Also added support for this in the GitHub pages table
