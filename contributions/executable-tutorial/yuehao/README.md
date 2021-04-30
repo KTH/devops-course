@@ -10,7 +10,7 @@ Container not always be Docker! Try Systemd-nspawn now!
 
 "systemd-nspawn may be used to run a command or OS in a light-weight namespace container."
 
-I would like to show a totural about how to creat multi systemd-nspawn containers with Jenkins in WSL2 to implement multiple jenkins projects working simultaneously.
+I would like to show a totural about how to creat multi systemd-nspawn containers with Jenkins in Linux to implement multiple jenkins projects working simultaneously.
 
 ## The contents are
 
