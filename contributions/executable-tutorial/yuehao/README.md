@@ -1,4 +1,4 @@
-# Executable-tutorial: Creat multi Jenkins containers in WSL2 based on systemd-nspawn
+# Executable-tutorial: Creat multi Jenkins containers in Linux based on systemd-nspawn
 
 ## Members
 
