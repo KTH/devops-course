@@ -12,11 +12,13 @@ Container not always be Docker! Try Systemd-nspawn now!
 
 I would like to show a totural about how to creat multi systemd-nspawn containers with Jenkins in WSL2 to implement multiple jenkins projects working simultaneously.
 
-## The contents are:
+## The contents are
 
-* WSL2 install
+* The background of this tutorial
 
-* Creat the first systemd-nspawn container in WSL
+* The preparation to creating Systemd-nspawn container.
+
+* How to create a systemd-nspawn container
 
 * How to install Jenkins inside a container
 
@@ -24,36 +26,25 @@ I would like to show a totural about how to creat multi systemd-nspawn container
 
 * Multiple Jenkins containers running simultaneously
 
-## How to read the totural
+* How to pack containers
 
-~~I will try to use katacoda platform firstly, if it can not provide a needed environment. I will write a local totural and post on my blog.~~
+## How to run the tutorial
 
-I write a document and an executable script. The best way to learn this tutorial is to combine the two. My blog posts are comprehensive and detailed. And the script is concise and comes with 6 quizzes.
+Open the katacoda link below and enjoy the tutorial follow the steps.
 
-The script is divided into four sections, corresponding to the four chapters of the body of the article.
+If you are want to try this tutorial on your PC instead katacoda. Please read the post in my blog > https://amao.run/en/posts/systemd-nspwan/
 
-### The totural link
+### The tutorial link
 
+* [The Executable Script](https://www.katacoda.com/amaothree/scenarios/nspwan)
+* [The Github](https://github.com/amaothree/katacoda-scenarios/tree/main/nspwan)
 * [My Blog](https://amao.run/en/posts/systemd-nspwan/)
-* [The Github](https://github.com/amaothree/amaothree.github.io/blob/master/content/en/posts/Systemd-nspwan.md)
-* [The Executable Script](https://gist.github.com/amaothree/d8bac64e5225b15db84aaf8e3aa6e08d#file-totural-sh)
-
-### How to download and run the script.
-
-1. Open a new terminal tab. If you using WSL, open a wsl tab in Windows terminal.
-2. Copy and Execute:
-    ```bash
-    curl -o totural.sh https://gist.githubusercontent.com/amaothree/d8bac64e5225b15db84aaf8e3aa6e08d/raw/fdff92ffddac8626584ad823a3b01ce0795c9f4a/totural.sh
-    chmod +x ./totural.sh
-    ./totural.sh
-    ```
-
 
 ## My goals
+
 |                                             | Yes | No | Remarkable |
 |-------------------------------------------- | ----|----|-------------|
-|The TA can successful execute all the commands of the tutorial (mandatory) |  | No |  |
-|If local execution, runs on Linux | Yes |  | Easy to setup and run  |
+|The TA can successful execute all the commands of the tutorial (mandatory) | Yes | |  |
 |The tutorial gives enough background | Yes |  | Comprehensive background |
 |The tutorial is easy to follow  | Yes |  | Well documented |
 |The tutorial is original, no such tutorial exists on the web | Yes |  | The teaching team never heard about it |
