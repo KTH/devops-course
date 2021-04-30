@@ -50,4 +50,4 @@ The tutorial is run mostly on Katacoda, but for the last steps the user needs to
 | The language is correct | **Yes** | No | **Interesting narrative**|
 
 ## Easter eggs
-There are 2 easter eggs in the tutorial. If you can't find them and need the solution - look [**here**](/eastereggs.md)
+There are 2 easter eggs in the tutorial. If you can't find them and need the solution - look [**here**](./eastereggs.md)
