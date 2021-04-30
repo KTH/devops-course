@@ -21,7 +21,7 @@ Source code will be included.
 |The video contains an [easter egg](https://github.com/OrkoHunter/python-easter-eggs) | Yes | No | :heavy_check_mark: Related to the demo |
 |There is a code repo to run the demo  | Yes | No | :heavy_check_mark: Code repo with a solid readme |
 |The video must contain subtitles which are clear and in proper English | Yes | No | :heavy_check_mark: Clearly understandable voice over |
-|The video includes a take-home message | Yes | :heavy_check_mark: No | Actionable takeaway |
+|The video includes a take-home message | Yes | No | ✔️ Actionable takeaway |
 
 ## Link
 Youtube link: https://youtu.be/JOWDDlzVKmc  
