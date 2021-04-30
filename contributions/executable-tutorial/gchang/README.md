@@ -7,7 +7,10 @@ GitHub: [ChangGabriel](https://github.com/ChangGabriel)
 ## Proposal
 Automating your testing each time the code is integrated will allow you to find bugs as early as possible and fix them faster.
 
-I plan to do a Katacoda tutorial going through how to set up a Unity project and use GitLab CI/CD for automated testing.
+
+I plan to do a tutorial on Medium going through how to set up a Unity project and use GitLab CI/CD for automated testing.
+
+
 In the tutorial you will learn:
 
 - Setup a Gitlab project repo

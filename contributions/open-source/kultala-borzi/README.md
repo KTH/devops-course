@@ -7,12 +7,10 @@
  Eleonora Borzi (borzi@kth.se)  
  GitHub: [EleonoraBorzis](https://github.com/EleonoraBorzis)
 
-
 ## Proposal
 We would like to create our own open-source project, where we create a tool that is used to get specific information about a repo. 
 This would be made into a Github action that you can run on your repo, for instance once every week. 
-The action would give a quick overview of the state of activity and complexity in the repo, and could help indicate if changes should be made to make the project
-more approachable. It could function as guidance in the development stages, but also remind you later on if quality is degrading.
+The action would give a quick overview of the state of activity and complexity in the repo, and could help indicate if changes should be made to make the project more approachable. It could function as guidance in the development stages, but also remind you later on if quality is degrading.
 
 ## Tools:
 - Github Actions    
