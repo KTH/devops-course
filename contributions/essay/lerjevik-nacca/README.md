@@ -1,12 +1,14 @@
+
 # Essay: Comparison of Kubernetes and Nomad Orchestration Tools
- 
+
 ## Members
 - [Dina Lerjevik](https://github.com/dmariel) (lerjevik@kth.se)
 - [Patricia Naccachian](https://github.com/patricia-naccachian) (nacca@kth.se)
 
+
 ## Submission
 The essay is available in the repository.
- 
+
 We aim to fulfill the following criteria:
 
 * Format: The essay is in PDF
