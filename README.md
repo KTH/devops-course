@@ -60,7 +60,8 @@ The schedule is at <https://www.kth.se/social/course/DD2482/calendar/>
 
 ### Week 6 <https://kth-se.zoom.us/j/66650222454>
 * Technical Briefing (B. Baudry)
-* Guest Lecture: Resilient Software [Heidi Waterhouse](https://heidiwaterhouse.com/)
+* Guest Lecture: Everything is a Little Bit Broken ~or~ The Illusion of Control [Heidi Waterhouse](https://heidiwaterhouse.com/)
+  * [Abstract](https://github.com/KTH/devops-course/blob/2021/abstract-Waterhouse.md)
 * Student presentations
 
 ### Week 7: Michelin Devops Demo Day
