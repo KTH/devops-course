@@ -1,0 +1,26 @@
+name: PDF Essay Checker
+
+on:
+  pull_request:
+    paths:
+    - contributions/essay/**/*.pdf # Only run for essay contributions
+    types:
+    - opened
+    - synchronize
+
+jobs:
+  pdf-essay-checker:
+    runs-on: ubuntu-latest
+    name: PDF Essay Checker
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: PDF Essay Checker Action
+      uses: atema/pdf-essay-checker-action@main
+      with:
+        file-glob: contributions/essay/**/*.pdf # Match essay pdf contributions
+        min-word-count: 1800                    # Minimum count 2000 - 10%
+        max-word-count: 2200                    # Maximum count 2000 + 10%
+        report-action-status: true              # Fail action if checks not passed
+        require-all-pass: false                 # Require only one file to pass
+        report-pr-comment: true                 # Leave comment on PR
