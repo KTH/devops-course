@@ -20,7 +20,7 @@ We believe that the subject is of great interest to DevOps because. Despite the 
 5. The Process of Selecting Tools in ITOps
 6. Conclusion
 
-###Grading criteria we aim for:
+### Grading criteria we aim for:
 
 |                                             | Yes | No | Remarkable |
 |-------------------------------------------- | ----|----|-------------|
