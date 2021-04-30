@@ -1,4 +1,4 @@
-# Essay: Comparison of Kubernetes and Nomad Orchestration Tools: Finding Your Way Through the “Forest”
+# Essay: Comparison of Kubernetes and Nomad Orchestration Tools
  
 ## Members
 - [Dina Lerjevik](https://github.com/dmariel) (lerjevik@kth.se)
