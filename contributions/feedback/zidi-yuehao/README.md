@@ -23,4 +23,4 @@ Essay submission: #1419
 |All points are clearly actionable | :boom: |
 |The feedback is substantiated | :boom: 1210 words |
 |The feedback contains pointers to additional material | :boom: 5 additional materials |
-|The students act upon the feedback they receive | :boom: Hopefully|
+|The students act upon the feedback they receive | :boom: |
