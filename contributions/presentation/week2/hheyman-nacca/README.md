@@ -8,11 +8,11 @@
  Github username: [patricia-naccachian](https://github.com/patricia-naccachian)
 
  ## Proposal
-Theh history of DevOps
+The history of DevOps
 
 Our intention is to to give our viewers a deeper understanding of why and how devops as a concept, practice and profession came to be in the last decade.
  
- Slide draft
+ Slides
  - The problem of separating ops from dev
  - the growth of devops as a concept
  - Important influencers and their contribution
