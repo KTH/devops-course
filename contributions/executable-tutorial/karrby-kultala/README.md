@@ -42,6 +42,6 @@ The repo for the scenario can be found here: https://github.com/hengque/elk-anal
 |The tutorial gives enough background | Yes | No | Comprehensive background 🍯  |
 |The tutorial is easy to follow  | Yes | No | Well documented 🍯 |
 |The tutorial is original, no such tutorial exists on the web | Yes 🍯 | No | The teaching team never heard about it |
-|The tutorial contains [easter eggs](https://github.com/OrkoHunter/python-easter-eggs) | Yes | No | Subtle and fun |
+|The tutorial contains [easter eggs](https://github.com/OrkoHunter/python-easter-eggs) | Yes 🍯 | No | Subtle and fun |
 |The tutorial is successful (attracts comments and success) | Yes | No | Lively discussion |
 |The language is correct | Yes | No | Interesting narrative 🍯  |
