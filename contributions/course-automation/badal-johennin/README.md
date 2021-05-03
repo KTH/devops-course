@@ -10,7 +10,7 @@ GitHub [@johennin](https://github.com/johennin)
 
 ## Submission
 The action and code can be found either in the KTH DevOps repo or in our [fork](https://github.com/johennin/devops-course). 
-Link to the files in the fork: [dpd.py](https://github.com/johennin/devops-course/blob/automation/contributions/course-automation/badal-johennin/dpd.py) and [dpd.yml](https://github.com/johennin/devops-course/blob/automation/.github/workflows/dpd.yml)
+Link to the files in the fork: [dpd.py](https://github.com/johennin/devops-course/blob/final_version/contributions/course-automation/badal-johennin/dpd.py) and [dpd.yml](https://github.com/johennin/devops-course/blob/final_version/.github/workflows/dpd.yml)
 
 ## Features
 
@@ -20,7 +20,7 @@ Link to the files in the fork: [dpd.py](https://github.com/johennin/devops-cours
 - Only checks for student READMEs in the folder `contributions`
 
 ## Installation
-This tool was specifically tailored for the course DevOps DD2482 at KTH and the respective repository. Which means that it only works for that specific folder structure and naming. By accepting this PR in to the repo it will automatically be enabled.
+This tool was specifically tailored for the course DevOps DD2482 at KTH and the respective repository. Which means that it only works for that specific folder structure and naming. The implementation assumes the dpd.yml in the workflow folder and the dpd.py in contributions/course-automation/badal-johennin. This can be customized with minor changes to dpd.yml. For a detailed view check out the branch [final_version](https://github.com/johennin/devops-course/tree/final_version) in our fork.
 
 If this tool is to be reused in other years of DD2482 respecifying the path to the dpd.py file is required.
 If any tasks are added or changed this can be added in the dpd.py file.
