@@ -1,5 +1,8 @@
 # Feedback for essay "Putting the hours on fun, not manual labor: Incorporating DevOps in the Video Game Industry"(PR #1312)
 
+Natan Teferi Asegehegn: ntas@kth.se
+GitHub: https://github.com/callmeGoldenboy
+
 ## General thoughts
 Well written essay. The video game industry is very big so it was interesting to read how they implement DevOps techniques to improve quality and reduce development time. As someone who likes to play video games, this gave me a good overview of the impact DevOps can have in game industry. 
 ## Strengths 
