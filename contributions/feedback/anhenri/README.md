@@ -6,6 +6,7 @@ Andreas Henriksson (anhenri@kth.se), Github: [heeenkie](https://github.com/heeen
 
 ## Essay to give feedback on ##
 I plan to give feedback on this essey: [#1032](https://github.com/KTH/devops-course/pull/1032)
+Final submission for the essay: [#1400](https://github.com/KTH/devops-course/pull/1400)
 
  # Feedback #
 I have divided the feedback according to the different headings to make it easier to read. I've also added plus and minus signs to easier follow the strengths and weaknesses.
