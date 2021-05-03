@@ -19,3 +19,7 @@ Due to timing constraints a subset of these will be presented or some points wil
 
 - [Latest Version](https://docs.google.com/presentation/d/1DTzgAa1Qi58BFyykg2jIJB0z6MAqxtPqNEp6zp3zIOU/edit?usp=sharing)
 - [Presented Version](./Introduction to Nix.pdf)
+
+## Presenter
+
+Yannik Sander ([yannik@kth.se](mailto:yannik@kth.se))
