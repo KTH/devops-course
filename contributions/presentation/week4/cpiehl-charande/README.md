@@ -27,3 +27,5 @@ A presentation about the recently coined term GitOps. Proposed outline below:
 - What are the advantages/disadvantages of GitOps?
 
 - Are there alternatives to GitOps?
+
+Here are the [slides](GitOps.pdf)

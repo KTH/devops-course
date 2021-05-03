@@ -1,0 +1,25 @@
+on:
+  pull_request:
+    types: [labeled]
+
+jobs:
+  pdf-bibliography:
+    name: A job to check bibliography in pdf files
+    if: ${{ github.event.label.name == 'essay' }}
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+    - name: Get paths to changed files in the PR branch
+      env:
+        BRANCH_DIFF: origin/2021
+      run: |
+        git diff-tree --no-commit-id --name-status -r $BRANCH_DIFF ${{ github.sha }} > CHANGED_FILES_PATHS.txt
+    - uses: amarhod/pdf-bibliography-action@v1
+      with:
+        token: ${{ github.token }}
+        repo_path: ./
+        repo_name: ${{ github.repository }}
+        pr_number: ${{ github.event.number }}
+        verbosity: 2
