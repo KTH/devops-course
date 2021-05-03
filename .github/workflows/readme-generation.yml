@@ -16,8 +16,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Generate the READMEs
-        run: python3 contributions/course-automation/felixfon/code/readme_generation.py
+      - name: ReadMe Generation for Contribution Category Folders
+        uses: FelixFonteneau/readme-Generation-for-Devops-Course@1.1
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3.8.2
