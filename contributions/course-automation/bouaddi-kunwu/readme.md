@@ -40,3 +40,15 @@ Considering the number of students in the course, the script will make mistakes.
 |The task runs on a standard platform | :white_check_mark: Yes (Github action) | No | Other platforms (e.g. Moodle, Canvas) |
 |The task is praised by the other students of this course | Yes | No | n-a |
 |The code for the task is available | :white_check_mark: Yes (public repo) | No | Well documented repo |
+
+## The demonstration repository 
+
+You can see the result of the workflow on this repository (forked from the course): https://github.com/Hilaire-Bouaddi/devops-course/pulls?q=is%3Apr+is%3Aclosed 
+
+The branch used for the demonstration is the 2022 branch.
+
+Let's look closely on the Pull Requests #11, #12 and #13. Those Pull Requests are propositions to contribute either in Executable Tutorial or Essay. This work makes the hypothesis that this kind of pull requests will both have the label "proposal" and the label "tutorial"/"essay". We can also see that the feedback contribution #14 has been merged. In the readme of the feedback, #11 is mentioned. This is why the workflow will mark #11 as "feedbacked". 
+
+Then, we can see on the repo that a PR is open. This PR references #12 in its body. This is why the PR#12 is marked as "feedback claimed". 
+
+Finally, the PR #13 is neither mentioned in a PR body nor in a readme, it is then "feedbackable".
