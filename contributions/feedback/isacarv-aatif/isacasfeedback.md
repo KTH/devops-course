@@ -1,3 +1,7 @@
+Members: @isacarvid (isacarv@kth.se), @ayubatif (aatif@kth.se)
+Feedback proposal can be found in KTH#1128
+Feedback as comments can be found in PR  [1031](https://github.com/KTH/devops-course/pull/1031)
+
 Hi Kun Wu @Wkkkkk!
 
 I will explain my thoughts on your essay section per section. After this a will provide a concrete list of possible changes. Finally, I will give some additional references to help with the mentioned corrections. I hope this will help you in some way.
