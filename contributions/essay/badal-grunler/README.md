@@ -1,4 +1,4 @@
-## Topic: End-to-end testing: Useful practice or frustrating time sink? 
+## Topic: Automated end-to-end testing: Useful practice or frustrating time sink? 
 
 
 ## Members:
