@@ -3,11 +3,8 @@
 ## Members
 Fredrik Björkman (fbjorkma@kth.se) Github: https://github.com/fbjorkman
 
-## Proposal
-I would like to give feedback on this essay
-Essay: Automated tests for infrastructure code [#1415](https://github.com/KTH/devops-course/pull/1415)
-
 # Feedback Automated tests for infrastructure code
+Essay: Automated tests for infrastructure code [#1415](https://github.com/KTH/devops-course/pull/1415)
 
 Thank you for the interesting read!
 Here follows my feedback divided into the same parts as the essay:
