@@ -4,6 +4,7 @@
 Lara Rostami (larasm@kth.se), Github: [LaraRos](https://github.com/LaraRos)
 ## Proposal ##
 I plan to do feedback on #1084
+Final essay submission: #1436
 ## Overall
 * The paper discusses ITOps and how it is different and similar to DevOps. The authors also mention how these set of practices manifest in a company, and where they might cause issues for the company.
 * At the moment, the word count is too small, but this is expected to change for their final submission. 
