@@ -18,7 +18,6 @@ In this paper, I'll describe how software architecture has been evolving to addr
 Through the this ever-changing trend, we can have a holistic view of how possible failure is handled in different times and how to build up automated exception handling which ensures a stable and robust performance.
 
 
-### Suitability of Topic
 ###Grading criteria we aim for:
 
 |                                             | Yes | No | Remarkable |
