@@ -2,7 +2,7 @@
 
 ## Member
 Name: Gustaf Lidfeldt
-Email: lidfeldt@gmail.com
+Email: lidfeldt@kth.se
 Github: @glidfeldt
 
 ## Description
