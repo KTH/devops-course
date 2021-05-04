@@ -33,3 +33,15 @@ We aim to fulfill the following criteria:
 |The task runs on a standard platform	|**Yes (Github action)**	|No|	Other platforms (e.g. Moodle, Canvas)|
 |The task is praised by the other students of this course|	**Yes**|	No|	n-a|
 |The code for the task is available	|**Yes (public repo)**|	No	|**Well documented repo**|
+
+## Final Submission
+
+Our submission is available at: https://github.com/marketplace/actions/legal-teammates  
+
+Our demo is viewable here with simplified course structure and fake names: https://github.com/Agriad/devops-course/tree/demo
+
+More specifically with the demo issue can be viewed here: https://github.com/Agriad/devops-course/issues/56
+
+GitHub Actions can be viewed here: https://github.com/Agriad/devops-course/actions
+
+One issue that shows it works for the real course enviroment can be viewed here: https://github.com/Agriad/devops-course/issues/58
