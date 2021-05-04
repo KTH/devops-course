@@ -1,6 +1,6 @@
-Members: @isacarvid (isacarv@kth.se), @ayubatif (aatif@kth.se)
+Members: @isacarvid (isacarv@kth.se))
 Feedback proposal can be found in KTH#1128
-Feedback comment here: [1031](https://github.com/KTH/devops-course/pull/1379#issuecomment-827652214)
+Feedback comment [here](https://github.com/KTH/devops-course/pull/1379#issuecomment-827652214)
 
 Hi Kun Wu @Wkkkkk!
 
