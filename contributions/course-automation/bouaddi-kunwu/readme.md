@@ -15,6 +15,8 @@ The aim of the proposal is to automate the labelization of PR to mark the ones t
 
 ## The finished contribution 
 
+Link to the workflow: https://github.com/Hilaire-Bouaddi/devops-course/blob/2022/.github/workflows/label-feedbackable.yml 
+
 This work resulted in a new workflow for the DevOps repository. This workflow named label.yml is in charge of labelling merged PRs.
 This is the implemented behavior:
 ```
