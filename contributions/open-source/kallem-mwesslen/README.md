@@ -18,3 +18,6 @@ To enable others to create integrating actions, our scoreboard action will have 
 
 We believe that this project is suitable for the open-source category, as it is not generally useful for the course-repo,
 but could be useful for many different projects.
+
+## Execution
+Our open source project can be found [here](https://github.com/Wizkas0/repo-score).
