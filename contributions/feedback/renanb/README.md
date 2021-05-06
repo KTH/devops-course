@@ -1,5 +1,6 @@
 
 # Feedback for [#1369](https://github.com/KTH/devops-course/pull/1369): End-to-End testing: Userful practice or frustrating time sink?
+Final submission for the essay: [#1439](https://github.com/KTH/devops-course/pull/1439).
 This essay is written by **Lee Badal** (badal@kth.se) and **Daniel Grünler** (grunler@kth.se).
 
 
