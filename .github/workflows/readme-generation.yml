@@ -1,0 +1,43 @@
+name: ReadMe Generation for Contribution Category Folders
+
+on:
+  push:
+    branches:
+      - "2021"
+    paths:
+      - contributions/*/**
+
+  workflow_dispatch:
+
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: ReadMe Generation for Contribution Category Folders
+        uses: FelixFonteneau/readme-Generation-for-Devops-Course@1.4
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3.8.2
+        with:
+          token: ${{ secrets.PAT }}
+          commit-message: Update Contribution READMEs
+          committer: GitHub <noreply@github.com>
+          author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
+          signoff: false
+          branch: generation-readme
+          delete-branch: true
+          title: '[ReadMe Generation] Update the different type contribution readmes'
+          body: |
+            [__GENERATED READMEs__]
+            Updated the readmes with the new contributions
+          labels: |
+            automated pr
+          draft: false
+
+      - name: Check outputs
+        run: |
+          echo "Pull Request Number - ${{ steps.cpr.outputs.pull-request-number }}"
+          echo "Pull Request URL - ${{ steps.cpr.outputs.pull-request-url }}"
