@@ -116,6 +116,10 @@ To get a distinction, you must have one browser version and at least 1 "remarkab
 
 The concept: you create an automation task for the course to improve the teaching experience and effectiveness (eg a Github action task). Simple tasks can be bundled in a package to get a pass.
 
+Make sure that you meet the following requirements in your final submission:
+1. The automation task (ex., Github Action) should be implemented in a stand-alone repository, not as a part of the Deveops-Course repository. For example, you can do this by [publishing your Github Action in the Github marketplace](https://docs.github.com/en/actions/creating-actions/publishing-actions-in-github-marketplace). The final submission must include a link to the repository that implements the task.
+2. You should demonstrate that your automation technique actually works and automatically produces some results. For example, you can fork the Devops-Course repo and activate the implemented Github Action on it and show how it works by making changes in your forked repo. In case of this example, a link to your forked repository should be included in the final submission.
+
 Suggestions for course automation tasks: https://github.com/KTH/devops-course/issues/916
 
 |                                             | Yes | No | Remarkable  |
@@ -136,6 +140,7 @@ To get a distinction, you must pass and have at least 1 "remarkable".
 
 The concept: you provide constructive and timely feeback about one task from categories "essay" and "executable tutorial".
 The feedback is provided in a written manner, as a well-structured comment on the PR of the task.
+This constraint means that to register a feedback task, you must also register either an "essay" or an "executable tutorial".
 
 |                                             | Yes | No | Remarkable  |
 |-------------------------------------------- | ----|----|-------------|
