@@ -4,7 +4,6 @@ Taqui - taqui@kth.se
 GitHub: [Internet-Person-IP](https://github.com/Internet-Person-IP)
 
 
-
 ## Initial Proposal: 
 [#1007](https://github.com/KTH/devops-course/pull/1007)
 
