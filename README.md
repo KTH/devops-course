@@ -49,16 +49,20 @@ The schedule is at <https://www.kth.se/social/course/DD2482/calendar/>
 ### Week 4
 * Technical Briefing (B. Baudry)
 * Guest Lecture: MLOps [Alex Nodet (King)](https://www.linkedin.com/in/alexnodet/)
+  * Preparatory material: [IaaS Explained](https://www.youtube.com/watch?v=XRdmfo4M_YA) and [SaaS Vs PaaS Vs IaaS](https://tms-outsource.com/blog/posts/saas-vs-paas-vs-iaas/)
+  * [Slides](https://github.com/KTH/devops-course/blob/2021/Infrastructure%20As%20Code%20-%20KTH%20DevOps%202021.pdf)
 * Student presentations
 
 ### Week 5
 * Technical Briefing (M. Monperrus)
 * Guest Lecture: Supply-chain security [Rhys Arkins (Whitesource)](https://www.linkedin.com/in/rhys-arkins-5a643a/) 
+  * Preparatory material: [A 'Worst Nightmare' Cyberattack: The Untold Story Of The SolarWinds Hack](https://www.npr.org/2021/04/16/985439655/a-worst-nightmare-cyberattack-the-untold-story-of-the-solarwinds-hack)
 * Student presentations
 
-### Week 6
+### Week 6 <https://kth-se.zoom.us/j/66650222454>
 * Technical Briefing (B. Baudry)
-* TBA
+* Guest Lecture: Everything is a Little Bit Broken ~or~ The Illusion of Control [Heidi Waterhouse](https://heidiwaterhouse.com/), [LaunchDrakly](https://launchdarkly.com/about-us/)
+  * [Abstract](https://github.com/KTH/devops-course/blob/2021/abstract-Waterhouse.md)
 * Student presentations
 
 ### Week 7: Michelin Devops Demo Day
@@ -87,6 +91,7 @@ To pass the course, the student has to collect 4 grades:
 * Group work is encouraged (max 3 persons) but you cannot be with the same persons for more than 2 projects. You can do a work alone for one or at most two projects.
 * A failed task requires to pass it again at the end of the course, based on the feedback from the failure. A repeated task cannot be passed with distinction. A task can only be repeated once.
 * If the whole course is failed, no grades are kept if the student registers again to the course the year after. 
+* After a proposal has been merged, the topic of that proposal cannot be changed.
 
 Group Rules
 * When you send a pull request for registration, please follow the name convention of using email addresses of two members to create the folder: email-email.
