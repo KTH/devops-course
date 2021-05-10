@@ -10,18 +10,16 @@ The goal of this automation is to help TAs and Professors to reach students thro
 
 ## What the action does 
 
- - ✅    Filter the actors (should only be triggered for TAs and professors actions) 
- - ✅    Filter events (on what event´s should it be triggered: new issues/ change in head README / special commits..)
- - ✅    Standarize format (so that action can be triggerd for several types of events by ex using labels)
- - ✅    Integrate with Discord
- - ✅    Customize what information should be included in the Discord messages
- - ✅    Send messages to Discord
+ - ✅    Filter the actors (Triggered only on comments from  (monperrus, bbaudry, SophieHYe, Deee92, cesarsotovalero,khaes-kth) and author (annsudo))
+ - ✅    Filter events (Triggered: on comment for both issues and pull_requests)
+ - ✅    Standarize format (Message together with a GIF is send in respons that the message was succesfully send to discord)
+ - ✅    Integrate with Discord 
+ - ✅    Customize what information should be included in the Discord messages (Included: auther, message, which issue/PR, link)
+ - ✅    Connect back to Github (Navigate back to issue by pushing on "Go to github on discord message" )
 
-## Extra (if time allows)
-I would also want to make it possible to customize this action so the event can be triggered:
- - to the official discord channel (when it conserns all course members)
- - to only person it conserns 
+## Structure
 
+I structured this automation as 2 parts with goal of making it reusable for other users. [1st part](https://github.com/annsudo/discord-comments) is an action that is useful for all github+discord lovers: it messages on both PR and Issues and send them to Discord beautifully formated. [2nd part](https://github.com/annsudo/comment-to-Discord-action) AKA Head project is more corse-spesific where I show how to filter actors who can trigger this action and combine it with some fun gifs.
 
-## May change
-The precise logic on first 3 points will be developed further with the goal of making the automation elegeant and intuitive
+## Code + documentation + how to use
+The head project is found [here](https://github.com/annsudo/comment-to-Discord-action) 

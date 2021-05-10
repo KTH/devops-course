@@ -1,13 +1,14 @@
-# Role of DevOps in minimizing downtime on applications using continuous deployment
+
+# Essay : Role of DevOps in minimizing downtime on applications using continuous deployment
 
 ## Members
 
-renanb@kth.se Github: Renugaa
-Yuxinm@kth.se Github: yuxinmmmm
+Renugadevi Anbarasan, renanb@kth.se, Github: Renugaa 
 
+Yuxin Meng, Yuxinm@kth.se, Github: yuxinmmmm
 
 ## Proposal
-* What is Downtime? 
+* What is Downtime?
 * How downtime impacts deployment?
 * Use of DevOps to minimize the downtime
 * The benefits and shortcomings in Continuous deployment
