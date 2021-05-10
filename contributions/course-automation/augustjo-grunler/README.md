@@ -18,9 +18,15 @@ We will also implement the possible checks for a remarkable submission, such as 
 
 ## Submission
 
-We have created a Github Action that can be used to automate some part of the evaluation of the feedback task. When people in the KTH course DevOps give feedback to their fellow students, that feedback has to pass certain requirements. We have focused on 2 of these requirements: 
+We have created a [Github Action](https://github.com/Augustjon/Feedbackcheck-action) that can be used to automate some part of the evaluation of the feedback task. When people in the course give feedback to their fellow students, that feedback has to pass certain requirements. We have focused on 2 of these requirements: 
 1. The feedback is substantiated meaning that the word count is at least 500 words, and if the word count is above 1000 then the feedback is considered remarkable. The Github Action uses input variables so that the limits can be modified in future course offerings as required. 
 2. The feedback should be submited 4 days before the submission deadline of the task. As this deadline might also be subject to change in future course offerings we decided to let the course administration set the deadline for the **feedback** as an input to the Github Action.
+
+## Action location
+
+Repo: https://github.com/Augustjon/Feedbackcheck-action
+
+Marketplace: https://github.com/marketplace/actions/check-feedback
 
 ## Usage
 ### Inputs
@@ -37,7 +43,7 @@ The inputs of the actions are:
 To use the action you may create a file in your project (example `.github/workflows/feedbackcheck.yml`) and include these lines of code.
 ````yml
 name: Feedback-check
-on: 
+on:
   pull_request:
     paths:
       - '**/feedback/**/README.md'
@@ -46,10 +52,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-
     - name: check feedback
       id: feedback
-      uses: ./contributions/course-automation/augustjo-grunler
+      uses: Augustjon/Feedbackcheck-action@v1
       with:
         repo-token: ${{secrets.GITHUB_TOKEN}}
         minimal-wordcount: 500
@@ -58,7 +63,6 @@ jobs:
 ````
 
 The yaml might be changed to trigger the action on other events or to specify certain branches or paths.
-The uses path will only work for the course when the code has been merged into the repo. In some cases you might also want to specify a branch or tag.
 
 ### Course-specific
 The action triggers on a PR when the files that are modified matches this path in the devops structure `**/feedback/**/README.md`. 
