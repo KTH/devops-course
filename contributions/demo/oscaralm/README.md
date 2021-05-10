@@ -12,3 +12,8 @@ Github: [oscaralmqvist](https://github.com/oscaralm)
   - Run tests
 - When pull-request is accepted/merged:  
   - Publish the package to npm
+
+## Video Submission
+https://www.youtube.com/watch?v=dAQLgihjh3c 
+
+Easter egg @ [1:00](https://youtu.be/dAQLgihjh3c?t=59)
