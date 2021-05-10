@@ -7,6 +7,14 @@ Github: [hassbring](https://github.com/hassbring)
 Gustaf Lidfeldt (lidfeldt@kth.se)
 Github: [glidfeldt](https://github.com/glidfeldt)
 
+## Changes following feedback
+* Almost all feedback suggestions from [#1403] addressed, due to extensive restruction of the essay. Examples:
+  * Sources: complete restruction, Harvard style, doubled amount
+  * Images / figures: resized, labeled, captioned
+  * Section "Practical examples": restructured
+  * Deeper reflective linkage to devops
+  * Etc etc.
+
 ## Topic
 We would like to write an essay on the *no-code / low-code* abstraction practice and its rapid evolvement. We will critically review its emergence in devops and talk about about devops from the bigger perspective - abstraction. 
 

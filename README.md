@@ -50,6 +50,7 @@ The schedule is at <https://www.kth.se/social/course/DD2482/calendar/>
 * Technical Briefing (B. Baudry)
 * Guest Lecture: MLOps [Alex Nodet (King)](https://www.linkedin.com/in/alexnodet/)
   * Preparatory material: [IaaS Explained](https://www.youtube.com/watch?v=XRdmfo4M_YA) and [SaaS Vs PaaS Vs IaaS](https://tms-outsource.com/blog/posts/saas-vs-paas-vs-iaas/)
+  * [Slides](https://github.com/KTH/devops-course/blob/2021/Infrastructure%20As%20Code%20-%20KTH%20DevOps%202021.pdf)
 * Student presentations
 
 ### Week 5
@@ -60,7 +61,8 @@ The schedule is at <https://www.kth.se/social/course/DD2482/calendar/>
 
 ### Week 6 <https://kth-se.zoom.us/j/66650222454>
 * Technical Briefing (B. Baudry)
-* Guest Lecture: Resilient Software [Heidi Waterhouse](https://heidiwaterhouse.com/)
+* Guest Lecture: Everything is a Little Bit Broken ~or~ The Illusion of Control [Heidi Waterhouse](https://heidiwaterhouse.com/), [LaunchDrakly](https://launchdarkly.com/about-us/)
+  * [Abstract](https://github.com/KTH/devops-course/blob/2021/abstract-Waterhouse.md)
 * Student presentations
 
 ### Week 7: Michelin Devops Demo Day
