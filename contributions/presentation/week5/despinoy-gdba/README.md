@@ -17,3 +17,7 @@ Link between devops and the two techniques
 Background Kanban
 Background Scrum
 Comparison
+
+### Slides
+
+https://docs.google.com/presentation/d/1MctWq03l0saQHwcS2XvNt4a0ZTnHtEMwIsiWA_69XrI/edit?usp=sharing

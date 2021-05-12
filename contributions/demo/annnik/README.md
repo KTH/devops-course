@@ -21,7 +21,7 @@ with help of open source project Nektos Act and Docker you can run, test and deb
  - ✅    Take away
 
 ## Youtube
-[To the Demo](https://www.youtube.com/watch?v=5hHYUNbdP6M)
+[To the Demo](https://youtu.be/5mYUMxHOjI4)
 
 ## Code repo of the example-action
 [Action code](https://github.com/annsudo/discord-comments)
