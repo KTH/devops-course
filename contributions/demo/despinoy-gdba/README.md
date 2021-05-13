@@ -38,6 +38,7 @@ After recieving Feedback after demo day we implemented the following changes:
 
 The updated video after the feedback can be found here: [Link to video after feedback](https://youtu.be/L-Dh5ae4Zcg)
 
+
 ## Grading matrix
 
 |                                             | Yes | No | Remarkable |
