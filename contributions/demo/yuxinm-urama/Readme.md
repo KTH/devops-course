@@ -18,3 +18,12 @@ Jenkins is an open automation tool, written in Java with plugins for  continous 
 https://youtu.be/n3Fp5vN-EjE
 
 
+## Changes
+The changes are based on the feedback from PR #1493 
+
+The changes are:
+- slow down the speed of the voice
+- reduce some unnecessary steps(eg. running the "git status" command)
+- add more explanation between steps 
+
+The new video can be found here [GitHub Integration with Jenkins](https://youtu.be/n3Fp5vN-EjE)
