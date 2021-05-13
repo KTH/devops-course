@@ -1,4 +1,4 @@
-# Video demo proposal: Docker monitoring using Datadog
+# Video demo: Docker monitoring using Datadog
 
 ## Members
 
