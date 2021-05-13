@@ -30,7 +30,6 @@ Kitty Thai (kittyt@kth.se), [kittytinythai](https://github.com/kittytinythai)
 
 ## Self-grading
 Aiming for a "yes".
-
 |                                             | Yes | No | Remarkable |
 |-------------------------------------------- | ----|----|-------------|
 |The demonstration is clearly motivated (why it matters for Devops?) | Yes | 🦆 No |  Relates to a hard problem |
