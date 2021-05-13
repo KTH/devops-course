@@ -13,7 +13,7 @@ After building software that users depend on every day it becomes clear that upt
 
 
 ## Submission
-We've now completed the demo, it consists of a 3:00 minute youtube video that can be found [here](https://youtu.be/LFzt3PGQDyo) and an accompanying github repository [here](https://github.com/Atema/Cloudprober-Demo) that includes written instructions as well as all the configuration files used in the demo. With it we aim to fulfill the following criterias:
+We've now completed the demo, it consists of a 3:00 minute youtube video that can be found [here](https://www.youtube.com/watch?v=o1ITz06dd2A) and an accompanying github repository [here](https://github.com/Atema/Cloudprober-Demo) that includes written instructions as well as all the configuration files used in the demo. With it we aim to fulfill the following criterias:
 
 |                                             | Yes | No | Remarkable |
 |-------------------------------------------- | ----|----|-------------|
