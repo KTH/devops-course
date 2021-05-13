@@ -36,7 +36,7 @@ After recieving Feedback after demo day we implemented the following changes:
 - Improved the audio levels of the background music and decreased it so it does not take over the voice over. 
 - Adjusted the voice over volumes to ensure that they are heard clealy
 
-[Link to video after feedback](https://www.youtube.com/watch?v=iYIwVbszVw4)
+The updated video after the feedback can be found here: [Link to video after feedback](https://www.youtube.com/watch?v=iYIwVbszVw4)
 
 ## Grading matrix
 
