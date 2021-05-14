@@ -1,6 +1,4 @@
-# Essay
-
-## Topic: End-to-end testing: Useful practice or frustrating time sink? 
+## Topic: Automated end-to-end testing: Useful practice or frustrating time sink? 
 
 
 ## Members:
@@ -16,15 +14,6 @@ Github: [Grunler](https://github.com/LeeBadal)
 KTH: grunler@kth.se
 
 
-## Proposal
+## Description
 
-We plan on writing an introductory essay about end-to-end testing investigating when it should and should not be used. 
-
-These are our proposed outline:
-- Introduction/what is e2e testing
-- Our experiences with e2e testing in the open source community
-- Advantages and disadvantages of e2e testing
-- How e2e testing is done / popular tools
-- Pitfalls of e2e testing
-- When to use e2e testing
-- Conclusion
+In this essay we introduce the reader to End-to-end testing, consider its advantages and disadvantages and try to answer if and when it should be used.
