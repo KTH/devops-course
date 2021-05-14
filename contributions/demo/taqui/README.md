@@ -9,7 +9,7 @@ GitHub: [Internet-Person-IP](https://github.com/Internet-Person-IP)
 
 # Submission
 
-The final product can be found [here](https://www.youtube.com/watch?v=jrQqf5s2XRk).
+The final product can be found [here](https://www.youtube.com/watch?v=kcBz4cNKqGo).
 
 ## Grading Criteria
 
@@ -24,3 +24,11 @@ The final product can be found [here](https://www.youtube.com/watch?v=jrQqf5s2XR
 |There is a code repo to run the demo  | Yes | No | Code repo with a solid readme |
 |The video must contain subtitles which are clear and in proper English | Yes | No | Clearly understandable voice over |
 |The video includes a take-home message | Yes | No | 💍 Actionable takeaway |
+
+
+# Fixed Feedback
+
+* Gone through each step of the tutorial in more detail.
+* More Consistent Experience Mic Wise
+* Added Github Link to the repository
+* Fixed some Editing
