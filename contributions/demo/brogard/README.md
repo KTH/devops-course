@@ -7,6 +7,12 @@ Mail: brogard@kth.se
 
 Github: andrebrogard
 
+# Submission
+
+The video can be found on [youtube](https://youtu.be/morsy_tXLYE).
+
+This follows proposal [#1052](https://github.com/KTH/devops-course/pull/1052)
+
 ## Proposal
 The demo will show the resulting architecture of a ci/cd pipeline and the process for deploying this pipeline across AWS accounts (the purpose for multiple accounts will be stated). The pipeline will only use manual intervention to transition from staging to production environments (to emulate QA tests and approval). The pipeline will be written as IaC (AWS CDK) in the same repo as the application code.
 

@@ -1,0 +1,38 @@
+issue: <ISSUE_NUMBER>
+dir: contributions/**
+categories:
+  course-automation:
+    suffix: '**' # Set to '*' to not allow folders
+    proposal: README.md # The name of the proposal file
+    folder: +([a-zA-Z0-9])?(-+([a-zA-Z0-9])) # Glob for validating the folder account names
+    glob: contributions/course-automation/
+  presentation:
+    suffix: '**'
+    proposal: README.md
+    folder: +([a-zA-Z0-9])?(-+([a-zA-Z0-9]))
+    glob: contributions/presentation/week[1-9]/
+  demo:
+    suffix: '**'
+    proposal: README.md
+    folder: +([a-zA-Z0-9])?(-+([a-zA-Z0-9]))?(-+([a-zA-Z0-9]))
+    glob: contributions/demo/
+  essay:
+    suffix: '**'
+    proposal: README.md
+    folder: +([a-zA-Z0-9])?(-+([a-zA-Z0-9]))?(-+([a-zA-Z0-9]))
+    glob: contributions/essay/
+  executable-tutorial:
+    suffix: '**'
+    proposal: README.md
+    folder: +([a-zA-Z0-9])?(-+([a-zA-Z0-9]))
+    glob: contributions/executable-tutorial/
+  feedback:
+    suffix: '**'
+    proposal: README.md
+    folder: +([a-zA-Z0-9])?(-+([a-zA-Z0-9]))
+    glob: contributions/feedback/
+  open-source:
+    suffix: '**'
+    proposal: README.md
+    folder: +([a-zA-Z0-9])?(-+([a-zA-Z0-9]))?(-+([a-zA-Z0-9]))
+    glob: contributions/open-source/
