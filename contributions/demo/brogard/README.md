@@ -7,10 +7,15 @@ Mail: brogard@kth.se
 
 Github: andrebrogard
 
-# Submission
+# Final Submission
 
-The video can be found on [youtube](https://youtu.be/morsy_tXLYE).
+I have updated the demo from the feedback. Most importantly I made the focus more clear and decided to only focus on deployment. 
 
+The video can be found on [youtube](https://youtu.be/XFHGWjS-b_c).
+
+A link to the repo can be found here: [andrebrogard/aws-cdk-todo-demo](https://github.com/andrebrogard/aws-cdk-todo-demo)!
+
+The first submission (before demo day) was [#1494](https://github.com/KTH/devops-course/pull/1494)
 This follows proposal [#1052](https://github.com/KTH/devops-course/pull/1052)
 
 ## Proposal
