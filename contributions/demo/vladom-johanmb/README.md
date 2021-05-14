@@ -25,7 +25,7 @@ We want to make a demo on how to setup Github action to have a continuous deploy
 
 
 ## Links
-▶️ [YouTube](https://www.youtube.com/watch?v=xIE-47RkMto)
+▶️ [YouTube](https://youtu.be/gI4fIntKvxg)
 
 ⭐ [GitHub](https://github.com/vladomitrovic/DevopsApp)
 
