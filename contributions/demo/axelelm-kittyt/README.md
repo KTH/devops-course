@@ -16,13 +16,20 @@ Kitty Thai (kittyt@kth.se), [kittytinythai](https://github.com/kittytinythai)
 8. Set up Github actions
 
 ## Youtube Link
-[Video demo](https://www.youtube.com/watch?v=B04c0lbzMC4)
+[Video demo](https://www.youtube.com/watch?v=-5ibP83GhK8)
 ## Code Repository
 [Demo repo](https://github.com/elmaxe/devops-demo-video)
 
+## Actions Done Based on Feedback
+- [x] Remove a few sentences (we tried to remove a few parts, but it felt like the instructions got unclear) to slow down the pace a bit.
+- [x] Zoom in the when viewing the editor and the terminal to make the scripts and commands more readable.
+- [x] 00:30, the whole script were not visible, add the entire script on the frame
+- [x] 1:15, update the easter egg.
+- [x] 1:40, change the pronunciation of 'CLI'
+- [x] 2:03 fix typo in the subtitles, from 'coped' to 'copied'.
+
 ## Self-grading
 Aiming for a "yes".
-
 |                                             | Yes | No | Remarkable |
 |-------------------------------------------- | ----|----|-------------|
 |The demonstration is clearly motivated (why it matters for Devops?) | Yes | 🦆 No |  Relates to a hard problem |
