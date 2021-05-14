@@ -19,7 +19,7 @@ In this demo we use Kubeflow fairing to train a machine learning model remotely 
 
 ### Links:
 
-[Video demo](https://youtu.be/TBVCmU2jsTc)
+[Video demo](https://youtu.be/vjCq18u8VB0)
 
 [Github repo](https://github.com/cpiehl1/kf-demo)
 
