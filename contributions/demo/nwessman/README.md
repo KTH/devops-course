@@ -29,8 +29,7 @@ Switch to French subtitles for a fun time! :tada:
 |-------------------------------------------- | ----|----|-------------|
 |The demonstration is clearly motivated (why it matters for Devops?) | :heavy_check_mark: Yes |  | Testing system's robustness is an important DevOps problem. |
 |The demonstration is difficult to do | :heavy_check_mark: Yes |  | :heavy_check_mark:  Had to create my own system. |
-|The demonstration is original | :heavy_check_mark: Yes |  | :heavy_check_mark: The are less than 10 demos on the topic on Internet - I could only find  ~ 5 using the specific tool Chaos Toolkit. 
-   |
+|The demonstration is original | :heavy_check_mark: Yes |  | :heavy_check_mark: The are less than 10 demos on the topic on Internet - I could only find  ~ 5 showing the specific tool Chaos Toolkit. |
 |The video is sublime (eg visually appealing) |:heavy_check_mark: Yes, if you like sharks! 🦈  |  | 🦈  Excellent narrative - Incorportated animations which explains the tests |
 |The video contains an [easter egg](https://github.com/OrkoHunter/python-easter-eggs) | :heavy_check_mark: Yes, switch to French subtitles for a fun time. :tada:  |  |  |
 |There is a code repo to run the demo  | :heavy_check_mark: Yes |  | :heavy_check_mark: [Code repo with a solid readme](https://github.com/nwessman/Chaos-Engineering-Demo) |
