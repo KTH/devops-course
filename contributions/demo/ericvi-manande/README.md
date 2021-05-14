@@ -1,4 +1,4 @@
-# Video demo proposal: Docker monitoring using Datadog
+# Video demo: Docker monitoring using Datadog
 
 ## Members
 
@@ -22,7 +22,8 @@ In this demo we show how to integrate Datadog with Docker in order to monitor
 your containers. Examples of metrics are CPU usage and network usage.
 
 ## Video link
-https://youtu.be/nr3X2ilHVGw
+https://youtu.be/nr3X2ilHVGw (old link)
+https://youtu.be/VHaTdWs-gFA (new version, updated 2021-05-13)
 
 ## Criteria
 These are the criteria we believe that we have achieved.
@@ -34,4 +35,11 @@ These are the criteria we believe that we have achieved.
 | The video contains an easter egg  | Yes (dog gifs)  |   | Datadog = dog gifs  |
 | The video must contain subtitles which are clear and in proper English  | Yes  |   | Yes, clear voiceover |
 | The video includes a take-home message  | Yes. At the end of the video  |   |   |
-|   |   |   |   |
+
+## Changes made on the feedback based on demo day
+  - Remove scene with account registration (felt unnecessary)
+  - Extended scene where the dashboard is shown and added additional voiceover
+  - Renamed video title from "Datadog in 3 minutes" to "Integrate Datadog with Docker"
+  - Audio adjustments: increase voice volume and lower music volume
+
+The feedback can be found on the original submission PR page https://github.com/KTH/devops-course/pull/1272
