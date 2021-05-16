@@ -14,7 +14,8 @@ Original proposal PR is #1076
 
 ## Submission
 
-The video demo can be found at: https://www.youtube.com/watch?v=SKJYKNKyaqI
+The video demo can be found at: https://www.youtube.com/watch?v=SKJYKNKyaqI  
+**EDIT:** New video demo (after feedback) can be found at: https://www.youtube.com/watch?v=sTF_A4SPsh0
 
 ## What we did
 
