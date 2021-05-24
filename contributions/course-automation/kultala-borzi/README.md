@@ -32,16 +32,18 @@ Docker
 ## Implementation:
 The action can be found on the public repo: https://github.com/EleonoraBorzis/group-validity-action
 
-We decided to use Docker to make it more accessible to the public. The action will post a comment on the PR depending on what requirements are met and what type of scenario the pull request is. 
-In this action there can be the following scenarios:
-1. The pull request is not from a fork. Then this action will end early with a pass and not do anything else.
-2. The pull request does not add exactly one README file. In this case, it could be a TA that created the pull request so to not interfere, the action will post a comment about the submission probably not being from a student. The action will then end with a pass. 
-3. The KTH mail addresses in the README and the name of the folder does not match. The action will post a comment saying that it's not valid if it's a student project proposal and will fail the check on the PR. 
-4.  The size of the group is not allowed. The action will fail the pull request and post a comment regarding this. 
-5.  The members have worked together more than the maximum number. The action will fail the pull request and post a comment regarding this. 
-6.  The pull request satisfied all the requirements. Then this action will post a comment saying this and end with a pass..
+The action interprets the pull request and if it does not look like a student project proposal it posts a comment stating that. If it looks like a proposal then it checks whether the email addresses in the README and the folder name correspond with each other. If they don't this is posted as a comment and it fails the check, otherwise a comment is posted with information regarding if the group composition is allowed and the check fails or passes depending on the outcome.
 
-Exception case: One case that the action will fail is when a TA adds one single README file in a folder under contributions/. It is hard to discern this case with the case when students adds a README file in their folders, so we have decided to fail the pull request to give feedback to students.  
+Some typical scenarios that can occur:
+1. The pull request does not add exactly one README file under *contributions/*. In this case, it could be a TA that created the pull request. The action will only post a comment about the submission probably not being from a student and then end with a pass. 
+2. The KTH email-addresses in the README and the name of the folder do not match. The action will post a comment saying that it's not valid if it's a student project proposal, and will fail the check on the PR. 
+3. The size of the group is not allowed. The action will fail the pull request and post a comment regarding this. 
+4. The members have worked together more than the maximum allowed times. The action will fail the pull request and post a comment regarding this. 
+5. The pull request satisfied all the requirements. Then this action will post a comment saying this and end with a pass.
+
+For a more in-depth showcase of different scenarios see the dedicated repository: https://github.com/hengque/group-validity-action-example 
+
+Exception case: One case that the action will fail is when a TA adds one single README file in a folder under *contributions/*. It is hard to discern this case with the case when students adds a README file in their folders, so we have decided to fail the pull request to give feedback to students.  
 
 The requirements that we think we have achieved are: 
 |                                             | Yes | No | Remarkable  |
