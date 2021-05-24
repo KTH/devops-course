@@ -1,4 +1,4 @@
-# Demo Submission: Automatically generate Python unittest results in HTML reports with Jenkins
+# Demo Submission After feedback: Automatically generate Python unittest results in HTML reports with Jenkins
 
 ## Members
 
@@ -10,11 +10,12 @@ Github: Spycsh, amaothree
 
 ## Link
 
-[Video](https://www.youtube.com/watch?v=emgC9u3xykk)
+[Video](https://www.youtube.com/watch?v=VDmBfglO6YQ)
 
 [GitHub repo related to the Video](https://github.com/Spycsh/python-unittest-htmlTestRunner-jenkins-demo)
 
 [Another Take-home repo](https://github.com/Spycsh/python-unittest-htmlTestRunner-GitHub-Action-demo)
+
 
 ## Description
 The demo will show how to automatically generate and visualize Python unittest results in HTML reports with Jenkins. The essential component to elegantly show the testing results in HTML reports is [HTMLTestRunner](https://github.com/SeldomQA/HTMLTestRunner), which is a non-trivial project itself and yield elegant HTML testing results for testers. The video will provide a simple example to show how it can be intergrated into Jenkins in a CI testing flow.
