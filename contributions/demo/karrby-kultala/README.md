@@ -1,25 +1,41 @@
-# Video demo: Automated development pipeline for Chrome extensions
+# Demo submission: Automated development pipeline for Chrome extensions
 
-## Members
+## Members:
 
-Andreas Kärrby (karrby@kth.se)  
+Andreas Kärrby (karrby@kth.se)
 Github: [andreaskth](https://github.com/andreaskth)
 
-Henrik Kultala (kultala@kth.se)  
+Henrik Kultala (kultala@kth.se)
 Github: [hengque](https://github.com/hengque)
 
-## Proposal
+## Proposal/motivation
 
-We would like to create a video demonstrating setup of an automated CI/CD development pipeline for developing and publishing Chrome extensions ("plugins") to the ['extensions' part of Chrome Web Store](https://chrome.google.com/webstore/category/extensions) (and to registered testers of the extension).
+Original proposal PR is #1076 
 
-A rough list of things we plan to show (level of detail will be adapted to fit given video length):
+## Submission
 
-- Brief introduction of how browser extensions work in Chrome (covering information such as that available [here](https://developer.chrome.com/docs/extensions/mv3/overview/))
-- Show a basic template extension (a "Hello world" of sorts) whose code we will modify (and which will be the 'thing-to-deploy' in the pipeline)
-- Show the actual steps in the pipeline (running automated tests, merging if they pass, deploying automatically), how they work and are setup
-- Finally, showcase the pipeline working by changing some code and have it be automatically deployed to the web store and automatically updated in browsers of [trusted testers](https://developer.chrome.com/docs/webstore/using_webstore_api/#trustedtesters)
-- Conclusions/take-home message
+The video demo can be found at: https://www.youtube.com/watch?v=SKJYKNKyaqI  
+**EDIT:** New video demo (after feedback) can be found at: https://www.youtube.com/watch?v=sTF_A4SPsh0
 
-## Sources
-https://developer.chrome.com/docs/extensions/mv3/overview/  
-https://developer.chrome.com/docs/webstore/using_webstore_api/#trustedtesters  
+## What we did
+
+- Created a Chrome extension that spawns easter eggs on websites, and lets the user collect these eggs ([available here](https://chrome.google.com/webstore/detail/easter-eggstension/lkeplkoegchdobbdodnocghcikijbnfm?hl=en)).
+- Created a video demo showcasing an automated CI/CD pipeline for developing extensions for Google Chrome.
+  - Work is done in feature branches, and tests are automatically run on commits.
+  - Feature branches are merged into the dev-branch, representing an "unofficial" version of the extension, available to trusted testers. Tests are run on PRs to this branch.
+  - For official releases (that appear for everyone), the dev-branch is merged into the main-branch.
+- Subtitles are available (have to be manually activated by the viewer)
+- Sources for all images are disclosed throughout the video, and in the video description.
+
+## Grading criteria we are aiming for
+
+|                                             | Yes | No | Remarkable |
+|-------------------------------------------- | ----|----|-------------|
+|The demonstration is clearly motivated (why it matters for Devops?) | Yes 🐰 | No | Relates to a hard problem |
+|The demonstration is difficult to do | Yes 🐣 | No | Relies on a non trivial infrastructure |
+|The demonstration is original | Yes | No | The are less than 10 demos on the topic on Internet 🌷 |
+|The video is sublime (eg visually appealing) | Yes | No | Excellent narrative 🐰 |
+|The video contains an [easter egg](https://github.com/OrkoHunter/python-easter-eggs) | Yes | No | Related to the demo 🐣 |
+|There is a code repo to run the demo  | Yes | No | Code repo with a solid readme |
+|The video must contain subtitles which are clear and in proper English | Yes | No | Clearly understandable voice over 🌷 |
+|The video includes a take-home message | Yes | No | Actionable takeaway 🐰 |
