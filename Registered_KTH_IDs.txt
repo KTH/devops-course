@@ -70,3 +70,7 @@ yannik
 vladom
 johann
 felixfon
+oscaralm
+cpiehl
+cotutiu
+moise
