@@ -22,3 +22,13 @@ We want to make a demo on how to setup Github action to have a continuous deploy
   - Add actions secrets
   - Generate and sign the APK
   - Upload the release to Google Play Store
+
+
+## Links
+
+▶️ [YouTube](https://youtu.be/gI4fIntKvxg)
+
+
+⭐ [GitHub](https://github.com/vladomitrovic/DevopsApp)
+
+
