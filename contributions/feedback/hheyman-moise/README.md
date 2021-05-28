@@ -8,18 +8,6 @@ Theodor Moise, moise@kth.se
 Github: [iriediese](https://github.com/iriediese)  
 
 ## Essay to give feedback on ##  
-Feedback given on: [#1348](https://github.com/KTH/devops-course/pull/1348)  
-
-# Feedback on Essay: A/B testing #
-
-## Members ##  
-Hugo Heyman, hheyman@kth.se  
-Github: [hallon-heyman](https://github.com/hallon-heyman)  
-
-Theodor Moise, moise@kth.se  
-Github: [iriediese](https://github.com/iriediese)  
-
-## Essay to give feedback on ##  
 Feedback given on: [#1418](https://github.com/KTH/devops-course/pull/1418)  
 
 # Feedback
