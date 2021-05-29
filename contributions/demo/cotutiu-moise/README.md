@@ -20,6 +20,6 @@ Improvements according to feedback:
 ## Link
 Youtube link: https://youtu.be/JOWDDlzVKmc  
 New Youtube link: https://youtu.be/_k3Ne-3Wpk4  
-Repeat Youtube link: https://youtu.be/A3bOc1J25vs
+Repeat Youtube link: https://youtu.be/A3bOc1J25vs  
 Repository: https://github.com/iriediese/rabbitmq_work_queue  
 [Easter egg](https://www.tecmint.com/20-funny-commands-of-linux-or-linux-is-fun-in-terminal/) at [1:29](https://youtu.be/JOWDDlzVKmc?t=60)
