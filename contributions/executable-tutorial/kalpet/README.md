@@ -54,6 +54,7 @@ The tutorial can be found here: [link](https://www.katacoda.com/kalpet/scenarios
     * Made the tutorial more modular, from 3 big steps to 9 smaller ones.
     * Removed the use of vim and instead used the file navigator feature.
     * Used more KataCoda features such as `Copy to editor` code and executable commands.   
+    * Changed so that a user has to fork the repo to follow along to the tutorial
 
 ### Other improvements(From feedback)
 * Strengthen the link to DevOps.
