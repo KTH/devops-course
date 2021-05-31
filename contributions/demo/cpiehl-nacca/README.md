@@ -1,4 +1,4 @@
-## Demo: Kubeflow on AWS
+## Demo: Kubeflow Fairing on AWS
 
 ### Members
 Name: Carl Piehl
@@ -13,10 +13,21 @@ Mail: nacca@kth.se
 
 Github: [patricia-naccachian](https://github.com/patricia-naccachian)
 
-### Proposal:
+### Topic:
 
-We want to make a demo where we deploy a machine learning model on an AWS EKS cluster and explore some of the functionality offered by Kubeflow. We are not exactly sure how much we will be able to fit into the 3 minute demo but these things might be interesting to include:
+In this demo we use Kubeflow fairing to train a machine learning model remotely on a kubernetes cluster.
 
-- Model serving and online prediction
-- Kubeflow pipelines to automate training and validation
-- Model monitoring
+### Links:
+
+[Video demo](https://youtu.be/vjCq18u8VB0)
+
+[Github repo](https://github.com/cpiehl1/kf-demo)
+
+### Changes following feedback:
+
+- Subtitles are added using automatic captioning, and the errors have been manually fixed.
+- Music volume has been lowered.
+- Some extra explanations have been added to the script.
+- A take-home message has been added.
+- Chapters have been added to the progress bar. In the video description the chapters have links to the corresponding part of the repo. This was made to deal with certain parts being hard to read/follow due to clutter.
+
