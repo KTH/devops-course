@@ -12,7 +12,8 @@ I will create a [Katacoda](https://www.katacoda.com/) executable tutorial includ
 * Creating a CI pipeline that automatically builds and tests the project on every push
 
 ## Katacoda link 
-The tutorial can be found here: [link](https://www.katacoda.com/kalpet/scenarios/repeat-executable-tutorial)
+The new tutorial can be found here: [link](https://www.katacoda.com/kalpet/scenarios/executable-tutorial-dd2482)
+The new tutorial can be found here: [link](https://www.katacoda.com/kalpet/scenarios/repeat-executable-tutorial)
 
 ## GitHub links
 
