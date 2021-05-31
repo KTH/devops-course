@@ -4,7 +4,7 @@ Essay written by: Fredrik Björkman, Adam Henriksson
 Feedback provided by: [Axel Elmarsson](https://github.com/elmaxe) (<axelelm@kth.se>)
 
 ## Summary
-I think the essay is good. Some things can be improved, see below. I think the content of the essay is interesting. What I am perhaps missing is some negative aspects of Jira, currently the essay talks a lot about positive aspects (which is not strange), but perhaps another view somewhere could be good. Something else that could be interseting is a comparison of Jira and other agile project management tools.
+I think the essay is good. Some things can be improved, see below. I think the content of the essay is interesting. What I am perhaps missing is some negative aspects of Jira, currently the essay talks a lot about positive aspects (which is not strange), but perhaps another view somewhere could be good. Something else that could be interseting is a comparison of Jira and other agile project management tools. Perhaps you could also talk about how and if you can integrate Jira with other software (CI and CD pipelines, Slack etc.).
 
 ## Strengths and weaknesses
 
@@ -104,7 +104,7 @@ I think you shouldn't write "our product" and "we need to follow". I would prefe
 
 ## 4 Conclusion
 
-I think it is a good conclusion, it sums up what you have talked about in the essay, which makes the readers take remember more what they have just read.
+I think the content of the conclusion is good, it sums up what you have talked about in the essay, which makes the readers take remember more what they have just read. However the conclusion could perhaps be shortened down a bit.
 
 # Final words
 I think the essay describes agile methods very well. The authors talk about iterative development and sprints, team and task management, roadmaps and knowledge management. I don't have much negative to say about the content of the essay.
