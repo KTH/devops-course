@@ -29,4 +29,7 @@ We propose a demonstration of how to create a simple React app using Firebase ho
   - Hosting
 
 ## Execution ##
-Our video demo is available [here](https://youtu.be/DdCsPe-yvXE). We also have a repo containing the sample project which can be found [here](https://github.com/m4reko/laras-app).
+Our video demo is available [here (old version)](https://youtu.be/DdCsPe-yvXE). We also have a repo containing the sample project which can be found [here](https://github.com/m4reko/laras-app).
+
+## Feedback ##
+We received some feedback at the demo day and acted upon it, resulting in a slightly changed video (and description) which can be found [here](https://youtu.be/vOl4YGdWigM)!

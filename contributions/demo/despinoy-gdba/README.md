@@ -22,9 +22,22 @@ The demo is relevant to teach people to use docker.
 
 ## Links:
 
-- [Link to video](https://www.youtube.com/watch?v=iYIwVbszVw4)
+- [Link to (0ld) video](https://www.youtube.com/watch?v=iYIwVbszVw4)
 
 - [Link to github repo](https://github.com/George-Bassilious/dockerTodo)
+
+
+## Changes after Feedback:
+After recieving Feedback after demo day we implemented the following changes:
+
+- Removed unnecessary word "out" from 2:23
+- Added a minor informational note about the app and limitations about the app explaining why we use the web app in the demonstration
+- Zoom Effects were added into the visual studio segments to make it easier to read the codes and file creation steps
+- Improved the audio levels of the background music and decreased it so it does not take over the voice over. 
+- Adjusted the voice over volumes to ensure that they are heard clealy
+
+The updated video after the feedback can be found here: [Link to video after feedback](https://youtu.be/L-Dh5ae4Zcg)
+
 
 ## Grading matrix
 
