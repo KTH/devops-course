@@ -1,4 +1,4 @@
-# How to get coverage reports for a GitHub repo
+#  How to add code coverage badge + report using Codecov and Clover
 
 ### Contributors:
 
@@ -19,4 +19,4 @@ The demo shows
 [demo-badge-setup](https://github.com/damnePers/demo-coverage-setup/blob/main/README.md)
 
 ### Link to YouTube video
-[How to add code coverage badge + report using codecov and clover](https://www.youtube.com/watch?v=i-0lTgYovg8&ab_channel=SaraDamne)
+[How to add code coverage badge + report using codecov and clover]( https://www.youtube.com/watch?v=tBsFjh-7fRw)

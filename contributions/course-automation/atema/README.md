@@ -19,7 +19,7 @@ In order, this action should:
 
 ## Submission
 
-With my submission, I aim for the following grading criteria. Further explaination is given in the sections below. The configuration (workflow) file required for this action is part of the same PR as this file.
+With my submission, I aim for the following grading criteria. Further explaination is given in the sections below. An example of the action in action can be found [in this PR](https://github.com/Atema/devops-course/pull/1).
 
 |                                             | Yes | No | Remarkable  |
 |-------------------------------------------- | ----|----|-------------|
