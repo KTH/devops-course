@@ -1,8 +1,0 @@
-name: "Generate dashboard"
-description: "Generate dashboard markdown"
-outputs:
-    dashboard:
-        description: "The dashboard as a string"
-runs:
-    using: "node12"
-    main: "dist/index.js"
