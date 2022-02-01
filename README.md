@@ -1,11 +1,6 @@
 # KTH DevOps Course
 
-This repository contains the material and content of the DevOps course at KTH Royal Institute of Technology
-
-Past editions:
-* [KTH DevOps Course 2021](https://github.com/KTH/devops-course/blob/master/attic/2021/)
-* [KTH DevOps Course 2020](https://github.com/KTH/devops-course/blob/master/attic/2020/)
-* [KTH DevOps Course 2019](https://github.com/KTH/devops-course/blob/master/attic/2019/)
+This repository contains the material and content of the [DevOps course at KTH Royal Institute of Technology](https://www.kth.se/social/course/DD2482/).
 
 ## Schedule
 
@@ -116,14 +111,19 @@ Lab sessions:
 * [Deepika Tiwari](https://www.kth.se/profile/deepikat) (TA)
 * [Khashayar Etemadi](https://www.kth.se/profile/khaes) (TA)
 
-## See also
-
-* KTH Social URL: <https://www.kth.se/social/course/DD2482/>
-* Kopps URL: <https://www.kth.se/student/kurser/kurs/DD2482?l=en>
-
 ## Prerequisites
 
 * A software engineering course (eg [DD2480](https://www.kth.se/student/kurser/kurs/DD2480))
 * A networking course (eg [IK2218](https://www.kth.se/student/kurser/kurs/IK2218?l=en))
+
+## See also
+
+* KTH Social URL: <https://www.kth.se/social/course/DD2482/>
+* Kopps URL: <https://www.kth.se/student/kurser/kurs/DD2482?l=en>
+* Past editions:
+  * [KTH DevOps Course 2021](https://github.com/KTH/devops-course/blob/master/attic/2021/)
+  * [KTH DevOps Course 2020](https://github.com/KTH/devops-course/blob/master/attic/2020/)
+  * [KTH DevOps Course 2019](https://github.com/KTH/devops-course/blob/master/attic/2019/)
+
 
 
