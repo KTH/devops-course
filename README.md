@@ -12,13 +12,13 @@ The schedule is at <https://www.kth.se/social/course/DD2482/calendar/>
 ## Program
 
 ### Week 1: Introduction (March 22)
-* Preparatory reading: "DevOps principles" in <https://www.atlassian.com/devops/what-is-devops>
+* Preparatory reading: [DevOps principles](https://www.atlassian.com/devops/what-is-devops) and [demo](https://youtu.be/qcm0rG8EKXI)
 * Course introduction [Martin Monperrus](https://www.monperrus.net/martin/) (Teaching philosophy, [flipped classroom](https://en.wikipedia.org/wiki/Flipped_classroom), Expectations, Team, Agenda, Grading, Communication, Infrastructure, Master's theses and Research)
 * Testimonial from last year's student
 * Goals: watch the repo, register one first task as a pull request on this repo.
 
 ### Week 2: [Testing](https://github.com/KTH/devops-course/issues/9) & [Continuous Integration](https://github.com/KTH/devops-course/issues/3) (March 29)
-* Preparatory material [Testing at scale](https://increment.com/testing/testing-at-scale/), [Production Monitoring to Improve Test Suites](https://arxiv.org/pdf/2012.01198), [The Rituals of
+* Preparatory material [Testing at scale](https://increment.com/testing/testing-at-scale/), [Harvesting Production GraphQL Queries to Detect Schema Faults](https://arxiv.org/pdf/2112.08267), [The Rituals of
 Iterations and Tests](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=9238653)
 * Technical Briefing (B. Baudry)
 * Student presentations, demonsrations and katacodas
