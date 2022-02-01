@@ -2,11 +2,8 @@
 
 This repository contains the material and content of the DevOps course at KTH Royal Institute of Technology
 
-Registration: You must register to this course through the Swedish registration system <https://antagning.se>.
-
-Next course start: March 2021 (Academic Period 4).
-
-Past edition:
+Past editions:
+* [KTH DevOps Course 2021](https://github.com/KTH/devops-course/blob/master/attic/2021/)
 * [KTH DevOps Course 2020](https://github.com/KTH/devops-course/blob/master/attic/2020/)
 * [KTH DevOps Course 2019](https://github.com/KTH/devops-course/blob/master/attic/2019/)
 
@@ -19,63 +16,55 @@ The schedule is at <https://www.kth.se/social/course/DD2482/calendar/>
 
 ## Program
 
-### Week 1: Introduction <https://kth-se.zoom.us/j/62331342060>
+### Week 1: Introduction (March 22)
 * Preparatory reading: "DevOps principles" in <https://www.atlassian.com/devops/what-is-devops>
-* Course introduction [Martin Monperrus](https://www.monperrus.net/martin/)
-  * Your/our expectations
-  * Teaching philosophy, teaching values, [flipped classroom](https://en.wikipedia.org/wiki/Flipped_classroom)
-  * Team
-  * Agenda
-  * Grading
-  * Communication
-  * Infrastructure
-  * Relation to Research in Testing & DevOps 
-* Testimonial from last year's student: Julius Colliander Celik ([github](https://github.com/juliuscc)) ([linkedin](https://www.linkedin.com/in/jcelik/)) ([twitter](https://twitter.com/julius_celik))
-  * [How to survive the KTH DevOps course](https://docs.google.com/presentation/d/1SxHftBTBefN8jA6nVhlgKFP6BypdyV3Q_Gh1R8IwWK4/edit?usp=sharing)
-* Goals: watch the repo, find a first teammate, register one first task as a pull request on this repo.
+* Course introduction [Martin Monperrus](https://www.monperrus.net/martin/) (Teaching philosophy, [flipped classroom](https://en.wikipedia.org/wiki/Flipped_classroom), Expectations, Team, Agenda, Grading, Communication, Infrastructure, Master's theses and Research)
+* Testimonial from last year's student
+* Goals: watch the repo, register one first task as a pull request on this repo.
 
-### Week 2 <https://kth-se.zoom.us/j/67189910023>
+### Week 2: [Testing](https://github.com/KTH/devops-course/issues/9) & [Continuous Integration](https://github.com/KTH/devops-course/issues/3) (March 29)
+* Preparatory material [Testing at scale](https://increment.com/testing/testing-at-scale/), [Production Monitoring to Improve Test Suites](https://arxiv.org/pdf/2012.01198), [The Rituals of
+Iterations and Tests](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=9238653)
 * Technical Briefing (B. Baudry)
-  * Preparatory material [Testing at scale](https://increment.com/testing/testing-at-scale/)
-* Guest Lecture: Continuous Integration [Mats Skoglund (Scania)](https://www.linkedin.com/in/matsskoglund/). [Slides for the guest lecture](https://kth.box.com/s/0qs9tab2tdip66dia3a6k4dbie463ytg)
-* Student presentations
+* Student presentations, demonsrations and katacodas
 
-### Week 3
-* Technical Briefing (M. Monperrus)
-* Guest Lecture: Containers [Julien Bisconti](https://www.linkedin.com/in/julienbisconti/)
-  * Preparatory material: [Docker tutorial](https://www.katacoda.com/courses/docker) and [Awesome Docker](https://github.com/veggiemonk/awesome-docker/#where-to-start)
-* Student presentations
+### Week 3: [Continuous Deployment / Delivery](https://github.com/KTH/devops-course/issues/12) and [Feature flags](https://github.com/KTH/devops-course/issues/21) (April 5)
+* Preparatory material [An Introduction to Continuous Integration, Delivery, and Deployment](https://www.digitalocean.com/community/tutorials/an-introduction-to-continuous-integration-delivery-and-deployment), [The Top 10 Adages in Continuous Deployment](https://zlmonroe.com/CSE566/Readings/5.The_Top_10_Adages_In_Continuous_Deployment.pdf)
+* Student presentations, demonsrations and katacodas
+* Deadline task 1
 
-### Week 4
-* Technical Briefing (B. Baudry)
-* Guest Lecture: MLOps [Alex Nodet (King)](https://www.linkedin.com/in/alexnodet/)
-  * Preparatory material: [IaaS Explained](https://www.youtube.com/watch?v=XRdmfo4M_YA) and [SaaS Vs PaaS Vs IaaS](https://tms-outsource.com/blog/posts/saas-vs-paas-vs-iaas/)
-  * [Slides](https://github.com/KTH/devops-course/blob/2021/Infrastructure%20As%20Code%20-%20KTH%20DevOps%202021.pdf)
-* Student presentations
+### Week 4: [Containers](https://github.com/KTH/devops-course/issues/6) & [Serverless](https://github.com/KTH/devops-course/issues/307) (April 12)
+* Preparatory material: [Containers for the future](https://increment.com/containers/containers-and-open-source/), [Docker tutorial](https://www.katacoda.com/courses/docker), [A monorepo renaissance](https://increment.com/software-architecture/a-monorepo-renaissance/) and [Awesome Docker](https://github.com/veggiemonk/awesome-docker/#where-to-start)
+* Guest Lecture: Containers [Julien Bisconti](https://www.linkedin.com/in/julienbisconti/) (TBC)
+* Student presentations, demonsrations and katacodas
 
-### Week 5
-* Technical Briefing (M. Monperrus)
+### Week 5: [Infrastructure as Code](https://github.com/KTH/devops-course/issues/2) (April 19)
+* Preparatory material: [Best practices for container compliance](https://increment.com/containers/container-compliance/), [Building on-demand staging environments](https://increment.com/containers/on-demand-staging-environments-kubernetes/), [Gang of eight: a defect taxonomy for infrastructure as code scripts](http://www.chrisparnin.me/pdf/GangOfEight.pdf) and [SaaS Vs PaaS Vs IaaS](https://tms-outsource.com/blog/posts/saas-vs-paas-vs-iaas/)
+* Student presentations, demonsrations and katacodas
+* Deadline task 2
+
+
+### Week 6: [Dependency Management](https://github.com/KTH/devops-course/issues/24) & [DevSecOps](https://github.com/KTH/devops-course/issues/18) (April 26)
+* Preparatory material: [A 'Worst Nightmare' Cyberattack: The Untold Story Of The SolarWinds Hack](https://www.npr.org/2021/04/16/985439655/a-worst-nightmare-cyberattack-the-untold-story-of-the-solarwinds-hack), [The supply chain of software](https://increment.com/apis/apis-supply-chain-software/), [successes, challenges, and wombat behind npm](https://increment.com/development/interview-with-isaac-z-schlueter-ceo-of-npm/), [A comprehensive study of bloated dependencies in the Maven ecosystem ](https://arxiv.org/pdf/2001.07808)
 * Guest Lecture: Supply-chain security [Rhys Arkins (Whitesource)](https://www.linkedin.com/in/rhys-arkins-5a643a/) 
-  * Preparatory material: [A 'Worst Nightmare' Cyberattack: The Untold Story Of The SolarWinds Hack](https://www.npr.org/2021/04/16/985439655/a-worst-nightmare-cyberattack-the-untold-story-of-the-solarwinds-hack)
-* Student presentations
+* Student presentations, demonsrations and katacodas
 
-### Week 6 <https://kth-se.zoom.us/j/66650222454>
-* Technical Briefing (B. Baudry)
-* Guest Lecture: Everything is a Little Bit Broken ~or~ The Illusion of Control [Heidi Waterhouse](https://heidiwaterhouse.com/) ([LaunchDarkly](https://launchdarkly.com/about-us/))
-  * [Abstract](https://github.com/KTH/devops-course/blob/2021/abstract-Waterhouse.md)
-* Student presentations
+### Week 7: [Cultural](https://github.com/KTH/devops-course/issues/7) and [legal](https://github.com/KTH/devops-course/issues/7) aspects of DevOps (May 3)
+<!-- and easter eggs -->
+* Preparatory material: [What is DevOps Culture?](https://www.atlassian.com/devops/what-is-devops/devops-culture), [Operational excellence in April Fools' pranks](https://dl.acm.org/doi/10.1145/3152489), [Continuous Integration Art Hackathon](https://kth.github.io/ci-hackathon/lights.html)
+* Guest Lecture: TBC
+* Student presentations, demonsrations and katacodas
+* Deadline task 3
 
-### Week 7: Michelin Devops Demo Day
-* Technical Briefing (M. Monperrus)
-* Guest lecture: Devops in Sweden [Jörgen Damberg (Zington)](https://www.linkedin.com/in/kejsardamberg/)
-* Browsing and Highlights of Demos
+### Week 8: [Software bots](https://github.com/KTH/devops-course/issues/310) (May 10)
+* Preparatory material: [Software bots](https://ieeexplore.ieee.org/iel7/52/8239922/08239928.pdf), [A Software-Repair Robot based on Continual Learning](http://arxiv.org/pdf/2012.06824), [What a deploy bot taught us about documentation](https://increment.com/documentation/what-a-deploy-bot-taught-glossier-about-documentation/)
+* Student presentations, demonsrations and katacodas
 
-### Week 8: Wrap-up, feedback and potluck
-* Technical Briefing (B. Baudry)
-* 10h15 Lecture: Devops at EA/Dice [Cristian Deri](https://se.linkedin.com/in/cristian-deri), [Vidir Reynisson](https://se.linkedin.com/in/vidirr)
-  * Preparatory material: <https://www.youtube.com/watch?v=iIIxgv6CtGs>
-* 11h15 Proposal and improvement festival for next year
-* 12h15 Personalized feedback, final clarifications
+### Week 9: Other topics (May 17)
+* Preparatory material [Chaos Engineering](https://ieeexplore.ieee.org/iel7/52/5204063/07436642.pdf) [A Chaos Engineering System for Live Analysis and Falsification of Exception-handling in the JVM](http://arxiv.org/pdf/1805.05246)
+* [Monitoring and Observability](https://github.com/KTH/devops-course/issues/8), [MLOps](https://github.com/KTH/devops-course/issues/1016)
+* Student presentations, demonsrations and katacodas
+* Deadline task 4
 
 
 ## Rules
@@ -120,12 +109,12 @@ Lab sessions:
 
 ## Team
 
-* [Prof. Martin Monperrus](http://www.monperrus.net/martin/)
-* [Prof. Benoit Baudry](https://softwarediversity.eu/)
-* [He Ye (TA)](https://www.kth.se/profile/heye)
-* [César Soto (TA)](https://cesarsotovalero.github.io/)
-* [Deepika Tiwari (TA)](https://www.kth.se/profile/deepikat)
-* [Khashayar Etemadi (TA)](https://www.kth.se/profile/khaes)
+* [Prof. Martin Monperrus](http://www.monperrus.net/martin/) (Examiner)
+* [Prof. Benoit Baudry](https://softwarediversity.eu/) (Examiner)
+* [Yuxin Liu](https://www.kth.se/profile/yuxinli) (TA)
+* [César Soto](https://cesarsotovalero.github.io/) (TA)
+* [Deepika Tiwari](https://www.kth.se/profile/deepikat) (TA)
+* [Khashayar Etemadi](https://www.kth.se/profile/khaes) (TA)
 
 ## See also
 
