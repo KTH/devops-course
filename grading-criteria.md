@@ -2,52 +2,59 @@
 
 This page presents the grading criteria to assess the contribution in each task category: "[presentation](https://github.com/KTH/devops-course/tree/2021/contributions/presentation)", "[essay](https://github.com/KTH/devops-course/tree/2021/contributions/essay)", "[video demo](https://github.com/KTH/devops-course/tree/2021/contributions/demo)", "[executable tutorial](https://github.com/KTH/devops-course/tree/2021/contributions/executable-tutorial)", "[contribution to open-source](https://github.com/KTH/devops-course/tree/2021/contributions/open-source)", "[course automation](https://github.com/KTH/devops-course/tree/2021/contributions/course-automation)", "[feedback](https://github.com/KTH/devops-course/tree/2021/contributions/feedback)". 
 
-Note: we are all aware that this assessment is subjective by nature. In case of disagreement, the informed judgement of the Professor is the final decision.
+Note: we are all aware that this assessment is subjective by nature. In case of disagreement, the informed judgment of the Professor is the final decision.
 
 
 ## Presentations
 
 The concept: The students prepare a 7 minute presentation on a topic that is relevant to DevOps. All students in a presentation must be present and speak in a balanced manner.
  
-|                                             | Yes | No | Remarkable |
-|-------------------------------------------- | ----|----|-------------|
-|timing: The presentation's length is exactly in 7 minutes (hard limit)  | Yes | No | n-a |
-|well-structured: The presentation is well structured  | Yes | No | Structure is announced and graphically visible |
-|motivation: The presentation contains a good, motivating introduction  | Yes | No | Contains good story-telling |
-|technical: The presentation contains one part that is deeply technical  | Yes | No | Valuable and readable code snippets |
-|originality: The presentation contains one part that is original | Yes | No | Less than 100 results on Google on this topic. |
-|reflection: The presentation contains a reflective part  | Yes | No | Remarkable |
-|take-home: The last slide contains a good and concise take-home message | Yes | No | Remarkable |
-|loudly: The speakers talk loudly and  clearly  | Yes | No | Remarkable |
-|engagement: The speakers engage with the audience | Yes | No | Real interaction (survey, kahoot) |
-|humour: The speakers are fun, have humour  | Yes | No | Remarkable |
-|readable-slides: The slides don't have too much text  | Yes | No | n-a |
-|illustration: The slides contain nice illustrations  | Yes | No | Remarkable |
+|                                             | Yes | No |
+|-------------------------------------------- | ----|----|
+|timing: The presentation's length is between 6:30-7:30 minutes (hard limit)  | Yes | No |
+|well-structured: Structure is announced and graphically visible | Yes | No |
+|motivation: The presentation contains a good, motivating introduction telling why this presentation is important | Yes | No | 
+|technical: The presentation contains one part that is deeply technical  | Yes | No |
+|code: The presentation contains valuable and readable code snippets | Yes | No |
+|originality: The presentation contains one part that is original | Yes | No |
+|google: Less than 100 results on Google on this topic.  | Yes | No | 
+|reflection: The presentation contains a reflective part  | Yes | No |
+|sota: There is one good slide positioning the presentation in the state of the art| Yes | No |
+|take-home: The last slide contains a good and concise take-home message | Yes | No |
+|loudly: The speakers talk loudly and  clearly  | Yes | No |
+|speech: The speakers engage with the audience | Yes | No  |
+|interactivity: usage of an interaction platform (eg menti) | Yes | No |  
+|humour: The speakers are fun, have humour  | Yes | No |
+|readable-slides: The slides don't have too much text  | Yes | No |
+|illustration: The slides contain nice illustrations  | Yes | No |
 
-To pass, you need at least 7 "yes".
-To get a distinction, you need at least 3 "remarkable". 
+To pass, you need at least 10 "yes".
 
 ## Essays
 
-The concept: The students write a 2000-word essay on a topic relevant to the course. Example of essays, see [2019 essays](https://github.com/KTH/devops-course/tree/master/attic/2019/README-2019.md), [2020 essays](https://github.com/KTH/devops-course/tree/master/attic/2020/README-2020.md)
+The concept: The students write an essay on a topic relevant to the course. Example of essays, see [2019 essays](https://github.com/KTH/devops-course/tree/master/attic/2019/README-2019.md), [2020 essays](https://github.com/KTH/devops-course/tree/master/attic/2020/README-2020.md)
 
-|                                             | Yes | No | Remarkable |
-|-------------------------------------------- | ----|----|-------------|
-| format: The essay is in PDF | Mandatory | - | - |
-| title: The essay has a good title | Yes | No | Remarkable |
-| well-structured: The essay is well structured, the ideas are well presented | Yes | No | Remarkable |
-| introduction: The essay contains a good introduction | Yes | No | Remarkable |
-| conclusion: The essay contains a good conclusion | Yes | No | Remarkable |
-| self-contained: The essay is self-contained, one can understand it without reading something else (expected knowledge of the reader: a master student in computer science) | Yes | No | Remarkable |
-| innovative: The essay contains innovative ideas or material | Yes | No | Remarkable |
-| figures: The essay contains good figures or listings | Yes | No | Remarkable |
-| sound: The essay is sound, factual, and accurate | Yes | No | Remarkable |
-| references: The essay contains references, appropriate  in number and quality (10 good refs is a minimum) | Yes | No | Remarkable |
-| elegant: The essay presentation is elegant / visually appealing (eg LaTeX, InDesign) | Yes | No | Remarkable |
-| relevant: The essay addresses a topic that is relevant for DevOps | Yes | No | Remarkable |
+|                                             | Yes | No |
+|-------------------------------------------- | ----|----|
+| format: The essay is in PDF | Mandatory | - | 
+| length: The essay length is between 2400-2600 words, incl. references (hard limit)  | Mandatory | - |
+| relevant: The essay addresses a topic that is relevant for DevOps | Mandatory | - | 
+| title: The essay has a good and focused title | Yes | No | 
+| well-structured: The essay is well structured | Yes | No | 
+| problem: The intro clearly states a relevant problem| Yes | No | 
+| introduction: The intro outlines the solution to the problem | Yes | No | 
+| conclusion: The conclusion contains an emphasized key take-away of the essay | Yes | No | 
+| self-contained: The essay is self-contained, one can understand it without reading something else (expected knowledge of the reader: a master student in computer science) | Yes | No | 
+| innovative: The essay contains innovative ideas or material | Yes | No | 
+| figures: The essay contains relevant and informative figures | Yes | No | 
+| listings: The essay contains relevant and informative  listings | Yes | No | 
+| sound: The essay is sound, factual, and accurate | Yes | No | 
+| references: The essay contains references, appropriate  in number and quality (10 good refs is a minimum, incl. at least 3 academic references) | Yes | No | 
+| elegant: The essay presentation is elegant and visually appealing (eg LaTeX, InDesign) | Yes | No | 
+|reflection: The essay contains a reflective part  | Yes | No |
+|sota: There is one part positioning the essay in the state of the art| Yes | No |
 
-To pass, you need at least 7 "yes".
-To get a distinction, you need at least 3 "remarkable". 
+To pass, you need at least X "yes".
 
 ## Video Demos
 
@@ -56,61 +63,61 @@ There will be two sessions, each one  with half of the students. During a sessio
 
 Among the guests, some are "critique" (in the sense of [culinary critique](https://en.wikipedia.org/wiki/Food_critic)), they are here to assess the relevance, the difficulty, the sublime and the originality of the demo. As food critique, those critiques are anonymous: as a presenter you do not know if a person in the audience is critique or not.  Some students will be randomly assigned the critique role on a voluntary basis.
 
-|                                             | Yes | No | Remarkable |
-|-------------------------------------------- | ----|----|-------------|
-|The demonstration is clearly motivated (why it matters for Devops?) | Yes | No | Relates to a hard problem |
-|The demonstration is difficult to do | Yes | No | Relies on a non trivial infrastructure |
-|The demonstration is original | Yes | No | The are less than 10 demos on the topic on Internet |
-|The video is sublime (eg visually appealing) | Yes | No | Excellent narrative |
-|The video contains an [easter egg](https://github.com/OrkoHunter/python-easter-eggs) | Yes | No | Related to the demo |
-|There is a code repo to run the demo  | Yes | No | Code repo with a solid readme |
-|The video must contain subtitles which are clear and in proper English | Yes | No | Clearly understandable voice over |
-|The video includes a take-home message | Yes | No | Actionable takeaway |
+|                                             | Yes | No | 
+|-------------------------------------------- | ----|----|
+|voice-over: The video must contain a clearly understandable voice over  | Mandatory | - |
+|subtitles: The video contains subtitles which are clear and in proper English (Youtube generated subtitles are OK) | Yes | No |
+|motivation: The demonstration is clearly motivated (why it matters for Devops?) | Yes | No | 
+|difficulty: The demonstration is difficult to do | Yes | No |
+|originality: The demonstration is original (there are few demos/tutos on this topic on the Internet)| Yes | No | 
+|aesthetics: The video is sublime (eg visually appealing) | Yes | No | 
+|narrative: The video contains a good narrative | Yes | No | 
+|easter-egg: The video contains an [easter egg](https://github.com/OrkoHunter/python-easter-eggs) related to the demo topic| Yes | No |
+|repo: There is a code repo, documented with a README, to run the demo. | Yes | No | 
+|take-home: The video includes a clear and visible take-home message | Yes | No | 
 
-To pass, you must have at least 4 "yes".
-To get a distinction, you must have at least 2 "remarkable".
+To pass, you must have at least X "yes".
 
 
 ## Open-source contributions
 
 The concept: you contribute to one open-source project related to DevOps. Yout get at least one merged pull-request.
 
- Criteria for the selection of the open-source project:
- - The project is related to DevOps
- - The project has more than 10 Stars
- - The project has more than 100 Commits
- - The project has an active community on GitHub
+Criteria for the selection of the open-source project: 1) The project is related to DevOps 2) The project has more than 10 Stars 3) The project has more than 100 Commits 4) The project has an active community on GitHub.
 
-|                                             | Yes | No | Remarkable |
-|-------------------------------------------- | ----|----|-------------|
-|The contribution fixes bugs | Yes | No | hard bugs |
-|The contribution improves documentation | Yes | No | big documentation improvements|
-|The contribution adds new features | Yes | No | hard features |
-|The contribution is much appreciated by the community | Yes | No | highly praised|
+|                                             | Yes | No | 
+|-------------------------------------------- | ----|----|
+|bug: The contribution fixes bugs | Yes | No | 
+|documentation: The contribution improves documentation | Yes | No |
+|feat: The contribution adds new features | Yes | No |
+|difficulty: The contribution is a difficult piece of engineering | Yes | No | 
+|conversation: There is an interesting engineering conversation with the maintainers | Yes | No | 
+|merge: The contribution is merged in the main branch.| Yes | No | 
 
-To pass, you must have one yes.
-To get a distinction, you must have at least one remarkable contribution.
+To pass, you must have 2 yes.
 
 
 ## Executable Tutorials
 
-The concept: you create an executable tutorial about a specific technology related to Devops. You deliver your tutorial on an appropriate platform, such as [Katacoda](https://www.katacoda.com/), [mybinder.org](https://mybinder.org/) or similar. If the tutorial runs locally, the tutorial must run on Linux.
+The concept: you create an executable tutorial about a specific technology related to Devops. You deliver your tutorial on an appropriate platform, such as [Katacoda](https://www.katacoda.com/), [mybinder.org](https://mybinder.org/) or similar.
 
 An executable tutorial is not a youtube video.
 
-|                                             | Yes | No | Remarkable |
-|-------------------------------------------- | ----|----|-------------|
-|The TA can successful execute all the commands of the tutorial (mandatory) | Yes | No | In the browser |
-|If local execution, runs on Linux | Yes | No | Easy to setup and run  |
-|The tutorial gives enough background | Yes | No | Comprehensive background |
-|The tutorial is easy to follow  | Yes | No | Well documented |
-|The tutorial is original, no such tutorial exists on the web | Yes | No | The teaching team never heard about it |
-|The tutorial contains [easter eggs](https://github.com/OrkoHunter/python-easter-eggs) | Yes | No | Subtle and fun |
-|The tutorial is successful (attracts comments and success) | Yes | No | Lively discussion |
-|The language is correct | Yes | No | Interesting narrative  |
+|                                             | Yes | No | 
+|-------------------------------------------- | ----|----|
+|executable: The tutorial can be automatically executed from beginning to the end, in the browser or in CI (see below) | Mandatory | - | 
+|ilo: The tutorial states the intended learning outcomes. | Mandatory | - | 
+|motivation: The tutorial is clearly motivated (why it matters for Devops?) | Yes | No | 
+|browser: The tutorial can be successful executed in the browser (katacoda is recommended) | Yes | No | 
+|ci: The tutorial can successful be executed as a CI job | Yes | No | 
+|background: The tutorial gives enough background | Yes | No | 
+|figure: The tutorial is illustrated with an informative figure (eg a flowchart) | Yes | No | 
+|pedagogical: The tutorial is easy to follow  | Yes | No | 
+|originality: The tutorial is original, no such tutorial exists on the web | Yes | No 
+|easter-eggs: The tutorial contains an [easter egg](https://github.com/OrkoHunter/python-easter-eggs) | Yes | No | 
+|language: The language is correct | Yes | No |
 
-To pass, you must have at least 4 "yes" and the TA assessment.
-To get a distinction, you must have one browser version and at least 1 "remarkable".
+To pass, you must have the mandatory parts and at least 5 "yes".
 
 ## Course automation
 
@@ -122,18 +129,18 @@ Make sure that you meet the following requirements in your final submission:
 
 Suggestions for course automation tasks: https://github.com/KTH/devops-course/issues/916
 
-|                                             | Yes | No | Remarkable  |
-|-------------------------------------------- | ----|----|-------------|
-|The work is done before April 6, 2021 (in order to be useful for the course) | Yes | No | n-a|
-|The automation task produces a PR status or issue / PR comment | Yes | No | Points to a generated page with valuable additional information |
-|The automation task is reusable | Yes (next year for this course) | No | In other courses than this one |
-|The task runs on a standard platform | Yes (Github action) | No | Other platforms (e.g. Moodle, Canvas) |
-|The task is praised by the other students of this course | Yes | No | n-a |
-|The code for the task is available | Yes (public repo) | No | Well documented repo |
+|                                             | Yes | No | 
+|-------------------------------------------- | ----|----|
+|timeliness: the automation is done before the first task deadline (in order to be useful for the course) | Mandatory | - |
+|repo: the code for the task is available in a public repo  | Mandatory| - | 
+|outcome: the automation task produces a PR status or an issue / PR comment | Yes | No |
+|reuse: the automation task is reusable (next year for this course) | Yes | No | 
+|platform: the task runs on a standard platform (eg Github action) | Yes | No | 
+|doc: the repo is documented with a good readme | Yes  | No | 
+|figure: the README is illustrated with at least an informative figure (eg a flowchart) | Yes | No | 
+|availability: The action is available on a market place (Github Marketplace, Azure Marketplace, etc.) | Yes | No | 
 
-
-To pass, you must have at least 4 "yes" and the TA assessment.
-To get a distinction, you must pass and have at least 1 "remarkable".
+To pass, you must have the mandatory parts and at least 4 "yes".
 
 
 ## Feedback
@@ -141,15 +148,16 @@ To get a distinction, you must pass and have at least 1 "remarkable".
 The concept: you provide constructive and timely feeback about one task from categories "essay" and "executable tutorial".
 The feedback is provided in a written manner, as a well-structured comment on the PR of the task.
 This constraint means that to register a feedback task, you must also register either an "essay" or an "executable tutorial".
+The students who receive feedback act upon the feedback they receive.
 
-|                                             | Yes | No | Remarkable  |
-|-------------------------------------------- | ----|----|-------------|
-|The feedback includes both strengths and weaknesses about the task | Yes | No | n-a |
-|The feedback is provided 4 business days before the task deadline | Yes | No | Within 24h after the task submission |
-|All points are clearly actionable | Yes | No | PR on PR |
-|The feedback is substantiated | Yes (at least 500 words) | No | At least 1000 words |
-|The feedback contains pointers to additional material | Yes | No | One pointer is less than one week |
-|The students  act upon the feedback they receive | Yes | No | Document the changes made after feedback|
+
+|                                             | Yes | No | 
+|-------------------------------------------- | ----|----|
+|substance: the feedback is substantiated (at least 500 words) | Mandatory | - | 
+|high-level: the feedback starts with a list of high-level strengths and high-level weaknesses about the work | Yes | No |
+|timeliness: the feedback is provided 2 business days (48h) after the "go" from the authors | Yes | No | 
+|constructive: all feedback points are constructive and clearly actionable | Yes | No | 
+|structure: the feedback is well-structured (eg. along the outline of the work under feedback) | Yes | No | 
+|pointers: the feedback contains valuable pointers to additional material | Yes | No |
 
 To pass, you must have at least 4 "yes" and the TA assessment.
-To get a distinction, you must pass and have at least 1 "remarkable".
