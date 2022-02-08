@@ -30,7 +30,7 @@ Iterations and Tests](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=92386
 
 ### Week 4: [Containers](https://github.com/KTH/devops-course/issues/6) & [Serverless](https://github.com/KTH/devops-course/issues/307) (April 12)
 * Preparatory material: [Containers for the future](https://increment.com/containers/containers-and-open-source/), [Docker tutorial](https://www.katacoda.com/courses/docker), [A monorepo renaissance](https://increment.com/software-architecture/a-monorepo-renaissance/) and [Awesome Docker](https://github.com/veggiemonk/awesome-docker/#where-to-start)
-* Guest Lecture: Containers [Julien Bisconti](https://www.linkedin.com/in/julienbisconti/) (TBC)
+* Guest Lecture: Containers [Julien Bisconti](https://www.linkedin.com/in/julienbisconti/)
 * Student presentations, demonsrations and katacodas
 
 ### Week 5: [Infrastructure as Code](https://github.com/KTH/devops-course/issues/2) (April 19)
