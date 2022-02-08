@@ -65,15 +65,25 @@ Iterations and Tests](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=92386
 ## Rules
 
 
-To pass the course, the student has to collect 4 grades:
-* The grades are in category: "[presentation](https://github.com/KTH/devops-course/blob/2021/grading-criteria.md#presentations)", "[essay](https://github.com/KTH/devops-course/blob/2021/grading-criteria.md#essays)", "[video demo](https://github.com/KTH/devops-course/blob/2021/grading-criteria.md#video-demos)", "[executable tutorial](https://github.com/KTH/devops-course/blob/2021/grading-criteria.md#executable-tutorials)", "[contribution to open-source](https://github.com/KTH/devops-course/blob/2021/grading-criteria.md#open-source-contributions)", "[course automation](https://github.com/KTH/devops-course/blob/2021/grading-criteria.md#course-automation)", "[feedback](https://github.com/KTH/devops-course/blob/2021/grading-criteria.md#feedback)" (choose four out of them, at most one in the same category, it is not necessary to cover everything).
-* The [grading criteria page](grading-criteria.md) is the unique reference which explains how to pass / pass with distinction.
-* The strict deadline for essays, tutorials, contributions to open-source, course automation is April 30, 23h59 Stockholm time; and "[demo](https://github.com/KTH/devops-course/tree/2021/contributions/demo)"; the strict deadline for repeated tasks (all) is May 31, 23h59 Stockholm time.
+To pass the course, the student has to complete and pass between 3 and 5 tasks:
+* The tasks are in category: "[presentation](https://github.com/KTH/devops-course/blob/2022/grading-criteria.md#presentations)", "[essay](https://github.com/KTH/devops-course/blob/2022/grading-criteria.md#essays)", "[video demo](https://github.com/KTH/devops-course/blob/2022/grading-criteria.md#video-demos)", "[executable tutorial](https://github.com/KTH/devops-course/blob/2022/grading-criteria.md#executable-tutorials)", "[contribution to open-source](https://github.com/KTH/devops-course/blob/2022/grading-criteria.md#open-source-contributions)", "[course automation](https://github.com/KTH/devops-course/blob/2022/grading-criteria.md#course-automation)", "[feedback](https://github.com/KTH/devops-course/blob/2022/grading-criteria.md#feedback)" (choose four out of them, at most one in the same category, it is not necessary to cover everything).
+* The [grading criteria page](grading-criteria.md) is the unique reference which explains how to pass each task category.
 * The student proposes a category and a topic, which is discussed and accepted by the TA. The proposal is made as a pull-request on this repository. The four graded contributions must have little overlap.
 * The same student cannot choose the same topic for two different tasks. The four tasks should cover different aspects of DevOps.
-* 4 Pass means a final E, 3 Pass / 1 Distinction means a final D, 2 Pass / 2 Distinction means a final C, 1 Pass / 3 Distinction means a final B, 4 Distinction means a final A
-* Group work is encouraged (max 3 persons) but you cannot be with the same persons for more than 2 projects. You can do a work alone for one or at most two projects.
-* A failed task requires to pass it again at the end of the course, based on the feedback from the failure. A repeated task cannot be passed with distinction. A task can only be repeated once.
+* Deadlines:
+  * Deadline to complete task 1: April 5, 17h Stockholm time
+  * Deadline to complete task 2: April 19, 17h Stockholm time
+  * Deadline to complete task 3: May 3, 17h Stockholm time
+  * Deadline to complete task 4: May 17, 17h Stockholm time
+  * Deadline to complete task 5 (optional): May 23, 17h Stockholm time
+  * Deadline for repeated tasks (all): May 31, 17h Stockholm time.
+  * The deadlines are strict and cannot be extended. 
+* Final grading scheme
+  * A: 5 completed tasks 
+  * C: 4 completed tasks 
+  * E: 3 completed tasks (excluding feedback)
+* Group work is encouraged (max 3 persons) but you cannot be with the same persons for more than 2 projects. You can work alone for one or at most two projects.
+* A failed task requires to pass it again at the end of the course, based on the feedback from the failure. A task can only be repeated once.
 * If the whole course is failed, no grades are kept if the student registers again to the course the year after. 
 * After a proposal has been merged, the topic of that proposal cannot be changed.
 
@@ -106,10 +116,11 @@ Lab sessions:
 
 * [Prof. Martin Monperrus](http://www.monperrus.net/martin/) (Examiner)
 * [Prof. Benoit Baudry](https://softwarediversity.eu/) (Examiner)
-* [Yuxin Liu](https://www.kth.se/profile/yuxinli) (TA)
+* [Javier Ron](https://www.kth.se/profile/javierro?l=en) (TA)
 * [César Soto](https://cesarsotovalero.github.io/) (TA)
 * [Deepika Tiwari](https://www.kth.se/profile/deepikat) (TA)
 * [Khashayar Etemadi](https://www.kth.se/profile/khaes) (TA)
+
 
 ## Prerequisites
 
