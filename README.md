@@ -82,7 +82,7 @@ To pass the course, the student has to complete and pass between 3 and 5 tasks:
   * A: 5 completed tasks 
   * C: 4 completed tasks 
   * E: 3 completed tasks (excluding feedback)
-* Group work is encouraged (max 3 persons) but you cannot be with the same persons for more than 2 projects. You can work alone for one or at most two projects.
+* Group work is encouraged (max 2 persons) but you cannot be with the same persons for more than 2 projects. You can work alone for one or at most two projects.
 * A failed task requires to pass it again at the end of the course, based on the feedback from the failure. A task can only be repeated once.
 * If the whole course is failed, no grades are kept if the student registers again to the course the year after. 
 * After a proposal has been merged, the topic of that proposal cannot be changed.
