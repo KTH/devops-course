@@ -96,21 +96,17 @@ Group Rules
 * All communication for the course DD2482 should be sent to <dd2482@eecs.kth.se>.
 * you create issues here if you think the question is good to be discussed publicly, the rules of [netiquette](https://en.wikipedia.org/wiki/Etiquette_in_technology) fully apply.
 
-## Remote participation
+## Participation
 
-Lectures:
+**Lectures** Physical presence is strongly encouraged. It maximizes the quality of the learning outcomes. If necessary, the lectures will be streamed, the URLs will be posted on https://github.com/KTH/devops-course/issues/316, questions asked through the Zoom chat.
 
-* the lectures will be streamed, the URLs will be posted on https://github.com/KTH/devops-course/issues/316
-* the recording and sharing of streamed lectures (full or fragments) is not allowed without explicit permission of the course professor and lecturer
-* the lectures are recorded by the TA team, and privately shared over a private online drive
-* questions are asked through the Zoom chat.
-
-Lab sessions:
+**Lab sessions**
 
 * Lab slots are not mandatory. They are hybrid in person (preferably) or videoconf.
 * During the planned lab time slot, please use this [Queue](https://queue.csc.kth.se/Queue/DD2482) for booking online meetings
 * Specify your zoom meeting link when you register the queue
-* Our TAs will reach you ASAP
+
+**Examinations**: Physical presence is not mandatory for examination, yet is considered as a plus.
 
 ## Team
 
