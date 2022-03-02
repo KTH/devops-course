@@ -138,7 +138,7 @@ To pass, you must have the mandatory parts and at least 5 "yes".
 
 
 The concept: you create an automation task for the course to improve the teaching experience and effectiveness (eg a Github action task). Simple tasks can be bundled in a package to get a pass.
-
+ 
 Make sure that you meet the following requirements in your final submission:
 1. The automation task (ex., Github Action) should be implemented in a stand-alone repository, not as a part of the Deveops-Course repository. For example, you can do this by [publishing your Github Action in the Github marketplace](https://docs.github.com/en/actions/creating-actions/publishing-actions-in-github-marketplace). The final submission must include a link to the repository that implements the task.
 2. You should demonstrate that your automation technique actually works and automatically produces some results. For example, you can fork the Devops-Course repo and activate the implemented Github Action on it and show how it works by making changes in your forked repo. In case of this example, a link to your forked repository should be included in the final submission.
