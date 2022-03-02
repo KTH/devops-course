@@ -48,4 +48,4 @@ jobs:
           GH_REPO_FULLNAME: ${{ secrets.GH_REPO_FULLNAME }}
         run: |
           export PYTHONPATH="$PWD/canvas-code/utils"
-          python ./canvas-code/update_task.py --pr ${{github.event.number}}
+          python ./canvas-code/update_task.py
