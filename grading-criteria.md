@@ -28,7 +28,7 @@ The concept: The students prepare a 7 minute presentation on a topic that is rel
 |interactivity: usage of an interaction platform (eg menti) | Yes | No |  
 |humour: The speakers are fun, have humour  | Yes | No |
 |readable-slides: The slides don't have too much text  | Yes | No |
-|illustration: The slides contain nice illustrations  | Yes
+|illustration: The slides contain nice illustrations  | Yes | No |
 
 
 To pass, you need at least 10 "yes".
