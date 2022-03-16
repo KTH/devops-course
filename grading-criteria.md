@@ -1,6 +1,6 @@
 # Grading Criteria of the KTH Devops Course
 
-This page presents the grading criteria to assess the contribution in each task category: "[presentation](https://github.com/KTH/devops-course/tree/2021/contributions/presentation)", "[essay](https://github.com/KTH/devops-course/tree/2021/contributions/essay)", "[video demo](https://github.com/KTH/devops-course/tree/2021/contributions/demo)", "[executable tutorial](https://github.com/KTH/devops-course/tree/2021/contributions/executable-tutorial)", "[contribution to open-source](https://github.com/KTH/devops-course/tree/2021/contributions/open-source)", "[course automation](https://github.com/KTH/devops-course/tree/2021/contributions/course-automation)", "[feedback](https://github.com/KTH/devops-course/tree/2021/contributions/feedback)". 
+This page presents the grading criteria to assess the contribution in each task category: "[presentation](https://github.com/KTH/devops-course/tree/2021/contributions/presentation)", "[essay](https://github.com/KTH/devops-course/tree/2021/contributions/essay)", "[demo](https://github.com/KTH/devops-course/tree/2021/contributions/demo)", "[executable tutorial](https://github.com/KTH/devops-course/tree/2021/contributions/executable-tutorial)", "[contribution to open-source](https://github.com/KTH/devops-course/tree/2021/contributions/open-source)", "[course automation](https://github.com/KTH/devops-course/tree/2021/contributions/course-automation)", "[feedback](https://github.com/KTH/devops-course/tree/2021/contributions/feedback)". 
 
 Note: we are all aware that this assessment is subjective by nature. In case of disagreement, the informed judgment of the Professor is the final decision.
 
@@ -42,6 +42,7 @@ The concept: The students write an essay on a topic relevant to the course. Exam
 | title: The essay has a good and focused title | Yes | No | 
 | well-structured: The essay is well structured | Yes | No | 
 | problem: The intro clearly states a relevant problem| Yes | No | 
+| sota: There is one part positioning the essay in the state of the art| Yes | No |
 | introduction: The intro outlines the solution to the problem | Yes | No | 
 | conclusion: The conclusion contains an emphasized key take-away of the essay | Yes | No | 
 | self-contained: The essay is self-contained, one can understand it without reading something else (expected knowledge of the reader: a master student in computer science) | Yes | No | 
@@ -51,10 +52,9 @@ The concept: The students write an essay on a topic relevant to the course. Exam
 | sound: The essay is sound, factual, and accurate | Yes | No | 
 | references: The essay contains references, appropriate  in number and quality (10 good refs is a minimum, incl. at least 3 academic references) | Yes | No | 
 | elegant: The essay presentation is elegant and visually appealing (eg LaTeX, InDesign) | Yes | No | 
-|reflection: The essay contains a reflective part  | Yes | No |
-|sota: There is one part positioning the essay in the state of the art| Yes | No |
+| reflection: The essay contains a reflective part  | Yes | No |
 
-To pass, you need at least X "yes".
+To pass, you need at least 9 "yes".
 
 ## Demos
 
@@ -96,23 +96,22 @@ To pass, you must have 2 yes.
 
 ## Executable Tutorials
 
-The concept: you create an executable tutorial about a specific technology related to Devops. You deliver your tutorial on an appropriate platform, such as [Katacoda](https://www.katacoda.com/), [mybinder.org](https://mybinder.org/) or similar.
+The concept: you create an executable tutorial about a specific technology related to Devops. You deliver your tutorial on a platform supporting execution, such as [Katacoda](https://www.katacoda.com/), [mybinder.org](https://mybinder.org/) or equivalent.
 
-An executable tutorial is not a youtube video.
 
 |                                             | Yes | No | 
 |-------------------------------------------- | ----|----|
 |executable: The tutorial can be automatically executed from beginning to the end, in the browser or in CI (see below) | Mandatory | - | 
 |ilo: The tutorial states the intended learning outcomes. | Mandatory | - | 
 |motivation: The tutorial is clearly motivated (why it matters for Devops?) | Yes | No | 
-|browser: The tutorial can be successful executed in the browser (katacoda is recommended) | Yes | No | 
-|ci: The tutorial can successful be executed as a CI job | Yes | No | 
+|browser-based: The tutorial can be successful executed in the browser (katacoda is recommended) | Yes | No | 
+|ci-based: The tutorial can successful be executed as a CI job | Yes | No | 
 |background: The tutorial gives enough background | Yes | No | 
-|figure: The tutorial is illustrated with an informative figure (eg a flowchart) | Yes | No | 
+|illustrated: The tutorial is illustrated with an informative figure (eg a flowchart) | Yes | No | 
 |pedagogical: The tutorial is easy to follow  | Yes | No | 
-|originality: The tutorial is original, no such tutorial exists on the web | Yes | No 
-|easter-eggs: The tutorial contains an [easter egg](https://github.com/OrkoHunter/python-easter-eggs) | Yes | No | 
-|language: The language is correct | Yes | No |
+|original: The tutorial is original, no or few similar tutorials exist on the web | Yes | No 
+|easter-eggs: The tutorial contains an easter egg | Yes | No | 
+|language: The language is appropriate (structure, grammar, spelling) | Yes | No |
 
 To pass, you must have the mandatory parts and at least 5 "yes".
 
@@ -121,7 +120,7 @@ To pass, you must have the mandatory parts and at least 5 "yes".
 The concept: you create an automation task for the course to improve the teaching experience and effectiveness (eg a Github action task). Simple tasks can be bundled in a package to get a pass.
 
 Make sure that you meet the following requirements in your final submission:
-1. The automation task (ex., Github Action) should be implemented in a stand-alone repository, not as a part of the Deveops-Course repository. For example, you can do this by [publishing your Github Action in the Github marketplace](https://docs.github.com/en/actions/creating-actions/publishing-actions-in-github-marketplace). The final submission must include a link to the repository that implements the task.
+1. The automation task (ex., Github Action) should be implemented in a stand-alone repository, not as a part of the Deveops-Course repository. As a bonus, you can do this by [publishing your Github Action in the Github marketplace](https://docs.github.com/en/actions/creating-actions/publishing-actions-in-github-marketplace). The final submission must include a link to the repository that implements the task.
 2. You should demonstrate that your automation technique actually works and automatically produces some results. For example, you can fork the Devops-Course repo and activate the implemented Github Action on it and show how it works by making changes in your forked repo. In case of this example, a link to your forked repository should be included in the final submission.
 
 Suggestions for course automation tasks: https://github.com/KTH/devops-course/issues/916
@@ -144,7 +143,6 @@ To pass, you must have the mandatory parts and at least 4 "yes".
 
 The concept: you provide constructive and timely feeback about one task from categories "essay" and "executable tutorial".
 The feedback is provided in a written manner, as a well-structured comment on the PR of the task.
-This constraint means that to register a feedback task, you must also register either an "essay" or an "executable tutorial".
 The students who receive feedback act upon the feedback they receive.
 
 
@@ -158,3 +156,4 @@ The students who receive feedback act upon the feedback they receive.
 |pointers: the feedback contains valuable pointers to additional material | Yes | No |
 
 To pass, you must have at least 4 "yes" and the TA assessment.
+
