@@ -56,27 +56,24 @@ The concept: The students write an essay on a topic relevant to the course. Exam
 
 To pass, you need at least X "yes".
 
-## Video Demos
+## Demos
 
-The concept: Students prepare top-notch demonstrations and deliver them as an online video. The demonstrations are really DevOps. For example, a demo typically involves multiple virtual machines, likely deployed in the cloud. A demonstration is scripted and lasts 3 minutes. Students are required to prepare a video of the demo. 
-There will be two sessions, each one  with half of the students. During a session, the other half of the students,  the course teaching team, as well as invited guests (colleagues, industry collaborators) watch the videos and provide feedback. 
-
-Among the guests, some are "critique" (in the sense of [culinary critique](https://en.wikipedia.org/wiki/Food_critic)), they are here to assess the relevance, the difficulty, the sublime and the originality of the demo. As food critique, those critiques are anonymous: as a presenter you do not know if a person in the audience is critique or not.  Some students will be randomly assigned the critique role on a voluntary basis.
+The concept: Students prepare a demonstration involving DevOps technology, to be performed during the lecture. For example, a demo typically involves multiple virtual machines, likely deployed in the cloud. A demonstration is scripted, prepared and lasts 5 minutes.
 
 |                                             | Yes | No | 
 |-------------------------------------------- | ----|----|
-|voice-over: The video must contain a clearly understandable voice over  | Mandatory | - |
-|subtitles: The video contains subtitles which are clear and in proper English (Youtube generated subtitles are OK) | Yes | No |
+|timing: The demo lasts between 4:30-5 minutes (hard limit)  | Mandatory | - |
 |motivation: The demonstration is clearly motivated (why it matters for Devops?) | Yes | No | 
+|narrative: The demo contains a good narrative | Yes | No | 
 |difficulty: The demonstration is difficult to do | Yes | No |
+|speech: The demo is accompanied by a clearly and structured speech | Yes | no |
 |originality: The demonstration is original (there are few demos/tutos on this topic on the Internet)| Yes | No | 
-|aesthetics: The video is sublime (eg visually appealing) | Yes | No | 
-|narrative: The video contains a good narrative | Yes | No | 
-|easter-egg: The video contains an [easter egg](https://github.com/OrkoHunter/python-easter-eggs) related to the demo topic| Yes | No |
-|repo: There is a code repo, documented with a README, to run the demo. | Yes | No | 
-|take-home: The video includes a clear and visible take-home message | Yes | No | 
+|aesthetics: The demo is visually appealing | Yes | No | 
+|easter-egg: The demo contains an [easter egg](https://github.com/OrkoHunter/python-easter-eggs) related to the demo topic| Yes | No |
+|repo: There is a good code repo, documented with a README, to run the demo. | Yes | No | 
+|take-home: The demo includes a clear and visible take-home message | Yes | No | 
 
-To pass, you must have at least X "yes".
+To pass, you must have at least 7 "yes".
 
 
 ## Open-source contributions
