@@ -66,7 +66,7 @@ Iterations and Tests](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=92386
 
 
 To pass the course, the student has to complete and pass between 3 and 5 tasks:
-* The tasks are in category: "[presentation](https://github.com/KTH/devops-course/blob/2022/grading-criteria.md#presentations)", "[essay](https://github.com/KTH/devops-course/blob/2022/grading-criteria.md#essays)", "[video demo](https://github.com/KTH/devops-course/blob/2022/grading-criteria.md#video-demos)", "[executable tutorial](https://github.com/KTH/devops-course/blob/2022/grading-criteria.md#executable-tutorials)", "[contribution to open-source](https://github.com/KTH/devops-course/blob/2022/grading-criteria.md#open-source-contributions)", "[course automation](https://github.com/KTH/devops-course/blob/2022/grading-criteria.md#course-automation)", "[feedback](https://github.com/KTH/devops-course/blob/2022/grading-criteria.md#feedback)" (choose four out of them, at most one in the same category, it is not necessary to cover everything).
+* The tasks are in category: "[presentation](https://github.com/KTH/devops-course/blob/2022/grading-criteria.md#presentations)", "[essay](https://github.com/KTH/devops-course/blob/2022/grading-criteria.md#essays)", "[demo](https://github.com/KTH/devops-course/blob/2022/grading-criteria.md#demos)", "[executable tutorial](https://github.com/KTH/devops-course/blob/2022/grading-criteria.md#executable-tutorials)", "[contribution to open-source](https://github.com/KTH/devops-course/blob/2022/grading-criteria.md#open-source-contributions)", "[course automation](https://github.com/KTH/devops-course/blob/2022/grading-criteria.md#course-automation)", "[feedback](https://github.com/KTH/devops-course/blob/2022/grading-criteria.md#feedback)" (choose four out of them, at most one in the same category, it is not necessary to cover everything).
 * The [grading criteria page](grading-criteria.md) is the unique reference which explains how to pass each task category.
 * The student proposes a category and a topic, which is discussed and accepted by the TA. The proposal is made as a pull-request on this repository. The four graded contributions must have little overlap.
 * The same student cannot choose the same topic for two different tasks. The four tasks should cover different aspects of DevOps.
@@ -98,15 +98,15 @@ Group Rules
 
 ## Participation
 
-**Lectures** Physical presence is strongly encouraged. It maximizes the quality of the learning outcomes. If necessary, the lectures will be streamed, the URLs will be posted on https://github.com/KTH/devops-course/issues/316, questions asked through the Zoom chat.
+**Lectures** The lectures are held on campus, per the latest KTH recommendations (https://intra.kth.se/en/campus/sakerhet/kris/corona/information-till-anstallda-med-anledning-av-coronaviruset-1.965906) to maximize the quality of the learning outcomes. The lecture locations are given on KTH Social <https://www.kth.se/social/course/DD2482/calendar/>.
 
 **Lab sessions**
 
-* Lab slots are not mandatory. They are hybrid in person (preferably) or videoconf.
+* Lab slots are not mandatory. They are given in person (preferably) or videoconf.
 * During the planned lab time slot, please use this [Queue](https://queue.csc.kth.se/Queue/DD2482) for booking online meetings
 * Specify your zoom meeting link when you register the queue
 
-**Examinations**: Physical presence is not mandatory for examination, yet is considered as a plus.
+**Examinations**: Some tasks require physical presence (presentation, demo), others do not (essay, open-source, feedback).
 
 ## Team
 
