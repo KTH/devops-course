@@ -21,44 +21,44 @@ The schedule is at <https://www.kth.se/social/course/DD2482/calendar/>
 * Preparatory material [Testing at scale](https://increment.com/testing/testing-at-scale/), [Harvesting Production GraphQL Queries to Detect Schema Faults](https://arxiv.org/pdf/2112.08267), [The Rituals of
 Iterations and Tests](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=9238653)
 * Technical Briefing (B. Baudry)
-* Student presentations, demonsrations and katacodas
+* Student presentations, demonstrations and katacodas
 
 ### Week 3: [Continuous Deployment / Delivery](https://github.com/KTH/devops-course/issues/12) and [Feature flags](https://github.com/KTH/devops-course/issues/21) (April 5)
 * Preparatory material [An Introduction to Continuous Integration, Delivery, and Deployment](https://www.digitalocean.com/community/tutorials/an-introduction-to-continuous-integration-delivery-and-deployment), [The Top 10 Adages in Continuous Deployment](https://zlmonroe.com/CSE566/Readings/5.The_Top_10_Adages_In_Continuous_Deployment.pdf)
-* Student presentations, demonsrations and katacodas
+* Student presentations, demonstrations and katacodas
 * Deadline task 1
 
 ### Week 4: [Containers](https://github.com/KTH/devops-course/issues/6) & [Serverless](https://github.com/KTH/devops-course/issues/307) (April 12)
 * Preparatory material: [Containers for the future](https://increment.com/containers/containers-and-open-source/), [Docker tutorial](https://www.katacoda.com/courses/docker), [A monorepo renaissance](https://increment.com/software-architecture/a-monorepo-renaissance/) and [Awesome Docker](https://github.com/veggiemonk/awesome-docker/#where-to-start)
 * Guest Lecture: Containers [Julien Bisconti](https://www.linkedin.com/in/julienbisconti/)
-* Student presentations, demonsrations and katacodas
+* Student presentations, demonstrations and katacodas
 
 ### Week 5: [Infrastructure as Code](https://github.com/KTH/devops-course/issues/2) (April 19)
 * Preparatory material: [Best practices for container compliance](https://increment.com/containers/container-compliance/), [Building on-demand staging environments](https://increment.com/containers/on-demand-staging-environments-kubernetes/), [Gang of eight: a defect taxonomy for infrastructure as code scripts](http://www.chrisparnin.me/pdf/GangOfEight.pdf) and [SaaS Vs PaaS Vs IaaS](https://tms-outsource.com/blog/posts/saas-vs-paas-vs-iaas/)
-* Student presentations, demonsrations and katacodas
+* Student presentations, demonstrations and katacodas
 * Deadline task 2
 
 
 ### Week 6: [Dependency Management](https://github.com/KTH/devops-course/issues/24) & [DevSecOps](https://github.com/KTH/devops-course/issues/18) (April 26)
 * Preparatory material: [A 'Worst Nightmare' Cyberattack: The Untold Story Of The SolarWinds Hack](https://www.npr.org/2021/04/16/985439655/a-worst-nightmare-cyberattack-the-untold-story-of-the-solarwinds-hack), [The supply chain of software](https://increment.com/apis/apis-supply-chain-software/), [successes, challenges, and wombat behind npm](https://increment.com/development/interview-with-isaac-z-schlueter-ceo-of-npm/), [A comprehensive study of bloated dependencies in the Maven ecosystem ](https://arxiv.org/pdf/2001.07808)
 * Guest Lecture: Supply-chain security [Rhys Arkins (Whitesource)](https://www.linkedin.com/in/rhys-arkins-5a643a/) 
-* Student presentations, demonsrations and katacodas
+* Student presentations, demonstrations and katacodas
 
-### Week 7: [Cultural](https://github.com/KTH/devops-course/issues/7) and [legal](https://github.com/KTH/devops-course/issues/7) aspects of DevOps (May 3)
-<!-- and easter eggs -->
-* Preparatory material: [What is DevOps Culture?](https://www.atlassian.com/devops/what-is-devops/devops-culture), [Operational excellence in April Fools' pranks](https://dl.acm.org/doi/10.1145/3152489), [Continuous Integration Art Hackathon](https://kth.github.io/ci-hackathon/lights.html)
-* Guest Lecture: TBC
-* Student presentations, demonsrations and katacodas
+### Week 7: [Software bots](https://github.com/KTH/devops-course/issues/310) (May 3)
+* Preparatory material: [Software bots](https://ieeexplore.ieee.org/iel7/52/8239922/08239928.pdf), [A Software-Repair Robot based on Continual Learning](http://arxiv.org/pdf/2012.06824), [What a deploy bot taught us about documentation](https://increment.com/documentation/what-a-deploy-bot-taught-glossier-about-documentation/)
+* Student presentations, demonstrations and katacodas
 * Deadline task 3
 
-### Week 8: [Software bots](https://github.com/KTH/devops-course/issues/310) (May 10)
-* Preparatory material: [Software bots](https://ieeexplore.ieee.org/iel7/52/8239922/08239928.pdf), [A Software-Repair Robot based on Continual Learning](http://arxiv.org/pdf/2012.06824), [What a deploy bot taught us about documentation](https://increment.com/documentation/what-a-deploy-bot-taught-glossier-about-documentation/)
-* Student presentations, demonsrations and katacodas
+### Week 8: [Cultural](https://github.com/KTH/devops-course/issues/7) and [legal](https://github.com/KTH/devops-course/issues/7) aspects of DevOps (May 10)
+<!-- and easter eggs -->
+* Preparatory material: [What is DevOps Culture?](https://www.atlassian.com/devops/what-is-devops/devops-culture), [Operational excellence in April Fools' pranks](https://dl.acm.org/doi/10.1145/3152489), [Continuous Integration Art Hackathon](https://kth.github.io/ci-hackathon/lights.html)
+* Guest Lecture: Cristian Deri and Niklas Astrand, DICE
+* Student presentations, demonstrations and katacodas
 
 ### Week 9: Other topics (May 17)
 * Preparatory material [Chaos Engineering](https://ieeexplore.ieee.org/iel7/52/5204063/07436642.pdf) [A Chaos Engineering System for Live Analysis and Falsification of Exception-handling in the JVM](http://arxiv.org/pdf/1805.05246)
 * [Monitoring and Observability](https://github.com/KTH/devops-course/issues/8), [MLOps](https://github.com/KTH/devops-course/issues/1016)
-* Student presentations, demonsrations and katacodas
+* Student presentations, demonstrations and katacodas
 * Deadline task 4
 
 
