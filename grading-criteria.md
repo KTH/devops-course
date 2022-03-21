@@ -64,7 +64,6 @@ To pass, you need at least 9 "yes".
 
 ## Demos
 
-
 The concept: Students prepare a demonstration involving DevOps technology, to be performed during the lecture. For example, a demo typically involves multiple virtual machines, likely deployed in the cloud. A demonstration is scripted, prepared and lasts 5 minutes.
 
 
@@ -120,7 +119,7 @@ The concept: you create an executable tutorial about a specific technology relat
 |background: The tutorial gives enough background | Yes | No | 
 |illustrated: The tutorial is illustrated with an informative figure (eg a flowchart) | Yes | No | 
 |pedagogical: The tutorial is easy to follow  | Yes | No | 
-|original: The tutorial is original, no or few similar tutorials exist on the web | Yes | No |
+|original: The tutorial is original, no or few similar tutorials exist on the web | Yes | No 
 |easter-eggs: The tutorial contains an easter egg | Yes | No | 
 |language: The language is appropriate (structure, grammar, spelling) | Yes | No |
 
@@ -172,3 +171,4 @@ The students who receive feedback act upon the feedback they receive.
 
 
 To pass, you must have at least 4 "yes" and the TA assessment.
+
