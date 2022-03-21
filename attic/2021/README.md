@@ -2,6 +2,36 @@
 
 **WARNING**: THIS IS THE OLD README FROM 2021
 
+## Selected student works
+
+Essays:
+* [Managing security in the deployment of
+containers](https://raw.githubusercontent.com/KTH/devops-course/2021/contributions/essay/ntas/Managing_Security_In_the_deployment_of_containers_post_feedback.pdf)
+* [SaaS, PaaS, IaaS? A taxonomy of cloud service
+models](https://raw.githubusercontent.com/KTH/devops-course/2021/contributions/essay/borzi-karrby/taxonomy-of-cloud-service-models.pdf)
+* [Automated end-to-end testing: Useful practice or frustrating time sink?](https://raw.githubusercontent.com/KTH/devops-course/2021/contributions/essay/badal-grunler/E2E_Testing_Essay.pdf)
+* [The Rust Build System](https://raw.githubusercontent.com/KTH/devops-course/2021/contributions/essay/aronber-yannik/DD2482___The_Rust_ci.pdf)
+* [A/B Testing Social Networks and Online Marketplaces:
+The Problem of Network Effects](https://raw.githubusercontent.com/KTH/devops-course/2021/contributions/essay/cpiehl-johennin/AB_Testing_DevOps_Essay.pdf)
+* [The Inner Workings of Git](https://raw.githubusercontent.com/KTH/devops-course/2021/contributions/essay/hheyman-moise/inner_git.pdf)
+* [Comparison of Kubernetes and Nomad Orchestration Tools](https://github.com/KTH/devops-course/raw/2021/contributions/essay/lerjevik-nacca/Essay%20-%20Word%20Count%20OK.pdf)
+* [BDD in DevOps](https://raw.githubusercontent.com/KTH/devops-course/2021/contributions/essay/agnespet/BDD_in_DevOps1.pdf)
+
+Presentations:
+
+* [Introduction to Nix](https://raw.githubusercontent.com/KTH/devops-course/2021/contributions/presentation/week2/yannik/Introduction%20to%20Nix.pdf)
+* [Automatic code analysis with CodeQL](https://raw.githubusercontent.com/KTH/devops-course/2021/contributions/presentation/week6/axp-chrigu/CodeQL.pdf)
+* [Maven and Gradle: the battle of the build tools](https://raw.githubusercontent.com/KTH/devops-course/2021/contributions/presentation/week6/majate-axelelm/Presentation.pdf)
+* [DevSecOps takeaways from Hacking into Google's Network for $133,337](https://raw.githubusercontent.com/KTH/devops-course/2021/contributions/presentation/week5/aatif/atif%20google%20cloud%20deployment%20manager%20devsecops.pdf)
+* [DevOps in high security environments - defense industry](https://raw.githubusercontent.com/KTH/devops-course/2021/contributions/presentation/week4/isakha-lidfeldt/Slides-DevOps_in_high_security_environments.pdf)
+* [Mobile backend as a service](https://raw.githubusercontent.com/KTH/devops-course/2021/contributions/presentation/week6/larasm-cjgst/MBaaS.pdf)
+* [Whitebox fuzzing](https://raw.githubusercontent.com/KTH/devops-course/2021/contributions/presentation/week5/kittyt-sebene/Whitebox%20fuzzing.pdf)
+* [Third Party Software Dependency Management with OWASP](https://raw.githubusercontent.com/KTH/devops-course/2021/contributions/presentation/week2/annnik-carllei/Third%20party%20software%20Dependency%20Management%20%20with%20OWASP.pdf)
+* [Flaky tests: An introduction](https://raw.githubusercontent.com/KTH/devops-course/2021/contributions/presentation/week5/augustjo-grunler/Flaky-test-presentation.pdf)
+* [MLOPS: What is it and why is it useful?](https://raw.githubusercontent.com/KTH/devops-course/2021/contributions/presentation/week3/johhamm-sestak/MLOps_presentation.pdf)
+* [Managing secrets in dynamic environments](https://raw.githubusercontent.com/KTH/devops-course/2021/contributions/presentation/week5/amarh-ntas/DevOps%20-%20Secrets%20with%20HashiCorp%20Vault%20%5BSHARED%5D.pdf)
+* [End-to-end testing with Cypress](https://raw.githubusercontent.com/KTH/devops-course/2021/contributions/presentation/week6/agnespet-adahen/cypress_e2e.pdf)
+* [GitOps](https://raw.githubusercontent.com/KTH/devops-course/2021/contributions/presentation/week4/cpiehl-charande/GitOps.pdf)
 
 ## Schedule
 
