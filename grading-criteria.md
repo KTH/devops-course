@@ -167,7 +167,7 @@ The students who receive feedback act upon the feedback they receive.
 |timeliness: the feedback is provided 2 business days (48h) after the "go" from the authors | Yes | No | 
 |constructive: all feedback points are constructive and clearly actionable | Yes | No | 
 |structure: the feedback is well-structured (eg. along the outline of the work under feedback) | Yes | No | 
-|pointers: the feedback contains valuable pointers to additional material | Yes | No |
+|pointers: the feedback contains valuable pointers to additional material  | Yes | No |
 
 
 To pass, you must have at least 4 "yes" and the TA assessment.
