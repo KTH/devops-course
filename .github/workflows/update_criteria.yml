@@ -6,7 +6,7 @@ name: Grading criteria
 on:
   push:
     branches:
-      - test-canvas
+      - 2022
     paths:
       - 'grading-criteria.md'
 

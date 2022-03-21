@@ -6,7 +6,7 @@ name: Update task
 on:
   push:
     branches:
-      - test-canvas
+      - 2022
     paths:
       - contributions/**
 
