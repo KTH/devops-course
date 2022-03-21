@@ -7,8 +7,10 @@ Note: we are all aware that this assessment is subjective by nature. In case of 
 
 ## Presentations
 
+
 The concept: The students prepare a 7 minute presentation on a topic that is relevant to DevOps. All students in a presentation must be present and speak in a balanced manner.
- 
+
+
 |                                             | Yes | No |
 |-------------------------------------------- | ----|----|
 |timing: The presentation's length is between 6:30-7:30 minutes (hard limit)  | Yes | No |
@@ -28,11 +30,14 @@ The concept: The students prepare a 7 minute presentation on a topic that is rel
 |readable-slides: The slides don't have too much text  | Yes | No |
 |illustration: The slides contain nice illustrations  | Yes | No |
 
+
 To pass, you need at least 10 "yes".
 
 ## Essays
 
+
 The concept: The students write an essay on a topic relevant to the course. Example of essays, see [2019 essays](https://github.com/KTH/devops-course/tree/master/attic/2019/README-2019.md), [2020 essays](https://github.com/KTH/devops-course/tree/master/attic/2020/README-2020.md)
+
 
 |                                             | Yes | No |
 |-------------------------------------------- | ----|----|
@@ -54,11 +59,13 @@ The concept: The students write an essay on a topic relevant to the course. Exam
 | elegant: The essay presentation is elegant and visually appealing (eg LaTeX, InDesign) | Yes | No | 
 | reflection: The essay contains a reflective part  | Yes | No |
 
+
 To pass, you need at least 9 "yes".
 
 ## Demos
 
 The concept: Students prepare a demonstration involving DevOps technology, to be performed during the lecture. For example, a demo typically involves multiple virtual machines, likely deployed in the cloud. A demonstration is scripted, prepared and lasts 5 minutes.
+
 
 |                                             | Yes | No | 
 |-------------------------------------------- | ----|----|
@@ -73,14 +80,16 @@ The concept: Students prepare a demonstration involving DevOps technology, to be
 |repo: There is a good code repo, documented with a README, to run the demo. | Yes | No | 
 |take-home: The demo includes a clear and visible take-home message | Yes | No | 
 
+
 To pass, you must have at least 7 "yes".
 
-
 ## Open-source contributions
+
 
 The concept: you contribute to one open-source project related to DevOps. Yout get at least one merged pull-request.
 
 Criteria for the selection of the open-source project: 1) The project is related to DevOps 2) The project has more than 10 Stars 3) The project has more than 100 Commits 4) The project has an active community on GitHub.
+
 
 |                                             | Yes | No | 
 |-------------------------------------------- | ----|----|
@@ -91,10 +100,11 @@ Criteria for the selection of the open-source project: 1) The project is related
 |conversation: There is an interesting engineering conversation with the maintainers | Yes | No | 
 |merge: The contribution is merged in the main branch.| Yes | No | 
 
+
 To pass, you must have 2 yes.
 
-
 ## Executable Tutorials
+
 
 The concept: you create an executable tutorial about a specific technology related to Devops. You deliver your tutorial on a platform supporting execution, such as [Katacoda](https://www.katacoda.com/), [mybinder.org](https://mybinder.org/) or equivalent.
 
@@ -113,9 +123,11 @@ The concept: you create an executable tutorial about a specific technology relat
 |easter-eggs: The tutorial contains an easter egg | Yes | No | 
 |language: The language is appropriate (structure, grammar, spelling) | Yes | No |
 
+
 To pass, you must have the mandatory parts and at least 5 "yes".
 
 ## Course automation
+
 
 The concept: you create an automation task for the course to improve the teaching experience and effectiveness (eg a Github action task). Simple tasks can be bundled in a package to get a pass.
 
@@ -124,6 +136,7 @@ Make sure that you meet the following requirements in your final submission:
 2. You should demonstrate that your automation technique actually works and automatically produces some results. For example, you can fork the Devops-Course repo and activate the implemented Github Action on it and show how it works by making changes in your forked repo. In case of this example, a link to your forked repository should be included in the final submission.
 
 Suggestions for course automation tasks: https://github.com/KTH/devops-course/issues/916
+
 
 |                                             | Yes | No | 
 |-------------------------------------------- | ----|----|
@@ -136,10 +149,11 @@ Suggestions for course automation tasks: https://github.com/KTH/devops-course/is
 |figure: the README is illustrated with at least an informative figure (eg a flowchart) | Yes | No | 
 |availability: The action is available on a market place (Github Marketplace, Azure Marketplace, etc.) | Yes | No | 
 
+
 To pass, you must have the mandatory parts and at least 4 "yes".
 
-
 ## Feedback
+
 
 The concept: you provide constructive and timely feeback about one task from categories "essay" and "executable tutorial".
 The feedback is provided in a written manner, as a well-structured comment on the PR of the task.
@@ -154,6 +168,7 @@ The students who receive feedback act upon the feedback they receive.
 |constructive: all feedback points are constructive and clearly actionable | Yes | No | 
 |structure: the feedback is well-structured (eg. along the outline of the work under feedback) | Yes | No | 
 |pointers: the feedback contains valuable pointers to additional material | Yes | No |
+
 
 To pass, you must have at least 4 "yes" and the TA assessment.
 
