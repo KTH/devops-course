@@ -59,6 +59,42 @@ Demos:
 * [Infrastructure as Software with Pulumi](https://github.com/KTH/devops-course/tree/2021/contributions/demo/isakha)
 * [Automatically generate Python unittest results in HTML reports with Jenkins](https://github.com/KTH/devops-course/tree/2021/contributions/demo/sihanc-yuehao)
 
+Tutorials:
+
+* [Exectuable tutorial: MLOps - Automation of Model Evaluation](https://github.com/KTH/devops-course/tree/2021/contributions/executable-tutorial/ericvi-oscaralm)
+* [GitLab CI/CD-server implementation](https://github.com/KTH/devops-course/tree/2021/contributions/executable-tutorial/charande-lazarc)
+* [Docker container running an FTP server](https://github.com/KTH/devops-course/tree/2021/contributions/executable-tutorial/kallem-manande)
+* [Testing and Production environments](https://github.com/KTH/devops-course/tree/2021/contributions/executable-tutorial/arieltan-zangis)
+* [Deploying scheduled functions on Kubernetes using Kubeless](https://github.com/KTH/devops-course/tree/2021/contributions/executable-tutorial/siper-atema)
+* [Setting up a Jenkins CI/CD pipeline for deploying to Docker Hub](https://github.com/KTH/devops-course/tree/2021/contributions/executable-tutorial/chrigu-fbjorkma)
+* [Integrate DataDog in existing app](https://github.com/KTH/devops-course/tree/2021/contributions/executable-tutorial/brogard-despinoy)
+* [CI for Python with unittest using Github Actions](https://github.com/KTH/devops-course/tree/2021/contributions/executable-tutorial/majate-axelelm)
+* [React CI testing](https://github.com/KTH/devops-course/tree/2021/contributions/executable-tutorial/agnesfo-gdba)
+* [Continuous benchmarking using Github Actions](https://github.com/KTH/devops-course/tree/2021/contributions/executable-tutorial/johhamm-carllei)
+* [Setting up Splunk in a docker container](https://github.com/KTH/devops-course/tree/2021/contributions/executable-tutorial/hheyman-augustjo)
+* [Automated monitoring/analytics with ELK Stack](https://github.com/KTH/devops-course/tree/2021/contributions/executable-tutorial/karrby-kultala)
+* [Secure a Python Flask app using Keycloak running in Docker](https://github.com/KTH/devops-course/tree/2021/contributions/executable-tutorial/lerjevik-wska)
+* [Pijul: Haunting Git at night](https://github.com/KTH/devops-course/tree/2021/contributions/executable-tutorial/yannik-vladom)
+* [nginx on vagrant box (with provisioning)](https://github.com/KTH/devops-course/tree/2021/contributions/executable-tutorial/cotutiu-moise)
+* [Migrating a monolithic application to micro services](https://github.com/KTH/devops-course/tree/2021/contributions/executable-tutorial/annnik)
+* [CI workflow using GitHub actions for Node.js, Express app, Jest and ESLint](https://github.com/KTH/devops-course/tree/2021/contributions/executable-tutorial/andnil5-nwessman)
+* [Deploying scheduled functions on Kubernetes using Kubeless](https://github.com/KTH/devops-course/tree/2021/contributions/executable-tutorial/siper-atema)
+* [Learn to integrate Jest in your React projects](https://github.com/KTH/devops-course/tree/2021/contributions/executable-tutorial/agnespet-adahen)
+* [Continous integration in a python project with Pytest and Travis-CI](https://github.com/KTH/devops-course/tree/2021/contributions/executable-tutorial/eryman)
+* [Automatic configuration of Kubernetes using Ansible](https://github.com/KTH/devops-course/tree/2021/contributions/executable-tutorial/sestak-fwallb)
+* [Using Docker to setup Pi-Hole](https://github.com/KTH/devops-course/tree/2021/contributions/executable-tutorial/cjgst)
+* [Deploying an API with a Custom Lambda Authorizer using Serverless](https://github.com/KTH/devops-course/tree/2021/contributions/executable-tutorial/oskstr)
+* [Creat multi Jenkins containers in Linux based on systemd-nspawn](https://github.com/KTH/devops-course/tree/2021/contributions/executable-tutorial/yuehao)
+* [CI for Python with unittest using Github Actions](https://github.com/KTH/devops-course/tree/2021/contributions/executable-tutorial/majate-axelelm)
+* [Set up Renovate with a NodeJS based Web Application](https://github.com/KTH/devops-course/tree/2021/contributions/executable-tutorial/kittyt-sebene)
+* [MLOps - Automation of Model Evaluation](https://github.com/KTH/devops-course/tree/2021/contributions/executable-tutorial/ericvi-oscaralm)
+* [Automatic configuration of Kubernetes using Ansible](https://github.com/KTH/devops-course/tree/2021/contributions/executable-tutorial/sestak-fwallb)
+* [Implementing AWS Lambda with AWS SES and invoking it with HTTP Request](https://github.com/KTH/devops-course/tree/2021/contributions/executable-tutorial/swill)
+* [Testing and Production environments](https://github.com/KTH/devops-course/tree/2021/contributions/executable-tutorial/arieltan-zangis)
+* [React CI testing](https://github.com/KTH/devops-course/tree/2021/contributions/executable-tutorial/agnesfo-gdba)
+* [Run TeamCity on Docker](https://github.com/KTH/devops-course/tree/2021/contributions/executable-tutorial/zidi-sihanc)
+* [Using the Clojure library AWS-api to access AWS services](https://github.com/KTH/devops-course/tree/2021/contributions/executable-tutorial/felixfon-bouaddi)
+
 ## Schedule
 
 The schedule is at <https://www.kth.se/social/course/DD2482/calendar/>
