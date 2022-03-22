@@ -33,6 +33,32 @@ Presentations:
 * [End-to-end testing with Cypress](https://raw.githubusercontent.com/KTH/devops-course/2021/contributions/presentation/week6/agnespet-adahen/cypress_e2e.pdf)
 * [GitOps](https://raw.githubusercontent.com/KTH/devops-course/2021/contributions/presentation/week4/cpiehl-charande/GitOps.pdf)
 
+Demos:
+
+* [Automatically publishing tested Node.js packages on npm with Github Actions](https://github.com/KTH/devops-course/tree/2021/contributions/demo/oscaralm)
+* [Docker monitoring using Datadog](https://github.com/KTH/devops-course/tree/2021/contributions/demo/ericvi-manande)
+* [Monitoring availability using Cloudprobe and Prometheus](https://github.com/KTH/devops-course/tree/2021/contributions/demo/atema-siper)
+* [Multi-account CI/CD on AWS for a ToDo app](https://github.com/KTH/devops-course/tree/2021/contributions/demo/brogard)
+* [How to add code coverage badge + report using Codecov and Clover](https://github.com/KTH/devops-course/tree/2021/contributions/demo/damne-fwallb)
+* [Docker implementation to React native project](https://github.com/KTH/devops-course/tree/2021/contributions/demo/despinoy-gdba)
+* [Continuous Deployment to AWS EC2 using Github Actions](https://github.com/KTH/devops-course/tree/2021/contributions/demo/axelelm-kittyt)
+* [MLOPS: CI&CD with Kubeflow Pipelines in GCP](https://github.com/KTH/devops-course/tree/2021/contributions/demo/johhamm-sestak)
+* [Designing integration tests with cypress](https://github.com/KTH/devops-course/tree/2021/contributions/demo/aronber)
+* [Automated development pipeline for Chrome extensions](https://github.com/KTH/devops-course/tree/2021/contributions/demo/karrby-kultala)
+* [CI/CD Deployment using GitLab and AWS](https://github.com/KTH/devops-course/tree/2021/contributions/demo/lerjevik-carinawi)
+* [Continuous deployment on Google Play Store](https://github.com/KTH/devops-course/tree/2021/contributions/demo/vladom-johanmb)
+* [Testing and running Github actions locally with Nektos Act](https://github.com/KTH/devops-course/tree/2021/contributions/demo/annnik)
+* [CD of Node Express App on Google Cloud with designated release branch using GitHub actions](https://github.com/KTH/devops-course/tree/2021/contributions/demo/kalpet-andnil5)
+* [Monitoring availability using Cloudprobe and Prometheus](https://github.com/KTH/devops-course/tree/2021/contributions/demo/atema-siper)
+* [Publishing a Java package to Maven Central using Github Actions](https://github.com/KTH/devops-course/tree/2021/contributions/demo/axp-fseifert)
+* [Using Cloud Functions in Firebase to create a serverless React app](https://github.com/KTH/devops-course/tree/2021/contributions/demo/mwesslen-larasm-cjgst)
+* [Automatically generate Python unittest results in HTML reports with Jenkins](https://github.com/KTH/devops-course/tree/2021/contributions/demo/sihanc-yuehao)
+* [Setting up Drone CI with Bitbucket](https://github.com/KTH/devops-course/tree/2021/contributions/demo/sebene-majate)
+* [Chaos testing in a deployed environment](https://github.com/KTH/devops-course/tree/2021/contributions/demo/nwessman)
+* [Merging tool for Salesforce Deployments](https://github.com/KTH/devops-course/tree/2021/contributions/demo/swill-oskstr)
+* [Infrastructure as Software with Pulumi](https://github.com/KTH/devops-course/tree/2021/contributions/demo/isakha)
+* [Automatically generate Python unittest results in HTML reports with Jenkins](https://github.com/KTH/devops-course/tree/2021/contributions/demo/sihanc-yuehao)
+
 ## Schedule
 
 The schedule is at <https://www.kth.se/social/course/DD2482/calendar/>
