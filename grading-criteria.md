@@ -4,7 +4,7 @@ This page presents the grading criteria to assess the contribution in each task 
 
 Note 1: we are all aware that this assessment is subjective by nature. In case of disagreement, the informed judgment of the Professor is the final decision.
 
-Note 2: in the gradating criteria presented below, the mandatory parts do not count as "yes" for grading.
+Note 2: in the grading criteria presented below, the mandatory parts do not count as "yes" for grading.
 
 
 ## Presentations
