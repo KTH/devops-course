@@ -4,7 +4,7 @@ name: Check task
 
 # Controls when the workflow will run
 on:
-  pull_request:
+  pull_request_target:
     branches:
       - 2022
     paths:
@@ -21,6 +21,8 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
       
       - name: 'Get tools'
         uses: actions/checkout@v2.3.4
