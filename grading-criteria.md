@@ -2,7 +2,9 @@
 
 This page presents the grading criteria to assess the contribution in each task category: "[presentation](https://github.com/KTH/devops-course/tree/2021/contributions/presentation)", "[essay](https://github.com/KTH/devops-course/tree/2021/contributions/essay)", "[demo](https://github.com/KTH/devops-course/tree/2021/contributions/demo)", "[executable tutorial](https://github.com/KTH/devops-course/tree/2021/contributions/executable-tutorial)", "[contribution to open-source](https://github.com/KTH/devops-course/tree/2021/contributions/open-source)", "[course automation](https://github.com/KTH/devops-course/tree/2021/contributions/course-automation)", "[feedback](https://github.com/KTH/devops-course/tree/2021/contributions/feedback)". 
 
-Note: we are all aware that this assessment is subjective by nature. In case of disagreement, the informed judgment of the Professor is the final decision.
+Note 1: we are all aware that this assessment is subjective by nature. In case of disagreement, the informed judgment of the Professor is the final decision.
+
+Note 2: in the gradating criteria presented below, the mandatory parts do not count as "yes" for grading.
 
 
 ## Presentations
