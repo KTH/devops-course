@@ -24,3 +24,5 @@ https://github.com/landeholt/course-automation-essay
 
 ## Validation
 No validation has been check. Only that the resources (50 word file) is correct. Can be easily reproduced by generating a file with 2000 words.
+
+Please view [https://github.com/landeholt/course-automation-essay/pull/4](https://github.com/landeholt/course-automation-essay/pull/4) for context
