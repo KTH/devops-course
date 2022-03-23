@@ -12,9 +12,9 @@ github: landeholt
 
 One of the proposed tasks that could we found in issue #916
 
-    Check that essays are 2000 words +/- 5%. This can be done with pdftotext.
+Check that essays are 2000 words +/- 5%. This can be done with pdftotext.
 
-    _Originally posted by @monperrus in https://github.com/KTH/devops-course/issues/916#issuecomment-801790377_
+_Originally posted by @monperrus in https://github.com/KTH/devops-course/issues/916#issuecomment-801790377_
 
 ## Submission
 This GitHub action looks at pull requests and analyzes the newly changed pdf files. Creates a PR comment and commit status as feedback on if it passes the required length (2000 words)
