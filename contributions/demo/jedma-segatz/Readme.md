@@ -28,12 +28,10 @@ We plan to give a demonstration on how to use, Jenkins and AWS to automatically 
 
 The deployment is supposed to be performed using over-the-air (OTA) updating to an ESP32 evaluation board connected to the same network as the build server.
 
-## Comment 
+Comment:
 There was a similar project in 2020 (https://github.com/KTH/devops-course/tree/2022/attic/2020/contributions-2020/demo/carljen-axelbc), where a demonstration of a CI pipline for embedded devices was given.
 
 Our proposal divers in three ways:
   1. We don't use the remote testing suite of plattform io, and instead use AWS.
   2. Deployment with OTA updates, which simulates a better use-case for in-field testing
   3. Unit testing without using an extra probe device, expoiting the capabilities of RTOS.
-
-
