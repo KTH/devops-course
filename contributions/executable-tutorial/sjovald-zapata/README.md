@@ -2,7 +2,7 @@
 
 ## Title
 
-How to automate E2E-testing with Jest using Github actions
+How to automate E2E-testing written in React & Jest, using Github actions.
 
 ## Names and KTH ID
 
