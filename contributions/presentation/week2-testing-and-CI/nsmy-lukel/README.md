@@ -1,9 +1,21 @@
-# Test Runtime Optimization Techniques in Industry Settings
+# Assignment Proposal
+
+## Title
+
+Test Runtime Optimization Techniques in Industry Settings
 
 ## Members
 
 - Luke LeVasseur (lukel@kth.se)
 - Nikolaos Smyrnioudis (nsmy@kth.se)
+
+## Deadline
+
+Task 1
+
+## Category
+
+Presentation
 
 ## Proposal
 
