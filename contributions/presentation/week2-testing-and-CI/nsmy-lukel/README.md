@@ -17,7 +17,7 @@ Task 1
 
 Presentation
 
-## Proposal
+## Description
 
 We intend to present various strategies which could be used to shorten test suite runtime in industry settings.
 Often, tests suites on larger software applications can take upwards of 30 minutes to run in full. While the practice of
