@@ -4,7 +4,7 @@
 
 Automated testing of Java concurrent programs with Thread Weaver
 
-## Members
+## Names and KTH ID
 
 - Gatien Ducornaud (gatien@kth.se)
 - Man Yin Edward CHUI (myechui@kth.se)
