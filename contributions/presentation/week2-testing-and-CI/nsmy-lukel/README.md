@@ -4,7 +4,7 @@
 
 Test Runtime Optimization Techniques in Industry Settings
 
-## Members
+## Names and KTH ID
 
 - Luke LeVasseur (lukel@kth.se)
 - Nikolaos Smyrnioudis (nsmy@kth.se)
