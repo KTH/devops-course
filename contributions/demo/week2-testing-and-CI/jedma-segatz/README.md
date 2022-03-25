@@ -28,7 +28,7 @@ We plan to give a demonstration on how to use, Jenkins and AWS to automatically 
 
 The deployment is supposed to be performed using over-the-air (OTA) updating to an ESP32 evaluation board connected to the same network as the build server.
 
-## Comment 
+Comment:
 There was a similar project in 2020 (https://github.com/KTH/devops-course/tree/2022/attic/2020/contributions-2020/demo/carljen-axelbc), where a demonstration of a CI pipeline for embedded devices was given.
 
 Our proposal differs in three ways:
