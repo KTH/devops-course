@@ -1,12 +1,10 @@
-# Demo Proposal
+# Assignment Proposal
 
 ## Title
 
 Testing frameworks for JavaScript in frontend and backend
 
-
-## Members
-
+## Names and KTH ID
 - Elias Bonnici (bonnici@kth.se)
 - Julian Nalenz (nalenz@kth.se)
 
@@ -18,7 +16,7 @@ Task 1
 
 Demo
 
-## Proposal
+## Description
 
 With the NodeJS ecosystem, JavaScript can be used in both frontend and backend. As with any software stack, unit and integration testing are an essential part, yet selecting the right tool for each individual use case can be a challenge, as NodeJS-based environments can be highly diverse.
 
