@@ -1,6 +1,8 @@
 # Assignment Proposal
 
-## Real-Time testing of a video game
+## Title
+
+Real-Time testing of a video game
 
 ## Names and KTH ID
 
