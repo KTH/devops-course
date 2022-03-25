@@ -1,4 +1,8 @@
-# Automated testing of Java concurrent programs with Thread Weaver
+# Assignment Proposal
+
+## Title
+
+Automated testing of Java concurrent programs with Thread Weaver
 
 ## Members
 
