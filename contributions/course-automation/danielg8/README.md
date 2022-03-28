@@ -1,23 +1,24 @@
-# Github action to check word count in submitted essays
+# Assignment Proposal
 
-## Member
+## Title
 
-Daniel Gustafsson, danielg8@kth.se [https://gtihub.com/halvtomat]
+*Automatic labeling of PRs*
 
-## Rationale
+## Names and KTH ID
 
-It is probably annoying for TAs to have to check the word count in each individual essay submisison. 
+- Daniel Gustafsson (danielg8@kth.se) 
 
-The goal of this proposal is to automate this task and make life easier for TAs.
+## Deadline
 
-## Proposal
+Task 1
 
-Create a GitHub Action which does the following on all essay pull requests:
+## Category
 
-- Get changed/new pdf file
+Course automation
 
-- Count the words in this changed/new pdf file
+## Description
 
-- Check if the word count is in the interval defined by environment variables
+Currently all pull requests needs to be manually labeled by the course TAs.
+Because this is tedious to do, some pull requests don't get labeled and are therefore harder to sort or search for.
 
-
+I want to solve this by creating a GitHub Action that searches for keywords in pull requests and labels the pull request accordingly.
