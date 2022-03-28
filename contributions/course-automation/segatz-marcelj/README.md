@@ -10,7 +10,7 @@ _Automatic comparison of proposals with previous contributions_
 
 ## Deadline
 
-Task 1
+Deadline for Task 1
 
 ## Category
 
