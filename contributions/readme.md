@@ -2,8 +2,9 @@
 
 ### Presentations
 
-- [Automated testing of Java concurrent programs with Thread Weaver](https://github.com/KTH/devops-course/tree/2022/contributions/presentation/week2-testing-and-CI/gatien-myechui) . Gatien Ducornaud (gatien)Man Yin Edward CHUI (myechui)
+- [Automated testing of Java concurrent programs with Thread Weaver](https://github.com/KTH/devops-course/tree/2022/contributions/presentation/week2-testing-and-CI/gatien-myechui) . Gatien Ducornaud (gatien), Man Yin Edward CHUI (myechui)
 - [Test Runtime Optimization Techniques in Industry Settings](https://github.com/KTH/devops-course/tree/2022/contributions/presentation/week2-testing-and-CI/nsmy-lukel) . Luke LeVasseur (lukel@kth.se), Nikolaos Smyrnioudis (nsmy)
+- [Comparison of different JS testing frameworks for web applications](https://github.com/KTH/devops-course/tree/2022/contributions/presentation/week2-testing-and-CI/perarn-phisal) . Per Arn (perarn), Philip Salqvist (phisal)
 
 ### Demos
 
