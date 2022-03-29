@@ -2,7 +2,7 @@
 
 ## Title
 
-Real-Time testing of a video game: https://github.com/lnsandn01/gamework/tree/feature/integrate_tests
+Real-Time testing of a video game
 
 ## Names and KTH ID
 
@@ -18,6 +18,8 @@ Deadline for task 1
 Demo
 
 ## Description
+
+repo-link: https://github.com/lnsandn01/gamework/tree/feature/integrate_tests
 
 When testing real-time systems, using conventional static testing methods is not enough.<br>
 You need to do: Task testing, Behavioral testing, Intertask testing and System testing.<br>
