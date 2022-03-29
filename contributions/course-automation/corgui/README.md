@@ -19,7 +19,7 @@ Course Automation
 ## Description
 
 This course uses a Github repository issue to allow students to find a teammate. The problem here is that is requires
-the students to update or remove their comment on this issue when they have found a teammate. This aim here is to
+the students to update or remove their comment on this issue when they have found a teammate. The aim here is to
 automate this task.
 
 The automation should perform the following :
