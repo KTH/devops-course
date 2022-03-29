@@ -11,7 +11,7 @@ jobs:
         id: files
         with:
           format: space-delimited
-          # token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
       - name: Printing
         run: |
           echo "All:"
@@ -22,4 +22,4 @@ jobs:
         with:
           allFiles: ${{ steps.files.outputs.all }}
           removedFiles: ${{ steps.files.outputs.removed }}
-          # token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
