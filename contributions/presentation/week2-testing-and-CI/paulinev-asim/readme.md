@@ -6,7 +6,7 @@ Demonstrating how robot framework workds and the importance of user test
 
 ## Names and KTH ID
 
-- Asim Jarrar (asmin@kth.se)
+- Asim Jarrar (asim@kth.se)
 - Pauline Vaillant (paulinev@kth.se)
 
 ## Deadline
