@@ -1,0 +1,25 @@
+on: [push]
+
+jobs:
+  check-slide-links:
+    runs-on: ubuntu-latest
+    name: Check for valid slides
+    steps:
+      - name: checking out repo
+        uses: actions/checkout@v3
+      - uses: jitterbit/get-changed-files@v1
+        id: files
+        with:
+          format: space-delimited
+          # token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Printing
+        run: |
+          echo "All:"
+          echo "${{ steps.files.outputs.all }}"
+      - name: Check for valid slides
+        id: check-slides
+        uses: phamelink/course-automation-github-action@v1.1
+        with:
+          allFiles: ${{ steps.files.outputs.all }}
+          removedFiles: ${{ steps.files.outputs.removed }}
+          # token: ${{ secrets.GITHUB_TOKEN }}
