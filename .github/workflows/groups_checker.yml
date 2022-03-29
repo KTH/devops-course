@@ -1,14 +1,14 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Grading criteria
+name: Check task
 
 # Controls when the workflow will run
 on:
-  push:
+  pull_request_target:
     branches:
       - 2022
     paths:
-      - 'grading-criteria.md'
+      - contributions/**
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -21,7 +21,9 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
       - name: 'Get tools'
         uses: actions/checkout@v2.3.4
         with:
@@ -48,4 +50,4 @@ jobs:
           GH_REPO_FULLNAME: ${{ secrets.GH_REPO_FULLNAME }}
         run: |
           export PYTHONPATH="$PWD/canvas-code/utils"
-          python ./canvas-code/update_grading.py --issue vladomitrovic
+          python ./canvas-code/update_task.py --mode check --pr ${{github.event.number}}
