@@ -1,4 +1,4 @@
-on: [push]
+on: [push, issue_comment]
 
 jobs:
   check-slide-links:
