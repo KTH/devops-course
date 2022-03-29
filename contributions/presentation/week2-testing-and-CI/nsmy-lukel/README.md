@@ -30,5 +30,5 @@ running tests that cover modified code, and stochastically selecting unhelpful t
 We are unaware of any existing tools that are designed to help with this problem and would love to learn more about them
 as well if staff or other students have any suggestions!
 
-## Link to Slides
+### Link to Slides
 https://docs.google.com/presentation/d/1fxVVDAhoezaCJJZkfKGKHQGaOTF-I8HzEvOwiXUmsBA/edit?usp=sharing
