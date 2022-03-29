@@ -7,6 +7,7 @@
 - [Test Runtime Optimization Techniques in Industry Settings](https://github.com/KTH/devops-course/tree/2022/contributions/presentation/week2-testing-and-CI/nsmy-lukel) . Luke LeVasseur (lukel@kth.se), Nikolaos Smyrnioudis (nsmy)
 - [Comparison of different JS testing frameworks for web applications](https://github.com/KTH/devops-course/tree/2022/contributions/presentation/week2-testing-and-CI/perarn-phisal) . Per Arn (perarn), Philip Salqvist (phisal)
 - [Facebook Blackout: Testing for distributed systems](https://github.com/KTH/devops-course/tree/2022/contributions/presentation/week2-testing-and-CI/svanhol-libl) Linus Below-Blomkvist (libl), Fredrik Svanholm (svanhol)
+- [Robot framework fo test automation]() Pauline Vaillant, Asim Jarrar
  
 ### Demos
 
