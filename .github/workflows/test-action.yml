@@ -17,4 +17,4 @@ jobs:
         id: check-slides
         uses: phamelink/course-automation-github-action@v1.2.8
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
