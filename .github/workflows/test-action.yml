@@ -10,16 +10,18 @@ jobs:
   check-slide-links:
     runs-on: ubuntu-latest
     name: Check for valid slides
+    outputs:
+      all: ${{ steps.changes.outputs.all}}
+      ts: ${{ steps.changes.outputs.ts }}
     steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 2  # OR "2" -> To retrieve the preceding commit.
-      - name: Get changed files
+      - name: Checkout repo
+        uses: actions/checkout@v3
+      - name: Get changed files 1
         id: changed-files
         uses: tj-actions/changed-files@v18.4
-      - name: Check for valid slides
-        id: check-slides
-        uses: phamelink/course-automation-github-action@v1.2.3
-        with:
-          allFiles: ${{ steps.changed-files.outputs.all_changed_files }}
-          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Get changed files 2
+        id: changes
+        # Set outputs using the command.
+        run: |
+          echo "::set-output name=all::$(git diff --name-only --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} ${{ github.sha }} | xargs)"
+          echo "::set-output name=ts::$(git diff --name-only --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} ${{ github.sha }} | grep .ts$ | xargs)"
