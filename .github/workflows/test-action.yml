@@ -13,11 +13,8 @@ jobs:
     steps:
       - name: checking out repo
         uses: actions/checkout@v3
-      # - name: Get changed files
-      #   id: changed-files
-      #   uses: tj-actions/changed-files@v18.4
       - name: Check for valid slides
         id: check-slides
-        uses: phamelink/course-automation-github-action@v1.2.7
+        uses: phamelink/course-automation-github-action@v1.2.8
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
