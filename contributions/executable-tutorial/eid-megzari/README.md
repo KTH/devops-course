@@ -5,8 +5,8 @@
 Build Github Action CI pipeline that does static code scanning as a part of DevSecOps.
 
 ## Names and KTH ID
-  - [@mrbgco](https://github.com/mrbgco) Bassam Gamal (bgeid@kth.se)
-  - [@abdelmoujibMegzari](https://github.com/abdelmoujibMegzari) Abdelmoujib Megzari (megzari@kth.se)
+  - Bassam Gamal (bgeid@kth.se)
+  - Abdelmoujib Megzari (megzari@kth.se)
 
 ## Deadline
 
