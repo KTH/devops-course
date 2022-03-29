@@ -18,7 +18,7 @@ jobs:
           echo "${{ steps.files.outputs.all }}"
       - name: Check for valid slides
         id: check-slides
-        uses: phamelink/course-automation-github-action@v1.1
+        uses: phamelink/course-automation-github-action@v1.2.1
         with:
           allFiles: ${{ steps.files.outputs.all }}
           removedFiles: ${{ steps.files.outputs.removed }}
