@@ -1,7 +1,10 @@
+# Controls when the workflow will run
 on:
-  pull_request:
-    types:
-      - opened
+  pull_request_target:
+    branches:
+      - "2022"
+    paths:
+      - contributions/**
 
 jobs:
   check-slide-links:
@@ -10,19 +13,12 @@ jobs:
     steps:
       - name: checking out repo
         uses: actions/checkout@v3
-      - uses: jitterbit/get-changed-files@v1
-        id: files
-        with:
-          format: space-delimited
-          token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Printing
-        run: |
-          echo "All:"
-          echo "${{ steps.files.outputs.all }}"
+      - name: Get changed files
+        id: changed-files
+        uses: tj-actions/changed-files@v18.4
       - name: Check for valid slides
         id: check-slides
-        uses: phamelink/course-automation-github-action@v1.2.1
+        uses: phamelink/course-automation-github-action@v1.2.3
         with:
-          allFiles: ${{ steps.files.outputs.all }}
-          removedFiles: ${{ steps.files.outputs.removed }}
+          allFiles: ${{ steps.changed-files.outputs.all_changed_files }}
           token: ${{ secrets.GITHUB_TOKEN }}
