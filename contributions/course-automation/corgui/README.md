@@ -10,7 +10,7 @@ Automatic deletion of teammate request
 
 ## Deadline
 
-Task 1
+Task 2
 
 ## Category
 
