@@ -18,7 +18,6 @@ jobs:
       #   uses: tj-actions/changed-files@v18.4
       - name: Check for valid slides
         id: check-slides
-        uses: phamelink/course-automation-github-action@v1.2.5
-        # with:
-        #   allFiles: ${{ steps.changed-files.outputs.all_changed_files }}
-        #   token: ${{ secrets.GITHUB_TOKEN }}
+        uses: phamelink/course-automation-github-action@v1.2.6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
