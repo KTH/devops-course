@@ -32,3 +32,4 @@ The automation should perform the following :
     - if final: check if it is before __first task__ deadline and if repo is __public__
     - if not final: check if it is before __first task__
 -   Give feedback accordingly to the pull request
+
