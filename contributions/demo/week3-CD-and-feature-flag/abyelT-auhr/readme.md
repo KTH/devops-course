@@ -1,10 +1,14 @@
+
+# Assignment Proposal
+
 ## Title
 
-TBD
+Kubernetes & containers
 
 ## Names and KTH ID
-  - Abyel Tesfay (Abyel@kth.se)
-  - Aksel Uhr (auhr@kth.se)
+
+- Abyel Tesfay (Abyel@kth.se)
+- Aksel Uhr (auhr@kth.se)
 
 ## Deadline
 
