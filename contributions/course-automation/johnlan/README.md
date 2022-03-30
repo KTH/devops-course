@@ -1,28 +1,38 @@
-# Course automation proposal: check word count for essays
+# Assignment Proposal
 
+## Title
 
-## Members
-John Landeholt (johnlan@kth.se) 
-github: landeholt
+Automatic verification for mandatory parts of course-automation final
 
-## Group rules in this course regarding groups with 3 student.
-"We recommend 2 students. Three is also possible for ambitious essays, demos or contribution to open-source."
+## Names and KTH ID
 
-## Proposal
+-   John Landeholt (corgui@kth.se)
 
-One of the proposed tasks that could we found in issue #916
+## Deadline
 
-Check that essays are 2000 words +/- 5%. This can be done with pdftotext.
+Deadline to complete task 1: April 5, 17h Stockholm time
 
-_Originally posted by @monperrus in https://github.com/KTH/devops-course/issues/916#issuecomment-801790377_
+## Category
 
-## Submission
-This GitHub action looks at pull requests and analyzes the newly changed pdf files. Creates a PR comment and commit status as feedback on if it passes the required length (2000 words)
+Course Automation
 
-### Link to action repo
-https://github.com/landeholt/course-automation-essay
+## Description
 
-## Validation
-No validation has been check. Only that the resources (50 word file) is correct. Can be easily reproduced by generating a file with 2000 words.
+This course uses a Github repository issue to allow students to find a teammate. The problem here is that is requires
+the students to update or remove their comment on this issue when they have found a teammate. The aim here is to
+automate this task.
 
-Please view [https://github.com/landeholt/course-automation-essay/pull/4](https://github.com/landeholt/course-automation-essay/pull/4) for context
+In order to alleviate __redundant work__ for this course TAs I propose to automate verification of the following mandatory parts for ["course-automation"](https://github.com/KTH/devops-course/blob/2022/grading-criteria.md#course-automation):
+
+-   timeliness: the automation is done before the __first task__ deadline (in order to be useful for the course)
+        The first task deadline should be a set as a variable that can be changed for each year. If the final pull request to this repo is after __first task__, the pull request should become invalid.
+-   repo: the code for the task is available in a public repo
+        Check through the `readme.md` for a github-url and check whether the repo is public or not
+
+The automation should perform the following :
+
+-   Run for each new pull request that is the course automation task
+-   Check if it is a final submission (i.e has a repo-link)
+    - if final: check if it is before __first task__ deadline and if repo is __public__
+    - if not final: check if it is before __first task__
+-   Give feedback accordingly to the pull request
