@@ -6,7 +6,7 @@ Automatic verification for mandatory parts of course-automation final
 
 ## Names and KTH ID
 
--   John Landeholt (corgui@kth.se)
+-   John Landeholt (johnlan@kth.se)
 
 ## Deadline
 
