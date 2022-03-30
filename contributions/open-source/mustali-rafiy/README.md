@@ -1,6 +1,9 @@
 # Assignment Proposal
 Bug fixing for the open-source project act
 
+## Title
+Fix an issue for the manim open source project
+
 ## Names and KTH ID
 - Mustafa Ali (mustali@kth.se)
 - Rafi Youssef (rafiy@kth.se)
