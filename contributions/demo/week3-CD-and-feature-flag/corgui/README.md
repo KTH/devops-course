@@ -6,7 +6,7 @@ Demonstration of Continuous Delivery of a Tauri app
 
 ## Names and KTH ID
 
--   Corentin Guilloteau (corguin@kth.se)
+-   Corentin Guilloteau (corgui@kth.se)
 
 ## Deadline
 
