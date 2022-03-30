@@ -18,10 +18,6 @@ Course Automation
 
 ## Description
 
-This course uses a Github repository issue to allow students to find a teammate. The problem here is that is requires
-the students to update or remove their comment on this issue when they have found a teammate. The aim here is to
-automate this task.
-
 In order to alleviate __redundant work__ for this course TAs I propose to automate verification of the following mandatory parts for ["course-automation"](https://github.com/KTH/devops-course/blob/2022/grading-criteria.md#course-automation):
 
 -   timeliness: the automation is done before the __first task__ deadline (in order to be useful for the course)
