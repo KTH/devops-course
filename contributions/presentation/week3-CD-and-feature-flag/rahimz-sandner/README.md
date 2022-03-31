@@ -21,4 +21,4 @@ Presentation
 
 It is no secret that many companies are so called Microsoft Gold Partners. Which in turn means that the cloud environment Microsoft Azure is widely 
 used in the IT industry. Keywords such as stage and production will be explored, alongside the importance of continuos deployment and why it is important in an agile 
-work environment.
+work environment. What alternatives are there to it?
