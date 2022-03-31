@@ -1,5 +1,4 @@
 # Assignment Proposal
-
 ## Title
 
 CD of a Node.js web service on Heroku with a Github Actions pipeline.  
