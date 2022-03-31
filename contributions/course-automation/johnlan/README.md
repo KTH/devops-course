@@ -14,7 +14,7 @@ Deadline to complete task 1: April 5, 17h Stockholm time
 
 ## Category
 
-Course Automation
+Course Automation 
 
 ## Description
 
