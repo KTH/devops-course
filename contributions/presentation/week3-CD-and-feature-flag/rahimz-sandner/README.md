@@ -11,7 +11,7 @@ An overview of continous deployment in Microsoft Azure
 
 ## Deadline
 
-Deadline for task 1
+Deadline for task 2
 
 ## Category
 
