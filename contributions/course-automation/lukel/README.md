@@ -3,7 +3,7 @@
 ## Title
 
 Add a shell script (`mpr`, for "make pull request") which when invoked from CLI creates a new PR for students to the
-devops course repository.
+devops course repository. This script will live in a new directory (`/scripts`) in the root of the devops repo.
 
 ## Names and KTH ID
 
