@@ -22,3 +22,5 @@ Week 2: Testing & Continuous Integration (March 29)
 As the number of cores in a computer system increases in recent decades, more computer programs in nowadays utilize concurrency to speed up its execution time. However, in the world of unit testing, there are still not much options or frameworks to test such program reliably and consistently. Most testing on concurrent programs nowadays still rely on stress tests to detect potential bugs.
 
 Our presentation will focus on some challenges and difficulties on testing concurrent programs and introduce a framework by Google - [Thread Weaver](https://github.com/google/thread-weaver) that can reliably test concurrent code written in Java.
+
+hehe https://siuuuuu.com
