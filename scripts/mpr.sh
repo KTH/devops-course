@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 #TODO there is an argument to be made for keeping this script in the root of the directory (so that the invocation command is just ./mpr.sh, not ./scripts/mpr.sh). Open to course staff suggestions!
 
