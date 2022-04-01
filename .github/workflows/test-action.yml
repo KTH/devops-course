@@ -11,14 +11,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-        with: 
-          ref: ${{ github.ref_name }}
       - id: file_changes
         uses: trilom/file-changes-action@v1.2.3
         with:
           output: ''
       - name: test
         run: |
+          ls $HOME
+          ls
           echo '${{ steps.file_changes.outputs.files_modified}}'
           echo '${{ steps.file_changes.outputs.files_added}}'
           echo "---------CREATING VARIABLES--------"
@@ -33,7 +33,13 @@ jobs:
           git branch --show-current
           git branch -l
           
-          grep "http" $ADDED_FILES $MODIFIED_FILES
+          echo "REF NAME: ${{ github.ref_name }}"
+          
+          echo '${{ toJSON(github) }}'
+          
+          echo '${{ toJSON(job) }}'
+          
+#grep "http" $ADDED_FILES $MODIFIED_FILES
 
 # jobs:
 #   check-slide-links:
