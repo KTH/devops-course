@@ -2,50 +2,43 @@ name: Write comment about similar contributions
 
 on: 
   pull_request:
-    # types: [opened, edited, synchronized]
     types: [opened, edited]
-    
+
 jobs:
-  # test is the job name
-  test:
+  similar-contributions:
     runs-on: ubuntu-latest
-    steps:
+    steps: 
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v3
         with:
           python-version: '3.7.12'
-      
+          
       # Get title from PR comment
-      # echo "${{ github.event.pull_request.body }}" | sed -n '/^## Title/,${p;/^## Names/q}' | sed '1d;$d' | sed '/^$/d'
       - name: Get proposal title from PR body
         run: |
             echo 'PROPOSAL_TITLE<<EOF' >> $GITHUB_ENV
-            echo "${{ github.event.pull_request.body }}" | sed -n '/^## Title/,${p;/^## Names/q}' | sed '1d;$d' | sed '/^$/d' | tr '\n' ' ' >> $GITHUB_ENV
+            echo "${{ github.event.pull_request.body }}" | sed -n '/^## Title/,${p;/^## Names/q}' | sed '1d;$d' | sed '/^$/d' | sed ':a;N;$!ba;s/\n/\t/g' | sed '/^ *$/d' >> $GITHUB_ENV
             echo 'EOF' >> $GITHUB_ENV
       - name: echo proposal title
         run: |
             echo "${{ env.PROPOSAL_TITLE }}"
-
-      # Note: uses action of this repository.
-      # Will have to be replaced by action name once it is published
+            
+      # Create comment body and stores it in env.GENERATED_COMMENT
       - name: Run action
         if: env.PROPOSAL_TITLE != ''
         uses: Neproxx/similar-contributions@v1
-      
-      # Leads to error when keyword "automatic" is in proposal title
-      #- name: Print output
-      #  run: echo "${{ env.GENERATED_COMMENT }}"
-
-      # Create comment under current pull request
+        
+      # Check if there is already a recommendation comment under current pull request
       - name: Find Comment
-        if: env.PROPOSAL_TITLE != ''
         uses: peter-evans/find-comment@v2
+        if: env.PROPOSAL_TITLE != ''
         id: fc # this tag will be used for the conditional selection of either creating or updating
         with:
           issue-number: ${{ github.event.pull_request.number }}
           comment-author: 'github-actions[bot]'
           body-includes: Reading Recommendations
-
+       
+      # Create comment if there isn't
       - name: Create comment
         if: steps.fc.outputs.comment-id == '' && env.PROPOSAL_TITLE != ''
         uses: peter-evans/create-or-update-comment@v2
@@ -53,6 +46,7 @@ jobs:
           issue-number: ${{ github.event.pull_request.number }}
           body: ${{ env.GENERATED_COMMENT }}
 
+      # Update comment if there is
       - name: Update comment
         if: steps.fc.outputs.comment-id != '' && env.PROPOSAL_TITLE != ''
         uses: peter-evans/create-or-update-comment@v2
@@ -61,4 +55,3 @@ jobs:
           edit-mode: replace
           body: ${{ env.GENERATED_COMMENT }}
           reactions: hooray
-
