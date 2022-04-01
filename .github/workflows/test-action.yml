@@ -28,7 +28,10 @@ jobs:
           echo "-----PWD------"
           pwd
           echo "-------LS------"
-          grep "http" $ADDED_FILES $MODIFIED_FILES
+          git branch --show-current
+          git branch -l
+          
+#grep "http" $ADDED_FILES $MODIFIED_FILES
 
 # jobs:
 #   check-slide-links:
