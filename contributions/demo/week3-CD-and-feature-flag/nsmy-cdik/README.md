@@ -1,9 +1,11 @@
 # Assignment Proposal
+
 ## Title
 
 CD of a Node.js web service on Heroku with a Github Actions pipeline.  
 
 ## Names and KTH ID
+
   - Chrysoula Dikonimaki (cdik@kth.se)
   - Nikolaos Smyrnioudis (nsmy@kth.se)
 
