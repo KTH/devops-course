@@ -30,6 +30,10 @@ jobs:
           echo "-----PWD------"
           pwd
           echo "-------LS------"
+          ls contributions
+          ls contributions/presentation
+          ls contributions/presentation/week2-testing-and-CI
+          echo "-----GIT SHOW-----"
           git branch --show-current
           git branch -l
           
