@@ -25,6 +25,7 @@ jobs:
           echo $MODIFIED_FILES
           echo $HOME
           pwd
+          ls
 #          grep "http://\|https://" $ADDED_FILES $MODIFIED_FILES | grep -v "github"
 
 # jobs:
