@@ -29,7 +29,7 @@ jobs:
           pwd
           echo "-------LS------"
           ls
-#          grep "http://\|https://" $ADDED_FILES $MODIFIED_FILES | grep -v "github"
+          grep "t" $ADDED_FILES $MODIFIED_FILES
 
 # jobs:
 #   check-slide-links:
