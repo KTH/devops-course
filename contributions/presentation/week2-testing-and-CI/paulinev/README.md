@@ -1,4 +1,4 @@
-Assignment Proposal
+# Assignment Proposal
 
 ## Title
 
@@ -6,7 +6,6 @@ Demonstrating how robot framework workds and the importance of user test
 
 ## Names and KTH ID
 
-- Asim Jarrar (asim@kth.se)
 - Pauline Vaillant (paulinev@kth.se)
 
 ## Deadline
