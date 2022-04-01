@@ -14,7 +14,7 @@ help () {
   echo "alias mpr=\"/bin/szh /Users/{username}/{path-to-forked-repository}/scripts/mpr.sh\""
   echo "_______________________"
   echo "This script was initially written for use in a zsh shell on macOS. It will open the PR in a new Chrome tab."
-  echo "Please feel free to address issues in future PRs"
+  echo "Please feel free to address issues in future PRs!"
 }
 
 make_pr (){
