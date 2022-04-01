@@ -1,3 +1,9 @@
+- Edited after Presentation:
+
+The slides used for this presentation can be found at https://github.com/KTH/devops-course/tree/2022/contributions/presentation/week2-testing-and-CI/perarn-phisal/DevOps22_presentation_ci_testing.pdf
+
+or via this link: https://docs.google.com/presentation/d/1jESVFgUFgZoYHltPfzZzVBifTobW91W_4yzdLHif38E/edit?usp=sharing
+
 # Assignment Proposal
 
 ## Title
