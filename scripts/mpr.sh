@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-#TODO there is an argument to be made for keeping this script in the root of the directory (so that the invocation command is just ./mpr, not ./scripts/mpr
+#TODO there is an argument to be made for keeping this script in the root of the directory (so that the invocation command is just ./mpr.sh, not ./scripts/mpr.sh). Open to course staff suggestions!
 
 help () {
   echo "Helpful info for you :)"
@@ -11,9 +11,9 @@ help () {
   echo "The command prompts you for a PR title, which is auto-added to the PR which will be opened."
   echo "_______________________"
   echo "I recommend that you add an alias to your shell rc file like this, so you can run mpr from anywhere:"
-  echo "alias mpr=/Users/{username}/{path-to-forked-repository}/scripts/mpr"
+  echo "alias mpr=\"/bin/szh /Users/{username}/{path-to-forked-repository}/scripts/mpr.sh\""
   echo "_______________________"
-  echo "This script was initially written for use in a bash or zsh shell on macOS. It will open the PR in a new Chrome tab."
+  echo "This script was initially written for use in a zsh shell on macOS. It will open the PR in a new Chrome tab."
   echo "Please feel free to address issues in future PRs!"
 }
 
