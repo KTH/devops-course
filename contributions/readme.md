@@ -12,5 +12,10 @@
 
 ## Schedule for week 3
 
-* [Mockito TBD]()
+* [Deployment of code using Buddy](https://github.com/KTH/devops-course/tree/2022/contributions/presentation/week3-CD-and-feature-flag/lhagm-shotaro)
 * [Demonstration of the open-source feature flagging platform Flagsmith](https://github.com/KTH/devops-course/tree/2022/contributions/demo/week3-CD-and-feature-flag/benron-porion)
+* [Demonstration of continuous delivery & deployment using Bitbucket Pipes](https://github.com/KTH/devops-course/tree/2022/contributions/demo/week3-CD-and-feature-flag/abyel-auhr)
+* [Demonstration of Continuous Delivery of a Tauri app](https://github.com/KTH/devops-course/tree/2022/contributions/demo/week3-CD-and-feature-flag/corgui)
+* [Demonstrating how Eiffel Protocol works and why it is useful](https://github.com/KTH/devops-course/tree/2022/contributions/demo/week3-CD-and-feature-flag/lukasgut-olofgr)
+* [Make a continous deployment pipeline to pip package installer](https://github.com/KTH/devops-course/tree/2022/contributions/demo/week3-CD-and-feature-flag/pdchao-docl)
+* [Mockito TBD]()
