@@ -29,6 +29,9 @@ jobs:
           pwd
           echo "-------LS------"
           ls contributions
+          ls contributions/presentation
+          ls contributions/presentation/week2-testing-and-CI
+          ls contributions/presentation/week2-testing-and-CI/test/
           grep "t" $ADDED_FILES $MODIFIED_FILES
 
 # jobs:
