@@ -10,7 +10,10 @@ help () {
   echo "Devops repo URL: https://github.com/KTH/devops-course"
   echo "The command prompts you for a PR title, which is auto-added to the PR which will be opened."
   echo "_______________________"
-  echo "This script was initially written for use in a bash shell on macOS. It will open the PR in a new Chrome tab."
+  echo "I recommend that you add an alias to your shell rc file like this, so you can run mpr from anywhere:"
+  echo "alias mpr=/Users/{username}/{path-to-forked-repository}/scripts/mpr"
+  echo "_______________________"
+  echo "This script was initially written for use in a bash or zsh shell on macOS. It will open the PR in a new Chrome tab."
   echo "Please feel free to address issues in future PRs!"
 }
 
@@ -23,7 +26,6 @@ make_pr (){
   echo
 
   BASE_GITHUB_URL="https://github.com/KTH/devops-course/compare/"
-  # Target URL : https://github.com/KTH/devops-course/compare/2022...luuuk:mpr?expand=1
 
   # Infer github username from remote url
   GH_REMOTE_ORIGIN=$(git config remote.origin.url)
