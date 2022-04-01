@@ -28,7 +28,7 @@ jobs:
           echo "-----PWD------"
           pwd
           echo "-------LS------"
-          ls
+          ls contributions
           grep "t" $ADDED_FILES $MODIFIED_FILES
 
 # jobs:
