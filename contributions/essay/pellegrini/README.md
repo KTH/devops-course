@@ -14,7 +14,7 @@ Task 1
 
 ## Category
 
-Essays
+Essay
 
 ## Description
 
