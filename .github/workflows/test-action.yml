@@ -11,6 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with: 
+          ref: ${{ github.ref_name }}
       - id: file_changes
         uses: trilom/file-changes-action@v1.2.3
         with:
@@ -31,7 +33,7 @@ jobs:
           git branch --show-current
           git branch -l
           
-#grep "http" $ADDED_FILES $MODIFIED_FILES
+          grep "http" $ADDED_FILES $MODIFIED_FILES
 
 # jobs:
 #   check-slide-links:
