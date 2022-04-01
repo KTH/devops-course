@@ -3,8 +3,8 @@ on:
   pull_request_target:
     branches:
       - "2022"
-    paths:
-      - contributions/**
+#    paths:
+#      - contributions/**
 
 jobs:
   changes:
