@@ -13,8 +13,6 @@ jobs:
           output: ''
       - name: test
         run: |
-          ls $HOME
-          ls
           echo '${{ steps.file_changes.outputs.files_modified}}'
           echo '${{ steps.file_changes.outputs.files_added}}'
           echo "---------CREATING VARIABLES--------"
@@ -22,22 +20,12 @@ jobs:
           MODIFIED_FILES='${{ steps.file_changes.outputs.files_modified}}'
           echo $ADDED_FILES
           echo $MODIFIED_FILES
-          echo $HOME
-          echo "-----PWD------"
-          pwd
-          echo "-------LS------"
-          ls contributions
-          ls contributions/presentation
-          ls contributions/presentation/week2-testing-and-CI
-          echo "-----GIT SHOW-----"
-          git branch --show-current
-          git branch -l
+          echo "-----GREP------"
           
-          echo "REF NAME: ${{ github.ref_name }}"
+          grep "http://\|https://" $ADDED_FILES $MODIFIED_FILES | grep -v "github"
+
+          grep "*.md" $HOME/files_modified.txt $HOME/files_added.txt
           
-          echo '${{ toJSON(github) }}'
-          
-          echo '${{ toJSON(job) }}'
           
 #grep "http" $ADDED_FILES $MODIFIED_FILES
 
