@@ -26,7 +26,7 @@ jobs:
       # Create comment body and stores it in env.GENERATED_COMMENT
       - name: Run action
         if: env.PROPOSAL_TITLE != ''
-        uses: Neproxx/similar-contributions@v1
+        uses: Neproxx/similar-contributions@v1.0.1
         
       # Check if there is already a recommendation comment under current pull request
       - name: Find Comment
