@@ -5,7 +5,7 @@
 Exploring SOA dependency testing in DevSecOps
 
 ## Names and KTH ID
-  - Pontus Måntefors (pontuscm@kth.se)
+  - Pontus Mantefors (pontuscm@kth.se)
   - Aïssata Maiga (maiga@kth.se)
 
 ## Deadline
