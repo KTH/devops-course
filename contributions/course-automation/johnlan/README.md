@@ -1,13 +1,13 @@
-# Assignment Proposal
+# Assignment Submission
 
 ## Title
 
 Automatic verification for mandatory parts of course-automation final
 
-## Names and KTH ID
+## Members
 
--   John Landeholt (johnlan@kth.se)
--   John Landeholt (johnlan@kth.se)
+John Landeholt (johnlan@kth.se)
+github: Landeholt
 
 ## Deadline
 
@@ -16,8 +16,7 @@ Deadline to complete task 1: April 5, 17h Stockholm time
 ## Category
 
 Course Automation
-
-## Description
+## Proposal
 
 In order to alleviate __redundant work__ for this course TAs I propose to automate verification of the following mandatory parts for ["course-automation"](https://github.com/KTH/devops-course/blob/2022/grading-criteria.md#course-automation):
 
@@ -34,4 +33,32 @@ The automation should perform the following :
     - if not final: check if it is before __first task__
 -   Give feedback accordingly to the pull request
 
+## Submission
+-
 
+### Link to action repo
+
+https://github.com/landeholt/dd2482-course-automation
+
+### Validation
+
+- [Pull request #8](https://github.com/landeholt/dd2482-course-automation/pull/8)
+
+
+## Testing
+
+Please check through the test folder, or the readme solution.
+
+I think I have fulfilled the following criterion: 
+
+
+|                                             | Yes | No | 
+|-------------------------------------------- | ----|----|
+|timeliness: the automation is done before the first task deadline (in order to be useful for the course) | **Mandatory** | - |
+|repo: the code for the task is available in a public repo  | **Mandatory**| - | 
+|outcome: the automation task produces a PR status or an issue / PR comment | **Yes** | No |
+|reuse: the automation task is reusable (next year for this course) | **Yes** | No | 
+|platform: the task runs on a standard platform (eg Github action) | **Yes** | No | 
+|doc: the repo is documented with a good readme | **Yes**  | No | 
+|figure: the README is illustrated with at least an informative figure (eg a flowchart) | Yes | **No** | 
+|availability: The action is available on a market place (Github Marketplace, Azure Marketplace, etc.) | **Yes** | No | 
