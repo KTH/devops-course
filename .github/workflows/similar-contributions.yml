@@ -27,6 +27,8 @@ jobs:
       - name: Run action
         if: env.PROPOSAL_TITLE != ''
         uses: Neproxx/similar-contributions@v1.0.1
+        with:
+          cont_dir: "contributions"
         
       # Check if there is already a recommendation comment under current pull request
       - name: Find Comment
