@@ -30,7 +30,7 @@ jobs:
           
           grep "http://\|https://" $ADDED_FILES $MODIFIED_FILES | grep -v "github"
 
-          grep "*.md" $HOME/files_modified.json $HOME/files_added.json
+          grep ".md" $HOME/files_modified.json $HOME/files_added.json
           
           
 #grep "http" $ADDED_FILES $MODIFIED_FILES
