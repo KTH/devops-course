@@ -13,24 +13,36 @@ jobs:
           output: ''
       - name: test
         run: |
-          echo "-----LS HOME-----"
-          ls $HOME
-          pwd
-          ls
-          cat $HOME/files_modified.json
-          cat $HOME/files_added.json
-          echo '${{ steps.file_changes.outputs.files_modified}}'
-          echo '${{ steps.file_changes.outputs.files_added}}'
-          echo "---------CREATING VARIABLES--------"
           ADDED_FILES='${{ steps.file_changes.outputs.files_added}}'
           MODIFIED_FILES='${{ steps.file_changes.outputs.files_modified}}'
-          echo $ADDED_FILES
-          echo $MODIFIED_FILES
-          echo "-----GREP------"
           
-          grep "http://\|https://" $ADDED_FILES $MODIFIED_FILES | grep -v "github"
+          if [ grep "http://\|https://" $ADDED_FILES $MODIFIED_FILES | grep -v "github" ] || [ grep ".pdf" $HOME/files_modified.json $HOME/files_added.json ] ; then
+            echo "Found valid link to slides!"
+            exit 0
+          else
+            exit 1
+          fi
+        
+          
+          
+# echo "-----LS HOME-----"
+# ls $HOME
+# pwd
+# ls
+# cat $HOME/files_modified.json
+# cat $HOME/files_added.json
+# echo '${{ steps.file_changes.outputs.files_modified}}'
+# echo '${{ steps.file_changes.outputs.files_added}}'
+# echo "---------CREATING VARIABLES--------"
+# ADDED_FILES='${{ steps.file_changes.outputs.files_added}}'
+# MODIFIED_FILES='${{ steps.file_changes.outputs.files_modified}}'
+# echo $ADDED_FILES
+# echo $MODIFIED_FILES
+# echo "-----GREP------"
 
-          grep ".md" $HOME/files_modified.json $HOME/files_added.json
+# grep "http://\|https://" $ADDED_FILES $MODIFIED_FILES | grep -v "github"
+
+# grep ".md" $HOME/files_modified.json $HOME/files_added.json
           
           
 #grep "http" $ADDED_FILES $MODIFIED_FILES
