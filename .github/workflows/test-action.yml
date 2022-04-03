@@ -21,24 +21,22 @@ jobs:
           
           for fname in $ALL_FILES
           do
-            echo "-----FNAME-----"
-            echo $fname
-            echo "-----GREP HTTPS-----"
-            echo "    "
-            grep "http://\|https://" $fname | grep -v "github"
-            echo "    "
-            echo "-----CHECK PDF----"
-            echo "    "
-            if grep -q ".pdf" <<< "$fname"; then
-              echo "PDF"
-            fi
-            echo "    "
-            echo "----- CHECk IN CONTRIB-----"
-            echo "    "
             if grep -q "contributions/presentation/" <<< "$fname"; then
-              echo "YEP"
+              echo "-----FNAME-----"
+              echo $fname
+              
+              if grep "http://\|https://" $fname | grep -q -v "github"; then 
+                echo "HTTPS"
+                exit 0
+              fi 
+              if grep -q ".pdf" <<< "$fname"; then
+                echo "PDF"
+                exit 0
+              fi
             fi
           done
+          
+          exit 1
           
 # if [ grep "http://\|https://" $ADDED_FILES $MODIFIED_FILES | grep -v "github" ] || [ grep ".pdf" $HOME/files_modified.json $HOME/files_added.json ] ; then
 #   echo "Found valid link to slides!"
