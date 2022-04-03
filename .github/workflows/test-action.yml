@@ -23,14 +23,19 @@ jobs:
           do
             echo "-----FNAME-----"
             echo $fname
-            echo "\n -----GREP HTTPS-----"
+            echo "-----GREP HTTPS-----"
+            echo "    "
             grep "http://\|https://" $fname | grep -v "github"
-            echo "\n -----CHECK PDF----"
-            if [ grep -q ".pdf" <<< "$fname" ] ; then
+            echo "    "
+            echo "-----CHECK PDF----"
+            echo "    "
+            if grep -q ".pdf" <<< "$fname"; then
               echo "PDF"
             fi
-            echo "----- CHECL IN CONTRIB-----"
-            if [ grep -q "contributions/presentation/" <<< "$fname" ] ; then
+            echo "    "
+            echo "----- CHECk IN CONTRIB-----"
+            echo "    "
+            if grep -q "contributions/presentation/" <<< "$fname"; then
               echo "YEP"
             fi
           done
