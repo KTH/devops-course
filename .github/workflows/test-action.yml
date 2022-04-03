@@ -21,13 +21,16 @@ jobs:
           
           for fname in $ALL_FILES
           do
+            echo "-----FNAME-----"
             echo $fname
+            echo "\n -----GREP HTTPS-----"
             grep "http://\|https://" $fname | grep -v "github"
-            if [ "$fname" == *".pdf" ] ; then
+            echo "\n -----CHECK PDF----"
+            if [ grep -q ".pdf" <<< "$fname" ] ; then
               echo "PDF"
             fi
-            grep ".pdf" $HOME/files_modified.json $HOME/files_added.json
-            if [ "$fname" == *"contributions/presentation/"* ] ; then
+            echo "----- CHECL IN CONTRIB-----"
+            if [ grep -q "contributions/presentation/" <<< "$fname" ] ; then
               echo "YEP"
             fi
           done
