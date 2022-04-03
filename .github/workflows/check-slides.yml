@@ -7,4 +7,4 @@ jobs:
     if: ${{ contains(github.event.*.labels.*.name, 'presentation') }}
     runs-on: ubuntu-latest
     steps:
-        - uses: actions/check-valid-slides-action@v1.0.1
+        - uses: phamelink/check-valid-slides-action@v1.0.1
