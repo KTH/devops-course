@@ -22,7 +22,7 @@ As the course is repeatedly taught, more and more brilliant contributions from p
 
 We will create a Github Action that compares the title of an assignment proposal to the selected student works of previous years and create reading suggestions for good contributions on similar topics. In addition, we will check whether a comparison with **all previously merged** pull requests leads to an even more useful result. The output of the action will be given as a comment to the pull request. We anticipate that this will help students that feel overwhelmed to gain a quick overview of the field and show what approaches are particularly suitable for this kind of topic. Furthermore, this supports the TAs in assessing whether the proposal is too similar to previous ones.
 
-### Final Submission
+**FINAL SUBMISSION**
 
 | Link | Description |
 | -----| ----------- |
