@@ -13,6 +13,10 @@ jobs:
           output: ''
       - name: test
         run: |
+          echo "-----LS HOME-----"
+          ls $HOME
+          pwd
+          ls
           echo '${{ steps.file_changes.outputs.files_modified}}'
           echo '${{ steps.file_changes.outputs.files_added}}'
           echo "---------CREATING VARIABLES--------"
