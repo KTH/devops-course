@@ -4,6 +4,7 @@ name: Check valid slides
   workflow_dispatch:
 jobs:
   changes:
+    if: ${{ contains(github.event.*.labels.*.name, 'bug') }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
