@@ -21,11 +21,11 @@ jobs:
           do
             echo $fname
             grep "http://\|https://" $fname | grep -v "github"
-            if "$fname" == *".pdf"
+            if [ "$fname" == *".pdf" ] ; then
               echo "PDF"
             fi
             grep ".pdf" $HOME/files_modified.json $HOME/files_added.json
-            if "$fname" == *"contributions/presentation/"*
+            if [ "$fname" == *"contributions/presentation/"* ] ; then
               echo "YEP"
             fi
           done
