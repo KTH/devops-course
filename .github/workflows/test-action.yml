@@ -17,6 +17,8 @@ jobs:
           MODIFIED_FILES='${{ steps.file_changes.outputs.files_modified}}'
           ALL_FILES="$ADDED_FILES $MODIFIED_FILES"
           
+          IFS=" "
+          
           for fname in $ALL_FILES
           do
             echo $fname
