@@ -17,6 +17,8 @@ jobs:
           ls $HOME
           pwd
           ls
+          cat $HOME/files_modified.json
+          cat $HOME/files_added.json
           echo '${{ steps.file_changes.outputs.files_modified}}'
           echo '${{ steps.file_changes.outputs.files_added}}'
           echo "---------CREATING VARIABLES--------"
@@ -28,7 +30,7 @@ jobs:
           
           grep "http://\|https://" $ADDED_FILES $MODIFIED_FILES | grep -v "github"
 
-          grep "*.md" $HOME/files_modified.txt $HOME/files_added.txt
+          grep "*.md" $HOME/files_modified.json $HOME/files_added.json
           
           
 #grep "http" $ADDED_FILES $MODIFIED_FILES
