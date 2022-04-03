@@ -15,7 +15,7 @@ Task 1 (April 5)
 
 ## Category
 
-Week 3: Continuous Deployment / Delivery and Feature flags (April 5)
+Presentation week 3: Continuous Deployment / Delivery and Feature flags (April 5)
 
 ## Description
 
