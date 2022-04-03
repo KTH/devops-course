@@ -7,32 +7,4 @@ jobs:
     if: ${{ contains(github.event.*.labels.*.name, 'presentation') }}
     runs-on: ubuntu-latest
     steps:
-        - uses: phamelink/course-automation-github-action@v1
-#       - uses: actions/checkout@v3
-#       - id: file_changes
-#         uses: trilom/file-changes-action@v1.2.3
-#         with:
-#           output: ''
-#       - name: test
-#         run: |
-#           ADDED_FILES='${{ steps.file_changes.outputs.files_added}}'
-#           MODIFIED_FILES='${{ steps.file_changes.outputs.files_modified}}'
-#           ALL_FILES="$ADDED_FILES $MODIFIED_FILES"
-          
-#           IFS=" "
-          
-#           for fname in $ALL_FILES
-#           do
-#             if grep -q "contributions/presentation/" <<< "$fname"; then
-#               if grep -q ".md" <<< "$fname" && grep "http://\|https://" $fname | grep -q -v "github"; then 
-#                 echo "HTTPS"
-#                 exit 0
-#               fi 
-#               if grep -q ".pdf" <<< "$fname"; then
-#                 echo "PDF"
-#                 exit 0
-#               fi
-#             fi
-#           done
-          
-#           exit 1
+        - uses: phamelink/check-valid-slides-action@v1
