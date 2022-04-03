@@ -20,16 +20,9 @@ jobs:
           
           IFS=" "
           
-          IS_PRESENTATION=0
-          
           for fname in $ALL_FILES
           do
             if grep -q "contributions/presentation/" <<< "$fname"; then
-              echo "-----FNAME-----"
-              echo $fname
-              
-              IS_PRESENTATION=1
-              
               if grep -q ".md" <<< "$fname" && grep "http://\|https://" $fname | grep -q -v "github"; then 
                 echo "HTTPS"
                 exit 0
@@ -41,53 +34,4 @@ jobs:
             fi
           done
           
-          exit $IS_PRESENTATION
-          
-# if [ grep "http://\|https://" $ADDED_FILES $MODIFIED_FILES | grep -v "github" ] || [ grep ".pdf" $HOME/files_modified.json $HOME/files_added.json ] ; then
-#   echo "Found valid link to slides!"
-#   exit 0
-# else
-#   exit 1
-# fi
-        
-          
-          
-# echo "-----LS HOME-----"
-# ls $HOME
-# pwd
-# ls
-# cat $HOME/files_modified.json
-# cat $HOME/files_added.json
-# echo '${{ steps.file_changes.outputs.files_modified}}'
-# echo '${{ steps.file_changes.outputs.files_added}}'
-# echo "---------CREATING VARIABLES--------"
-# ADDED_FILES='${{ steps.file_changes.outputs.files_added}}'
-# MODIFIED_FILES='${{ steps.file_changes.outputs.files_modified}}'
-# echo $ADDED_FILES
-# echo $MODIFIED_FILES
-# echo "-----GREP------"
-
-# grep "http://\|https://" $ADDED_FILES $MODIFIED_FILES | grep -v "github"
-
-# grep ".md" $HOME/files_modified.json $HOME/files_added.json
-          
-          
-#grep "http" $ADDED_FILES $MODIFIED_FILES
-
-# jobs:
-#   check-slide-links:
-#     runs-on: ubuntu-latest
-#     name: Check for valid slides
-#     steps:
-#       - name: checking out repo
-#         uses: actions/checkout@v3
-#       - name: Check for valid slides
-#         id: check-slides
-#         uses: phamelink/course-automation-github-action@v1.2.9
-#         with:
-#           token: ${{ secrets.GITHUB_TOKEN }}
-
-# ls contributions
-#           ls contributions/presentation
-#           ls contributions/presentation/week2-testing-and-CI
-#           ls contributions/presentation/week2-testing-and-CI/test/
+          exit 1
