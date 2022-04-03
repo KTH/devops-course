@@ -19,11 +19,15 @@ jobs:
           
           IFS=" "
           
+          IS_PRESENTATION=0
+          
           for fname in $ALL_FILES
           do
             if grep -q "contributions/presentation/" <<< "$fname"; then
               echo "-----FNAME-----"
               echo $fname
+              
+              IS_PRESENTATION=1
               
               if grep "http://\|https://" $fname | grep -q -v "github"; then 
                 echo "HTTPS"
@@ -36,7 +40,7 @@ jobs:
             fi
           done
           
-          exit 1
+          exit $IS_PRESENTATION
           
 # if [ grep "http://\|https://" $ADDED_FILES $MODIFIED_FILES | grep -v "github" ] || [ grep ".pdf" $HOME/files_modified.json $HOME/files_added.json ] ; then
 #   echo "Found valid link to slides!"
