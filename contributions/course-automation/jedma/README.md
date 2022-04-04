@@ -42,4 +42,4 @@ from GitHub to see the information.
 | ----------------------------------------------------------------------------------------------------------------------| ---------------------- |
 | [Repository](https://github.com/EdmanJohan/schedule-update-action)                                                    | Repo for Github Action |
 | [Marketplace](https://github.com/marketplace/actions/update-timeedit-schedule-events)                                 | Github Marketplace     |
-| [Test environment](https://github.com/EdmanJohan/devops-course)                                                       | Fork of repo for demo  |
+| [Test environment](https://github.com/EdmanJohan/devops-course-demo)                                                  | Fork of repo for demo  |
