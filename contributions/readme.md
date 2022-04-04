@@ -27,3 +27,4 @@
 ## Schedule for week 4
 
 * [Demonstration of the open-source feature flagging platform Unleash](https://github.com/KTH/devops-course/pull/1653)
+* [Demonstration of CD implementation using Node Express and Google Cloud Services](https://github.com/KTH/devops-course/pull/1635)
