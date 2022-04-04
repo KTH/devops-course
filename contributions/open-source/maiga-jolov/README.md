@@ -41,7 +41,7 @@ Target [PR](https://github.com/knurling-rs/flip-link/pull/69)
 Issue [#65](https://github.com/knurling-rs/flip-link/issues/65) Easy bug
 
 
-### Self-assessment
+Self-assessment
 
 
 |                                                                                     | Yes | No  |
@@ -51,7 +51,7 @@ Issue [#65](https://github.com/knurling-rs/flip-link/issues/65) Easy bug
 | feat: The contribution adds new features                                            | Yes |   |
 | difficulty: The contribution is a difficult piece of engineering                    | Yes** |   |
 | conversation: There is an interesting engineering conversation with the maintainers | Yes |   |
-| merge: The contribution is merged in the main branch.                               |  | Not yet  |
+| merge: The contribution is merged in the main branch.                               | Yes  |    |
 
 \* Added documentation on the components.
 
