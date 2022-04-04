@@ -17,6 +17,12 @@ It consists of the following steps:
 - Bonus Round: Running independent jobs in parallel
 - Final thoughts
 
+## Links
+
+- [GitHub katacoda repo](https://github.com/BastienFaivre/katacoda-scenarios)
+- [GitHub sample project repo](https://github.com/BastienFaivre/katacoda-GH-actions)
+- [katacoda](https://www.katacoda.com/bastienfaivre/scenarios/github-actions-optimization)
+
 # Authors
 
 Arvid Gotthard (gotthard@kth.se), Bastien Faivre (faivre@kth.se)
