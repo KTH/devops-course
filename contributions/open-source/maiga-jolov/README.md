@@ -16,8 +16,6 @@ Task 1
 
 Contribution to open-source
 
-## Description
-
 ### Description
 
 As anyone would say, Rust is hot 😉. The Rust Embedded ecosystem is also blooming to provide support to embedded platforms. For example The [Knurling project](https://github.com/knurling-rs) is an open source project to automate Rust Embedded development by providing Rust-native level of support.
