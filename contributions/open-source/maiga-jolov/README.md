@@ -1,5 +1,3 @@
-# Brouillon
-
 # Assignment Proposal
 
 ## Title
