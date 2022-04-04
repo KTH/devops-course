@@ -14,3 +14,7 @@
 
 * [Mockito TBD]()
 * [Demonstration of the open-source feature flagging platform Flagsmith](https://github.com/KTH/devops-course/tree/2022/contributions/demo/week3-CD-and-feature-flag/benron-porion)
+
+
+## Schedule for week 4
+* [Demonstration of the open-source feature flagging platform Unleash](https://github.com/KTH/devops-course/pull/1653)
