@@ -2,7 +2,7 @@
 
 ## Title
 
-Automated testing and delivery for FreeRTOS using AWS
+Automated remote OTA deployment and testing on ESP32 with Jenkins and AWS
 
 ## Names and KTH ID
   - Johan Edman (jedma@kth.se)
