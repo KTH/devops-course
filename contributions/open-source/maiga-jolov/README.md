@@ -1,3 +1,5 @@
+# Brouillon
+
 # Assignment Proposal
 
 ## Title
@@ -18,7 +20,7 @@ Contribution to open-source
 
 ## Description
 
-
+### Description
 
 As anyone would say, Rust is hot 😉. The Rust Embedded ecosystem is also blooming to provide support to embedded platforms. For example The [Knurling project](https://github.com/knurling-rs) is an open source project to automate Rust Embedded development by providing Rust-native level of support.
 
@@ -32,7 +34,6 @@ In Knurling
 
 This OSS contribution fits in CI/Testing as it automates necessary work that was precedently done manually (i.e. a human needed to check if files were formatted correctly to avoid failure), and support for testing programs. 
 
-
 1. We added in total 7 tests to [manage input](https://github.com/knurling-rs/flip-link/pull/69) that is currently accepted by `rust lld`, to make `flip-link` more resilient. 
 Target [PR](https://github.com/knurling-rs/flip-link/pull/69)
 
@@ -40,14 +41,19 @@ Target [PR](https://github.com/knurling-rs/flip-link/pull/69)
 Issue [#65](https://github.com/knurling-rs/flip-link/issues/65) Easy bug
 
 
-
+### Self-assessment
 
 
 |                                                                                     | Yes | No  |
 | ----------------------------------------------------------------------------------- | --- | --- |
 | bug: The contribution fixes bugs                                                    | Yes |   |
-| documentation: The contribution improves documentation                              |  | No  |
+| documentation: The contribution improves documentation                              |Yes* |  |
 | feat: The contribution adds new features                                            | Yes |   |
-| difficulty: The contribution is a difficult piece of engineering                    | Yes |   |
+| difficulty: The contribution is a difficult piece of engineering                    | Yes** |   |
 | conversation: There is an interesting engineering conversation with the maintainers | Yes |   |
 | merge: The contribution is merged in the main branch.                               |  | Not yet  |
+
+\* Added documentation on the components.
+
+** It is quite a hefty code base that we needed to dive in.
+The change we got merged was not a difficult piece of engineering, more code reformatting. But understand and rewrite a parser is more challenging.
