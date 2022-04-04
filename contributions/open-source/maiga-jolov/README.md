@@ -1,5 +1,3 @@
-# Brouillon
-
 # Assignment Proposal
 
 ## Title
@@ -20,7 +18,7 @@ Contribution to open-source
 
 ## Description
 
-### Description
+
 
 As anyone would say, Rust is hot 😉. The Rust Embedded ecosystem is also blooming to provide support to embedded platforms. For example The [Knurling project](https://github.com/knurling-rs) is an open source project to automate Rust Embedded development by providing Rust-native level of support.
 
@@ -33,7 +31,7 @@ In Knurling
 `rust-lld` is a [linker](https://nxmnpg.lemoda.net/1/ld.lld) for GNU files. `flip-link` should accept the same files as `rust-lld`. Currently, some memory.x files (describing the memory) are not accepted by `flip-link` while being accepted by `rust-lld`. Meaning that developers must updates files by hand if they are incorrect.
 
 This OSS contribution fits in CI/Testing as it automates necessary work that was precedently done manually (i.e. a human needed to check if files were formatted correctly to avoid failure), and support for testing programs. 
-### Contribution
+
 
 1. We added in total 7 tests to [manage input](https://github.com/knurling-rs/flip-link/pull/69) that is currently accepted by `rust lld`, to make `flip-link` more resilient. 
 Target [PR](https://github.com/knurling-rs/flip-link/pull/69)
@@ -42,7 +40,7 @@ Target [PR](https://github.com/knurling-rs/flip-link/pull/69)
 Issue [#65](https://github.com/knurling-rs/flip-link/issues/65) Easy bug
 
 
-### Self-assessment
+
 
 
 |                                                                                     | Yes | No  |
