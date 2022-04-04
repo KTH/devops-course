@@ -4,10 +4,6 @@
 
 Automatic verification for mandatory parts of course-automation final
 
-## Members
-
-John Landeholt (johnlan@kth.se)
-github: Landeholt
 ## Names and KTH ID
 
 -   John Landeholt (johnlan@kth.se)
@@ -37,18 +33,18 @@ The automation should perform the following :
     - if not final: check if it is before __first task__
 -   Give feedback accordingly to the pull request
 
-## Final Submission
+Final Submission
 
-### Link to action repo
+Link to action repo
 
 https://github.com/landeholt/dd2482-course-automation
 
-### Validation
+Validation
 
 - [Pull request #8](https://github.com/landeholt/dd2482-course-automation/pull/8)
 
 
-## Testing
+Testing
 
 Please check through the test folder, or the readme solution.
 
