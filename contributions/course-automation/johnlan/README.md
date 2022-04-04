@@ -1,13 +1,24 @@
+<<<<<<< HEAD
 # Assignment Submission
+=======
+# Assignment Proposal
+>>>>>>> c8256791c23d36e784db95dcccd9bd8e638d7625
 
 ## Title
 
 Automatic verification for mandatory parts of course-automation final
 
+<<<<<<< HEAD
 ## Members
 
 John Landeholt (johnlan@kth.se)
 github: Landeholt
+=======
+## Names and KTH ID
+
+-   John Landeholt (johnlan@kth.se)
+-   John Landeholt (johnlan@kth.se)
+>>>>>>> c8256791c23d36e784db95dcccd9bd8e638d7625
 
 ## Deadline
 
@@ -16,7 +27,12 @@ Deadline to complete task 1: April 5, 17h Stockholm time
 ## Category
 
 Course Automation
+<<<<<<< HEAD
 ## Proposal
+=======
+
+## Description
+>>>>>>> c8256791c23d36e784db95dcccd9bd8e638d7625
 
 In order to alleviate __redundant work__ for this course TAs I propose to automate verification of the following mandatory parts for ["course-automation"](https://github.com/KTH/devops-course/blob/2022/grading-criteria.md#course-automation):
 
@@ -33,6 +49,7 @@ The automation should perform the following :
     - if not final: check if it is before __first task__
 -   Give feedback accordingly to the pull request
 
+<<<<<<< HEAD
 ## Submission
 -
 
@@ -62,3 +79,6 @@ I think I have fulfilled the following criterion:
 |doc: the repo is documented with a good readme | **Yes**  | No | 
 |figure: the README is illustrated with at least an informative figure (eg a flowchart) | Yes | **No** | 
 |availability: The action is available on a market place (Github Marketplace, Azure Marketplace, etc.) | **Yes** | No | 
+=======
+
+>>>>>>> c8256791c23d36e784db95dcccd9bd8e638d7625
