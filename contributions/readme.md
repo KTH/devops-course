@@ -12,5 +12,18 @@
 
 ## Schedule for week 3
 
-* [Mockito TBD]()
+* [Deployment of code using Buddy](https://github.com/KTH/devops-course/tree/2022/contributions/presentation/week3-CD-and-feature-flag/lhagm-shotaro)
 * [Demonstration of the open-source feature flagging platform Flagsmith](https://github.com/KTH/devops-course/tree/2022/contributions/demo/week3-CD-and-feature-flag/benron-porion)
+* [Demonstration of continuous delivery & deployment using Bitbucket Pipes](https://github.com/KTH/devops-course/tree/2022/contributions/demo/week3-CD-and-feature-flag/abyel-auhr)
+* [Demonstration of Continuous Delivery of a Tauri app](https://github.com/KTH/devops-course/tree/2022/contributions/demo/week3-CD-and-feature-flag/corgui)
+* [Demonstrating how Eiffel Protocol works and why it is useful](https://github.com/KTH/devops-course/tree/2022/contributions/demo/week3-CD-and-feature-flag/lukasgut-olofgr)
+* [Make a continous deployment pipeline to pip package installer](https://github.com/KTH/devops-course/tree/2022/contributions/demo/week3-CD-and-feature-flag/pdchao-docl)
+* [CI/CD pipeline for K8s Cluster in Digital Ocean for Microservices application](https://github.com/KTH/devops-course/pull/1642)
+* [DevOps in healthcare technology](https://github.com/KTH/devops-course/tree/2022/contributions/presentation/week3-CD-and-feature-flag/leren-sanherib)
+* [An overview of continous deployment in Microsoft Azure](https://github.com/KTH/devops-course/tree/2022/contributions/presentation/week3-CD-and-feature-flag/rahimz-sandner)
+* [Canary Deployment - Why you and your friends might have different versions of the same app.](https://github.com/KTH/devops-course/tree/2022/contributions/presentation/week3-CD-and-feature-flag/tobiasgg-ssoderbe)
+* [Mockito TBD]()
+
+## Schedule for week 4
+
+* [Demonstration of the open-source feature flagging platform Unleash](https://github.com/KTH/devops-course/pull/1653)
