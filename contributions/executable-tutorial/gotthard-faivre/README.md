@@ -1,20 +1,22 @@
-# Assignment Proposal
+# Executable Tutorial: Optimizing GitHub Action pipelines for node.js applications
 
-## Title
-
-Optimizing GitHub Action pipelines for node.js applications
-
-## Names and KTH ID
-  - Arvid Gotthard (gotthard@kth.se)
-  - Bastien Faivre (faivre@kth.se)
-## Deadline
-
-Task 1
-
-## Category
-
-Executable tutorial
 
 ## Description
-We intend to create a step-by-step tutorial on how you could potentially optimize a GitHub Actions pipeline in terms of execution time for a `node.js` application. The idea is to start with a *naive* and slow pipeline and iteratively apply optimizations to it and measure the improvement in execution time.
 
+This executable tutorial explains how to build an efficient GitHub Actions pipeline for node.js projects.
+It consists of the following steps:
+
+- Introduction and relation to Dev-ops
+- Getting Started (setting up environment)
+- Improvement #1: The Choice of Runner
+- Improvement #2: NPM vs Yarn
+- Improvement #3: setup-node cache functionality
+- Improvement #4: More in-depth caching
+- Improvement #5: Run tests conditionally
+- Improvement #6: Aborting irrelevant workflows
+- Bonus Round: Running independent jobs in parallel
+- Final thoughts
+
+# Authors
+
+Arvid Gotthard (gotthard@kth.se), Bastien Faivre (faivre@kth.se)
