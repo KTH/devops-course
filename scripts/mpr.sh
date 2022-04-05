@@ -42,7 +42,22 @@ make_pr (){
   # Get desired title as CLI input
   echo
   echo "What should the title of this PR be? (Something like \"Presentation Proposal: Optimizing Test Suite Runtimes in Large Software Applications\")"
-  read -r "TITLE?Title: "
+  read -r "TITLE?Title (enter for empty): "
+
+  echo
+  # Prompt user for path to their contribution README
+  read -r "CHANGED_FILE?What is the path from your working directory to your changed README file (e.g ./contributions/course-automation/lukel/README.md)? "
+
+  # Verify that file exists
+  if [ -f ${CHANGED_FILE} ]
+  then
+    echo "Found updated README file - copying contents to PR body."
+  else
+    echo "File not found - double check the path you just input!"
+  fi
+
+  # Copy contents of readme into PR body
+  README_BODY=$(cat "${CHANGED_FILE}")
 
   # Construct PR URL
   PR_URL="${BASE_GITHUB_URL}${CURRENT_YEAR}...${GH_USERNAME}:${CURRENT_BRANCH}?expand=1"
@@ -53,6 +68,7 @@ make_pr (){
   else
     echo "No title given - you can add one in the web UI"
   fi
+  PR_URL="${PR_URL}&body=${README_BODY}"
 
   echo
   echo "Opening PR..."
