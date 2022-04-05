@@ -2,7 +2,7 @@
 
 ## Title
 
-Tokenizasion with smart contracts 
+Tokenizasion of Physical Resources and Services.
 
 ## Names and KTH ID
   - Mateo Florez (mateofc@kth.se)
