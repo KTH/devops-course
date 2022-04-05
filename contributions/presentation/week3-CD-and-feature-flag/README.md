@@ -1,3 +1,2 @@
 ## Week Agenda
-
 TBD
