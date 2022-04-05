@@ -26,7 +26,7 @@ jobs:
               words_with_periods=$(sudo pdftotext "${added_file}" - | wc -w)
               words_without_periods=$(sudo pdftotext "${added_file}" - | tr -d '.' | wc -w)
               echo "File $added_file has $words_with_periods words with periods and $words_without_periods without periods"
-              if [[ ($words_with_periods -lt 1900 || $words_with_periods -gt 2100) && ($words_without_periods -lt 1900 || $words_without_periods -gt 2100) ]]; then
+              if [[ ($words_with_periods -lt 2400 || $words_with_periods -gt 2600) && ($words_without_periods -lt 2400 || $words_without_periods -gt 2600) ]]; then
                 exit 1
               fi
             fi
