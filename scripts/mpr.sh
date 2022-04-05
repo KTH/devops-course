@@ -68,7 +68,11 @@ make_pr (){
   else
     echo "No title given - you can add one in the web UI"
   fi
-  PR_URL="${PR_URL}&body=${README_BODY}"
+
+  if [ "$README_BODY" ]
+  then
+    PR_URL="${PR_URL}&body=${README_BODY}"
+  fi
 
   echo
   echo "Opening PR..."
