@@ -24,6 +24,4 @@ application in Nodejs. The deployment platform will initially be Heroku but we p
 pick one of the available deployment platforms between Google App Engine/Heroku/Kubernetes. The pipeline
 will also be implemented to notify the development team with Slack when the build fails.
 
-### Demo repository link
-
-https://github.com/xrisaD/CI-CDPipeline
+Repository containing code and instructions: https://github.com/xrisaD/CI-CDPipeline
