@@ -30,6 +30,4 @@ During the demo, I showed a real time deployment of a new version of the app, an
 This demo also includes an easter egg, to find it you should probably take a closer look at the dialog window asking for
 whether a new update should be installed.
 
-## Links
-
 [Repository for the demo](https://github.com/corentinguilloteau/kth-devops-tauri-CD)
