@@ -27,7 +27,7 @@ The github action does the following:
 
 We thought it could be useful in order to give the students a confirmation that their request has been accepted and a further reminder about the deadline of their intended task.
 
-## Final Submission
+  **_Final Submission_**
 
 Here below you can find the links to the GitHub repo of the action, a link to the tutorial and demonstration that the action works, and finally the link to the GitHub marketplace page where we uploaded our action.
 
