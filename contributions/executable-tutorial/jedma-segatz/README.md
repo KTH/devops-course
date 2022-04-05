@@ -2,7 +2,7 @@
 
 ## Title
 
-How-to encapsulate microcontroller applications upon RIOT-OS inside Femto-Containers. 
+How to encapsulate microcontroller applications upon RIOT-OS inside Femto-Containers. 
 
 ## Names and KTH ID
   - Johan Edman (jedma@kth.se)
