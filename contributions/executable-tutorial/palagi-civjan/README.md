@@ -50,5 +50,5 @@ Fuzzing Workflow Flowchart: <br />
 |illustrated: The tutorial is illustrated with an informative figure (eg a flowchart) | *Yes* | No | 
 |pedagogical: The tutorial is easy to follow  | **Yes** | No | 
 |original: The tutorial is original, no or few similar tutorials exist on the web | **Yes** | No |
-|easter-eggs: The tutorial contains an easter egg | Yes | No | 
+|easter-eggs: The tutorial contains an easter egg | *Yes* | No | 
 |language: The language is appropriate (structure, grammar, spelling) | **Yes** | No |
