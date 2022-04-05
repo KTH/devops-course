@@ -25,4 +25,4 @@ For my demo, I will attempt to deploy a small example application on minikube us
 ## Submission 
 
 - Demo scheduled for Thursday, Apr 7, 920 am
-- Git repo and documentation: (argocd-demo)[https://github.com/aykhazanchi/argocd-demo]
+- Git repo and documentation: https://github.comaykhazanchi/argocd-demo
