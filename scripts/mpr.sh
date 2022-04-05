@@ -47,7 +47,7 @@ make_pr (){
   echo
   # Prompt user for path to their contribution README
   echo "Now I will copy the contents of your README to the PR body"
-  read -r "CHANGED_FILE?What is the path from your working directory to your changed README file (e.g ./contributions/course-automation/lukel/README.md)? "
+  read -r "CHANGED_FILE?What is the path to your changed README file (e.g ./contributions/course-automation/lukel/README.md)? "
 
   # Verify that file exists
   if [ ! -f ${CHANGED_FILE} ] || [ -z ${CHANGED_FILE} ]
