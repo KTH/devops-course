@@ -28,6 +28,3 @@ Projects such as [Micropython](https://micropython.org/), which aims to bring a 
 Just in last years november (2021), Koen Zandberg release a paper with the title: ["Femto-Containers: DevOps on Microcontrollers with Lightweight Virtualization & Isolation for IoT Software Modules"](https://arxiv.org/abs/2106.12553), introducing a promising outlook on containerization, effectivly takeling the above problems.
 
 We would like to create a Katacoda tutorial how to encapsulate application code inside a femto-container to show the benefits of such techniques on microcontrollers.
-
-| Useful links:   | [Presentation about Femto-containers](https://www.youtube.com/watch?v=N6yVnuJlwIY&t=1625s&ab_channel=RIOT)  |
-|   	            | [Tutorials using Femto-containers](https://github.com/future-proof-iot/Femto-Container_tutorials)
