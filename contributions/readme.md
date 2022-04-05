@@ -22,9 +22,9 @@
 * [DevOps in healthcare technology](https://github.com/KTH/devops-course/tree/2022/contributions/presentation/week3-CD-and-feature-flag/leren-sanherib)
 * [An overview of continous deployment in Microsoft Azure](https://github.com/KTH/devops-course/tree/2022/contributions/presentation/week3-CD-and-feature-flag/rahimz-sandner)
 * [Canary Deployment - Why you and your friends might have different versions of the same app.](https://github.com/KTH/devops-course/tree/2022/contributions/presentation/week3-CD-and-feature-flag/tobiasgg-ssoderbe)
-* [Mockito TBD]()
 
 ## Schedule for week 4
 
+* [Mockito TBD]()
 * [Demonstration of the open-source feature flagging platform Unleash](https://github.com/KTH/devops-course/pull/1653)
 * [Demonstration of CD implementation using Node Express and Google Cloud Services](https://github.com/KTH/devops-course/pull/1635)
