@@ -1,11 +1,20 @@
-# Executable tutorial: Randoop-tutorial
+# Assignment Proposal
+Executable tutorial
 
-## Members 
+## Title
+Randoop-tutorial
+
+## Names and KTH ID
 - Mustafa Ali 
 - Rafi youssef
 
-## Proposal
-The idea is to create a executuble tutorial that teaches how to generate tests using the tool randoop. This will be an executble tutorial on katacoda.com and will explain why testing is important and how they can be done using the java tool randoop.
+## Deadline
+Task 1
+## Category
+Executable tutorial
+
+## Description
+The idea is to create a executuble tutorial that teaches how to generate tests using the tool Randoop. This will be an executble tutorial on katacoda.com and will explain why testing is important and how they can be done using the java tool Randoop.
 
 # Solution
 The [code](https://github.com/mustafamusse/Randoop-tutorial) can be found here  
