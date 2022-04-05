@@ -49,15 +49,13 @@ make_pr (){
   read -r "CHANGED_FILE?What is the path from your working directory to your changed README file (e.g ./contributions/course-automation/lukel/README.md)? "
 
   # Verify that file exists
-  if [ -f ${CHANGED_FILE} ]
+  if [ ! -f ${CHANGED_FILE} ]
   then
-    echo "Found updated README file - copying contents to PR body."
-  else
     echo "File not found - double check the path you just input!"
+  else
+    # Copy contents of readme into PR body
+    README_BODY=$(cat "${CHANGED_FILE}")
   fi
-
-  # Copy contents of readme into PR body
-  README_BODY=$(cat "${CHANGED_FILE}")
 
   # Construct PR URL
   PR_URL="${BASE_GITHUB_URL}${CURRENT_YEAR}...${GH_USERNAME}:${CURRENT_BRANCH}?expand=1"
