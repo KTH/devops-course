@@ -2,7 +2,7 @@
 
 ## Title
 
-Integrating OSS-Fuzz into Go project to demonstrate debugging with modern fuzzing techniques
+Katacoda Executable Tutorial demonstrating and explaining Fuzzing
 
 ## Names and KTH ID
   - Brad Palagi (palagi@kth.se)
@@ -20,6 +20,11 @@ Executable Tutorial
 
 Fuzz testing is an essential topic for testing and security. 
 
-We will create a browser based jupyter-notebook with the goal of teaching the user how to effectively use OSS-Fuzz to debug a Go project.
+We created a Katacoda Scenario with the goal of teaching the user how to effectively use Atheris, Google's Python Fuzzing tool which is a part of OSS-Fuzz and can be integrated into ones own git repository using ClusterFuzzLite.
 
-In our tutorial we will include descriptions of what **fuzzing** is as a debugging technique as well as show how OSS-Fuzz can be used in practice to create a CI-based fuzz testing development cycle.
+In the tutorial we covered: Background information on fuzzing as a testing technique, the Pros and Cons of Fuzzing versus standard or other testing methods, how to integrate Google's Atheris Python fuzzer with a Python program, and how to add this type of fuzzing into a CI workflow with GitHub Actions using ClusterFuzzLite.
+
+Final Submission Links:
+
+Katacoda-Scenario Repository: https://github.com/bencivjan/katacoda-scenarios <br />
+Katacoda-Scenario Tutorial: https://www.katacoda.com/bencivjan/scenarios/fuzzing-exec-tutorial
