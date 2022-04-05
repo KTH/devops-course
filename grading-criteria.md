@@ -2,7 +2,9 @@
 
 This page presents the grading criteria to assess the contribution in each task category: "[presentation](https://github.com/KTH/devops-course/tree/2021/contributions/presentation)", "[essay](https://github.com/KTH/devops-course/tree/2021/contributions/essay)", "[demo](https://github.com/KTH/devops-course/tree/2021/contributions/demo)", "[executable tutorial](https://github.com/KTH/devops-course/tree/2021/contributions/executable-tutorial)", "[contribution to open-source](https://github.com/KTH/devops-course/tree/2021/contributions/open-source)", "[course automation](https://github.com/KTH/devops-course/tree/2021/contributions/course-automation)", "[feedback](https://github.com/KTH/devops-course/tree/2021/contributions/feedback)". 
 
-Note: we are all aware that this assessment is subjective by nature. In case of disagreement, the informed judgment of the Professor is the final decision.
+Note 1: we are all aware that this assessment is subjective by nature. In case of disagreement, the informed judgment of the Professor is the final decision.
+
+Note 2: in the grading criteria presented below, the mandatory parts do not count as "yes" for grading.
 
 
 ## Presentations
@@ -65,12 +67,12 @@ To pass, you need at least 9 "yes".
 ## Demos
 
 
-The concept: Students prepare a demonstration involving DevOps technology, to be performed during the lecture. For example, a demo typically involves multiple virtual machines, likely deployed in the cloud. A demonstration is scripted, prepared and lasts 5 minutes.
+The concept: Students prepare a demonstration involving DevOps technology, to be performed during the lecture. For example, a demo typically involves multiple virtual machines, likely deployed in the cloud. A demonstration is scripted, prepared and lasts 6:30-7:30 minutes.
 
 
 |                                             | Yes | No | 
 |-------------------------------------------- | ----|----|
-|timing: The demo lasts between 4:30-5 minutes (hard limit)  | Mandatory | - |
+|timing: The demo lasts between 6:30-7:30 minutes (hard limit)  | Mandatory | - |
 |motivation: The demonstration is clearly motivated (why it matters for Devops?) | Yes | No | 
 |narrative: The demo contains a good narrative | Yes | No | 
 |difficulty: The demonstration is difficult to do | Yes | No |
