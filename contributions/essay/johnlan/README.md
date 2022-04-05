@@ -30,3 +30,5 @@ Configuration files are extremly error prone. Especially as they are usually wri
 Sure, you can constrain an IDE to validate keys in the case of github actions (yaml), but it doesn't constrain the actual value that is appended to the key, and thusly creates a window of uncertainty.
 
 This level of uncertainty can be daunting, especially when it is applied to production configurations. But surely you can build something **custom** that evaluates that the config is valid, but then we are coming full circle. THERE EXISTS NO STANDARD!
+
+- fin
