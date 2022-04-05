@@ -34,7 +34,7 @@ make_pr (){
   GH_USERNAME="$(basename "${URL_WITHOUT_SUFFIX%/${REPO_NAME}}")"
 
   # User confirmation of GH Username
-  read -r "USER?Github Username (enter to use inferred username ${GH_USERNAME}):"
+  read -r "USER?Github Username (enter to use inferred username ${GH_USERNAME}): "
 
   # Get current year's main branch
   CURRENT_YEAR=$(date +"%Y")
@@ -46,10 +46,11 @@ make_pr (){
 
   echo
   # Prompt user for path to their contribution README
+  echo "Now I will copy the contents of your README to the PR body"
   read -r "CHANGED_FILE?What is the path from your working directory to your changed README file (e.g ./contributions/course-automation/lukel/README.md)? "
 
   # Verify that file exists
-  if [ ! -f ${CHANGED_FILE} ]
+  if [ ! -f ${CHANGED_FILE} ] || [ -z ${CHANGED_FILE} ]
   then
     echo "README not found at given path \"${CHANGED_FILE}\" - I'll use the default template"
   else
@@ -58,8 +59,15 @@ make_pr (){
   fi
 
   # Construct PR URL
-  PR_URL="${BASE_GITHUB_URL}${CURRENT_YEAR}...${GH_USERNAME}:${CURRENT_BRANCH}?expand=1"
-  echo $USER
+  PR_URL="${BASE_GITHUB_URL}${CURRENT_YEAR}..."
+
+  if [ ! -z ${USER} ]
+  then
+      PR_URL="${PR_URL}${USER}:${CURRENT_BRANCH}?expand=1"
+  else
+      PR_URL="${PR_URL}${GH_USERNAME}:${CURRENT_BRANCH}?expand=1"
+  fi
+
   if [ "$TITLE" ]
   then
     echo "Using title ${TITLE}"
