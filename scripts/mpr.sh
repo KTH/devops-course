@@ -34,7 +34,7 @@ make_pr (){
   GH_USERNAME="$(basename "${URL_WITHOUT_SUFFIX%/${REPO_NAME}}")"
 
   # User confirmation of GH Username
-  read -r "USER?Git Username (enter for inferred username ${GH_USERNAME}):"
+  read -r "USER?Github Username (enter to use inferred username ${GH_USERNAME}):"
 
   # Get current year's main branch
   CURRENT_YEAR=$(date +"%Y")
@@ -51,7 +51,7 @@ make_pr (){
   # Verify that file exists
   if [ ! -f ${CHANGED_FILE} ]
   then
-    echo "File not found - double check the path you just input!"
+    echo "README not found at given path \"${CHANGED_FILE}\" - I'll use the default template"
   else
     # Copy contents of readme into PR body
     README_BODY=$(cat "${CHANGED_FILE}")
@@ -59,6 +59,7 @@ make_pr (){
 
   # Construct PR URL
   PR_URL="${BASE_GITHUB_URL}${CURRENT_YEAR}...${GH_USERNAME}:${CURRENT_BRANCH}?expand=1"
+  echo $USER
   if [ "$TITLE" ]
   then
     echo "Using title ${TITLE}"
