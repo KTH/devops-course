@@ -2,7 +2,7 @@
 
 ## Title
 
-Executable Tutorial submission: StrykerJS Mutation Testing Tutorial
+StrykerJS Mutation Testing Executable Tutorial
 
 ## Names and KTH ID
 
