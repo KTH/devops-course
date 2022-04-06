@@ -24,7 +24,7 @@ Stryker Mutator is a tool where you are able to test how relevant your own tests
 
 We plan on using Katacoda to step through the tutorial interactively and execute the necessary steps that we detailed above. We will voice over what we are doing to create a tutorial that is easy for the user to follow. 
 
-## Proposal/motivation
+<strong>Proposal/motivation</strong>
 Mutation testing is an important part for ensuring that your test suite is robust and thorough.
 
 We created a Katacoda Tutorial to teach the user about the Stryker Mutator tool and how to implement it into their own project. 
