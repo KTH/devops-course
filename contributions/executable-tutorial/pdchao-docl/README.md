@@ -4,26 +4,19 @@
 
 Executable Tutorial submission: StrykerJS Mutation Testing Tutorial
 
-<br>
-
 ## Names and KTH ID
 
 - Diego Chahuan (docl@kth.se)
 - Preston Chao (pdchao@kth.se)
 
-<br>
-
 ## Deadline
 
 Deadline for task 1
 
-<br>
 
 ## Category
 
 Executable tutorial
-
-<br>
 
 ## Description
 
@@ -36,8 +29,6 @@ Mutation testing is an important part for ensuring that your test suite is robus
 
 We created a Katacoda Tutorial to teach the user about the Stryker Mutator tool and how to implement it into their own project. 
 
-<br>
-
 <strong>Our tutorial consists of:</strong>
 
 <ol>
@@ -48,17 +39,13 @@ We created a Katacoda Tutorial to teach the user about the Stryker Mutator tool 
  <li>Takeaways</li>
 </ol>
 
-<br>
 
 <strong>Original proposal</strong> PR is #1575
 
-<br>
 
 <strong>Links:</strong>
 * [Link to Katacoda Tutorial](https://www.katacoda.com/diego-chahuan/scenarios/mutator)
 * [Link to Katacoda Repo](https://github.com/dchahuan/katacoda-scenarios)
-
-<br>
 
 <strong>Grading criteria we are aiming for</strong>
 
