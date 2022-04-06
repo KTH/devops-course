@@ -18,4 +18,4 @@ Executable tutorial
 
 ## Description  
 
-We plan on creating an executuble tutorial that teaches the user how to setup a discord bot thanks to discord.py librairy. We'll explain how to add commands and give roles when a new user joins.
+We plan on creating an executable tutorial that teaches the user how to setup a discord bot thanks to discord.py librairy. We'll explain how to add commands and give roles when a new user joins.
