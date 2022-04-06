@@ -38,14 +38,14 @@ Iterations and Tests](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=92386
 * Student presentations, demonstrations and katacodas
 * Deadline task 2
 
-
-### Week 6: [Dependency Management](https://github.com/KTH/devops-course/issues/24) & [DevSecOps](https://github.com/KTH/devops-course/issues/18) (April 26)
-* Preparatory material: [A 'Worst Nightmare' Cyberattack: The Untold Story Of The SolarWinds Hack](https://www.npr.org/2021/04/16/985439655/a-worst-nightmare-cyberattack-the-untold-story-of-the-solarwinds-hack), [The supply chain of software](https://increment.com/apis/apis-supply-chain-software/), [successes, challenges, and wombat behind npm](https://increment.com/development/interview-with-isaac-z-schlueter-ceo-of-npm/), [A comprehensive study of bloated dependencies in the Maven ecosystem ](https://arxiv.org/pdf/2001.07808)
-* Guest Lecture: Supply-chain security [Rhys Arkins (Whitesource)](https://www.linkedin.com/in/rhys-arkins-5a643a/) 
+### Week 6: [Software bots](https://github.com/KTH/devops-course/issues/310) (April 26)
+* Preparatory material: [Software bots](https://ieeexplore.ieee.org/iel7/52/8239922/08239928.pdf), [A Software-Repair Robot based on Continual Learning](http://arxiv.org/pdf/2012.06824), [What a deploy bot taught us about documentation](https://increment.com/documentation/what-a-deploy-bot-taught-glossier-about-documentation/)
 * Student presentations, demonstrations and katacodas
 
-### Week 7: [Software bots](https://github.com/KTH/devops-course/issues/310) (May 3)
-* Preparatory material: [Software bots](https://ieeexplore.ieee.org/iel7/52/8239922/08239928.pdf), [A Software-Repair Robot based on Continual Learning](http://arxiv.org/pdf/2012.06824), [What a deploy bot taught us about documentation](https://increment.com/documentation/what-a-deploy-bot-taught-glossier-about-documentation/)
+
+### Week 7: [Dependency Management](https://github.com/KTH/devops-course/issues/24) & [DevSecOps](https://github.com/KTH/devops-course/issues/18) (May 3)
+* Preparatory material: [A 'Worst Nightmare' Cyberattack: The Untold Story Of The SolarWinds Hack](https://www.npr.org/2021/04/16/985439655/a-worst-nightmare-cyberattack-the-untold-story-of-the-solarwinds-hack), [The supply chain of software](https://increment.com/apis/apis-supply-chain-software/), [successes, challenges, and wombat behind npm](https://increment.com/development/interview-with-isaac-z-schlueter-ceo-of-npm/), [A comprehensive study of bloated dependencies in the Maven ecosystem ](https://arxiv.org/pdf/2001.07808)
+* Guest Lecture: Supply-chain security [Rhys Arkins (Whitesource)](https://www.linkedin.com/in/rhys-arkins-5a643a/) 
 * Student presentations, demonstrations and katacodas
 * Deadline task 3
 
