@@ -7,6 +7,7 @@ Installing GitLab in your own infrastructure
 ## Names and KTH ID
 
 - Julian Nalenz (nalenz@kth.se)
+- Elias Bonnici (bonnici@kth.se)
 
 ## Deadline
 
