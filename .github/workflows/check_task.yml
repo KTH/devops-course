@@ -22,7 +22,7 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
         with:
-          ref: ${{ github.event.pull_request.head.sha }}
+           ref: "refs/pull/${{ github.event.number }}/merge"
       
       - name: 'Get tools'
         uses: actions/checkout@v2.3.4
