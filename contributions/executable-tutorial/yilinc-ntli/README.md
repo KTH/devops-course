@@ -19,7 +19,7 @@ Executable tutorial
 
 ## Description
 
-MERN is a very common tech stack consisting of MongoDB, Express, React, Node. 
-We want to create a Kataconda, to show how to automate the deployment of this tech-stack to AWS EC2 instances using an Ansbile Playbook. 
-This way we create and configure the infrastrucutre with code.
+Infrastructure as Code (IaC) is the managing and provisioning of infrastructure through code instead of through manual processes. Ansible is an automation tool that helps people perform IaC. 
+
+We want to create a Kataconda to show how to use an Ansible Playbook to automate the deployment of MERN (a very common tech stack consisting of MongoDB, Express, React, Node) to AWS EC2 instances.
 
