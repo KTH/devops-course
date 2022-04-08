@@ -18,5 +18,4 @@ Task 2
 Presentation
 
 ## Description
-
-Our presentation will explain why containers are important in DevOps, how they are used, what they are and why they are used by big companies.
+Our presentation will compare server vs serverless computing and present the pros and cons for each of them.
