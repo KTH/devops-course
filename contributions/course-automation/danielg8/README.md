@@ -23,7 +23,7 @@ Because this is tedious to do, some pull requests don't get labeled and are ther
 
 I want to solve this by creating a GitHub Action that searches for keywords in pull requests and labels the pull request accordingly.
 
-## Final Submission
+**Final Submission**
 
 This is implemented as a GitHub Action in [this repository](https://github.com/halvtomat/KTH-DevOps-AutoLabeller)
 
