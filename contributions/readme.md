@@ -27,3 +27,6 @@
 * [Presentation of Handling multiple services in a monorepo using Docker](https://github.com/KTH/devops-course/pull/1677)
 * [Azure functions access OnPrem resources](https://github.com/KTH/devops-course/tree/2022/contributions/presentation/week4-containers-and-serverless/bgeid-megzari/)
 * [Demonstration of Deploying Multiple API Servers with Docker and AWS Lambda](https://github.com/KTH/devops-course/pull/1698)
+
+## Pending schedule
+* [Continuous Training in MLOps with Kubeflow](https://github.com/KTH/devops-course/pull/1670)
