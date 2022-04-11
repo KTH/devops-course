@@ -22,3 +22,7 @@ In imperative deployment there is often someone "pushing a button" to start a de
 
 For my demo, I will attempt to deploy a small example application on minikube using ArgoCD. I will then make a small change to the application and push it to the repo and demo the automatic sync capability of ArgoCD (declarative deployment). On seeing the change in the repo, ArgoCD should automatically update the application.
 
+Final Submission
+
+- Demo scheduled for Thursday, Apr 7, 920 am
+- Git repo and documentation: https://github.com/aykhazanchi/argocd-demo
