@@ -31,5 +31,9 @@
 * [The role of containers in the development and deployment of ML models](https://github.com/KTH/devops-course/pull/1733)
 * [Server vs. Serverless](https://github.com/KTH/devops-course/pull/1743)
 
+## Schedule for week 8
+
+* [Open source culture and conventions](https://github.com/KTH/devops-course/pull/1680)
+
 ## Pending schedule
 * [Continuous Training in MLOps with Kubeflow](https://github.com/KTH/devops-course/pull/1670)
