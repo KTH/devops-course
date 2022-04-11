@@ -95,7 +95,6 @@ def main():
     canvas_groups_set = get_group_categories()
     canvas_groups_category_id = task_to_group_category_id(TASK, canvas_groups_set)
     canvas_groups = list_groups(canvas_groups_category_id)
-    groups = dict()
 
     task_sub = get_sub_directory(CONTRIBUTION_PATH + '/' + TASK)
 
@@ -111,9 +110,8 @@ def main():
 
     missing_grade_group = [group for group in groups if not canvas_groups[group]]
     print("\nMissing grade for " + str(len(missing_grade_group)) + " group(s) :\n")
-    for group_name in groups:
-        if not canvas_groups[group_name]:
-            print(group_name)
+    for group_name in missing_grade_group:
+        print(group_name)
 
 
 main()
