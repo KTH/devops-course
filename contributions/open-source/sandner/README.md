@@ -2,7 +2,7 @@
 
 ## Title
 
-Contributing to nunit Testing Framework for .Net platforms to fix bugs
+Contributing to Imgbot, friendly robot that optimizes images of your repository
 
 ## Names and KTH ID
 
@@ -17,14 +17,16 @@ Deadline for task 3
 Contribution to open-source
 
 ## Description
-The nunit Testing Framework is THE testing framework for unit tests in .Net platforms. <br>
-I used it the past and want to contribute to it. <br>
-The repo has an active community and is big enough (2.2k stars)<br>
-The issues are relevant and current, issue #4095 is even needed for the next milestone. <br>
+Imgbot crawls all your image files in GitHub and submits pull requests after applying a loss less compression. 
+This will make the file size go down, but leave the dimensions and quality just as good. <br>
+I want to dive into the topic of software bots, I never used this project but think it is very useful and I want to contribute to it. <br>
+The repo has an active community and is big enough (883 stars)<br>
+The issue is relevant and current, issue #1068 is also pinned by a community member. <br>
+To resolve this issue, I will add a new feature that will convert the size of the images to the correct respective multi-byte notation.</br>
+As I have not yet used this project before, the effort for me should be enough for me to pass this assignment.
 
-repo-link: https://github.com/nunit/nunit <br>
-forked repo-link: https://github.com/lnsandn01/nunit
+repo-link: https://github.com/imgbot/Imgbot <br>
+forked repo-link: https://github.com/lnsandn01/Imgbot <br>
 
-Issue(s) to fix:<br>
-https://github.com/nunit/nunit/issues/4082 <br>
-https://github.com/nunit/nunit/issues/4095 (if issue #4082 is very easy to fix, I will try this one as well) <br>
+Issue to work on:<br>
+https://github.com/imgbot/Imgbot/issues/1068 <br>
