@@ -6,7 +6,7 @@ Executable tutorial for setting up Firecracker
 
 ## Names and KTH ID
   - Pontus Cowling Mantefors (pontuscm@kth.se)
-  - Viktor Åryd (???@kth.se) 
+  - Viktor Åryd (varyd@kth.se) 
 
 ## Deadline
 
