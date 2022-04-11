@@ -29,6 +29,7 @@
 * [Demonstration of Deploying Multiple API Servers with Docker and AWS Lambda](https://github.com/KTH/devops-course/pull/1698)
 * [Integration Testing with Testcontainer](https://github.com/KTH/devops-course/pull/1736)
 * [The role of containers in the development and deployment of ML models](https://github.com/KTH/devops-course/pull/1733)
+* [Server vs. Serverless](https://github.com/KTH/devops-course/pull/1743)
 
 ## Pending schedule
 * [Continuous Training in MLOps with Kubeflow](https://github.com/KTH/devops-course/pull/1670)
