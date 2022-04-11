@@ -10,7 +10,7 @@ Open source culture and conventions
 
 ## Deadline
 
-Task 4 (2022-05-17)
+Task 4, to be presented at 2022-05-10 (Week 8: Cultural and legal aspects of DevOps)
 
 ## Category
 
