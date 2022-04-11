@@ -19,8 +19,12 @@ Demo
 
 ## Description
 
-repo-link: https://github.com/lnsandn01/gamework/tree/feature/integrate_tests
 
+When testing real-time systems, using conventional static testing methods is not enough.<br>
+You need to do: Task testing, Behavioral testing, Intertask testing and System testing.<br>
+We will demo those 4 different ways of testing, by adding tests to a video game and running those tests live.<br>
+We will further explain real-time system testing a bit more
+=======
 When testing real-time systems, using conventional static testing methods is not enough.<br>
 You need to do: Task testing, Behavioral testing, Intertask testing and System testing.<br>
 We will demo those 4 different ways of testing, by adding tests to a video game and running those tests live.<br>
