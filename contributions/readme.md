@@ -24,5 +24,11 @@
 
 ## Schedule for week 4
 
-* [Demonstration of the open-source feature flagging platform Unleash](https://github.com/KTH/devops-course/pull/1653)
-* [Demonstration of CD implementation using Node Express and Google Cloud Services](https://github.com/KTH/devops-course/pull/1635)
+* [Presentation of Handling multiple services in a monorepo using Docker](https://github.com/KTH/devops-course/pull/1677)
+* [Azure functions access OnPrem resources](https://github.com/KTH/devops-course/tree/2022/contributions/presentation/week4-containers-and-serverless/bgeid-megzari/)
+* [Demonstration of Deploying Multiple API Servers with Docker and AWS Lambda](https://github.com/KTH/devops-course/pull/1698)
+* [Integration Testing with Testcontainer](https://github.com/KTH/devops-course/pull/1736)
+* [The role of containers in the development and deployment of ML models](https://github.com/KTH/devops-course/pull/1733)
+
+## Pending schedule
+* [Continuous Training in MLOps with Kubeflow](https://github.com/KTH/devops-course/pull/1670)
