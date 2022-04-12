@@ -22,6 +22,5 @@ AutoKeras is an AutoML tool that finds a close-to-optimal architecture and hyper
 
 This open-source contribution is interesting to us from multiple standpoints. Firstly, the package is designed to automate much of the ML model creation process. Because we contribute to it, we will spend time on understanding it. Secondly, the respository uses modern DevOps tools like [development containers](https://code.visualstudio.com/docs/remote/containers) in VS code. We are looking forward to learn this alternative development workflow and integrate it into our own.  
 
-Issue: https://github.com/keras-team/autokeras/issues/1420 <br>
-Forked repo: https://github.com/NickSmyr/autokeras <br>
-
+Issue: https://github.com/keras-team/autokeras/issues/1420
+Forked repo: https://github.com/NickSmyr/autokeras
