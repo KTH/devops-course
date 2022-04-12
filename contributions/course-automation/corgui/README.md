@@ -10,7 +10,7 @@ Automatic deletion of teammate request
 
 ## Deadline
 
-Task 1
+Task 2
 
 ## Category
 
@@ -19,11 +19,12 @@ Course Automation
 ## Description
 
 This course uses a Github repository issue to allow students to find a teammate. The problem here is that is requires
-the students to update or remove their comment on this issue when they have found a teammate. This aim here is to
+the students to update or remove their comment on this issue when they have found a teammate. The aim here is to
 automate this task.
 
 The automation should perform the following :
 
 -   Run for each new pull request having a label corresponding to an assignment
--   Check if the author of the pull request has commented the teammate finder issue
--   If so, remove its comment on this issue
+-   Check if the emails of the author of the task are included in a comment on the teammate finding issue
+-   If so, add edit the first comment found by appending `AUTO EDIT: Teammate found`and mentioning the identified users
+    to notify them, and comment the PR with a reference to the comment
