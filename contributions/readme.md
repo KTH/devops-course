@@ -34,5 +34,5 @@
 
 * [Open source culture and conventions](https://github.com/KTH/devops-course/pull/1680)
 
-## Pending schedule
+## Schedule for week 9
 * [Continuous Training in MLOps with Kubeflow](https://github.com/KTH/devops-course/pull/1670)
