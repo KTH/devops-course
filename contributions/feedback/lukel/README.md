@@ -22,9 +22,9 @@ I wish to give feedback on the Executable Tutorial submitted by Bassam Gamal and
 their tutorial and gained a lot of valuable knowledge about integrating static security analysis into a CI pipeline. I
 would like to formally share this, as well as some points of constructive criticism, for my third task.
 
-#### Link to submission PR
+**Link to submission PR**
 https://github.com/KTH/devops-course/pull/1714
 
-#### Tutorial Authors
+**Tutorial Authors**
 @mrbgco Bassam Gamal (bgeid@kth.se)
 @abdelmoujibMegzari Abdelmoujib Megzari (megzari@kth.se)
