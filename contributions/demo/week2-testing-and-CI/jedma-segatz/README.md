@@ -2,7 +2,7 @@
 
 ## Title
 
-Automated testing and delivery for FreeRTOS using AWS
+Automated remote OTA deployment and testing on ESP32 with Jenkins and AWS
 
 ## Names and KTH ID
   - Johan Edman (jedma@kth.se)
@@ -35,3 +35,9 @@ Our proposal differs in three ways:
   1. We don't use the remote testing suite of plattformIO, and instead use AWS.
   2. Deployment with OTA updates, which simulates a better use-case for in-field testing
   3. Unit testing without using an extra probe device, exploiting the capabilities of RTOS.
+
+**FINAL SUBMISSION**
+
+| Link | Description |
+| -----| ----------- |
+| [Repository](https://github.com/EdmanJohan/DD2482-ESP-CICD) | Repository for demonstration source code |
