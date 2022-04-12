@@ -23,3 +23,5 @@ In this Demo we are going to be creating a CI/CD pipeline for a simple
 application in Nodejs. The deployment platform will initially be Heroku but we plan on letting the user
 pick one of the available deployment platforms between Google App Engine/Heroku/Kubernetes. The pipeline
 will also be implemented to notify the development team with Slack when the build fails.
+
+Repository containing code and instructions: https://github.com/xrisaD/CI-CDPipeline
