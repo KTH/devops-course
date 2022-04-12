@@ -24,12 +24,12 @@
 
 ## Schedule for week 4
 
-* [Presentation of Handling multiple services in a monorepo using Docker](https://github.com/KTH/devops-course/pull/1677)
-* [Azure functions access OnPrem resources](https://github.com/KTH/devops-course/tree/2022/contributions/presentation/week4-containers-and-serverless/bgeid-megzari/)
-* [Demonstration of Deploying Multiple API Servers with Docker and AWS Lambda](https://github.com/KTH/devops-course/pull/1698)
-* [Integration Testing with Testcontainer](https://github.com/KTH/devops-course/pull/1736)
-* [The role of containers in the development and deployment of ML models](https://github.com/KTH/devops-course/pull/1733)
-* [Server vs. Serverless](https://github.com/KTH/devops-course/pull/1743)
+* [Presentation of Handling multiple services in a monorepo using Docker](https://github.com/KTH/devops-course/pull/1677). Luciano Zapata, Bror Sebastian Sjövald
+* [Azure functions access OnPrem resources](https://github.com/KTH/devops-course/tree/2022/contributions/presentation/week4-containers-and-serverless/bgeid-megzari/). Bassam Gamal , Megzari Abdelmoujib Megzari
+* [Demonstration of Deploying Multiple API Servers with Docker and AWS Lambda](https://github.com/KTH/devops-course/pull/1698). Man Yin Edward CHUI
+* [Integration Testing with Testcontainer](https://github.com/KTH/devops-course/pull/1736). Mayuri Salunke,  Yen Chen
+* [The role of containers in the development and deployment of ML models](https://github.com/KTH/devops-course/pull/1733). Simone Bonato, Khalid El Yaacoub
+* [Server vs. Serverless](https://github.com/KTH/devops-course/pull/1743). Mustafa Ali, Rafi Youssef 
 
 ## Schedule for week 8
 
