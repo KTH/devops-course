@@ -29,6 +29,7 @@
 * [Integration Testing with Testcontainer](https://github.com/KTH/devops-course/pull/1736). Mayuri Salunke,  Yen Chen
 * [The role of containers in the development and deployment of ML models](https://github.com/KTH/devops-course/pull/1733). Simone Bonato, Khalid El Yaacoub
 * [Server vs. Serverless](https://github.com/KTH/devops-course/pull/1743). Mustafa Ali, Rafi Youssef 
+* [A portable CI/CD pipeline](). Per Arn, John Landeholt
 
 ## Schedule for week 8
 
