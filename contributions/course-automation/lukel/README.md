@@ -34,3 +34,6 @@ Additionally, I could see this automation contribution as a first step in a new 
 automate student workflows. For example, I regularly use a `rebase`
 alias (`git stash && git checkout origin/master && git pull && git checkout - && git rebase origin/master && git stash pop`)
 which could also be valuable to student workflows within the devops repo.
+
+Submission:
+Shell Script URL in Standalone Repository: https://github.com/luuuk/devops-course/blob/2022/scripts/mpr.sh
