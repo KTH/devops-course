@@ -2,7 +2,7 @@
 
 ## Title
 
-MLOPS: The past, The present and The Future
+Remote monitoring and controlling of Machine Learning Training with Telegram Bots.
 
 ## Names and KTH ID
 
