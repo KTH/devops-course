@@ -2,9 +2,10 @@
 
 ## Title
 
-Executable tutorial for setting up a Firecracker microVM service.
+Executable tutorial for setting up a local Firecracker microVM service and using its API.
 
 ## Names and KTH ID
+
   - Pontus Cowling Mantefors (pontuscm@kth.se)
   - Viktor Åryd (varyd@kth.se) 
 
