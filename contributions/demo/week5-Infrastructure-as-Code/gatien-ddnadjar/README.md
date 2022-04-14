@@ -2,7 +2,7 @@
 
 ## Title  
 
-Demo version control integration of Jetbrains' IDE  
+Demo Terraform with Jetbrains' IDE  
 
 ## Names and KTH ID   
   - Gatien Ducornaud (gatien@kth.se)
@@ -18,4 +18,4 @@ Demo
 
 ## Description  
 
-We plan on doing a demo for understanding how to use version control integration inside Jetbrains' IDE. We will use IntelliJ and Github for the demo and show how to create a branch, do a pull request and merge.
+We plan on doing a demo for understanding what is Terraform and how to use it with Jetbrains' IDE (IntelliJ for our example).
