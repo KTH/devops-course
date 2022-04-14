@@ -101,7 +101,7 @@ def get_stat_student(stat_info):
         index = index + 1
 
         if task_count > 5:
-            logging.warn("%s's task_count is: %d (> 4)"%(student, task_count))
+            logging.warn("%s's task_count is: %d (> 5)"%(student, task_count))
 
     return_str = stat_table.get_string()
 
