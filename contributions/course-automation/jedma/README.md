@@ -33,3 +33,13 @@ in the `README.md` schedule section or on a separate Wiki page, and automaticall
 updated as events are updated. Thus, students could see the schedule information  
 directly in the `README.md` or on a related wiki page, and not have to navigate away  
 from GitHub to see the information.
+
+<hr>
+
+**FINAL SUBMISSION**
+
+| Link                                                                                                                  |       Description      |
+| ----------------------------------------------------------------------------------------------------------------------| ---------------------- |
+| [Repository](https://github.com/EdmanJohan/schedule-update-action)                                                    | Repo for Github Action |
+| [Marketplace](https://github.com/marketplace/actions/update-timeedit-schedule-events)                                 | Github Marketplace     |
+| [Test environment](https://github.com/EdmanJohan/devops-course-demo)                                                  | Fork of repo for demo  |
