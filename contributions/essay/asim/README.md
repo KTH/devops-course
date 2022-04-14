@@ -18,5 +18,5 @@ Essay
 
 ## Description
 
-The gold of my essay is to describe how the telecom operators are using DevOps and Cloud technologies to implement 5G.
-I will also investigate how Blue/Green methodology can be used to make software upgrades without interrupting mission critical services like 5G.
+My essay aims to describe how telecom operators are using DevOps and Cloud technologies to implement 5G.
+I will also investigate how Blue/Green methodology can be used to make software upgrades without interrupting mission-critical services like 5G.
