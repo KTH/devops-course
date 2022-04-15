@@ -29,8 +29,8 @@ The automation performs the following :
 -   If so, add edit the first comment found by appending `AUTO EDIT: Teammate found`and mentioning the identified users
     to notify them, and comment the PR with a reference to the comment
 
-This action is published on the Github Marketplace ([here](https://github.com/marketplace/actions/kth-devops-teammate-action)) and the the code is available in [this](https://github.com/corentinguilloteau/kth-devops-teammate) repository.
+This action is published on the Github Marketplace ([here](https://github.com/marketplace/actions/kth-devops-teammate-action)) and the code is available in [this](https://github.com/corentinguilloteau/kth-devops-teammate) repository.
 
 The documentation is provided in the README.
 
-Also, a demonstration is available in [this](https://github.com/corentinguilloteau/KTH-Devops-automation-demo) repository. You can check the pull request and the the issue to see the output of this automation.
+Also, a demonstration is available in [this](https://github.com/corentinguilloteau/KTH-Devops-automation-demo) repository. You can check the pull request and the issue to see the output of this automation.
