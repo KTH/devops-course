@@ -11,7 +11,7 @@ An overview of continous training in MLOps with some insights into Kubeflow
 
 ## Deadline
 
-Presentation week 4
+Deadline for task 1
 
 ## Category
 
