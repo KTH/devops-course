@@ -19,10 +19,10 @@ Feedback
 
 ## Description
 
-We would like to give feedback on the intresting essay "The blasphemy of YAML and other configuration "languages""
+We would like to give feedback on the essay "The blasphemy of YAML and other configuration "languages""
 
 **Link to submission PR**
 https://github.com/KTH/devops-course/pull/1790
 
-**Tutorial Authors**
+**Essay Author**
 - John Landeholt (johnlan@kth.se)
