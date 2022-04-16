@@ -9,7 +9,7 @@ Automizing server deploy by connecting github to heroku.
   - Mateo Florez (mateofc@kth.se)
 ## Deadline
 
-Task 1
+Task 2
 
 ## Category
 
