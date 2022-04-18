@@ -24,11 +24,27 @@
 
 ## Schedule for week 4
 
-* [Presentation of Handling multiple services in a monorepo using Docker](https://github.com/KTH/devops-course/pull/1677)
-* [Azure functions access OnPrem resources](https://github.com/KTH/devops-course/tree/2022/contributions/presentation/week4-containers-and-serverless/bgeid-megzari/)
-* [Demonstration of Deploying Multiple API Servers with Docker and AWS Lambda](https://github.com/KTH/devops-course/pull/1698)
-* [Integration Testing with Testcontainer](https://github.com/KTH/devops-course/pull/1736)
-* [The role of containers in the development and deployment of ML models](https://github.com/KTH/devops-course/pull/1733)
+* [Presentation of Handling multiple services in a monorepo using Docker](https://github.com/KTH/devops-course/pull/1677). Luciano Zapata, Bror Sebastian Sjövald
+* [Demonstration of Deploying Multiple API Servers with Docker and AWS Lambda](https://github.com/KTH/devops-course/tree/2022/contributions/demo/week4-containers-and-serverless/myechui). Man Yin Edward CHUI
+* [Integration Testing with Testcontainer](https://github.com/KTH/devops-course/pull/1736). Mayuri Salunke,  Yen Chen
+* [The role of containers in the development and deployment of ML models](https://github.com/KTH/devops-course/pull/1733). Simone Bonato, Khalid El Yaacoub
+* [Server vs. Serverless](https://github.com/KTH/devops-course/pull/1743). Mustafa Ali, Rafi Youssef 
+* [A portable CI/CD pipeline](https://github.com/KTH/devops-course/tree/2022/contributions/demo/week4-containers-and-serverless/johnlan-perarn). Per Arn, John Landeholt
 
-## Pending schedule
+## Schedule for week 5
+
+* [How to set up a Docker image, container and docker service using Terraform as a Docker Provider](https://github.com/KTH/devops-course/tree/2022/contributions/demo/week5-Infrastructure-as-Code/iredtzer-vilmaj)
+* [Best practices for securing IaC](https://github.com/KTH/devops-course/pull/1775)
+* [Tokenization of Physical Resources and Services](https://github.com/KTH/devops-course/pull/1710)
+* [Pulumi - what, why and how](https://github.com/KTH/devops-course/pull/1772)
+
+## Schedule for week 6
+
+## Schedule for week 7
+
+## Schedule for week 8
+
+* [Open source culture and conventions](https://github.com/KTH/devops-course/pull/1680)
+
+## Schedule for week 9
 * [Continuous Training in MLOps with Kubeflow](https://github.com/KTH/devops-course/pull/1670)
