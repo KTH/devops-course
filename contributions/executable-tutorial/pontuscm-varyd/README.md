@@ -39,3 +39,4 @@ Solution:
 |original: The tutorial is original, no or few similar tutorials exist on the web | Yes✅ | No |
 |easter-eggs: The tutorial contains an easter egg | Yes | No** | 
 |language: The language is appropriate (structure, grammar, spelling) | Yes✅ | No |
+
