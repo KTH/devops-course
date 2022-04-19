@@ -2,15 +2,16 @@
 
 ## Title
 
-Feedback on "Github Action CI pipeline using CodeQL for static code scanning" executable tutorial
+Feedback on "Secure Linux webserver" executable tutorial
 
 ## Names and KTH ID
 
 - Luke LeVasseur (lukel@kth.se)
+- Fabian Segatz (segatz@kth.se)
 
 ## Deadline
 
-Task 3
+Task 3 (May 3)
 
 ## Category
 
@@ -18,13 +19,10 @@ Feedback
 
 ## Description
 
-I wish to give feedback on the Executable Tutorial submitted by Bassam Gamal and Abdelmoujib Megzari. I ran through
-their tutorial and gained a lot of valuable knowledge about integrating static security analysis into a CI pipeline. I
-would like to formally share this, as well as some points of constructive criticism, for my third task.
+Fabian and I wish to give feedback on the Executable Tutorial submitted by Philip Hamelink.
 
-**Link to submission PR**
-https://github.com/KTH/devops-course/pull/1714
+**Link to proposal PR**
+https://github.com/KTH/devops-course/pull/1801
 
 **Tutorial Authors**
-@mrbgco Bassam Gamal (bgeid@kth.se)
-@abdelmoujibMegzari Abdelmoujib Megzari (megzari@kth.se)
+Philip Hamelink (ppjha@kth.se)
