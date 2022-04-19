@@ -41,6 +41,9 @@
 
 ## Schedule for week 6
 
+* [Remote Monitoring and controlling of Machine Learning Models with Telegram Bot](https://github.com/KTH/devops-course/tree/2022/contributions/demo/week6-software-bots/khalidey-vishaln). Khalid El Yaacoub, Vishal Nedungadi khalidey - vishaln
+* [Custom Slack Bot to interact with Github Actions](https://github.com/KTH/devops-course/tree/2022/contributions/demo/week6-software-bots/persman-ntli) Pontus Persman, Nikolai Limbrunner persman - ntli
+
 ## Schedule for week 7
 
 ## Schedule for week 8
