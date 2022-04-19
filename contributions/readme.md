@@ -37,8 +37,12 @@
 * [Best practices for securing IaC](https://github.com/KTH/devops-course/pull/1775)
 * [Tokenization of Physical Resources and Services](https://github.com/KTH/devops-course/pull/1710)
 * [Pulumi - what, why and how](https://github.com/KTH/devops-course/pull/1772)
+* [Demo Terraform with Jetbrains' IDE](https://github.com/KTH/devops-course/tree/2022/contributions/demo/week5-Infrastructure-as-Code/gatien-ddnadjar)
 
 ## Schedule for week 6
+
+* [Remote Monitoring and controlling of Machine Learning Models with Telegram Bot](https://github.com/KTH/devops-course/tree/2022/contributions/demo/week6-software-bots/khalidey-vishaln). Khalid El Yaacoub, Vishal Nedungadi khalidey - vishaln
+* [Custom Slack Bot to interact with Github Actions](https://github.com/KTH/devops-course/tree/2022/contributions/demo/week6-software-bots/persman-ntli) Pontus Persman, Nikolai Limbrunner persman - ntli
 
 ## Schedule for week 7
 
