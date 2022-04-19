@@ -24,6 +24,6 @@ Cron jobs are invaluable tools that sees heavy use in devops, whenever jobs are 
 
 The tutorial will, apart from teaching basic commands such as crontab, present theoretical scenarios in which this method of scheduling is useful, and showcases why knowledge about cron job syntax is useful for other similar tools (such as google's Cloud Scheduler).
 
-## Links
+**Links**
 [Katacoda tutorial](https://www.katacoda.com/ino/scenarios/cron)
 [Source repo](https://github.com/Inomares/katacoda-scenarios/tree/main/cron)
