@@ -2,7 +2,7 @@
 
 ## Title
 
-Remote monitoring and controlling of Machine Learning Training with Telegram Bots.
+Remote Monitoring and controlling of Machine Learning Models with Telegram Bot
 
 ## Names and KTH ID
 
@@ -19,7 +19,6 @@ Demo
 
 ## Description
 
-Software bots is a very fascinating demo. Did you know that there were bots for Machine Learning as well. We are not talking about bots that use Machine Learning.
+Software bots is a very fascinating demo. Did you know that there were bots for Machine Learning as well? We are not talking about bots that use Machine Learning.
 In this demo, we are going to show how one could create a telegram bot, in order to monitor the training of Machine Learning models remotely (with a possibility
 to control the training remotely as well). 
-
