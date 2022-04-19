@@ -31,15 +31,13 @@
 * [Server vs. Serverless](https://github.com/KTH/devops-course/pull/1743). Mustafa Ali, Rafi Youssef 
 * [A portable CI/CD pipeline](https://github.com/KTH/devops-course/tree/2022/contributions/demo/week4-containers-and-serverless/johnlan-perarn). Per Arn, John Landeholt
 
-## Schedule for week 4
+## Schedule for week 5
 
 * [How to set up a Docker image, container and docker service using Terraform as a Docker Provider](https://github.com/KTH/devops-course/tree/2022/contributions/demo/week5-Infrastructure-as-Code/iredtzer-vilmaj)
-*
-*
-*
-*
-
-## Schedule for week 5
+* [Best practices for securing IaC](https://github.com/KTH/devops-course/pull/1775)
+* [Tokenization of Physical Resources and Services](https://github.com/KTH/devops-course/pull/1710)
+* [Pulumi - what, why and how](https://github.com/KTH/devops-course/pull/1772)
+* [Demo Terraform with Jetbrains' IDE](https://github.com/KTH/devops-course/tree/2022/contributions/demo/week5-Infrastructure-as-Code/gatien-ddnadjar)
 
 ## Schedule for week 6
 
