@@ -14,10 +14,10 @@ Task 3
 Presentation
 
 ## Description
-Merging can be a time consuming task in big projects with many branches and pull requests. Handing each PR means assinging 
-reviewers, approving, adding comments and merging. On certain cases the main branch may be updated, making the pull request updated
-and thus it must be rebased. 
+Merging can be a time consuming task in big projects with many branches. Handing each Pull Request means assinging 
+reviewers, adding comments, approving and merging. On certain cases the branch must be rebased to the latest verision 
+of the main branch.
 
-Mergify is a pull request automation tool that solves these issues, trhough actions that are triggered based on the 
-pull requests. In this presentation we intend to describe how mergify is configured, how to specify actions with _rules_ and 
+Mergify is a Pull request automation tool that solves these issues, through actions that are triggered based on a set of rules. 
+In this presentation we will describe how mergify is configured, how to specify actions with _rules_ and 
 how Mergify can queue merging of pull requests in a sequential order.
