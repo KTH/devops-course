@@ -19,7 +19,7 @@ Feedback
 
 ## Description
 
-Fabian and I wish to give feedback on the Executable Tutorial submitted by Philip Hamelink.
+Fabian and I wish to give feedback on the Executable Tutorial created by Philip Hamelink (see link below)
 
 **Link to proposal PR**
 https://github.com/KTH/devops-course/pull/1801
