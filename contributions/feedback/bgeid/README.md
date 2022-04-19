@@ -2,7 +2,7 @@
 
 ## Title
 
-Feedback on "Tutorial for optimizing docker images." executable tutorial
+Feedback on "Tutorial for optimizing Docker images." executable tutorial
 
 ## Names and KTH ID
 
@@ -18,7 +18,7 @@ Feedback
 
 ## Description
 
-I want to give feedback about the "Tutorial for optimizing docker images." tutorial. I think it a very interesting topic, and I have been working with containers for five years.
+I want to give feedback about the "Tutorial for optimizing Docker images." tutorial. It is an exciting topic, and I have been working with containers for five years.
 
 **Link to submission PR**
 https://github.com/KTH/devops-course/pull/1747
