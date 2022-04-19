@@ -11,7 +11,7 @@ How DevOps and GitOps differ and how they overlap
 
 ## Deadline
 
-Task 2
+Task 3
 
 ## Category
 
