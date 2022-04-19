@@ -37,6 +37,7 @@
 * [Best practices for securing IaC](https://github.com/KTH/devops-course/pull/1775)
 * [Tokenization of Physical Resources and Services](https://github.com/KTH/devops-course/pull/1710)
 * [Pulumi - what, why and how](https://github.com/KTH/devops-course/pull/1772)
+* [Demo Terraform with Jetbrains' IDE](https://github.com/KTH/devops-course/tree/2022/contributions/demo/week5-Infrastructure-as-Code/gatien-ddnadjar)
 
 ## Schedule for week 6
 
