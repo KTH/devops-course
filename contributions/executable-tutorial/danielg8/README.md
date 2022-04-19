@@ -33,3 +33,8 @@ Planned features to include in tutorial:
 
 - (Extra) If I come up with some other cool features I might include them too
 
+**Final Submission**
+
+The finished Katacoda tutorial can be found [here](https://www.katacoda.com/halvtomat/scenarios/github-action).
+
+And the GitHub repo whit the implementation is [here](https://github.com/halvtomat/katacoda-scenarios).
