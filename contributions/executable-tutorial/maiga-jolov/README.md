@@ -1,4 +1,3 @@
-
 # Assignment Proposal
 
 ## Title
@@ -18,6 +17,7 @@ Task 2
 Executable tutorial
 
 ## Description
+
 We created a Katakoda tutorial on how to to launch a rust server using a Docker containers and explaining the benefit of running the server using containers.
 
 Learning goals of this tutorial:
@@ -50,3 +50,4 @@ We strived for:
 | original: The tutorial is original, no or few similar tutorials exist on the web                                      | **Yes** :heavy_check_mark:       | No  |
 | easter-eggs: The tutorial contains an easter egg                                                                      | **Yes** :heavy_check_mark:       | No  |
 | language: The language is appropriate (structure, grammar, spelling)                                                  | **Yes** :heavy_check_mark:       | No  |
+
