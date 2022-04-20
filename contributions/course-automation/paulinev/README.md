@@ -21,6 +21,6 @@ To create my mail I have :
 - use the issue statistics  ( #1607 (Statistics of Student Registrations) for this year for example) to have the number of task done by a student. FOr studennt with no task yet I will try to use canvas API (if I can have acces to it) 
 
 
-## Final submission
+== Final submission
 - ![GitHup Repo](https://github.com/paulinev-kth/weekly_recap_mail)
 - ![Marketplace](https://github.com/marketplace/actions/dd2482-weekly-mail)
