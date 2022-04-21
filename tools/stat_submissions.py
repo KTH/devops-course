@@ -100,8 +100,8 @@ def get_stat_student(stat_info):
         summary[task_count].append(student)
         index = index + 1
 
-        if task_count > 4:
-            logging.warn("%s's task_count is: %d (> 4)"%(student, task_count))
+        if task_count > 5:
+            logging.warn("%s's task_count is: %d (> 5)"%(student, task_count))
 
     return_str = stat_table.get_string()
 
@@ -118,7 +118,7 @@ def get_stat_student_markdown(stat_info):
 """
 
     index = 1
-    summary = {4:[], 3:[], 2:[], 1:[]}
+    summary = {5:[], 4:[], 3:[], 2:[], 1:[]}
     for student in stat_info:
         task_count = len(stat_info[student])
         return_str = return_str + "|%s|%s|%s|%s|\n"%(index, student, task_count, " ".join(stat_info[student]))
@@ -144,9 +144,10 @@ def stat_categories(path):
 
     for category in categories:
         for dirpath, dirnames, filenames in os.walk(categories[category]["path"], topdown=True):
-            if (category == "presentation"):
-                if dirpath[-5:-1] == "week":
-                    categories[category][dirpath[-5:]] = len(dirnames)
+            if (category == "presentation" or category == "demo"):
+                if dirpath.split("/")[-1].startswith("week"):
+                    # if we are in a weekX folder
+                    categories[category][dirpath.split("/")[-1][:5]] = len(dirnames)
                     categories[category]["task_count"] = categories[category]["task_count"] + len(dirnames)
             else:
                 categories[category]["task_count"] = len(dirnames)
@@ -158,8 +159,9 @@ def stat_students(category, path):
     student_names = list()
 
     for dirpath, dirnames, filenames in os.walk(path, topdown=True):
-        if (category == "presentation"):
-            if dirpath[-5:-1] == "week":
+        if (category == "presentation" or category == "demo"):
+            if dirpath.split("/")[-1].startswith("week"):
+                # if we are in a weekX folder
                 for folder in dirnames:
                     for x in folder.split("-"):
                         student_names.append(x)
