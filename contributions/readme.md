@@ -24,5 +24,38 @@
 
 ## Schedule for week 4
 
-* [Demonstration of the open-source feature flagging platform Unleash](https://github.com/KTH/devops-course/pull/1653)
-* [Demonstration of CD implementation using Node Express and Google Cloud Services](https://github.com/KTH/devops-course/pull/1635)
+* [Presentation of Handling multiple services in a monorepo using Docker](https://github.com/KTH/devops-course/pull/1677). Luciano Zapata, Bror Sebastian Sjövald
+* [Demonstration of Deploying Multiple API Servers with Docker and AWS Lambda](https://github.com/KTH/devops-course/tree/2022/contributions/demo/week4-containers-and-serverless/myechui). Man Yin Edward CHUI
+* [Integration Testing with Testcontainer](https://github.com/KTH/devops-course/pull/1736). Mayuri Salunke,  Yen Chen
+* [The role of containers in the development and deployment of ML models](https://github.com/KTH/devops-course/pull/1733). Simone Bonato, Khalid El Yaacoub
+* [Server vs. Serverless](https://github.com/KTH/devops-course/pull/1743). Mustafa Ali, Rafi Youssef 
+* [A portable CI/CD pipeline](https://github.com/KTH/devops-course/tree/2022/contributions/demo/week4-containers-and-serverless/johnlan-perarn). Per Arn, John Landeholt
+
+## Schedule for week 5
+
+* [How to set up a Docker image, container and docker service using Terraform as a Docker Provider](https://github.com/KTH/devops-course/tree/2022/contributions/demo/week5-Infrastructure-as-Code/iredtzer-vilmaj)
+* [Best practices for securing IaC](https://github.com/KTH/devops-course/pull/1775)
+* [Tokenization of Physical Resources and Services](https://github.com/KTH/devops-course/pull/1710)
+* [Pulumi - what, why and how](https://github.com/KTH/devops-course/pull/1772)
+* [Demo Terraform with Jetbrains' IDE](https://github.com/KTH/devops-course/tree/2022/contributions/demo/week5-Infrastructure-as-Code/gatien-ddnadjar)
+
+## Schedule for week 6
+
+* [Remote Monitoring and controlling of Machine Learning Models with Telegram Bot](https://github.com/KTH/devops-course/tree/2022/contributions/demo/week6-software-bots/khalidey-vishaln). Khalid El Yaacoub, Vishal Nedungadi khalidey - vishaln
+* [Custom Slack Bot to interact with Github Actions](https://github.com/KTH/devops-course/tree/2022/contributions/demo/week6-software-bots/persman-ntli) Pontus Persman, Nikolai Limbrunner persman - ntli
+* [Automating pull requests and merging with Mergify](https://github.com/KTH/devops-course/tree/2022/contributions/presentation/week6-software-bots/abyel-cdik). Abyel Tesfay, Chrysoula Dikonimaki abyel - cdik
+* [Malicious Social Media Software Bot Detection](https://github.com/KTH/devops-course/tree/2022/contributions/presentation/week6-software-bots/palagi-pdchao).Brad Palagi, Preston Chao palagi - pdchao
+* [RPA and their usefulness in today's industry](https://github.com/KTH/devops-course/tree/2022/contributions/presentation/week6-software-bots/srour-faivre). Bastien Faivre,Thomas Srour faivre - srour
+* [Create a new PR for students to the devops](https://github.com/KTH/devops-course/tree/2022/contributions/course-automation/lukel). Luke LeVasseur lukel
+
+   
+
+
+## Schedule for week 7
+
+## Schedule for week 8
+
+* [Open source culture and conventions](https://github.com/KTH/devops-course/pull/1680)
+
+## Schedule for week 9
+* [Continuous Training in MLOps with Kubeflow](https://github.com/KTH/devops-course/pull/1670)
