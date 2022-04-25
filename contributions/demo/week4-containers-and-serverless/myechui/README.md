@@ -26,3 +26,6 @@ This demonstration would like to show:
 AWS Lambda is a serverless, event-driven service.
 When a request is made to Lambda, it will invoke a function call to a function which correspond to an API call, then make the request accordingly.
 In this demo, I would like to show how to deploy multiple backend API servers and demonstrate how they can possibly interact with each other (may be like a webhook) in the container.
+
+Repository for the demo:
+https://github.com/EDChui/docker-to-aws-demo
