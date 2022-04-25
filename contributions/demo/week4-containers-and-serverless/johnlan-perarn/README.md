@@ -1,3 +1,6 @@
+- Edited after demo on the 12/4-22:
+The repository we used for the demo can be found [here](https://github.com/ArnPellesGit/DD2482-Devops-Demo). The slides used can also be found in the same repository. 
+
 # Assignment Proposal
 
 ## Title
