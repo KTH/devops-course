@@ -20,6 +20,6 @@ Demo
 
 ## Description
 
-Rultor is a DevOps team assistant. It helps programmers and release managers automate routine operations (merge, deploy and release), with an easy-to-use intuitive chat-bot interface.
+[Rultor](https://www.rultor.com/) is a DevOps team assistant. It helps programmers and release managers automate routine operations (merge, deploy and release), with an easy-to-use intuitive chat-bot interface.
 
 In this demo, we want to use a demo repo to show how Rultor automate the process of building, merging and deploying.
