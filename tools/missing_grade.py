@@ -109,9 +109,9 @@ def main():
         print("Found " + str(len(groups)) + " group(s) for " + TASK)
 
     missing_grade_group = [group for group in groups if not canvas_groups[group]]
-    print("\nMissing grade for " + str(len(missing_grade_group)) + " group(s) :\n")
+    #print("\nMissing grade for " + str(len(missing_grade_group)) + " group(s) :\n")
     for group_name in missing_grade_group:
-        print(group_name)
+        print("missing grade for",TASK,"of",group_name)
 
 
 main()
