@@ -22,7 +22,7 @@ Executable tutorial
 DevSecOps aims to integrate security foundation in teams especially in early stages.
 So in this tutorial, you will get yourself familiar with principles, and how to do that using Github Actions.
 
-## Final Submission Links
+Final Submission Links
 
 - [Katacoda Tutorial](https://www.katacoda.com/abdelmoujib/scenarios/cicodescanning)
 - [Katacoda Repo](https://github.com/abdelmoujibMegzari/katacoda-scenarios)
