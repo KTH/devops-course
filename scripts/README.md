@@ -1,7 +1,7 @@
 # Catalog of Scripts for Devops Course
 
 This readme includes usage instructions & information for all scripts in this repo, written for the KTH DevOps Course.
-Please try to keep it updated!
+Please try to keep it updated.
 
 ## **- `mpr` - Make Pull Request**
 
