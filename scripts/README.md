@@ -7,7 +7,7 @@ Please try to keep it updated!
 
 `mpr` simplifies the PR creation flow for students. This shell script incorporates pushing the most recent commit to its
 remote branch in the forked repo copy, opens a new PR in the devops repo, and auto-inserts the contents of the changed
-readme into the PR description fuck.
+readme into the PR description.
 
 You can run mpr from your command line - first, it will prompt you to input or confirm (it infers this info) your Github
 username. Next, it will prompt you for a PR title. After they write the title and hit enter, the script will ask for a
