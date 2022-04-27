@@ -45,7 +45,8 @@
 * [Custom Slack Bot to interact with Github Actions](https://github.com/KTH/devops-course/tree/2022/contributions/demo/week6-software-bots/persman-ntli) Pontus Persman, Nikolai Limbrunner persman - ntli
 * [Automating pull requests and merging with Mergify](https://github.com/KTH/devops-course/tree/2022/contributions/presentation/week6-software-bots/abyel-cdik). Abyel Tesfay, Chrysoula Dikonimaki abyel - cdik
 * [Malicious Social Media Software Bot Detection](https://github.com/KTH/devops-course/tree/2022/contributions/presentation/week6-software-bots/palagi-pdchao).Brad Palagi, Preston Chao palagi - pdchao
-* [RPA and their usefulness in today's industry](https://github.com/KTH/devops-course/tree/2022/contributions/presentation/week6-software-bots/srour-faivre). Bastien Faivre,Thomas Srour faivre - srour
+* [ChatOps: the use of bots for DevOps](https://github.com/KTH/devops-course/tree/2022/contributions/presentation/week6-software-bots/srour-faivre). Bastien Faivre,Thomas Srour faivre - srour
+* [Create a new PR for students to the devops](https://github.com/KTH/devops-course/tree/2022/contributions/course-automation/lukel). Luke LeVasseur lukel
 
    
 
