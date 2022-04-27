@@ -1,16 +1,16 @@
 # Assignment Proposal
 ## Title
-DevSecOps - Common vulnerabilities and Tools to test against these
+Devops in finance
 
 ## Names and KTH ID
 Gabriel Acar (gacar@kth.se)
 Lucas Eren (leren@kth.se)
 
 ## Deadline
-Task 3
+Task 4
 
 ## Category
 Essay
 
 ## Description
-We intend to cover what DevSecOps is briefly, and then go into some common vulnerabilites and what tools to use to test for these. Some topics we intend to discuss are Static Code Analysis, DAST, IAST.
+We intend to cover the role of devops in the finance industry. Some topics that will be covered are, advantages/disadvantages of devops in finance, and obstacles when using devops in finance.
