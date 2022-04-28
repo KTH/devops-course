@@ -53,6 +53,12 @@
 
 ## Schedule for week 7
 
+* Guest lecture by [Rhys Arkins (WhiteSource)](https://se.linkedin.com/in/rhys-arkins-5a643a)
+* [Sending Microsoft Azure security advisories to Slack](https://github.com/KTH/devops-course/tree/2022/contributions/demo/week7-dependency-DevSecOps/ersode)
+* [Demo on how to use Rultor to automate merging and deployment](https://github.com/KTH/devops-course/tree/2022/contributions/demo/week7-dependency-DevSecOps/zehaoj-yilinc)
+* [Automated Application Security Testing](https://github.com/KTH/devops-course/tree/2022/contributions/presentation/week7-dependency-DevSecOps/ntli)
+
+
 ## Schedule for week 8
 
 * [Open source culture and conventions](https://github.com/KTH/devops-course/pull/1680)
