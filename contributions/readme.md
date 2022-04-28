@@ -57,6 +57,9 @@
 * [Sending Microsoft Azure security advisories to Slack](https://github.com/KTH/devops-course/tree/2022/contributions/demo/week7-dependency-DevSecOps/ersode)
 * [Demo on how to use Rultor to automate merging and deployment](https://github.com/KTH/devops-course/tree/2022/contributions/demo/week7-dependency-DevSecOps/zehaoj-yilinc)
 * [Automated Application Security Testing](https://github.com/KTH/devops-course/tree/2022/contributions/presentation/week7-dependency-DevSecOps/ntli)
+* [JFrog Artifactory - An universal binary repository manager](https://github.com/KTH/devops-course/tree/2022/contributions/presentation/week7-dependency-DevSecOps/bonnici)
+* [Application of Blockchain Technology in Dependency Management](https://github.com/KTH/devops-course/tree/2022/contributions/presentation/week7-dependency-DevSecOps/gotthard)
+* [SonarQube for DevSecOps](https://github.com/KTH/devops-course/tree/2022/contributions/presentation/week7-dependency-DevSecOps/joakiols-kunalb)
 
 
 ## Schedule for week 8
