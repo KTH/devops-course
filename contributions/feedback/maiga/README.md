@@ -25,6 +25,8 @@ If the authors want it, I can test the tutorials at pre-submission. I also have 
 
 [#1720](https://github.com/KTH/devops-course/pull/1720)
 
+[Link to feedback](https://hackmd.io/@aissata/H1mUTSVH5)
+
 **Executable Tutorial authors**
 - Johan Edman (jedma@kth.se)
 - Fabian Segatz (segatz@kth.se)
