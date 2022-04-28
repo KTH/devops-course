@@ -18,8 +18,9 @@ Executable tutorial - Week 6: Software bots (April 26)
 
 ## Description
 
-[Slack](https://slack.com/) is a popular communication platform that used in the industry.
+Slack (https://slack.com/) is a popular communication platform that widely used in the industry. Like many other platforms, Slack supports the use of bot to perform different actions and tasks, such as sending a message in a channel whenever an event occurs.
 
-In this tutorial, I would like to show:
- - How the bot can make a notification in Slack whenever there is a commit/pull request/branch merge.
- - How to use the bot the query the usage of some services, example, the usage count of a AWS service.
+In this tutorial, I would like to show how to write and deploy a Slack bot that can 
+- Reply to a [@mention](https://slack.com/help/articles/205240127-Use-mentions-in-Slack#mention-someone) message
+- Make a HTTP request to query the usage of some services, for example, querying the number of issues of a repository on GitHub
+- Send a message in a channel whenever there is a merge/pull request made in GitHub
