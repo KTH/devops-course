@@ -25,9 +25,9 @@ can be used to make CI much better, by implementing a pipeline that automaticall
 directly in the GitHub page with some graphs containing some useful metrics that are necessary to understand how well the training of the model is proceeding.
 
 
-## Final Submission
+Final Submission
 
-[Katacoda link](https://www.katacoda.com/simopippa/scenarios/ci_clm)
+- [Katacoda link](https://www.katacoda.com/simopippa/scenarios/ci_clm)
 
-[Github Repo](https://github.com/vishalned/CI-with-CML)
+- [Github Repo](https://github.com/vishalned/CI-with-CML)
 
