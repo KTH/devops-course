@@ -37,3 +37,5 @@ which could also be valuable to student workflows within the devops repo.
 
 Submission:
 Shell Script URL in Standalone Repository: https://github.com/luuuk/devops-course/blob/2022/scripts/mpr.sh
+
+Presentation slides: https://docs.google.com/presentation/d/1jYw_Go7NJHkdgtqztEtCULN7yj1gykhAJ3dYnVYVRNM/edit?usp=sharing
