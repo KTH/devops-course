@@ -2,7 +2,7 @@
 
 ## Title
 
-Comparison of using containers and having a serverless architecture
+Containerized vs serverless architecture - When to switch to serverless and when not to
 
 ## Names and KTH ID
 
