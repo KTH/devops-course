@@ -2,7 +2,7 @@
 
 ## Title
 
-Serverless - What, how, and why
+Comparison of using containers and having a serverless architecture
 
 ## Names and KTH ID
 
@@ -18,8 +18,14 @@ Essay
 
 ## Description
 
+Containers have for a while now been the go to for developing microservices, 
+using Kubernetes or other container orchestrating tools for easy scaling
+and container maintenance.
+
 Serverless seems to be the new big thing for developers. It enables developers to 
 build and run applications and services without having to manage and orchestrate 
-the underlying infrastructure, such as scaling and maintenance. With this essay I 
-aim to describe why serverless is a thing and what it is, how it may be implemented, 
-and what obstacles may arise when having a serverless architecture.
+the underlying infrastructure, such as scaling and maintenance.
+
+This essay aims to examine the key differences between the two technologies and
+where the one might outshine the other.
+
