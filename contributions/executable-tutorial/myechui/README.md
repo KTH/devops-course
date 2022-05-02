@@ -24,3 +24,6 @@ In this tutorial, I would like to show how to write and deploy a Slack bot that 
 - Reply to a [@mention](https://slack.com/help/articles/205240127-Use-mentions-in-Slack#mention-someone) message
 - Make a HTTP request to query the usage of some services, for example, querying the total number of issues and pull requests of a repository on GitHub
 - Send a message in a channel whenever there is a merge/pull request made in GitHub
+
+Tutorial on Katacoda: https://www.katacoda.com/edchui/scenarios/slack-bot
+Katacoda GitHub Repo: https://github.com/EDChui/katacoda-scenarios
