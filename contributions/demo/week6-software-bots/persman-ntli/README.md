@@ -22,3 +22,5 @@ We want to write and demo a custom Slack bot that interacts with the Github API,
 
 We plan to either showcase usage of the Slack bot or create a demo on how to create one for this specific usecase depending on how advanced the bot turns out to be.
 
+Repository: https://github.com/persman96/Slack-GitHub-Bot
+Slides: https://docs.google.com/presentation/d/10_04JfqdESetnTddug_QZDU1ZBUz9AeABONNeDkA6Eo/edit?usp=sharing
