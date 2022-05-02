@@ -23,3 +23,9 @@ The [Serverless Framework](https://www.serverless.com/) is a free and open-sourc
 
 For task 2, I will setup executable tutorial using Katacoda where I will install [serverless framework](https://www.serverless.com/), create a simple Nodejs application using the serverless framework, setup the AWS cloud using AWS cli and deploy and run the application on AWS Lambda.
 
+***Task Submission***
+Final Submission Links
+
+KataCoda Scenario Repo Link: https://github.com/Abdullah1428/katacoda-scenarios
+
+KataCoda Scenario Tutorial Link: https://www.katacoda.com/abdullahcse1428/scenarios/serverless-framework
