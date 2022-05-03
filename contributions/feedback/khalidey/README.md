@@ -22,7 +22,7 @@ I would like to give feedback to "Leveraging Kubernetes with Kubeflow to Streaml
 
 **Link to submission PR** [#1788](https://github.com/KTH/devops-course/pull/1788)
 
-**Executable Tutorial author** 
+**Essay author** 
 - Marcel Juschak (marcelj@kth.se)
 
 The author has already approved my [request](https://github.com/KTH/devops-course/pull/1788#issuecomment-1116117966).
