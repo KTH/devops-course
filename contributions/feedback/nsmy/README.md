@@ -31,4 +31,6 @@ https://github.com/KTH/devops-course/pull/1718
 - Khalid El Yaacoub (khalidey@kth.se)
 
 The authors have already approved my [request](https://github.com/KTH/devops-course/pull/1718#issuecomment-1102958423) and 
-I have been provided access to the repository 
+I have been provided access to the repository
+
+Feedback comment: https://github.com/KTH/devops-course/pull/1718#issuecomment-1105675900

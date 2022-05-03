@@ -109,7 +109,7 @@ To pass, you must have 2 yes.
 ## Executable Tutorials
 
 
-The concept: you create an executable tutorial about a specific technology related to Devops. You deliver your tutorial on a platform supporting execution, such as [Katacoda](https://www.katacoda.com/), [mybinder.org](https://mybinder.org/) or equivalent.
+The concept: you create an executable tutorial about a specific technology related to Devops. You deliver your tutorial on a platform supporting execution, such as [Katacoda](https://www.katacoda.com/), [mybinder.org](https://mybinder.org/), [collab](https://colab.research.google.com/) or equivalent.
 
 
 |                                             | Yes | No | 
