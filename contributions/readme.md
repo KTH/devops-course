@@ -66,6 +66,7 @@
 
 ## Schedule for week 8
 
+* [DEMO Sending Microsoft Azure security advisories to Slack](https://github.com/KTH/devops-course/tree/2022/contributions/demo/week7-dependency-DevSecOps/ersode) Eric Söderberg (ersode)
 * [Open source culture and conventions](https://github.com/KTH/devops-course/pull/1680)
 
 ## Schedule for week 9
