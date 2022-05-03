@@ -23,4 +23,8 @@ We want to talk about cerificate management. In this we will try to cover the ba
 
 We will cover how it's done using Vault in a non-K8s environment and using Istio/Linkerd in a K8s environment.
 
+*** Final Submission ***
 
+Due to a packed schedule and a guest lecture in Week 7, we will be presenting our topic in week 8.
+
+Slides: https://docs.google.com/presentation/d/1lXiJTzGeSPloJal7OrpD9H0kKlee9bTX_kZGcHKhulQ/edit?usp=sharing
