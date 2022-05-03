@@ -29,6 +29,6 @@ Overall stucture of the final essay submission:
 - What challenges and benefits can arise?
 - Reflection and conclusion
 
-## Link to PDF 
+**Link to PDF**
 [The fundamentals of DevOps culture and how to transition to DevOps](https://drive.google.com/file/d/1Q3Vr7hHNbZOldGn_eusqusVHuw8WI4S_/view?usp=sharing)
 
