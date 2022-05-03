@@ -53,8 +53,21 @@
 
 ## Schedule for week 7
 
+* Guest lecture by [Rhys Arkins (WhiteSource)](https://se.linkedin.com/in/rhys-arkins-5a643a)
+* [Demo on how to use Rultor to automate merging and deployment](https://github.com/KTH/devops-course/tree/2022/contributions/demo/week7-dependency-DevSecOps/zehaoj-yilinc). Zehao Jiang (zehaoj), Yilin Chang (yilinc)
+* [Automated Application Security Testing](https://github.com/KTH/devops-course/tree/2022/contributions/presentation/week7-dependency-DevSecOps/ntli). Nikolai Limbrunner (ntli)
+* [JFrog Artifactory - An universal binary repository manager](https://github.com/KTH/devops-course/tree/2022/contributions/presentation/week7-dependency-DevSecOps/bonnici). Elias Bonnici (bonnici)
+* [Application of Blockchain Technology in Dependency Management](https://github.com/KTH/devops-course/tree/2022/contributions/presentation/week7-dependency-DevSecOps/gotthard). Arvid Gotthard (gotthard)
+* [SonarQube for DevSecOps](https://github.com/KTH/devops-course/tree/2022/contributions/presentation/week7-dependency-DevSecOps/joakiols-kunalb). Joakim Olsson (joakiols), Kunal Bhatnagar (kunalb)
+* [Supply Chain attacks and DevSecOps](https://github.com/KTH/devops-course/tree/2022/contributions/presentation/week7-dependency-DevSecOps/sannerv-mjafari). Filip Sannervik, Mikael Jafari (sannerv - mjafari)
+
+
+
+
 ## Schedule for week 8
 
+* [DEMO Sending Microsoft Azure security advisories to Slack](https://github.com/KTH/devops-course/tree/2022/contributions/demo/week7-dependency-DevSecOps/ersode). Eric Söderberg (ersode)
+* [DEMO How to integrate OWASP ZAP into Jenkins](https://github.com/KTH/devops-course/tree/2022/contributions/demo/week7-dependency-DevSecOps/yenc). Yen Chen (yenc)
 * [Open source culture and conventions](https://github.com/KTH/devops-course/pull/1680)
 
 ## Schedule for week 9
