@@ -1,4 +1,4 @@
-# Finished Essay
+# Assignment Proposal
 
 ## Title
 
