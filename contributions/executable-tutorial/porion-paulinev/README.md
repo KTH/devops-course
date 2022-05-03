@@ -21,7 +21,6 @@ There are a lot of differents monitoring system, sampler distinct himself by the
 
 We want to create a tutotrial to configure sampler with a docker container. 
 
-## Final submission
 Link to the [github katacoda repo](https://github.com/paulinev-kth/katacoda-scenarios)
 Lint to the [katacoda scenarios](https://www.katacoda.com/pauline/scenarios/sampler-docker)
 
