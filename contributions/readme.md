@@ -45,13 +45,24 @@
 * [Custom Slack Bot to interact with Github Actions](https://github.com/KTH/devops-course/tree/2022/contributions/demo/week6-software-bots/persman-ntli) Pontus Persman, Nikolai Limbrunner persman - ntli
 * [Automating pull requests and merging with Mergify](https://github.com/KTH/devops-course/tree/2022/contributions/presentation/week6-software-bots/abyel-cdik). Abyel Tesfay, Chrysoula Dikonimaki abyel - cdik
 * [Malicious Social Media Software Bot Detection](https://github.com/KTH/devops-course/tree/2022/contributions/presentation/week6-software-bots/palagi-pdchao).Brad Palagi, Preston Chao palagi - pdchao
-* [RPA and their usefulness in today's industry](https://github.com/KTH/devops-course/tree/2022/contributions/presentation/week6-software-bots/srour-faivre). Bastien Faivre,Thomas Srour faivre - srour
+* [ChatOps: the use of bots for DevOps](https://github.com/KTH/devops-course/tree/2022/contributions/presentation/week6-software-bots/srour-faivre). Bastien Faivre,Thomas Srour faivre - srour
 * [Create a new PR for students to the devops](https://github.com/KTH/devops-course/tree/2022/contributions/course-automation/lukel). Luke LeVasseur lukel
 
    
 
 
 ## Schedule for week 7
+
+* Guest lecture by [Rhys Arkins (WhiteSource)](https://se.linkedin.com/in/rhys-arkins-5a643a)
+* [Demo on how to use Rultor to automate merging and deployment](https://github.com/KTH/devops-course/tree/2022/contributions/demo/week7-dependency-DevSecOps/zehaoj-yilinc). Zehao Jiang (zehaoj), Yilin Chang (yilinc)
+* [Automated Application Security Testing](https://github.com/KTH/devops-course/tree/2022/contributions/presentation/week7-dependency-DevSecOps/ntli). Nikolai Limbrunner (ntli)
+* [JFrog Artifactory - An universal binary repository manager](https://github.com/KTH/devops-course/tree/2022/contributions/presentation/week7-dependency-DevSecOps/bonnici). Elias Bonnici (bonnici)
+* [Application of Blockchain Technology in Dependency Management](https://github.com/KTH/devops-course/tree/2022/contributions/presentation/week7-dependency-DevSecOps/gotthard). Arvid Gotthard (gotthard)
+* [SonarQube for DevSecOps](https://github.com/KTH/devops-course/tree/2022/contributions/presentation/week7-dependency-DevSecOps/joakiols-kunalb). Joakim Olsson (joakiols), Kunal Bhatnagar (kunalb)
+* [Supply Chain attacks and DevSecOps](https://github.com/KTH/devops-course/tree/2022/contributions/presentation/week7-dependency-DevSecOps/sannerv-mjafari). Filip Sannervik, Mikael Jafari (sannerv - mjafari)
+
+
+
 
 ## Schedule for week 8
 
