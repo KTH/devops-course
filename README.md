@@ -34,7 +34,7 @@ Iterations and Tests](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=92386
 * Student presentations, demonstrations and katacodas
 
 ### Week 5: [Infrastructure as Code](https://github.com/KTH/devops-course/issues/2) (April 19)
-* Preparatory material: [Best practices for container compliance](https://increment.com/containers/container-compliance/), [Building on-demand staging environments](https://increment.com/containers/on-demand-staging-environments-kubernetes/), [Gang of eight: a defect taxonomy for infrastructure as code scripts](http://www.chrisparnin.me/pdf/GangOfEight.pdf) and [SaaS Vs PaaS Vs IaaS](https://tms-outsource.com/blog/posts/saas-vs-paas-vs-iaas/)
+* Preparatory material: [Best practices for container compliance](https://increment.com/containers/container-compliance/), [Building on-demand staging environments](https://increment.com/containers/on-demand-staging-environments-kubernetes/), [Gang of eight: a defect taxonomy for infrastructure as code scripts](http://www.chrisparnin.me/pdf/GangOfEight.pdf)
 * Student presentations, demonstrations and katacodas
 * Deadline task 2
 
