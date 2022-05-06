@@ -2,7 +2,7 @@
 
 ## Title
 
-RPA and their usefulness in today's industry
+ChatOps: the use of bots for DevOps
 
 ## Names and KTH ID
   - Bastien Faivre (faivre@kth.se)
@@ -18,7 +18,6 @@ Presentation
 
 ## Description
 
-RPA (Robotic Process Automation) or bots are increasingly used in our daily life. They are useful to automate tasks that people could have done. A interesting question that may arise is:
-- What is the difference between a RPA and a normal automation ?
+We will present ChatOps and more precisely ChatBots : How they can be used as a tool for communication between a Chat App and the DevOps tools. We will show a concrete example of such a system. We will also present ressources to integrate them.
 
-Furthermore, in this presentation, we will also show you their usefulness and use in today's industry, especially in terms of DevOps. It is interesting to know how bots can boost companies profit and production.
+Link to slides : https://docs.google.com/presentation/d/16gYgdjE3nPyLfxU4akFTU2gwncQXzl4aaL_dqse-C1E/edit?usp=sharing
