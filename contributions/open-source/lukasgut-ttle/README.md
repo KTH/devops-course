@@ -6,8 +6,8 @@ Open-source contribution, adding support for converison to WEBP format
 
 ## Names and KTH ID
 
-Lukas Gutenberg (lukasgut@kth.se)
-Tony Le (ttle@kth.se)
+- Lukas Gutenberg (lukasgut@kth.se)
+- Tony Le (ttle@kth.se)
 
 ## Deadline
 
