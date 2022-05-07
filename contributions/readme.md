@@ -72,3 +72,4 @@
 
 ## Schedule for week 9
 * [Continuous Training in MLOps with Kubeflow](https://github.com/KTH/devops-course/pull/1670)
+* [Monitoring web services with sensu.](https://github.com/KTH/devops-course/pull/1890)
