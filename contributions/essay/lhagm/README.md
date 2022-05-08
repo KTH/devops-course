@@ -2,7 +2,7 @@
 
 ## Title
 
-Devops vs agile
+Working with DevOps and Agile together
 
 ## Names and KTH ID
 
@@ -17,5 +17,15 @@ Task 4
 Essay
 
 ## Description
+Planned headings (wording and order might change):
 
-I will erite an essay about agile vs devops. What are the similarities and differences? Can they complement eachother? Should you prefer one over the other?
+Introduction
+What is Agile?
+What is DevOps?
+How do they complement each other (to get a better quality of service delivered)?
+How can agile and devops be used successfully together?
+What are the challenges of using Devops and agile together? 
+Conclusion
+
+
+
