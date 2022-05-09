@@ -2,7 +2,7 @@
 
 ## Title
 
-Feedback on ("Docker containers: from 1979 till today - a comprehensive history")[https://github.com/KTH/devops-course/tree/2022/contributions/essay/bonato]
+Feedback on ["Docker containers: from 1979 till today - a comprehensive history"](https://github.com/KTH/devops-course/tree/2022/contributions/essay/bonato)
 
 ## Names and KTH ID
 
@@ -20,6 +20,6 @@ Feedback
 
 ## Description
 
-We would like to give feedback on the essay ("Docker containers: from 1979 till today - a comprehensive history")[https://github.com/KTH/devops-course/tree/2022/contributions/essay/bonato] as we found it is an interesting topic.
+We would like to give feedback on the essay ["Docker containers: from 1979 till today - a comprehensive history"](https://github.com/KTH/devops-course/tree/2022/contributions/essay/bonato) as we found it is an interesting topic.
 
 Essay proposal: https://github.com/KTH/devops-course/pull/1913
