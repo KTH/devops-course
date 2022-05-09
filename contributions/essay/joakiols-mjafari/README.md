@@ -2,7 +2,7 @@
 
 ## Title  
 
-Comparison Study Between Popular Infrastructure as Code Tools
+Comparative Study Between Popular Infrastructure as Code Tools
 
 ## Names and KTH ID   
   - Joakim Olsson (joakiols@kth.se)   
@@ -18,8 +18,8 @@ Essay
 
 ## Description  
 
-A comparison study between some common Infrastructure as Code (IaC) tools. The tools that will be covered in the essay: Ansible, Terraform, Chef, and Salt.
-How do they work, what are their differences, strength, and use cases? These are some of the things that will be discussed in this essay.
+A comparative study between some common Infrastructure as Code (IaC) tools. The tools that will be covered in the essay: Ansible, Chef, and Salt.
+How do they work, what are their differences, strength, and use-cases? These are some of the things that will be discussed in this essay.
 
 **Self-assessment**
 
@@ -35,7 +35,7 @@ How do they work, what are their differences, strength, and use cases? These are
 | introduction: The intro outlines the solution to the problem | ✅Yes | No |
 | conclusion: The conclusion contains an emphasized key take-away of the essay | ✅Yes | No |
 | self-contained: The essay is self-contained, one can understand it without reading something else (expected knowledge of the reader: a master student in computer science) | ✅Yes | No |
-| innovative: The essay contains innovative ideas or material | ✅Yes | No |
+| innovative: The essay contains innovative ideas or material | Yes | No |
 | figures: The essay contains relevant and informative figures | ✅Yes | No |
 | listings: The essay contains relevant and informative  listings | ✅Yes | No |
 | sound: The essay is sound, factual, and accurate | ✅Yes | No |
