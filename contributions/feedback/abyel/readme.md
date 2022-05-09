@@ -2,7 +2,7 @@
 
 ## Title
 
-Feedback on "The fundamentals of DevOps culture and how to transition to DevOps" essay.
+Feedback on Executable Tutorial: Serverless NodeJS Application using Serverless Framework and AWS
 
 ## Names and KTH ID
 
@@ -18,13 +18,11 @@ Feedback
 
 ## Description
 
-I would like to do feedback on the "The fundamentals of DevOps culture and how to transition to DevOps" Essay. I am intrested in understanding the 
-core culture of DevOps and what it means for the development and operations team.
+I would like to do feedback on the Executable Tutorial Serverless NodeJS Application using Serverless Framework and AWS 
 
 **Link to submission PR**
-https://github.com/KTH/devops-course/pull/1891
+https://github.com/KTH/devops-course/pull/1816
 
 **Essay Author**
-- Luciano Zapata (zapata@kth.se)
-- Isabel Redtzer (iredtzer@kth.se)
-
+- Abdullah Abdullah (aabdull@kth.se)
+- Aksel Uhr (auhr@kth.se)
