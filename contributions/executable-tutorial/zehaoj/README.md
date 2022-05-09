@@ -1,4 +1,4 @@
-# Tutorial Proposal
+# Assignment Proposal
 
 ## Title
 Katacoda tutorial on the usage of Sentry, an error reporting tool
