@@ -20,3 +20,7 @@ Being able to monitor one's docker container is important. Docker's container ar
 There are a lot of differents monitoring system, sampler distinct himself by the easy setups. It doesn't needs servers,  databases or deployment. It is a good tool for the development phases. 
 
 We want to create a tutotrial to configure sampler with a docker container. 
+
+Link to the [github katacoda repo](https://github.com/paulinev-kth/katacoda-scenarios)
+Lint to the [katacoda scenarios](https://www.katacoda.com/pauline/scenarios/sampler-docker)
+
