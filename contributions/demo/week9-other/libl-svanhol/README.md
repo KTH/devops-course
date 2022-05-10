@@ -20,9 +20,8 @@ Demo
 
 ## Description
 
-With monitoring of games and webbaplication notification can sent to update the user about a chrash and the causes of it 
-in order to prevent further chrashing.
+GameMaker is a game engine that has been used to create games such as Shovel Knight, Hyper Light Drifter and Katana Zero. 
 
-With the use of GameMakeer
+GameMaker has a default crash report handler that shows basic information about the crash to the user before exiting the game. 
 
-Repository links
+We would like to override and create our own handler that collects the crash report data along with additional platform and user data that then formats it and sends it to a webhosted database (Firebase) that would allow the game developer (us) to automatically collect crash reports from all users playing the game to be able to analyse where and why the game crashes on different platforms.
