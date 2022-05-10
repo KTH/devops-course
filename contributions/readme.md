@@ -69,6 +69,7 @@
 * [DEMO Sending Microsoft Azure security advisories to Slack](https://github.com/KTH/devops-course/tree/2022/contributions/demo/week7-dependency-DevSecOps/ersode). Eric Söderberg (ersode)
 * [DEMO How to integrate OWASP ZAP into Jenkins](https://github.com/KTH/devops-course/tree/2022/contributions/demo/week7-dependency-DevSecOps/yenc). Yen Chen (yenc)
 * [Open source culture and conventions](https://github.com/KTH/devops-course/pull/1680)
+* [Certificate Management in DevSecOps](https://github.com/KTH/devops-course/pull/1898)
 
 ## Schedule for week 9
 * [Continuous Training in MLOps with Kubeflow](https://github.com/KTH/devops-course/pull/1670)
