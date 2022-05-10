@@ -23,3 +23,9 @@ set up a reverse proxy with nginx to serve either API requests or the static web
 
 I plan on doing a step by step demonstration, explaining every notion and showing the results to the user (for example when restricting ssh access
 to only non-root users, show that access is denied by letting the user try anyway).
+
+Final submission links: 
+
+Katacoda-Scenario Repository: https://github.com/phamelink/katacoda-scenarios/tree/main/secure-server-tutorial
+
+Katacoda-Scenario Tutorial: https://katacoda.com/phamelink/scenarios/secure-server-tutorial
