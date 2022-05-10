@@ -26,3 +26,5 @@ The presentation would explore how Blockchain technology could be leveraged in p
 - https://ed-burton.medium.com/creating-a-blockchain-distributed-package-manager-for-front-end-enterprise-ci-cd-pipelines-2fe458945b22 (medium article)
 
 You could say that the presentation would be a "glance" into a potential future where these kinds of dependency management solutions are more commonly used.
+
+Link to slides: https://docs.google.com/presentation/d/1LS7h4xSIp-_q1lpxx_724yePfslP31EmFVecYF5sxGs/edit?usp=sharing
