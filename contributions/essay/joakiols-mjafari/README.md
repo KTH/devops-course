@@ -21,6 +21,29 @@ Essay
 A comparative study between some common Infrastructure as Code (IaC) tools. The tools that will be covered in the essay: Ansible, Chef, and Salt.
 How do they work, what are their differences, strength, and use-cases? These are some of the things that will be discussed in this essay.
 
+**Changelog for resubmission:**
+
+General:
+ - Figure and table references added
+ - Removed Terraform section & Terraform discussion
+ - Moved comparison table to discussion and removed comparison section
+ - Added explanation for comparison table
+ - Fixed some typographical & grammatical errors
+ - Figure & listing size adjustment
+ - Changed referencing style
+ - Improved quality of figures & listings
+
+Introduction:
+ - Added problem statement as a subsection for introduction
+ - Additional motivation for the need for IaC tools
+
+Discussion:
+ - Additional paragraph for explaining key advantages & disadvantages
+
+Conclusion:
+ - Added recap of the key features of the three tools
+ - Clear essay takeaway in the end
+
 **Self-assessment**
 
 |                                             | Yes | No |
