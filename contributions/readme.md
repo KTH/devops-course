@@ -24,11 +24,53 @@
 
 ## Schedule for week 4
 
-* [Presentation of Handling multiple services in a monorepo using Docker](https://github.com/KTH/devops-course/pull/1677)
-* [Azure functions access OnPrem resources](https://github.com/KTH/devops-course/tree/2022/contributions/presentation/week4-containers-and-serverless/bgeid-megzari/)
-* [Demonstration of Deploying Multiple API Servers with Docker and AWS Lambda](https://github.com/KTH/devops-course/pull/1698)
-* [Integration Testing with Testcontainer](https://github.com/KTH/devops-course/pull/1736)
-* [The role of containers in the development and deployment of ML models](https://github.com/KTH/devops-course/pull/1733)
+* [Presentation of Handling multiple services in a monorepo using Docker](https://github.com/KTH/devops-course/pull/1677). Luciano Zapata, Bror Sebastian Sjövald
+* [Demonstration of Deploying Multiple API Servers with Docker and AWS Lambda](https://github.com/KTH/devops-course/tree/2022/contributions/demo/week4-containers-and-serverless/myechui). Man Yin Edward CHUI
+* [Integration Testing with Testcontainer](https://github.com/KTH/devops-course/pull/1736). Mayuri Salunke,  Yen Chen
+* [The role of containers in the development and deployment of ML models](https://github.com/KTH/devops-course/pull/1733). Simone Bonato, Khalid El Yaacoub
+* [Server vs. Serverless](https://github.com/KTH/devops-course/pull/1743). Mustafa Ali, Rafi Youssef 
+* [A portable CI/CD pipeline](https://github.com/KTH/devops-course/tree/2022/contributions/demo/week4-containers-and-serverless/johnlan-perarn). Per Arn, John Landeholt
 
-## Pending schedule
+## Schedule for week 5
+
+* [How to set up a Docker image, container and docker service using Terraform as a Docker Provider](https://github.com/KTH/devops-course/tree/2022/contributions/demo/week5-Infrastructure-as-Code/iredtzer-vilmaj)
+* [Best practices for securing IaC](https://github.com/KTH/devops-course/pull/1775)
+* [Tokenization of Physical Resources and Services](https://github.com/KTH/devops-course/pull/1710)
+* [Pulumi - what, why and how](https://github.com/KTH/devops-course/pull/1772)
+* [Demo Terraform with Jetbrains' IDE](https://github.com/KTH/devops-course/tree/2022/contributions/demo/week5-Infrastructure-as-Code/gatien-ddnadjar)
+
+## Schedule for week 6
+
+* [Remote Monitoring and controlling of Machine Learning Models with Telegram Bot](https://github.com/KTH/devops-course/tree/2022/contributions/demo/week6-software-bots/khalidey-vishaln). Khalid El Yaacoub, Vishal Nedungadi khalidey - vishaln
+* [Custom Slack Bot to interact with Github Actions](https://github.com/KTH/devops-course/tree/2022/contributions/demo/week6-software-bots/persman-ntli) Pontus Persman, Nikolai Limbrunner persman - ntli
+* [Automating pull requests and merging with Mergify](https://github.com/KTH/devops-course/tree/2022/contributions/presentation/week6-software-bots/abyel-cdik). Abyel Tesfay, Chrysoula Dikonimaki abyel - cdik
+* [Malicious Social Media Software Bot Detection](https://github.com/KTH/devops-course/tree/2022/contributions/presentation/week6-software-bots/palagi-pdchao).Brad Palagi, Preston Chao palagi - pdchao
+* [ChatOps: the use of bots for DevOps](https://github.com/KTH/devops-course/tree/2022/contributions/presentation/week6-software-bots/srour-faivre). Bastien Faivre,Thomas Srour faivre - srour
+* [Create a new PR for students to the devops](https://github.com/KTH/devops-course/tree/2022/contributions/course-automation/lukel). Luke LeVasseur lukel
+
+   
+
+
+## Schedule for week 7
+
+* Guest lecture by [Rhys Arkins (WhiteSource)](https://se.linkedin.com/in/rhys-arkins-5a643a)
+* [Demo on how to use Rultor to automate merging and deployment](https://github.com/KTH/devops-course/tree/2022/contributions/demo/week7-dependency-DevSecOps/zehaoj-yilinc). Zehao Jiang (zehaoj), Yilin Chang (yilinc)
+* [Automated Application Security Testing](https://github.com/KTH/devops-course/tree/2022/contributions/presentation/week7-dependency-DevSecOps/ntli). Nikolai Limbrunner (ntli)
+* [JFrog Artifactory - An universal binary repository manager](https://github.com/KTH/devops-course/tree/2022/contributions/presentation/week7-dependency-DevSecOps/bonnici). Elias Bonnici (bonnici)
+* [Application of Blockchain Technology in Dependency Management](https://github.com/KTH/devops-course/tree/2022/contributions/presentation/week7-dependency-DevSecOps/gotthard). Arvid Gotthard (gotthard)
+* [SonarQube for DevSecOps](https://github.com/KTH/devops-course/tree/2022/contributions/presentation/week7-dependency-DevSecOps/joakiols-kunalb). Joakim Olsson (joakiols), Kunal Bhatnagar (kunalb)
+* [Supply Chain attacks and DevSecOps](https://github.com/KTH/devops-course/tree/2022/contributions/presentation/week7-dependency-DevSecOps/sannerv-mjafari). Filip Sannervik, Mikael Jafari (sannerv - mjafari)
+
+
+
+
+## Schedule for week 8
+
+* [DEMO Sending Microsoft Azure security advisories to Slack](https://github.com/KTH/devops-course/tree/2022/contributions/demo/week7-dependency-DevSecOps/ersode). Eric Söderberg (ersode)
+* [DEMO How to integrate OWASP ZAP into Jenkins](https://github.com/KTH/devops-course/tree/2022/contributions/demo/week7-dependency-DevSecOps/yenc). Yen Chen (yenc)
+* [Open source culture and conventions](https://github.com/KTH/devops-course/pull/1680)
+* [Certificate Management in DevSecOps](https://github.com/KTH/devops-course/pull/1898)
+
+## Schedule for week 9
 * [Continuous Training in MLOps with Kubeflow](https://github.com/KTH/devops-course/pull/1670)
+* [Monitoring web services with sensu.](https://github.com/KTH/devops-course/pull/1890)
