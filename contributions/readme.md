@@ -76,4 +76,5 @@
 * [Continuous Training in MLOps with Kubeflow](https://github.com/KTH/devops-course/pull/1670) (ennio-vishaln)
 * [Demo: Monitoring web services with sensu.](https://github.com/KTH/devops-course/pull/1890) (olofgr)
 * [Demo: Monitoring a Golang web service using Prometheus, Loki, and Grafana.](https://github.com/KTH/devops-course/tree/2022/contributions/demo/week9-other/gotthard/README.md) (gotthard)
-* 
+* [Presentation: DevOps and environmental sustainability](https://github.com/KTH/devops-course/tree/2022/contributions/presentation/week9-other/pontuscm-varyd) (pontuscm-varyd)
+* [Demo: Logging & monitoring using ELK stack](https://github.com/KTH/devops-course/pull/1941) (joakiols)
