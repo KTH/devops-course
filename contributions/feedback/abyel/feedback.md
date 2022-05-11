@@ -60,7 +60,7 @@ Overall, it was interesting to learn about Consul. It is quite relevant for proj
 |motivation: The tutorial is clearly motivated (why it matters for Devops?) | ✔️ Keeping track of microservices | No | 
 |browser-based: The tutorial can be successful executed in the browser (katacoda is recommended) | Yes ✔️| No | 
 |ci-based: The tutorial can successful be executed as a CI job | Not relevant | Not relevant | 
-|background: The tutorial gives enough background | Yes ✔️| No | 
+|background: The tutorial gives enough background | Yes | A bit more background on some commands ❎ | 
 |illustrated: The tutorial is illustrated with an informative figure (eg a flowchart) | Yes, in the beginning ✔️| No | 
 |pedagogical: The tutorial is easy to follow  | Yes ✔️| No | 
 |original: The tutorial is original, no or few similar tutorials exist on the web | Yes ✔️| No |
