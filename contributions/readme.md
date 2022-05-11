@@ -66,11 +66,14 @@
 
 ## Schedule for week 8
 
+* Guest lectures by EA/DICE
 * [DEMO Sending Microsoft Azure security advisories to Slack](https://github.com/KTH/devops-course/tree/2022/contributions/demo/week7-dependency-DevSecOps/ersode). Eric Söderberg (ersode)
 * [DEMO How to integrate OWASP ZAP into Jenkins](https://github.com/KTH/devops-course/tree/2022/contributions/demo/week7-dependency-DevSecOps/yenc). Yen Chen (yenc)
 * [Open source culture and conventions](https://github.com/KTH/devops-course/pull/1680)
 * [Certificate Management in DevSecOps](https://github.com/KTH/devops-course/pull/1898)
 
 ## Schedule for week 9
-* [Continuous Training in MLOps with Kubeflow](https://github.com/KTH/devops-course/pull/1670)
-* [Monitoring web services with sensu.](https://github.com/KTH/devops-course/pull/1890)
+* [Continuous Training in MLOps with Kubeflow](https://github.com/KTH/devops-course/pull/1670) (ennio-vishaln)
+* [Demo: Monitoring web services with sensu.](https://github.com/KTH/devops-course/pull/1890) (olofgr)
+* [Demo: Monitoring a Golang web service using Prometheus, Loki, and Grafana.](https://github.com/KTH/devops-course/tree/2022/contributions/demo/week9-other/gotthard/README.md) (gotthard)
+* 
