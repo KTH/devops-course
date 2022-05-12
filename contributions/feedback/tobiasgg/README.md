@@ -1,22 +1,22 @@
 # Assignment Proposal
 
- ## Title
+## Title
 
- Feedback on Essay [#1688](https://github.com/KTH/devops-course/pull/1688)
- "Gitlab CI vs Github Actions".
+Feedback on Essay [#1688](https://github.com/KTH/devops-course/pull/1688)
+"Gitlab CI vs Github Actions".
 
- ## Names and KTH ID
+## Names and KTH ID
 
- - tobiasgg (tobiasgg@kth.se)
+- tobiasgg (tobiasgg@kth.se)
 
- ## Deadline
+## Deadline
 
- Task 4
+Task 4
 
- ## Category
+## Category
 
- Feedback
+Feedback
 
- ## Description
+## Description
 
- I would like to give feedback on the essay "Gitlab CI vs Github Actions" (PR #1688), since I find the topic interesting and want to learn more. I have approval from the author.
+I would like to give feedback on the essay "Gitlab CI vs Github Actions" (PR #1688), since I find the topic interesting and want to learn more. I have approval from the author.
