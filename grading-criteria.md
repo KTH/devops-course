@@ -67,12 +67,12 @@ To pass, you need at least 9 "yes".
 ## Demos
 
 
-The concept: Students prepare a demonstration involving DevOps technology, to be performed during the lecture. For example, a demo typically involves multiple virtual machines, likely deployed in the cloud. A demonstration is scripted, prepared and lasts 5 minutes.
+The concept: Students prepare a demonstration involving DevOps technology, to be performed during the lecture. For example, a demo typically involves multiple virtual machines, likely deployed in the cloud. A demonstration is scripted, prepared and lasts 6:30-7:30 minutes.
 
 
 |                                             | Yes | No | 
 |-------------------------------------------- | ----|----|
-|timing: The demo lasts between 4:30-5 minutes (hard limit)  | Mandatory | - |
+|timing: The demo lasts between 6:30-7:30 minutes (hard limit)  | Mandatory | - |
 |motivation: The demonstration is clearly motivated (why it matters for Devops?) | Yes | No | 
 |narrative: The demo contains a good narrative | Yes | No | 
 |difficulty: The demonstration is difficult to do | Yes | No |
@@ -109,7 +109,7 @@ To pass, you must have 2 yes.
 ## Executable Tutorials
 
 
-The concept: you create an executable tutorial about a specific technology related to Devops. You deliver your tutorial on a platform supporting execution, such as [Katacoda](https://www.katacoda.com/), [mybinder.org](https://mybinder.org/) or equivalent.
+The concept: you create an executable tutorial about a specific technology related to Devops. You deliver your tutorial on a platform supporting execution, such as [Katacoda](https://www.katacoda.com/), [mybinder.org](https://mybinder.org/), [collab](https://colab.research.google.com/) or equivalent.
 
 
 |                                             | Yes | No | 
