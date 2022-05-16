@@ -28,5 +28,6 @@ As I have not yet used this project before, the effort for me should be enough f
 repo-link: https://github.com/imgbot/Imgbot <br>
 forked repo-link: https://github.com/lnsandn01/Imgbot <br>
 
-Issue to work on:<br>
-https://github.com/imgbot/Imgbot/issues/1068 <br>
+issue to work on: https://github.com/imgbot/Imgbot/issues/1068 <br>
+
+pull request: https://github.com/imgbot/Imgbot/pull/1143 <br>
