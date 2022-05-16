@@ -2,7 +2,7 @@
 
 ## Title
 
-Collecting user chrash reports in GameMaker
+Collecting user crash reports in GameMaker
 
 ## Names and KTH ID
 - Linus Below Blomkvist (libl@kth.se)
