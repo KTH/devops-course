@@ -66,10 +66,18 @@
 
 ## Schedule for week 8
 
+* Guest lectures by EA/DICE
 * [DEMO Sending Microsoft Azure security advisories to Slack](https://github.com/KTH/devops-course/tree/2022/contributions/demo/week7-dependency-DevSecOps/ersode). Eric Söderberg (ersode)
 * [DEMO How to integrate OWASP ZAP into Jenkins](https://github.com/KTH/devops-course/tree/2022/contributions/demo/week7-dependency-DevSecOps/yenc). Yen Chen (yenc)
 * [Open source culture and conventions](https://github.com/KTH/devops-course/pull/1680)
+* [Certificate Management in DevSecOps](https://github.com/KTH/devops-course/pull/1898)
 
 ## Schedule for week 9
-* [Continuous Training in MLOps with Kubeflow](https://github.com/KTH/devops-course/pull/1670)
-* [Monitoring web services with sensu.](https://github.com/KTH/devops-course/pull/1890)
+* [Continuous Training in MLOps with Kubeflow](https://github.com/KTH/devops-course/pull/1670) (ennio-vishaln)
+* [Demo: Monitoring web services with sensu.](https://github.com/KTH/devops-course/pull/1890) (olofgr)
+* [Demo: Monitoring a Golang web service using Prometheus, Loki, and Grafana.](https://github.com/KTH/devops-course/tree/2022/contributions/demo/week9-other/gotthard/README.md) (gotthard)
+* [Demo: Collecting user chrash report in GameMaker](https://github.com/KTH/devops-course/tree/2022/contributions/demo/week9-other/libl-svanhol) (libl-svanhol)
+* [Presentation: DevOps and environmental sustainability](https://github.com/KTH/devops-course/tree/2022/contributions/presentation/week9-other/pontuscm-varyd) (pontuscm-varyd)
+* [(Guest) Modus: A language for building Docker/OCI container images](https://modus-continens.com/) (Sergey Mechtaev, University College London)
+* ~~[Demo: Logging & monitoring using ELK stack](https://github.com/KTH/devops-course/pull/1941) (joakiols)~~
+* [From metrics to insight: Prometheus monitoring system overview](https://github.com/KTH/devops-course/tree/2022/contributions/presentation/week9-other/geomal)(geomal)
