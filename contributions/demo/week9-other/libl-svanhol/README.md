@@ -2,9 +2,7 @@
 
 ## Title
 
-Collecting user chrash report in GameMaker
-
-Monitoring chrash report
+Collecting user chrash reports in GameMaker
 
 ## Names and KTH ID
 - Linus Below Blomkvist (libl@kth.se)
@@ -20,8 +18,10 @@ Demo
 
 ## Description
 
-GameMaker is a game engine that has been used to create games such as Shovel Knight, Hyper Light Drifter and Katana Zero. 
+[GameMaker](https://gamemaker.io/) is a game engine that has been used to create games such as Shovel Knight, Hyper Light Drifter and Katana Zero. 
 
 GameMaker has a default crash report handler that shows basic information about the crash to the user before exiting the game. 
 
-We would like to override and create our own handler that collects the crash report data along with additional platform and user data that then formats it and sends it to a webhosted database (Firebase) that would allow the game developer (us) to automatically collect crash reports from all users playing the game to be able to analyse where and why the game crashes on different platforms.
+We have created a library for GameMaker called "CrashR" that allows developers to override and create their own crash handler that generates a crash report containing information about the uncaught exception along with additional platform and user data that is then formatted and sent to a webhosted database (Firebase in our demo). This library allows the game developer (us) to automatically collect crash reports from all users playing the game, which makes it possible to analyse game crashes on a much larger scale than if automation woudln't have been used.
+
+Repository: https://github.com/JustFredrik/CrashR
