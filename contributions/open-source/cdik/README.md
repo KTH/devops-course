@@ -28,3 +28,21 @@ So, in general, React Testing Library is a solution for writting better tests co
 I would like to contribute to the this migration.
 
 Issue: [#48253](https://github.com/grafana/grafana/issues/48253)
+
+## Final Submission
+
+* Pull Requests: 
+
+[#48887](https://github.com/grafana/grafana/pull/48887), [#48918](https://github.com/grafana/grafana/pull/48918), [#48982](https://github.com/grafana/grafana/pull/48982)
+* Discussion with the maintainers: [#46498](https://github.com/grafana/grafana/issues/46498)
+* Why are these tests important? Why is this migration important?
+
+Grafana has 3 types of tests: frontend tests, backend tests and end-to-end tests. Given that Grafana is a UI tool for observability, having good tests to test that the UI functionality works is very important. 
+Looking the package.json file, we see that the React version that is used by Grafana is the ‘17.0.2’. Enzyme is not compatible with this file of React. It is compatible with React versions<16. Given the importance of these tests, problems will occur in the future if we don't move to a compatible solution.
+That’s why there is a need to migrate to React Testing Library which is one of the top solutions to test React UIs these days. 
+React Testing Library is a very lightweight solution which provides lightweight functions to test DOM in a way that encourages good testing practices.  We do not focus on testing the React component. This way our tests are not tight with the specific implementation but they test if the business logic of our application is satisfied. We test our components the way the user will.
+Compared to Enzyme, the React Testing Library is better as it does not allow you to access the internal workings of the component so this way discourages bad testing practices.  
+
+* Difficulty?
+
+In order to migrate from one tool to another somebody needs to have an understanding of both tools. Even though Enzyme and React Testing Library have the same purpose, the way of thinking to write these tests is different. So migrating requires somebody to study both frameworks and study some basic ways to think when migrating. Then focusing on the React Testing Library and how to write the specific type of test given
