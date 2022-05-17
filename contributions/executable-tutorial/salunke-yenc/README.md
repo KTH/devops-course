@@ -23,6 +23,6 @@ Datadog is an observability service for cloud-scale applications, providing moni
 
 We plan to create a tutorial to show how to use Datadog to monitor applications deployed on Heroku.
 
-## Final Submission
+Final Submission
 [Katacoda Tutorial Link](https://www.katacoda.com/yenchen090/scenarios/datadog-on-heroku)
 [KataCoda Repo Link](https://github.com/b06902047/katacoda-scenarios)
