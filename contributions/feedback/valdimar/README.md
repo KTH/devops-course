@@ -2,7 +2,7 @@
 
 ## Title
 
-Feedback on essay "Docker containers: from 1979 till today"
+Feedback on essay "Using Agile and DevOps Together"
 
 ## Names and KTH ID
 
@@ -19,8 +19,8 @@ Feedback
 
 ## Description
 
-Feedback on the essay "Docker containers: from 1979 till today"
+Feedback on the essay "Using Agile and DevOps together"
 
 **Essay Author**
 
-- Simone Bonato (bonato@kth.se)
+- Linnea Hagman (lhagm@kth.se)
