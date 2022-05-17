@@ -24,3 +24,10 @@ In this tutorial we would like to show how the CML library, built specifically t
 can be used to make CI much better, by implementing a pipeline that automatically trains the model when someone makes a PR, and returns a report
 directly in the GitHub page with some graphs containing some useful metrics that are necessary to understand how well the training of the model is proceeding.
 
+
+Final Submission
+
+- [Katacoda link](https://www.katacoda.com/simopippa/scenarios/ci_clm)
+
+- [Github Repo](https://github.com/vishalned/CI-with-CML)
+
