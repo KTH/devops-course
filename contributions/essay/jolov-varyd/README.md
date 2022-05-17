@@ -18,4 +18,4 @@ Essay
 
 ## Description
 
-The essay will discuss the security challenges in the software supply chain. The essay will bring up recent cases of security breaches in the supply chain and some preventative techniques, for instance Snyk's service.
+The essay will discuss the security challenges in the software supply chain. The essay will bring up recent cases of security breaches in the supply chain and some preventative techniques, such as SBOM and SLSA.
