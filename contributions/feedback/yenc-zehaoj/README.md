@@ -29,3 +29,5 @@ https://github.com/KTH/devops-course/pull/1991
 - Shotaro Ishii (shotaro@kth.se)
 
 The authors have already approved our [request](https://github.com/KTH/devops-course/pull/1991#issuecomment-1129242213).
+
+[Comment added](https://github.com/KTH/devops-course/pull/1991#issuecomment-1130218623)
