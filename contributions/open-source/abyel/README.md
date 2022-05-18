@@ -2,7 +2,7 @@
 
 ## Title
 
-Open-source contribution to Mergify software bot, adding action to revert changes
+Open-source contribution to the DevOps-exercises Repository
 
 ## Names and KTH ID
 
@@ -18,10 +18,8 @@ Contribution to open-source
 
 ## Description
 
-[Mergify](https://github.com/Mergifyio/mergify-engine) is an automation tool that automates pull requests actions e.g. merging. The repository would benefit DevOps as it can be used to 
-automate manual work that is often required when handling each pull request. A common example is merging a PR if enough 
-reviewers have approved it and the PR passes all CI checks. The project has an active community with 272 stars and over 4000 commits.
+[DevOps-Exercises](https://github.com/bregman-arie/devops-exercises) is a github repository that contains questions and exercises on technical topics, from Software deveopment to DevOps. Contributing to this repository would benefit DevOps as it can help beginners who are starting to learn devops and experienced users who want to expand their knowledge. The project has an active community with 24.1k stars and over 500 commits.
 
-The authors have expressed their wish for an action that reverts commits in pull requests, i will contribute to this by adding a file which handles the _revert_ action
-in their directory of actions. This will contribute to a growing number of actions the tool can perform and hopefully a way for deveopers to automate reverts to 
-e.g previous stable commits.
+The authors have expressed their wish for answers to questions related to Grafana, a observability and visualization tool. I wish to contribute by reading related documentation and finding answers to the questions, as well as formulating relevant questions. 
+
+Issue can be found here: [Add questions on Grafana #4](https://github.com/bregman-arie/devops-exercises/issues/4)
