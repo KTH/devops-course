@@ -26,6 +26,30 @@ This script is used to list the group who have not received a grade on canvas.
 
 `--week` and `--deadline` are optional, if you don't give them, you'll get all non graded groups for this task
 
+## final_grade_exporter.py
+This script is used to grade each student according to the number of task completed
+
+### Requirements 
+
+- Python 3
+- External modules
+  - argparse
+  - requests
+
+### Usage
+
+`python3 final_grade_exporter.py --token 88779~...`
+
+`python3 final_grade_exporter.py --token 88779~... --export grade.csv`
+
+`python3 final_grade_exporter.py --token 88779~... --export grade.csv --fields kth_id grade`
+
+| Option | Usage | Required | Default|
+|---|---|---|---|
+|--token| Canvas access token generated on [on your profile](https://canvas.kth.se/profile/settings) | :heavy_check_mark:||
+|--export| Path where to write the csv file  |:x:| No writing  |
+|--fields| Specify fields to write, *canvas_id name kth_id completed grade*  |:x:| name kth_id grade|
+
 
 ## stat_submission.py
 
