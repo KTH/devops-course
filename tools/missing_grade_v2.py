@@ -13,6 +13,12 @@ CANVAS_URL = "https://canvas.kth.se"
 CANVAS_COURSE_ID = 31421
 CONTRIBUTION_PATH = '../contributions'
 
+assigned_tasks = []
+if os.path.exists('gdoc.csv'):
+    assigned_tasks=[x.split(',')[1] for x in open('gdoc.csv') if len(x)>10 and len(x.split(',')[1])>0]
+
+for i in assigned_tasks: 
+    if len([x for x in assigned_tasks if x == i])>1: raise Exception("duplicate "+i)
 
 # Mapping from github task name to canvas group set id
 def task_to_set(task_name, canvas_set):
@@ -66,7 +72,11 @@ def check_group_grading(groups, id_assignment):
             r = requests.get(url, headers={'Authorization': 'Bearer ' + CANVAS_TOKEN})
             graded = "graded" == json.loads(r.content)["workflow_state"]
             if not graded:
-                print("missing grade for", TASK, "of", group)
+                url = "https://github.com/KTH/devops-course/tree/2022/contributions/"+TASK+"/"+group
+                print(url)
+                if len(assigned_tasks)>0 and url not in assigned_tasks:
+                    print('==',url)
+                #print("missing grade for", TASK, "of", group)
                 break
 
 
@@ -113,7 +123,7 @@ def filter_deadline_groups(groups, deadline):
 
         if 'task ' not in file:
             sorted_groups[group] = groups[group]
-            print("Not sure if the group " + group + " is in for this deadline, checking it anyway\n")
+            #print("Not sure if the group " + group + " is in for this deadline, checking it anyway\n")
         if 'task ' + deadline in file:
             sorted_groups[group] = groups[group]
 
