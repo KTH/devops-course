@@ -25,7 +25,7 @@ It consists of the following parts:
 * Understanding Selenium WebDrivers and installation
 * How to integrate Selenium WebDrivers with TestNG and inspiration on how to use it 
 
-## Links
+-- Links
 
 * [Link to Katacoda Tutorial](https://www.katacoda.com/isabelre/scenarios/maven-selenium)
 * [Link to Katacoda Repo](https://github.com/isabelredtzer/katakoda-scenarios)
