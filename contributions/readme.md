@@ -80,3 +80,8 @@
 * [Presentation: DevOps and environmental sustainability](https://github.com/KTH/devops-course/tree/2022/contributions/presentation/week9-other/pontuscm-varyd) (pontuscm-varyd)
 * [(Guest) Modus: A language for building Docker/OCI container images](https://modus-continens.com/) (Sergey Mechtaev, University College London)
 * ~~[Demo: Logging & monitoring using ELK stack](https://github.com/KTH/devops-course/pull/1941) (joakiols)~~
+* [From metrics to insight: Prometheus monitoring system overview](https://github.com/KTH/devops-course/tree/2022/contributions/presentation/week9-other/geomal)(geomal)
+
+## Pending
+
+* [Demo of MLOps workflow](https://github.com/KTH/devops-course/tree/2022/contributions/demo/week9-other/sannerv-kunalb)
