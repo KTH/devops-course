@@ -19,8 +19,9 @@ Contribution to open-source
 ## Description
 
 The discord bot is made for the Python Discord server. It is written in Python and makes use of Docker to run.
-This is related to DevOps as it falls under software bots.
 I'd like to contribute to this project as I think software bots are useful and I will learn how to set them up through this task.
+This is related to DevOps as it falls under software bots.
+The project should be fine to choose as it has more than 10 stars, more than 100 commits and a pretty active community on GitHub with the last merged pull request being merely 4 days ago.
 
 I would like to work on two issues that are related:
 
