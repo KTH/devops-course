@@ -32,7 +32,7 @@ I would like to contribute to the this migration.
 
 Issue: [#48253](https://github.com/grafana/grafana/issues/48253)
 
-2. A11y Feature
+2. A11y Bug
 
 A11y (Accessibility - "A" then 11 letters then "y") in web development means making websites that can be used by as many people as possible, including people with disabilities. Grafana can be improved to support A11y and make it easier for people to navigate through the app without using a mouse but using the keyboard or voice over.
 
@@ -61,5 +61,5 @@ In order to migrate from one tool to another somebody needs to have an understan
 I started with simpler tests which were focusing on testing the existence of a text etc. Then, I moved to more complex tests which required to change the logic the tests are written due to the difference of the tools. For example, the tests written with Enzyme sometimes render Components which is something you cannot do with the React Testing Library because we should focus on testing the DOM elements (better practise). Then, I've written tests for user events, like hover or click. 
 
 
-2. A11y Feature
+2. A11y Bug
 * Pull Requests: [#49075](https://github.com/grafana/grafana/pull/49075), [#49076](https://github.com/grafana/grafana/pull/49076)
