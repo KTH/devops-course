@@ -2,7 +2,7 @@
 
 ## Title
 
-Grafana: Migrate from Enzyme to React Testing Library
+Grafana: Migrate from Enzyme to React Testing Library + Improve Keyboard A11y (Accessibility)
 
 ## Names and KTH ID
 
@@ -19,7 +19,8 @@ Contribution to open-source
 ## Description
 
 [Grafana](https://github.com/grafana/grafana) is a very popular open-source platform for monitoring and observability. 
-Its frontend is written in React and all the frontend tests were written in Enzyme, a Javascript testing library which stopped supporting React versions >=17.
+
+1. Its frontend is written in React and all the frontend tests were written in Enzyme, a Javascript testing library which stopped supporting React versions >=17.
 That's why all the tests need to be migrated from Enzyme to a better solution called React Testing Library. 
 React Testing Library is a lot different from the Enzyme since it focuses on testing the DOM and not the React component. 
 This way, we can be more confident that our domain logic we want our app to have is actually implemented and the user can use the app as expected.
@@ -29,12 +30,16 @@ I would like to contribute to the this migration.
 
 Issue: [#48253](https://github.com/grafana/grafana/issues/48253)
 
+2. A11y (Accessibility - "A" then 11 letters then "y") in web development means making websites that can be used by as many people as possible, including people with disabilities. Grafana can be improved to support A11y and make it easier for people to navigate through the app without using a mouse but using the keyboard or voice over.
+
+For this reason, extra buttons have to be added to reduce the number of times the user presses the arrow keys.
+
+Issue: [#46498](https://github.com/grafana/grafana/issues/46498)
 ## Final Submission
 
-* Pull Requests: 
+1. Test Migration
+* Pull Requests: [#48887](https://github.com/grafana/grafana/pull/48887), [#48918](https://github.com/grafana/grafana/pull/48918), [#48982](https://github.com/grafana/grafana/pull/48982), [#49107](https://github.com/grafana/grafana/pull/49107), [#49119](https://github.com/grafana/grafana/pull/49119), [#49148](https://github.com/grafana/grafana/pull/49148)
 
-[#48887](https://github.com/grafana/grafana/pull/48887), [#48918](https://github.com/grafana/grafana/pull/48918), [#48982](https://github.com/grafana/grafana/pull/48982)
-* Discussion with the maintainers: [#46498](https://github.com/grafana/grafana/issues/46498)
 * Why are these tests important? Why is this migration important?
 
 Grafana has 3 types of tests: frontend tests, backend tests and end-to-end tests. Given that Grafana is a UI tool for observability, having good tests to test that the UI functionality works is very important. 
@@ -50,3 +55,7 @@ In order to migrate from one tool to another somebody needs to have an understan
 * Test selection?
 
 I started with simpler tests which were focusing on testing the existence of a text etc. Then, I moved to more complex tests which required to change the logic the tests are written due to the difference of the tools. For example, the tests written with Enzyme sometimes render Components which is something you cannot do with the React Testing Library because we should focus on testing the DOM elements (better practise). Then, I've written tests for user events, like hover or click. 
+
+
+2. A11y Feature
+* Pull Requests: [#49075](https://github.com/grafana/grafana/pull/49075), [#49076](https://github.com/grafana/grafana/pull/49076)
