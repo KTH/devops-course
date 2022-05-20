@@ -63,3 +63,4 @@ I started with simpler tests which were focusing on testing the existence of a t
 
 2. A11y Bug
 * Pull Requests: [#49075](https://github.com/grafana/grafana/pull/49075), [#49076](https://github.com/grafana/grafana/pull/49076)
+* Solution? I proposed two different solutions that could work and after having a discussion with mentainers they decided which solution they currently want to use.
