@@ -20,7 +20,9 @@ Contribution to open-source
 
 [Grafana](https://github.com/grafana/grafana) is a very popular open-source platform for monitoring and observability. 
 
-1. Its frontend is written in React and all the frontend tests were written in Enzyme, a Javascript testing library which stopped supporting React versions >=17.
+1. Test Migration
+
+Its frontend is written in React and all the frontend tests were written in Enzyme, a Javascript testing library which stopped supporting React versions >=17.
 That's why all the tests need to be migrated from Enzyme to a better solution called React Testing Library. 
 React Testing Library is a lot different from the Enzyme since it focuses on testing the DOM and not the React component. 
 This way, we can be more confident that our domain logic we want our app to have is actually implemented and the user can use the app as expected.
@@ -30,7 +32,9 @@ I would like to contribute to the this migration.
 
 Issue: [#48253](https://github.com/grafana/grafana/issues/48253)
 
-2. A11y (Accessibility - "A" then 11 letters then "y") in web development means making websites that can be used by as many people as possible, including people with disabilities. Grafana can be improved to support A11y and make it easier for people to navigate through the app without using a mouse but using the keyboard or voice over.
+2. A11y Feature
+
+A11y (Accessibility - "A" then 11 letters then "y") in web development means making websites that can be used by as many people as possible, including people with disabilities. Grafana can be improved to support A11y and make it easier for people to navigate through the app without using a mouse but using the keyboard or voice over.
 
 For this reason, extra buttons have to be added to reduce the number of times the user presses the arrow keys.
 
