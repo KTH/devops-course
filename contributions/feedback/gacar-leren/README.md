@@ -29,4 +29,4 @@ https://github.com/KTH/devops-course/pull/1871
 - Mateo Florez, mateofc@kth.se
 
 **Link to feedback comment**
-https://github.com/KTH/devops-course/pull/1997#issuecomment-1131487985 
+https://github.com/KTH/devops-course/pull/1997#issuecomment-1131487985
