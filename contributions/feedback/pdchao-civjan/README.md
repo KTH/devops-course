@@ -22,3 +22,5 @@ Feedback
 
 We would like to give feedback on the essay "Solo programming vs Pair programming vs Mob programming in DevOps teams"
 (The author: Arvid Gotthard has already approved our request)
+
+Final Feedback Comment: [#1859 comment](https://github.com/KTH/devops-course/pull/1859#issuecomment-1128966470)
