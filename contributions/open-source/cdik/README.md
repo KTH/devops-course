@@ -39,7 +39,10 @@ A11y (Accessibility - "A" then 11 letters then "y") in web development means mak
 For this reason, extra buttons have to be added to reduce the number of times the user presses the arrow keys.
 
 Issue: [#46498](https://github.com/grafana/grafana/issues/46498)
-## Final Submission
+
+
+Submission:
+
 
 1. Test Migration
 * Pull Requests: [#48887](https://github.com/grafana/grafana/pull/48887), [#48918](https://github.com/grafana/grafana/pull/48918), [#48982](https://github.com/grafana/grafana/pull/48982), [#49107](https://github.com/grafana/grafana/pull/49107), [#49119](https://github.com/grafana/grafana/pull/49119), [#49148](https://github.com/grafana/grafana/pull/49148)
@@ -49,7 +52,7 @@ Issue: [#46498](https://github.com/grafana/grafana/issues/46498)
 Grafana has 3 types of tests: frontend tests, backend tests and end-to-end tests. Given that Grafana is a UI tool for observability, having good tests to test that the UI functionality works is very important. 
 Looking the package.json file, we see that the React version that is used by Grafana is the ‘17.0.2’. Enzyme is not compatible with this file of React. It is compatible with React versions<16. Given the importance of these tests, problems will occur in the future if we don't move to a compatible solution.
 That’s why there is a need to migrate to React Testing Library which is one of the top solutions to test React UIs these days. 
-React Testing Library is a very lightweight solution which provides lightweight functions to test DOM in a way that encourages good testing practices.  We do not focus on testing the React component. This way our tests are not tight with the specific implementation but they test if the business logic of our application is satisfied. We test our components the way the user will.
+React Testing Library is a very lightweight solution which provides lightweight functions to test DOM in a way that encourages good testing practices.  We do not focus on testing the React component. This way our tests are not tight with the specific implementation but they test if the business logic of our application is satisfied. We test our components the way the fuser will.
 Compared to Enzyme, the React Testing Library is better as it does not allow you to access the internal workings of the component so this way discourages bad testing practices.  
 
 * Difficulty?
