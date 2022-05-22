@@ -20,3 +20,7 @@ Feedback
 
 We would like to give feedback on the essay "Devops in finance" by Gabriel and Lucas.
 Very interesting topic that affects the society.
+
+**Feedback comment**
+
+[Link to PR comment](https://github.com/KTH/devops-course/pull/1996#issuecomment-1130538915)
