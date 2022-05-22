@@ -43,6 +43,11 @@ Issue: [#46498](https://github.com/grafana/grafana/issues/46498)
 
 Submission:
 
+Grading Citeria : 
+✔️ The contribution fixes bugs
+✔️ The contribution is a difficult piece of engineering
+✔️ There is an interesting engineering conversation with the maintainers
+✔️ The contribution is merged in the main branch.
 
 1. Test Migration
 * Pull Requests: [#48887](https://github.com/grafana/grafana/pull/48887), [#48918](https://github.com/grafana/grafana/pull/48918), [#48982](https://github.com/grafana/grafana/pull/48982), [#49107](https://github.com/grafana/grafana/pull/49107), [#49119](https://github.com/grafana/grafana/pull/49119), [#49148](https://github.com/grafana/grafana/pull/49148)
