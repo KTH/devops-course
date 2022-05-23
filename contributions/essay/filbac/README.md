@@ -2,7 +2,7 @@
 
 ## Title
 
-IaaS: The Battle of the Clouds
+The impact of DevOps on Cloud Development
 
 ## Names and KTH ID
   - Filip Bäck (filbac@kth.se)
@@ -17,4 +17,4 @@ Essay
 
 ## Description
 
-My proposal is to write an essay about the three big cloud platforms, namely AWS, Google Cloud, and Microsoft Azure. The essay will contain an introduction to cloud platforms, how each of the big three corporations work with their respective cloud platforms as well as a comparision between the three in regards to functionality among other things.
+My proposal is to write an essay about the development of DevOps and Cloud platforms over recent years. While DevOps have been a huge area of application for cloud usage, and DevOps have evolved since the addition of Cloud platforms, but the cloud platforms have been hugely impacted by DevOps as well.
