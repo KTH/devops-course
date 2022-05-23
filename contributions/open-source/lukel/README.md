@@ -23,4 +23,7 @@ I hope to add a solution to [this unanswered question](https://github.com/bregma
 
 `You are given two directories as arguments and the output should be any difference between the two directories`
 
-As of today, the repo has 23.9k stars, and is actively managed by more than 80 contributors. Other students in our course have already opened a [PR in this repo](https://github.com/bregman-arie/devops-exercises/pull/229), so I hope to be able to do the same. 
+As of today, the repo has 23.9k stars, and is actively managed by more than 80 contributors. Other students in our course have already opened a [PR in this repo](https://github.com/bregman-arie/devops-exercises/pull/229), so I hope to be able to do the same.
+
+Submission PR Link: https://github.com/bregman-arie/devops-exercises/pull/241
+I have added my solution, had a conversation with the repo maintainer, and am hopefully close to getting it merged!
