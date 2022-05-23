@@ -19,8 +19,9 @@ Feedback
 
 ## Description
 
-We would like to give feedback on the essay Transitioning from DevOps to DevSecOps.
-We have asked the authors on PR [#1940](https://github.com/KTH/devops-course/pull/1940).
+We have given feedback on the essay Transitioning from DevOps to DevSecOps.
+The authors were asked on their final PR: [#1940](https://github.com/KTH/devops-course/pull/1940).
+Our feedback was given in a comment on the PR:[comment](https://github.com/KTH/devops-course/pull/1940#issuecomment-1127478936)
 
 **Authors**
 - Sebastian Sjövald (sjovald@kth.se)
