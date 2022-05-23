@@ -28,3 +28,6 @@ We would like to give feedback on the essay "Securing the pipeline - Continuous 
 
 **Essay Author**
 -  Valdimar Björnsson (valdimar@kth.se)
+
+**Link to feedback**
+- The feedback can be found as comment in this PR [#1909](https://github.com/KTH/devops-course/pull/1909)
