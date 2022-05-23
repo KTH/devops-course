@@ -27,3 +27,6 @@ https://github.com/KTH/devops-course/pull/1973
 **Essay Author**
 - Chrysoula Dikonimaki (cdik@kth.se)
 - Abdullah Abdullah (aabdull@kth.se)
+
+**Final Submission**
+Link to Feedback comment: https://github.com/KTH/devops-course/pull/1973#issuecomment-1134614989
