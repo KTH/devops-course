@@ -2,7 +2,7 @@
 
 ## Title
 
-Parse your logs with log parser
+View and parse your logs on ubuntu with lnav
 
 ## Names and KTH ID
 
@@ -18,8 +18,12 @@ Executable Tutorial
 
 ## Description
 
-This tutorial, implemented in Katacoda, aims to teach you how to install log parser 2.2 via chocolately, and how to use it to parse your logs into a more managable data-format.<br>
-With log parser you can execute sql-like queries in your console to filter through previously stored parsed logs.<br>
+This tutorial, implemented in Katacoda, aims to teach you how to use lnav, to view and parse your logs into a more managable data-format.<br>
+With lnav you can execute sql-like queries in your console to filter your logs to make sense of them.<br>
+It parses most logs automatically, so you have field names and values for each log file. <br>
+You can store the parsed and filtered logs in widely used formats like csv or json for further processing in other applications.<br>
 
 Links:<br>
-https://www.microsoft.com/en-us/download/details.aspx?id=24659 <br>
+
+[Katacoda scenario](https://www.katacoda.com/lnsandn01/scenarios/lnav) <br>
+[Repo-link](https://github.com/lnsandnkth/katacoda-scenarios)
