@@ -1,4 +1,4 @@
-# Assignment Proposal
+# Assignment Submission
 
 ## Title
 
@@ -25,3 +25,6 @@ We propose an executable tutorial where we show how to automate GitHub performan
 
 The output of this project is a Google Colab notebook that produces a formatted report ready for export to the appropriate stakeholders.
 In our opinion, this fits under the category of "software bots" in the DevOps course.
+
+Final Submission
+[Colab Notebook](https://colab.research.google.com/drive/1CXR-9_9xDFMNzNg6oDMjxMIyHm5bchL9?usp=sharing)
