@@ -27,3 +27,6 @@ https://github.com/KTH/devops-course/pull/1871
 **Tutorial Authors**
 - Sanherib Elia, sanherib@kth.se
 - Mateo Florez, mateofc@kth.se
+
+**Link to feedback comment**
+https://github.com/KTH/devops-course/pull/1997#issuecomment-1131487985
