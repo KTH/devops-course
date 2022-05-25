@@ -7,7 +7,6 @@ Automatic verification for mandatory parts of course-automation final
 ## Names and KTH ID
 
 -   John Landeholt (johnlan@kth.se)
--   John Landeholt (johnlan@kth.se)
 
 ## Deadline
 
@@ -42,16 +41,28 @@ Link to action repo
 
 https://github.com/landeholt/dd2482-course-automation
 
-Validation
+__Validation__
 
 - [Pull request #8](https://github.com/landeholt/dd2482-course-automation/pull/8)
 
 
-Testing
+__Testing__
 
 Please check through the test folder, or the readme solution.
 
 I think I have fulfilled the following criterion: 
+
+
+__Changelog__
+
+- changed title from "Meta course-automation" to "Mandatory sanity checker for DD2482"
+- changed installation documentation separating the two registries (GH Marketplace & PyPi)
+- Removed takeaways, as it didn't provide any valuable insight to the project
+- Added a Rationale section, such that a background to the creation of this action is based on
+- Changed "Validation links" to "Possible outcomes"
+- Added Inputs section, explaining what data is needed to make the action work as intented
+- Created a flowchart (figure) of the action and appended the illustration to the README
+- Published the action to Github Marketplace
 
 
 |                                             | Yes | No | 
@@ -62,5 +73,5 @@ I think I have fulfilled the following criterion:
 |reuse: the automation task is reusable (next year for this course) | **Yes** | No | 
 |platform: the task runs on a standard platform (eg Github action) | **Yes** | No | 
 |doc: the repo is documented with a good readme | **Yes**  | No | 
-|figure: the README is illustrated with at least an informative figure (eg a flowchart) | Yes | **No** | 
+|figure: the README is illustrated with at least an informative figure (eg a flowchart) | **Yes** | No | 
 |availability: The action is available on a market place (Github Marketplace, Azure Marketplace, etc.) | **Yes** | No | 

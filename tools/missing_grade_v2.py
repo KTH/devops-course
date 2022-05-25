@@ -13,6 +13,12 @@ CANVAS_URL = "https://canvas.kth.se"
 CANVAS_COURSE_ID = 31421
 CONTRIBUTION_PATH = '../contributions'
 
+assigned_tasks = []
+if os.path.exists('gdoc.csv'):
+    assigned_tasks=[x.split(',')[1] for x in open('gdoc.csv') if len(x)>10 and len(x.split(',')[1])>0]
+
+for i in assigned_tasks: 
+    if len([x for x in assigned_tasks if x == i])>1: raise Exception("duplicate "+i)
 
 # Mapping from github task name to canvas group set id
 def task_to_set(task_name, canvas_set):
@@ -66,7 +72,11 @@ def check_group_grading(groups, id_assignment):
             r = requests.get(url, headers={'Authorization': 'Bearer ' + CANVAS_TOKEN})
             graded = "graded" == json.loads(r.content)["workflow_state"]
             if not graded:
-                print("missing grade for", TASK, "of", group)
+                url = "https://github.com/KTH/devops-course/tree/2022/contributions/"+TASK+"/"+group
+                print(url)
+                if len(assigned_tasks)>0 and url not in assigned_tasks:
+                    print('==',url)
+                #print("missing grade for", TASK, "of", group)
                 break
 
 
@@ -113,15 +123,59 @@ def filter_deadline_groups(groups, deadline):
 
         if 'task ' not in file:
             sorted_groups[group] = groups[group]
-            print("Not sure if the group " + group + " is in for this deadline, checking it anyway\n")
+            #print("Not sure if the group " + group + " is in for this deadline, checking it anyway\n")
         if 'task ' + deadline in file:
             sorted_groups[group] = groups[group]
 
     return sorted_groups
 
-
+def check_all_assigned():
+    l = []    
+        #mapping = {
+        #"course-automation": canvas_set["Course automation"],
+        #"demo": canvas_set["Demos"],
+        #"essay": canvas_set["Essays"],
+        #"executable-tutorial": canvas_set["Executable Tutorials"],
+        #"feedback": canvas_set["Feedback"],
+        #"open-source": canvas_set["Open-source contributions"],
+        #"presentation": canvas_set["Presentations"],    }
+    for i in get_sub_directory(CONTRIBUTION_PATH+"/"+"course-automation").values():
+        l.append(i['path'])        
+    for i in get_sub_directory(CONTRIBUTION_PATH+"/"+"essay").values():
+        l.append(i['path'])        
+    for i in get_sub_directory(CONTRIBUTION_PATH+"/"+"executable-tutorial").values():
+        l.append(i['path'])        
+    for i in get_sub_directory(CONTRIBUTION_PATH+"/"+"feedback").values():
+        l.append(i['path'])        
+    for i in get_sub_directory(CONTRIBUTION_PATH+"/"+"open-source").values():
+        l.append(i['path'])    
+        
+    # already done
+    #for i in get_sub_directory(CONTRIBUTION_PATH+"/"+"presentation").values():
+        #for j in get_sub_directory(i['path']).values():
+            #l.append(j['path'])        
+    #for i in get_sub_directory(CONTRIBUTION_PATH+"/"+"demo").values():
+        #for j in get_sub_directory(i['path']).values():
+            #l.append(j['path'])  
+    
+    # remove "../"
+    l = ["https://github.com/KTH/devops-course/tree/2022/"+x[3:] for x in l]
+    
+    #print(assigned_tasks)
+    
+    # check if missing
+    for x in l:
+        if x not in assigned_tasks:
+            print(x)
+    #print(l)
+    
 def main():
     parse_args()
+    
+    if TASK == "check_all_assigned":
+        check_all_assigned()
+        return
+    
     canvas_groups_set = get_group_categories()
     canvas_groups_category_id = task_to_set(TASK, canvas_groups_set)
     canvas_groups = list_groups(canvas_groups_category_id)
