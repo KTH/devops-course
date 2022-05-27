@@ -2,7 +2,7 @@
 
 ## Title
 
-Feedback on Essay [#1813](https://github.com/KTH/devops-course/pull/1813)
+Final Submission - Feedback on Essay [#1813](https://github.com/KTH/devops-course/pull/1813)
 "Configuration languages - A comparison of Dhall and CUE"
 
 ## Names and KTH ID
@@ -20,4 +20,4 @@ Feedback
 
 ## Description
 
-We would like to give feedback to PR #1813, we have approval from an author.
+We gave feedback to PR #1813 on configuration languages.
