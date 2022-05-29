@@ -6,6 +6,7 @@ Investigation into Kubernetes Security – Deficiencies and Best Practices
 
 ## Names and KTH ID
 - Filip Sannervik (sannerv@kth.se)
+- Kunal Bhatnagar (kunalb@kth.se)
 
 ## Deadline
 
