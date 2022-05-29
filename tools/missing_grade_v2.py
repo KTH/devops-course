@@ -129,9 +129,53 @@ def filter_deadline_groups(groups, deadline):
 
     return sorted_groups
 
-
+def check_all_assigned():
+    l = []    
+        #mapping = {
+        #"course-automation": canvas_set["Course automation"],
+        #"demo": canvas_set["Demos"],
+        #"essay": canvas_set["Essays"],
+        #"executable-tutorial": canvas_set["Executable Tutorials"],
+        #"feedback": canvas_set["Feedback"],
+        #"open-source": canvas_set["Open-source contributions"],
+        #"presentation": canvas_set["Presentations"],    }
+    for i in get_sub_directory(CONTRIBUTION_PATH+"/"+"course-automation").values():
+        l.append(i['path'])        
+    for i in get_sub_directory(CONTRIBUTION_PATH+"/"+"essay").values():
+        l.append(i['path'])        
+    for i in get_sub_directory(CONTRIBUTION_PATH+"/"+"executable-tutorial").values():
+        l.append(i['path'])        
+    for i in get_sub_directory(CONTRIBUTION_PATH+"/"+"feedback").values():
+        l.append(i['path'])        
+    for i in get_sub_directory(CONTRIBUTION_PATH+"/"+"open-source").values():
+        l.append(i['path'])    
+        
+    # already done
+    #for i in get_sub_directory(CONTRIBUTION_PATH+"/"+"presentation").values():
+        #for j in get_sub_directory(i['path']).values():
+            #l.append(j['path'])        
+    #for i in get_sub_directory(CONTRIBUTION_PATH+"/"+"demo").values():
+        #for j in get_sub_directory(i['path']).values():
+            #l.append(j['path'])  
+    
+    # remove "../"
+    l = ["https://github.com/KTH/devops-course/tree/2022/"+x[3:] for x in l]
+    
+    #print(assigned_tasks)
+    
+    # check if missing
+    for x in l:
+        if x not in assigned_tasks:
+            print(x)
+    #print(l)
+    
 def main():
     parse_args()
+    
+    if TASK == "check_all_assigned":
+        check_all_assigned()
+        return
+    
     canvas_groups_set = get_group_categories()
     canvas_groups_category_id = task_to_set(TASK, canvas_groups_set)
     canvas_groups = list_groups(canvas_groups_category_id)

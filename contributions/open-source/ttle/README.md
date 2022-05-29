@@ -32,3 +32,15 @@ https://github.com/python-discord/bot/issues/2170
 The first is a bug that requires adjusting a command that should be able to take multiple users as arguments, but for now it only accepts one.
 The second follows up on it by cleaning up the help text for the command, so it should be considered as adding to the documentation.
 There is also a decent possibility of the contribution being merged as well.
+
+**Submission**
+
+The two issues have now been addressed.
+
+Here is the PR for the bugfix:
+https://github.com/python-discord/bot/pull/2178
+
+This is the PR for the added/improved docs:
+https://github.com/python-discord/bot/pull/2179
+
+Hopefully they will also be merged soon.
