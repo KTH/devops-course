@@ -25,3 +25,8 @@ We have addressed an issue that was raised and requested to be implemented by th
 The issue that we will be addressing and our dialogue with the author are located at: [https://github.com/jeemok/better-npm-audit/issues/67](https://github.com/jeemok/better-npm-audit/issues/67).
 
 The repository has 77 stars, 218 commits, and has an active community on GitHub since we recently had a conversation with the author.
+
+Submission: 
+The final pr can be found here: [https://github.com/jeemok/better-npm-audit/pull/78](https://github.com/jeemok/better-npm-audit/pull/78).
+
+We have implemented the feature and passed all tests, including tests we modified to cover the new feature. We are currently awaiting approval from the author.
