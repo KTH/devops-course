@@ -33,3 +33,16 @@ Planned features to include in tutorial:
 
 - (Extra) If I come up with some other cool features I might include them too
 
+**Final Submission**
+
+The finished Katacoda tutorial can be found [here](https://www.katacoda.com/halvtomat/scenarios/github-action).
+
+And the GitHub repo whit the implementation is [here](https://github.com/halvtomat/katacoda-scenarios).
+
+**CAHNGELOG**
+
+- Added more background info in the intro
+
+- Made all file creations automatic using bash scripts
+
+- Minor edits to all step texts, `Create the file ***` > `The file *** has been created`
