@@ -21,7 +21,7 @@ Executable tutorial
 Tutorial that goes through the steps of deploying a simple microservice backend to Kubernetes cluster, as well as a loadbalancer to expose the microservice outside of the cluster. Query the loadbalancer and assert that the result
 is correct.
 
-## Solution
+Solution:
 
 Katacoda tutorial: https://www.katacoda.com/psalqvist/scenarios/test-scenario
 
