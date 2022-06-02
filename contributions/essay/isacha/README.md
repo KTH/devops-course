@@ -2,7 +2,7 @@
 
 ## Title
 
-CI tools in the context of business
+CI in the context of business
 
 ## Names and KTH ID
 
@@ -20,7 +20,7 @@ Essay
 
 The question to be answered from this essay:
 
-- What are the best CI-tools for a software project? And how can CI increase business performance?
+- How does CI contribute to a software project? And how can CI increase business performance?
 
 Structure idea of essay:
 
@@ -31,7 +31,8 @@ Background
 - write about testing and businesses
 - write about CI
 - how does CI work
-- different options: Jenkins, travis, circle CI
+- Jenkins
+- cyber security in CI
 
 Results
 
