@@ -1,4 +1,3 @@
-
 # Assignment Proposal
 
 ## Title
@@ -19,7 +18,11 @@ Executable tutorial
 
 ## Description
 
-Tutorial that goes through the steps of deploying a simple microservice backend to Kubernetes cluster, as well as a loadbalancer to expose the microservice outside of the cluster. Create a frontend that queries the loadbalancer and
-asserts that the result of the query is correct.
+Tutorial that goes through the steps of deploying a simple microservice backend to Kubernetes cluster, as well as a loadbalancer to expose the microservice outside of the cluster. Query the loadbalancer and assert that the result
+is correct.
 
-Tutorial can be found in the README.md of following repo: https://github.com/psalqvist/kubernetes-tutorial/blob/main/README.md
+Solution:
+
+Katacoda tutorial: https://www.katacoda.com/psalqvist/scenarios/test-scenario
+
+Github repo: https://github.com/psalqvist/katacoda-scenarios/tree/main/test-scenario
