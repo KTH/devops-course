@@ -2,7 +2,7 @@
 
 ## Title
 
-Troubleshooting evolution from VM to Containers
+Troubleshooting comparison of VMs and Containers
 
 ## Names and KTH ID
 
@@ -19,4 +19,6 @@ Essay
 
 ## Description
 
-Troubleshooting issues have evolved so much from running apps on VMs, and today when a huge scale of microservices is running on containers. In this essay, we go through the history of troubleshooting, and the current state while discussing different metrics.
+As the industry has moved increasingly from VMs to containerized applications, with the relevant pieces of troubleshooting information possibly spanning a complex and ephemeral cloud-based architecture, the need for new tools to tackle troubleshooting under these circumstances arose. 
+
+In this essay, we compare troubleshooting in VMs and containers. Their respective requirements and difficulties are accounted for, and different tools to solve the different problems are presented. The solutions include state-of-the-art concepts to deal with logging, aggregation, and troubleshooting and what importance they play for VMs and containers. Although the focus is on concepts and their solutions, examples of a few appropriate tools are also presented. Finally, the pros \& cons during the troubleshooting process of the respective paradigm are explained and discussed.
