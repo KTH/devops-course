@@ -93,7 +93,7 @@ def get_stat_student(stat_info):
     stat_table.field_names = ["Index", "Student name", "Registrations Count", "Categories"]
 
     index = 1
-    summary = {5:[], 4:[], 3:[], 2:[], 1:[]}
+    summary = {7:[], 6:[], 5:[], 4:[], 3:[], 2:[], 1:[]}
     for student in stat_info:
         task_count = len(stat_info[student])
         stat_table.add_row([index, student, task_count, " ".join(stat_info[student])])
