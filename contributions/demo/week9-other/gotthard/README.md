@@ -27,3 +27,5 @@ The demo will show how to,
 - How to expose Prometheus metrics from a Golang application. This will include run-time metrics and some simple application metrics.
 - How to setup metric and log aggregation with Prometheus and Loki
 - How to visualize the logs and metrics in a Grafana dashboard.
+
+The demo repository can be found [here](https://github.com/mellonnen/promethues-loki-grafana-demo)
