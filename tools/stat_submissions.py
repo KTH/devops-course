@@ -118,7 +118,7 @@ def get_stat_student_markdown(stat_info):
 """
 
     index = 1
-    summary = {5:[], 4:[], 3:[], 2:[], 1:[]}
+    summary = {7:[], 6:[], 5:[], 4:[], 3:[], 2:[], 1:[]}
     for student in stat_info:
         task_count = len(stat_info[student])
         return_str = return_str + "|%s|%s|%s|%s|\n"%(index, student, task_count, " ".join(stat_info[student]))
