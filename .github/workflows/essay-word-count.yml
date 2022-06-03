@@ -1,14 +1,16 @@
-name: Checking the Word Count of Submitted Essay
+name: Essay Word Count
 'on':
   pull_request:
-  workflow_dispatch: []
+  workflow_dispatch: {}
 jobs:
   check-essay:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
       - name: Install xpdf
-        run: sudo apt-get install -y xpdf
+        run: >
+          sudo apt-get update
+          sudo apt-get install -y xpdf
       - id: file_changes
         uses: trilom/file-changes-action@v1.2.3
       - name: Check the submitted essays
