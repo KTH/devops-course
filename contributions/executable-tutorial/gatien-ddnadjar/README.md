@@ -22,3 +22,5 @@ We plan on creating an executable tutorial that teaches the user how to setup a 
 
 Here is the link to the katacoda: https://www.katacoda.com/ducornag/scenarios/dd2482-tutorial-discord-git
 Here is the link to the repo of the katacoda, with all the ressources (including the code): https://github.com/ducornag/DD2482-Tutorial-Dicord-Git
+
+We now have an updated version to the same links, as stated in the email exchange regarding the feedback.

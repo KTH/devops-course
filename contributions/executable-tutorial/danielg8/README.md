@@ -46,3 +46,7 @@ And the GitHub repo whit the implementation is [here](https://github.com/halvtom
 - Made all file creations automatic using bash scripts
 
 - Minor edits to all step texts, `Create the file ***` > `The file *** has been created`
+
+- Created [sample repository](https://github.com/halvtomat/katacoda-github-action-example) where all actions can be tested.
+
+- Fixed minor errors in the tutorial.
