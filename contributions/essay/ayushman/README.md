@@ -9,7 +9,7 @@ Exploring Linkerd as a Service Mesh Layer for Observability, Reliability, and Se
 
 ## Deadline
 
-Task 4 (Repeated Task)
+Task 4
 
 ## Category
 
