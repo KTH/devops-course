@@ -2,7 +2,7 @@
 
 ## Title
 
-Exploring Linkerd as a Service Mesh Layer for Observability, Reliability, and Security
+Exploring Linkerd as a Service Mesh Layer for Observability, Reliability, and Security 
 
 ## Names and KTH ID
   - Ayushman Khazanchi (ayushman@kth.se)
