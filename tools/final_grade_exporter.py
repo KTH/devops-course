@@ -16,7 +16,7 @@ CANVAS_COURSE_ID = 31421
 def get_students():
     url = "{0}/api/v1/courses/{1}/users?per_page=200&enrollment_type[]=student".format(CANVAS_URL, CANVAS_COURSE_ID)
     r = requests.get(url, headers={'Authorization': 'Bearer ' + CANVAS_TOKEN})
-    return [{"canvas_id": user["id"], "name": user["name"], "kth_id": user["email"].split("@")[0]} for user in
+    return [{"canvas_id": user["id"], "name": user["name"], "kth_id": user["email"]} for user in
             json.loads(r.content)]
 
 
