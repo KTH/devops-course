@@ -1,3 +1,11 @@
+## Essays
+
+*
+
+## Tutorials
+
+*
+
 ## Schedule for week 2
 
 - [Introducing Code Coverage to your pipeline](https://github.com/KTH/devops-course/tree/2022/contributions/presentation/week2-testing-and-CI/maxper-johnlan) John Landeholt (johnlan), Max Persson (maxper)
