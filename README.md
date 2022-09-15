@@ -11,51 +11,48 @@ The schedule is at <https://www.kth.se/social/course/DD2482/calendar/>
 
 ## Program
 
-### Week 1: Introduction (March 22)
+### Week 1: Introduction
 * Preparatory reading: [DevOps principles](https://www.atlassian.com/devops/what-is-devops) and [demo](https://youtu.be/qcm0rG8EKXI)
 * Course introduction [Martin Monperrus](https://www.monperrus.net/martin/) (Teaching philosophy, [flipped classroom](https://en.wikipedia.org/wiki/Flipped_classroom), Expectations, Team, Agenda, Grading, Communication, Infrastructure, Master's theses and Research)
 * Testimonial from last year's student
 * Goals: watch the repo, register one first task as a pull request on this repo.
 
-### Week 2: [Testing](https://github.com/KTH/devops-course/issues/9) & [Continuous Integration](https://github.com/KTH/devops-course/issues/3) (March 29)
+### Week 2: [Testing](https://github.com/KTH/devops-course/issues/9) & [Continuous Integration](https://github.com/KTH/devops-course/issues/3)
 * Preparatory material [Testing at scale](https://increment.com/testing/testing-at-scale/), [Harvesting Production GraphQL Queries to Detect Schema Faults](https://arxiv.org/pdf/2112.08267), [The Rituals of
 Iterations and Tests](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=9238653)
 * Technical Briefing (B. Baudry)
 * Student presentations, demonstrations and katacodas
 
-### Week 3: [Continuous Deployment / Delivery](https://github.com/KTH/devops-course/issues/12) and [Feature flags](https://github.com/KTH/devops-course/issues/21) (April 5)
+### Week 3: [Continuous Deployment / Delivery](https://github.com/KTH/devops-course/issues/12) and [Feature flags](https://github.com/KTH/devops-course/issues/21)
 * Preparatory material [An Introduction to Continuous Integration, Delivery, and Deployment](https://www.digitalocean.com/community/tutorials/an-introduction-to-continuous-integration-delivery-and-deployment), [The Top 10 Adages in Continuous Deployment](https://zlmonroe.com/CSE566/Readings/5.The_Top_10_Adages_In_Continuous_Deployment.pdf)
 * Student presentations, demonstrations and katacodas
 * Deadline task 1
 
-### Week 4: [Containers](https://github.com/KTH/devops-course/issues/6) & [Serverless](https://github.com/KTH/devops-course/issues/307) (April 12)
+### Week 4: [Containers](https://github.com/KTH/devops-course/issues/6) & [Serverless](https://github.com/KTH/devops-course/issues/307)
 * Preparatory material: [Containers for the future](https://increment.com/containers/containers-and-open-source/), [Docker tutorial](https://www.katacoda.com/courses/docker), [A monorepo renaissance](https://increment.com/software-architecture/a-monorepo-renaissance/) and [Awesome Docker](https://github.com/veggiemonk/awesome-docker/#where-to-start)
-* Guest Lecture: Containers [Julien Bisconti](https://www.linkedin.com/in/julienbisconti/)
 * Student presentations, demonstrations and katacodas
 
-### Week 5: [Infrastructure as Code](https://github.com/KTH/devops-course/issues/2) (April 19)
+### Week 5: [Infrastructure as Code](https://github.com/KTH/devops-course/issues/2)
 * Preparatory material: [Best practices for container compliance](https://increment.com/containers/container-compliance/), [Building on-demand staging environments](https://increment.com/containers/on-demand-staging-environments-kubernetes/), [Gang of eight: a defect taxonomy for infrastructure as code scripts](http://www.chrisparnin.me/pdf/GangOfEight.pdf)
 * Student presentations, demonstrations and katacodas
 * Deadline task 2
 
-### Week 6: [Software bots](https://github.com/KTH/devops-course/issues/310) (April 26)
+### Week 6: [Software bots](https://github.com/KTH/devops-course/issues/310)
 * Preparatory material: [Software bots](https://ieeexplore.ieee.org/iel7/52/8239922/08239928.pdf), [A Software-Repair Robot based on Continual Learning](http://arxiv.org/pdf/2012.06824), [What a deploy bot taught us about documentation](https://increment.com/documentation/what-a-deploy-bot-taught-glossier-about-documentation/)
 * Student presentations, demonstrations and katacodas
 
 
-### Week 7: [Dependency Management](https://github.com/KTH/devops-course/issues/24) & [DevSecOps](https://github.com/KTH/devops-course/issues/18) (May 3)
+### Week 7: [Dependency Management](https://github.com/KTH/devops-course/issues/24) & [DevSecOps](https://github.com/KTH/devops-course/issues/18)
 * Preparatory material: [A 'Worst Nightmare' Cyberattack: The Untold Story Of The SolarWinds Hack](https://www.npr.org/2021/04/16/985439655/a-worst-nightmare-cyberattack-the-untold-story-of-the-solarwinds-hack), [The supply chain of software](https://increment.com/apis/apis-supply-chain-software/), [successes, challenges, and wombat behind npm](https://increment.com/development/interview-with-isaac-z-schlueter-ceo-of-npm/), [A comprehensive study of bloated dependencies in the Maven ecosystem ](https://arxiv.org/pdf/2001.07808)
-* Guest Lecture: Supply-chain security [Rhys Arkins (Whitesource)](https://www.linkedin.com/in/rhys-arkins-5a643a/) 
 * Student presentations, demonstrations and katacodas
 * Deadline task 3
 
-### Week 8: [Cultural](https://github.com/KTH/devops-course/issues/7) and [legal](https://github.com/KTH/devops-course/issues/7) aspects of DevOps (May 10)
+### Week 8: [Cultural](https://github.com/KTH/devops-course/issues/7) and [legal](https://github.com/KTH/devops-course/issues/7) aspects of DevOps 
 <!-- and easter eggs -->
 * Preparatory material: [What is DevOps Culture?](https://www.atlassian.com/devops/what-is-devops/devops-culture), [Operational excellence in April Fools' pranks](https://dl.acm.org/doi/10.1145/3152489), [Continuous Integration Art Hackathon](https://kth.github.io/ci-hackathon/lights.html)
-* Guest Lecture: Cristian Deri and Niklas Astrand, DICE
 * Student presentations, demonstrations and katacodas
 
-### Week 9: Other topics (May 17)
+### Week 9: Other topics
 * Preparatory material [Chaos Engineering](https://ieeexplore.ieee.org/iel7/52/5204063/07436642.pdf) [A Chaos Engineering System for Live Analysis and Falsification of Exception-handling in the JVM](http://arxiv.org/pdf/1805.05246)
 * [Monitoring and Observability](https://github.com/KTH/devops-course/issues/8), [MLOps](https://github.com/KTH/devops-course/issues/1016)
 * Student presentations, demonstrations and katacodas
@@ -66,7 +63,7 @@ Iterations and Tests](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=92386
 
 
 To pass the course, the student has to complete and pass between 3 and 5 tasks:
-* The tasks are in category: "[presentation](https://github.com/KTH/devops-course/blob/2022/grading-criteria.md#presentations)", "[essay](https://github.com/KTH/devops-course/blob/2022/grading-criteria.md#essays)", "[demo](https://github.com/KTH/devops-course/blob/2022/grading-criteria.md#demos)", "[executable tutorial](https://github.com/KTH/devops-course/blob/2022/grading-criteria.md#executable-tutorials)", "[contribution to open-source](https://github.com/KTH/devops-course/blob/2022/grading-criteria.md#open-source-contributions)", "[course automation](https://github.com/KTH/devops-course/blob/2022/grading-criteria.md#course-automation)", "[feedback](https://github.com/KTH/devops-course/blob/2022/grading-criteria.md#feedback)" (choose four out of them, at most one in the same category, it is not necessary to cover everything).
+* The tasks are in category: "[presentation](https://github.com/KTH/devops-course/blob/2023/grading-criteria.md#presentations)", "[essay](https://github.com/KTH/devops-course/blob/2023/grading-criteria.md#essays)", "[demo](https://github.com/KTH/devops-course/blob/2023/grading-criteria.md#demos)", "[executable tutorial](https://github.com/KTH/devops-course/blob/2023/grading-criteria.md#executable-tutorials)", "[contribution to open-source](https://github.com/KTH/devops-course/blob/2023/grading-criteria.md#open-source-contributions)", "[feedback](https://github.com/KTH/devops-course/blob/2023/grading-criteria.md#feedback)" (choose four out of them, at most one in the same category, it is not necessary to cover everything).
 * The [grading criteria page](grading-criteria.md) is the unique reference which explains how to pass each task category.
 * The student proposes a category and a topic, which is discussed and accepted by the TA. The proposal is made as a pull-request on this repository. The four graded contributions must have little overlap.
 * The same student cannot choose the same topic for two different tasks. The four tasks should cover different aspects of DevOps.
