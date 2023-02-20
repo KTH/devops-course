@@ -11,7 +11,7 @@ The schedule is at <https://www.kth.se/social/course/DD2482/calendar/>
 
 ## Program
 
-### Week 1: Introduction
+### Week 1: Introduction (mandatory)
 * Preparatory reading: [DevOps principles](https://www.atlassian.com/devops/what-is-devops) and [demo](https://youtu.be/qcm0rG8EKXI)
 * Course introduction [Martin Monperrus](https://www.monperrus.net/martin/) (Teaching philosophy, [flipped classroom](https://en.wikipedia.org/wiki/Flipped_classroom), Expectations, Team, Agenda, Grading, Communication, Infrastructure, Master's theses and Research)
 * Testimonial from last year's student
@@ -21,41 +21,41 @@ The schedule is at <https://www.kth.se/social/course/DD2482/calendar/>
 * Preparatory material [Testing at scale](https://increment.com/testing/testing-at-scale/), [Harvesting Production GraphQL Queries to Detect Schema Faults](https://arxiv.org/pdf/2112.08267), [The Rituals of
 Iterations and Tests](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=9238653)
 * Technical Briefing (B. Baudry)
-* Student presentations, demonstrations and katacodas
+* Student presentations, demonstrations
 
 ### Week 3: [Continuous Deployment / Delivery](https://github.com/KTH/devops-course/issues/12) and [Feature flags](https://github.com/KTH/devops-course/issues/21)
 * Preparatory material [An Introduction to Continuous Integration, Delivery, and Deployment](https://www.digitalocean.com/community/tutorials/an-introduction-to-continuous-integration-delivery-and-deployment), [The Top 10 Adages in Continuous Deployment](https://zlmonroe.com/CSE566/Readings/5.The_Top_10_Adages_In_Continuous_Deployment.pdf)
-* Student presentations, demonstrations and katacodas
+* Student presentations, demonstrations
 * Deadline task 1
 
 ### Week 4: [Containers](https://github.com/KTH/devops-course/issues/6) & [Serverless](https://github.com/KTH/devops-course/issues/307)
 * Preparatory material: [Containers for the future](https://increment.com/containers/containers-and-open-source/), [Docker tutorial](https://www.katacoda.com/courses/docker), [A monorepo renaissance](https://increment.com/software-architecture/a-monorepo-renaissance/) and [Awesome Docker](https://github.com/veggiemonk/awesome-docker/#where-to-start)
-* Student presentations, demonstrations and katacodas
+* Student presentations, demonstrations
 
 ### Week 5: [Infrastructure as Code](https://github.com/KTH/devops-course/issues/2)
 * Preparatory material: [Best practices for container compliance](https://increment.com/containers/container-compliance/), [Building on-demand staging environments](https://increment.com/containers/on-demand-staging-environments-kubernetes/), [Gang of eight: a defect taxonomy for infrastructure as code scripts](http://www.chrisparnin.me/pdf/GangOfEight.pdf)
-* Student presentations, demonstrations and katacodas
+* Student presentations, demonstrations
 * Deadline task 2
 
 ### Week 6: [Software bots](https://github.com/KTH/devops-course/issues/310)
 * Preparatory material: [Software bots](https://ieeexplore.ieee.org/iel7/52/8239922/08239928.pdf), [A Software-Repair Robot based on Continual Learning](http://arxiv.org/pdf/2012.06824), [What a deploy bot taught us about documentation](https://increment.com/documentation/what-a-deploy-bot-taught-glossier-about-documentation/)
-* Student presentations, demonstrations and katacodas
+* Student presentations, demonstrations
 
 
 ### Week 7: [Dependency Management](https://github.com/KTH/devops-course/issues/24) & [DevSecOps](https://github.com/KTH/devops-course/issues/18)
 * Preparatory material: [A 'Worst Nightmare' Cyberattack: The Untold Story Of The SolarWinds Hack](https://www.npr.org/2021/04/16/985439655/a-worst-nightmare-cyberattack-the-untold-story-of-the-solarwinds-hack), [The supply chain of software](https://increment.com/apis/apis-supply-chain-software/), [successes, challenges, and wombat behind npm](https://increment.com/development/interview-with-isaac-z-schlueter-ceo-of-npm/), [A comprehensive study of bloated dependencies in the Maven ecosystem ](https://arxiv.org/pdf/2001.07808)
-* Student presentations, demonstrations and katacodas
+* Student presentations, demonstrations
 * Deadline task 3
 
 ### Week 8: [Cultural](https://github.com/KTH/devops-course/issues/7) and [legal](https://github.com/KTH/devops-course/issues/7) aspects of DevOps 
 <!-- and easter eggs -->
 * Preparatory material: [What is DevOps Culture?](https://www.atlassian.com/devops/what-is-devops/devops-culture), [Operational excellence in April Fools' pranks](https://dl.acm.org/doi/10.1145/3152489), [Continuous Integration Art Hackathon](https://kth.github.io/ci-hackathon/lights.html)
-* Student presentations, demonstrations and katacodas
+* Student presentations, demonstrations
 
 ### Week 9: Other topics
 * Preparatory material [Chaos Engineering](https://ieeexplore.ieee.org/iel7/52/5204063/07436642.pdf) [A Chaos Engineering System for Live Analysis and Falsification of Exception-handling in the JVM](http://arxiv.org/pdf/1805.05246)
 * [Monitoring and Observability](https://github.com/KTH/devops-course/issues/8), [MLOps](https://github.com/KTH/devops-course/issues/1016)
-* Student presentations, demonstrations and katacodas
+* Student presentations, demonstrations
 * Deadline task 4
 
 
@@ -63,24 +63,24 @@ Iterations and Tests](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=92386
 
 
 To pass the course, the student has to complete and pass between 3 and 5 tasks:
-* The tasks are in category: "[presentation](https://github.com/KTH/devops-course/blob/2023/grading-criteria.md#presentations)", "[essay](https://github.com/KTH/devops-course/blob/2023/grading-criteria.md#essays)", "[demo](https://github.com/KTH/devops-course/blob/2023/grading-criteria.md#demos)", "[executable tutorial](https://github.com/KTH/devops-course/blob/2023/grading-criteria.md#executable-tutorials)", "[contribution to open-source](https://github.com/KTH/devops-course/blob/2023/grading-criteria.md#open-source-contributions)", "[feedback](https://github.com/KTH/devops-course/blob/2023/grading-criteria.md#feedback)" (choose four out of them, at most one in the same category, it is not necessary to cover everything).
+* The tasks are in category: "[presentation](https://github.com/KTH/devops-course/blob/2023/grading-criteria.md#presentations)", "[essay](https://github.com/KTH/devops-course/blob/2023/grading-criteria.md#essays)", "[demo](https://github.com/KTH/devops-course/blob/2023/grading-criteria.md#demos)", "[executable tutorial](https://github.com/KTH/devops-course/blob/2023/grading-criteria.md#executable-tutorials)", "[contribution to open-source](https://github.com/KTH/devops-course/blob/2023/grading-criteria.md#open-source-contributions)", "[feedback](https://github.com/KTH/devops-course/blob/2023/grading-criteria.md#feedback)" (presentation and demos are mandatory, at most one in the same category, it is not necessary to cover everything).
 * The [grading criteria page](grading-criteria.md) is the unique reference which explains how to pass each task category.
-* The student proposes a category and a topic, which is discussed and accepted by the TA. The proposal is made as a pull-request on this repository. The four graded contributions must have little overlap.
-* The same student cannot choose the same topic for two different tasks. The four tasks should cover different aspects of DevOps.
+* The student proposes a category and a topic, which is discussed and accepted by the TA. The proposal is made as a pull-request on this repository. The 3-5 graded contributions must have little overlap.
+* The same student cannot choose the same topic for two different tasks. The 3-5 tasks should cover different aspects of DevOps.
 * Deadlines:
-  * Deadline to complete task 1: April 5, 17h Stockholm time
-  * Deadline to complete task 2: April 19, 17h Stockholm time
-  * Deadline to complete task 3: May 3, 17h Stockholm time
-  * Deadline to complete task 4: May 17, 17h Stockholm time
-  * Deadline to complete task 5 (optional): May 23, 17h Stockholm time
+  * Deadline for presentations and demos: the day and time they are given in person
+  * Deadline 1 for essay / katacoda / open-source: April 10, 17h Stockholm time
+  * Deadline 2 for essay / katacoda / open-source: April 24, 17h Stockholm time
+  * Deadline 3 for essay / katacoda / open-source: May 8, 17h Stockholm time
+  * Deadline for feedback on essays or katacodas: 48 hours after delivery for a given deadline
   * Deadline for repeated tasks (all): May 31, 17h Stockholm time.
-  * The deadlines are strict and cannot be extended. 
+  * The deadlines are strict and cannot be extended. Not meeting a deadline means failing the task / the repetition.
 * Final grading scheme
   * A: 5 completed tasks 
   * C: 4 completed tasks 
   * E: 3 completed tasks (excluding feedback)
-* Group work is encouraged (max 2 persons) but you cannot be with the same persons for more than 2 projects. You can work alone for one or at most two projects.
-* A failed task requires to pass it again at the end of the course, based on the feedback from the failure. A task can only be repeated once.
+* Group work is encouraged (max 2 persons) but you cannot be with the same person for more than 2 projects. You can work alone for one or at most two projects.
+* A failed task requires to pass it again at the end of the course (repeat), based on the feedback from the failure. A task can only be repeated once.
 * If the whole course is failed, no grades are kept if the student registers again to the course the year after. 
 * After a proposal has been merged, the topic of that proposal cannot be changed.
 
@@ -95,7 +95,7 @@ Group Rules
 
 ## Participation
 
-**Lectures** The lectures are held on campus, per the latest KTH recommendations (https://intra.kth.se/en/campus/sakerhet/kris/corona/information-till-anstallda-med-anledning-av-coronaviruset-1.965906) to maximize the quality of the learning outcomes. The lecture locations are given on KTH Social <https://www.kth.se/social/course/DD2482/calendar/>.
+**Lectures** The lectures are held on campus (no hybrid / no video link). The lecture locations are given on KTH Social <https://www.kth.se/social/course/DD2482/calendar/>. The first lecture is mandatory, the other ones are strongly encouraged.
 
 **Lab sessions**
 
@@ -110,9 +110,9 @@ Group Rules
 * [Prof. Martin Monperrus](http://www.monperrus.net/martin/) (Examiner)
 * [Prof. Benoit Baudry](https://softwarediversity.eu/) (Examiner)
 * [Javier Ron](https://www.kth.se/profile/javierro?l=en) (TA)
-* [César Soto](https://cesarsotovalero.github.io/) (TA)
 * [Deepika Tiwari](https://www.kth.se/profile/deepikat) (TA)
 * [Khashayar Etemadi](https://www.kth.se/profile/khaes) (TA)
+* [Yuxin Liu](https://www.kth.se/profile/yuxinli) (TA)
 
 
 ## Prerequisites
@@ -125,6 +125,7 @@ Group Rules
 * KTH Social URL: <https://www.kth.se/social/course/DD2482/>
 * Kopps URL: <https://www.kth.se/student/kurser/kurs/DD2482?l=en>
 * Past editions:
+  * [KTH DevOps Course 2022](https://github.com/KTH/devops-course/blob/master/attic/2022/)
   * [KTH DevOps Course 2021](https://github.com/KTH/devops-course/blob/master/attic/2021/)
   * [KTH DevOps Course 2020](https://github.com/KTH/devops-course/blob/master/attic/2020/)
   * [KTH DevOps Course 2019](https://github.com/KTH/devops-course/blob/master/attic/2019/)
