@@ -19,3 +19,6 @@ _Category of your proposal_
 ## Description
 
 _Description of your proposal_
+
+### Relevance
+_Motivate the relevance of your proposal with respect to DevOps_
