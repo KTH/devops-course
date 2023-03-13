@@ -28,7 +28,7 @@ Iterations and Tests](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=92386
 * Student presentations, demonstrations
 * Deadline task 1
 
-### Week 4: [Containers](https://github.com/KTH/devops-course/issues/6) & [Serverless](https://github.com/KTH/devops-course/issues/307)
+### Week 4: [Containers](https://github.com/KTH/devops-course/issues/6), [Microservices](https://github.com/KTH/devops-course/issues/11), [Serverless](https://github.com/KTH/devops-course/issues/307)
 * Preparatory material: [Containers for the future](https://increment.com/containers/containers-and-open-source/), [Docker tutorial](https://www.katacoda.com/courses/docker), [A monorepo renaissance](https://increment.com/software-architecture/a-monorepo-renaissance/) and [Awesome Docker](https://github.com/veggiemonk/awesome-docker/#where-to-start)
 * Student presentations, demonstrations
 
