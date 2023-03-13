@@ -55,7 +55,7 @@ Iterations and Tests](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=92386
 
 ### Week 9: Other topics
 * Preparatory material [Chaos Engineering](https://ieeexplore.ieee.org/iel7/52/5204063/07436642.pdf) [A Chaos Engineering System for Live Analysis and Falsification of Exception-handling in the JVM](http://arxiv.org/pdf/1805.05246)
-* [Software bots](https://github.com/KTH/devops-course/issues/310) 
+* [Software bots](https://github.com/KTH/devops-course/issues/310), [Misc DevOps topics](https://github.com/KTH/devops-course/issues/1558)
 * Student presentations, demonstrations
 * Deadline task 4
 
