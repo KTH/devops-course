@@ -23,7 +23,7 @@ Iterations and Tests](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=92386
 * Technical Briefing (B. Baudry)
 * Student presentations, demonstrations
 
-### Week 3: [Continuous Deployment / Delivery](https://github.com/KTH/devops-course/issues/12) and [Feature flags](https://github.com/KTH/devops-course/issues/21)
+### Week 3: [Continuous Deployment / Delivery](https://github.com/KTH/devops-course/issues/12)
 * Preparatory material [An Introduction to Continuous Integration, Delivery, and Deployment](https://www.digitalocean.com/community/tutorials/an-introduction-to-continuous-integration-delivery-and-deployment), [The Top 10 Adages in Continuous Deployment](https://zlmonroe.com/CSE566/Readings/5.The_Top_10_Adages_In_Continuous_Deployment.pdf)
 * Student presentations, demonstrations
 * Deadline task 1
@@ -37,8 +37,9 @@ Iterations and Tests](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=92386
 * Student presentations, demonstrations
 * Deadline task 2
 
-### Week 6: [Software bots](https://github.com/KTH/devops-course/issues/310)
-* Preparatory material: [Software bots](https://ieeexplore.ieee.org/iel7/52/8239922/08239928.pdf), [A Software-Repair Robot based on Continual Learning](http://arxiv.org/pdf/2012.06824), [What a deploy bot taught us about documentation](https://increment.com/documentation/what-a-deploy-bot-taught-glossier-about-documentation/)
+### Week 6: [Monitoring and Observability](https://github.com/KTH/devops-course/issues/8), [MLOps](https://github.com/KTH/devops-course/issues/1016), [Feature flags](https://github.com/KTH/devops-course/issues/21)
+
+* Preparatory material: [Monitoring notes](https://www.monperrus.net/martin/monitoring.pdf)
 * Student presentations, demonstrations
 
 
@@ -54,7 +55,7 @@ Iterations and Tests](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=92386
 
 ### Week 9: Other topics
 * Preparatory material [Chaos Engineering](https://ieeexplore.ieee.org/iel7/52/5204063/07436642.pdf) [A Chaos Engineering System for Live Analysis and Falsification of Exception-handling in the JVM](http://arxiv.org/pdf/1805.05246)
-* [Monitoring and Observability](https://github.com/KTH/devops-course/issues/8), [MLOps](https://github.com/KTH/devops-course/issues/1016)
+* [Software bots](https://github.com/KTH/devops-course/issues/310) 
 * Student presentations, demonstrations
 * Deadline task 4
 
