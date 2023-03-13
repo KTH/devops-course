@@ -62,7 +62,7 @@ Iterations and Tests](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=92386
 To pass the course, the student has to complete and pass between 3 and 5 tasks:
 * The tasks are in category: "[presentation](https://github.com/KTH/devops-course/blob/2023/grading-criteria.md#presentations)", "[essay](https://github.com/KTH/devops-course/blob/2023/grading-criteria.md#essays)", "[demo](https://github.com/KTH/devops-course/blob/2023/grading-criteria.md#demos)", "[executable tutorial](https://github.com/KTH/devops-course/blob/2023/grading-criteria.md#executable-tutorials)", "[contribution to open-source](https://github.com/KTH/devops-course/blob/2023/grading-criteria.md#open-source-contributions)", "[feedback](https://github.com/KTH/devops-course/blob/2023/grading-criteria.md#feedback)" (presentation and demos are mandatory, at most one in the same category, it is not necessary to cover everything).
 * The [grading criteria page](grading-criteria.md) is the unique reference which explains how to pass each task category.
-* The student proposes a category and a topic, which is discussed and accepted by the TA. The proposal is made as a pull-request on this repository. The 3-5 graded contributions must have little overlap.
+* The student proposes a category and a topic, which is discussed and accepted by the TA. The proposal is made as a [structured pull-request](https://github.com/KTH/devops-course/blob/2023/.github/pull_request_template.md) on this repository. The 3-5 graded contributions must have little overlap.
 * The same student cannot choose the same topic for two different tasks. The 3-5 tasks should cover different aspects of DevOps.
 * Deadlines:
   * Deadline for presentations and demos: the day and time they are given in person
