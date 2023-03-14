@@ -144,7 +144,7 @@ def stat_categories(path):
 
     for category in categories:
         for dirpath, dirnames, filenames in os.walk(categories[category]["path"], topdown=True):
-            if (category == "presentation" or category == "demo"):
+            if (category == "presentation" or category == "demo" or category == "presentation-demo"):
                 if dirpath.split("/")[-1].startswith("week"):
                     # if we are in a weekX folder
                     categories[category][dirpath.split("/")[-1][:5]] = len(dirnames)
