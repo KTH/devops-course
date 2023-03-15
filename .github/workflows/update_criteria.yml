@@ -6,7 +6,7 @@ name: Grading criteria
 on:
   push:
     branches:
-      - 2022
+      - 2023
     paths:
       - 'grading-criteria.md'
 

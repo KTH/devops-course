@@ -6,7 +6,7 @@ name: Update task
 on:
   push:
     branches:
-      - 2022
+      - 2023
     paths:
       - contributions/**
 

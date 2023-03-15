@@ -6,7 +6,7 @@ name: Check task
 on:
   pull_request_target:
     branches:
-      - 2022
+      - 2023
     paths:
       - contributions/**
 
