@@ -81,6 +81,7 @@ The concept: Students prepare a demonstration involving DevOps technology, to be
 |liveness: The speakers update some code / config live | Yes | No  |
 |take-home: The demo includes a clear and visible take-home message | Yes | No | 
 
+
 To pass, you must have at least 8 "yes".
 
 ## Open-source contributions
@@ -118,6 +119,7 @@ The concept: you create an executable tutorial about a specific technology relat
 |original: The tutorial is original, no or few similar tutorials exist on the web | Yes | No |
 |easter-eggs: The tutorial contains an easter egg | Yes | No | 
 |language: The language is appropriate (structure, grammar, spelling) | Yes | No |
+
 
 To pass, you must have the mandatory parts and at least 5 "yes".
 
