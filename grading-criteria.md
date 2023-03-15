@@ -23,7 +23,7 @@ The concept: The students prepare a 7 minute presentation on a topic that is rel
 |reflection: The presentation contains a reflective part  | Yes | No |
 |sota: There is one good slide positioning the presentation in the state of the art| Yes | No |
 |take-home: The last slide contains a good and concise take-home message | Yes | No |
-|clearly: The speakers talk loudly and  clearly  | Yes | No |
+|loudly: The speakers talk loudly and  clearly  | Yes | No |
 |engagement: The speakers engage with the audience | Yes | No  |
 |humour: The speakers are fun, have humour  | Yes | No |
 |readable-slides: The slides don't have too much text  | Yes | No |
