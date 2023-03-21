@@ -2,7 +2,7 @@
 
 **The README.md file must be located in the directory**:
 
-`contributions/<kth-id-1>-<kth-id-2>/<category>/[<week>/]README.md`
+`contributions/<category>/[<week>/]<kth-id-1>-<kth-id-2>/README.md`
 
 # Assignment Proposal
 
