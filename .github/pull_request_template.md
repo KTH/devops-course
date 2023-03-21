@@ -2,7 +2,7 @@
 
 **The README.md file must be located in the directory**:
 
-`contributions/<kth-id-1>-<kth-id-2>/<category>/[<week>/]README.md`
+`contributions/<category>/[<week>/]<kth-id-1>-<kth-id-2>/README.md`
 
 # Assignment Proposal
 
@@ -11,6 +11,7 @@
 _The title of your proposal_
 
 ## Names and KTH ID
+
   - Student name 1 (student123@kth.se)
   - Student name 2 (student321@kth.se)
 
@@ -50,7 +51,7 @@ _Pick one of the following:_
 
 _Description of your proposal_
 
-### Relevance
+**Relevance**
 
 _Motivate the relevance of your proposal with respect to DevOps_
 
