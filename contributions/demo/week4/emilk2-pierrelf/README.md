@@ -18,5 +18,4 @@ Like Docker, Podman is a containerization tool that allows developers to create,
 
 This demo will show how a developer could switch to use Podman instead of Docker and take advantage of the benefits that brings with it.
 
-### Relevance
 Podman is a tool that manages containers and services, which are the foundation of these modern application development paradigms.
