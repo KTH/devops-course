@@ -6,6 +6,7 @@
 _CI-pipeline demonstration with GitHub Actions_
 
 ## Names and KTH ID
+
   - Pontus Norman (ponorman@kth.se)
   - Jonas Sävås (jonassav@kth.se)
 
