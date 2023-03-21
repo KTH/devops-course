@@ -11,6 +11,7 @@
 _The title of your proposal_
 
 ## Names and KTH ID
+
   - Student name 1 (student123@kth.se)
   - Student name 2 (student321@kth.se)
 
