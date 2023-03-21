@@ -1,6 +1,7 @@
 # Assignment Proposal
 
 ## Title
+
 Efficient continuous integration in JavaScript and TypeScript monorepos using Turborepo
 
 ## Names and KTH ID
@@ -14,14 +15,10 @@ Efficient continuous integration in JavaScript and TypeScript monorepos using Tu
 - Presentation
 
 ## Description
-_Description of your proposal_
 
 Turborepo is a sophisticated build system that streamlines the development of JavaScript and TypeScript codebases. By utilizing caching and intelligent scheduling, it accelerates local and CI/CD development processes while minimizing idle CPU usage. Turborepo integrates with monorepo tools and its caching functionality keeps previous task outputs to prevent redundant work.
 
-
-### Relevance
-_Motivate the relevance of your proposal with respect to DevOps_
+**Relevance**
 
 DevOps principles emphasize the importance of speedy, reliable software testing and deployment. Turborepo aligns with these principles by shortening build times and increasing development efficiency. As a result, it is a valuable tool in the DevOps toolbox.
-
 
