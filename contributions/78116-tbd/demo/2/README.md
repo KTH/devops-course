@@ -5,6 +5,7 @@
 GUI testing for JavaFX applications
 
 ## Names and KTH ID
+
 Marcus Friberg (mafribe@kth.se)
 Student name 2 (student321@kth.se) (To be determined, please reach out if you are interested in joining)
 
