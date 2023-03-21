@@ -50,7 +50,7 @@ _Pick one of the following:_
 
 _Description of your proposal_
 
-### Relevance
+** Relevance **
 
 _Motivate the relevance of your proposal with respect to DevOps_
 
