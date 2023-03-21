@@ -16,7 +16,6 @@ Introducing API sanity checker for C++
 
 - Demo
 ## Description
-## Description
 
 We wish to demonstrate the use of <https://lvc.github.io/api-sanity-checker/> and explain its role (and sanity/smoke testing more generally) within devops more generally. It works by quickly generating shallow tests for each public function of a library, and then running them.
 
