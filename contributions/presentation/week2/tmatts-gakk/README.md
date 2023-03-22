@@ -6,16 +6,16 @@ Arcmutate: Improving code with mutation testing for Java
 
 ## Names and KTH ID
 
-Tobias Mattsson (tmatts@kth.se)
-Georgios Akkogiounoglou (gakk@kth.se)
+- Tobias Mattsson (tmatts@kth.se)
+- Georgios Akkogiounoglou (gakk@kth.se)
 
 ## Deadline
 
-Week 2
+- Week 2
 
 ## Category
 
-Presentation
+- Presentation
 
 ## Description
 
