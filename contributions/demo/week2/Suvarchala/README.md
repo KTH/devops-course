@@ -4,7 +4,7 @@
 TestNG framework in Java TestAutomation
 
 ## Names and KTH ID
-Suvarchala (jaldu@kth.se)
+Suvarchala Jaldu (jaldu@kth.se)
 
 ## Deadline
 
