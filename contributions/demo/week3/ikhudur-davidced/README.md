@@ -2,7 +2,7 @@
 
 ## Title
 
-Deployment of 
+Deployment of Azure resource to prod environment
 
 ## Names and KTH ID
 
