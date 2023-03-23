@@ -27,4 +27,4 @@ Proposed novel integration of agent-based testing with the existing SUPERNOVA fr
 
 Testing in videogames has always been a notoriously hard task, due to the dimension of the software, it's dynamicity and non-deterministic nature.
 The growing complexity of games has lead to a growing difficulty in organizing and structuring testing in an effective and non cost-prohibiting way.
-SUPERNOVA proposes a solution to this problem through the use of Machine Learning. On the other side, QA testing can benefit from the use of agent-based systems whom are capable of mitigating the non-deterministic aspect in videogames, making possible to automatically play and test the game searching for bugs.
+SUPERNOVA proposes a solution to this problem through the use of Machine Learning. On the other side, QA testing can benefit from the use of agent-based systems whom are capable of mitigating the non-deterministic aspect in videogames, making it possible to automatically play and test the game searching for bugs.
