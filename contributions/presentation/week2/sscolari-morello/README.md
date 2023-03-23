@@ -1,9 +1,3 @@
-**The pull request must both contain a README.md and have description following this template:**
-
-**The README.md file must be located in the directory**:
-
-`contributions/<category>/[<week>/]<kth-id-1>-<kth-id-2>/README.md`
-
 # Assignment Proposal
 
 ## Title
@@ -17,12 +11,9 @@ Automated Testing for videogames: SUPERNOVA and Agent-Based.
 
 ## Deadline
 
-_Selected deadline for the assignment_
 - Week 2
 
 ## Category
-
-_Category of your proposal_
 
 - Presentation
 
