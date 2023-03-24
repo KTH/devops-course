@@ -7,7 +7,7 @@ Introduction and comparison of various cicd tools
 ## Names and KTH ID
 
   - David Ljunggren (dljungg@kth.se)
-  - Tao XIong (taox@kth.se)
+  - Tao Xiong (taox@kth.se)
 
 ## Deadline
 
