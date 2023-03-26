@@ -19,7 +19,7 @@ Introduction and comparison of various cicd tools
 
 ## Description
 
-This presentation aims to provide an introduction of various CICD tools. Furthermore, it will contain a brief comparison between the tools. Examples of tools include, but are not limited to:  Jenkins, GitLab, CircleCI, Travis CI, and GitHub Actions.
+This presentation aims to provide an introduction of various CICD tools. We would like to compare Jenkins and Gitlab by functionality, ease of use and setup, and the different scenarios they can be used.
 
 **Relevance**
 
