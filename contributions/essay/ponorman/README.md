@@ -14,7 +14,7 @@ _DevSecOps: Integrating Security into the DevOps process_
 
 ## Category
 
-- Essay
+- Essay.
 
 
 ## Description
