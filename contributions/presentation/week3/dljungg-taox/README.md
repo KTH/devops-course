@@ -1,7 +1,7 @@
 # Assignment Proposal
 
 ## Title
-Introduction and comparison of various cicd tools
+Ensuring Security in CI/CD Pipeline with SonarQube
 
 
 ## Names and KTH ID
@@ -19,8 +19,8 @@ Introduction and comparison of various cicd tools
 
 ## Description
 
-This presentation aims to provide an introduction of various CICD tools. We would like to compare Jenkins and Gitlab by functionality, ease of use and setup, and the different scenarios they can be used.
+We would like to address some key security risks in CI/CD pipelines, and how some of these risks can be mitigated using SonarQube Static Application Security Testing (SAST).
 
 **Relevance**
 
-There are many different CICD tools out there. For beginners, it might be a seemingly overwhelming learning curve to the topic.
+Organizations are able to produce higher quality code more quickly by automating CI/CD throughout the development, testing, production, and monitoring stages of the software development lifecycle. Nowadays, many companies fully rely on their CI/CD pipelines in the delivery of their software. It is therefore essential that the pipeline remains secure.
