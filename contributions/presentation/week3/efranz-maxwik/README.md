@@ -11,7 +11,7 @@ Next.js & Vercel vs. other providers - a conflict of interest
 
 ## Deadline
 
-- Week 3
+- Week 8
 
 ## Category
 
