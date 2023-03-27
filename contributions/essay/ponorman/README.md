@@ -3,7 +3,7 @@
 
 ## Title
 
-_DevSecOps: Integrating Security into the DevOps process_
+_DevSecOps: Security testing in DevOps_
 
 ## Names and KTH ID
 
@@ -19,6 +19,6 @@ _DevSecOps: Integrating Security into the DevOps process_
 
 ## Description
 
-_Security is an important part of DevOps and any computer system, so this essay wants to explain what types
-of security meausures can be taken in DevOps and what challenges and advantages that may come with these
+_Security is an important part of DevOps and any computer system, so this essay wants to explain what kind
+of testing can be done in DevOps and what challenges and advantages that may come with these
 methods._
