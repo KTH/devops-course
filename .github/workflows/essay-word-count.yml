@@ -4,7 +4,7 @@ name: Essay Word Count
   workflow_dispatch: {}
 jobs:
   check-essay:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: Install xpdf
