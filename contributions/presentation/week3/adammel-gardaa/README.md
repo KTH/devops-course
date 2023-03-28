@@ -19,6 +19,5 @@ Blue-green deployment is a deployment strategy which is used to ensure minimal d
 
 Kubernetes is a container orchestration platform used to automate the deployment of applications among other things. It is a cluster management system, making it easy to deploy one Blue cluster and one Green cluster.
 
-## Relevance
 Blue Green deployment, as with other deployment strategies, is an important deployment strategy that decreases risk and downtime for deployment. This is highly relevant when maintaining any project with low downtime tolerance.
 
