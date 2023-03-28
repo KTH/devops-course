@@ -3,7 +3,7 @@
 
 ## Title
 
-Synthetic Monitoring with Checkly
+How Synthetic Monitoring can save your application
 
 ## Names and KTH ID
 
