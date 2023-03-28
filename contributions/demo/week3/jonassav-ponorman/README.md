@@ -15,7 +15,7 @@ Canary deployment with Kubernetes and Microsoft Azure
 
 ## Category
 
-- Demo.
+- Demo
 
 
 ## Description
