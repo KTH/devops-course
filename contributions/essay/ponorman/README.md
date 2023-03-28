@@ -10,7 +10,7 @@ _DevSecOps: Security testing in DevOps_
  ponorman@kth.se
 
 ## Deadline
-- Task 2
+- Task 3
 
 ## Category
 
