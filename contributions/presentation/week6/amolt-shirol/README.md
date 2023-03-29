@@ -12,7 +12,7 @@ How Synthetic Monitoring can save your application
 
 ## Deadline
 
-Week 3
+Week 6
 
 ## Category
 
