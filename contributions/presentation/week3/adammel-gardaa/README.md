@@ -8,7 +8,7 @@ Adam Melander (adammel@kth.se)
 Gard Aasness (gardaa@kth.se)
 
 ## Deadline
-Week 8
+Week 3
 
 ## Category
 Presentation
