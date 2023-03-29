@@ -7,7 +7,7 @@ Software and Cloud Technology: Making an Informed Architectural Pattern Choice
 ## Names and KTH ID
 
 - Viktor Meyer (viktorme@kth.se)
-- David Ljunggren (dague@kth.se)
+- David Ljunggren (dljungg@kth.se)
 
 ## Deadline
 
