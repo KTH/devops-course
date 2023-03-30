@@ -2,7 +2,7 @@
 
 ## Title
 
-Software and Cloud Technology: Making an Informed Architectural Pattern Choice
+From Monolith to Microservices: Why It’s a Nuanced Decision.
 
 ## Names and KTH ID
 
@@ -19,10 +19,8 @@ Software and Cloud Technology: Making an Informed Architectural Pattern Choice
 
 ## Description
 
-We will research different architectural patterns in the context of the modern cloud. More specifically, there are trade-offs associated with Monolith, Distributed Monolith and Microservice approaches. Our essay aims describe challenges with each pattern and also provide a discussion for when each pattern may be a good choice. E.g., microservices is a hot topic that many see as the "gold-standard" architectural pattern. We dig deeper to see if this is always the case and whether the more traditional Monolith could remain viable.
-
-
+We introduce the concept of different architectural patterns in the context of the modern cloud. We briefly describe trade-offs associated with Monolith, Distributed Monolith and Microservice approaches. We examine the cost and challenges of migrating an existing monolith to a microservice architecture. We describe proven migration patterns that have been used for successful architecture migrations in the past. Finally, we discuss things that need to go into consideration when weighing the pros and cons of migrating from monolith to microservies.
 
 **Relevance**
 
-It is relatively easy to see that the choice of architectural pattern directly impacts an organizations requirements for DevOps maturity. A monolith will tend to require less DevOps maturity while deploying and orchestrating microservices likely requires more.
+Microservices is a hot topic that many see as the "gold-standard" architectural pattern. We investigate this notion to see if this is always the case and whether the more traditional Monolith could remain viable. In particular, many projects start out as monoliths and then transition into microservices - researching how and when to successfully transition is extremely relevant from a professional standpoint.
