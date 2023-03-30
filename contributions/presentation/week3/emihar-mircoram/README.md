@@ -2,7 +2,7 @@
 
 ## Title
 
-Canary releases vs Feature flag vs Blue-Green deployment. What's the difference and why is one preferable?
+Canary releases vs Feature flag vs Blue-Green deployment. What's the difference and how do you choose between them?
 
 ## Names and KTH ID
 
