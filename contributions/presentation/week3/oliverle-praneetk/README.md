@@ -19,7 +19,7 @@ Orbs make CircleCI the superior CI/CD option
 
 ## Description
 
-We want to compare CircleCI against many other state of the art CI/CD tools, such as Jenkins, GitLab CI/CD and more. We want to make the case that CircleCI is better from an ease of use perspective by comparing the Orbs (reusable build tools) in CircleCI to the equivalent tools in Jenkins and other services. We will showcase an example of an Orb relating to Kubernetes to show how easy it is to use. 
+We want to compare CircleCI against many other state of the art CI/CD tools, such as Jenkins, GitLab CI/CD and more. We want to make the case that CircleCI is better from an ease of use perspective by comparing the Orbs (reusable build tools) in CircleCI to the equivalent tools in Jenkins and other services. We will showcase an example of an Orb relating to Kubernetes or some other Orb to show how easy it is to use. 
 
 
 **Relevance**
