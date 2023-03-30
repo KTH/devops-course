@@ -28,3 +28,4 @@ and how they can be used to get tailor to specific use cases for the release.
 It's easy to learn new concept in theory but how they are applied in the real world is essential for learning how to and more importantly when to use the different
 methods. Aside from explaining the methods in theory, they application and result will give insight to other student who might be experts from the computer science
 perspective but lack a broader view of the use cases. 
+
