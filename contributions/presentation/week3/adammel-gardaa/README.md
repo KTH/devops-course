@@ -1,7 +1,7 @@
 # Assignment Proposal
 
 ## Title
-Blue Green Deployment with Kubernetes
+Rolling Deployment with Kubernetes
 
 ## Names and KTH ID
 Adam Melander (adammel@kth.se)
@@ -15,9 +15,9 @@ Presentation
 
 ## Description
 
-Blue-green deployment is a deployment strategy which is used to ensure minimal downtime for a service. This is done by maintaining two sets of environments, where one contains the production code, and the other contains the development code for the new version. 
+Rolling deployment is a deployment strategy which is used to ensure low downtime and a smooth update for a application. This is done by slowly replacing previous version of the application with a newer one, one-by-one.
 
-Kubernetes is a container orchestration platform used to automate the deployment of applications among other things. It is a cluster management system, making it easy to deploy one Blue cluster and one Green cluster.
+Kubernetes is a container orchestration platform used to automate the deployment of applications among other things. It is a cluster management system, making it easy to replace deployed nodes with new ones running the new version.
 
-Blue Green deployment, as with other deployment strategies, is an important deployment strategy that decreases risk and downtime for deployment. This is highly relevant when maintaining any project with low downtime tolerance.
+Rolling deployment, as with other deployment strategies, is an important deployment strategy that decreases risk and downtime for deployment. This is highly relevant when maintaining any project with low downtime tolerance.
 
