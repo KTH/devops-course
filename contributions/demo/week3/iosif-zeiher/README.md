@@ -1,4 +1,4 @@
-# Demo Proposal
+# Assignment Proposal
 
 ## Title
 
