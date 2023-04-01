@@ -7,7 +7,7 @@ Contribute to the Rust implementation of Apache Arrow
   - Jonathan Arns (jarns@kth.se)
 
 ## Deadline
-- Task 1
+- Task 2
 
 ## Category
 - Open source
