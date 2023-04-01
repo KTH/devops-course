@@ -1,6 +1,46 @@
 ## Essays
 
-*
+* Docker containers in DevOps: Risks and Best Practices https://raw.githubusercontent.com/KTH/devops-course/2022/contributions/essay/rafiy/DockerContainersInDevOpsRisksAndBestPractices.pdf
+* Investigation into Kubernetes Security – Deficiencies and Best Practices https://raw.githubusercontent.com/KTH/devops-course/2022/contributions/essay/sannerv/Investigation_into_Kubernetes_Security___Deficiencies_and_Best_Practices.pdf
+* IoT fleet management with Thingsboard.io https://raw.githubusercontent.com/KTH/devops-course/2022/contributions/essay/segatz/DD2482_essay.pdf
+* How Software bots can interact with DevOps https://raw.githubusercontent.com/KTH/devops-course/2022/contributions/essay/shotaro/Repeat_How_Software_bots_can_interact_with_DevOps.pdf
+* Transitioning from DevOps to DevSecOps https://raw.githubusercontent.com/KTH/devops-course/2022/contributions/essay/sjovald-vilmaj/Transitioning_from_DevOps_to_DevSecOps.pdf
+* Ethics of Canary Testing: Users as Guinea pigs https://raw.githubusercontent.com/KTH/devops-course/2022/contributions/essay/svanhol/Revised_Ethics_of_Canary_Testing.pdf
+* How DevOps and GitOps differ and how they overlap https://raw.githubusercontent.com/KTH/devops-course/2022/contributions/essay/ttle/DevOps_Essay_Tony%20Le.pdf
+* Securing the pipeline Continuous penetration testing https://raw.githubusercontent.com/KTH/devops-course/2022/contributions/essay/valdimar/Securing_the_pipeline.pdf
+* DevOps and Security - How to fit them together? https://raw.githubusercontent.com/KTH/devops-course/2022/contributions/essay/yilinc-zehaoj/Repeat_DevOps_and_Security%20-%20How_to_fit_them_together.pdf
+* The fundamentals of DevOps culture and how to transition to DevOps https://raw.githubusercontent.com/KTH/devops-course/2022/contributions/essay/zapata-iredtzer/The%20fundamentals%20of%20DevOps%20culture%20and%20how%20to%20transition%20to%20DevOps.pdf
+* Automated Testing in Game Development https://raw.githubusercontent.com/KTH/devops-course/2022/contributions/essay/porion/Automated_Testing_In_Game_Development_Essay.pdf
+* Dependency Testing: a critical aspect in DevSecOps  https://raw.githubusercontent.com/KTH/devops-course/2022/contributions/essay/pontuscm-maiga/pontuscm_maiga_dependency_testing.pdf
+* A study of the challenges within IaC, and the best practices to potentially overcome them https://raw.githubusercontent.com/KTH/devops-course/2022/contributions/essay/phisal/essay_IaC_phisal.pdf
+* Introduction to Feature toggles - How are they used https://raw.githubusercontent.com/KTH/devops-course/2022/contributions/essay/persman/Introduction%20to%20Feature%20toggles%20-%20How%20are%20they%20used.pdf
+* The Evolution of DevOps - The Past, Present and Future https://raw.githubusercontent.com/KTH/devops-course/2022/contributions/essay/perarn-tobiasgg/DD2482_Essay_Evolution_of_DevOps_Repeat.pdf
+* Continuous Integration Comparison: GitHub vs GitLab https://raw.githubusercontent.com/KTH/devops-course/2022/contributions/essay/ntli/devops-essay-gitlab-vs-github-ci.pdf
+* Essay: Large-scale JavaScript error tracking https://raw.githubusercontent.com/KTH/devops-course/2022/contributions/essay/nalenz/Large-scale%20JavaScript%20error%20tracking.pdf
+* The future of DevOps https://raw.githubusercontent.com/KTH/devops-course/2022/contributions/essay/mustali-rahimz/The_Future_of_DevOps.pdf
+* Blockchain and Infrastructure as Code https://raw.githubusercontent.com/KTH/devops-course/2022/contributions/essay/mateofc-sanherib/Blockchain_and_Infrastructure_as_code.pdf
+* Leveraging Kubernetes for Machine Learning with Kubeflow https://raw.githubusercontent.com/KTH/devops-course/2022/contributions/essay/marcelj/Leveraging%20Kubernetes%20for%20Machine%20Learning%20with%20Kubeflow.pdf
+* Configuration languages - A comparison of Dhall and CUE https://raw.githubusercontent.com/KTH/devops-course/2022/contributions/essay/lukasgut-olofgr/Configuration_languages-A_comparison_of_Dhall_and_CUE.pdf
+* Risk Reduction using MLOps https://raw.githubusercontent.com/KTH/devops-course/2022/contributions/essay/libl/Risk_Reduction_using_MLOps.pdf
+* Working with Agile and DevOps Together https://raw.githubusercontent.com/KTH/devops-course/2022/contributions/essay/lhagm/Using_Agile_and_DevOps_Together_AFTER_FEEDBACK.pdf
+* The blasphemy of YAML https://raw.githubusercontent.com/KTH/devops-course/2022/contributions/essay/johnlan/DD2482_essay.pdf
+* Comparative Study Between Popular Infrastructure as Code Tools https://raw.githubusercontent.com/KTH/devops-course/2022/contributions/essay/joakiols-mjafari/ComparativeStudyBetweenIaCTools.pdf
+* CI in the context of business https://raw.githubusercontent.com/KTH/devops-course/2022/contributions/essay/isacha/CI%20in%20the%20context%20of%20business%20final%20submission.pdf
+* Solo Programming vs Pair Programming vs Mob Programming https://raw.githubusercontent.com/KTH/devops-course/2022/contributions/essay/gotthard/Solo_vs_Pair_vs_Mob_programming.pdf
+* Stuxnet, a Weapon of Cyber Warfare and an Opportunity to Learn About Security in DevOps https://raw.githubusercontent.com/KTH/devops-course/2022/contributions/essay/geomal-kalzi-salunke/REVISED%20Dev_ops_essay.pdf
+* DevOps in Finance - Pros and Cons https://raw.githubusercontent.com/KTH/devops-course/2022/contributions/essay/gacar-leren/DevOps_in_Finance.pdf
+* The Impact of DevOps on Cloud Development https://raw.githubusercontent.com/KTH/devops-course/2022/contributions/essay/filbac/TheImpactOfDevOpsOnCloudDevelopment.pdf
+* MLOps: the past, the present and the future https://raw.githubusercontent.com/KTH/devops-course/2022/contributions/essay/ennio-vishaln/devops-essay-MLOps-past-present-future.pdf
+* Security threats in serverless https://raw.githubusercontent.com/KTH/devops-course/2022/contributions/essay/danielg8-megzari/security-threats-in-serverless.pdf
+* Testing Microservices, Challenges, Types and NodeJS Solutions https://raw.githubusercontent.com/KTH/devops-course/2022/contributions/essay/cdik-aabdull/Essay_Microservices_Testing.pdf
+* Docker containers: from 1979 till today https://raw.githubusercontent.com/KTH/devops-course/2022/contributions/essay/bonato/Docker%20containers%20from%201979%20till%20today.pdf
+* Troubleshooting Comparison of VMs and Containers https://raw.githubusercontent.com/KTH/devops-course/2022/contributions/essay/bgeid-ersode/Troubleshooting%20comparison%20of%20VMs%20and%20containers.pdf
+* Adopting Continuous delivery - The common challenges developers face, their causes and solutions https://raw.githubusercontent.com/KTH/devops-course/2022/contributions/essay/benron/Adopting%20Continuous%20delivery%20-%20The%20common%20challenges%20developers%20face%2C%20their%20causes%20and%20solutions.pdf
+* Exploring Linkerd as a Service Mesh for Observability, Reliability, and Security https://raw.githubusercontent.com/KTH/devops-course/2022/contributions/essay/ayushman/Revised_ServiceMeshLinkerdEssay.pdf
+* Automated Software Testing and DevOps: Kubeflow or MLflow - which one to choose? https://raw.githubusercontent.com/KTH/devops-course/2022/contributions/essay/auhr-nsmy/Kubeflow%20or%20MLflow%20-%20which%20one%20to%20choose%3F.pdf
+* 5G technology: An investigation in cloud architecture and “Blue/Green” strategy for software upgrades https://raw.githubusercontent.com/KTH/devops-course/2022/contributions/essay/asim/DevOps_Essay_Asim_v3.pdf
+
+
 
 ## Tutorials
 

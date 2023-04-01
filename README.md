@@ -20,7 +20,6 @@ The schedule is at <https://www.kth.se/social/course/DD2482/calendar/>
 ### Week 2: [Testing automation](https://github.com/KTH/devops-course/issues/9) & [Continuous Integration](https://github.com/KTH/devops-course/issues/3)
 * Preparatory material [Testing at scale](https://increment.com/testing/testing-at-scale/), [Harvesting Production GraphQL Queries to Detect Schema Faults](https://arxiv.org/pdf/2112.08267), [The Rituals of
 Iterations and Tests](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=9238653)
-* Technical Briefing (B. Baudry)
 * Student presentations, demonstrations
 
 ### Week 3: [Continuous Deployment / Delivery](https://github.com/KTH/devops-course/issues/12)
