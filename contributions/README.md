@@ -26,6 +26,7 @@
 7. Presentation: [Orbs make CircleCI the superior CI/CD option](https://github.com/KTH/devops-course/tree/2023/contributions/presentation/week3/oliverle-praneetk)
 8. Presentation: [Rolling Deployment with Kubernetes](https://github.com/KTH/devops-course/tree/2023/contributions/presentation/week3/adammel-gardaa)
 9. Demo: [How to deploy on AWS EC2 using ECS and GitHub Actions](https://github.com/KTH/devops-course/tree/2023/contributions/demo/week3/iosif-zeiher)
+10. Presentaion: [An introduction to the Infrastructure as Code (IaC) tool Terraform and how it compares to DevOps tools like Ansible](https://github.com/KTH/devops-course/tree/2023/contributions/presentation/week3/mgku)
 
 ## Week 4
 
