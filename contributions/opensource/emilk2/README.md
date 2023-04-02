@@ -21,3 +21,9 @@ This proposal aims to improve the API for Korifi.
 
 **Relevance**\
 Korifi is related to IaC and CD as it allows a developer to simplify their DevOps by facilitating them with various tools to spin up and manage apps. Thus, contributing to Korifi's API has direct effect on any DevOps engineer using the platform. 
+
+
+Submission:
+The final pr can found here: [https://github.com/cloudfoundry/korifi/pull/2371](https://github.com/cloudfoundry/korifi/pull/2371)
+
+I implemented a route in the Korifi API that allows fetching packages connected to an deployed app. On top of it, both unit and end-to-end tests were written. These tests had to be refactored after the maintainers made changes to the API. Communication with a maintainer was done too in order to get the PR merged correctly, and their guidelines were followed. 
