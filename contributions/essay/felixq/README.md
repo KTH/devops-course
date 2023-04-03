@@ -10,7 +10,7 @@ Shifting Left in DevOps: Improving the Quality and Speed of Software Development
 
 ## Deadline
 
-- Deadline 2: April 24
+- Task 2: April 24
 
 ## Category
 
