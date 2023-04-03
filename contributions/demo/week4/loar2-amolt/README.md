@@ -1,8 +1,9 @@
+
 # Assignment Proposal
 
 ## Title
 
-Implementing serverless architecture with AWS
+Implementing multiple VMs with Vagrant
 
 ## Names and KTH ID
 
@@ -21,10 +22,8 @@ Implementing serverless architecture with AWS
 
 ## Description
 
-For our demonstration, we will show how you set up and run a serverless service deployed with a REST API. We will be using Serverless framework and AWS to set up the service. 
-For demo purposes we will add a database to the service and we will showcase adding a GET and a POST endpoint. 
+For our demonstration, we will show how you can easily setup multiple virtual machines from one host computer. We will also show how you can sync up the VMs setup from one host computer to another. The VMs will be of different kinds of operating systems and will be running different services. 
 
 **Relevance**
-A serverless architecture is becoming more and more popular among developers. It is more cost effective, easy to maintain and more scalable than using containers. Seeing that almost 40% of organizations are using serverless architecture, it looks to be an important player in the DevOps landscape.  
-
+The use of multiple VMs in DevOps is quite widespread, and especially in team context different team members require their VMs setup to be synchronized with each other. Traditionally this is quite difficult to do because they are very large files. Vagrant is one way to streamline and optimize the synchronization of setups. 
 
