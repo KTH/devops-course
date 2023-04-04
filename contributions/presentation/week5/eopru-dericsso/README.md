@@ -11,7 +11,7 @@ Package management for Kubernetes using Helm Charts
 
 ## Deadline
 
-- Week 5
+- Week 4
 
 ## Category
 
