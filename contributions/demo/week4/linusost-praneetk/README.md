@@ -26,6 +26,7 @@ vulnerabilites have been reduced to make the image more secure.We will also demo
 Docker and Slim tools.
 
 **Relevance**
+
 DockerSlim is created by slim.ai, which has a GUI that we will showcase. It provides additional functionality like 
 providing an SBOM, CVE scanning andadditional statisitics and insights. Everything is containerised these days and 
 having "slim", optimised and secure containers are becoming more relevant. Before shipping to production, it is 
