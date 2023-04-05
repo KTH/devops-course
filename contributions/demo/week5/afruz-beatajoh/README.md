@@ -2,7 +2,7 @@
 
 ## Title
 
-Infrastructure as Code in Jenkins
+Configuration as Code with Jenkins
 
 ## Names and KTH ID
 
