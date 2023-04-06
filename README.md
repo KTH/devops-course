@@ -65,9 +65,9 @@ To pass the course, the student has to complete and pass between 3 and 5 tasks:
 * The same student cannot choose the same topic for two different tasks. The 3-5 tasks should cover different aspects of DevOps.
 * Deadlines:
   * Deadline for presentations and demos: the day and time they are given in person
-  * Deadline 1 for essay / katacoda / open-source: April 10, 17h Stockholm time
-  * Deadline 2 for essay / katacoda / open-source: April 24, 17h Stockholm time
-  * Deadline 3 for essay / katacoda / open-source: May 8, 17h Stockholm time
+  * Deadline 1 for essay / tutorial / open-source: April 11, 17h Stockholm time
+  * Deadline 2 for essay / tutorial / open-source: April 24, 17h Stockholm time
+  * Deadline 3 for essay / tutorial / open-source: May 8, 17h Stockholm time
   * Deadline for feedback on essays or katacodas: 48 hours after delivery for a given deadline
   * Deadline for repeated tasks (all): May 31, 17h Stockholm time.
   * The deadlines are strict and cannot be extended. Not meeting a deadline means failing the task / the repetition.
