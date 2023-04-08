@@ -10,7 +10,7 @@ Cloud Gaming and Containers. A comparison and evaluation of performance between 
 
 ## Deadline
 
-- Task 1 (11 April, 17:00)
+- Task 1
 
 ## Category
 
