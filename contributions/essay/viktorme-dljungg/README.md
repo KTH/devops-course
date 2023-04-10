@@ -2,7 +2,7 @@
 
 ## Title
 
-From Monolith to Microservices: Why It’s a Nuanced Decision.
+Software and Cloud Technology: Transforming a Monolithic Application into Microservices
 
 ## Names and KTH ID
 
@@ -11,7 +11,7 @@ From Monolith to Microservices: Why It’s a Nuanced Decision.
 
 ## Deadline
 
-- April 10
+- Task 1: April 10
 
 ## Category
 
