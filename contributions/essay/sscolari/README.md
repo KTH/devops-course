@@ -10,13 +10,15 @@ Cloud Gaming and Containers. A comparison and evaluation of performance between 
 
 ## Deadline
 
-- Task 1 (11 April, 17:00)
+- Task 1
 
 ## Category
 
 - Essay
 
 ## Description
+
+[**Link to PDF**](https://drive.google.com/file/d/10sgYXalFCd0fpcth5GaALtP5MbKSLq9f/view?usp=sharing)
 
 In the essay I will give a short introduction of Cloud Gaming. <br/>Following, I will present differences in performance and usage for Cloud Gaming between Containers and Virtual Machines as the cloud servers use virtualization techniques to isolate users and share resources among dedicated servers.<br/>
 Although leading Cloud Gaming to great benefit, containers were shown to improve also Game Development itself, for example by making the game server's architecture simpler and more scalable.<br/>
