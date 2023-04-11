@@ -26,3 +26,11 @@ If we find more appropriate Splunk dashboard features we can add these to the tu
 **Relevance**
 
 Dashboards are used to convert logs into a easily readable format. This can be helpful for developers to understand the result of builds and tests faster. When monitoring logs in real time alerts can be useful for triggering new actions, or to alert developers that a something has happened in the logs.
+
+## Links
+
+The tutorial:
+https://killercoda.com/beata/scenario/splunk-dashboard
+
+The github repository:
+https://github.com/BeataJohansson/splunk-tutorial
