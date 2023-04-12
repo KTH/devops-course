@@ -18,4 +18,4 @@ Feedback for Essay: DevSecOps: An Approach in Preventing and Responding to Worst
 
 ## Description
 
-Comment on the essay: #2107
+Comment on the essay: https://github.com/KTH/devops-course/pull/2107
