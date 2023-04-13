@@ -2,7 +2,7 @@
 
 ## Title
 
-A deep comparison of dependabot and snyk and how to them into an organisation.
+A deep comparison of dependabot and snyk and how to integrate them into an organisation.
 
 ## Names and KTH ID
 
