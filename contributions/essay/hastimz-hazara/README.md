@@ -2,7 +2,7 @@
 
 ## Title
 
-DevSecOps: An Approach in Preventing and Responding to Worst-Case Cyberattacks like the SolarWinds Hack
+DevSecOps: A Crucial Approach in Preventing and Responding to Worst-Case Cyberattacks like the SolarWinds Hack
 
 ## Names and KTH ID
 
@@ -11,7 +11,7 @@ DevSecOps: An Approach in Preventing and Responding to Worst-Case Cyberattacks l
 
 ## Deadline
 
-April 10
+April 11
 
 - Task 1
 
