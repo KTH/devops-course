@@ -2,7 +2,7 @@
 
 ## Title
 
-A systematic overview of identifying error patterns in IaC
+A deep comparison of dependabot and snyk and how to them into an organisation.
 
 ## Names and KTH ID
 
@@ -19,8 +19,8 @@ A systematic overview of identifying error patterns in IaC
 
 ## Description
 
-We would like to write an essay about identifying error patterns in infrastructure as code. First, we will define what infrastructure as code is and why it is used. Secondly, which different types of error pattern checks exists. Later, we will map these to infrastructure as code.
+We would like to write an essay about the similarities and differences of snyk and dependabot. We will cover what these tools are and their aim. Further, we would like to analyse how these tools can be integrated into a development cycle.
 
 **Relevance**
 
-Infrastructure as Code (IaC) is a topic in this DevOps course and is a rising topic as it allows version history of infrastructure in combination with an automated deployment. By combining code and infrastructure, one is able to apply DevOps principles to infrastructure.
+Softwarebots are mentioned in the last week of the lecture and may help organisations to move to a more DevOps based development cycle by automating and helping at certain tasks.
