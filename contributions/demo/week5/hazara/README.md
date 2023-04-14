@@ -2,7 +2,7 @@
 
 ## Title
 
-Infrastructure as Code with Terraform and AWS 
+Managing Terraform's state remotely using AWS
 
 ## Names and KTH ID
 
@@ -18,7 +18,7 @@ Infrastructure as Code with Terraform and AWS
 
 ## Description
 
-I will demo the interplay between AWS and Terraform. This will showcase the power and ease of implementing infrastructure as code in a DevOps workflow. 
+I will demo the interplay between AWS and Terraform, in the context of state management. This will showcase the power and ease of implementing infrastructure as code in a DevOps workflow. 
 
 **Relevance**
 
