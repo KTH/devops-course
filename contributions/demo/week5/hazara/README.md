@@ -1,25 +1,25 @@
 # Assignment Proposal
 
-## Title
+ ## Title
 
-Infrastructure as Code with Terraform and AWS CloudWatch Monitoring
+ Infrastructure as Code with Terraform and AWS 
 
-## Names and KTH ID
+ ## Names and KTH ID
 
-- Omid Hazara (hazara@kth.se)
+ - Omid Hazara (hazara@kth.se)
 
-## Deadline
+ ## Deadline
 
-- Week 5
+ - Week 5
 
-## Category
+ ## Category
 
-- Demo
+ - Demo
 
-## Description
+ ## Description
 
-We will demo how to create and manage AWS resources using Terraform, and monitor them using AWS CloudWatch. This will demonstrate the power of infrastructure as code and the importance of monitoring in a DevOps workflow.
+I will demo the interplay between AWS and Terraform. This will showcase the power and ease of implementing infrastructure as code in a DevOps workflow. 
 
 **Relevance**
 
-Terraform is a widely-used infrastructure-as-code (IaC) tool that enables users to create, update, and destroy infrastructure resources in an efficient manner. AWS CloudWatch is a powerful monitoring service that allows users to track the performance of their AWS resources in real-time. Together, these tools are essential components of a modern DevOps workflow, as they provide developers and operations teams with the ability to manage infrastructure and monitor its performance consistently and transparently.
+Terraform is a widely-used infrastructure-as-code (IaC) tool that enables users to create, update, and destroy infrastructure resources efficiently. By leveraging Terraform with AWS, developers and operations teams can manage infrastructure consistently and transparently, making it an essential component of a modern DevOps workflow.
