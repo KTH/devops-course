@@ -29,7 +29,7 @@
 10. Presentation: [An introduction to the Infrastructure as Code (IaC) tool Terraform and how it compares to DevOps tools like Ansible](https://github.com/KTH/devops-course/tree/2023/contributions/presentation/week3/mgku)
 
 ## Week 4
-1. Demo: [Switching to Podman from Docker in your CI/CD pipeline](demo/week4/emilk2-pierrelf/README.md)
+1. ~Demo: [Switching to Podman from Docker in your CI/CD pipeline](demo/week4/emilk2-pierrelf/README.md)~
 2. Demo: [Serverless functions with Gatsby and Gatsby Cloud](demo/week4/gardaa-adammel/README.md)
 3. Presentation: [Package management for Kubernetes using Helm Charts](presentation/week4/eopru-dericsso/README.md)
 4. Presentation: [Lagom: Reactive Microservices for the JVM](presentation/week4/jwliu-jaldu/README.md)
@@ -47,6 +47,8 @@
 3. Demo: [How to define input variables and query data in Docker using Terraform](https://github.com/KTH/devops-course/tree/2023/contributions/demo/week5/jennilar-asbai)
 4. Demo: [Using Checkov with Terraform and GitHub Actions](https://github.com/KTH/devops-course/tree/2023/contributions/demo/week5/llucfm-paufm)
 5. Demo: [Mars: infrastructure-as-code tool for Ethereum](https://github.com/KTH/devops-course/tree/2023/contributions/demo/week5/sscolari-morello)
+6. Demo: [Switching to Podman from Docker in your CI/CD pipeline](demo/week4/emilk2-pierrelf/README.md)
+
 
 ## Week 6
 
