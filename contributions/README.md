@@ -42,6 +42,11 @@
 11. Presentation: [Large messages in Kafka and how to handle them](https://github.com/KTH/devops-course/tree/2023/contributions/presentation/week4/emihar-mircoram)
 
 ## Week 5
+1. Demo: [Configuration as Code with Jenkins](https://github.com/KTH/devops-course/tree/2023/contributions/demo/week5/afruz-beatajoh)
+2. Demo: [How to Use Ansible to Automate Initial Server Setup on Ubuntu 20.04](https://github.com/KTH/devops-course/tree/2023/contributions/demo/week5/dljungg-taox)
+3. Demo: [How to define input variables and query data in Docker using Terraform](https://github.com/KTH/devops-course/tree/2023/contributions/demo/week5/jennilar-asbai)
+4. Demo: [Using Checkov with Terraform and GitHub Actions](https://github.com/KTH/devops-course/tree/2023/contributions/demo/week5/llucfm-paufm)
+5. Demo: [Mars: infrastructure-as-code tool for Ethereum](https://github.com/KTH/devops-course/tree/2023/contributions/demo/week5/sscolari-morello)
 
 ## Week 6
 
