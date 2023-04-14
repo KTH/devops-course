@@ -1,22 +1,22 @@
 # Assignment Proposal
 
- ## Title
+## Title
 
- Infrastructure as Code with Terraform and AWS 
+Infrastructure as Code with Terraform and AWS 
 
- ## Names and KTH ID
+## Names and KTH ID
 
  - Omid Hazara (hazara@kth.se)
 
- ## Deadline
+## Deadline
 
  - Week 5
 
- ## Category
+## Category
 
  - Demo
 
- ## Description
+## Description
 
 I will demo the interplay between AWS and Terraform. This will showcase the power and ease of implementing infrastructure as code in a DevOps workflow. 
 
