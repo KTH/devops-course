@@ -29,6 +29,17 @@
 10. Presentation: [An introduction to the Infrastructure as Code (IaC) tool Terraform and how it compares to DevOps tools like Ansible](https://github.com/KTH/devops-course/tree/2023/contributions/presentation/week3/mgku)
 
 ## Week 4
+1. Demo: [Switching to Podman from Docker in your CI/CD pipeline](demo/week4/emilk2-pierrelf/README.md)
+2. Demo: [Serverless functions with Gatsby and Gatsby Cloud](demo/week4/gardaa-adammel/README.md)
+3. Presentation: [Package management for Kubernetes using Helm Charts](presentation/week4/eopru-dericsso/README.md)
+4. Presentation: [Lagom: Reactive Microservices for the JVM](presentation/week4/jwliu-jaldu/README.md)
+5. Demo: [Implementing multiple VMs with Vagrant](demo/week4/loar2-amolt/README.md)
+6. Presentation: [Design patterns for fault tolerance in microservices](presentation/week4/felixq-oskarsva/README.md)
+7. Presentation: [Apptainer: Containers for security and High Performance Computing](presentation/week4/aramia-erikwac/README.md)
+8. Presentation: [Unlocking the Power of Azure Container Apps](presentation/week4/ikhudur-davidced/README.md)
+9. Demo: [DockerSlim: Make your container small and secure!](demo/week4/linusost-praneetk/README.md)
+10. Demo: [Utilizing Docker extensions to improve container development](demo/week4/micask-jakobew/README.md)
+11. Presentation: [Large messages in Kafka and how to handle them](https://github.com/KTH/devops-course/tree/2023/contributions/presentation/week4/emihar-mircoram)
 
 ## Week 5
 
