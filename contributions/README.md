@@ -46,9 +46,9 @@
 2. Demo: [How to Use Ansible to Automate Initial Server Setup on Ubuntu 20.04](https://github.com/KTH/devops-course/tree/2023/contributions/demo/week5/dljungg-taox)
 3. Demo: [How to define input variables and query data in Docker using Terraform](https://github.com/KTH/devops-course/tree/2023/contributions/demo/week5/jennilar-asbai)
 4. Demo: [Using Checkov with Terraform and GitHub Actions](https://github.com/KTH/devops-course/tree/2023/contributions/demo/week5/llucfm-paufm)
-5. Demo: [Mars: infrastructure-as-code tool for Ethereum](https://github.com/KTH/devops-course/tree/2023/contributions/demo/week5/sscolari-morello)
-6. Demo: [Switching to Podman from Docker in your CI/CD pipeline](demo/week4/emilk2-pierrelf/README.md)
-
+5. Demo: [Managing Terraform's state remotely using AWS](https://github.com/KTH/devops-course/tree/2023/contributions/demo/week5/hazara)
+6. Demo: [Mars: infrastructure-as-code tool for Ethereum](https://github.com/KTH/devops-course/tree/2023/contributions/demo/week5/sscolari-morello)
+7. Demo: [Switching to Podman from Docker in your CI/CD pipeline](demo/week4/emilk2-pierrelf/README.md)
 
 ## Week 6
 
