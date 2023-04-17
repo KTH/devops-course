@@ -6,7 +6,7 @@ Threat modeling - A comparison between P.A.S.T.A and STRIDE
 
 ## Names and KTH ID
 
-  - Ivan Khudir (ikhudur@kth.se)
+  - Ivan Khudur (ikhudur@kth.se)
   - Praneet Kala (praneetk@kth.se)
 
 ## Deadline
