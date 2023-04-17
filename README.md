@@ -36,7 +36,7 @@ Iterations and Tests](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=92386
 
 ### Week 6: [Monitoring and Observability](https://github.com/KTH/devops-course/issues/8), [MLOps](https://github.com/KTH/devops-course/issues/1016), [Feature flags](https://github.com/KTH/devops-course/issues/21)
 
-* Preparatory material: [Monitoring notes](https://www.monperrus.net/martin/monitoring.pdf)
+* Preparatory material: [Monitoring notes](https://www.monperrus.net/martin/monitoring.pdf), [Building Machine Learning Models Like Open Source Software](https://cacm.acm.org/magazines/2023/2/268952-building-machine-learning-models-like-open-source-software/fulltext), [What is A/B testing?](https://medium.com/is-that-product-management/what-is-a-b-testing-bc964ecd99b4)
 * Student presentations, demonstrations
 
 
