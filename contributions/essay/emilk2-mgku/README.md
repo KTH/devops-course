@@ -6,7 +6,8 @@ Using machine learning to find security vulnerabilities in software
 
 ## Names and KTH ID
 
-- Emil Karlsson (emilk2@kth.se) Maximilian Georg Kurzawski (mgku@kth.se)
+- Emil Karlsson (emilk2@kth.se) 
+- Maximilian Georg Kurzawski (mgku@kth.se)
 
 ## Deadline
 
