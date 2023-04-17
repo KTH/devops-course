@@ -36,7 +36,7 @@ Iterations and Tests](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=92386
 
 ### Week 6: [Monitoring and Observability](https://github.com/KTH/devops-course/issues/8), [MLOps](https://github.com/KTH/devops-course/issues/1016), [Feature flags](https://github.com/KTH/devops-course/issues/21)
 
-* Preparatory material: [Monitoring notes](https://www.monperrus.net/martin/monitoring.pdf)
+* Preparatory material: [Monitoring notes](https://www.monperrus.net/martin/monitoring.pdf), [Building Machine Learning Models Like Open Source Software](https://cacm.acm.org/magazines/2023/2/268952-building-machine-learning-models-like-open-source-software/fulltext), [What is A/B testing?](https://medium.com/is-that-product-management/what-is-a-b-testing-bc964ecd99b4)
 * Student presentations, demonstrations
 
 
@@ -65,9 +65,9 @@ To pass the course, the student has to complete and pass between 3 and 5 tasks:
 * The same student cannot choose the same topic for two different tasks. The 3-5 tasks should cover different aspects of DevOps.
 * Deadlines:
   * Deadline for presentations and demos: the day and time they are given in person
-  * Deadline 1 for essay / katacoda / open-source: April 10, 17h Stockholm time
-  * Deadline 2 for essay / katacoda / open-source: April 24, 17h Stockholm time
-  * Deadline 3 for essay / katacoda / open-source: May 8, 17h Stockholm time
+  * Deadline 1 for essay / tutorial / open-source: April 11, 17h Stockholm time
+  * Deadline 2 for essay / tutorial / open-source: April 24, 17h Stockholm time
+  * Deadline 3 for essay / tutorial / open-source: May 8, 17h Stockholm time
   * Deadline for feedback on essays or katacodas: 48 hours after delivery for a given deadline
   * Deadline for repeated tasks (all): May 31, 17h Stockholm time.
   * The deadlines are strict and cannot be extended. Not meeting a deadline means failing the task / the repetition.
