@@ -11,7 +11,7 @@ To virtualize or not to virtualize: comparison between self-hosted virtualizatio
 
 ## Deadline
 
-April 24, 17h
+Task 2
 
 ## Category
 
