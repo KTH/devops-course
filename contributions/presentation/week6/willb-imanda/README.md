@@ -3,8 +3,9 @@
 Monitoring and Visualization with Prometheus and Grafana 
 
 ## Names and KTH ID
-William Berg (willb@kth.se)
-Iman Dashtpeyma (imanda@kth.se)
+
+- William Berg (willb@kth.se)
+- Iman Dashtpeyma (imanda@kth.se)
 
 ## Deadline
 Week 6
