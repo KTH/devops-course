@@ -2,7 +2,7 @@
 
 ## Title
 
-_What does good test look like in Continuous integration?_
+_What does good tests look like in Continuous integration?_
 
 ## Names and KTH ID
 
@@ -27,4 +27,4 @@ potential to generate test and also look if this is a good way to avoid having b
 
 _Having test in your project is important to avoid potential problems later on in the DevOps workflow 
 . Having good tests is even more important so that we can be as sure as possible that when we deploy our project it works as intended.
-Thats why it's relevant to know what a good test looks like and if there are tools to create good tests._
+That's why it's relevant to know what a good test looks like and if there are tools to create good tests._
