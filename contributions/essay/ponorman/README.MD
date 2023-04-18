@@ -14,7 +14,7 @@ _What does good tests look like in Continuous integration?_
 
 ## Category
 
-- Essay
+- Essay.
 
 ## Description
 
