@@ -20,7 +20,6 @@ The schedule is at <https://www.kth.se/social/course/DD2482/calendar/>
 ### Week 2: [Testing automation](https://github.com/KTH/devops-course/issues/9) & [Continuous Integration](https://github.com/KTH/devops-course/issues/3)
 * Preparatory material [Testing at scale](https://increment.com/testing/testing-at-scale/), [Harvesting Production GraphQL Queries to Detect Schema Faults](https://arxiv.org/pdf/2112.08267), [The Rituals of
 Iterations and Tests](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=9238653)
-* Technical Briefing (B. Baudry)
 * Student presentations, demonstrations
 
 ### Week 3: [Continuous Deployment / Delivery](https://github.com/KTH/devops-course/issues/12)
@@ -37,7 +36,7 @@ Iterations and Tests](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=92386
 
 ### Week 6: [Monitoring and Observability](https://github.com/KTH/devops-course/issues/8), [MLOps](https://github.com/KTH/devops-course/issues/1016), [Feature flags](https://github.com/KTH/devops-course/issues/21)
 
-* Preparatory material: [Monitoring notes](https://www.monperrus.net/martin/monitoring.pdf)
+* Preparatory material: [Monitoring notes](https://www.monperrus.net/martin/monitoring.pdf), [Building Machine Learning Models Like Open Source Software](https://cacm.acm.org/magazines/2023/2/268952-building-machine-learning-models-like-open-source-software/fulltext), [What is A/B testing?](https://medium.com/is-that-product-management/what-is-a-b-testing-bc964ecd99b4)
 * Student presentations, demonstrations
 
 
@@ -47,7 +46,7 @@ Iterations and Tests](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=92386
 
 ### Week 8: [Cultural](https://github.com/KTH/devops-course/issues/7) and [legal](https://github.com/KTH/devops-course/issues/7) aspects of DevOps 
 <!-- and easter eggs -->
-* Preparatory material: [What is DevOps Culture?](https://www.atlassian.com/devops/what-is-devops/devops-culture), [Operational excellence in April Fools' pranks](https://dl.acm.org/doi/10.1145/3152489), [Continuous Integration Art Hackathon](https://kth.github.io/ci-hackathon/lights.html)
+* Preparatory material: [What is DevOps Culture?](https://www.atlassian.com/devops/what-is-devops/devops-culture), [Operational excellence in April Fools' pranks](https://dl.acm.org/doi/10.1145/3152489), [Continuous Integration Art Hackathon](https://kth.github.io/ci-hackathon/lights.html), [Where Is My (Deep) Mind?](https://www.previeux.net/fr/videos_WIMDM.html)
 * Student presentations, demonstrations
 
 ### Week 9: Other topics
@@ -66,9 +65,9 @@ To pass the course, the student has to complete and pass between 3 and 5 tasks:
 * The same student cannot choose the same topic for two different tasks. The 3-5 tasks should cover different aspects of DevOps.
 * Deadlines:
   * Deadline for presentations and demos: the day and time they are given in person
-  * Deadline 1 for essay / katacoda / open-source: April 10, 17h Stockholm time
-  * Deadline 2 for essay / katacoda / open-source: April 24, 17h Stockholm time
-  * Deadline 3 for essay / katacoda / open-source: May 8, 17h Stockholm time
+  * Deadline 1 for essay / tutorial / open-source: April 11, 17h Stockholm time
+  * Deadline 2 for essay / tutorial / open-source: April 24, 17h Stockholm time
+  * Deadline 3 for essay / tutorial / open-source: May 8, 17h Stockholm time
   * Deadline for feedback on essays or katacodas: 48 hours after delivery for a given deadline
   * Deadline for repeated tasks (all): May 31, 17h Stockholm time.
   * The deadlines are strict and cannot be extended. Not meeting a deadline means failing the task / the repetition.
