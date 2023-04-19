@@ -1,5 +1,8 @@
 # Assignment Proposal
 
+
+## Title
+
 GitGuardian: Keeping your Git secrets safe
 
 ## Names and KTH ID
