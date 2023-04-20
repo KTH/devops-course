@@ -6,8 +6,8 @@ Feedback on "To virtualize or not to virtualize: comparison between self-hosted 
 
 ## Names and KTH ID
 
-Oliver Schwalbe Lehtihet (oliverle@kth.se)
-Praneet Kala (praneetk@kth.se)
+  - Oliver Schwalbe Lehtihet (oliverle@kth.se)
+  - Praneet Kala (praneetk@kth.se)
 
 ## Deadline
 
