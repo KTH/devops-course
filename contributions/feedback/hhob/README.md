@@ -2,7 +2,7 @@
 
 ## Title
 
-Feedback on (https://github.com/KTH/devops-course/pull/2204)
+Feedback on [Shifting Left in DevOps: Improving the Quality and Speed of Software Development](https://github.com/KTH/devops-course/pull/2204)
 
 ## Names and KTH ID
 
