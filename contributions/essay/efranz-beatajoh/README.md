@@ -19,6 +19,8 @@ Navigating the jungle of Infrastructure as Code in AWS
 
 ## Description
 
+[Essay submission](https://github.com/Emilcrafter/devops-course/blob/a3c1a12dd86909f7096e900ba5cd6d17a27f4476/contributions/essay/efranz-beatajoh/efranz_beatajoh_essay.pdf)
+
 This essay will explore how Infrastructure as Code (IaC) works in AWS. We will explain what tools AWS offers for IaC, and what they are used for.
 
 This includes: AWS CloudFormation, AWS Cloud Development Kit (AWS CDK), AWS Cloud Development Kit for Kubernetes, AWS Cloud Development Kit for Terraform, AWS Cloud Control API.
