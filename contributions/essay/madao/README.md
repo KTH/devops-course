@@ -10,7 +10,7 @@ Recognizing and Addressing the Risk Behind Open Source Dependencies
 
 ## Deadline
 
-- Deadline 2: Monday, April 24 @ 17h Stockholm Time
+- Task 2: Monday, April 24 @ 17h Stockholm Time
 
 ## Category
 
