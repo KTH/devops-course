@@ -3,7 +3,7 @@
 
 ## Title
 
-Quantum Devops
+Qauntum Devops: the importance of automating and integrating processes in the Quantum Software Life Cycle
 
 ## Names and KTH ID
 
