@@ -19,7 +19,7 @@ Challenges faced by production-deployed autoscalers
 
 ## Description
 
-[Essay submission](https://github.com/snumlautoken/devops-course/essaysubmission/essay/contributions/essay/aramia-erikwac/Devops_essay.pdf)
+[Essay submission](https://github.com/snumlautoken/devops-course/tree/essaysubmission/essay/contributions/essay/aramia-erikwac/Devops_essay.pdf)
 
 Nowadays autoscaling is widely utilized and is an essential part of many areas of development. However, as outlined by https://dl.acm.org/doi/pdf/10.1145/3489525.3511680?accessTab=true there are challenges faced by autoscaling in practice that need to be adressed, and researched more thoroughly. We seek to briefly introduce autoscaling and go into detail about its more practical problems, largely going off the research of the aforementioned paper.
 
