@@ -8,7 +8,7 @@ Qauntum Devops: automating and integrating processes in the Quantum Software Lif
 ## Names and KTH ID
 
   - Gabriele Morello (morello@kth.se)
-  - Gard Aasness (student321@kth.se)
+  - Gard Aasness (gardaa@kth.se)
 
 ## Deadline
 
