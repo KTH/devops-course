@@ -19,6 +19,8 @@ A deep comparison of dependabot and snyk and how to integrate them into an organ
 
 ## Description
 
+[Essay submission](https://github.com/haraldhob/devops-course/blob/essay/contributions/essay/hhob-jaldu/DevOps_Essay.pdf)
+
 We would like to write an essay about the similarities and differences of snyk and dependabot. We will cover what these tools are and their aim. Further, we would like to analyse how these tools can be integrated into a development cycle.
 
 **Relevance**
