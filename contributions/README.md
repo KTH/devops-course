@@ -51,6 +51,16 @@
 7. Demo: [Switching to Podman from Docker in your CI/CD pipeline](demo/week4/emilk2-pierrelf/README.md)
 
 ## Week 6
+1. Presentation: [How Synthetic Monitoring can save your application](https://github.com/KTH/devops-course/tree/2023/contributions/presentation/week6/amolt-shirol)
+2. Demo: [Observability in Action: Using honeycomb to track down a real bug](https://github.com/KTH/devops-course/tree/2023/contributions/demo/week6/jarns)
+3. Presentation: [Feature Flag deployment with Split.io](https://github.com/KTH/devops-course/tree/2023/contributions/presentation/week6/hhob)
+4. Demo: [Data visualization and analysis using Kibana](https://github.com/KTH/devops-course/tree/2023/contributions/demo/week6/eopru-dericsso)
+5. Presentation: [How MLFlow can enhance your ML operations](https://github.com/KTH/devops-course/tree/2023/contributions/presentation/week6/linusost-hazara)
+6. Presentation: [Monitoring and Canary automation with Dynatrace](https://github.com/KTH/devops-course/tree/2023/contributions/presentation/week6/jonassav-ponorman)
+7. Presentation: [Managing Machine Learning Models with Seldon Core](https://github.com/KTH/devops-course/tree/2023/contributions/presentation/week6/willb-imanda)
+8. Demo: [Deploy DL models with Triton Inference Server](https://github.com/KTH/devops-course/tree/2023/contributions/demo/week6/erikwac)
+9. Demo: [Blazing fast feature flags and A/B testing with Vercel edge functions and edge config](https://github.com/KTH/devops-course/tree/2023/contributions/demo/week6/efranz-maxwik)
+
 
 ## Week 7
 
