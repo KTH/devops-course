@@ -3,7 +3,7 @@
 
 ## Title
 
-Qauntum Devops: automating and integrating processes in the Quantum Software Life Cycle
+Quantum Devops: automating and integrating processes in the Quantum Software Life Cycle
 
 ## Names and KTH ID
 
