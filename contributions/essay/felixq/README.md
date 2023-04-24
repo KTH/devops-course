@@ -18,6 +18,8 @@ Shifting Left in DevOps: Improving the Quality and Speed of Software Development
 
 ## Description
 
+[Essay](https://github.com/KTH/devops-course/pull/contributions/essay/felixq/DevOps_Essay.pdf)
+
 I will explore the shift-left approach in DevOps and try to answer several practical questions about the concept. What is it? How can you implement this method in an existing business? What if you start a new company? Many of its upsides are quite obvious such as speeding up the CI/CD pipeline, but are the potential pit-falls you could avoid and what are the drawbacks overall of this mindset?
 
 **Relevance**

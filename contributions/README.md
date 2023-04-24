@@ -29,10 +29,39 @@
 10. Presentation: [An introduction to the Infrastructure as Code (IaC) tool Terraform and how it compares to DevOps tools like Ansible](https://github.com/KTH/devops-course/tree/2023/contributions/presentation/week3/mgku)
 
 ## Week 4
+1. ~Demo: [Switching to Podman from Docker in your CI/CD pipeline](demo/week4/emilk2-pierrelf/README.md)~
+2. Demo: [Serverless functions with Gatsby and Gatsby Cloud](demo/week4/gardaa-adammel/README.md)
+3. Presentation: [Package management for Kubernetes using Helm Charts](presentation/week4/eopru-dericsso/README.md)
+4. Presentation: [Lagom: Reactive Microservices for the JVM](presentation/week4/jwliu-jaldu/README.md)
+5. Demo: [Implementing multiple VMs with Vagrant](demo/week4/loar2-amolt/README.md)
+6. Presentation: [Design patterns for fault tolerance in microservices](presentation/week4/felixq-oskarsva/README.md)
+7. Presentation: [Apptainer: Containers for security and High Performance Computing](presentation/week4/aramia-erikwac/README.md)
+8. Presentation: [Unlocking the Power of Azure Container Apps](presentation/week4/ikhudur-davidced/README.md)
+9. Demo: [DockerSlim: Make your container small and secure!](demo/week4/linusost-praneetk/README.md)
+10. Demo: [Utilizing Docker extensions to improve container development](demo/week4/micask-jakobew/README.md)
+11. Presentation: [Large messages in Kafka and how to handle them](https://github.com/KTH/devops-course/tree/2023/contributions/presentation/week4/emihar-mircoram)
 
 ## Week 5
+1. Demo: [Configuration as Code with Jenkins](https://github.com/KTH/devops-course/tree/2023/contributions/demo/week5/afruz-beatajoh)
+2. Demo: [How to Use Ansible to Automate Initial Server Setup on Ubuntu 20.04](https://github.com/KTH/devops-course/tree/2023/contributions/demo/week5/dljungg-taox)
+3. Demo: [How to define input variables and query data in Docker using Terraform](https://github.com/KTH/devops-course/tree/2023/contributions/demo/week5/jennilar-asbai)
+4. Demo: [Using Checkov with Terraform and GitHub Actions](https://github.com/KTH/devops-course/tree/2023/contributions/demo/week5/llucfm-paufm)
+5. Demo: [Managing Terraform's state remotely using AWS](https://github.com/KTH/devops-course/tree/2023/contributions/demo/week5/hazara)
+6. Demo: [Mars: infrastructure-as-code tool for Ethereum](https://github.com/KTH/devops-course/tree/2023/contributions/demo/week5/sscolari-morello)
+7. Demo: [Switching to Podman from Docker in your CI/CD pipeline](demo/week4/emilk2-pierrelf/README.md)
 
 ## Week 6
+1. Presentation: [How Synthetic Monitoring can save your application](https://github.com/KTH/devops-course/tree/2023/contributions/presentation/week6/amolt-shirol)
+2. Demo: [Observability in Action: Using honeycomb to track down a real bug](https://github.com/KTH/devops-course/tree/2023/contributions/demo/week6/jarns)
+3. Presentation: [Feature Flag deployment with Split.io](https://github.com/KTH/devops-course/tree/2023/contributions/presentation/week6/hhob)
+4. Demo: [Data visualization and analysis using Kibana](https://github.com/KTH/devops-course/tree/2023/contributions/demo/week6/eopru-dericsso)
+5. Presentation: [Managing Machine Learning Models with Seldon Core](https://github.com/KTH/devops-course/tree/2023/contributions/presentation/week6/willb-imanda)
+6. Presentation: [Monitoring and Canary automation with Dynatrace](https://github.com/KTH/devops-course/tree/2023/contributions/presentation/week6/jonassav-ponorman)
+7. Presentation: [How MLFlow can enhance your ML operations](https://github.com/KTH/devops-course/tree/2023/contributions/presentation/week6/linusost-hazara)
+8. Demo: [Deploy DL models with Triton Inference Server](https://github.com/KTH/devops-course/tree/2023/contributions/demo/week6/erikwac)
+9. Presentation: [Using Cross Monitoring to scale on the Edge](https://github.com/KTH/devops-course/tree/2023/contributions/presentation/week6/iosif-zeiher)
+10. Demo: [Blazing fast feature flags and A/B testing with Vercel edge functions and edge config](https://github.com/KTH/devops-course/tree/2023/contributions/demo/week6/efranz-maxwik)
+
 
 ## Week 7
 

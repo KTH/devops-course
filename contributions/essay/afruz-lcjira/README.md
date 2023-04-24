@@ -8,12 +8,15 @@ _A fault injection platform for learning AIOps models_
   - Luis Jira (lcjira@kth.se)
 
 ## Deadline
-  - Task 1: April 10
+  - Task 1
 
 ## Category
   - Essay
 
 ## Description
+
+[Essay submission](afruz_lcjira_essay.pdf) 
+
 Last year IBM engineers presented an automated framework for optimizing the data generation for AI models used for IT operations.
 
 The essay will first introduce the topic of AIOps and then summarize the work at IBM introduced in the [research paper][1].
