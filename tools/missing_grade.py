@@ -4,13 +4,15 @@
 import json, os
 import argparse, requests
 import sys
+import zlib
+from datetime import datetime
 
 TASK = ''
 WEEK = ''
 DEADLINE = 0
 CANVAS_TOKEN = ''
 CANVAS_URL = "https://canvas.kth.se"
-CANVAS_COURSE_ID = 31421
+CANVAS_COURSE_ID = 38951 # 2023 edition
 CONTRIBUTION_PATH = '../contributions'
 
 assigned_tasks = []
@@ -23,7 +25,7 @@ for i in assigned_tasks:
 # Mapping from github task name to canvas group set id
 def task_to_set(task_name, canvas_set):
     mapping = {
-        "course-automation": canvas_set["Course automation"],
+        #"course-automation": canvas_set["Course automation"],
         "demo": canvas_set["Demos"],
         "essay": canvas_set["Essays"],
         "executable-tutorial": canvas_set["Executable Tutorials"],
@@ -61,6 +63,13 @@ def get_group_members(id_group):
     return {member["name"]: member["id"] for member in json.loads(r.content)}
 
 
+def grader(url):
+    url = url.replace("/2023/","/2022/")
+    graders = json.load(open("graders.json"))
+    n= zlib.adler32(url.encode("utf-8"))%len(graders)
+    return graders[n]
+    raise Exception()
+
 # Get groups in a group set
 def check_group_grading(groups, id_assignment):
     for group in groups:
@@ -72,10 +81,11 @@ def check_group_grading(groups, id_assignment):
             r = requests.get(url, headers={'Authorization': 'Bearer ' + CANVAS_TOKEN})
             graded = "graded" == json.loads(r.content)["workflow_state"]
             if not graded:
-                url = "https://github.com/KTH/devops-course/tree/2022/contributions/"+TASK+"/"+group
-                print(url)
+                url = "https://github.com/KTH/devops-course/tree/"+datetime.today().strftime("%Y")+"/contributions/"+TASK+"/"+group
+                #print(url)
                 if len(assigned_tasks)>0 and url not in assigned_tasks:
-                    print('==',url)
+                    print(url," assigned to grader",grader(url))
+                    
                 #print("missing grade for", TASK, "of", group)
                 break
 
@@ -121,10 +131,10 @@ def filter_deadline_groups(groups, deadline):
         f = open(groups[group]["path"] + '/README.md', "r")
         file = f.read().lower()
 
-        if 'task ' not in file:
-            sorted_groups[group] = groups[group]
+        #if 'task ' not in file:
+            #sorted_groups[group] = groups[group]
             #print("Not sure if the group " + group + " is in for this deadline, checking it anyway\n")
-        if 'task ' + deadline in file:
+        if 'task ' + str(deadline) in file:
             sorted_groups[group] = groups[group]
 
     return sorted_groups
@@ -159,7 +169,7 @@ def check_all_assigned():
             #l.append(j['path'])  
     
     # remove "../"
-    l = ["https://github.com/KTH/devops-course/tree/2022/"+x[3:] for x in l]
+    l = ["https://github.com/KTH/devops-course/tree/"+datetime.today().strftime("%Y")+"/"+x[3:] for x in l]
     
     #print(assigned_tasks)
     
