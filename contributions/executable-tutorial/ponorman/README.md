@@ -25,8 +25,8 @@ _Deadline 3 (May 8)_
 
 ## Description
 
-_I want to give a tutorial about how to use MLflow to train, track and deploy a server which can respond which 
-can serve predictions when given data.
+_I want to give a tutorial about how to use MLflow to train, track and deploy the model on a server which can respond 
+with predictions when given data.
 
 **Relevance**
 
