@@ -28,3 +28,7 @@ Then we would do a simple load test, and finally add a script to the wrk call to
 
 When hosting a webservice you have to be sure that it can handle the amount of requests that are expected. 
 Load testing is an important part of the testing and monitoring process for webservices to ensure there are no downtimes or issues after the app has been deployed. 
+
+**Submission**
+
+This tutorial was done in Google Colab and a link (with Viewer privileges) is found [here: Colab](https://colab.research.google.com/drive/13Ha2dgywsyJ4UZxUvh-OfzTW959DEODG?usp=sharing)
