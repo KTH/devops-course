@@ -29,4 +29,6 @@ The essay has been added as a PDF in the Pull Request. It can be find [here](htt
 
 It is relevant to DevOps, because P.A.S.T.A. and STRIDE threat modeling are activities that provides a team with the ability to pro-actively think about security during development process. It can also be used as a platform to upskill team members and spread knowledge about
 security threats. \
-A good way to introduce security in project pipelines is to focus on a shift left approach, i.e. to start thinking about security in the beginning of a DevOps workflow, instead of in the end. 
+
+A good way to introduce security in project pipelines is to focus on a shift left approach, i.e. to start thinking about security in the beginning of a DevOps workflow, instead of in the end.
+
