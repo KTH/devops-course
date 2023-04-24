@@ -25,7 +25,8 @@ _Deadline 3 (May 8)_
 
 ## Description
 
-_I want to give a tutorial about how to use MLflow can be used in MLops_
+_I want to give a tutorial about how to use MLflow to train, track and deploy a server which can respond which 
+can serve predictions when given data.
 
 **Relevance**
 
