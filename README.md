@@ -46,7 +46,7 @@ Iterations and Tests](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=92386
 
 ### Week 8: [Cultural](https://github.com/KTH/devops-course/issues/7) and [legal](https://github.com/KTH/devops-course/issues/7) aspects of DevOps 
 <!-- and easter eggs -->
-* Preparatory material: [What is DevOps Culture?](https://www.atlassian.com/devops/what-is-devops/devops-culture), [Operational excellence in April Fools' pranks](https://dl.acm.org/doi/10.1145/3152489), [Continuous Integration Art Hackathon](https://kth.github.io/ci-hackathon/lights.html)
+* Preparatory material: [What is DevOps Culture?](https://www.atlassian.com/devops/what-is-devops/devops-culture), [Operational excellence in April Fools' pranks](https://dl.acm.org/doi/10.1145/3152489), [Continuous Integration Art Hackathon](https://kth.github.io/ci-hackathon/lights.html), [Where Is My (Deep) Mind?](https://www.previeux.net/fr/videos_WIMDM.html)
 * Student presentations, demonstrations
 
 ### Week 9: Other topics
