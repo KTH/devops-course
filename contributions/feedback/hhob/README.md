@@ -18,4 +18,6 @@ Feedback on [Shifting Left in DevOps: Improving the Quality and Speed of Softwar
 
 ## Description
 
+Comment in PR: [this pull request](https://github.com/KTH/devops-course/pull/2204#issuecomment-1520151572)
+
 I would like to submit feedback for [this essay](https://github.com/KTH/devops-course/pull/2204)
