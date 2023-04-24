@@ -10,7 +10,7 @@ Final sumbmission for Feedback on essay `From Chaos Monkey to Controlled Chaos -
 
 ## Deadline
 
-Deadline 1 (2023-04-13 17.00)
+Task 1 (2023-04-13 17.00)
 
 ## Category
 

@@ -3,42 +3,92 @@
 # Filename: missing_grade.py
 import json, os
 import argparse, requests
+import sys
+import zlib
+from datetime import datetime
 
 TASK = ''
 WEEK = ''
 DEADLINE = 0
 CANVAS_TOKEN = ''
 CANVAS_URL = "https://canvas.kth.se"
-CANVAS_COURSE_ID = 31421
+CANVAS_COURSE_ID = 38951 # 2023 edition
 CONTRIBUTION_PATH = '../contributions'
 
+assigned_tasks = []
+if os.path.exists('gdoc.csv'):
+    assigned_tasks=[x.split(',')[1] for x in open('gdoc.csv') if len(x)>10 and len(x.split(',')[1])>0]
+
+for i in assigned_tasks: 
+    if len([x for x in assigned_tasks if x == i])>1: raise Exception("duplicate "+i)
 
 # Mapping from github task name to canvas group set id
-def task_to_group_category_id(task_name, canvas_groups_set):
+def task_to_set(task_name, canvas_set):
     mapping = {
-        "course-automation": canvas_groups_set["Course automation"],
-        "demo": canvas_groups_set["Demos"],
-        "essay": canvas_groups_set["Essays"],
-        "executable-tutorial": canvas_groups_set["Executable Tutorials"],
-        "feedback": canvas_groups_set["Feedback"],
-        "open-source": canvas_groups_set["Open-source contributions"],
-        "presentation": canvas_groups_set["Presentations"],
+        #"course-automation": canvas_set["Course automation"],
+        "demo": canvas_set["Demos"],
+        "essay": canvas_set["Essays"],
+        "executable-tutorial": canvas_set["Executable Tutorials"],
+        "feedback": canvas_set["Feedback"],
+        "open-source": canvas_set["Open-source contributions"],
+        "presentation": canvas_set["Presentations"],
     }
     return mapping.get(task_name, Exception("Groupset mapping"))
 
 
-# Get all the group sets
+# Get all the group sets -> name : id
 def get_group_categories():
     url = "{0}/api/v1/courses/{1}/group_categories".format(CANVAS_URL, CANVAS_COURSE_ID)
     r = requests.get(url, headers={'Authorization': 'Bearer ' + CANVAS_TOKEN})
     return {group["name"]: group["id"] for group in json.loads(r.content)}
 
 
-# Get groups in a group set
+# Get assignments -> name : id
+def get_assignments():
+    url = "{0}/api/v1/courses/{1}/assignments".format(CANVAS_URL, CANVAS_COURSE_ID)
+    r = requests.get(url, headers={'Authorization': 'Bearer ' + CANVAS_TOKEN})
+    return {assignment["name"]: assignment["id"] for assignment in json.loads(r.content)}
+
+
+# Get groups in a group set -> name : id
 def list_groups(id_group_category):
     url = "{0}/api/v1/group_categories/{1}/groups?per_page=200".format(CANVAS_URL, id_group_category)
     r = requests.get(url, headers={'Authorization': 'Bearer ' + CANVAS_TOKEN})
-    return {group["name"]: group["has_submission"] for group in json.loads(r.content)}
+    return {group["name"]: group["id"] for group in json.loads(r.content)}
+
+# Get groups members -> name : id
+def get_group_members(id_group):
+    url = "{0}/api/v1/groups/{1}/users".format(CANVAS_URL, id_group)
+    r = requests.get(url, headers={'Authorization': 'Bearer ' + CANVAS_TOKEN})
+    return {member["name"]: member["id"] for member in json.loads(r.content)}
+
+
+def grader(url):
+    url = url.replace("/2023/","/2022/")
+    graders = json.load(open("graders.json"))
+    n= zlib.adler32(url.encode("utf-8"))%len(graders)
+    return graders[n]
+    raise Exception()
+
+# Get groups in a group set
+def check_group_grading(groups, id_assignment):
+    for group in groups:
+        members = get_group_members(groups[group])
+        for member in members:
+            url = "{0}/api/v1/courses/{1}/assignments/{2}/submissions/{3}".format(CANVAS_URL, CANVAS_COURSE_ID,
+                                                                                  id_assignment,
+                                                                                  members[member])
+            r = requests.get(url, headers={'Authorization': 'Bearer ' + CANVAS_TOKEN})
+            graded = "graded" == json.loads(r.content)["workflow_state"]
+            if not graded:
+                url = "https://github.com/KTH/devops-course/tree/"+datetime.today().strftime("%Y")+"/contributions/"+TASK+"/"+group
+                #print(url)
+                if len(assigned_tasks)>0 and url not in assigned_tasks:
+                    print(url," assigned to grader",grader(url))
+                    
+                #print("missing grade for", TASK, "of", group)
+                break
+
 
 
 # Get sub directories of a given path
@@ -81,23 +131,70 @@ def filter_deadline_groups(groups, deadline):
         f = open(groups[group]["path"] + '/README.md', "r")
         file = f.read().lower()
 
-        if 'task ' not in file:
-            sorted_groups[group] = groups[group]
-            print("Not sure if the group " + group + " is in for this deadline, checking it anyway\n")
-        if 'task ' + deadline in file:
+        #if 'task ' not in file:
+            #sorted_groups[group] = groups[group]
+            #print("Not sure if the group " + group + " is in for this deadline, checking it anyway\n")
+        if 'task ' + str(deadline) in file:
             sorted_groups[group] = groups[group]
 
     return sorted_groups
 
-
+def check_all_assigned():
+    l = []    
+        #mapping = {
+        #"course-automation": canvas_set["Course automation"],
+        #"demo": canvas_set["Demos"],
+        #"essay": canvas_set["Essays"],
+        #"executable-tutorial": canvas_set["Executable Tutorials"],
+        #"feedback": canvas_set["Feedback"],
+        #"open-source": canvas_set["Open-source contributions"],
+        #"presentation": canvas_set["Presentations"],    }
+    for i in get_sub_directory(CONTRIBUTION_PATH+"/"+"course-automation").values():
+        l.append(i['path'])        
+    for i in get_sub_directory(CONTRIBUTION_PATH+"/"+"essay").values():
+        l.append(i['path'])        
+    for i in get_sub_directory(CONTRIBUTION_PATH+"/"+"executable-tutorial").values():
+        l.append(i['path'])        
+    for i in get_sub_directory(CONTRIBUTION_PATH+"/"+"feedback").values():
+        l.append(i['path'])        
+    for i in get_sub_directory(CONTRIBUTION_PATH+"/"+"open-source").values():
+        l.append(i['path'])    
+        
+    # already done
+    #for i in get_sub_directory(CONTRIBUTION_PATH+"/"+"presentation").values():
+        #for j in get_sub_directory(i['path']).values():
+            #l.append(j['path'])        
+    #for i in get_sub_directory(CONTRIBUTION_PATH+"/"+"demo").values():
+        #for j in get_sub_directory(i['path']).values():
+            #l.append(j['path'])  
+    
+    # remove "../"
+    l = ["https://github.com/KTH/devops-course/tree/"+datetime.today().strftime("%Y")+"/"+x[3:] for x in l]
+    
+    #print(assigned_tasks)
+    
+    # check if missing
+    for x in l:
+        if x not in assigned_tasks:
+            print(x)
+    #print(l)
+    
 def main():
     parse_args()
+    
+    if TASK == "check_all_assigned":
+        check_all_assigned()
+        return
+    
     canvas_groups_set = get_group_categories()
-    canvas_groups_category_id = task_to_group_category_id(TASK, canvas_groups_set)
+    canvas_groups_category_id = task_to_set(TASK, canvas_groups_set)
     canvas_groups = list_groups(canvas_groups_category_id)
+    canvas_assignment = get_assignments()
+    canvas_assignment_id = task_to_set(TASK, canvas_assignment)
 
     task_sub = get_sub_directory(CONTRIBUTION_PATH + '/' + TASK)
 
+    # Filter github groups according to args
     if WEEK is not None:
         groups = get_sub_directory(task_sub[WEEK]["path"])
         print("Found " + str(len(groups)) + " group(s) for " + TASK + " in " + WEEK)
@@ -108,10 +205,11 @@ def main():
         groups = canvas_groups
         print("Found " + str(len(groups)) + " group(s) for " + TASK)
 
-    missing_grade_group = [group for group in groups if not canvas_groups[group]]
-    #print("\nMissing grade for " + str(len(missing_grade_group)) + " group(s) :\n")
-    for group_name in missing_grade_group:
-        print("missing grade for",TASK,"of",group_name)
+    # Intersection of canvas groups and github filtered groups
+    canvas_groups = {x: canvas_groups[x] for x in canvas_groups if x in groups}
+
+    # Check the grading
+    check_group_grading(canvas_groups, canvas_assignment_id)
 
 
 main()
