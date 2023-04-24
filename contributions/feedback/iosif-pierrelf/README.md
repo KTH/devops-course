@@ -21,3 +21,5 @@ Feedback
 ## Description
 
 We would like to submit feedback to [this essay](https://github.com/KTH/devops-course/pull/2184).
+
+See final submission for feedback [here](feedback.md)
