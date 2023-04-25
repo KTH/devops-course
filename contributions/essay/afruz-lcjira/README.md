@@ -8,7 +8,7 @@ _A fault injection platform for learning AIOps models_
   - Luis Jira (lcjira@kth.se)
 
 ## Deadline
-  - Task 1: April 10
+  - Task 1
 
 ## Category
   - Essay
