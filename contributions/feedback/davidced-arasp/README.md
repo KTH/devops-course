@@ -2,7 +2,7 @@
 
 ## Title
 
-Feedback on "Depending on Dependencies: Securing your codebase on all levels"
+Feedback on "Understanding Copilot X and it's potential for improved DevOps practices"
 
 
 ## Names and KTH ID
