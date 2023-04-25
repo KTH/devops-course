@@ -22,4 +22,4 @@ Feedback
 
 We would like to submit feedback to [this essay](https://github.com/KTH/devops-course/pull/2184).
 
-See final submission for feedback [here](feedback.md)
+See final submission for feedback [here](https://github.com/KTH/devops-course/pull/2220#issuecomment-1521675661)
