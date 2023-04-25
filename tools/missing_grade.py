@@ -30,7 +30,7 @@ def task_to_set(task_name, canvas_set):
         "essay": canvas_set["Essays"],
         "executable-tutorial": canvas_set["Executable Tutorials"],
         "feedback": canvas_set["Feedback"],
-        "open-source": canvas_set["Open-source contributions"],
+        "opensource": canvas_set["Open-source contributions"],
         "presentation": canvas_set["Presentations"],
     }
     return mapping.get(task_name, Exception("Groupset mapping"))
@@ -75,13 +75,18 @@ def check_group_grading(groups, id_assignment):
     for group in groups:
         members = get_group_members(groups[group])
         for member in members:
-            url = "{0}/api/v1/courses/{1}/assignments/{2}/submissions/{3}".format(CANVAS_URL, CANVAS_COURSE_ID,
+            canvas_url = "{0}/api/v1/courses/{1}/assignments/{2}/submissions/{3}".format(CANVAS_URL, CANVAS_COURSE_ID,
                                                                                   id_assignment,
                                                                                   members[member])
-            r = requests.get(url, headers={'Authorization': 'Bearer ' + CANVAS_TOKEN})
+            r = requests.get(canvas_url, headers={'Authorization': 'Bearer ' + CANVAS_TOKEN})
+            
+            url = "https://github.com/KTH/devops-course/tree/"+datetime.today().strftime("%Y")+"/contributions/"+TASK+"/"+group
+
+            if json.loads(r.content)["entered_grade"] == "incomplete":
+                    print(url," REPEAT assigned to grader",grader(url))
+            
             graded = "graded" == json.loads(r.content)["workflow_state"]
             if not graded:
-                url = "https://github.com/KTH/devops-course/tree/"+datetime.today().strftime("%Y")+"/contributions/"+TASK+"/"+group
                 #print(url)
                 if len(assigned_tasks)>0 and url not in assigned_tasks:
                     print(url," assigned to grader",grader(url))
