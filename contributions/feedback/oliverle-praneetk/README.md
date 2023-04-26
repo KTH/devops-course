@@ -20,3 +20,5 @@ Feedback
 ## Description
 
 We would like to submit feedback for [this essay](https://github.com/KTH/devops-course/pull/2187).
+
+The feedback was given on the PR at [this comment](https://github.com/KTH/devops-course/pull/2230#issuecomment-1521739395)
