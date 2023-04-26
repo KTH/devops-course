@@ -32,3 +32,10 @@ https://github.com/apache/cloudstack/issues/7363
 **Relevance**
 
 CloudStack being a cloud platform is highly relevant for DevOps. CloudStack also provides adapters for Terraform, Kubernetes and other widely used DevOps tools.
+
+---
+Pull request: https://github.com/apache/cloudstack/pull/7386
+
+The new feature was approved by one maintainer. It consisted of making the API and GUI more uniform as the "domainpath" was not included in this route.
+
+Fixing it took some time as I had to get the whole Apache CloudStack project to build on my local machine, and then figure out where in the quite large codebase I had to make the changes.
