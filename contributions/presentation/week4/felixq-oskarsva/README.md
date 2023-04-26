@@ -14,6 +14,7 @@ Design patterns for fault tolerance in microservices
   - Presentation
 
 ## Description
+[Slides](https://docs.google.com/presentation/d/1hmI-f9wCLs2lxIQIMrvOXswI2M60O5lfWNUsvwGafpw/edit?usp=sharing)
 Fault tolerance is an important part in a microservice architechture. Since the services often depend on eachother, 
 a fault in one can cause a cascading error that halts large parts of the whole system. Therefore, we need to handle faults in different ways to avoid system wide errors. 
 Some examples of design patterns that can be used to combat this are the Circuit Breaker Pattern, Bulkhead Pattern, Retry Pattern, Graceful Degradation Pattern etc.
