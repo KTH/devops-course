@@ -20,3 +20,5 @@ Task 2
 ## Description
 
 We would like to submit feedback for [#2225](https://github.com/KTH/devops-course/pull/2225#issue-1680217070)
+
+Feedback has been provided in [this PR comment](https://github.com/KTH/devops-course/pull/2225#issuecomment-1522513183)
