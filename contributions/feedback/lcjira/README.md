@@ -13,4 +13,6 @@ Feedback on "Challenges faced by production-deployed autoscalers"
   - Feedback
 
 ## Description
+Comment on PR: https://github.com/KTH/devops-course/pull/2222#issuecomment-1521945089
+
 Given feedback on the essay proposed here: https://github.com/KTH/devops-course/pull/2168
