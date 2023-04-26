@@ -1,0 +1,22 @@
+# Assignment Proposal
+
+## Title
+Pnpm: A Fast, Disk Space Efficient Node.js Package Manager
+
+## Names and KTH ID
+Jun-Wei Liu (jwliu@kth.se)
+William Berg (willb@kth.se)
+
+## Deadline
+Week 7
+
+## Category
+Demo
+
+## Description
+We aim to demonstrate how pnpm downloads modules into a single content-addressable storage and gives hard-links to different projects to save disk space, and how pnpm is faster than the alternative (in the paper benchmarks are `npm`, `Yarn`, and `Yarn PnP`).
+
+We will create several Node.js projects that use the same modules and show that after running `pnpm install` the hard links are created in `node_modules` folder which points to the same folder on the disk. Also at the same time we will run `npm install`, measure the performance and give explanations.
+
+** Relevance **
+Node.js is one of the most popular Javascript runtime environments for web application development, and pnpm provides better performance on managing Node packages than the Node.js default package manager `npm`.
