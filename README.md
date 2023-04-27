@@ -69,7 +69,7 @@ To pass the course, the student has to complete and pass between 3 and 5 tasks:
   * Deadline 2 for essay / tutorial / open-source: April 24, 17h Stockholm time
   * Deadline 3 for essay / tutorial / open-source: May 8, 17h Stockholm time
   * Deadline for feedback on essays or katacodas: 48 hours after delivery for a given deadline
-  * Deadline for repeated tasks (all): May 22, 17h Stockholm time.
+  * Deadline for repeated tasks (all): **May 22, 17h Stockholm time**.
   * The deadlines are strict and cannot be extended. Not meeting a deadline means failing the task / the repetition.
 * Final grading scheme
   * A: 5 completed tasks 
