@@ -11,7 +11,7 @@ Feedback on Essay "[Understanding Copilot X and it's potential for improved DevO
 ## Deadline
 
 _Else pick one of the following:_
-- Task 1
+- Task 2
 
 ## Category
 
@@ -20,6 +20,8 @@ _Else pick one of the following:_
 ## Description
 
 I want to peer-review the essay [Understanding Copilot X and it's potential for improved DevOps practices](https://github.com/KTH/devops-course/tree/2023/contributions/essay/oliverle-nareaho).
+
+Here is [the link](https://github.com/KTH/devops-course/pull/2190#issuecomment-1523310602) to the pull request.
 
 
 **Relevance**
