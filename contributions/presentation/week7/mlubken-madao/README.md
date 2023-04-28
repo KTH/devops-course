@@ -39,10 +39,11 @@ While most traditional standards do not include a lot of DevSecOps requirements,
 to provide requirements specifically for DevSecOps. However, it is not finished yet, as can be seen by a lot of "lorem ipsum" in the individual
 requirement descriptions. The GitHub repository was initialized in 2022, so it is a very recent and ongoing project.
 
-## Readings
+**Readings**
 - https://github.com/OWASP/www-project-devsecops-verification-standard
 - https://docs.docker.com/engine/security/trust/
 - https://owasp.org/www-project-devsecops-maturity-model/ (Careful, it's something different)
 
-### Misc
+**Misc**
+
 @mlubken, @allandao
