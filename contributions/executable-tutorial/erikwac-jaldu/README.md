@@ -7,7 +7,7 @@ Using Trivy for security scanning
 ## Names and KTH ID
 
   - Erik Wachtmeister (erikwac@kth.se)
-  - Jaldu Suvarchala-(jaldu@kth.se)
+  - Jaldu Suvarchala (jaldu@kth.se)
 
 ## Deadline
 
