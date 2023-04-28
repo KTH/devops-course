@@ -18,7 +18,7 @@ Metamorphic testing in a Cybersecurity context
 
 ## Description
 
-The concept of metamorphic testing (MT) has been around for quite some time. It is a useful technique for bypassing the oracle problem in software testing, and is thereby a useful tool for test case generation. As it turns out, MT finds itself to be relevant in several different topics in Computer Science. One of these topics is Cybersecurity. In other words, MT is capable of enhancing security in such contexts.
+The concept of metamorphic testing (MT) has been around for quite some time. It is a useful technique for bypassing the oracle problem in software testing, and is thereby a useful tool for test case generation. As it turns out, MT finds itself to be relevant in several different topics in Computer Science. One of these topics is Cybersecurity. In other words, MT is capable of enhancing security in such contexts. The purpose of this essay is therefore to explore the state-of-the-art for MT solutions in a Cybersecurity context.
 
 **Relevance**
 
