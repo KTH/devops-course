@@ -24,3 +24,15 @@ In this tutorial, we will present how to trace and profile a web application usi
 **Relevance**
 
 Tracing and profiling with OpenTelemetry and Jaeger are relevant to DevOps as they enable the monitoring and optimization of application performance throughout the development lifecycle. This facilitates collaboration between development and operations teams, ensuring deployment of applications while maintaining high availability and user satisfaction.
+
+
+**Links to our work**
+
+The tutorial:
+https://killercoda.com/pierrelf-mgku/scenario/opentelemetry
+
+The github repository:
+https://github.com/pierrelefevre/pierrelf-mgku-tutorial/tree/main
+
+
+
