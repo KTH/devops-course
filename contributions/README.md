@@ -73,6 +73,7 @@
 7. Demo: [SOPS: Encrypt and decrypt files automatically](https://github.com/KTH/devops-course/tree/2023/contributions/demo/week7/gabchr-arenbro)
 8. Presentation: [Securing the Software with sigstore](https://github.com/KTH/devops-course/tree/2023/contributions/presentation/week7/llucfm-paufm)
 9. Demo: [Bandit: A Static Application Security Testing (SAST) tool on python](https://github.com/KTH/devops-course/tree/2023/contributions/demo/week7/yimingj)
+10. Presentation: [Finding bugs and vulnerabilities in your code with CodeQL](https://github.com/KTH/devops-course/tree/2023/contributions/presentation/week7/efranz-maxwik)
 
 
 ## Week 8
