@@ -19,11 +19,11 @@ Threat modeling - A comparison between PASTA and STRIDE
 
 ## Description
 
-We want to make a comparison between the threat modeling methodologies such as Process for Attack Simulation and Threat Analysis (P.A.S.T.A) and STRIDE.
-These are well known methodologies in the DevSecOps world. We will discuss the 6 categories of STRIDE and the 7 step risk-centric methodology of P.A.S.T.A
+We want to make a comparison between the threat modeling methodologies such as Process for Attack Simulation and Threat Analysis (PASTA) and STRIDE.
+These are well known methodologies in the DevSecOps world. We will discuss the 6 categories of STRIDE and the 7 step risk-centric methodology of PASTA
 and compare those 2.
 
-The essay has been added as a PDF in the Pull Request. It can be find [here](https://github.com/KTH/devops-course/pull/2228/files)
+The essay has been added as a PDF in the Pull Request. It can be find [here](https://github.com/KTH/devops-course/pull/2288/files)
 
 **Relevance**
 
