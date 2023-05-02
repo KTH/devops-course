@@ -23,4 +23,5 @@ We want to investigate the cultural aspects of open source projects when it come
 We also intend to find what some key insights are from successful open source projects that have managed to keep a healthy DevOps cycle running for a long time.
 
 **Relevance**
+
 Many open source projects heavily rely on good DevOps practices. Since it can be difficult to get a good overview and start contributing using a DevOps pipeline to open source projects given their different organizational approaches, our essay will hopefully help dispel some of those difficulties.
