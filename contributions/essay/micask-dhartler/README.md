@@ -11,7 +11,7 @@ Open Source Culture: Organizational management and issues that arise
 
 ## Deadline
 
-- Task/Deadline 3 (May 8th)
+- Task 3
 
 ## Category
 
