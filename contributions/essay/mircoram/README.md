@@ -2,7 +2,7 @@
 
 ## Title
 
-Serverless vs Containerization, what is the difference and which one is better for you?
+Supply chain security, what is it and how do you use it?
 
 ## Names and KTH ID
 
@@ -18,9 +18,9 @@ Serverless vs Containerization, what is the difference and which one is better f
 
 ## Description
 
-In this essay, I will discuss the pros and cons of both serverless architecture and containers as well as compare them. The essay will discuss for different types of programmes and focus on the architectures rather than one specific programme type. 
+In this essay, I will discuss the what supply chain security is as well as look into different ways of strengthening it. I will also discuss recent examples of supply chain attacks. Both static analysis as well as dynamic analysis methods will be discussed. The impact of attacks will also be mapped out. 
 
 
 **Relevance**
 
-Serverless and containers are both often discussed in devops and their actual application is highly relevant. Comparing them and discussing what types of programmes should use them (or use them together) is an interesting topic.
+With supply chain attacks becoming more popular, it's a good idea to have a good understanding of what supply chain security is and how devops can be used to make it more reciliant against attacks. 
