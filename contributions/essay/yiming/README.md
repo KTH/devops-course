@@ -6,7 +6,7 @@ Docker containers
 
 ## Names and KTH ID
 
-  - Yiming Ju (yiming@kth.se)
+  - Yiming Ju (yimingj@kth.se)
 
 ## Deadline
 
