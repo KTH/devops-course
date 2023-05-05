@@ -2,7 +2,7 @@
 
 ## Title
 
-Docker containers 
+Prometheus monitoring and alerting 
 
 ## Names and KTH ID
 
@@ -18,8 +18,8 @@ Docker containers
 
 ## Description
 
-Docker containers are a widely-used technology that enables developers to package and deploy applications in a consistent and efficient way. This essay will explore the architecture of Docker, its advantages, how it compares to virtual machines, use cases, and future of Docker Containers.
+The essay will cover the architecture of Prometheus, how it can be used for monitoring and alerting, data visualization, best practices, and its limitations and future. The essay will emphasize the importance of monitoring and alerting for modern IT environments and how Prometheus can help organizations quickly identify and resolve issues before they become major problems.
 
 **Relevance**
 
- Docker containers enable developers to package and deploy applications quickly and reliably and help DevOps practitioners to streamline the software delivery process, improve application performance, and optimize cloud infrastructure and deployment. By exploring docker containers, this essay will provide insights into a critical technology that is relevant to DevOps.
+Prometheus is essential to DevOps as it provides powerful monitoring and alerting capabilities. Its flexible architecture and advanced features make it ideal for use in DevOps environments.
