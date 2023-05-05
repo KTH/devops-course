@@ -2,7 +2,7 @@
 
 ## Title
 
-Supply chain security, what is it and how do you use it?
+How to secure your CI/CD Pipeline and why it's important. 
 
 ## Names and KTH ID
 
@@ -18,9 +18,9 @@ Supply chain security, what is it and how do you use it?
 
 ## Description
 
-In this essay, I will discuss the what supply chain security is as well as look into different ways of strengthening it. I will also discuss recent examples of supply chain attacks. Both static analysis as well as dynamic analysis methods will be discussed. The impact of attacks will also be mapped out. 
+In this essay, I will discuss the what CI/CD pipeline breaches such as https://blog.gitguardian.com/codecov-supply-chain-breach/ is. I will focus on techniques such as mapping the attack vector(observing and monitoring), depency analysis, securing the pipeline with automated tools such as testing (unit, application etc), and credential management. To show an state of the art example, I will also have a section on machine learning integration. 
 
 
 **Relevance**
 
-With supply chain attacks becoming more popular, it's a good idea to have a good understanding of what supply chain security is and how devops can be used to make it more reciliant against attacks. 
+With supply chain attacks becoming more popular, it's a good idea to have a good understanding of what supply chain security is and how devops can be used to make it more reciliant against attacks. It's also important for a devops engineer to be able to look at a CI/CD Pipeline and be able to pinpoint weaknesses.
