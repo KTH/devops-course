@@ -78,5 +78,9 @@
 
 
 ## Week 8
+1. Presentation: [Next.js & Vercel vs. other providers - a conflict of interest](https://github.com/KTH/devops-course/tree/2023/contributions/presentation/week8/efranz-maxwik)
+2. Presentation: [Best practices for integrating DevOps into the workplace](https://github.com/KTH/devops-course/tree/2023/contributions/presentation/week8/nareaho-hastimz)
+3. Demo: [Fighting for your code: Filing DMCA takedowns for GitHub repositories](https://github.com/KTH/devops-course/tree/2023/contributions/demo/week8/opers-mgku)
+
 
 ## Week 9
