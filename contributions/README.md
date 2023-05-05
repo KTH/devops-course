@@ -74,8 +74,13 @@
 8. Presentation: [Securing the Software with sigstore](https://github.com/KTH/devops-course/tree/2023/contributions/presentation/week7/llucfm-paufm)
 9. Demo: [Bandit: A Static Application Security Testing (SAST) tool on python](https://github.com/KTH/devops-course/tree/2023/contributions/demo/week7/yimingj)
 10. Presentation: [Finding bugs and vulnerabilities in your code with CodeQL](https://github.com/KTH/devops-course/tree/2023/contributions/presentation/week7/efranz-maxwik)
+11. Presentation: [The OWASP DevSecOps Verification Standard](presentation/week7/mlubken-madao/README.md)
 
 
 ## Week 8
+1. Presentation: [Next.js & Vercel vs. other providers - a conflict of interest](https://github.com/KTH/devops-course/tree/2023/contributions/presentation/week8/efranz-maxwik)
+2. Presentation: [Best practices for integrating DevOps into the workplace](https://github.com/KTH/devops-course/tree/2023/contributions/presentation/week8/nareaho-hastimz)
+3. Demo: [Fighting for your code: Filing DMCA takedowns for GitHub repositories](https://github.com/KTH/devops-course/tree/2023/contributions/demo/week8/opers-mgku)
+
 
 ## Week 9
