@@ -16,7 +16,7 @@ Online tutorial
 ## Description
 Semgrep is a light weighted and efficient static code analysis tool. We will use Killercoda to demonstrate what Semgrep CLI can achieve and how you can apply the tool to your own CI/CD pipeline. The tutorial consists of 5 steps:
 1. Install Semgrep and download the example codebase (here we use the famous vulnerable web application `juice-box`)
-2. Use Semgrep CLI to scan the codebase with default Semgrep Rgistry rules and examine the warnings
+2. Use Semgrep CLI to scan the codebase with default Semgrep Registry rules and examine the warnings
 3. Use Semgrep as a Docker container in a CI/CD pipeline
 4. Learn how to define customized Semgrep rules
 5. Conclusion
