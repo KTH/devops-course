@@ -24,3 +24,5 @@ In this essay, I will discuss the what CI/CD pipeline breaches such as https://b
 **Relevance**
 
 With supply chain attacks becoming more popular, it's a good idea to have a good understanding of what supply chain security is and how devops can be used to make it more reciliant against attacks. It's also important for a devops engineer to be able to look at a CI/CD Pipeline and be able to pinpoint weaknesses.
+
+[Essay submission available] https://github.com/OmidMircoram/devops-course/blob/essay/contributions/essay/mircoram/Essay-mircoram.pdf
