@@ -32,14 +32,16 @@ Semgrep is highly used tool with an active and robust community. At the time of 
 
 
 ---
-### Pull Request
+**Pull Request**
+
 Pull request: TBD
 
 I plan to discuss this issue with the issue presenter and the project maintainers as well as revisit the documentation/other portions of code to see desired behavior. This may be a particular use case that the maintainers may not intend for, and so could warrant a new command.
 
 The PR will be difficult as it took significant time to get used to the project structure and recall my functional programming knowledge to examine the Go code and understand the project structure. I am looking to examine the behavior of the config_resolver.py and rule_fetching.ml files in regards to configuration file downloading behavior; --no-suppress-errors seems to be a red herring.
 
-# Disclaimer
+***Disclaimer***
+
 I have an ongoing essay contribution request that is intended for submission of the redo deadline of May 22nd. I plan to work on this task and the essay concurrently, and whichever is finished first will be my 5th task, if that is permissible.
 
 I discovered the possibility of improvements to Semgrep following exploration of the tool for the creation of an online executable tutorial for this course, and would prefer to contribute to this tool over writing an essay out of interest and for learning (this would be my first non-trivial contribution to open source).
