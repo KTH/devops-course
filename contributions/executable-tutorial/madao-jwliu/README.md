@@ -25,8 +25,9 @@ Semgrep is a light weighted and efficient static code analysis tool. We will use
 ![the flowchart of the tutorial](https://github.com/Letuvertia/devops-course/blob/online-tutorial-dl3/contributions/executable-tutorial/madao-jwliu/tutorial-flowchart.png?raw=true)
 
 **Relevance**
+
 Static code analysis is an essential part of an efficient CI/CD pipeline. It inspects code to identify defects, vulnerabilities and compliance issues, accelerating software delivery, and Semgrep is such a light weighted and efficient option and is actively being developed. In any case, Semgrep also having the ability to be used as a Docker image helps you create more secure applications through automated static analysis scanning alongside the scanning of your pipeline files in the near future, given successful ongoing development!
 
-## Submission
+**Submission**
 
 The tutorial can be found [here](https://killercoda.com/aldao/scenario/Semgrep). The source code of the tutorial can be found [here](https://github.com/allandao/KTH-DevOps-Tutorial-Killercoda) if needed.
