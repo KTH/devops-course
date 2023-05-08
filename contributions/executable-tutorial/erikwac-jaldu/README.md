@@ -24,3 +24,9 @@ In our tutorial we want to show how to use a tool called Trivy for security scan
 **Relevance**
 
 Security is very important for DevOps/DevSecOps. Using Trivy you could reduce the risk of introducing vulnerabilities in your applications. Further, when you want to make use of some open source software you could use Trivy to check if it has any known vulnerabilities.
+
+**Submission**
+
+The finished tutorial is available [here](https://killercoda.com/erikwac/scenario/trivy-tutorial) on Killercoda.
+
+[Here](https://github.com/Storsorken/Trivy-tutorial) is the GitHub repo for the tutorial.
