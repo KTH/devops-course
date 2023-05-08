@@ -64,7 +64,23 @@
 
 
 ## Week 7
+1. Demo: [An introduction to Nix(OS)](https://github.com/KTH/devops-course/tree/2023/contributions/demo/week7/hhob-lcjira)
+2. Demo: [Pnpm: A Fast, Disk Space Efficient Node.js Package Manager](https://github.com/KTH/devops-course/tree/2023/contributions/demo/week7/jwliu-willb)
+3. Presentation: [Improving your DevSecOps with War Games](https://github.com/KTH/devops-course/tree/2023/contributions/presentation/week7/tengland-dhartler)
+4. Demo: [GitGuardian: Keeping your Git secrets safe](https://github.com/KTH/devops-course/tree/2023/contributions/demo/week7/tmatts-gakk)
+5. Demo: [Maven’s BOM or POM, what's the difference?](https://github.com/KTH/devops-course/tree/2023/contributions/demo/week7/emihar-mircoram)
+6. Presentation: [Data privacy and DevOps](https://github.com/KTH/devops-course/tree/2023/contributions/presentation/week7/loar2-hsamanci)
+7. Demo: [SOPS: Encrypt and decrypt files automatically](https://github.com/KTH/devops-course/tree/2023/contributions/demo/week7/gabchr-arenbro)
+8. Presentation: [Securing the Software with sigstore](https://github.com/KTH/devops-course/tree/2023/contributions/presentation/week7/llucfm-paufm)
+9. Demo: [Bandit: A Static Application Security Testing (SAST) tool on python](https://github.com/KTH/devops-course/tree/2023/contributions/demo/week7/yimingj)
+10. Presentation: [Finding bugs and vulnerabilities in your code with CodeQL](https://github.com/KTH/devops-course/tree/2023/contributions/presentation/week7/efranz-maxwik)
+11. Presentation: [The OWASP DevSecOps Verification Standard](presentation/week7/mlubken-madao/README.md)
+
 
 ## Week 8
+1. Presentation: [Data privacy and DevOps](https://github.com/KTH/devops-course/tree/2023/contributions/presentation/week7/loar2-hsamanci)
+2. Presentation: [Best practices for integrating DevOps into the workplace](https://github.com/KTH/devops-course/tree/2023/contributions/presentation/week8/nareaho-hastimz)
+3. Demo: [Fighting for your code: Filing DMCA takedowns for GitHub repositories](https://github.com/KTH/devops-course/tree/2023/contributions/demo/week8/opers-mgku)
+
 
 ## Week 9
