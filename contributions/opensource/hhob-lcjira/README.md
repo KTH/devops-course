@@ -9,7 +9,7 @@ Implementing a CI/CD Pipeline for PGPro
   - Luis Jira (lcjira@kth.se)
 
 ## Deadline
-- Deadline 3
+- Task 3
 
 ## Category
 - Open source
