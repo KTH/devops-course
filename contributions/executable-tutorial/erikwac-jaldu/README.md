@@ -29,4 +29,4 @@ Security is very important for DevOps/DevSecOps. Using Trivy you could reduce th
 
 The finished tutorial is available [here](https://killercoda.com/erikwac/scenario/trivy-tutorial) on Killercoda.
 
-[Here](https://github.com/cetceeve/Simple-End-to-End-GitOps-with-Werf) is the GitHub repo for the tutorial.
+[Here](https://github.com/Storsorken/Trivy-tutorial) is the GitHub repo for the tutorial.
