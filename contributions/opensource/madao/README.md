@@ -8,7 +8,8 @@ Sempgrep Improvements: Trigger error in CI pipeline with invalid Semgrep command
 - Minh Allan Dao (madao@ug.kth.se)
 
 ## Deadline
-- Task 3
+- Task 1
+- Deadline 3, May 8th - See disclaimer. Goal is for concurrent work and submit either this or essay to meet May 22nd resubmission deadline
 
 ## Category
 - Open Source Contribution
