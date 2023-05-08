@@ -19,6 +19,8 @@ The rise of SecDevOps and its distinction from DevSecOps
 
 ## Description
 
+[Essay submission](https://github.com/maxennnnn/devops-course/blob/2023/contributions/essay/maxwik-emihar/Essay-maxwik-emihar.pdf)
+
 In this essay, we will provide an in-depth analysis of SecDevOps, including its implementation, advantages, and drawbacks compared to DevSecOps. Our focus will be on explaining the concept of SecDevOps and how it differs from DevSecOps, which is currently the more widely recognized approach. Through this essay, we aim to help the reader gain a comprehensive understanding of SecDevOps and evaluate its potential benefits and limitations in comparison to DevSecOps.
 
 The essay will answer these core questions:
