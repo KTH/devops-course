@@ -44,3 +44,8 @@ Node.js was ranked the most common web technology. As explained in the descripti
 Most tutorials focus on a single tool or compare different tools.
 If you are a new developer it is hard to find all the good or necessary tools to make your software secure and to save work. Sometimes this can take years.
 That's what we try to solve with our tutorial.
+
+**Tutorial**
+
+You can find our tutorial [here](https://killercoda.com/mluebken/scenario/tutorial) or [here](https://killercoda.com/pkala-devops/scenario/tutorial).
+
