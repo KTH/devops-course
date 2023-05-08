@@ -25,3 +25,8 @@ In our tutorial we are going to show how to make a Slack bot using the slackclie
 
 The monitoring phase of the DevOps cycle can be very important, especially when working with a high-traffic website or with limited server resources. Having a bot deliver real-time alters about the status of the website can be very valuable to this step of the process. Slack alerts are much more visible than email alerts or going on a monitoring dashboard, thus this makes monitoring more accessible.
 
+**Submission**
+
+The Git Repo of the tutorial: https://github.com/Ana-Maria-O/killercoda-slack-bot
+
+The tutorial: https://killercoda.com/anamrltn/scenario/SlackBot
