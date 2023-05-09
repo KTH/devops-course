@@ -10,7 +10,7 @@ Feedback on essay *How to secure your CI/CD Pipeline and why it's important*.
 
 ## Deadline
 
-- Task 2
+- Task 3
 
 ## Category
 
