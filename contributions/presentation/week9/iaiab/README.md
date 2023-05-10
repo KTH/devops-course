@@ -2,7 +2,7 @@
 
 ## Title
 
-GitOps: Automating Infrastructure and Application Deployments
+GitOps: Different Strategies to Deploying Infrastructure
 
 ## Names and KTH ID
 
@@ -20,7 +20,9 @@ GitOps: Automating Infrastructure and Application Deployments
 
 GitOps is a modern approach to managing infrastructure and application deployments using Git as the source of truth. With GitOps, teams can automate the process of deploying infrastructure and applications, ensuring consistency and reducing the risk of human error.
 
-This presentation will cover the basics of GitOps, its benefits, and best practices for automating infrastructure and application deployments.
+This presentation will cover:
+- The advantages of storing infrastructure environment configurations in git
+- The deployment models in GitOps (pull-based vs push-based)
 
 **Relevance**
 
