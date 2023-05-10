@@ -18,4 +18,6 @@ Feedback on essay *How to secure your CI/CD Pipeline and why it's important*.
 
 ## Description
 
-I would like to sumbit a feedback to [this essay](https://github.com/KTH/devops-course/pull/2319)
+I would like to sumbit a feedback to [this essay](https://github.com/KTH/devops-course/pull/2319).
+
+Feedback can be found [here](https://github.com/KTH/devops-course/pull/2319#issuecomment-1542449909).
