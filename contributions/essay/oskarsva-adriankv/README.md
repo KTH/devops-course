@@ -18,6 +18,7 @@ Transitioning to a DevOps-culture: Common challenges and how to overcome them
 - Essay
 
 ## Description
+[Essay](https://github.com/KTH/devops-course/pull/contributions/essay/oskarsva-adriankv/DevOps_Essay.pdf)
 
 The essay gives an introduction to DevOps culture, identifies common challenges in adopting DevOps - moving away from “silos” and enabling the company to adapt to rapid changes as is required in the modern business landscape. Strategies to address common problems in adopting DevOps culture are discussed, and related to recent scientific literature on the topic.
 
