@@ -2,7 +2,7 @@
 
 ## Title
 
-GitOps: Different Strategies to Deploying Infrastructure
+Serverless Workflow Orchestration with AWS Step Functions
 
 ## Names and KTH ID
 
@@ -18,12 +18,14 @@ GitOps: Different Strategies to Deploying Infrastructure
 
 ## Description
 
-GitOps is a modern approach to managing infrastructure and application deployments using Git as the source of truth. With GitOps, teams can automate the process of deploying infrastructure and applications, ensuring consistency and reducing the risk of human error.
+Serverless technologies are great but often developers want to orchestrate multiple actions as part of a business process in response to certain event. Orchestrating actions within a distributed systems can be challenging for many reasons such as:
 
-This presentation will cover:
-- The advantages of storing infrastructure environment configurations in git
-- The deployment models in GitOps (pull-based vs push-based)
+- Often there're many actions involved (e.g., calls to serverless function, transforming event data, making decisions, ...etc.)
+- The need for visual feedback to know which steps where executed successfully and which are not.
+- Execution of long running tasks in serverless distributed environment.
+
+In this presentation I'll show you what's AWS Step Functions, why you may need it, and how it can help you to orchestrate your serverless workload.
 
 **Relevance**
 
-GitOps is relevant to DevOps as it aligns with the DevOps goals of breaking down silos between development and operations teams and emphasizes automation, version control, and continuous delivery.
+Serverless technologies are relevant to DevOps.
