@@ -2,7 +2,7 @@
 
 ## Title
 
-Risks and prevention of malware bots
+Chaos engineeing: The history, principle and importance
 
 ## Names and KTH ID
 
@@ -18,8 +18,8 @@ Risks and prevention of malware bots
 
 ## Description
 
-I'll cover the ethical issues and risks associated with software bots, introduce malware bots and how to detect and prevent them.
+I'll cover the history, principle and importance of chaos engineering.
 
 **Relevance**
 
-Malare bots pose a significant threat to the security and efficiency of DevOps processes, and detecting and preventing them is essential to maintain the integrity of software infrastructure.
+Chaos engineering enables teams to test system resilience and identify weaknesses before the failure in real world scenarios. In this way, the engineers can take precautions in advance. 
