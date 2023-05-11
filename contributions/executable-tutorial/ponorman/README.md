@@ -32,3 +32,7 @@ with predictions when given data.
 
 _Being able to train, track and stage your ML models are all part of the MLops cycle and knowing how to 
 use a tool such as MLflow can be a benefit to any wanting to work with ML models._
+
+**Submission**
+
+The tutorial can be found at: https://colab.research.google.com/drive/1Ikdlma9bqae4tgMalp76Y-L7i4g_cGRo?usp=sharing
