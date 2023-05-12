@@ -2,7 +2,7 @@
 
 ## Title
 
-Chaos engineeing: The history, principle and importance
+Chaos engineering on system calls for containerized applications in Docker
 
 ## Names and KTH ID
 
@@ -18,8 +18,10 @@ Chaos engineeing: The history, principle and importance
 
 ## Description
 
-I'll cover the history, principle and importance of chaos engineering.
+I'll introduce a fault injection system called ChaosOrca, which focuses on system calls in containerized applications. Then I will discuss the analysis the behavior of containerized applications under perturbations.
+
+Here is the related [material](https://www.sciencedirect.com/science/article/pii/S0167739X).
 
 **Relevance**
 
-Chaos engineering enables teams to test system resilience and identify weaknesses before the failure in real world scenarios. In this way, the engineers can take precautions in advance. 
+ChaosOrca's integration of chaos engineering can help test the resilience of containerized applications, identifying potential problems in system call.
