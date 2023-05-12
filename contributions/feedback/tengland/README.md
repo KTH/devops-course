@@ -19,3 +19,7 @@ Feedback on essay *The Purpose and Advantages of Adding Scalability Testing to Y
 ## Description
 
 I would like to sumbit a feedback to [this essay](https://github.com/KTH/devops-course/pull/2327)
+
+### Submission 
+
+The submitted feedback feedback comment is available [here](https://github.com/KTH/devops-course/pull/2327)
