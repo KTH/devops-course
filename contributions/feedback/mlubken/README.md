@@ -19,3 +19,4 @@ Feedback on [#2160](https://github.com/KTH/devops-course/pull/2160) ("How host-b
 ## Description
 
 I would like to give feedback on [#2160](https://github.com/KTH/devops-course/pull/2160).
+I gave my feedback in [this comment](https://github.com/KTH/devops-course/pull/2160#issuecomment-1523283056).
