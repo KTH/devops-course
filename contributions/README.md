@@ -90,4 +90,5 @@
 4. Demo: [Chaos Engineering via Simmy in .NET](https://github.com/KTH/devops-course/tree/2023/contributions/demo/week9/iaiab)
 5. Presentation: [Serverless Workflow Orchestration with AWS Step Functions](https://github.com/KTH/devops-course/tree/2023/contributions/presentation/week9/iaiab)
 6. Demo: [Multi vs. Single Tenancy - Deploying Single Tenant Applications](https://github.com/KTH/devops-course/tree/2023/contributions/demo/week9/mlubken-madao)
+7. Presention: [Chaos engineering on system calls for containerized applications in Docker](https://github.com/KTH/devops-course/tree/2023/contributions/presentation/week9/yimingj)
 
