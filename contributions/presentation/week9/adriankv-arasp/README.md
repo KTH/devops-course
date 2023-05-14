@@ -2,7 +2,7 @@
 
 ## Title
 
-Different forms of organizing DevOps teams, different roles within them, and their strengths and weaknesses
+Importance of choosing the correct leadership style for a DevOps team: a comparison between transformational, transactional, authentic, servant and ad hoc leadership.
 
 ## Names and KTH ID
 
@@ -19,8 +19,8 @@ Different forms of organizing DevOps teams, different roles within them, and the
 
 ## Description
 
-We will explore various organizational structures and roles within DevOps teams. Examining different approaches to organizing teams, such as cross-functional teams, guilds, and chapters, and discuss the unique strengths and weaknesses of each approach.
+We will explore various leadership styles and other roles within DevOps teams and how they interact under different types of leaders. Examining different approaches to leadership, such as transformational, transactional, authentic, servant and ad hoc leadership and discuss the unique strengths and weaknesses of each approach.
 
 **Relevance**
 
-By understanding these different forms of organizatios one can optimize for a more productive DevOps environment.
+By understanding these different forms of leadership one can optimize for a more productive DevOps environment.
