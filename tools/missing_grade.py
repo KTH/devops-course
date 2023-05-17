@@ -84,6 +84,7 @@ def check_group_grading(groups, id_assignment):
 
             if json.loads(r.content)["entered_grade"] == "incomplete":
                     print(url," REPEAT assigned to grader",grader(url))
+                    continue
             
             graded = "graded" == json.loads(r.content)["workflow_state"]
             if not graded:
@@ -205,7 +206,7 @@ def main():
         print("Found " + str(len(groups)) + " group(s) for " + TASK + " in " + WEEK)
     elif DEADLINE is not None:
         groups = filter_deadline_groups(task_sub, str(DEADLINE))
-        print("Found " + str(len(groups)) + " group(s) for " + TASK + ", deadline " + str(DEADLINE))
+        print(TASK + ", deadline " + str(DEADLINE))
     else:
         groups = canvas_groups
         print("Found " + str(len(groups)) + " group(s) for " + TASK)
