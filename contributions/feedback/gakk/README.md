@@ -6,7 +6,7 @@ Feedback on essay DevOps for Smart Contracts in Blockchains
 
 ## Names and KTH ID
 
- Georgios Akkogiounoglou (gakk@kth.se)
+- Georgios Akkogiounoglou (gakk@kth.se)
  
  ## Deadline
 
