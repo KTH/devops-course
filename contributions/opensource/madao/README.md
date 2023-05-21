@@ -25,6 +25,10 @@ With DevOps in mind, I was initially inspired to contribute to fixing a possible
 
 https://github.com/returntocorp/semgrep/pull/7850
 
+**Relevant Documentation:**
+
+https://github.com/allandao/semgrep/tree/madao
+
 **Relevance**
 
 https://github.com/returntocorp/semgrep
