@@ -91,4 +91,5 @@
 5. Presentation: [Serverless Workflow Orchestration with AWS Step Functions](https://github.com/KTH/devops-course/tree/2023/contributions/presentation/week9/iaiab)
 6. Demo: [Multi vs. Single Tenancy - Deploying Single Tenant Applications](https://github.com/KTH/devops-course/tree/2023/contributions/demo/week9/mlubken-madao)
 7. Presention: [Chaos engineering on system calls for containerized applications in Docker](https://github.com/KTH/devops-course/tree/2023/contributions/presentation/week9/yimingj)
-
+8. Presentation: [Importance of choosing the correct leadership style for a DevOps team: a comparison between transformational, transactional, authentic, servant and ad hoc leadership](https://github.com/KTH/devops-course/tree/2023/contributions/presentation/week9/adriankv-arasp)
+9. Presentation: [Injecting failures into a Kubernetes cluster with Chaos Mesh](https://github.com/KTH/devops-course/tree/2023/contributions/presentation/week9/nilslof)
