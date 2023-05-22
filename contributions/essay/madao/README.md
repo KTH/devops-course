@@ -2,7 +2,8 @@
 
 ## Title
 
-Recognizing and Addressing the Risk Behind Open Source Dependencies
+Tackling Open Source Software Vulnerabilities: From Culture, to
+Practices, to Tooling
 
 ## Names and KTH ID
 
@@ -10,7 +11,7 @@ Recognizing and Addressing the Risk Behind Open Source Dependencies
 
 ## Deadline
 
-- Task 2: Monday, April 24 @ 17h Stockholm Time
+- Task 2: Monday, April 24 @ 17h Stockholm Time. Extended to final May 22nd deadline.
 
 ## Category
 
@@ -31,3 +32,8 @@ For example, a DevOps teams may opt to configure their VMSS via an image derived
 Finally, all of these recommendations augment a clean and clear environment to do dynamic testing. A tool of particular interest is Veracode Dynamic Analysis, a Dynamic Application Security Testing (DAST) solution for web applications. In addition, Eclipse Steady can examine compiled Java code and report vulnerabilities by examining "fix-commits".
 
 Overall, the tooling we planning to use and we approach all of this ties into the active culture of DevSecOps.
+
+**Essay Submission:**
+
+[Tackling Open Source Software Vulnerabilities: From Culture, to
+Practices, to Tooling](OSS_Vulnerabilities.pdf) by Allan Dao
