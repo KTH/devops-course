@@ -9,7 +9,7 @@ CANVAS_TOKEN = ''
 EXPORT_PATH = ''
 FIELDS = ''
 CANVAS_URL = "https://canvas.kth.se"
-CANVAS_COURSE_ID = 31421
+CANVAS_COURSE_ID = 0
 
 
 # Get list of students {canvas_id, name, kth_id}
@@ -48,11 +48,13 @@ def compute_grade(completed_assignments):
 
 # Parse arguments of the script
 def parse_args():
+    global CANVAS_COURSE_ID
     global CANVAS_TOKEN
     global EXPORT_PATH
     global FIELDS
     parser = argparse.ArgumentParser()
 
+    parser.add_argument('--course', dest='course', type=str, help='Canvas course ID', required=True)
     parser.add_argument('--token', dest='token', type=str, help='Canvas access token', required=True)
     parser.add_argument('--fields', dest='fields', type=str, nargs='+', help='Fiedls to export',
                         default=["name", "kth_id", "grade"])
@@ -60,6 +62,7 @@ def parse_args():
                         default='')
 
     args = parser.parse_args()
+    CANVAS_COURSE_ID = args.course
     CANVAS_TOKEN = args.token
     EXPORT_PATH = args.export_path
     FIELDS = args.fields
