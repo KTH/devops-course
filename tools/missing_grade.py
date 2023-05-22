@@ -15,12 +15,6 @@ CANVAS_URL = "https://canvas.kth.se"
 CANVAS_COURSE_ID = 38951 # 2023 edition
 CONTRIBUTION_PATH = '../contributions'
 
-assigned_tasks = []
-if os.path.exists('gdoc.csv'):
-    assigned_tasks=[x.split(',')[1] for x in open('gdoc.csv') if len(x)>10 and len(x.split(',')[1])>0]
-
-for i in assigned_tasks: 
-    if len([x for x in assigned_tasks if x == i])>1: raise Exception("duplicate "+i)
 
 # Mapping from github task name to canvas group set id
 def task_to_set(task_name, canvas_set):
@@ -84,12 +78,12 @@ def check_group_grading(groups, id_assignment):
 
             if json.loads(r.content)["entered_grade"] == "incomplete":
                     print(url," REPEAT assigned to grader",grader(url))
+                    continue
             
             graded = "graded" == json.loads(r.content)["workflow_state"]
             if not graded:
                 #print(url)
-                if len(assigned_tasks)>0 and url not in assigned_tasks:
-                    print(url," assigned to grader",grader(url))
+                print(url," assigned to grader",grader(url))
                     
                 #print("missing grade for", TASK, "of", group)
                 break
@@ -176,12 +170,7 @@ def check_all_assigned():
     # remove "../"
     l = ["https://github.com/KTH/devops-course/tree/"+datetime.today().strftime("%Y")+"/"+x[3:] for x in l]
     
-    #print(assigned_tasks)
     
-    # check if missing
-    for x in l:
-        if x not in assigned_tasks:
-            print(x)
     #print(l)
     
 def main():
@@ -205,7 +194,7 @@ def main():
         print("Found " + str(len(groups)) + " group(s) for " + TASK + " in " + WEEK)
     elif DEADLINE is not None:
         groups = filter_deadline_groups(task_sub, str(DEADLINE))
-        print("Found " + str(len(groups)) + " group(s) for " + TASK + ", deadline " + str(DEADLINE))
+        print(TASK + ", deadline " + str(DEADLINE))
     else:
         groups = canvas_groups
         print("Found " + str(len(groups)) + " group(s) for " + TASK)

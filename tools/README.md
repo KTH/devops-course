@@ -38,11 +38,11 @@ This script is used to grade each student according to the number of task comple
 
 ### Usage
 
-`python3 final_grade_exporter.py --token 88779~...`
+`python3 final_grade_exporter.py --course XXXX --token 88779~...`
 
-`python3 final_grade_exporter.py --token 88779~... --export grade.csv`
+`python3 final_grade_exporter.py --course XXXX --token 88779~... --export grade.csv`
 
-`python3 final_grade_exporter.py --token 88779~... --export grade.csv --fields kth_id grade`
+`python3 final_grade_exporter.py --course XXXX --token 88779~... --export grade.csv --fields kth_id grade`
 
 | Option | Usage | Required | Default|
 |---|---|---|---|

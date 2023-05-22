@@ -17,3 +17,5 @@ Feedback on "To virtualize or not to virtualize: A comparison between self-hoste
 
 We would like to submit feedback for [this essay](https://github.com/KTH/devops-course/pull/2230).
 
+We gave out feedback in [this comment](https://github.com/KTH/devops-course/pull/2230#issuecomment-1523383651).
+
