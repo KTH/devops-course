@@ -1,5 +1,13 @@
 # Assignment Proposal
 
+**Relevant PR for Course Submission:**
+
+https://github.com/returntocorp/semgrep/pull/7850
+
+See relevant documentation and notes below for more details about scope of work.
+
+-----
+
 ## Title
 
 Semgrep Improvements: Error reporting has incorrect plurality
@@ -21,15 +29,14 @@ Semgrep is a lightweight static analysis tool meant to be used in the command li
 
 With DevOps in mind, I was initially inspired to contribute to fixing a possible bug relating to problematic behavior that errerously allows for CI/CD pipeline runs to still successfully finish even when Semgrep scans fails. However, further investigation led to complications; instead, I noticed that the plurality of error output was inconsistent.
 
-**Relevant PR:**
 
-https://github.com/returntocorp/semgrep/pull/7850
+-----
 
 **Relevant Documentation:**
 
 https://github.com/allandao/semgrep/tree/madao
 
-**Relevance**
+**Active Community**
 
 https://github.com/returntocorp/semgrep
 
@@ -54,3 +61,9 @@ I have an ongoing essay contribution request also intended for submission of the
 I discovered the possibility of improvements to Semgrep following exploration of the tool for the creation of an online executable tutorial for this course, and would prefer to contribute to this tool over writing an essay out of interest and for learning (this would be my first non-trivial contribution to open source).
 
 Thank you!
+
+-----
+
+**Relevant PR for Course Submission:**
+
+https://github.com/returntocorp/semgrep/pull/7850
