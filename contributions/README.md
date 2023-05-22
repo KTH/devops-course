@@ -84,3 +84,12 @@
 
 
 ## Week 9
+1. Demo: [A demonstration of GitHub’s new code search engine](https://github.com/KTH/devops-course/tree/2023/contributions/demo/week9/nareaho-hastimz)
+2. Presentation: [Taking a step back: a look at the potential issues of GitHub bots](https://github.com/KTH/devops-course/tree/2023/contributions/presentation/week9/jakobew-micask)
+3. Demo: [Chaos Engineering made easy with Gremlin](https://github.com/KTH/devops-course/tree/2023/contributions/demo/week9/aymanoa)
+4. Demo: [Chaos Engineering via Simmy in .NET](https://github.com/KTH/devops-course/tree/2023/contributions/demo/week9/iaiab)
+5. Presentation: [Serverless Workflow Orchestration with AWS Step Functions](https://github.com/KTH/devops-course/tree/2023/contributions/presentation/week9/iaiab)
+6. Demo: [Multi vs. Single Tenancy - Deploying Single Tenant Applications](https://github.com/KTH/devops-course/tree/2023/contributions/demo/week9/mlubken-madao)
+7. Presention: [Chaos engineering on system calls for containerized applications in Docker](https://github.com/KTH/devops-course/tree/2023/contributions/presentation/week9/yimingj)
+8. Presentation: [Importance of choosing the correct leadership style for a DevOps team: a comparison between transformational, transactional, authentic, servant and ad hoc leadership](https://github.com/KTH/devops-course/tree/2023/contributions/presentation/week9/adriankv-arasp)
+9. Presentation: [Injecting failures into a Kubernetes cluster with Chaos Mesh](https://github.com/KTH/devops-course/tree/2023/contributions/presentation/week9/nilslof)
