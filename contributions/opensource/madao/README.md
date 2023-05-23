@@ -47,8 +47,4 @@ I have an ongoing essay contribution request that is intended for submission of 
 
 I discovered the possibility of improvements to Semgrep following exploration of the tool for the creation of an online executable tutorial for this course, and would prefer to contribute to this tool over writing an essay out of interest and for learning (this would be my first non-trivial contribution to open source).
 
-<<<<<<< HEAD
-Thank you!
-=======
 Relevant PR: https://github.com/KTH/devops-course/tree/2023/contributions/essay/madao
->>>>>>> parent of 3d806856 (Sync with madao)
