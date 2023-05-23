@@ -1,8 +1,15 @@
 # Assignment Proposal
 
+**Essay Submission:**
+[Tackling Open Source Software Vulnerabilities: From Culture, to
+Practices, to Tooling](OSS.pdf)
+
+-----
+
 ## Title
 
-Recognizing and Addressing the Risk Behind Open Source Dependencies
+Tackling Open Source Software Vulnerabilities: From Culture, to
+Practices, to Tooling
 
 ## Names and KTH ID
 
