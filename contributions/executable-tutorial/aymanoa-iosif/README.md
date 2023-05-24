@@ -24,3 +24,9 @@ KEDA (Kubernetes-based Event Driven Autoscaler) is a tool that helps automate sc
 
 KEDA is relevant to DevOps as it provides efficient and automated scaling for containerized workloads based on event-driven metrics in Kubernetes. By leveraging KEDA, DevOps teams can optimize resource utilization and minimize costs by scaling down applications to zero when there is no demand, and scaling them up when events occur. Furthermore, KEDA supports a wide range of event sources and platforms, including Azure Functions, Azure Pipelines, Kafka, RabbitMQ, and more, facilitating seamless integration with existing DevOps workflows and tools.
 
+
+Links to our tutorial:
+
+Killercoda: https://killercoda.com/iosif-koen/scenario/tutorial-keda
+
+GitHub repository: https://github.com/sifisKoen/keda-tutorial-devops/tree/main
