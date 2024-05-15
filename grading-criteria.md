@@ -15,51 +15,45 @@ The concept: The students prepare a 7 minute presentation on a topic that is rel
 |                                             | Yes | No |
 |-------------------------------------------- | ----|----|
 |timing: The presentation's length is between 6:30-7:30 minutes (hard limit)  | Yes | No |
-|well-structured: Structure is announced and graphically visible | Yes | No |
-|motivation: The presentation contains a good, motivating introduction telling why this presentation is important | Yes | No | 
-|technical: The presentation contains one part that is deeply technical  | Yes | No |
-|code: The presentation contains valuable and readable code snippets | Yes | No |
+|structure: The presentation is well-structured, the structure announced and graphically visible | Yes | No |
+|introduction: The presentation contains a good, motivating introduction telling why this presentation is important | Yes | No | 
+|content: The presentation contains one part that is deeply technical, with readable code snippets | Yes | No |
 |originality: The presentation contains one part that is original (eg less than 100 results on Google on this topic) | Yes | No |
-|reflection: The presentation contains a reflective part  | Yes | No |
-|sota: There is one good slide positioning the presentation in the state of the art| Yes | No |
-|take-home: The last slide contains a good and concise take-home message | Yes | No |
-|loudly: The speakers talk loudly and  clearly  | Yes | No |
-|engagement: The speakers engage with the audience | Yes | No  |
-|humour: The speakers are fun, have humour  | Yes | No |
-|readable-slides: The slides don't have too much text  | Yes | No |
-|illustration: The slides contain nice illustrations  | Yes | No |
+|reflection: The presentation contains a reflective part| Yes | No |
+|conclusion: The last slide contains a good and concise take-home message | Yes | No |
+|understanding": The speakers demonstrate a clear understanding of the topic and can effectively respond to questions from the 
+audience. |
+|delivery: The speakers talk loudly and  clearly, engage with the audience and have humour  | Yes | No |
+|slides: The slides don't have too much text and contain nice illustrations  | Yes | No |
 
 
-To pass, you need at least 8 "yes".
-
-## Essays
+To pass, you must have at least 8 "yes".
 
 
-The concept: The students write an essay on a topic relevant to the course. Example of essays, see [2019 essays](https://github.com/KTH/devops-course/tree/master/attic/2019/README-2019.md), [2020 essays](https://github.com/KTH/devops-course/tree/master/attic/2020/README-2020.md)
+## Scientific paper
+
+
+The concept: The students prepare a 7 minute presentation on one scientific paper related to DevOps. The paper must have been published in 2021 onwards. We recommend to consider papers in [software engineering venues](https://scholar.google.com/citations?view_op=top_venues&hl=en&vq=eng_softwaresystems), but we welcome any proposal.
 
 
 |                                             | Yes | No |
 |-------------------------------------------- | ----|----|
-| format: The essay is in PDF | Mandatory | - | 
-| length: The essay length is between 2400-2600 words, incl. references (hard limit)  | Mandatory | - |
-| relevant: The essay addresses a topic that is relevant for DevOps | Mandatory | - | 
-| title: The essay has a good and focused title | Mandatory | - | 
-| generative AI: the essay contains "I/We certify that generative AI, incl. ChatGPT, has not been used to write this essay. Using generative AI without permission is considered academic misconduct."| Mandatory | - | 
-| well-structured: The essay is well structured | Yes | No | 
-| problem: The intro clearly states a relevant problem| Yes | No | 
-| sota: There is one part positioning the essay in the state of the art| Yes | No |
-| conclusion: The conclusion contains an emphasized key take-away of the essay | Yes | No | 
-| self-contained: The essay is self-contained, one can understand it without reading something else (expected knowledge of the reader: a master student in computer science) | Yes | No | 
-| innovative: The essay contains innovative ideas or material | Yes | No | 
-| figures: The essay contains relevant and informative figures | Yes | No | 
-| listings: The essay contains relevant and informative  listings | Yes | No | 
-| sound: The essay is sound, factual, and accurate | Yes | No | 
-| references: The essay contains references, appropriate  in number and quality (10 good refs is a minimum, incl. at least 3 academic references) | Yes | No | 
-| elegant: The essay presentation is elegant and visually appealing (eg LaTeX, InDesign) | Yes | No | 
-| reflection: The essay contains a reflective part  | Yes | No |
+|timing: The presentation's length is between 6:30-7:30 minutes (hard limit)  | Yes | No |
+|structure: The presentation is well-structured, the structure announced and graphically visible | Yes | No |
+|introduction: The presentation contains a good, motivating introduction telling why the paper is important | Yes | No | 
+|content: The presentation contains one part that is deeply technical, with readable code snippets | Yes | No |
+|critical: The presentation contains a critical part  | Yes | No |
+|reflection: The presentation contains a reflective part| Yes | No |
+|conclusion: The last slide contains a good and concise take-home message | Yes | No |
+|understanding: The speakers demonstrate a clear understanding of the paper's content and can effectively respond to questions from the audience. |
+|delivery: The speakers talk loudly and  clearly, engage with the audience and have humour  | Yes | No |
+|slides: The slides don't have too much text and contain nice illustrations  | Yes | No |
 
 
-To pass, you need at least 8 "yes".
+To pass, you must have at least 8 "yes".
+
+
+
 
 ## Demos
 
@@ -76,8 +70,7 @@ The concept: Students prepare a demonstration involving DevOps technology, to be
 |speech: The demo is accompanied by a clearly and structured speech | Yes | no |
 |originality: The demonstration is original (there are few demos/tutos on this topic on the Internet)| Yes | No | 
 |aesthetics: The demo is visually appealing | Yes | No | 
-|easter-egg: The demo contains an [easter egg](http://oadoi.org/10.1145/3534857) related to the demo topic| Yes | No |
-|engagement: The speakers engage with the audience | Yes | No  |
+|engagement: The speakers engage with the audience, possibly with an  [easter egg](http://oadoi.org/10.1145/3534857)  | Yes | No  |
 |liveness: The speakers update some code / config live | Yes | No  |
 |take-home: The demo includes a clear and visible take-home message | Yes | No | 
 
@@ -90,21 +83,26 @@ To pass, you must have at least 8 "yes".
 The concept: you contribute to one open-source project related to DevOps. Yout get at least one merged pull-request.
 
 Criteria for the selection of the open-source project: 1) The project is related to DevOps 2) The project has more than 100 Commits 3) The project has an active community on GitHub.
-
-
-|                                             | Yes | No | 
+                                            | Yes | No |
 |-------------------------------------------- | ----|----|
+|declaration of intention: The intention to contribute is declared in the project's preferred method (e.g., issue, mailing list). | Yes | No |
+|work-in-progress (WIP): The contribution is marked as WIP until it is ready for review. | Yes | No |
+|ready for review: The contribution is marked as ready and announced for review when it is complete. | Yes | No |
+|conversation: The contributor engages in conversation with the project maintainers, responding to feedback in a timely manner and making necessary changes. | Yes | No |
+|documentation: The contribution includes necessary documentation updates. | Yes | No |
+|testing: The contribution includes necessary testing. | Yes | No |
+|code quality: The code contributed is of high quality, following the project's coding standards and guidelines. | Yes | No |
+|relevance: The contribution is relevant to the project's roadmap and adds value to the project. | Yes | No |
 |difficulty: The contribution is a difficult piece of engineering, either a bug fix or a new feature  | Yes | No | 
-|workflow: The contribution is done per the best practices of open-source (declaration of intention, WIP, ready for review, conversation)  | Yes | No | 
 |merge: The contribution is merged in the main branch of the target project.| Yes | No | 
 
 
-To pass, you must have 2 yes.
+To pass, you must have at least 8 "yes".
 
 ## Executable Tutorials
 
 
-The concept: you create an executable tutorial about a specific technology related to Devops. You deliver your tutorial on a platform supporting execution, such as [KillerKoda](https://killercoda.com/), [mybinder.org](https://mybinder.org/), [collab](https://colab.research.google.com/) or equivalent.
+The concept: you create an executable tutorial about a specific technology related to Devops. You deliver your tutorial on an online platform supporting execution, such as [KillerKoda](https://killercoda.com/), [mybinder.org](https://mybinder.org/), [collab](https://colab.research.google.com/) or equivalent.
 
 
 |                                             | Yes | No | 
@@ -120,8 +118,7 @@ The concept: you create an executable tutorial about a specific technology relat
 |easter-eggs: The tutorial contains an easter egg | Yes | No | 
 |language: The language is appropriate (structure, grammar, spelling) | Yes | No |
 
-
-To pass, you must have the mandatory parts and at least 5 "yes".
+To pass, you must have at least 8 "yes".
 
 ## Feedback
 
@@ -134,12 +131,15 @@ The feedback is provided in a written manner as a well-structured comment on the
 |-------------------------------------------- | ----|----|
 |substance: the feedback is substantiated (at least 500 words) | Mandatory | - | 
 |generative AI: the feeback contains "I/We certify that generative AI, incl. ChatGPT, has not been used to write this feedback. Using generative AI without permission is considered academic misconduct."| Mandatory | - |
-|high-level: the feedback starts with a list of high-level strengths and high-level weaknesses about the work | Yes | No |
 |timeliness: the feedback is provided 2 business days (48h) after the "go" from the authors | Yes | No | 
+|positive: the feedback starts with a list of high-level strengths and positive comments| Yes | No |
+|high-level: the feedback points to clear high-level weaknesses about the work | Yes | No |
 |constructive: all feedback points are constructive and clearly actionable | Yes | No | 
 |structure: the feedback is well-structured (eg. along the outline of the work under feedback) | Yes | No | 
 |pointers: the feedback contains valuable pointers to additional material | Yes | No |
+|respectful: the feedback is delivered in a respectful and professional manner | Yes | No |
+|humor: the feedback is delivered with a touch of humor, making it more engaging and easier to receive | Yes | No |
 
 
-To pass, you must have at least 4 "yes".
+To pass, you must have at least 8 "yes".
 
