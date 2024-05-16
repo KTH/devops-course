@@ -83,7 +83,7 @@ To pass, you must have at least 8 "yes".
 The concept: you contribute to one open-source project related to DevOps. Yout get at least one merged pull-request.
 
 Criteria for the selection of the open-source project: 1) The project is related to DevOps 2) The project has more than 100 Commits 3) The project has an active community on GitHub.
-                                            | Yes | No |
+|                                            | Yes | No |
 |-------------------------------------------- | ----|----|
 |declaration of intention: The intention to contribute is declared in the project's preferred method (e.g., issue, mailing list). | Yes | No |
 |work-in-progress (WIP): The contribution is marked as WIP until it is ready for review. | Yes | No |
