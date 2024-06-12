@@ -122,7 +122,7 @@ To pass, you must have at least 8 "yes".
 ## Feedback
 
 
-The concept: you provide constructive and timely feeback about any task expect "feedback".
+The concept: you provide constructive and timely feeback about any task except "feedback".
 The feedback is provided in a written manner as a well-structured comment on the PR of the task.
 
 
