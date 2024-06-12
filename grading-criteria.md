@@ -21,8 +21,7 @@ The concept: The students prepare a 7 minute presentation on a topic that is rel
 |originality: The presentation contains one part that is original (eg less than 100 results on Google on this topic) | Yes | No |
 |reflection: The presentation contains a reflective part| Yes | No |
 |conclusion: The last slide contains a good and concise take-home message | Yes | No |
-|understanding": The speakers demonstrate a clear understanding of the topic and can effectively respond to questions from the 
-audience. |
+|understanding: The speakers demonstrate a clear understanding of the topic and can effectively respond to questions from the audience. | Yes | No |
 |delivery: The speakers talk loudly and  clearly, engage with the audience and have humour  | Yes | No |
 |slides: The slides don't have too much text and contain nice illustrations  | Yes | No |
 
