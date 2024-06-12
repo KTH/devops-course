@@ -18,7 +18,7 @@ The concept: The students prepare a 7 minute presentation on a topic that is rel
 |structure: The presentation is well-structured, the structure announced and graphically visible | Yes | No |
 |introduction: The presentation contains a good, motivating introduction telling why this presentation is important | Yes | No | 
 |content: The presentation contains one part that is deeply technical, with readable code snippets | Yes | No |
-|originality: The presentation contains one part that is original (eg less than 100 results on Google on this topic) | Yes | No |
+|originality: The presentation contains one part that is original (less than 1000 google results) | Yes | No |
 |reflection: The presentation contains a reflective part| Yes | No |
 |conclusion: The last slide contains a good and concise take-home message | Yes | No |
 |understanding: The speakers demonstrate a clear understanding of the topic and can effectively respond to questions from the audience. | Yes | No |
@@ -42,9 +42,9 @@ The concept: The students prepare a 7 minute presentation on one scientific pape
 |introduction: The presentation contains a good, motivating introduction telling why the paper is important | Yes | No | 
 |content: The presentation contains one part that is deeply technical, with readable code snippets | Yes | No |
 |critical: The presentation contains a critical part  | Yes | No |
-|reflection: The presentation contains a reflective part| Yes | No |
+|related-work: The presentation discusses two more related papers which are not in the bibliography | Yes | No |
 |conclusion: The last slide contains a good and concise take-home message | Yes | No |
-|understanding: The speakers demonstrate a clear understanding of the paper's content and can effectively respond to questions from the audience. | Yes | No |
+|understanding: The speakers demonstrate a clear understanding of the paper's content and can effectively respond to questions from the audience. |
 |delivery: The speakers talk loudly and  clearly, engage with the audience and have humour  | Yes | No |
 |slides: The slides don't have too much text and contain nice illustrations  | Yes | No |
 
@@ -92,7 +92,7 @@ Criteria for the selection of the open-source project: 1) The project is related
 |testing: The contribution includes necessary testing. | Yes | No |
 |code quality: The code contributed is of high quality, following the project's coding standards and guidelines. | Yes | No |
 |relevance: The contribution is relevant to the project's roadmap and adds value to the project. | Yes | No |
-|difficulty: The contribution is a difficult piece of engineering, either a bug fix or a new feature  | Yes | No | 
+|difficulty: The contribution is a difficult piece of engineering, either a bug fix or a new feature (mandatory) | Yes | No | 
 |merge: The contribution is merged in the main branch of the target project.| Yes | No | 
 
 
@@ -111,7 +111,7 @@ The concept: you create an executable tutorial about a specific technology relat
 |ilo: The tutorial states the intended learning outcomes. | Mandatory | - | 
 |motivation: The tutorial is clearly motivated (why it matters for Devops?) | Yes | No | 
 |background: The tutorial gives enough background | Yes | No | 
-|illustrated: The tutorial is illustrated with an informative figure (eg a flowchart) | Yes | No | 
+|illustrated: The tutorial is illustrated with some informative figures (eg flowchart) | Yes | No | 
 |pedagogical: The tutorial is easy to follow  | Yes | No | 
 |original: The tutorial is original, no or few similar tutorials exist on the web | Yes | No |
 |easter-eggs: The tutorial contains an easter egg | Yes | No | 
@@ -122,7 +122,7 @@ To pass, you must have at least 8 "yes".
 ## Feedback
 
 
-The concept: you provide constructive and timely feeback about one task from categories "essay" and "executable tutorial".
+The concept: you provide constructive and timely feeback about any task expect "feedback".
 The feedback is provided in a written manner as a well-structured comment on the PR of the task.
 
 
