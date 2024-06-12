@@ -65,9 +65,10 @@ To pass the course, the student has to complete and pass between 3 and 5 tasks:
   * Deadline for repeated tasks (all): **Nov 5 2024, 17h Stockholm time**.
   * The deadlines are strict and cannot be extended. Not meeting a deadline means failing the task / the repetition.
 * Final grading scheme
-  * A: 5 completed tasks 
-  * C: 4 completed tasks 
   * E: 3 completed tasks (excluding feedback)
+  * C: 4 completed tasks 
+  * B: 5 completed tasks 
+  * A: 5 completed tasks + active participation in all lectures 
 * Group work is encouraged (max 2 persons) but you cannot be with the same person for more than 2 individual tasks. You can work alone for one or at most two tasks.
 * A failed task requires to pass it again at the end of the course (repeat), based on the feedback from the failure. A task can only be repeated once.
 * If the whole course is failed, no grades are kept if the student registers again to the course the year after. 
