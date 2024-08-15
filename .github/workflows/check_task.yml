@@ -27,7 +27,7 @@ jobs:
       - name: 'Get tools'
         uses: actions/checkout@v2.3.4
         with:
-          repository: KTH/github-canvas-integration
+          repository: KTH/github-canvas-integration-devops
           ref: main
           path: canvas-code
 
