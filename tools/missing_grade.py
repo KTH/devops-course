@@ -12,7 +12,7 @@ WEEK = ''
 DEADLINE = 0
 CANVAS_TOKEN = ''
 CANVAS_URL = "https://canvas.kth.se"
-CANVAS_COURSE_ID = 38951 # 2023 edition
+CANVAS_COURSE_ID = 48942 # 2024 edition
 CONTRIBUTION_PATH = '../contributions'
 
 
@@ -58,7 +58,7 @@ def get_group_members(id_group):
 
 
 def grader(url):
-    url = url.replace("/2023/","/2022/")
+    url = url.replace("/2024/","/2023/")
     graders = json.load(open("graders.json"))
     n= zlib.adler32(url.encode("utf-8"))%len(graders)
     return graders[n]
