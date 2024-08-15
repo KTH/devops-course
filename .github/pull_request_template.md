@@ -19,15 +19,13 @@ _The title of your proposal_
 
 _Selected deadline for the assignment_
 
-_If contribution is a **demo** or **presentation** pick one of the following:_
+_If contribution is a **demo** or **presentation** or **scientific-paper** pick one of the following:_
 - Week 2
 - Week 3
 - Week 4
 - Week 5
 - Week 6
 - Week 7
-- Week 8
-- Week 9
 
 _Else pick one of the following:_
 - Task 1
@@ -42,7 +40,7 @@ _Pick one of the following:_
 - Demo
 - Presentation
 - Executable tutorial
-- Essay
+- Scientific paper
 - Open source
 - Feedback
 

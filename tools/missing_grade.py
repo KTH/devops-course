@@ -21,7 +21,7 @@ def task_to_set(task_name, canvas_set):
     mapping = {
         #"course-automation": canvas_set["Course automation"],
         "demo": canvas_set["Demos"],
-        "essay": canvas_set["Essays"],
+        "scientific-paper": canvas_set["Scientific Papers"],
         "executable-tutorial": canvas_set["Executable Tutorials"],
         "feedback": canvas_set["Feedback"],
         "opensource": canvas_set["Open-source contributions"],
@@ -123,8 +123,8 @@ def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument('--task', dest='task', type=str, help='Task name', required=True)
     parser.add_argument('--token', dest='token', type=str, help='Canvas access token', required=True)
-    parser.add_argument('--week', dest='week', type=str, help='Week folder (ONLY for presentation/demo)')
-    parser.add_argument('--deadline', dest='deadline', type=int, help='Deadline number (NOT for presentation/demo)')
+    parser.add_argument('--week', dest='week', type=str, help='Week folder (ONLY for presentation/demo/scientific-paper)')
+    parser.add_argument('--deadline', dest='deadline', type=int, help='Deadline number (NOT for presentation/demo/scientific-paper)')
 
     args = parser.parse_args()
     TASK = args.task
@@ -159,10 +159,10 @@ def check_all_assigned():
         #"feedback": canvas_set["Feedback"],
         #"open-source": canvas_set["Open-source contributions"],
         #"presentation": canvas_set["Presentations"],    }
-    for i in get_sub_directory(CONTRIBUTION_PATH+"/"+"course-automation").values():
-        l.append(i['path'])        
-    for i in get_sub_directory(CONTRIBUTION_PATH+"/"+"essay").values():
-        l.append(i['path'])        
+    # for i in get_sub_directory(CONTRIBUTION_PATH+"/"+"course-automation").values():
+        # l.append(i['path'])
+    # for i in get_sub_directory(CONTRIBUTION_PATH+"/"+"essay").values():
+        # l.append(i['path'])
     for i in get_sub_directory(CONTRIBUTION_PATH+"/"+"executable-tutorial").values():
         l.append(i['path'])        
     for i in get_sub_directory(CONTRIBUTION_PATH+"/"+"feedback").values():
