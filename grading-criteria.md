@@ -52,8 +52,6 @@ The concept: The students prepare a 7 minute presentation on one scientific pape
 To pass, you must have at least 8 "yes".
 
 
-
-
 ## Demos
 
 
@@ -76,12 +74,14 @@ The concept: Students prepare a demonstration involving DevOps technology, to be
 
 To pass, you must have at least 8 "yes".
 
+
 ## Open-source contributions
 
 
 The concept: you contribute to one open-source project related to DevOps. Yout get at least one merged pull-request.
-
 Criteria for the selection of the open-source project: 1) The project is related to DevOps 2) The project has more than 100 Commits 3) The project has an active community on GitHub.
+
+
 |                                            | Yes | No |
 |-------------------------------------------- | ----|----|
 |declaration of intention: The intention to contribute is declared in the project's preferred method (e.g., issue, mailing list). | Yes | No |
@@ -97,6 +97,7 @@ Criteria for the selection of the open-source project: 1) The project is related
 
 
 To pass, you must have at least 8 "yes".
+
 
 ## Executable Tutorials
 
@@ -117,7 +118,9 @@ The concept: you create an executable tutorial about a specific technology relat
 |easter-eggs: The tutorial contains an easter egg | Yes | No | 
 |language: The language is appropriate (structure, grammar, spelling) | Yes | No |
 
+
 To pass, you must have at least 8 "yes".
+
 
 ## Feedback
 
