@@ -1,2 +1,2 @@
-# Scentific papers
+# Scientific papers
 
