@@ -69,7 +69,7 @@ The concept: Students prepare a demonstration involving DevOps technology, to be
 |aesthetics: The demo is visually appealing | Yes | No | 
 |engagement: The speakers engage with the audience, possibly with an  [easter egg](http://oadoi.org/10.1145/3534857)  | Yes | No  |
 |liveness: The speakers update some code / config live | Yes | No  |
-|take-home: The demo includes a clear and visible take-home message | Yes | No | 
+|take-home: The demo includes a clear and visible take-home message | Yes | No |
 
 
 To pass, you must have at least 8 "yes".
@@ -144,4 +144,3 @@ The feedback is provided in a written manner as a well-structured comment on the
 
 
 To pass, you must have at least 8 "yes".
-
