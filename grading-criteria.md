@@ -14,7 +14,7 @@ The concept: The students prepare a 7 minute presentation on a topic that is rel
 
 |                                             | Yes | No |
 |-------------------------------------------- | ----|----|
-|timing: The presentation's length is between 6:30-7:30 minutes (hard limit)  | Yes | No |
+|timing: The presentation's length is between 6:30-7:30 minutes (hard limit)  | Mandatory | - |
 |structure: The presentation is well-structured, the structure announced and graphically visible | Yes | No |
 |introduction: The presentation contains a good, motivating introduction telling why this presentation is important | Yes | No | 
 |content: The presentation contains one part that is deeply technical, with readable code snippets | Yes | No |
