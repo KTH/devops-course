@@ -44,7 +44,7 @@ The concept: The students prepare a 7 minute presentation on one scientific pape
 |critical: The presentation contains a critical part  | Yes | No |
 |related-work: The presentation discusses two more related papers which are not in the bibliography | Yes | No |
 |conclusion: The last slide contains a good and concise take-home message | Yes | No |
-|understanding: The speakers demonstrate a clear understanding of the paper's content and can effectively respond to questions from the audience. |
+|understanding: The speakers demonstrate a clear understanding of the paper's content and can effectively respond to questions from the audience. | Yes | No |
 |delivery: The speakers talk loudly and  clearly, engage with the audience and have humour  | Yes | No |
 |slides: The slides don't have too much text and contain nice illustrations  | Yes | No |
 
