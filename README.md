@@ -98,8 +98,8 @@ Group Rules
 * [Prof. Martin Monperrus](http://www.monperrus.net/martin/) (Examiner)
 * [Javier Ron](https://www.kth.se/profile/javierro?l=en) (TA)
 * [Deepika Tiwari](https://www.kth.se/profile/deepikat) (TA)
-* [Khashayar Etemadi](https://www.kth.se/profile/khaes) (TA)
-* [Yuxin Liu](https://www.kth.se/profile/yuxinli) (TA)
+* [Sofia Bobadilla](https://www.kth.se/profile/sofbob) (TA)
+* [Aman Sharma](https://www.kth.se/profile/amansha) (TA)
 
 
 ## Prerequisites
