@@ -74,7 +74,7 @@ To pass the course, the student has to complete and pass between 3 and 5 tasks:
 
 Group Rules
 * When you send a pull request for registration, please follow the name convention of using email addresses of two members to create the folder: email-email.
-* We recommend 2 students. Three is also possible for ambitious essays, demos or contribution to open-source.
+* We recommend 2 students. Three is also possible for ambitious demos or contribution to open-source.
 
 ## Communication
 
