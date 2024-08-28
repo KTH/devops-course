@@ -65,7 +65,7 @@ To pass the course, the student has to complete and pass between 3 and 5 tasks:
   * E: 3 completed tasks (excluding feedback)
   * C: 4 completed tasks 
   * B: 5 completed tasks 
-  * A: 5 completed tasks + active participation in all lectures
+  * A: 5 completed tasks + active participation in all but one lectures
 * Active participation: attendance to all but one lectures, a traceable record of questions asked during lectures (through GitHub issues) and the answers you received to them.
 * Group work is encouraged (max 2 persons) but you cannot be with the same person for more than 2 individual tasks. You can work alone for one or at most two tasks.
 * A failed task requires to pass it again at the end of the course (repeat), based on the feedback from the failure. A task can only be repeated once.
