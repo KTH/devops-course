@@ -1,7 +1,6 @@
 # Grading Criteria of the KTH Devops Course
 
 - we are all aware that assessment may be subjective in nature. In case of disagreement, the informed judgment of the Professor is the final decision.
-- in the grading criteria presented below, the mandatory parts do not count as "yes" for grading.
 - Presentation and demos are mandatory.
 - In case of a task failure, the students receive instructions for repetition through Canvas 
 
