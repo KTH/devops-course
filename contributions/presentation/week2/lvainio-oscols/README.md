@@ -19,7 +19,7 @@ Split.io, a Feature Flag tool, that can be used for A/B Testing
 
 ## Description
 
-This preseantation will start off by introducing Split and how it's relevant to this course. Followed by what A/B testing is.
+This presentation will start off by introducing Split and how it's relevant to this course. Followed by what A/B testing is.
 
 We will show code snippets on how the feature flags are implemented in the production code. And how it can be used for A/B testing.
 
