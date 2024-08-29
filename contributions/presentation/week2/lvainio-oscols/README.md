@@ -28,3 +28,5 @@ Take-home message: Always A/B test.
 **Relevance**
 
 Split is a useful tool for creating and managing feature flags for applications. This tool also allows different roll out methods to be implemented such as A/B testing. This technique is useful for the continuous delivery part of DevOps. 
+
+In devops, A/B testing is a method that can be used to compare different versions of the same application based usage data of specific user groups. Based on the data, the team can go ahead and make more informed decisions on which features to implement. This allows for fast feedback and decisions can be made from data and not just individual opinions. 
