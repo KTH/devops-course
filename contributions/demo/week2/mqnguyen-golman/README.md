@@ -32,8 +32,7 @@ Tools:
 - Ansible (Testing Node instance, Update version ...etc)
 - Terraform (Create Template for VM/docker/Container)
 
-## Backup plan
-
+Backup plan:
 In case we run into difficulties we deem unfeasible to overcome (the environment is not fully set up yet, and we are sort of short of time given the schedule) we discussed with the TA to create a rather simple web application involving either authentication functionality and a web form with input where validation would occur at the backend and perform integration tests by interacting with the browser and test frontend, backend, and potentially some database. We (and the TA) were unsure on whether the complexity level of this would be sufficient, but were asked to include it to have it commented on.
 
 **Relevance**
