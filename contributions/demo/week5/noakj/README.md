@@ -10,7 +10,7 @@ Strimzi or: How I Learned to Stop Configuring and Deploy Kubernetes CRDs
 - Week 5
 
 ## Category
-- Demo
+- Presentation
 
 ## Description
 A 
