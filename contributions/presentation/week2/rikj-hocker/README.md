@@ -22,8 +22,3 @@ We want to present a hot new CI/CD called TeamCity Pipelines, a tool that is dev
 **Relevance**
 
 Larger CI/CD solutions usually require dedicated staff members for maintaining and administering their pipelines, whereas a smaller team would have to handle it all on their own, and thus a simplified solution can save them a great deal of time. For smaller development teams in the sizes of maybe a dozen, more efficient CI/CD solutions are growing in demand. Considering JetBrains prestigious pedigree for developing industry standard softwares as mentioned previously, it is not unlikely that TeamCity Pipelines will make a noteworthy impact on the small team development lifestyle.
-
-Usually, example based testing is used when writing unit tests, where the programmer has to come up with various test inputs and define what the expected results are. 
-This is tedious and error-prone in the long run, thus one can utilize property-based testing to speed up the processes. 
-Property-based testing also explores more inputs and conditions, which makes it easier to uncover edge cases. 
-This is relevant to DevOps as it concerns test automation as well as being able to significantly enhance the testing suite.
