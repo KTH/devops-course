@@ -24,6 +24,6 @@ Our demo will include end-to-end testing for web apps utilizing Playwright (http
 Plan B:
 If something doesn't work during our demo we will have screen recordings prepared to show. 
 
-## Relevance
+_Relevance_
 
 This tool is an end-to-end frontend testing framework that is widely used in the industry. We believe that this tutorial could be useful for CS students and others who are not very versed in software testing tools for the web. 
