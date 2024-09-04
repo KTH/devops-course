@@ -2,7 +2,7 @@
 
 ## Title
 
-Continuous integretion testing of node and service availability of promox instances
+Continuous integration testing of node and service availability of promox instances
 
 ## Names and KTH ID
 
