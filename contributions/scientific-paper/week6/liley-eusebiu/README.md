@@ -24,3 +24,4 @@ Threat Modeling is an integral part of the planning and design stages in the Dev
 **Relevance**
 
 Threat Modeling is a highly relevant methodology which allows modeling and security testing of software "on paper". It can help with identifying security vulnerabilities in early stages of the development, making them easier and cheaper to fix. Additionally it provides a high value when working with constraint budgets, allowing security practitioners and decision makers to prioritize effectively.
+
