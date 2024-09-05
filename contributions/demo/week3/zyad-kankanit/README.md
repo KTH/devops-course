@@ -20,7 +20,7 @@ Get started with Terraform : Continuous Deployment in AWS through Github Actions
 
 ## Description
 
-This demo is intended to walk the audience through the deployment of a web application setup on AWS using Terraform and Github Actions CI/CD pipelines. The demo will start with the setup of Terraform for AWS, with a detailed explanation of the how the HashiCorp Configuration Language works. Then we will continue with the CI/CD Pipeline Setup, which covers a quick walkthrough of the CI pipeline (which runs for every commit) and a detailed explanation of the CD pipeline (which only runs on a merge to main). Finally, we will show the case where CD pipeline fails, followed by troubleshooting and fixing the issue to complete the deployment.
+This demo is intended to walk the audience through the deployment of a web application setup on AWS using Terraform and Github Actions CI/CD pipelines. The demo will start with the setup of Terraform for AWS, with a detailed explanation of the how the HashiCorp Configuration Language works. We will show the case where CD pipeline fails, followed by troubleshooting and fixing the issue to complete the deployment. Finally, we will reflect on how useful Terraform is, and the limits it may have.
 
 **Relevance**
 
