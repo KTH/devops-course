@@ -7,7 +7,7 @@ _CRISP-ML(Q). The End-to-End Machine Learning Workflow_
 ## Names and KTH ID
 
   - Jacopo Maragna (jmaragna@kth.se)
-  - Siham Shahoud (shahoud@kth.se)
+  - Siham Shahoud (shahoud@kth.se) 
 
 ## Deadline
 
