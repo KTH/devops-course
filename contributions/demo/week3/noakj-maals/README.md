@@ -19,10 +19,10 @@ An Interactive Demonstration of Automated Canary Deployment using AWS and GitHub
 
 ## Description
 A live demonstration of how GitHub actions and AWS can be used to achieve Automated Canary Deployments.
-Using an AWS load balancer a percentage of users can be given access to the latest deployed features, allowing developers to gather feedback as well as monitor for bugs, while not exposing the entire user base to these changes, essentially allowing small scale testing in a production environment.
-In case of drastic errors this deployment technique allows for easy rollbacks while still maintaining high availability of deployed (stable) applications.
-This technique is definitely in the gray zone between CI and CD, however this demonstration will mostly focus on the infrastructure needed to automatically deploy/deliver code to a subset of an applications user base.
-
+We will start off by inviting the audience to visit an application we have deployed using ECS on AWS. 
+We will then show how newly commited code on github can be automatically deployed to our ECS which will be accesible by a specified percentage of users through the use of a load balancer.
+After explaining our use of the Canary deployment strategy, and how this can be achieved in AWS, we will then ask the audience to again view the application, where some will see the newest deployed version (... and some might even see a bug), while the rest will see the stable version.
+Lastly we will show how to rollback a deployed verion in case of a bug being reported.
 
 **Relevance**
 
