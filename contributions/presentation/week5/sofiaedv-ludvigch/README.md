@@ -22,6 +22,7 @@ _Saltstack: Grains, States and Pillars_
 We aim to describe how grains, states, and pillars in Salt can be implemented to get infrastructure as code. 
 By describing the relation and different uses of these features a better understanding of how Salt works, and why it is an option for DevOps, can be acquired. 
 We will provide examples of how different configurations impact the overall structure of the infrastructure.
+Finally we will discuss pros and cons of Saltstack compared to other similar automation frameworks.
 
 **Relevance**
 
