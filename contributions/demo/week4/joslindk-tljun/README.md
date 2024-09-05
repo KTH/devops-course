@@ -2,7 +2,7 @@
 
 ## Title
 
-End-to-end testing for webapps using Playwright
+Measuring frequency of deployments
 
 ## Names and KTH ID
 
@@ -19,11 +19,12 @@ End-to-end testing for webapps using Playwright
 
 ## Description
 
-Our demo will include end-to-end testing for web apps utilizing Playwright (https://playwright.dev/). It will demonstrate a couple of smart ways to use Playwright to enhance your end-to-end tests. In our demo, we will start by showing how quickly and easily you can get started with Playwright. We will then live-write a few frontend tests in a pre-prepared repository. By running the tests, we will show how Playwright works and utilizes cross-browser testing. Finally, we plan to demonstrate how you can add Playwright testing to your CI pipeline with GitHub Actions.
+The organization DORA comes out with the state of DevOps every year. Additionally, they provide a standard set of DevOps metrics used for evaluating process performance and maturity. These metrics provide information about how quickly DevOps can respond to changes, the average time to deploy code, the frequency of iterations, and insight into failures.
 
-Plan B:
-If something doesn't work during our demo we will have screen recordings prepared to show. 
+This demo will demonstrate how to easily and automatically measure frequency of deployments. The demo will utilise GitHub actions webhooks and a serverless rest API (AWS lambda) connected to a database (MongoDB). The demo will mainly focus on the GitHub actions webhooks, how to parse the payloads, and which events can trigger. It will not be about setting up AWS lambda.  
 
-_Relevance_
+_Relevance
 
-This tool is an end-to-end frontend testing framework that is widely used in the industry. We believe that this tutorial could be useful for CS students and others who are not very versed in software testing tools for the web. 
+Github actions are commonly used to have autonomy and create personalised workflows for the deployment processes. This demo can be used for any project regardless of if the application is hosted on vercel, heroku, AWS, etc.
+
+https://www.atlassian.com/devops/frameworks/dora-metrics
