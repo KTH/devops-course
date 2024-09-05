@@ -2,7 +2,7 @@
 
 ## Title
 
-Automating Code Coverage Analysis in CI Pipeline
+Dockerfile Compliance Scanning with Docker Bench and Trivy
 
 ## Names and KTH ID
 
@@ -19,12 +19,10 @@ Automating Code Coverage Analysis in CI Pipeline
 
 ## Description
 
-This project aims to integrate a code coverage analysis tool (such as JaCoCo or Emma) into a CI pipeline. The coverage analysis will provide insights into the proportion of code exercised by tests, ensuring the robustness of the application. Additionally, the project will automate the process of saving coverage reports to the cloud, enabling historical comparisons and trend analysis.
+In this demo, we will focus on how Dockerfile compliance scanning can be integrated into an Infrastructure as Code (IaC) workflow to ensure the security and stability of containerized applications. We will use tools such as Docker Bench and Trivy to automatically scan Dockerfiles and Docker images for security vulnerabilities and best practice violations.
 
-Stretch Goal: Automate the entire process using GitHub Actions, ensuring that every code change triggers a coverage analysis and stores the results automatically.
+The demo will walk through the process of writing a non-compliant Dockerfile, running compliance scans, and fixing the detected issues. We will show how these tools can be integrated into a CI/CD pipeline to ensure that Docker containers, as part of an IaC workflow, are compliant with security and operational standards. By automating the scanning process, we reduce the risk of deploying vulnerable containers in production environments, which is critical for maintaining infrastructure security.
 
 **Relevance**
 
-Code coverage is crucial for assessing the effectiveness of unit tests in covering the codebase. While running tests is essential, it’s equally important to understand which parts of the code are tested and which are not. This helps in identifying untested areas, reducing the risk of bugs. By integrating code coverage into the CI pipeline, we ensure that every change is scrutinized not only for correctness but also for completeness in terms of testing.
-
-Additionally, by storing historical coverage data, teams can track their progress in improving test coverage over time. This historical perspective can be valuable in understanding the impact of refactoring, adding new features, or making other significant changes to the codebase.
+Docker containers are a key component in modern Infrastructure as Code practices, as they are widely used to package applications and services. Ensuring the compliance and security of Docker containers is an essential step in managing infrastructure at scale. This demo is relevant by demonstrating how to use compliance scanning tools to enforce security standards in containerized environments. By integrating these scans into an IaC pipeline, we can automate compliance checks and improve the reliability and security of infrastructure deployments.
