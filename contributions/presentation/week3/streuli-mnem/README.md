@@ -19,7 +19,7 @@ Flyway: Version Control for Databases
 
 ## Description
 
-In this presentation, we will delve into the critical role of automated database version control within the framework of Continuous Deployment. We'll begin by outlining the necessity for managing database schema changes seamlessly alongside application updates to ensure system integrity and performance. We will examine the popular tool Flyway, a popular tool for database vesioning. Flyway has been in continual development since 2010 and remains to be the industry standard for database migration and supports over 50 different database platforms. We will discuss how to integrate Flyway into the CI/CD pipeline, ensuring that every deployment reflects both application and database state changes accurately. This presentation will highlight the importance of database versioning to ensure consistency throughout different environments. 
+In this presentation, we will delve into the critical role of automated database version control within the framework of Continuous Deployment. We'll begin by outlining the necessity for managing database schema changes seamlessly alongside application updates to ensure system integrity and performance. We will examine the popular tool Flyway, a popular tool for database versioning. Flyway has been in continual development since 2010 and remains to be the industry standard for database migration and supports over 50 different database platforms. We will discuss how to integrate Flyway into the CI/CD pipeline, ensuring that every deployment reflects both application and database state changes accurately. This presentation will highlight the importance of database versioning to ensure consistency throughout different environments. 
 
 **Relevance**
 
