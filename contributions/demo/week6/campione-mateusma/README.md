@@ -24,6 +24,8 @@ In this demo we will:
   - add a new secret to the project
   - integrate the secrets created with Github Actions
 
+At the end we will also give a brief explanation on why someone should use Bitwarden secret manager rather than the secrets in GitHub actions.
+
 **Relevance**
 
 This type of tool is very important when it comes to DevSecOps since it streamlines the process of managing secrets and deploying them at scale. It also provides a good way to integrate said secrets into Github Actions which is very useful when it comes to Continuous Integration.
