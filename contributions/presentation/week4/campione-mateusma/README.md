@@ -18,7 +18,7 @@ Tensorboard: A suite of visualization tools to understand, debug, and optimize T
 
 ## Description
 
-We will start the presentation with a short introduction to MLOps. Then, we will look at the Tensorboard tool and present the different features it has. We will then try to show how it can be used in the MLOps workflow and try and justify its use instead of other alternatives.
+We will start the presentation with a short introduction to MLOps and its shortcomings when it comes to comparing models. Then, we will look at the Tensorboard tool and present the different features it has. We will then try to show how it can be used in the MLOps workflow and try and justify its use instead of other alternatives.
 
 **Relevance**
 
