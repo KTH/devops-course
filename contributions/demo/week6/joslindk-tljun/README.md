@@ -11,7 +11,7 @@ Measuring frequency of deployments
 
 ## Deadline
 
-- Week 4
+- Week 6
 
 ## Category
 
