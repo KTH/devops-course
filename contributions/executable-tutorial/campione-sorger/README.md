@@ -11,11 +11,11 @@ Setting Up a Dashboard using Splunk
 
 ## Deadline
 
-- Deadline 3 (Oct 15 2024, 17h Stockholm time)
+- Task 3
 
 ## Category
 
-- Executable Tutorials
+- Executable Tutorial
 
 ## Description
 
