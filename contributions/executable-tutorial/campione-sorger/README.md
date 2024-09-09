@@ -15,7 +15,7 @@ Setting Up a Dashboard using Splunk
 
 ## Category
 
-- Executable Tutorial
+- Executable Tutorials
 
 ## Description
 
