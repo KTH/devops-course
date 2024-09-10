@@ -22,4 +22,4 @@ This presentation will explore the role of RefBot, an intelligent software refac
 
 **Relevance**
 
-Refactoring is a crucial activity in software development that ensures long-term maintainability and scalability of codebases. However, it can be a tedious and error-prone process. RefBot aims to automate this task, reducing the cognitive load on developers and enhancing code quality.
+Refactoring is a crucial activity in software development that ensures long-term maintainability and scalability of codebases, which can also be a tedious and error-prone process. RefBot aims to automate this task, reducing the cognitive load on developers and enhancing code quality.
