@@ -2,11 +2,7 @@
 
 ## Title
 
-<<<<<<< HEAD
-Continuous integretion testing of node and service availability of promox instances
-=======
 Continuous integration testing of node and service availability of promox instances
->>>>>>> upstream/2024
 
 ## Names and KTH ID
 
