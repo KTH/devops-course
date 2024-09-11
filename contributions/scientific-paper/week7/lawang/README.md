@@ -7,7 +7,6 @@ RefBot: Intelligent Software Refactoring Bot
 ## Names and KTH ID
 
 - Laicaiwei Wang (lawang@kth.se)
-- Tobias Carlsson (tocarls@kth.se)
 
 ## Deadline
 
