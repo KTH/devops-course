@@ -42,3 +42,4 @@ General Intro about the course.
 * [Revisiting the practices and pains of microservice architecture in reality: An industrial inquiry](https://github.com/KTH/devops-course/pull/2416)
 * [Security Linting in Python using Bandit](https://github.com/KTH/devops-course/pull/2424)
 * [Exploring Canary Deployments in Modern DevOps](https://github.com/KTH/devops-course/pull/2424)
+* [Rainbow deployments and its role in modern CD](https://github.com/KTH/devops-course/pull/2422)
