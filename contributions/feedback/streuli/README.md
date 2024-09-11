@@ -10,7 +10,7 @@ Feedback on Executable Tutorial: Continuous delivery to GitHub container registr
 
 ## Deadline
 
-Task 3
+Task 1
 
 ## Category
 
