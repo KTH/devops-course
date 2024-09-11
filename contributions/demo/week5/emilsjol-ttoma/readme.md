@@ -10,7 +10,7 @@ Terraform - Using infrastructre as code in DevOps
 
 ## Deadline
 
-Week 4
+Week 5
 
 ## Category
 
