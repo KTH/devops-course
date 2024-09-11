@@ -58,3 +58,28 @@ This script is used to grade each student according to the number of task comple
 
 ### Usage
 ...
+
+
+## track_participation.py
+
+Script used to track and display valid comments on lecture participation issue.
+
+### Requirements
+
+- Python 3
+- External modules
+  - PTable
+  - PyGithub
+
+### Usage
+`python3 track_participation.py ----printPlain`
+
+`python3 track_participation.py ----printMarkdown --publish`
+
+| Option | Usage | Required |
+|---|---|---|
+|--printPlain| Print participation stats in plaintext | :x:|
+|--printMarkdown| Print participation stats in markdown  |:x:|
+|--publish| Update the participation tracker issue  |:x:|
+|--help | Displays help info  |:x:|
+

@@ -1,0 +1,36 @@
+name: Lecture Participation Information
+
+on:
+  issue_comment:
+    types: [created]
+
+permissions:
+  issues: write
+
+jobs:
+  track-participation:
+    if: github.event.issue.title == 'Lecture participation tracker 2024'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Setup Python
+        uses: actions/setup-python@v2.2.1
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f ./tools/requirements.txt ]; then pip install -r ./tools/requirements.txt; fi
+
+      - name: Set timezone to Europe/Stockholm
+        run: sudo timedatectl set-timezone Europe/Stockholm
+
+      - name: Update participation tracker
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO_FULLNAME: ${{ github.repository }}
+          TRACKER_ISSUE_NUMBER: ${{ github.event.issue.number }}
+          
+        run: python ./tools/track_participation.py --printMarkdown --publish
