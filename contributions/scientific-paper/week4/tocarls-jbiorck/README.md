@@ -2,7 +2,7 @@
 
 ## Title
 
-Automated Changelog-Driven Deployments with GitHub Actions and Release Please
+Machine Learning Operations (MLOps): Overview, Definition, and Architecture
 
 
 ## Names and KTH ID
