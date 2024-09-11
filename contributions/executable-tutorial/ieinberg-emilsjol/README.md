@@ -22,5 +22,5 @@ We will demonstrate how to conduct security linting analysis using Bandit for Py
 
 
 **Relevance**
-
 Security linting is highly relevant for DevSecOps and DevOps because it integrates essential security practices into the development lifecycle. Using Bandit for security linting allows teams to identify/address vulnerabilities early - aligning with the DevSecOps goal of embedding security throughout the development process.
+
