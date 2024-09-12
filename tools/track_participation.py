@@ -133,7 +133,7 @@ def get_participation_markdown(participation):
     """
     Returns markdown table representation of participation.
     """
-    current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    current_time = datetime.now(LECTURE_TIMEZONE).strftime("%Y-%m-%d %H:%M:%S")
 
     content = f"Here we track active participation in lectures.\n\n"
     content += ("To do this, you record as a comment the question you make to presentations or demos during the "
@@ -158,7 +158,7 @@ def get_participation_text(participation):
     """
     Returns plaintext table representation of participation.
     """
-    current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    current_time = datetime.now(LECTURE_TIMEZONE).strftime("%Y-%m-%d %H:%M:%S")
 
     table = PrettyTable()
     table.field_names = ["Index", "Student Name", "Number of Lectures Attended", "Lecture(s) attended"]
