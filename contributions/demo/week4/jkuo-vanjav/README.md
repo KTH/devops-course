@@ -23,6 +23,7 @@ Feast in MLOps
 
 - Demo
 
+
 ## Description
 We will demonstrate how to use the feature store “Feast”. 
 
@@ -31,4 +32,3 @@ We will showcase how to deploy a local feature store, build a training set using
 **Relevance**
 
 Feast is an open-source feature store designed for managing and serving machine learning features. It helps streamline the process of feature engineering and provides a centralized repository for storing and managing features used in machine learning models.
-
