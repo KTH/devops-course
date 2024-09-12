@@ -25,9 +25,10 @@ jobs:
           if [ -f ./tools/requirements.txt ]; then pip install -r ./tools/requirements.txt; fi
 
       - name: Update participation tracker
+        working-directory: tools
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO_FULLNAME: ${{ github.repository }}
           TRACKER_ISSUE_NUMBER: ${{ github.event.issue.number }}
           
-        run: python ./tools/track_participation.py --printMarkdown --publish
+        run: python track_participation.py --printMarkdown --publish

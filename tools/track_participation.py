@@ -19,7 +19,7 @@ GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
 REPO_FULLNAME = os.getenv("REPO_FULLNAME")
 ISSUE_NUMBER = os.getenv("TRACKER_ISSUE_NUMBER")
 
-config = json.load(open("tools/track_participation_config.json"))
+config = json.load(open("track_participation_config.json"))
 
 LECTURE_DATES_TO_NUMBER = config['LECTURE_DATES_TO_NUMBER']
 LECTURE_DATES_TO_START_TIME = config['LECTURE_DATES_TO_START_TIME']
