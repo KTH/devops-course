@@ -2,13 +2,13 @@
 
 **The README.md file must be located in the directory**:
 
-`contributions/<category>/[<week>/]<kth-id-1>-<kth-id-2>/README.md`
+`contributions/demo/week4/jkuo-vanjav/README.md`
 
 # Assignment Proposal
 
 ## Title
 
-Storing features with Feast in MLOps
+Feast in MLOps
 
 ## Names and KTH ID
 
@@ -17,23 +17,19 @@ Storing features with Feast in MLOps
 
 ## Deadline
 
-_Selected deadline for the assignment_
-
-_If contribution is a **demo** or **presentation** or **scientific-paper** pick one of the following:_
-
 - Week 4
 
 ## Category
 
-_Category of your proposal_
-
 - Demo
 
 ## Description
+We will demonstrate how to use the feature store “Feast”. 
 
-We will explain the purpose and demonstrate how to use the feature store “Feast”. We will demonstrate how to use the tools in order to organize features collected during training within a team and it's different feautures. 
+We will showcase how to deploy a local feature store, build a training set using time series features and how to retrieve training data by getting historical data. This solves the problem of “point in time join” which is the problem of getting features that are accurate at a specific point in time. 
 
 **Relevance**
 
 Feast is an open-source feature store designed for managing and serving machine learning features. It helps streamline the process of feature engineering and provides a centralized repository for storing and managing features used in machine learning models. 
+
 
