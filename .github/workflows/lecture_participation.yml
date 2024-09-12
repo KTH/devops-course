@@ -24,9 +24,6 @@ jobs:
           python -m pip install --upgrade pip
           if [ -f ./tools/requirements.txt ]; then pip install -r ./tools/requirements.txt; fi
 
-      - name: Set timezone to Europe/Stockholm
-        run: sudo timedatectl set-timezone Europe/Stockholm
-
       - name: Update participation tracker
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

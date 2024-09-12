@@ -8,6 +8,7 @@ import logging
 from github import Github, GithubException
 import getopt
 from datetime import datetime, timedelta
+from zoneinfo import ZoneInfo
 from prettytable import PrettyTable
 
 PRINT_PARTICIPATION = False
@@ -30,6 +31,8 @@ LECTURE_DATES_TO_START_TIME = {
 }
 
 COMMENTING_DURATION_HOURS = 5  # 5 hours to give some leeway.
+
+LECTURE_TIMEZONE = ZoneInfo("Europe/Stockholm")
 
 
 def main():
@@ -86,7 +89,7 @@ def get_participation(tracking_issue):
 
     for comment in tracking_issue.get_comments():
         author = comment.user.login
-        comment_time = comment.created_at.astimezone()
+        comment_time = comment.created_at.astimezone(LECTURE_TIMEZONE)
 
         # Ignore collaborators' comments
         if author in collaborators:
