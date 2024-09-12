@@ -36,6 +36,10 @@ This script is used to grade each student according to the number of task comple
   - argparse
   - requests
 
+### Update yearly
+- Lecture dates and start times in `/tools/track_participation_config.json`
+- Lecture participation issue number in `.github/lecture_participation.yml`
+
 ### Usage
 
 `python3 final_grade_exporter.py --course XXXX --token 88779~...`
