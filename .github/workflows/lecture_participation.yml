@@ -12,12 +12,12 @@ jobs:
     if: github.event.issue.number == 2370
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       
       - name: Setup Python
-        uses: actions/setup-python@v2.2.1
+        uses: actions/setup-python@v5.2.0
         with:
-          python-version: '3.x'
+          python-version: '3.11.8'
 
       - name: Install dependencies
         run: |
