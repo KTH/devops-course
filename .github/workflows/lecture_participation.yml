@@ -9,7 +9,7 @@ permissions:
 
 jobs:
   track-participation:
-    if: github.event.issue.title == 'Lecture participation tracker 2024'
+    if: github.event.issue.number == 2370
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
