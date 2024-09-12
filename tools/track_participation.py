@@ -23,9 +23,11 @@ config = json.load(open("tools/track_participation_config.json"))
 
 LECTURE_DATES_TO_NUMBER = config['LECTURE_DATES_TO_NUMBER']
 LECTURE_DATES_TO_START_TIME = config['LECTURE_DATES_TO_START_TIME']
-COMMENTING_DURATION_HOURS = config['COMMENTING_DURATION_HOURS']
+LECTURE_DURATION_HOURS = config['LECTURE_DURATION_HOURS']
+COMMENTING_LEEWAY_HOURS = config['COMMENTING_LEEWAY_HOURS']
 LECTURE_TIMEZONE = ZoneInfo(config['LECTURE_TIMEZONE'])
 
+commenting_duration_hours = LECTURE_DURATION_HOURS + COMMENTING_LEEWAY_HOURS
 
 def main():
     handle_args(sys.argv[1:])
@@ -109,7 +111,7 @@ def is_valid_lecture_time(comment_time):
     lecture_start_hour = LECTURE_DATES_TO_START_TIME[lecture_date_str]
 
     allowed_period_start = comment_time.replace(hour=lecture_start_hour, minute=0, second=0, microsecond=0)
-    allowed_period_end = allowed_period_start + timedelta(hours=COMMENTING_DURATION_HOURS)
+    allowed_period_end = allowed_period_start + timedelta(hours=commenting_duration_hours)
 
     # Check if the comment time falls within the valid window
     return allowed_period_start <= comment_time <= allowed_period_end
