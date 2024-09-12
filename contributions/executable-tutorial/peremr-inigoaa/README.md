@@ -24,6 +24,7 @@ Devbox is a command-line tool that lets you easily create isolated shells for de
 - How to install dependencies with devbox
 - How to create scripts in devbox
 - How to replicate the same environment in your CI/CD pipeline with GH Actions
+
 **Relevance**
 
 Devbox is relevant to DevOps as it simplifies creating reproducible development environments, ensuring consistency across local, testing, and production setups. This aligns with DevOps principles, improving collaboration, automation, and the reliability of CI/CD pipelines.
