@@ -7,7 +7,7 @@ Managing project dependencies with Devbox
 ## Names and KTH ID
 
   - Íñigo Aréjula Aísa (inigoaa@kth.se)
-  - Pere (peremr@kth.se)
+  - Pere Mateu Raventós (peremr@kth.se)
 
 ## Deadline
 
