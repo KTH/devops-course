@@ -72,13 +72,17 @@ Script used to track and display valid comments on lecture participation issue.
   - PyGithub
 
 ### Usage
-`python3 track_participation.py ----printPlain`
+
+Print the lecture participation in plaintext:
+
+`python3 track_participation.py`
+
+Print in markdown and update the issue:
 
 `python3 track_participation.py ----printMarkdown --publish`
 
 | Option | Usage | Required |
 |---|---|---|
-|--printPlain| Print participation stats in plaintext | :x:|
 |--printMarkdown| Print participation stats in markdown  |:x:|
 |--publish| Update the participation tracker issue  |:x:|
 |--help | Displays help info  |:x:|

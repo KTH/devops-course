@@ -11,7 +11,6 @@ from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
 from prettytable import PrettyTable
 
-PRINT_PARTICIPATION = False
 PRINT_IN_MARKDOWN = False
 PUBLISH = False
 
@@ -44,11 +43,10 @@ def main():
 
     print_content = ""
 
-    if PRINT_PARTICIPATION:
-        print_content = get_participation_text(participation)
-
     if PRINT_IN_MARKDOWN:
         print_content = get_participation_markdown(participation)
+    else:
+        print_content = get_participation_text(participation)    
 
     if PUBLISH:
         update_issue_description(participation, issue)
@@ -185,12 +183,11 @@ def get_participation_text(participation):
 
 
 def handle_args(argv):
-    global PRINT_PARTICIPATION
     global PRINT_IN_MARKDOWN
     global PUBLISH
 
     try:
-        opts, args = getopt.getopt(argv, "hm", ["help", "printPlain", "printMarkdown", "publish"])
+        opts, args = getopt.getopt(argv, "hm", ["help", "printMarkdown", "publish"])
     except getopt.GetoptError as error:
         logging.error(error)
         print_help_info()
@@ -200,8 +197,6 @@ def handle_args(argv):
         if opt == "--help":
             print_help_info()
             sys.exit()
-        elif opt == "--printPlain":
-            PRINT_PARTICIPATION = True
         elif opt == "--printMarkdown":
             PRINT_IN_MARKDOWN = True
         elif opt == "--publish":
@@ -211,8 +206,8 @@ def handle_args(argv):
 def print_help_info():
     print('')
     print('DD2482 Student Lecture Participation Tracker Tool')
+    print('')
     print('optional:')
-    print('    --printPlain   Print lecture participation')
     print('    --printMarkdown Print participation in markdown syntax')
     print('    --publish              Update the participation tracker issue')
     print('')
