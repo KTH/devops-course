@@ -5,6 +5,7 @@
 import sys
 import os
 import logging
+import json
 from github import Github, GithubException
 import getopt
 from datetime import datetime, timedelta
@@ -18,20 +19,12 @@ GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
 REPO_FULLNAME = os.getenv("REPO_FULLNAME")
 ISSUE_NUMBER = os.getenv("TRACKER_ISSUE_NUMBER")
 
-# Lecture details
-LECTURE_DATES_TO_NUMBER = {
-    "2024-09-04": 2, "2024-09-11": 3, "2024-09-18": 4, "2024-09-25": 5,
-    "2024-10-02": 6, "2024-10-09": 7
-}
+config = json.load(open("track_participation_config.json"))
 
-LECTURE_DATES_TO_START_TIME = {
-    "2024-09-04": 13, "2024-09-11": 13, "2024-09-18": 13, "2024-09-25": 13,
-    "2024-10-02": 13, "2024-10-09": 13
-}
-
-COMMENTING_DURATION_HOURS = 5  # 5 hours to give some leeway.
-
-LECTURE_TIMEZONE = ZoneInfo("Europe/Stockholm")
+LECTURE_DATES_TO_NUMBER = config['LECTURE_DATES_TO_NUMBER']
+LECTURE_DATES_TO_START_TIME = config['LECTURE_DATES_TO_START_TIME']
+COMMENTING_DURATION_HOURS = config['COMMENTING_DURATION_HOURS']
+LECTURE_TIMEZONE = ZoneInfo(config['LECTURE_TIMEZONE'])
 
 
 def main():
