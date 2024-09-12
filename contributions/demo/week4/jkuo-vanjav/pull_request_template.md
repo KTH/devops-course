@@ -12,8 +12,8 @@ Storing features with Feast in MLOps
 
 ## Names and KTH ID
 
-  - Student name 1 jkuo@kth.se
-  - Student name 2 vanjav@kth.se
+  - Josephine Kuo jkuo@kth.se
+  - Vanja Vidmark vanjav@kth.se
 
 ## Deadline
 
