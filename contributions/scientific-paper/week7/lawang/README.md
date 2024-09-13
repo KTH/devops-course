@@ -2,11 +2,12 @@
 
 ## Title
 
-RefBot: Intelligent Software Refactoring Bot
+- [RefBot: Intelligent Software Refactoring Bot](https://ieeexplore.ieee.org/abstract/document/8952287)
 
 ## Names and KTH ID
 
 - Laicaiwei Wang (lawang@kth.se)
+- Marco Campione (campione@kth.se)
 
 ## Deadline
 
