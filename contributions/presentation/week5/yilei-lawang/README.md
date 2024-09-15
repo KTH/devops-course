@@ -2,7 +2,7 @@
 
 ## Title
 
-Comparing Pulumi and Terraform: Features, Use Cases, and Performance
+Comparing Pulumi and Terraform: Imperative Language vs. Declaritive Language
 
 ## Names and KTH ID
 
@@ -19,8 +19,8 @@ Comparing Pulumi and Terraform: Features, Use Cases, and Performance
 
 ## Description
 
-In this presentation, we will compare Pulumi and Terraform, two popular Infrastructure as Code (IaC) tools. We will explore their core functionalities, ease of use, and key differences, focusing on aspects such as language support, state management, and integration capabilities. The goal is to provide a clear understanding of each tool’s strengths and limitations, helping to choose the most suitable IaC solution for different needs.
+This presentation will focus on comparing Pulumi and Terraform, two prominent Infrastructure as Code (IaC) tools, with a specific emphasis on language support and its effects on infrastructure management. Pulumi’s use of general-purpose programming languages (e.g., JavaScript, Python, Go) versus Terraform’s use of HashiCorp Configuration Language (HCL) introduces distinct advantages and challenges. The analysis will highlight which tool is better suited for various use cases depending on developer expertise and project complexity.
 
 **Relevance**
 
-Understanding the differences between Pulumi and Terraform is crucial for efficient infrastructure management. Each tool offers unique features and approaches to IaC, impacting how you define, deploy, and manage infrastructure. This comparison can help in selecting the best tool based on project requirements and development practices.
+Language support significantly impacts the ease and flexibility of infrastructure management. Pulumi allows developers to use familiar languages, potentially improving productivity and collaboration across teams, while Terraform's declarative approach offers simplicity and focus on infrastructure logic. Understanding the impact of these differences is essential for making informed decisions about which tool to adopt based on project needs and team capabilities.
