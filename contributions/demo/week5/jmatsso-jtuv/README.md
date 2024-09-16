@@ -2,7 +2,7 @@
 
 ## Title
 
-Using Pulumi Policy as Code to enforce rules on IoC managed cloud resources.
+Using Pulumi Policy as Code to enforce rules on IaC managed cloud resources.
 
 ## Names and KTH ID
 
@@ -23,4 +23,4 @@ The goal of this assignment is to demonstrate Pulumi's Policy as Code solution b
 
 **Relevance**
 
-Infrastructure as code is an important topic in devops as being able to use code instead of manually managing disparate resources through online control centers is difficult, annoying and hard to have an overview of. But it is still easy to create unsafe or bad cloud resources with IaC, and therefore having a Policy as Code checks to enforce Policy compliance allows you to further integrate your IoC into your CI/CD pipeline.
+Infrastructure as code is an important topic in devops as being able to use code instead of manually managing disparate resources through online control centers is difficult, annoying and hard to have an overview of. But it is still easy to create unsafe or bad cloud resources with IaC, and therefore having a Policy as Code checks to enforce Policy compliance allows you to further integrate your IaC into your CI/CD pipeline.
