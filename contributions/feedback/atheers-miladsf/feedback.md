@@ -1,6 +1,8 @@
 # Feedback 
 
 By Atheer Salim, Milad Farahani
+
+Number of Words: 608
 ## Code of Conduct 
 
 **I/We certify that generative AI, incl. ChatGPT, has not been used to write this feedback. Using generative AI without permission is considered academic misconduct.**
