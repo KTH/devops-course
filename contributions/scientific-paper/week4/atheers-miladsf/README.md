@@ -2,7 +2,7 @@
 
 ## Title
 
-AIOps in DevOps: Leveraging Artificial Intelligence for Operations and Monitoring
+Quality Assurance in MLOps Setting: An Industrial Perspective
 
 ## Names and KTH ID
 
@@ -19,11 +19,13 @@ AIOps in DevOps: Leveraging Artificial Intelligence for Operations and Monitorin
 
 ## Description
 
-We want to perform a presentation on the scientific paper [**AIOps in DevOps: Leveraging Artificial Intelligence for Operations and Monitoring**](https://ieeexplore.ieee.org/abstract/document/10601420)
-which investiages the effects of implementing AIOps into the variuos aspects of DevOps, by conducting interviews and other research methodologies
-and finally what the results are when AIOps is applied to the real world.
+We want to perform a presentation on the scientific paper [**Quality Assurance in MLOps Setting: An Industrial Perspective**](https://arxiv.org/abs/2211.12706)
+This paper looks at the quality assurance (QA) of MLOps by taking an industrial perespective, it presents real-life examples but also talks about the challenges that arise
+in industrial MLOps. 
 
 **Relevance**
 
-This paper is relevant to DevOps because it explores the integration of Artificial Intelligence for IT Operations (AIOps) to enhance DevOps practices. 
-The approach in the paper addresses the challenges of managing complex, dynamic software systems, making DevOps processes more efficient, reliable, and proactive.
+This paper is relevant to DevOps because it explores the field quality assurance in the MLOps setting but with focus on the industry. It's relevant since it's about MLOps but also 
+that we get insight on how things actually are in the industry. 
+
+
