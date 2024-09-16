@@ -28,3 +28,7 @@ Devbox is a command-line tool that lets you easily create isolated shells for de
 **Relevance**
 
 Devbox is relevant to DevOps as it simplifies creating reproducible development environments, ensuring consistency across local, testing, and production setups. This aligns with DevOps principles, improving collaboration, automation, and the reliability of CI/CD pipelines.
+
+**Links to our tutorial**
+Killercoda [https://killercoda.com/arejula27/scenario/devbox-tutorial](https://killercoda.com/arejula27/scenario/devbox-tutorial)
+Github repository [https://github.com/arejula27/devbox-tutorial](https://github.com/arejula27/devbox-tutorial)
