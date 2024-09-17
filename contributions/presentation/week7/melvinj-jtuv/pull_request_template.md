@@ -19,7 +19,7 @@ AI Anomaly Detection for log monitoring
 
 ## Description
 
-In this presentation we will first describe traditional methods of log monitoring. We will then describe the current state of automatic AI log monitoring, before finally contrasting these two methods.
+In this presentation we will first describe traditional methods of log monitoring. We will then describe the current state of automatic AI log monitoring, including the underlying operating principles of them. Finally comparing and contrasting these two methods.
 
 **Relevance**
 
