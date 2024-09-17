@@ -1,0 +1,21 @@
+{
+    "LECTURE_DATES_TO_NUMBER": {
+        "2024-09-04": 2,
+        "2024-09-11": 3,
+        "2024-09-18": 4,
+        "2024-09-25": 5,
+        "2024-10-02": 6,
+        "2024-10-09": 7
+    },
+    "LECTURE_DATES_TO_START_TIME": {
+        "2024-09-04": 13,
+        "2024-09-11": 13,
+        "2024-09-18": 13,
+        "2024-09-25": 13,
+        "2024-10-02": 13,
+        "2024-10-09": 13
+    },
+    "LECTURE_DURATION_HOURS": 4,
+    "COMMENTING_LEEWAY_HOURS": 1,
+    "LECTURE_TIMEZONE": "Europe/Stockholm"
+}

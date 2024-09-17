@@ -6,17 +6,17 @@ General Intro about the course.
 
 ### Week 2
 
-1. Presentation: [Property-based testing in Python using Hypothesis](https://github.com/KTH/devops-course/tree/2024/contributions/presentation/week2/samkh-atheers)
-1. Demo: [Enforcing version consistency between identical package dependencies in monorepos](https://github.com/KTH/devops-course/tree/2024/contributions/demo/week2/hallkvi-ieinberg)
-1. Presentation: [Introducing Team City pipelines a CI/CD tool for samll, mid-sized dev teams by JetBrains](https://github.com/KTH/devops-course/tree/2024/contributions/presentation/week2/rikj-hocker)
-1. Demo: [CircleCI Pipeline Improved with Cache and Parallel Workflow](https://github.com/KTH/devops-course/tree/2024/contributions/demo/week2/hexu-yinanhu)
-1. Presentation: [Bridging Development and Operations: BDD in Automated Frontend Testing](https://github.com/KTH/devops-course/tree/2024/contributions/presentation/week2/noelt-miladsf)
-1. Demo: [Continuous integretion testing of node and service availability of promox instances](https://github.com/KTH/devops-course/tree/2024/contributions/demo/week2/mqnguyen-golman)
-1. Presentation: [Split.io, a Feature Flag tool, that can be used for A/B Testing](https://github.com/KTH/devops-course/tree/2024/contributions/presentation/week2/lvainio-oscols)
-1. Demo: [Integrating Robocop Analysis Report in SonarQube](https://github.com/KTH/devops-course/tree/2024/contributions/demo/week2/uqqasha)
-1. Presentation: [The Crowdstrike bug, and the importance of high-quality testing](https://github.com/KTH/devops-course/tree/2024/contributions/presentation/week2/ghenn-vikfor)
-1. Presentation: [Automated UI testing using Playwright](https://github.com/KTH/devops-course/tree/2024/contributions/presentation/week2/catir-robcla)
-1. Presentation: [Mockito: What it is, how it works, and how it improves automated testing in Java](https://github.com/KTH/devops-course/tree/2024/contributions/presentation/week2/maxisr-jbiorck)
+1. [Property-based testing in Python using Hypothesis](https://github.com/KTH/devops-course/tree/2024/contributions/presentation/week2/samkh-atheers)
+1. [Enforcing version consistency between identical package dependencies in monorepos](https://github.com/KTH/devops-course/tree/2024/contributions/demo/week2/hallkvi-ieinberg)
+1. [Introducing Team City pipelines a CI/CD tool for samll, mid-sized dev teams by JetBrains](https://github.com/KTH/devops-course/tree/2024/contributions/presentation/week2/rikj-hocker)
+1. [CircleCI Pipeline Improved with Cache and Parallel Workflow](https://github.com/KTH/devops-course/tree/2024/contributions/demo/week2/hexu-yinanhu)
+1. [Bridging Development and Operations: BDD in Automated Frontend Testing](https://github.com/KTH/devops-course/tree/2024/contributions/presentation/week2/noelt-miladsf)
+1. [Continuous integretion testing of node and service availability of promox instances](https://github.com/KTH/devops-course/tree/2024/contributions/demo/week2/mqnguyen-golman)
+1. [Split.io, a Feature Flag tool, that can be used for A/B Testing](https://github.com/KTH/devops-course/tree/2024/contributions/presentation/week2/lvainio-oscols)
+1. [Integrating Robocop Analysis Report in SonarQube](https://github.com/KTH/devops-course/tree/2024/contributions/demo/week2/uqqasha)
+1. [The Crowdstrike bug, and the importance of high-quality testing](https://github.com/KTH/devops-course/tree/2024/contributions/presentation/week2/ghenn-vikfor)
+1. [Automated UI testing using Playwright](https://github.com/KTH/devops-course/tree/2024/contributions/presentation/week2/catir-robcla)
+1. [Mockito: What it is, how it works, and how it improves automated testing in Java](https://github.com/KTH/devops-course/tree/2024/contributions/presentation/week2/maxisr-jbiorck)
 
 ### Week 3
 
@@ -40,6 +40,15 @@ General Intro about the course.
 1. [Continuous Deployment in IoT Edge devices using Azure ](https://github.com/KTH/devops-course/pull/2441)
 1. [_Microservices: Architecting for Continuous Delivery and DevOps_](https://github.com/KTH/devops-course/pull/2399)
 1. [Revisiting the practices and pains of microservice architecture in reality: An industrial inquiry](https://github.com/KTH/devops-course/pull/2416)
-1. [Security Linting in Python using Bandit](https://github.com/KTH/devops-course/pull/2424)
 1. [Exploring Canary Deployments in Modern DevOps](https://github.com/KTH/devops-course/pull/2424)
 1. [Rainbow deployments and its role in modern CD](https://github.com/KTH/devops-course/pull/2422)
+
+### Week 4
+
+1. [_CRISP-ML(Q). The End-to-End Machine Learning Workflow_](https://github.com/KTH/devops-course/pull/2417)
+1. [The importance of reliable testing methods](https://github.com/KTH/devops-course/pull/2398)
+1. [Using Bicep to edit Azure resources as code](https://github.com/KTH/devops-course/pull/2398)
+1. [Tensorboard: A suite of visualization tools to understand, debug, and optimize TensorFlow programs for ML experimentation](https://github.com/KTH/devops-course/pull/2442)
+1. [Dynamic model rollbacks using MLflow](https://github.com/KTH/devops-course/pull/2452)
+1. [CodeRabbit: Automated AI Code Reviews](https://github.com/KTH/devops-course/pull/2460)
+1. [Machine Learning Operations (MLOps): Overview, Definition, and Architecture](https://github.com/KTH/devops-course/pull/2464)
