@@ -36,6 +36,10 @@ This script is used to grade each student according to the number of task comple
   - argparse
   - requests
 
+### Update yearly
+- Lecture dates and start times in `/tools/track_participation_config.json`
+- Lecture participation issue number in `.github/lecture_participation.yml`
+
 ### Usage
 
 `python3 final_grade_exporter.py --course XXXX --token 88779~...`
@@ -58,3 +62,32 @@ This script is used to grade each student according to the number of task comple
 
 ### Usage
 ...
+
+
+## track_participation.py
+
+Script used to track and display valid comments on lecture participation issue.
+
+### Requirements
+
+- Python 3
+- External modules
+  - PTable
+  - PyGithub
+
+### Usage
+
+Print the lecture participation in plaintext:
+
+`python3 track_participation.py`
+
+Print in markdown and update the issue:
+
+`python3 track_participation.py ----printMarkdown --publish`
+
+| Option | Usage | Required |
+|---|---|---|
+|--printMarkdown| Print participation stats in markdown  |:x:|
+|--publish| Update the participation tracker issue  |:x:|
+|--help | Displays help info  |:x:|
+
