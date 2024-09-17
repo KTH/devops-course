@@ -52,3 +52,13 @@ General Intro about the course.
 1. [Dynamic model rollbacks using MLflow](https://github.com/KTH/devops-course/pull/2452)
 1. [CodeRabbit: Automated AI Code Reviews](https://github.com/KTH/devops-course/pull/2460)
 1. [Machine Learning Operations (MLOps): Overview, Definition, and Architecture](https://github.com/KTH/devops-course/pull/2464)
+1. [Predicting Node Failures in an Ultra-Large-Scale Cloud Computing Platform: An AIOps Solution](https://github.com/KTH/devops-course/pull/2472)
+1. [TinyMLOps: Operational Challenges for Widespread Edge AI Adoption](https://github.com/KTH/devops-course/pull/2478)
+1. [Elyra: an open-source JupyterLab extension for creating ML pipelines](https://github.com/KTH/devops-course/pull/2471)
+1. [MLOps: A Taxonomy and a Methodology](https://github.com/KTH/devops-course/pull/2473)
+1. [What is a Feature Store in ML?](https://github.com/KTH/devops-course/pull/2482)
+1. [Feast in MLOps](https://github.com/KTH/devops-course/pull/2476)
+1. [Using Comet ML to analyze and compare the performance of ML models](https://github.com/KTH/devops-course/pull/2485)
+1. [MLOps for Cyber-Physical Production Systems: Challenges and Solutions](https://github.com/KTH/devops-course/pull/2486)
+1. [Quality Assurance in MLOps Setting: An Industrial Perspective](https://github.com/KTH/devops-course/pull/2479)
+
