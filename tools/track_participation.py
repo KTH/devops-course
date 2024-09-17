@@ -143,8 +143,11 @@ def get_participation_markdown(participation):
     content += "| Index | Student Name | Number of Lectures Attended | Lecture(s) attended |\n"
     content += "|-------|--------------|-------------------|----------------|\n"
 
+    # sort by number of lectures attended
+    sorted_participation = sorted(participation.items(), key=lambda item: len(item[1]), reverse=True)
+
     index = 1
-    for author, lectures in participation.items():
+    for author, lectures in sorted_participation:
         lecture_numbers = [f"L{LECTURE_DATES_TO_NUMBER[lecture]}" for lecture in sorted(lectures)]
         lectures_list = " ".join(map(str, lecture_numbers))
         total_lectures = len(lectures)
@@ -163,8 +166,11 @@ def get_participation_text(participation):
     table = PrettyTable()
     table.field_names = ["Index", "Student Name", "Number of Lectures Attended", "Lecture(s) attended"]
 
+    # sort by number of lectures attended
+    sorted_participation = sorted(participation.items(), key=lambda item: len(item[1]), reverse=True)
+
     index = 1
-    for author, lectures in participation.items():
+    for author, lectures in sorted_participation:
         lecture_numbers = [f"L{LECTURE_DATES_TO_NUMBER[lecture]}" for lecture in sorted(lectures)]
         lectures_list = " ".join(map(str, lecture_numbers))
         total_lectures = len(lectures)
