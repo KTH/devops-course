@@ -1,6 +1,7 @@
 # Assignment Proposal
 
-## The risk of using open-source ecosystems
+## Title
+The risk of using open-source ecosystems
 
 ## Names and KTH ID
 
