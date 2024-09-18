@@ -2,7 +2,7 @@
 
 ## Title
 
-Infrastructure as Code Using Ansible
+Infrastructure as Code Using Ansible Playbooks
 
 ## Names and KTH ID
 
@@ -11,7 +11,7 @@ Infrastructure as Code Using Ansible
 
 ## Deadline
 
-- Week 5
+- Week 7
 
 ## Category
 
