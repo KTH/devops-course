@@ -20,4 +20,5 @@ Feedback on Scientific Paper [MLOps for Cyber-Physical Production Systems: Chall
 ## Description
 
 We provide a feedback for the scientfic paper presentation [MLOps for Cyber-Physical Production Systems: Challenges and Solutions](https://github.com/KTH/devops-course/pull/2486)
+
 The feedback is posted as a comment [here](https://github.com/KTH/devops-course/pull/2486#issuecomment-2356898018)
