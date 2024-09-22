@@ -10,7 +10,7 @@ Introduction to Serverless: Setting Up, Deploying Functions, and Managing IAM Pe
 
 ## Deadline
 
-Deadline 2 for async tasks: Oct 8 2024, 17h Stockholm time
+- Task 2
 
 ## Category
 
