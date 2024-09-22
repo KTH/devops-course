@@ -33,3 +33,4 @@ Now, an outline of the various tasks we aim to solve:
 
 Prometheus is crucial in DevOps for its ability to monitor (Week 7) and analyze system performance in real-time. It helps teams collect metrics, set alerts, and automate responses, ensuring system reliability and quick incident resolution. This enhances the core DevOps practices of continuous integration, deployment, and collaboration.
 
+Link: https://github.com/prometheus/prometheus/pull/14958
