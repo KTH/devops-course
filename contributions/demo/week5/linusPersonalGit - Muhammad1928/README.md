@@ -7,6 +7,7 @@ Disaster recovery using terraform
 ## Names and KTH ID
 
 Linus Svensson (linussve@kth.se)
+
 Muhammadsodiq Nematjanov (mnem@kth.se)
 
 ## Deadline
