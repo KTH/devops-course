@@ -1,7 +1,7 @@
 # Assignment Proposal
 
 ## Title
-The risk of using open-source ecosystems
+The event stream incident - vulnerabilities of open source dependencies and possible mitigations. 
 
 ## Names and KTH ID
 
@@ -20,7 +20,10 @@ The risk of using open-source ecosystems
 
 We are going to bring light to the topic of using third party libraries without caution, using the event stream incident as an example. We will highlight some key reasons for these attacks such as blind trust, handing over projects insecurely, non-present security checks and the tradeoff between security and openness. 
 
-We will then go over some mitigations and “good practices” to resolve this issue. One example of a mitigation is dependency pinning, that is to require specific versions of libraries, rather than ranges to prevent auto-updates from pulling in malicious versions.
+We will then go over three mitigations to resolve this issue. 
+- Dependency pinning. That is to require specific versions of libraries, rather than ranges to prevent auto-updates from pulling in malicious versions.
+- Using lockfiles (such as package-lock.json in NPM) to record the exact versions of installed packages, minimizing the risk of unintended updates.
+- Scanning for known vulnerabilities in the dependencies using npm audit. 
 
 **Relevance**
 
