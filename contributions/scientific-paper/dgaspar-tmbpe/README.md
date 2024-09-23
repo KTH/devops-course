@@ -1,5 +1,3 @@
-para o paper
-
 # Assignment Proposal
 
 ## Title
