@@ -46,9 +46,18 @@ General Intro about the course.
 ### Week 4
 
 1. [_CRISP-ML(Q). The End-to-End Machine Learning Workflow_](https://github.com/KTH/devops-course/pull/2417)
-1. [The importance of reliable testing methods](https://github.com/KTH/devops-course/pull/2398)
-1. [Using Bicep to edit Azure resources as code](https://github.com/KTH/devops-course/pull/2398)
 1. [Tensorboard: A suite of visualization tools to understand, debug, and optimize TensorFlow programs for ML experimentation](https://github.com/KTH/devops-course/pull/2442)
 1. [Dynamic model rollbacks using MLflow](https://github.com/KTH/devops-course/pull/2452)
 1. [CodeRabbit: Automated AI Code Reviews](https://github.com/KTH/devops-course/pull/2460)
 1. [Machine Learning Operations (MLOps): Overview, Definition, and Architecture](https://github.com/KTH/devops-course/pull/2464)
+1. [Predicting Node Failures in an Ultra-Large-Scale Cloud Computing Platform: An AIOps Solution](https://github.com/KTH/devops-course/pull/2472)
+1. [TinyMLOps: Operational Challenges for Widespread Edge AI Adoption](https://github.com/KTH/devops-course/pull/2478)
+1. [Elyra: an open-source JupyterLab extension for creating ML pipelines](https://github.com/KTH/devops-course/pull/2471)
+1. [MLOps: A Taxonomy and a Methodology](https://github.com/KTH/devops-course/pull/2473)
+1. [What is a Feature Store in ML?](https://github.com/KTH/devops-course/pull/2482)
+1. [Feast in MLOps](https://github.com/KTH/devops-course/pull/2476)
+1. [Using Comet ML to analyze and compare the performance of ML models](https://github.com/KTH/devops-course/pull/2485)
+1. [MLOps for Cyber-Physical Production Systems: Challenges and Solutions](https://github.com/KTH/devops-course/pull/2486)
+1. [Quality Assurance in MLOps Setting: An Industrial Perspective](https://github.com/KTH/devops-course/pull/2479)
+1. [The importance of reliable testing methods](https://github.com/KTH/devops-course/pull/2397)
+
