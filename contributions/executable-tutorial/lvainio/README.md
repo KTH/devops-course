@@ -7,6 +7,7 @@ SAST in go using gosec
 ## Names and KTH ID
 
 - Leo Vainio (lvainio@kth.se)
+- Wenqi Cao (wenqic@kth.se)
 
 ## Deadline
 
