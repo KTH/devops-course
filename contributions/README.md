@@ -76,7 +76,6 @@ General Intro about the course.
 1. [Comparing Pulumi and Terraform: Imperative Language vs. Declaritive Language](https://github.com/KTH/devops-course/pull/2444)
 1. [Terraform - Using infrastructre as code in DevOps](https://github.com/KTH/devops-course/pull/2458)
 1. [The do’s and don’ts of infrastructure code: A systematic gray literature review](https://github.com/KTH/devops-course/pull/2499)
-1. [Infrastructure as Code Using Ansible Playbooks](https://github.com/KTH/devops-course/pull/2446)
 1. [Cost Optimization with Infrastructure as Code](https://github.com/KTH/devops-course/pull/2484)
 1. [BlueBuild: The Cloud-Native Desktop Paradigm](https://github.com/KTH/devops-course/pull/2508)
 1. [Check-mate: Keep your OpenTofu configurations problem-free](https://github.com/KTH/devops-course/pull/2511)
