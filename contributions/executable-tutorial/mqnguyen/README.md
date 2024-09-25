@@ -5,11 +5,11 @@
 Infrastructure as Code with Pulumi
 ## Names and KTH ID
 
-Quang M Nguyen (mqnguyen@kth.se) 
+- Quang M Nguyen (mqnguyen@kth.se) 
 
 ## Deadline
 
-Deadline 1 
+- Task 3 
 
 ## Category
 
