@@ -84,6 +84,6 @@ General Intro about the course.
 1. [Strimzi - Easy Apache Kafka on Kubernetes](https://github.com/KTH/devops-course/pull/2514)
 1. [Infrastructure as code for dynamic deployments](https://github.com/KTH/devops-course/pull/2515)
 1. [Creating Spotify playlist using Terraform](https://github.com/KTH/devops-course/pull/2531)
-
+1. [Disaster Recovery using Terraform](https://github.com/KTH/devops-course/pull/2544)
 
 
