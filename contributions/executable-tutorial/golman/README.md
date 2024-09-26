@@ -9,10 +9,10 @@ End-to-end training of a neural network to deployment in a live application
   - Fredrik Gölman (golman@kth.se)
 
 ## Deadline
-- Asynchronous deadline goes here?
+- Task 1
 
 ## Category
-- Executable Tutorial
+- Executable tutorial
 
 ## Description
 
