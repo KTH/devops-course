@@ -15,7 +15,7 @@ Data Version Control for MLOps with DVC
 
 ## Category
 
-- Presentation
+- Demo
 
 ## Description
 
