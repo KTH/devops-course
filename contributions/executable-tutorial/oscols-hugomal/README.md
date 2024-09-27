@@ -7,10 +7,11 @@ Using Ansible for Disaster Recovery automation
 ## Names and KTH ID
 
 - Oscar Olsson (oscols)
+- Hugo Malmberg (hugomal)
 
 ## Deadline
 
-- Task 2
+- Task 3
 
 ## Category
 
