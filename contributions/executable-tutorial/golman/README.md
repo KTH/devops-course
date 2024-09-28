@@ -9,7 +9,7 @@ End-to-end training of a neural network to deployment in a live application
   - Fredrik Gölman (golman@kth.se)
 
 ## Deadline
-- Task 1
+- Task 2
 
 ## Category
 - Executable tutorial
