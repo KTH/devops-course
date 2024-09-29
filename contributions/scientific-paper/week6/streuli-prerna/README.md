@@ -20,7 +20,7 @@ a DevSecOps CI/CD Pipeline
 
 ## Description
 
-The paper explores the automation of security scanning focusing on containerised applications. We'll explain how integration SAST and DAST tools improves the security of containerized applications by finding vulnerabilities soon and automating their removal from the CI/CD process, the effectiveness of deploying and automating security scanning in DevSecOps pipeline with Snyk and StackHawk tools and methodologies used for detecting vulnerabilities. We conclude the presentation with future scope. The paper can be found here: https://ieeexplore.ieee.org/abstract/document/10235015
+The paper explores the automation of security scanning focusing on containerised applications. We'll explain how integrating SAST and DAST tools improves the security of containerized applications by finding vulnerabilities soon and automating their removal from the CI/CD process, the effectiveness of deploying and automating security scanning in DevSecOps pipeline with Snyk and StackHawk tools and methodologies used for detecting vulnerabilities. We conclude the presentation with future scope. The paper can be found here: https://ieeexplore.ieee.org/abstract/document/10235015
 
 **Relevance**
 
