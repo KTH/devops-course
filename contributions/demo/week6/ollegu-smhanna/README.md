@@ -2,7 +2,7 @@
 
 ## Title
 
-Integrate RetireJS into Github workflow through OWASP ZAP
+Integrate RetireJS into Github workflow
 
 ## Names and KTH ID
 
@@ -19,8 +19,7 @@ Integrate RetireJS into Github workflow through OWASP ZAP
 
 ## Description
 
-We will start by extending the ability of OWASP ZAP by integrating the open-source tool RetireJS into the ZAP scanning process. RetireJS is built to specifically scan used JavaScript libraries for known vulnerabilities. The scan will then be integrated into a Github CI/CD pipeline via Github Actions, thus mitigating the risks from vulnerable libraries early in the Software Development Life Cycle (SDLC).
+RetireJS is an open-source tool that can detect the use of JavaScript library versions with known vulnerabilities when developing a web application. By integrating the scan into a Github CI/CD pipeline via Github Actions, it would mitigate the risks from vulnerable libraries early in the Software Development Life Cycle (SDLC). Modifications/uses of RetireJS within Github for further security measures will also be demonstrated.
 
 _Relevance
-
-With the growing number of Javascript libraries on the web and Node.js application, it is easier to unknowingly choose insecure libraries during development. Automating the vulnerability detection in the CI/CD pipeline through OWASP ZAP and extending the scanning by also considering vulnerable Javascript Libraries through RetireJS, would be a relevant security practice within DevSecOps. 
+With the growing number of Javascript libraries on the web and Node.js applications, it is easier to unknowingly choose insecure libraries during development. Automating the vulnerability detection in the CI/CD pipeline by integrating RetireJS, would earlier mitigate the risks of security breaches from these vulnerable libraries, such as Cross-Site Scripting or Remote Code Execution attacks, and thus would be a relevant aspect within DevSecOps.
