@@ -2,7 +2,7 @@
 
 ## Title
 
-A Case Study of Developer Bots: Motivations, Perceptions, and Challenges
+[A Case Study of Developer Bots: Motivations, Perceptions, and Challenges](https://dl.acm.org/doi/10.1145/3611643.3616248)
 
 ## Names and KTH ID
 
