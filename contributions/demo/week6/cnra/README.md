@@ -3,6 +3,7 @@
 Automating Private Dependency Management and Version Integration
 ## Names and KTH ID
 - Chandni Rakhashiya (cnra@ug.kth.se)
+- Emir Catir (catir@kth.se)
 ## Deadline
 - Week 6
 ## Category
