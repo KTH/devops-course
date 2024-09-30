@@ -13,7 +13,7 @@ Profiling Python Applications Without Modifying Code With Py-Spy
 
 ## Category
 
-- Executable Tutorial
+- Executable tutorial
 
 ## Description
 
