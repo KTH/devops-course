@@ -9,7 +9,7 @@ Profiling Python Applications Without Modifying Code With Py-Spy
 
 ## Deadline
 
-- Deadline 3
+- Task 3
 
 ## Category
 
