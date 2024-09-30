@@ -2,7 +2,7 @@
 
 ## Title
 
-Using static analysis with SonarQube to identify security flaws.
+Using static analysis with SonarCloud to identify security flaws.
 
 ## Names and KTH ID
 
@@ -19,9 +19,9 @@ Using static analysis with SonarQube to identify security flaws.
 
 ## Description
 
-We'll be showing how integrating SonarQube with GitHub Actions can help developers automatically discover potential security flaws in their applications. Before the demo we'll set up a repo with GitHub Actions that automatically run a sonar scan upon pushing new code. 
+We'll be showing how integrating SonarCloud with GitHub Actions can help developers automatically discover potential security flaws in their applications. Before the demo we'll set up a repo with GitHub Actions that automatically run a sonar scan upon pushing new code. 
 
-During the demo we'll push some code with a security flaw such as not sanitizing user input which makes us vulnerable to XSS attack. We'll then show how the sonar scan detects this vulnerability 
+During the demo we'll push some code with a security flaw such as not sanitizing user input which makes us vulnerable to XSS attack. We'll then show how this vulnerability fails the quality gate check. We’ll then show the analysis page that gives us information of where in the code the vulnerabilities are, how the vulnerabilities work and suggestions about how we can fix them.
 
 **Relevance**
 
