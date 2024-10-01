@@ -9,6 +9,7 @@ Feedback on executable tutorial: Security Linting in Python using Bandit
 ## Names and KTH ID
 
   - Alexander Liu (aleliu@kth.se)
+  - Gustaf Svensson (gussvens@kth.se)
 
 ## Deadline
 
