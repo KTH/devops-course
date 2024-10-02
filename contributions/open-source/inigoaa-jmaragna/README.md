@@ -44,7 +44,9 @@ We carefully reviewed the discussion surrounding the issue, gaining a clear unde
 
 **Understanding the project architecture and source code**
 After being assigned the issue by a project maintainer, we decided that the best way to set up the environment and understand the project was by running the tests within the project. We started by running `go test ./...` in the project's root directory. This command will install any required module defined in the `go.mod` file and run all the tests in the project. However we could not install the moduled, receiving the following error.
-==TODO: picture of the error==
+![version error](https://github.com/user-attachments/assets/f017e73a-264e-474e-af38-52b6217e23ea)
+
+
 We did not know what was the cause of the error and there was not too much information about it on internet. We try to read the following files to find some information about the error:
 - Makefile
 - go.mod
@@ -67,8 +69,10 @@ At this point, we faced a decision: Should we remove the option entirely and mak
 We divided the work by splitting each module into equal parts, allowing both of us to contribute simultaneously to both modules.
 
 After completing the changes and updating the tests, we ran the tests to ensure that the changes did not break any existing functionality. We also ran the linter to ensure that the code was clean and followed the project's standards. However, both of them failed. The Golang test told us that the documentation did not match the code. We updated the documentation manually but there was a way to do it automatically, after running the command for creating the doc, all tests passed.
+![test_doc](https://github.com/user-attachments/assets/8fffa204-0c6f-47b7-9469-7465d1511643)
 
 The linter failed but gave us descriptive changes so was easy to solve them, after solving the linter issues we ran the tests again and all of them passed. So we made a commit and created the PR, which passed all the CI pipelines.
+![lint error](https://github.com/user-attachments/assets/28e4512c-31ae-4ed3-bc9c-ceae5896e3f1)
 
 **Final issue**
 
