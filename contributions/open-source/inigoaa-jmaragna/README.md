@@ -41,10 +41,39 @@ Link: https://github.com/prometheus/prometheus/pull/14958
 We decided to contribute to an open-source project relevant to our DevOps course and chose Prometheus. After reaching out to maintainers through the Cloud Native Computing Foundation Slack, they recommended we start with this issue: https://github.com/prometheus/prometheus/issues/13959, which is detailed in the above section of the file. We reviewed the discussion under the issue, gaining a solid understanding of the problem and proposed solutions. After expressing our interest in tackling the issue and seeking additional guidance, one of the maintainers suggested we look at this abandoned pull request for inspiration: https://github.com/prometheus/prometheus/pull/14160. With that input, we began working on the issue.
 
 ### Understanding the project architecture and source code
+After being assigned the issue by a project maintainer, we decided that the best way to set up the environment and understand the project was by running the tests within the project. We started by running `go test ./...` in the project's root directory. This command will install any required module defined in the `go.mod` file and run all the tests in the project. However we could not install the moduled, receiving the following error.
+![version error](https://github.com/user-attachments/assets/bf4d97a2-ff65-4344-8d77-e629b6d68b74)
+
+We did not know what was the cause of the error and there was not too much information about it on internet. We try to read the following files to find some information about the error:
+- Makefile
+- go.mod
+- go.sum
+- README.md
+- Contributing.md
+
+We realize that the go version required was specified in the `go.mod` file, but was shocking that two differnt versions were specified `1.22` for go runtime and `1.23` for the toolchain, we realized that the default version provided in Ubuntu by `apt` was older than the required one, so we try to install the latest go version from the official website. After installing the latest version of go, we were able to tun the tests. However, they did not passed. We encountered several issues as not all dependencies were installed, nor were they clearly defined anywhere. To resolve this, we asked for guidance in the project's Slack channel. A maintainer recommended that we install the linter, but this alone was insufficient. We also discovered that we needed to install goyacc.
+
+Once that was done, some tests passed successfully, but we still encountered issues with tests in the UI folder. We realized that these tests were written in JavaScript, while the rest of the project, including our task, was primarily in Go. After reviewing the Makefile, we realized the test instructions allowed us to run only the Go tests. Once we reran the tests using the appropriate command, they all passed successfully.
+```bash
+make test GO_ONLY=1
+```
+After preparing our project, we decided to focus on our task and deeply understand the code we must change. As an orphan PR was related to our task we checked it to take some inspiration, this helped us to realise which files we should modify, however, the code was outdated and a review suggested many changes, so we decided to note the changes and start from scratch.
 ### Development
+As a team, we discussed how to approach the problem and created small subtasks that each team member could handle independently. Since the issue was related to the configuration of the Prometheus binary, the changes impacted both the main and scraper modules. The main module handles the various flags, while the scraper module is responsible for the logic related to the issue.
+
+At this point, we faced a decision: Should we remove the option entirely and make the new default the only available behaviour, or should we retain the option to allow the old behaviour as well? After reviewing previous discussions in Slack and on GitHub, we realized that the maintainers preferred removing the old behaviour.
+
+We divided the work by splitting each module into equal parts, allowing both of us to contribute simultaneously to both modules.
+
+After completing the changes and updating the tests, we ran the tests to ensure that the changes did not break any existing functionality. We also ran the linter to ensure that the code was clean and followed the project's standards. However, both of them failed. The Golang test told us that the documentation did not match the code. We updated the documentation manually but there was a way to do it automatically, after running the command for creating the ![test_doc](https://github.com/user-attachments/assets/b468646d-29ac-4e82-a348-8ec1f4059c06)
+doc, all tests passed.
+
+The linter failed but gave us descriptive changes so was easy to solve them, after solving the linter issues we ran the tests again and all of them passed. So we made a commit and created the PR, which passed all the CI pipelines.
+![lint error](https://github.com/user-attachments/assets/9acf74b7-d54a-43a1-811c-b8c8b96e0ea2)
+
 ### Final issue
 
-After completing all the necessary changes and ensuring our code passed all tests, we submitted a pull request (PR) to Prometheus: https://github.com/prometheus/prometheus/pull/14958. While all tests were successful, we awaited approval from the maintainers. Although this was marked as a first issue, the changes we proposed could have broken the current v3 logic. As a result, the maintainers discussed how to smoothly integrate the new behavior into future versions.
+After completing all the necessary changes and ensuring our code passed all tests, we submitted a pull request (PR) to Prometheus: https://github.com/prometheus/prometheus/pull/14958. While all tests were successful, we awaited approval from the maintainers. Although this was marked as a first issue, the changes we proposed could have broken the current v3 logic. As a result, the maintainers discussed how to integrate the new behavior into future versions smoothly.
 
 However, after a few days of discussion, an unexpected situation arose. The original author of the previous, abandoned PR (which we had used for reference) suddenly reappeared and submitted changes after four months of inactivity. The maintainers, seemingly unaware of our prior conversations and the rationale behind our PR, questioned why we had submitted it, given its similarity to the older one. Despite the potential for our PR to be merged, they ultimately decided to close it and prioritize the original PR.
 
