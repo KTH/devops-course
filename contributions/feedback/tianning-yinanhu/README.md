@@ -29,5 +29,6 @@ Feedback on Scientific Paper [The Seven Sins: Security Smells in Infrastructure 
 
 ## Description
 
-We would like to provide a feedback for the scientfic paper presentation The Seven Sins: Security Smells in Infrastructure as Code Scripts made by Peiyang Zheng and Florian Jerome Immig. ([#2552](https://github.com/KTH/devops-course/pull/2552))
+We provided a feedback for the scientfic paper presentation The Seven Sins: Security Smells in Infrastructure as Code Scripts made by Peiyang Zheng and Florian Jerome Immig. ([#2552](https://github.com/KTH/devops-course/pull/2552))
 
+The feedback is posted as a comment [here](https://github.com/KTH/devops-course/pull/2552#issuecomment-2386656661)
