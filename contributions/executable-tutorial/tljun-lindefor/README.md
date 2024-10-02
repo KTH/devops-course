@@ -19,7 +19,7 @@ Working with Kubernetes and Docker to deploy and scale a web application
 
 ## Description
 
-This tutorial provides a guide to building, containerizing, and deploying a Node.js application using Docker and Kubernetes on a single local system. Participants will start by creating a small Node.js application. They will then learn how to create a Dockerfile to containerize the application and run it locally to verify functionality. The tutorial continues with setting up a local Kubernetes cluster using Minikube. Participants will deploy the Docker container to Kubernetes, expose it via a Service, and scale the application by increasing the number of replicas.
+This tutorial provides a guide to building, containerizing, and deploying a Node.js application using Docker and Kubernetes on a single local system. Participants will start by creating a small Node.js application. They will then learn how to create a Dockerfile to containerize the application and run it locally to verify functionality. The tutorial continues with setting up a local Kubernetes cluster using Minikube. Participants will deploy the Docker container to Kubernetes, expose it via a Service, and scale the application by increasing the number of replicas. Moving on to more advanced features, the tutorial will demonstrate how to implement role-based access control (RBAC) within the Kubernetes environment. This is to show how you can manage permissions and ensure that different users and services have the appropriate level of access to resources. The tutorial will contain how to set up RBAC policies, create roles and role bindings, and assign them to users and service accounts. The tutorial will also use the Kubernetes secrets functionality.
 
 **Relevance**
 
