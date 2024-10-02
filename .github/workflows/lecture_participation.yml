@@ -1,0 +1,34 @@
+name: Lecture Participation Information
+
+on:
+  issue_comment:
+    types: [created]
+
+permissions:
+  issues: write
+
+jobs:
+  track-participation:
+    if: github.event.issue.number == 2370
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Python
+        uses: actions/setup-python@v5.2.0
+        with:
+          python-version: '3.11.8'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f ./tools/requirements.txt ]; then pip install -r ./tools/requirements.txt; fi
+
+      - name: Update participation tracker
+        working-directory: tools
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO_FULLNAME: ${{ github.repository }}
+          TRACKER_ISSUE_NUMBER: ${{ github.event.issue.number }}
+          
+        run: python track_participation.py --printMarkdown --publish
