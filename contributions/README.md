@@ -92,7 +92,6 @@ General Intro about the course.
 1. [Yet another cybersecurity risk assessment framework](https://github.com/KTH/devops-course/pull/2402)
 1. [Using Bitwarden Secret Manager to centrally store, manage, and deploy secrets at scale.](https://github.com/KTH/devops-course/pull/2409)
 1. [Making your NPM security wishes come true.](https://github.com/KTH/devops-course/pull/2421)
-1. [Measuring frequency of deployments](https://github.com/KTH/devops-course/pull/2393)
 1. [Continuous Information Flow Control](https://github.com/KTH/devops-course/pull/2439)
 1. [Comparing pnpm, npm and yarn](https://github.com/KTH/devops-course/pull/2443)
 1. [Dynamic Secrets in HashiCorp Vault](https://github.com/KTH/devops-course/pull/2447)
