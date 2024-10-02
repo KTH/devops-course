@@ -7,6 +7,7 @@ Feedback on "Setting Up a Dashboard using Splunk"
 ## Names and KTH ID
 
 - Arber Limani (arberl@kth.se)
+- Jonas Liley (liley@kth.se)
 
 ## Deadline
 
@@ -18,4 +19,4 @@ Feedback on "Setting Up a Dashboard using Splunk"
 
 ## Description
 
-I would like to give feedback for [this executable tutorial](https://github.com/KTH/devops-course/pull/2451).
+We would like to give feedback for [this executable tutorial](https://github.com/KTH/devops-course/pull/2451).
