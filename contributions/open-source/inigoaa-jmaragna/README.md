@@ -78,7 +78,7 @@ However, after a few days of discussion, an unexpected situation arose. The orig
 
 We eventually clarified the situation with the maintainers, and they acknowledged the confusion. They recognized that our PR had been submitted in good faith following earlier discussions and the guidance we received.
 
-**Open-sources contribution grading criteria **
+**Open-sources contribution grading criteria**
 
 To demonstrate how our contribution aligns with the grading criteria, we have compiled the following table outlining the key points we've addressed:
 
