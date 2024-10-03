@@ -7,6 +7,7 @@ Introduction to Docker: Building, Running, and Optimizing Containers with Multi-
 ## Names and KTH ID
 
 - Casper Kristiansson (casperk@kth.se)
+- Muhammadsodiq Nematjanov (mnem@kth.se)
 
 ## Deadline
 
