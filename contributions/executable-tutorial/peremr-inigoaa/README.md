@@ -32,3 +32,6 @@ Devbox is relevant to DevOps as it simplifies creating reproducible development 
 **Links to our tutorial**
 Killercoda [https://killercoda.com/arejula27/scenario/devbox-tutorial](https://killercoda.com/arejula27/scenario/devbox-tutorial)
 Github repository [https://github.com/arejula27/devbox-tutorial](https://github.com/arejula27/devbox-tutorial)
+
+**State**
+Submitted
