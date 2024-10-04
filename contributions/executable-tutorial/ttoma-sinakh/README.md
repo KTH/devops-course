@@ -10,7 +10,7 @@ Infracost with CI/CD pipeline
 
 ## Deadline
 
-Deadline 3 async
+Task 3
 
 ## Category
 
