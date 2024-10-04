@@ -21,7 +21,7 @@ Creating and using flox environment(s) in an existing project.
 
 We had a visit during one of the lectures by a [flox](https://flox.dev/docs/) developer. Exploring this cool piece of software, we found few if any tutorials on how to use it.
 
-This tutorial will be inspired by the [Flox docs](https://flox.dev/docs/), and show the user how to set up and use Flox environment(s) for an existing full-stack project that we will provide.
+This tutorial will be inspired by the [Flox docs](https://flox.dev/docs/), and show the user how to set up and use Flox environment(s) for an existing full-stack project. This is a project that we will set up, where backend and frontend require separate environments with separate dependencies.
 
 We might also include layering multiple environments, depending on if the the tutorial ends up being complex enough without it or not.
 
