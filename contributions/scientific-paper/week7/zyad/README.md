@@ -2,7 +2,7 @@
 
 ## Title
 
-Mobilizing DevOps: Exploration of DevOps Adoption in Mobile Software Development
+[Mobilizing DevOps: Exploration of DevOps Adoption in Mobile Software Development](https://www.emerald.com/insight/content/doi/10.1108/K-04-2024-0989/full/pdf?casa_token=8dm-JW51uQkAAAAA:khEK_VrbxuMktNNp3DBhMTKRx4yDoQeYDvNephJLdosGw7FpwSmeGF02W-ldPltJ431seInrnOfZhQ2nXRRANDvEnGkPHbkYgSQ4hJ5YxsRyUBeRZDQ)
 
 ## Names and KTH ID
 
