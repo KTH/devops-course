@@ -2,7 +2,7 @@
 
 ## Title
 
-Understanding monitoring and its importance for DevOps
+ChatOps Bots for Monitoring and Incident Response in DevOps
 
 ## Names and KTH ID
 
