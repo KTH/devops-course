@@ -11,7 +11,7 @@ Using Skaffold for Local Kubernetes Development and CI/CD.
 
 ## Deadline
 
-- Task 2
+- Task 3
 
 ## Category
 
