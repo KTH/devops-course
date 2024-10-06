@@ -6,6 +6,7 @@ Setting Up OPA for Kubernetes Policy Enforcement
 
 ## Names and KTH ID
 
+- David Streuli (streuli@kth.se)
 - Zyad Haddad (zyad@kth.se)
 
 ## Deadline
