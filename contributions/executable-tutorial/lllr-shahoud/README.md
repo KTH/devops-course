@@ -19,7 +19,7 @@ Simulating failures in applications using Chaos Mesh
 
 ## Description
 
-Chaos Mesh is a tool that simulates faults in applications, mimicking real-world scenarios in development, testing and production environments. In this tutorial we're going to deploy an application and use Chaos Mesh to simulate failures and monitor the application's response to these.
+Chaos Mesh is a tool that simulates faults in applications, mimicking real-world scenarios in development, testing and production environments. In this tutorial we're going to deploy a simple application and use Chaos Mesh to simulate network failures and stress scenarios. We will also guide the user through the inspection of the experiments' results using the Chaos Mesh dashboard and the command line.
 
 **Relevance**
 
