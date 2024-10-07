@@ -17,4 +17,4 @@ Feedback on AI Anomaly Detection for log monitoring
 
 ## Description
 
-We will give feedback to the presentation [#2496](AI Anomaly Detection for log monitoring) by Melvin and Jonathan.
+We will give feedback to the presentation [AI Anomaly Detection for log monitoring](#2496) by Melvin and Jonathan.
