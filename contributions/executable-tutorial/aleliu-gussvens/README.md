@@ -2,7 +2,7 @@
 
 ## Title
 
-Slackbot With Node.js to Monitor Your Applications
+Using Slackbot in Node.js to Monitor Your Applications
 
 ## Names and KTH ID
 
