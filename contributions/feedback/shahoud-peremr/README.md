@@ -17,4 +17,4 @@ Feedback on AI Anomaly Detection for log monitoring
 
 ## Description
 
-We will give feedback to the presentation [AI Anomaly Detection for log monitoring](#2496) by Melvin and Jonathan.
+We will give feedback to the presentation [AI Anomaly Detection for log monitoring](https://github.com/KTH/devops-course/pull/2496) by Melvin and Jonathan.
