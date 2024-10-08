@@ -21,6 +21,4 @@ Feedback for Presentation [AI Anomaly Detection for log monitoring](https://gith
 
 We will provide feedback to the Presentation [AI Anomaly Detection for log monitoring](https://github.com/KTH/devops-course/pull/2496) made by Melvin Jakobsson and Jonatan Tuvstedt. We have confirmed with them that this is okay.
 
-## Completion:
-
 We have now given our feedback which can be seen here: https://github.com/KTH/devops-course/pull/2496
