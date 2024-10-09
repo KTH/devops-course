@@ -17,6 +17,8 @@ Metrics vs Logging for DevOps Monitoring (Comparing Prometheus and ELK Stack)
 
 - Presentation
 
+## Description
+
 Monitoring is critical in DevOps because it enables the developer to detect issues early, ensure system reliability and performance, as well as provide data for troubleshooting and optimisation. The two types of monitoring, metrics and logs, are both valid options, each with the possibility to be the optimal solution depending on the scenario. To know when to use what type of monitoring, is vastly beneficial for a DevOps engineer. 
 
 **Relevance**
