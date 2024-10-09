@@ -19,8 +19,8 @@ Using Slackbot in Node.js to Monitor Your Applications
 
 ## Description
 
-In our tutorial we will show how to setup a Slack bot on a node.js backend using the superagent node package and Slack API. This bot can react to processes happening on the server such as the up status of the website, number of connections, etc.
+In our tutorial we will show how to setup a Slack bot on a node.js backend using the superagent node package and Slack API. This bot can react to processes happening on the server such as the up status of the website, number of connections, delivering continuous monitorable feedback to the developer.
 
 **Relevance**
 
-Being able to monitor production is a very important part in the DevOps cycle, but also tedious if not automated properly. Using a slackbot to deliver real-time status of the website directly to the developers can help developers develop quicker and with less long-lasting errors.
+Being able to monitor production and get continuous feedback is a very important part in the DevOps cycle, but also tedious if not automated properly. Using a slackbot to deliver real-time status of the website directly to the developers can help developers develop quicker and with less long-lasting errors.
