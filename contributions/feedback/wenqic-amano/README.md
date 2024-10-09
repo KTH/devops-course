@@ -19,7 +19,7 @@ Feedback on Demo [Infrastructure as Code Using Ansible Playbooks](contributions/
 
 ## Description
 
-We would like to provide a feedback for [Infrastructure as Code Using Ansible Playbooks](https://github.com/KTH/devops-course/tree/2024/contributions/demo/week7/arberl-sorger)
+We have provided a feedback for [Infrastructure as Code Using Ansible Playbooks](https://github.com/KTH/devops-course/tree/2024/contributions/demo/week7/arberl-sorger) before their final presentation (#2536).
 
-The feedback will be posted as a comment under their PR.
+The feedback has been posted as a comment [here](https://github.com/KTH/devops-course/pull/2536).
 
