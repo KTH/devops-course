@@ -7,6 +7,7 @@ Feedback for the executable tutorial "Infrastructure as Code with Pulumi".
 ## Names and KTH ID
 
 - Fredrik Gölman (golman@kth.se)
+- Chandni Narottambhai Rakhashiya (cnra@kth.se)
 
 ## Deadline
 
