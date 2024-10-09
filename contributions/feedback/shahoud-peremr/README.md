@@ -2,7 +2,7 @@
 
 ## Title
 
-Feedback on AI Anomaly Detection for log monitoring
+Feedback on Database visualisation with Sampler
 
 ## Names and KTH ID
 
@@ -17,4 +17,4 @@ Feedback on AI Anomaly Detection for log monitoring
 
 ## Description
 
-We will give feedback to the presentation [AI Anomaly Detection for log monitoring](https://github.com/KTH/devops-course/pull/2496) by Melvin and Jonathan.
+We will give feedback to the executable tutorial [Database visualisation with Sampler](https://github.com/KTH/devops-course/pull/2555) by Peiyang and Florian.
