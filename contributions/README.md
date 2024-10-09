@@ -114,3 +114,18 @@ General Intro about the course.
 1. [Using static analysis with SonarCloud to identify security flaws.](https://github.com/KTH/devops-course/pull/2558)
 1. [Automating Private Dependency Management and Version Integration](https://github.com/KTH/devops-course/pull/2569)
 
+### Week 7
+
+1. [DevOps Education - Challenges and Recommendations](https://github.com/KTH/devops-course/pull/2448)
+1. [RefBot: Intelligent Software Refactoring Bot](https://github.com/KTH/devops-course/pull/2456)
+1. [AI Anomaly Detection for log monitoring](https://github.com/KTH/devops-course/pull/2496)
+1. [Infrastructure as Code Using Ansible Playbooks](https://github.com/KTH/devops-course/pull/2536)
+1. [DevOps at Scale: Managing Complex Service Architectures in Large Technical Companies](https://github.com/KTH/devops-course/pull/2523)
+1. [Chaos Engineering with Chaos Monkey](https://github.com/KTH/devops-course/pull/2549)
+1. [Data Version Control for MLOps with DVC](https://github.com/KTH/devops-course/pull/2560)
+1. [A Case Study of Developer Bots: Motivations, Perceptions, and Challenges](https://github.com/KTH/devops-course/pull/2532)
+1. [Understanding GDPR and its importance for DevOps](https://github.com/KTH/devops-course/pull/2585)
+1. [ChatOps Bots for Monitoring and Incident Response in DevOps](https://github.com/KTH/devops-course/pull/2592)
+1. [Metrics vs Logging for DevOps Monitoring (Comparing Prometheus and ELK Stack)](https://github.com/KTH/devops-course/tree/2024/contributions/presentation/week7/linussve-daniellw/README.md)
+1. [Software licencing overview and compliance automation](https://github.com/KTH/devops-course/pull/2614)
+
