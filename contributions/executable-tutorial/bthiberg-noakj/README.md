@@ -29,4 +29,4 @@ We will use KillerCoda for this.
 
 **Relevance**
 
-The idea of Flox is to simplify creating reproducible, isolated, and portable development environments across different stages of the software lifecycle. I.e. very DevOps-y.
+Flox is relevant to DevOps since it allows the user to create and manageme reproducible, isolated, and portable development environments. This helps with solving the “works on my machine” DevOps problem across different testing, staging and dev environments. Flox provides a platform for managing dependencies, environments, and development tools in a containerized manner. These containerized environments can then be shared, submitted to version control, and be used as part of CI/CD pipelines.
