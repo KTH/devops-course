@@ -126,5 +126,5 @@ General Intro about the course.
 1. [A Case Study of Developer Bots: Motivations, Perceptions, and Challenges](https://github.com/KTH/devops-course/pull/2532)
 2. [Metrics vs Logging for DevOps Monitoring (Comparing Prometheus and ELK Stack)](https://github.com/KTH/devops-course/tree/2024/contributions/presentation/week7/linussve-daniellw)
 1. [Understanding GDPR and its importance for DevOps](https://github.com/KTH/devops-course/pull/2585)
-1. [ChatOps Bots for Monitoring and Incident Response in DevOps](https://github.com/KTH/devops-course/pull/2592)
+1. [Metrics vs Logging for DevOps Monitoring (Comparing Prometheus and ELK Stack)](https://github.com/KTH/devops-course/pull/2592)
 
