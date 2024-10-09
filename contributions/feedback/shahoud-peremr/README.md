@@ -10,7 +10,7 @@ Feedback on Database visualisation with Sampler
   - Pere Mateu Raventós (peremr@kth.se)
 
 ## Deadline
-- Task 2
+- Task 3
 
 ## Category
 - Feedback
