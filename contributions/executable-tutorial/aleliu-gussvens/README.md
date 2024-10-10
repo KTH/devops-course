@@ -19,7 +19,7 @@ Building and integrating a slack bot with GitHub actions using Node.js
 
 ## Description
 
-In our tutorial we will show how to set up a slack bot using node.js to monitor GitHub actions through notification in a slack channel. The bot will be able to log parse github logs into readable slack messages in order to simplify continuous development and monitoring.
+In our tutorial we will show how to set up a slack bot using node.js to monitor GitHub actions through notification in a slack channel. The bot will be able to parse github logs into readable slack messages in order to simplify continuous development and monitoring.
 
 **Relevance**
 
