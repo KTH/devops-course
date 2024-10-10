@@ -2,7 +2,7 @@
 
 ## Title
 
-Using Slackbot in Node.js to Monitor Your Applications
+Building and integrating a slack bot with GitHub actions using Node.js
 
 ## Names and KTH ID
 
@@ -19,8 +19,8 @@ Using Slackbot in Node.js to Monitor Your Applications
 
 ## Description
 
-In our tutorial we will show how to setup a Slack bot on a node.js backend using the superagent node package and Slack API. This bot can react to processes happening on the server such as the up status of the website, number of connections, delivering continuous monitorable feedback to the developer.
+In our tutorial we will show how to set up a slack bot using node.js to monitor GitHub actions through notification in a slack channel. The bot will also be able to start and restart actions.
 
 **Relevance**
 
-Being able to monitor production and get continuous feedback is a very important part in the DevOps cycle, but also tedious if not automated properly. Using a slackbot to deliver real-time status of the website directly to the developers can help developers develop quicker and with less long-lasting errors.
+Effective monitoring and automation is crucial to the DevOps life cycle. By integrating slack bot with GitHub actions developers can get real-time status updates on ongoing processes directly in their slack workspace. Additionally, developers can trigger pre-defined common events through slack increasing the efficiency of the entire process.
