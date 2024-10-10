@@ -127,4 +127,5 @@ General Intro about the course.
 1. [Understanding GDPR and its importance for DevOps](https://github.com/KTH/devops-course/pull/2585)
 1. [ChatOps Bots for Monitoring and Incident Response in DevOps](https://github.com/KTH/devops-course/pull/2592)
 1. [Metrics vs Logging for DevOps Monitoring (Comparing Prometheus and ELK Stack)](https://github.com/KTH/devops-course/tree/2024/contributions/presentation/week7/linussve-daniellw/README.md)
+1. [Software licencing overview and compliance automation](https://github.com/KTH/devops-course/pull/2614)
 
