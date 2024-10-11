@@ -20,3 +20,5 @@ Task 1
 ## Description
 
 We would like to submit feedback for [#2423](https://github.com/KTH/devops-course/pull/2423)
+
+The feedback has been added [here](https://github.com/KTH/devops-course/pull/2423#issuecomment-2389168718).
