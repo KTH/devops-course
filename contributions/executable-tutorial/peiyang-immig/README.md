@@ -26,3 +26,5 @@ The tutorial will demonstrate how to configure different visual components like 
 
  Sampler is a lightweight, terminal-based visualization tool that can be easily set up without the complexity of traditional monitoring systems. This tutorial will show how to leverage Sampler to create a customizable and interactive dashboard that helps users gain insights into their database's performance, making it easier to identify and troubleshoot issues. This aligns with the DevOps principles of observability and monitoring, enabling teams to maintain high levels of service quality and system reliability.
 
+Killercoda: https://killercoda.com/florianim/scenario/sampler-database
+GitHub: https://github.com/florianim/sampler-database-tutorial

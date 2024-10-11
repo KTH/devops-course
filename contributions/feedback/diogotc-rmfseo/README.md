@@ -21,3 +21,7 @@ Feedback
 ## Description
 
 We want to provide feedback to Tomás and Wenqi before their presentation on Wednesday.
+
+**Feedback Submission**
+
+The feedback can be found as a [comment on the PR](https://github.com/KTH/devops-course/pull/2546#issuecomment-2386235473).
