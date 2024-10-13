@@ -80,6 +80,7 @@ jobs:
             echo "Info: PR description matches affected file"
           else
             echo "Error: PR description does not match affected file!"
+            exit 1
           fi
 
   check-canvas:
