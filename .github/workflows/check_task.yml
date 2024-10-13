@@ -13,6 +13,8 @@ jobs:
   check-affected-files:
     name: Check affected files
     runs-on: ubuntu-latest
+    outputs:
+      affected_file: ${{ steps.check-affected-files.outputs.affected_file }}
     steps:
       - uses: actions/checkout@v2
         with:
@@ -23,6 +25,7 @@ jobs:
         uses: tj-actions/changed-files@v45
 
       - name: Check affected files
+        id: check-affected-files
         env:
           # get all affected files (created, modified, deleted, etc.)
           FILES: ${{ steps.changed-files.outputs.all_changed_and_modified_files }}
@@ -42,6 +45,41 @@ jobs:
           else
             echo "Error: File in wrong directory ($FILES)"
             exit 1
+          fi
+
+          echo "affected_file=$FILES" >> "$GITHUB_OUTPUT"
+
+  check-pr-description:
+    name: Check whether Pull Request description matches affected file
+    needs: check-affected-files
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Install wdiff
+        # we use wdiff (word-diff) instead of plain diff (line-based) to ensure
+        # that we only enforce *content* to be the same rather than specific
+        # file formatting that would otherwise be ignored when the markdown is
+        # rendered. e.g., wdiff allows the README to break lines at col 80 for
+        # readability while still having the PR description without mid-sentence
+        # breaks (since GitHub descriptions don't support them)
+        run: |
+          sudo apt update
+          sudo apt install -y wdiff
+
+      - name: Check PR description
+        env:
+          AFFECTED_FILE: ${{ needs.check-affected-files.outputs.affected_file }}
+          PR_BODY: ${{ github.event.pull_request.body }}
+        run: |
+          BODY_FILE="$(mktemp)"
+          echo "$PR_BODY" > $BODY_FILE
+          if wdiff "$AFFECTED_FILE" "$BODY_FILE"; then
+            echo "Info: PR description matches affected file"
+          else
+            echo "Error: PR description does not match affected file!"
           fi
 
   check-canvas:
