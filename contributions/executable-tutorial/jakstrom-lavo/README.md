@@ -27,3 +27,9 @@ The technical changes needed compared to a regular Jekyll github pages page, is 
 **Relevance**
 
 Being able to give others access is a very useful tool in the beginning of creating a web service. Not having to spend time on setting up back-end solutions and instead being able to focus on working out features. Using github pages is according to us one of the simplest solutions for doing this and unlike Canva Pro and Adobe XD also available for free.
+
+# Links to Tutorial
+
+[KillerCoda](https://killercoda.com/miljon3/scenario/VuePagesTutorial)
+
+[GitHub Repo](https://github.com/Jakebobs/deploy-vue)
