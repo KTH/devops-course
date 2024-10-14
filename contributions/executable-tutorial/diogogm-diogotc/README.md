@@ -21,5 +21,7 @@ Real-Time Log Monitoring with Loki and Grafana
 
 In this tutorial, we want to set up a real-time log monitoring solution using Loki for log aggregation and Grafana for visualization. This tutorial will teach how to install and configure Loki, integrate it with Grafana, and create dashboards to visualize logs. Additionally, we will write queries to extract insights and set up alerts based on log patterns. 
 
+You can find the executable tutorial in [KillerCoda](https://killercoda.com/devops-tutorial) and the source code in [GitHub](https://github.com/d-melita/devops-tutorial).
+
 **Relevance**
 This tutorial is relevant in the DevOps context as it enhances visibility into applications and infrastructure. By using Loki and Grafana for real-time log monitoring, teams can quickly identify issues, improve collaboration, automate responses, and support continuous improvement, all of which are essential for maintaining reliable system performance.
