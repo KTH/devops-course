@@ -21,7 +21,7 @@ Nixpkgs and its use for reproducible environments for better local testing.
 
 We will give a brief overview of the Nixpkgs syntax as well as its benefits while teaching how to apply it to real world scenarios. We will also provide a guide on how to change your environments to test your code locally before committing it to your repo.
 
-Here you can find the executable tutorial on either [KillerCoda]{https://killercoda.com/mateusm/scenario/nix-shell-tutorial} or [GitHub]{https://github.com/MateusMarinheiro/nix-env-tutorial}.
+Here you can find the executable tutorial on either [KillerCoda](https://killercoda.com/mateusm/scenario/nix-shell-tutorial) or [GitHub](https://github.com/MateusMarinheiro/nix-env-tutorial).
 
 **Relevance**
 
