@@ -24,3 +24,6 @@ The tutorial will demonstrate how to set up and manage a multibranch pipeline fo
 **Relevance**
 
 As automation is a core principle of DevOps, this tutorial is highly relevant to good DevOps practices.
+
+Killercoda: https://killercoda.com/noizy-sthlm/scenario/killercoda
+GitHub: https://github.com/noizy-sthlm/multibranch-k8s-cd-tutorial
