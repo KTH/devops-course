@@ -36,5 +36,5 @@ Solved the issue by:
 [Our pull request can be found here](https://github.com/commitizen-tools/commitizen/pull/1261) and we are currently awaiting review from the maintainers. 
 
 
-### Relevance 
+**Relevance**
 Commitizen is a tool with an important application in managing commits and versioning, which is an important part of DevOps (especially in CI/CD pipelines) and helps teams structure their commits and be on track. First, automation is key in DevOps, and so Commitizen provides a structured and consistent approach to creating commit messages that are consistent and easy to follow. In addition it can analyze commits to determine the next version and automatically change the version of a project and create tags, changelogs, and releases. Some tools in DevOps, such as Jenkins work well with structured commit messages and can do actions based on certain patterns. Also, an important aspect in DevOps is good communication between developers, which can be more easily facilitated by using standardized commit messages.
