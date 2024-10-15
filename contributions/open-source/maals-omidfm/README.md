@@ -15,7 +15,7 @@ Open source
 ### Description 
 Commitizen is an open source release management tool, that automatically creates commits in a standard way and updates versioning. It is actively used and popular with 2.5k stars with an active community. Bump is a tool within Commitizen that allows automated updating of the version of the project, which is managed by version provider files, such as pyproject.toml or Cargo.toml. Bump will automatically update the version of the project within the version file, it will add all tracked files to staging, create a changelog, and commit these files with a git tag corresponding to the new version. 
 
-The problem: There has been an ongoing [issue](commitizen/commitizen#1194) where the project has been bumped up with uncommitted changes that could go unnoticed. This could lead to breaking changes being included in the new version of the project. 
+The problem: There has been an ongoing [issue](https://github.com/commitizen-tools/commitizen/issues/1194) where the project has been bumped up with uncommitted changes that could go unnoticed. This could lead to breaking changes being included in the new version of the project. 
 
 Our first idea was to simply abort any bump if there were unstaged changes. However, after a short discussion with one of the maintainers we agreed that the best solution would be to only add the version files and let any unstaged changes remain unstaged. 
 
