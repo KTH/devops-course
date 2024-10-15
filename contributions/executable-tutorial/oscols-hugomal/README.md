@@ -24,4 +24,4 @@ This tutorial will be made in KillerKoda. First there will be an introduction to
 CM tools are crucial for DevOps environments since they make it possible to configure the environments via scripts. CM can have great benefits, and is not that costly to implement. Therefore, it's important to have knowledge in how to set up CM tools. And Ansible is one of these tools. The benefits of CM becomes evident due to the fact that it enables Disaster Recovery to be implemented to a project, which can potentially save companies in case emergency strikes. And that is why Disaster Recovery is relevant to CM and DevOps as a whole.
 
 KillerKoda: https://killercoda.com/oscols/scenario/ansible-disaster-recovery
-Github: https://github.com/oscols/DD2482-tutorial 
+Github: https://github.com/oscols/DD2482-tutorial

@@ -1,18 +1,21 @@
 #!/usr/bin/python3
 # automate the preparation of the schedule
+# usage ./schedule.py week4
 
 import subprocess
 
 # get current date and time
 import datetime
 import re
+import sys
 
 # get output of command ls
 
 # get output of command ls
 # and store it in a variable
 
-WEEK="week4"
+WEEK=sys.argv[1]
+
 output = subprocess.getoutput("git log --oneline contributions/presentation/"+WEEK+" contributions/demo/"+WEEK+"/ contributions/scientific-paper/"+WEEK+"/").split("\n")
 output.reverse()
 
@@ -47,7 +50,7 @@ for i in output:
     # get commit hash
     commit_hash = i.split(" ")[0]
     # get list of files in the commit using git command
-    files = [x for x in subprocess.getoutput(f"git diff-tree --no-commit-id --name-only -r {commit_hash}").split("\n") if ".md" in x.lower() and ("presentation" in x or "demo" in x or "scientific-paper" in x )]
+    files = [x for x in subprocess.getoutput(f"git diff-tree --no-commit-id --name-only -r {commit_hash}").split("\n") if ".md" in x.lower() and ("presentation" in x or "demo" in x or "scientific-paper" in x ) and WEEK in x]
     # print the commit hash
     #print(commit_hash)
     # get content of first file
