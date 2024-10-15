@@ -9,7 +9,11 @@ permissions:
 
 jobs:
   track-participation:
-    if: github.event.issue.number == 2370
+    if: >
+      github.event.issue.number == 2370 &&
+      github.event.comment.author_association != 'COLLABORATOR' &&
+      github.event.comment.author_association != 'OWNER' &&
+      github.event.comment.author_association != 'MEMBER'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

@@ -27,3 +27,9 @@ Elements of the tutorial:
 
 **Relevance**
 While cloud providers such as Google Cloud Platform, AWS, Azure etc provide great value, they come at a cost. Both in terms of the financials of running infrastructure on them but also in terms of security and privacy. Self-hosted continuous deployment is an option, but the setup can be complicated. The most important steps are the containerization of the application and integration of continuous delivery to a container registry, like the GitHub container registry.
+
+**Submission**
+
+The Git Repo of the tutorial: https://github.com/kth-cdate-courses/DD2482-executable-tutorial
+
+The tutorial: https://killercoda.com/hampushallkvist-melvinjakobsson
