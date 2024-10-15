@@ -24,3 +24,6 @@ To make the tutorial I will use Killercoda. Gosec is a security scanner for the 
 **Relevance**
 
 Detecting vulnerabilities as soon as new code is commited to the code base is great since it is often easier and cheaper to fix these issues when they are found early. Scanning the source code for known vulnerabilities, which is what gosec does, is one way to detect security issues early on. Having security integrated in the DevOps workflow also alleviates the potential bottleneck of having a completely separate security team having to review each new update, which could delay deployment.
+
+- KillerCoda: [KillerCoda link](https://killercoda.com/lvainio/scenario/gosec)
+- GitHub: [GitHub link](https://github.com/lvainio/executable-tutorial-dd2482)
