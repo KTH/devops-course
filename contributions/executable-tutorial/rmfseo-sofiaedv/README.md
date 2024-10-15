@@ -46,3 +46,10 @@ robustness. Our proposed tutorial hopes to demonstrate how to use a tool like
 Schemathesis as a key component in a testing pipeline to complement
 human-written and human-driven tests to ensure all stakeholders have confidence
 in the system's continuous reliability.
+
+**Submission**
+
+Our tutorial is available
+[here](https://killercoda.com/rafdev/scenario/rest-fuzzing-with-schemathesis),
+with the corresponding source code in
+[this](https://github.com/RafDevX/schemathesis-tutorial-devops) repository.
