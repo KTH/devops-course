@@ -25,3 +25,5 @@ In this executable tutorial, we will demonstrate how to effectively set up Local
 **Relevance**
 LocalStack is important within the field of Infrastructure as Code (IaC) as it offers a reliable and efficient way to simulate and validate cloud infrastructure locally. By emulating AWS services, LocalStack accelerates deployment processes, eliminates the need for managing permissions to real cloud accounts, and allows developers to work on different branches without impacting shared infrastructure. This makes it easy to isolate and test changes independently. Moreover, LocalStack enables developers to load complete stacks with all their configurations and data in seconds, bypassing the wait times associated with deploying resources to the cloud, leading to faster iteration cycles and improved development efficiency.
 
+The Executable tutorial can be found at [killercoda](https://killercoda.com/joslindk-jkuo/scenario) & [github](https://github.com/joseflindkvist/DD2482-tutorial)
+

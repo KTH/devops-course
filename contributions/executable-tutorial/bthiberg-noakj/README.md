@@ -21,11 +21,11 @@ Creating and using flox environment(s) in an existing project.
 
 We had a visit during one of the lectures by a [Flox](https://flox.dev/docs/) developer. Exploring this cool piece of software, we found few if any tutorials on how to use it.
 
-This tutorial will be inspired by the [Flox docs](https://flox.dev/docs/), and show the user how to set up and use Flox environment(s) for an existing project. The user will pull a repo (containing a Flask app), initialize a Flox environment and add another package to the environment. 
+This tutorial goes through the main functionality of Flox. Specifically, how to create a Flox environment for an existing project, add dependencies and search for packages, and create a service. It also goes through how the Flox manifest file works.
 
-After that, we might include layering multiple environments, services, enviroonment variables, depending on what level of complexity the tutorial ends up having.
-
-We will use KillerCoda for this.
+[The tutorial can be found on KillerCoda here.](https://killercoda.com/bjornthiberg/scenario/flox)
+[
+The repository for the tutorial can be found here.](https://github.com/bjornthiberg/DD2482-executable-tutorial)
 
 **Relevance**
 

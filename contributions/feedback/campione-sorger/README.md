@@ -19,4 +19,4 @@ Feedback on "nixpgs for reproducible environments"
 
 ## Description
 
-We would like to give feedback for [this executable tutorial](https://github.com/KTH/devops-course/pull/2455).
+Please find the feedback for [this executable tutorial](https://github.com/KTH/devops-course/pull/2455) [here](https://github.com/KTH/devops-course/pull/2455#issuecomment-2413416889).
