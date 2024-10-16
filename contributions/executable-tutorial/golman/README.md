@@ -28,3 +28,7 @@ I asked TA about this briefly in a lab session (not previous, but one before tha
 **Relevance**
 
 Jupyter Notebook/Lab is often used for processing, preparing, and visualizing data, as well as subsequently training machine learning models. The process of deriving a model is often an iterative process to determine suitable model architectures and optimal hyperparameters. Models may furthermore require continuous altering after deployment as more data becomes available or use cases change. This process is presumably often done manually, particularly as data scientists and conventional developers may be different teams, but there are clear benefits in automating the process.
+
+**Submission**
+
+[Github repository](https://github.com/kthfre/dd2482-executable-tutorial)
