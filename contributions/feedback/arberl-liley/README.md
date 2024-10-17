@@ -19,4 +19,4 @@ Feedback on "Setting Up a Dashboard using Splunk"
 
 ## Description
 
-We would like to give feedback for [this executable tutorial](https://github.com/KTH/devops-course/pull/2451).
+Please find the feedback for [this executable tutorial](https://github.com/KTH/devops-course/pull/2646) [here](https://github.com/KTH/devops-course/pull/2646#issuecomment-2415144801).
