@@ -22,10 +22,11 @@ This comprehensive hands-on tutorial provides detailed, step-by-step instruction
 
 The tutorial also covers the integration of automated unit and integration tests, the configuration of CI/CD workflows using GitHub Actions, and managing version control with Git. We plan to use personal access token (PAT) with permissions for a new repository for full hands on learning. Designed for developers of all skill levels, this tutorial empowers participants to gain practical experience with Gatsby and modern deployment strategies.
 
+The tutorial can be found on [KillerCoda](https://killercoda.com/daniellw/scenario/gatsby-tutorial) and the code on [GitHub](https://github.com/dannolaius/coda-tutorial)
+
 **Relevance**
 In today’s fast-paced software development landscape, the demand for efficient and reliable web applications is higher than ever. This tutorial is particularly relevant as it provides an executable format that helps developers learn about Gatsby and GitHub Actions while equipping them with essential skills for implementing automated testing and deployment.
 
 As organizations increasingly adopt DevOps practices and agile methodologies, the ability to quickly create and deploy robust web services becomes essential. This practical resource effectively bridges the gap between theory and practice, empowering participants to adopt modern development practices in their own projects.
 
-The tutorial can be found here: https://killercoda.com/daniellw/scenario/gatsby-tutorial
-Github for tutorial: https://github.com/dannolaius/coda-tutorial
+
