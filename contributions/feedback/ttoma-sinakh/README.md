@@ -16,3 +16,5 @@ Task 3
 Feedback
 ## Description
 Feedback on #2453
+
+Our feedback is available [here](https://github.com/KTH/devops-course/pull/2668#issuecomment-2419542997).
