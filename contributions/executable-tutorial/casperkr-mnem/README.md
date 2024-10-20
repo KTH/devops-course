@@ -38,3 +38,8 @@ This tutorial will introduce the fundamental concepts of Docker and demonstrate 
 **Relevance**
 
 Docker is a crucial tool in modern DevOps practices, enabling efficient application deployment, scalability, and automation. By learning how to build, run, and optimize containers, developers and DevOps engineers can reduce infrastructure complexity, speed up deployments, and manage applications more effectively. The tutorial covers essential topics that align with DevOps goals of continuous delivery, resource optimization, and maintaining secure, persistent services. Each section is designed to be fully executable and verifiable on the KillerKoda platform, providing a hands-on experience for learners. Automating Docker builds locally simulates a CI/CD pipeline without external dependencies, making the process easy to verify. Additionally, multi-stage builds are essential for reducing Docker image size, improving performance, and optimizing resource use in production environments.
+
+**Tutorial Details**
+
+Tutorial Link: https://killercoda.com/docker-install/
+Repo Link: https://github.com/muhammad1928/DockerMastering

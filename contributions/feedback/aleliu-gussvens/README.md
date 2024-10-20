@@ -26,7 +26,7 @@ Feedback on executable tutorial: Security Linting in Python using Bandit
 Feedback on #2453 
 Security Linting in Python using Bandit
 https://github.com/KTH/devops-course/tree/2024/contributions/executable-tutorial/ieinberg-emilsjol
-
+Our feedback is available here: https://github.com/KTH/devops-course/pull/2453#issuecomment-2417880758
 
 **Relevance**
 
