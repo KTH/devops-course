@@ -10,12 +10,14 @@ Feedback proposal for the executable tutorial "Infracost with CI/CD pipeline" by
 
 ## Deadline
 
-Task 3
+- Task 3
 
 ## Category
 
-Feedback
+- Feedback
 
 ## Description
 
-Feedback to #2658
+Feedback for [executable tutorial](https://github.com/KTH/devops-course/pull/2658)
+
+Feedback can be found [here](https://github.com/KTH/devops-course/pull/2658#issuecomment-2416991950)
