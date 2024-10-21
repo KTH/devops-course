@@ -1,7 +1,8 @@
 # Assignment Proposal
 
 ## Title
-Feedback for executable tutorial "Security Linting in Python using Bandit".
+
+Feedback on executable tutorial for "Security Linting in Python using Bandit".
 
 ## Names and KTH ID
 
@@ -10,11 +11,14 @@ Feedback for executable tutorial "Security Linting in Python using Bandit".
 
 ## Deadline
 
-Task 3
+  - Task 3
+
 ## Category
 
-Feedback
-## Description
-Feedback on #2453
+  - Feedback
 
-Our feedback is available [here](https://github.com/KTH/devops-course/pull/2668#issuecomment-2419542997).
+## Description
+
+We want to give Isak & Emil some feedback on their executable tutorial for "Security Linting in Python using Bandit".
+
+The feedback is posted as a comment [in this PR](https://github.com/KTH/devops-course/pull/2668#issuecomment-2419542997).
