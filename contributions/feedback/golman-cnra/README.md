@@ -22,5 +22,3 @@ Feedback for the executable tutorial "Infrastructure as Code with Pulumi".
 Feedback for [this executable tutorial](https://github.com/KTH/devops-course/tree/2024/contributions/executable-tutorial/mqnguyen) by mqnguyen@kth.se.
 
 I've received approval from the author to leave feedback on this assignment. Am I making the correct assumption that the deadline for such feedback would be "Task 3" + 48h?
-
-This feedback assignment has been [submitted](https://github.com/KTH/devops-course/pull/2540#issuecomment-2419590447).
