@@ -3,6 +3,11 @@ name: Check task
 # Controls when the workflow will run
 on:
   pull_request_target:
+    types:
+      - opened
+      - reopened # good to check canvas again to see if eligibility changed
+      - edited # we need to check the new description against the README
+      - synchronize
     branches:
       - 2024
     paths:
