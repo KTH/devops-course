@@ -24,3 +24,7 @@ This tutorial provides a guide to building, containerizing, and deploying a Node
 **Relevance**
 
 This tutorial is relevant to DevOps since it teaches important skills in containerization and orchestration using Docker and Kubernetes. By learning how to build, deploy, and scale applications in a consistent and automated way, tutorial participants will be more prepared to work in complex application environments. Furthermore, Docker is a DevOps tool that everyone should be familiar with, and Kubernetes is required for scaling up a growing application.
+
+**Submission**
+- Github: [Repo Link](https://github.com/Lindefor/lindefor-tljun-dd2482/tree/main)
+- KillerKoda: [Tutorial Link](https://killercoda.com/tljun-lindefor/scenario/tutorial)

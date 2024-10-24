@@ -26,3 +26,5 @@ We want to create this executable tutorial with Killercoda.
 **Relevance**
 
 This is relevant for DevOps because keeping dependencies secure makes the software safer and more reliable, which can help prevent issues from reaching production.
+
+The executable tutorial can be found at [Killercoda](https://killercoda.com/maxisr-raeef/course/executable-tutorial/npm-security) and at [Github](https://github.com/raeef96/Devops_tutorial)
