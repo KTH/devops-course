@@ -22,3 +22,9 @@ We are going to integrate infracost into a CI/CD pipeline to generate real time 
 **Relevance**
 
 This is relevant for devops beacuse by integrating infracost for develeopers it allows them to automate cost control and avoid unexpected expenses. This is useful for continuous improvment of infrastrcture by ensuring cost efficiency.
+
+**Submisson**
+
+Killercoda : https://killercoda.com/skkillercoda/ 
+
+Github : https://github.com/SKFrozenCloud/baji

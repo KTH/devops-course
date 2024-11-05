@@ -22,3 +22,5 @@ Feedback for Executable Tutorial "Setting Up OPA for Kubernetes Policy Enforceme
 We would like to give feedback on the executable tutorial "Setting Up OPA for Kubernetes Policy Enforcement"
 
 Executable tutorial: https://github.com/KTH/devops-course/pull/2609.
+
+Link to feedback: https://github.com/KTH/devops-course/pull/2609#issuecomment-2405026413

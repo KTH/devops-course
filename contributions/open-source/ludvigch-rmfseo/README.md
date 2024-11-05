@@ -28,3 +28,7 @@ On the other hand, we would also like to work on a solution to issue [#5957](htt
 **Relevance**
 
 Both of these proposed contributions concern automatic pipelines in very active open-source projects hosted on GitHub. The first one relates to improving the automated testing suite used in this course, making it relevant to the topics discussed in week 2. Conversely, the second fields within the scope of CD, which was brought up in week 3, and in part also DevSecOps, more recently the focus of week 6. Combined, we believe that our proposal has a very clear relevance to DevOps, and in specific to this course by targeting multiple of its aspects of prominence.
+
+**Contributions**
+
+Pull requests with proposed solutions to the previously mentioned issues can be found at [#2644](https://github.com/KTH/devops-course/pull/2644) and [#6016](https://github.com/INRIA/spoon/pull/6016), respectively.

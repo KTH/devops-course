@@ -1,4 +1,6 @@
+
 # Assignment Proposal
+
 
 ## Title
 Monitoring ML Model Predictions with Prometheus
@@ -25,3 +27,7 @@ The goal is to learn how to integrate Prometheus with a Python application, whic
 Monitoring ML model prediction with Prometheus is highly relevant to DevOps because it introduces automation and observability to the machine learning lifecycle. 
 In DevOps, ensuring that systems are continously monitored for performance and reliability is crucial and this extends to machine learning models in production. 
 By integrating Prometheus to track metrics like prediction accuracy or latency, teams can proactively identify issues to reduce downtime and improve model reliability.
+
+*KillerCoda:* https://killercoda.com/m1l0d/scenario/extut
+
+*Github:* https://github.com/M1l0d/killercoda

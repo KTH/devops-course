@@ -28,6 +28,9 @@ The tutorial will consist in the deployment of a simple web application using Pi
 Then, we will test its capability of changing some parameters through environment variables.
 Finally, we will extend its functionality through the use of plugins.
 
+The tutorial is hosted at [KillerCoda](https://killercoda.com/pesteves2002/scenario/tutorial),
+and its source code can be found at [GitHub](https://github.com/speedrunners-ist/devops-tutorial).
+
 **Relevance**
 
 This tutorial allows the user to explore alternatives to known tools/services such as Heroku.

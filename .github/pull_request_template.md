@@ -1,4 +1,4 @@
-**The pull request must both contain a README.md and have description following this template:**
+**The pull request must both contain a README.md and have description following the template below. This README.md must be the only file affected by the PR, and its contents must match the PR description exactly.**
 
 **The README.md file must be located in the directory**:
 

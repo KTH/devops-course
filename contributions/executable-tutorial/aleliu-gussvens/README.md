@@ -24,3 +24,9 @@ In our tutorial we will show how to set up a slack bot using node.js to monitor 
 **Relevance**
 
 Effective monitoring and automation is crucial to the DevOps life cycle. By integrating slack bot with GitHub actions developers can get real-time status updates on ongoing processes directly in their slack workspace. Additionally, developers can trigger pre-defined common events through slack increasing the efficiency of the entire process. The use of slack streamlines the continuous devlopment and monitoring process for developers and is a critical part in the DevOps cycle.
+
+*Submission*
+
+Killercoda: https://killercoda.com/dd2482devops-executable-tutorial/scenario/KillerCoda
+GitHub to main program: https://github.com/Alexanderliu2002/dd2482-executable-tutorial-bot
+GitHub to test environment: https://github.com/leegrash/dd2482-executable-tutorial 

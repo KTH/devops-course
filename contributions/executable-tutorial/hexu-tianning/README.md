@@ -24,3 +24,9 @@ We will introduce how to use Skaffold for automating build, push, and deployment
 **Relevance**
 
 Skaffold can simplify the CI/CD process and speed up deployment, making it easier to modify and debug configurations.
+
+**Submission**
+
+The Git Repo of the tutorial: https://github.com/HexuL/Executable-Tutorial
+
+The tutorial: https://killercoda.com/executable-tutorial
