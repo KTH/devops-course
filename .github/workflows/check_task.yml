@@ -9,7 +9,7 @@ on:
       - edited # we need to check the new description against the README
       - synchronize
     branches:
-      - 2024
+      - 2025
     paths:
       - contributions/**
 
