@@ -25,7 +25,7 @@ The concept: The students prepare a 7 minute presentation on a topic that is rel
 |slides: The slides don't have too much text and contain nice illustrations  | Yes | No |
 
 
-To pass, you must have at least 8 "yes".
+To pass, you must have at least 8 "yes". 
 
 
 ## Scientific Papers
