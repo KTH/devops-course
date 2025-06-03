@@ -143,3 +143,20 @@ The feedback is provided in a written manner as a well-structured comment on the
 
 
 To pass, you must have at least 8 "yes".
+
+
+## Essay
+
+
+The concept: you provide an essay.
+The feedback is provided in a written manner as a well-structured comment on the PR of the task.
+
+
+|                                             | Yes | No | 
+|-------------------------------------------- | ----|----|
+|substance: the feedback is substantiated (at least 500 words) | Mandatory | - | 
+|generative AI: the feeback contains "I/We certify that generative AI, incl. ChatGPT, has not been used to write this feedback. Using generative AI without permission is considered academic misconduct."| Mandatory | - |
+|timeliness: the feedback is provided 2 business days (48h) after the "go" from the authors | Yes | No | 
+
+
+To pass, you must have at least 3 "yes".
