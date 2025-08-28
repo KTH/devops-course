@@ -2,7 +2,7 @@
 
 ## Title
 
-_The title of your proposal_
+The Good, the Bad and the Ugly
 
 ## Names and KTH ID
 
@@ -16,9 +16,7 @@ _The title of your proposal_
 - Presentation
 
 ## Description
-
-_Description of your proposal_
+The presentation will cover different aspects of feature flags. It will present good examples of feature flags when they actually help. It will also present downsides and challenges of feature flags that can lead to problems. Finally it will present the disaster that happened to the Knight Capital Group.
 
 **Relevance**
-
-_Motivate the relevance of your proposal with respect to DevOps_
+Through these different perspectives we aim to give a balanced understanding of feature flags. Feature flags are a key part of modern devops practices and this presentation provides perspectives to the topic. 
