@@ -1,54 +1,27 @@
-**The pull request must both contain a README.md and have description following the template below. This README.md must be the only file affected by the PR, and its contents must match the PR description exactly. The pull request must be created 3 business days before the actual delivery.**
-
-**The README.md file must be located in the directory**:
-
-`contributions/<category>/[<week>/]<kth-id-1>-<kth-id-2>/README.md`
-
 # Assignment Proposal
 
 ## Title
 
-_The title of your proposal_
+Top CI/CD Security Risks and How to Mitigate Them
 
 ## Names and KTH ID
 
-  - Student name 1 (student123@kth.se)
-  - Student name 2 (student321@kth.se)
+  - Shreyas Sawai (sawai@kth.se)
+  - Miguel Valgañón (valganon@kth.se)
 
 ## Deadline
 
-_Selected deadline for the assignment_
-
-_If contribution is a **demo** or **presentation** or **scientific-paper** pick one of the following:_
-- Week 2
-- Week 3
-- Week 4
-- Week 5
-- Week 6
-- Week 7
-
-_Else pick one of the following:_
-- Task 1
-- Task 2
-- Task 3
+Week 2
 
 ## Category
 
-_Category of your proposal_
-
-_Pick one of the following:_
-- Demo
-- Presentation
-- Executable tutorial
-- Scientific paper
-- Open source
-- Feedback
+Presentation
 
 ## Description
 
-_Description of your proposal_
+This presentation explores the critical security risks commonly encountered in CI/CD pipelines and strategies to mitigate them. It aims to provide a clear understanding of vulnerabilities such as insufficient access controls, exposed secrets, insecure dependencies, pipeline injection attacks, and misconfigured build environments. The content includes practical mitigation techniques with code snippets demonstrating how to enhance security in CI/CD workflows amid the fast paced nature of DevOps.
 
 **Relevance**
 
-_Motivate the relevance of your proposal with respect to DevOps_
+Security is a fundamental pillar of reliable and trustworthy software delivery in modern DevOps practices. CI/CD pipelines automate building, testing, and deploying code, making them attractive targets for attackers seeking to compromise software supply chains and release channels. Understanding the common security risks and their mitigations is essential for DevOps professionals to safeguard development pipelines and ensure the integrity, confidentiality, and availability of software products. This topic is deeply relevant as it addresses a pressing need to integrate security seamlessly into DevOps workflows promoting the DevSecOps culture that enhances overall organizational resilience.
 
