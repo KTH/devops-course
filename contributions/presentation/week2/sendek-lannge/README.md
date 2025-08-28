@@ -1,55 +1,27 @@
-**MODIFY**
-
-**The pull request must both contain a README.md and have description following the template below. This README.md must be the only file affected by the PR, and its contents must match the PR description exactly. The pull request must be created 3 business days before the actual delivery.**
-
-**The README.md file must be located in the directory**:
-
-`contributions/<category>/[<week>/]<kth-id-1>-<kth-id-2>/README.md`
-
 # Assignment Proposal
 
 ## Title
 
-_The title of your proposal_
+ABsmartly and its Usage for A/B Testing
 
 ## Names and KTH ID
 
-  - Student name 1 (student123@kth.se)
-  - Student name 2 (student321@kth.se)
+  - Lukas Lannge (lannge@kth.se)
+  - Samuel Sendek (sendek@kth.se)
 
 ## Deadline
 
-_Selected deadline for the assignment_
-
-_If contribution is a **demo** or **presentation** or **scientific-paper** pick one of the following:_
 - Week 2
-- Week 3
-- Week 4
-- Week 5
-- Week 6
-- Week 7
-
-_Else pick one of the following:_
-- Task 1
-- Task 2
-- Task 3
 
 ## Category
 
-_Category of your proposal_
-
-_Pick one of the following:_
-- Demo
 - Presentation
-- Executable tutorial
-- Scientific paper
-- Open source
-- Feedback
 
 ## Description
 
-_Description of your proposal_
+The presentation introduces the concept of A/B Testing, explaining how it works and what its purpose is. We then discuss how ABSmartly can be used to impliment A/B Testing, and relatate how the program is useful for DevOps.
 
 **Relevance**
 
-_Motivate the relevance of your proposal with respect to DevOps_
+A/B testing enables continuous, user-centered improvement by allowing features to be implemented and tested without requiring redeployment. In DevOps, this aligns with the concept of feature flags, which help integrate new features more efficiently. 
+ABSmartly supports implementation across multiple platforms and provides flexibility for various testing scenarios, including feature flags, split testing, and multi-variant experiments. This makes the program relevant for DevOps.
