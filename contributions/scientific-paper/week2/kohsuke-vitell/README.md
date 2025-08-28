@@ -1,6 +1,7 @@
 # Assignment Proposal
 
-## A Declarative Approach for Performance Tests Execution in Continuous Software Development Environments
+## Title
+A Declarative Approach for Performance Tests Execution in Continuous Software Development Environments
 
 ## Names and KTH ID
 
