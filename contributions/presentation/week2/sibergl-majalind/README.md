@@ -1,5 +1,3 @@
-# Task 1: Continuous Integration & Continuous Delivery  
-
 ## Assignment Proposal  
 
 ### Title  
@@ -10,10 +8,10 @@
 - Simon Berglund (sibergl@kth.se)  
 
 ### Deadline  
-Week 2  
+- Week 2  
 
 ### Category  
-Presentation  
+- Presentation  
 
 ### Description  
 This week we want to present how story/task design can impact the success of your CI methodology.  
