@@ -1,7 +1,7 @@
 # Assignment Proposal
 
 ## Title
-A Declarative Approach for Performance Tests Execution in Continuous Software Development Environments
+Automatic Web Testing Using Curiosity-Driven Reinforcement Learning
 
 ## Names and KTH ID
 
@@ -16,8 +16,10 @@ A Declarative Approach for Performance Tests Execution in Continuous Software De
 
 ## Description
 
-We want to present the paper _A Declarative Approach for Performance Tests Execution in Continuous Software Development Environment_ by Ferme and Pautasso. The authors propose a DSL and a framework that can be used to define and execute performance tests in a declarative, rather than an imperative, way.
+We want to present the paper _Automatic Web Testing Using Curiosity-Driven Reinforcement Learning_ by Zheng, Liu, Xie, Ma and Hao. The authors propose web testing framework, called WebExplor, that uses curiosity driven reinforcement learning to create automatic tests for web applications. They compare WebExplor with existing web testing methods and find that failure detection is significantly better.
+
+The paper can be found here: [link to paper](https://ieeexplore.ieee.org/abstract/document/9402046).
 
 **Relevance**
 
-Although most things can be accomplished with a shell script, defining tests in a declarative way makes it easier for software developers to know that their tests are doing what they want. The automated testing infrastructure proposed in the paper is specifically targeted at tests for continuous development.
+The framework proposed in the paper can be used to create better automated test for web applications than prevoius frameworks and methods could. Thus it is highly relevant for the the subject of automated testing.
