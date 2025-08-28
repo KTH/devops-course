@@ -19,6 +19,5 @@ With too broad and unspecified tasks there are several implications that negativ
 
 Furthermore, a structured and clear story design lays the foundation for distinct tasks, thus avoiding getting stuck in the review phase or other problems like painful merges, which is counterproductive.  
 
-### Relevance  
 This presentation shows that CI is more than just using state-of-the-art tools and technology.  
 Embracing a design philosophy is integral to succeeding with the development process and with continuous integration.
