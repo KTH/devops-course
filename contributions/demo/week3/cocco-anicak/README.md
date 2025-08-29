@@ -17,7 +17,7 @@ Blue Green Deployment Demo
 
 ## Description
 
-We would demonstrate a Blue-Green Deployment pipeline implemented with GitHub Actions. 
+We would demonstrate a Blue-Green Deployment pipeline implemented with two separate Docker Containers and a proxy determining the traffic flow. We will have health checks before rerouting the traffic and implementing GitHub Actions.
 The demo will show how an application is deployed to a Green env running in parallel to the Blue env (which serves users)
 If health checks are passed, the traffic is shifted from Blue to Green with no downtime.
 
