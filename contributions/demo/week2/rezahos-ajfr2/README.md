@@ -30,6 +30,6 @@ This demo shows a basic CI workflow for a simple React application. The demonstr
 
 The demo shows how CI (using GitHub Actions) protects code quality and prevents broken code from reaching the main branch, while also demonstrating collaborative practices with AI assistance and mandatory reviews.
 
-## Relevance
+**Relevance**
 
 This demo is relevant to DevOps because it illustrates the practical value of CI pipelines in a development workflow. It shows how automated testing, branch protection, AI-powered code summarization, and enforced reviews can prevent errors, reduce downtime, and maintain code quality—key principles in DevOps practices.  
