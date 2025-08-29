@@ -28,4 +28,4 @@ This will be demonstrated on a basic react-website for checking which week it is
 
 **Relevance**
 
-This demo is relevant to DevOps since GitHub actions automates testing, ensuring continuous integration. The ESLint pre-push hook ensures continuous quality enforcement. This results in automation of repetitive tasks, quality checks and fast feedback. By combinding these two helpful methods, you can get a verification of the quality of the code and avoid bugs early in the workflow.
+This demo is relevant to DevOps since GitHub actions automates testing, ensuring continuous integration. The ESLint pre-push hook ensures continuous quality enforcement. This results in automation of repetitive tasks, quality checks and fast feedback. By combining these two helpful methods, you can get a verification of the quality of the code and avoid bugs early in the workflow.
