@@ -2,7 +2,7 @@
 
 ## Title
 
-_The title of your proposal_
+Automated A/B Testing with Feature Flags
 
 ## Names and KTH ID
 
@@ -10,17 +10,17 @@ _The title of your proposal_
   - Zhongmin Hu (zhongmin@kth.se)
 
 ## Deadline
-- Week 2
+
+Week 2
 
 ## Category
-- Demo
+
+Demo
 
 ## Description
 
-_Description of your proposal_
-
-Something something A/B testing
+This demo will show how a web application can be deployed with two different feature variants using feature flags. GitHub Actions automates the deployment, while simulated/demo traffic collects performance data for both variants. The results are then compared to illustrate how A/B testing can guide design decisions.
 
 **Relevance**
 
-_Motivate the relevance of your proposal with respect to DevOps_
+This demo is relevant to DevOps since automated A/B testing provides fast feedback and data-driven validation of new features. Integrating it into the pipeline supports continuous delivery, reduces risk, and improves the quality of deployments.
