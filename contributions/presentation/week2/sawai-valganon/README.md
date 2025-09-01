@@ -25,5 +25,5 @@ This presentation covers how to use Selenium for automating web testing in CI/CD
 
 **Relevance**
 
-Automated web testing is essential in modern CI/CD to ensure fast, reliable software delivery. Selenium is a leading open-source tool for browser testing widely used in DevOps. Mastering Selenium integration helps improve test coverage, speed feedback loops, and maintain software quality in increasingly complex web applications—key to successful DevOps practices.
+Automated web testing is essential in modern CI/CD to ensure fast, reliable software delivery. Selenium is a leading open-source tool for browser testing widely used in DevOps. Mastering Selenium integration helps improve test coverage, speed feedback loops, and maintain software quality in increasingly complex web applications key to successful DevOps practices.
 
