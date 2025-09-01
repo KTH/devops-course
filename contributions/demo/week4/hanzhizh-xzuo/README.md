@@ -19,7 +19,9 @@ Demo
 
 ## Description
 
-This project showcases Blue-Green deployment of a Iris classification AI model using MLflow, running two model versions (Blue and Green) in parallel. A FastAPI load balancer enables seamless switching and rollback, while a Streamlit dashboard provides a simple interface for monitoring, testing, and controlling traffic between the models.
+This project highlights the use of MLflow in a Blue-Green deployment of an Iris classification AI model. Instead of focusing only on traffic switching, we demonstrate how MLflow supports the end-to-end lifecycle of the model: training and packaging with MLflow Models, versioning and promotion with the Model Registry, and experiment tracking with the Tracking Server. Rollback and health checks go beyond service availability by validating model functionality and performance through MLflow. In this way, the project showcases how MLflow enhances Blue-Green deployment by integrating model management, monitoring, and lifecycle control.
+
+There are several differences from the similar topic in previous years. Our demo mainly focuses on traffic switching in production and visual control via a load balancer, by running two different model versions on two separate deployments and switching traffic between them. The previous demo, however, switches model versions in the MLflow Registry, which means it runs different versions of the model within a single virtual machine.
 
 **Relevance**
 
