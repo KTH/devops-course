@@ -16,7 +16,8 @@ Feature Flags: The Good, the Bad and the Ugly
 - Presentation
 
 ## Description
-The presentation will cover different aspects of feature flags. First the presentation will discuss what feature flags are and their importance to DevOps as a whole. It will then present good examples of feature flags when they actually help, with an example from Netflix. It will also present downsides and challenges of feature flags that can lead to problems. Then it will present the disaster that happened to the Knight Capital Group as a worst case senario. Finally, the presentation will summarize everything discussed and reflect on feature flags in devops. 
+The presentation will cover the advantages and disadvantages of feature flags. It will briefly introduce feature flags as a whole, but then go more in depth with the positive and negatives around feature flags. First, it will present advantages (the good) and some specific ways they can help. Then it will present some disadvantages of feature flags, focusing on the Knight Capital Group and what went wrong. Then we will summarize the presentation and add some reflections. 
+
 
 **Relevance**
-Through these different perspectives we aim to give a balanced understanding of feature flags. Feature flags are a key part of modern devops practices and this presentation provides perspectives to the topic. While there are a lot of examples in the modern world of good uses of feature flags, there are still things to consider when implementing them. By showing some real world examples of feature flags, the audience will get a better sense of the different things to look out for regarding feature flags. 
+Through the presentation of advantages and disadvantages, we will be able to measure the importance of feature flags and whether the advantages outweigh the bad. 
