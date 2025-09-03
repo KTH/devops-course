@@ -1,7 +1,7 @@
 # Assignment Proposal
 
 ## Title
-Exploring Shadow Deployment in DevOps
+Comparing Deployment Strageties: Shadow, Canary and Blue-Green
 
 ## Names and KTH ID
 Edwin So (edwinso@kth.se)
@@ -14,8 +14,7 @@ Week 3
 Presentation
 
 ## Description
-In this presentation, we will explore Shadow Deployment. We will review how it works, its pros and cons, and provide a use case where shadow deployment is a suitable strategy.
-We will compare it with Canary and Blue-Green Deployment.
+In this presentation, we will compare three deployment strageties used in Devops, Shadow deployment, Canary deployment and Blue-Green Deployment. We will explain breifly how each stragety works, focusing on their pros and cons, and show scenarioes where each method is most suitable. By presenting these strageties side by side, we aim to highlight the trade-offs between risk, cost, user impact and rollback complexity. The comparison will provide an understanding of when to choose one stragety over another. 
 
 Relevance
-Shadow Deployment is a relevant stragety regarding CD as it allows software chnages to be deployed in a parallel environment that mimics the producation environment. This can reduse the risk associated with deploying a new software version and allow for real-world testing.
+Deployment strageties are a crucial part of CD as they determine how new software versions are introduced into production. Comparing these three strageties is relevant since each stragety has their own trade offs and therefore understanding the difference can help select the most effective stragety.
