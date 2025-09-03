@@ -1,6 +1,8 @@
 # Assignment Proposal
 
-## Differences between continuous deployment and continuous delivery 
+## Title
+
+_Differences between continuous deployment and continuous delivery_
 
 ## Names and KTH ID
 
@@ -20,5 +22,4 @@ This presentation will present the fundamental differences between continuous de
 
 **Relevance**
 
-Many organizations don't differentiate between these two practices. By clarifying the distinction, teams can make more informed decisions about their release process, whether to prioritize control or velocity.
-
+Many organizations don't differentiate between this two practises. By clarifying the distinction, teams can make more informed decisions about their release process, whether to prioritize control or velocity.
