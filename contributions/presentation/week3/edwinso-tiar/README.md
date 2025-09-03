@@ -20,4 +20,4 @@ Canary deployment helps testing changes with real requests without makeing the w
 
 **Relevance**
 
-both Canary Deployment and Feature Flag are topics in DevOps.
+Both Canary Deployment and Feature Flag are topics in DevOps.
