@@ -1,4 +1,4 @@
-# Demo Proposal
+# Assignment Proposal
 
 ## Title
 Reuse the Infrastructure as Code (IaC) definition for multiple deployment environments
