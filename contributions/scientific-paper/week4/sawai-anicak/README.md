@@ -20,7 +20,7 @@ The framework applies Model-Driven Engineering (MDE) principles and techniques t
 
 The paper can be found here: https://ieeexplore.ieee.org/document/9556443
 
-## Relevance
+**Relevance**
 The integration of AI into DevOps practices represents a transformative shift in modern software engineering, particularly for complex Cyber-Physical Systems that bridge digital and physical aspects. 
 This paper's framework is relevant to the course as it shows the critical need for AI-augmented automation in continuous integration, deployment, and monitoring workflows. 
 The AIDOaRt approach demonstrates practical applications of AI in enhancing system design, integration activities, and continuous development processes, providing valuable insights into how AI can improve efficiency, reliability, and trustworthiness in DevOps pipelines. 
