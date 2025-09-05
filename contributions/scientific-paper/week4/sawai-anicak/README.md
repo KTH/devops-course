@@ -4,9 +4,8 @@
  Poisoning Web-Scale Training Datasets is Practical
 
   ## Names and KTH ID
-
-    - Anica Krüger (anicak@kth.se)
-    - Shreyas Sawai (sawai@kth.se)
+  - Anica Krüger (anicak@kth.se)
+  - Shreyas Sawai (sawai@kth.se)
 
   ## Deadline
   - Week 4
