@@ -32,5 +32,5 @@ The presentation will cover:
 
 The goal is to help the audience understand when to use canary releases vs A/B testing, and how both techniques support safer, more informed software delivery.
 
-## Relevance
+**Relevance**
 This topic is highly relevant to Continuous Delivery and DevOps, as understanding the differences and complementary roles of canary releases and A/B testing allows software engineers with clear strategies for incremental and evidence-driven feature rollout.
