@@ -1,7 +1,7 @@
 ## Assignment Proposal
 
 ### Title
-*Continious Delivery vs Continious Deployment: A Live Demo with TeamCity pipelines*
+*Building and running CI/CD pipelines with TeamCity: A Live Demo*
 
 ### Names and KTH ID
 - Maja Lind (majalind@kth.se)
@@ -14,20 +14,30 @@
 - Demo
 
 ### Description
-In this demo we want to show how modern software teams deliver code safely and efficiently. This demo shows a pipeline that automatically tests and deploys changes to a staging environment and manual approvals for production. We’ll also show how the same pipeline can be switched to continuous deployment, automatically pushing every passing change to production. 
+In this demo we want to show how modern software teams can build and run CI/CD pipelines using “TeamCity”, JetBrains CI/CD tool. Instead of only explaining concepts like continuous delivery and deployment, we will demonstrate how TeamCity makes these practices practical through its pipeline features. 
 
+
+What we will cover:
+1. How to set up a TeamCity pipeline that automatically builds, tests and deploys
+2. Using staging vs production environment, with optional manual approvals
+3. What happens when a test fails and how TeamCity helps diagnose issues
+4. TeamCity- specific features, including:
+    a. Build chains and dependencies for complex projects
+    b. Built-in parallelization and resource management
+    c. Kotlin DSL for pipeline configuration as code 
+    d. Tight integration with JetBrains IDEs
 
 Outline:
-1. Introduction to the topic
-2. Demo on continuous deployment → We will write code live and you’ll see the updates after a manual approval
-3. Demo on the difference between continuous deployment and continuous delivery → We will write code live and show you how updates happens without a manual approval first 
-4. We will show what happens when a test fails
+1. Introduction
+2. Demo - Creating a pipeline
+3. Demo - Handling failures
+4. TeamCity-specific advantages
 
-This will be done with TeamCity which is a tool that helps you build CI/CD pipelines. 
 
 Relevance:
-Continuous Delivery helps teams release software faster, safer and more reliably. It ensures every change is ready to deploy, while giving humans control over when it goes live. Today, businesses that can ship updates quickly gain a competitive advantage, respond to customer needs faster, and reduce the risk of costly production failures. 
+CI/CD pipelines are essential for releasing software safely and efficiently. While many tools exist, TeamCity offers a unique combination of flexibility, scalability, and developer-friendly integrations.  
 
-Understanding the difference from continuous deployment, which automatically pushes changes to production, helps teams balance speed, safety and confidence. 
+By focusing on TeamCity’s pipeline features, with this demo we want to give hands-on insights into how real-world teams use modern CI/CD tools to ship updates quickly and with confidence.  
 
-Source: https://www.atlassian.com/continuous-delivery/principles/continuous-integration-vs-delivery-vs-deployment 
+
+Source: https://www.jetbrains.com/teamcity/ 
