@@ -27,6 +27,6 @@ We will demonstrate how to build, package, and deploy a Dockerized application t
 
 The focus will be on showing how automation reduces manual effort, ensures consistency, and improves reliability in software delivery.
 
-## Relevance
+**Relevance**
 
 This topic highlights core DevOps practices by demonstrating the integration of **continuous integration** (automated building and testing) with **continuous delivery/deployment** (automated shipping to production). By leveraging GitHub Actions and Docker Hub, developers can streamline their workflows and reduce deployment risks. The demo illustrates how CI/CD pipelines are essential for modern DevOps teams to achieve faster feedback cycles, scalability, and resilience in cloud-native environments.
