@@ -2,20 +2,20 @@
 
 ## Title
 
-- Demo: How to easily deploy Docker images to Amazon AWS using GitHub Actions and Docker Hub
+  - Demo: How to easily deploy Docker images to Amazon AWS using GitHub Actions and Docker Hub
 
 ## Names and KTH ID
 
-- Adam Mehdi (adammeh@kth.se)  
-- Rifat Kazi (rifat@kth.se)
+  - Adam Mehdi (adammeh@kth.se)
+  - Rifat Kazi (rifat@kth.se)
 
 ## Deadline
 
-- Week 3
+  - Week 3
 
 ## Category
 
-- Demo
+  - Demo
 
 ## Description
 
