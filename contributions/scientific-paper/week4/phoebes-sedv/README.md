@@ -2,7 +2,7 @@
 
 ## Title
 
-_The title of your proposal_
+AI‑Augmented CI/CD Pipelines: From Code Commit to Production with Autonomous Decisions
 
 ## Names and KTH ID
 
@@ -23,7 +23,9 @@ _Pick one of the following:_
 
 ## Description
 
-_Description of your proposal_
+This paper was found at https://arxiv.org/pdf/2508.11867
+
+
 
 **Relevance**
 
