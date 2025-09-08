@@ -22,7 +22,6 @@ _Selected deadline for the assignment_
 _If contribution is a **demo** or **presentation** or **scientific-paper** pick one of the following:_
 - Week 5
 
-
 ## Category
 
 _Category of your proposal_
@@ -32,8 +31,8 @@ _Pick one of the following:_
 
 ## Description
 
-_Description of your proposal_
+Terraform Demo w
 
 **Relevance**
-
+This Demo is relevant to DevOps because Terraform is an important tool for Infrastructure as code in modern DevOps practices. 
 _Motivate the relevance of your proposal with respect to DevOps_
