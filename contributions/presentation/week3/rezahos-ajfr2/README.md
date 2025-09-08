@@ -2,7 +2,7 @@
 
 ## Title
 
-Why Netflix Built Spinnaker: Solving Continuous Deployment Challenges
+How to Safely Perform Production Database Updates: Backward-Compatible Database Changes (Expand → Migrate → Contract)
 
 ## Names and KTH ID
 
@@ -19,11 +19,15 @@ Presentation
 
 ## Description
 
-We wish to present the story of why Spinnaker was created and how it solved real problems with Continuous Deployment (CD). Netflix(the creator of spinnaker) found that typical CD tools often struggle with fragile pipelines, slow rollouts, and developers fear of breaking production. Existing CD tools couldn’t handle the scale, multi-cloud deployments, and the need for safe rollouts. Leading to the creation of Spinnaker. 
+We’ll show how to evolve a production database without downtime using backward-compatible schema changes and a safe deploy order (expand → migrate → contract). We will explain why coupling app and DB changes is risky and how small, staged changes reduce outages.
 
-Spinnaker is a Continuous Deployment tool that helps teams release software safely and quickly. It automates rollouts with strategies like canary and blue/green deployments, and can even roll back automatically if something goes wrong.
+What we’ll cover :
 
+* The core pattern: expand → migrate → contract
+* Minimal, safe steps: add new schema → dual-write + backfill → switch reads → retire old schema
+* Monitoring and reaching zero discrepancy
+* An example of how this is done practically
 
 **Relevance**
 
-This presentation connects directly to DevOps and Continuous Deployment. By showing relevant CD challenges, Netflix’s motivation, and how Spinnaker solved them, the audience will understand both the technical and organizational impact of CD tools in modern software engineering.
+This topic has direct relevance to DevOps and Continuous Delivery. Database Migration is often the bottleneck when it comes to continuously deploy while ensuring nothing breaks in production. This topic shows a safe and fast practice on how to perform migration, so teams can ship faster without breaking production.
