@@ -2,7 +2,7 @@
 
 ## Title
 
-ChatGPT vs SBST: A Comparative Assessment of Unit Test Suite Generation
+Machine Learning Operations (MLOps): Overview, Definition, and Architecture
 
 ## Names and KTH ID
 
@@ -22,12 +22,11 @@ ChatGPT vs SBST: A Comparative Assessment of Unit Test Suite Generation
 
 ## Description
 
-Software developers depend on rigorous testing to ensure features work as intended. Since most software is both complex and abstracted away through encapsulation, it's not feasible to mentally or manually test software. Software testing is, therefore, crucial for DevOps; current DevOps automation tools, such as Search-Based Software Testing **(SBST)** are used to generate unit test suites automatically. However, the article we aim to research and present states that, while **(SBST)** performs well in creating unit tests, they come with a significant barrier to entry. While **LLMs** like ChatGPT can generate tests easily, however, there are no studies evaluating how these two compare in **Correctness**, **Readability**, **Code coverage**, and **Bug detection capability**. The paper provides a first comparative study of LLMs (ChatGPT) vs SBST (EvoSuite) for automated Java unit tests generation. Providing insights into what we can learn from LLMs to improve state-of-the-art SBST, and uncovering current limitations of LLMs in generating test suites.
+This paper first asks: **"What is MLOps?"**, and by using a literature review, tool review, and eight expert interviews, they provide for MLOps *"an aggregated overview of the necessary principles, components, and roles, as well as the associated architecture and workflows*, and a clear definition of what MLOps is, and outlines unresolved issues in MLOps. According to the paper it: *"provides a guidance for ML researchers and practitionerns who want to automate and operate their ML products with a designated set of technologies"*. They also determine key foundations of MLOps, extract the essential building blocks, emphasize the positions required for effective MLOps adoption, and formulate an general architecture for ML system design. According to the authors of the paper: *"These insights can assist in allowing more proofs of concept to make it into production by having fewer errors in the system’s design and, finally, enabling more robust predictions in real-world environments."*
 
 
-- Article was found at:https://scholar.google.com/citations?hl=en&view_op=list_hcore&venue=ne7Vj8c_KBUJ.2025&vq=eng_softwaresystems&cstart=40
-- Link to article: https://ieeexplore.ieee.org/abstract/document/10485640
+- Link to article: https://ieeexplore.ieee.org/abstract/document/10081336
 
 **Relevance**
 
-Understanding the limitations and how LLMs compare against SBST in terms of automated test generation is relevant to AIOps since we are comparing how AI tools compare to established DevOps automation tools. Furthermore, since AI tools are easier to use, it would be beneficial to know if AI is not significantly worse, as this would make the development cycle easier and faster. 
+This paper is relevant to **MLOps/AIOps/LLMOps**, because it outlines key challanges to MLOps such as *"Organizational challanges"*, *"ML System challanges"*, and *"Operational challanges"*, and provides a framework for MLOps in terms of principles, roles, and architectures that according to the authors *"can assist in allowing more proofs of concept to make it into production"*.
