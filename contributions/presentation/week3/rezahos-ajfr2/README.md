@@ -2,8 +2,7 @@
 
 ## Title
 
-How to Safely Perform Production Database Updates: Backward-Compatible Database Changes (Expand → Migrate → Contract)
-
+How to Safely Perform Production Database Updates: Backward-Compatible Database Changes
 ## Names and KTH ID
 
 - Reza Hosseini (rezahos@kth.se)
