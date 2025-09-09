@@ -11,16 +11,10 @@ Terraform and Terraform Docs Demo
 
 ## Deadline
 
-_Selected deadline for the assignment_
-
-_If contribution is a **demo** or **presentation** or **scientific-paper** pick one of the following:_
 - Week 5
 
 ## Category
 
-_Category of your proposal_
-
-_Pick one of the following:_
 - Demo
 
 ## Description
