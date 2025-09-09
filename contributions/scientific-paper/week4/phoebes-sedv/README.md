@@ -2,32 +2,24 @@
 
 ## Title
 
-AI‑Augmented CI/CD Pipelines: From Code Commit to Production with Autonomous Decisions
+Building AI-Driven Cloud-Native Applications with Kubernetes and Containerization by Prudhvi Naayini
 
 ## Names and KTH ID
 
   - Phoebe Schwartz (phoebes@kth.se)
-  - Sofia Edvardsson(sedv@kth.se)
+  - Sofia Edvardsson (sedv@kth.se)
 
 ## Deadline
-
 - Week 4
 
 ## Category
-
-_Category of your proposal_
-
-_Pick one of the following:_
-
 - Scientific paper
 
 ## Description
+[Building AI-Driven Cloud-Native Applications
+with Kubernetes and Containerization](https://www.ijscia.com/wp-content/uploads/2025/04/Volume6-Issue2-Mar-Apr-No.862-328-340.pdf)
 
-This paper was found at https://arxiv.org/pdf/2508.11867
-
-
+This article presents a Kubernetes-based architecture for developing and deploying AI applications in the cloud. It combines MLOps practices with cloud-native tools. After describing the architecture, the paper then presents two use cases: an e-commerce recommendation service and an Internet of Things (IoT) anomaly detection pipeline. Then it presents the results of the performance and scalability of the system. 
 
 **Relevance**
-
-_Motivate the relevance of your proposal with respect to DevOps_
-
+This article is relevant to DevOps and MLOPs in particular since it is based on MLOps practices. The article addresses how AI/ML systems can be managed like modern software systems. It uses core DevOps practices. It also includes MLOps such as continuous integration/deployment of ML, automated retraining, and monitoring. It also bridges the gap between MLOps and DevOps. 
