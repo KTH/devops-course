@@ -1,14 +1,8 @@
-**The pull request must both contain a README.md and have description following the template below. This README.md must be the only file affected by the PR, and its contents must match the PR description exactly. The pull request must be created 3 business days before the actual delivery.**
-
-**The README.md file must be located in the directory**:
-
-`contributions/<category>/[<week>/]<kth-id-1>-<kth-id-2>/README.md`
-
 # Assignment Proposal
 
 ## Title
 
-_The title of your proposal_
+Terraform and Terraform Docs Demo
 
 ## Names and KTH ID
 
@@ -31,8 +25,7 @@ _Pick one of the following:_
 
 ## Description
 
-Terraform Demo w
+In this demo, we will show how to deploy a sample architecture in Google Cloud Platform (gcp) by using Terraform and make it understandable for others working on the same code. We start with a sample architecture written in a Terraform configuration file. We use Terraform to apply it to gcp and show the success on the gcp dashboard. But every good developer knows that this isn't the end. We will need to write good documentation to show what the architecture is, and we will do this automatically by using Terraform Docs. 
 
 **Relevance**
-This Demo is relevant to DevOps because Terraform is an important tool for Infrastructure as code in modern DevOps practices. 
-_Motivate the relevance of your proposal with respect to DevOps_
+Terraform is a fundamental tool for Infrastructure as Code. As DevOps moves towards automation, Terraform provides a way to make sure the infrastructure is consistent, reproducible, and easily managed. Terraform Docs is a great way to continue to practice collaboration through documentation. This is a critical skill when working in groups and as a DevOps programmer. 
