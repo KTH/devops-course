@@ -10,7 +10,7 @@ The challenges of LLMops and how to solve them using Langsmith
   - Ahmad Al Khateeb (ahmadak@kth.se)
 
 ## Deadline
-- Week 3
+- Week 4
 
 ## Category
 
