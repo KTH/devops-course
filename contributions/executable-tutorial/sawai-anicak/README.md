@@ -18,8 +18,8 @@ This executable tutorial demonstrates how to implement automated security vulner
 
 The tutorial will guide users through building a CI/CD pipeline that automatically scans code for security vulnerabilities using industry-standard tools like Trivy (container scanning) and Semgrep (Static Application Security Testing). Users will learn to configure security gates that fail builds when critical vulnerabilities are detected, implement vulnerability thresholds, and create automated security reporting.
 
-The hands-on tutorial will include:
-- Setting up a sample application with intentional security vulnerabilities
+The tutorial will include:
+- Setting up an application with intentional security vulnerabilities
 - Configuring GitHub Actions workflow with integrated security scanning
 - Implementing multiple security scanning tools (Trivy for dependency and container scanning, plus Semgrep for SAST)
 - Configuring failure thresholds and security policies
