@@ -16,7 +16,7 @@ Executable tutorial
 ## Description
 This executable tutorial demonstrates how to implement automated security vulnerability scanning in CI/CD pipelines, creating a complete DevSecOps workflow that prevents vulnerable code from reaching production environments.
 
-The tutorial will guide users through building a CI/CD pipeline that automatically scans code for security vulnerabilities using industry-standard tools like Trivy (container scanning), Semgrep (Static Application Security Testing), and OWASP Dependency Check. Users will learn to configure security gates that fail builds when critical vulnerabilities are detected, implement vulnerability thresholds, and create automated security reporting.
+The tutorial will guide users through building a CI/CD pipeline that automatically scans code for security vulnerabilities using industry-standard tools like Trivy (container scanning) and Semgrep (Static Application Security Testing). Users will learn to configure security gates that fail builds when critical vulnerabilities are detected, implement vulnerability thresholds, and create automated security reporting.
 
 The hands-on tutorial will include:
 - Setting up a sample application with intentional security vulnerabilities
@@ -31,6 +31,6 @@ The tutorial will be delivered through KillerKoda platform.
 **Relevance**
 This tutorial addresses a critical need in modern DevOps practices where security integration (DevSecOps) has become essential for organizational resilience. 
 
-The shift-left security approach demonstrated in this tutorial is fundamental to DevOps methodology, where security checks are integrated early in the development lifecycle rather than being an afterthought. This aligns with core DevOps principles of automation, continuous integration, and early feedback loops.
+The security approach demonstrated in this tutorial is fundamental to DevOps methodology, where security checks are integrated early in the development lifecycle rather than being an afterthought. This aligns with core DevOps principles of automation, continuous integration, and early feedback loops.
 
 Modern software supply chain attacks and the increasing complexity of dependencies make automated security scanning not just a best practice, but a necessity for any production system.
