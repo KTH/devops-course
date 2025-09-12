@@ -2,7 +2,7 @@
 
 ## Title
 
-Deployment of a small test environment using Terraform, AWS and OPA
+Policy-as-Code for IaC: Enforcing Security, Compliance and Cost Control with Open Agent Policy (OPA)
 
 ## Names and KTH ID
 
@@ -19,9 +19,8 @@ Deployment of a small test environment using Terraform, AWS and OPA
 
 ## Description
 
-This demo will show how Terraform can be used to deploy various cloud resources in AWS, using a script to deploy the basic setup of an environment; a server, a database and a bucket. This deployment will also be checked using different policies to ensure that the deployment is done securely and does not leak information. To do so we'll integrate the Terraform script with the deployment of a policy engine. The chosen policy agent is Open Policy Agent.
+This demo will show how Open Agent Policy can ensure security, compliance and cost-efficiency when deploying Infrastructure as Code. We will use Terraform to deploy a basic environment setup composed by a server, a database, and a bucket, and showcase how OPA automatically validates Terraform configurations and blocks insecure or non-compliant deployments. Examples of insecure or non-compliant deployments are publicly accessible buckets, unknown images, or unsecure firewall configurations. The goal of the demo is to show how to prevent misconfigurations from scaling across environments.
 
 **Relevance**
 
-During the DevOps lifecycle we need to test the features or bug fixes on a productive-like environment, with Terraform we can automate the deployment of a this needed environment, allowing developers to test their code before merging the changes to the main branch and applying the changes on the production environment.
-
+The relevance of the Demo lies in showing how Policy-as-Code can be used to ensure seurity, compliance and even cost control at the deployment stage. This automation avoids misconfigurations and non-compliant infrastructure to be deployed at large-scale, shifting from the simple, unchecked infrastructure deployment to controlled, secure and compliant infrastructure deployment.
