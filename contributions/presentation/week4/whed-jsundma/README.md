@@ -2,7 +2,7 @@
 
 ## Title
 
-Data Set Anomaly Detection using the k-NN Algorithm
+Data Validation with TensorFlow and k-NN
 
 ## Names and KTH ID
 
@@ -19,10 +19,10 @@ Data Set Anomaly Detection using the k-NN Algorithm
 
 ## Description
 
-We plan on presenting a method for detecting anomalies or outliers in a data set, before the data is used to train AI models. It will be based on the [*k*-NN algorithm](https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm) and the purpose is to find data points that could be malformed or or otherwise unsuitable for its intended purpose. The algorithm could be based on previous known good data, making it part of an iterative life cycle. 
+We plan on presenting two methods for data validation of a data set. One will be based on the [*k*-NN algorithm](https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm) and the other will use the tool [TensorFlow](https://www.tensorflow.org/tfx/guide/tfdv) for anomaly detection. The purpose of data validation is to remove data that is not suitable for its intended use case. 
 
-The test should/could trigger each time new data or tuning data is added to the database as part of a CI pipeline.
+We will explain how the methods work and compare them in terms of performance and simplicity. 
 
 **Relevance**
 
-This topic is relevant seeing as the data set has a big impact on model performance. If anomaly detection is implemented early in the process as part of AIOps, data outliers can be removed from the data set before it has a chance to affect model training. It should be easier to avoid merging data than to remove it, after a model has already been introduced to it, leading to more effective and automated data validation. 
+Data validation is an important step in AIOps, to ensure high-quality data. Failing to detect data anomalies could have a large negative impact on model performance. It is easier to prevent tainting an AI model with bad data, than to remove it after it has already been integrated with the model.
