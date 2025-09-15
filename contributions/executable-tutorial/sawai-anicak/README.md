@@ -16,12 +16,12 @@ Executable tutorial
 ## Description
 This executable tutorial demonstrates how to implement automated security vulnerability scanning in CI/CD pipelines, creating a complete DevSecOps workflow that prevents vulnerable code from reaching production environments.
 
-The tutorial will guide users through building a CI/CD pipeline that automatically scans code for security vulnerabilities using industry-standard tools like Trivy (container scanning) and Semgrep (Static Application Security Testing). Users will learn to configure security gates that fail builds when critical vulnerabilities are detected, implement vulnerability thresholds, and create automated security reporting.
+The tutorial will guide users through building a CI/CD pipeline that automatically scans code for security vulnerabilities using industry-standard open-source tools: Semgrep (Static Application Security Testing), OWASP Dependency Check (dependency vulnerability scanning), and Grype (container image scanning). Users will learn to configure security gates that fail builds when critical vulnerabilities are detected, implement vulnerability thresholds, and create automated security reporting.
 
-The tutorial will include:
-- Setting up an application with intentional security vulnerabilities
+The hands-on tutorial will include:
+- Setting up a sample application with intentional security vulnerabilities
 - Configuring GitHub Actions workflow with integrated security scanning
-- Implementing multiple security scanning tools (Trivy for dependency and container scanning, plus Semgrep for SAST)
+- Implementing multiple security scanning tools (Semgrep for SAST, OWASP Dependency Check for dependency scanning, and Grype for container scanning)
 - Configuring failure thresholds and security policies
 - Demonstrating the complete scan-fail-fix-pass cycle
 - Creating security reports and vulnerability management workflows
