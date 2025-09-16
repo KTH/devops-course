@@ -11,7 +11,7 @@ Implementing MLops with Iris dataset and FastAPI
 
 ## Deadline
 
-Week 3
+Task 4
 
 ## Category
 
