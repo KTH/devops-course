@@ -19,7 +19,7 @@ Presentation of the scientific paper "Toward a catalog of software quality metri
 
 ## Description
 
-IaC code scripts are commonly used but there is no common quality metrics to evaluate them. This [paper](https://www.sciencedirect.com/science/article/pii/S0164121220301618) proposes 46 quality metrics for evaluating IaC properties (based on the most common IaC language Ansible). We will discuss these quality metrics and its trade-offs and whether its a reasonable proposal or if it's unrealistic. We will evaluate how well this proposal could be adapted in real-life and help evaulate IaC scripts regardless of language.
+IaC code scripts are commonly used but there is no common quality metrics to evaluate them. This [paper](https://www.sciencedirect.com/science/article/pii/S0164121220301618) proposes 46 quality metrics for evaluating IaC properties (based on the most common IaC language Ansible). We will discuss these quality metrics and its trade-offs and whether its a reasonable proposal or if it's unrealistic. We will evaluate how well this proposal could be adapted in real-life and help evaulate IaC scripts regardless of language. This evaluation will be based on another [paper](https://soft.vub.ac.be/Publications/2022/vub-tr-soft-22-09.pdf) that discusses some parts of the original paper and this [paper](https://ieeexplore.ieee.org/document/9321740) which applies some of the proposed metrics. It will also be based on our personal opinions.
 
 **Relevance**
 
