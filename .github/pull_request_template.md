@@ -4,7 +4,6 @@
 
 ## Title
 
-_The title of your proposal_
 
 ## Names and KTH ID
 
@@ -13,7 +12,7 @@ _The title of your proposal_
 
 ## Deadline
 
-- Week 4
+- Task 2 (Week 4)
 
 
 ## Category
