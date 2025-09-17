@@ -1,8 +1,4 @@
-**The pull request must both contain a README.md and have description following the template below. This README.md must be the only file affected by the PR, and its contents must match the PR description exactly. The pull request must be created 3 business days before the actual delivery.**
 
-**The README.md file must be located in the directory**:
-
-`contributions/<category>/[<week>/]<kth-id-1>-<kth-id-2>/README.md`
 
 # Assignment Proposal
 
@@ -12,43 +8,19 @@ _The title of your proposal_
 
 ## Names and KTH ID
 
-  - Student name 1 (student123@kth.se)
-  - Student name 2 (student321@kth.se)
+  - Somaiya Abdulrahman (somaiya@kth.se)
+  - Dania Sami (dsami@kth.se)
 
 ## Deadline
 
-_Selected deadline for the assignment_
-
-_If contribution is a **demo** or **presentation** or **scientific-paper** pick one of the following:_
-- Week 2
-- Week 3
 - Week 4
-- Week 5
-- Week 6
-- Week 7
 
-_Else pick one of the following:_
-- Task 1
-- Task 2
-- Task 3
 
 ## Category
 
-_Category of your proposal_
-
-_Pick one of the following:_
-- Demo
-- Presentation
-- Executable tutorial
-- Scientific paper
-- Open source
 - Feedback
+- 
 
 ## Description
-
-_Description of your proposal_
-
-**Relevance**
-
-_Motivate the relevance of your proposal with respect to DevOps_
-
+We would like to review the demo proposal #2716 and provide feedback on it. 
+The link to our feedback we provided the group on Monday 15th of September (2 days before the demo): https://github.com/KTH/devops-course/pull/2716#issuecomment-3293396648
