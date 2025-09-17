@@ -2,7 +2,7 @@
 
 ## Title
 
-Setting up a minecraft server with Terraform
+Automated Minecraft Server Deployment and Monitoring with Terraform
 
 ## Names and KTH ID
 
@@ -19,8 +19,7 @@ Setting up a minecraft server with Terraform
 
 ## Description
 
-Terraform is an Infrastructure as Code (IaC) tool that we will use to automate the setup of a Minecraft server. 
-With a single command, the server is created, configured, and started, demonstrating IaC principles such as automation, reproducibility, and easy teardown.
+Terraform is an Infrastructure as Code (IaC) tool that we will use to automate the setup of a Minecraft server along with a monitoring platform. The Minecraft server, Prometheus, and Grafana will all run in Docker containers locally. Prometheus will scrape metrics from the server and containers, and Grafana will provide a dashboard to visualize these metrics. With a single Terraform command, the Minecraft server and monitoring stack are created, configured, and started automatically, demonstrating IaC principles such as automation, reproducibility, and easy teardown.
 
 **Relevance**
-This demo highlights how DevOps teams can reliably provision, configure, and tear down environments with minimal manual effort, improving efficiency, consistency, and collaboration across development and operations.
+Using Terraform, the Minecraft server and monitoring stack are provisioned with minimal manual effort, ensuring consistency and reproducibility. Prometheus and Grafana provide real-time insights into server performance and container health, highlighting the importance of observability in DevOps workflows.
