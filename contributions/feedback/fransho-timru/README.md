@@ -19,4 +19,4 @@ Feedback on Presentation - The challenges of LLMops and how to solve them using 
 
 ## Description
 
-Feedack given to #2784.
+Feedack is given to #2784.
