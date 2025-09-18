@@ -2,7 +2,7 @@
 
 ## Title
 
-Enhancing DevOps Efficiency Using IaC as One of the Best Practices
+AWS CloudFormation: Infrastructure as Code for DevOps Efficiency
 
 ## Names and KTH ID
 
@@ -21,10 +21,9 @@ Week 5
 
 ## Description
 
-This presentation explains how Infrastructure as Code (IaC) enhances efficiency in DevOps by automating infrastructure management, ensuring consistency across environments, and reducing operational risks. It introduces the concept of IaC and explains why it is considered a DevOps best practice. The presentation also presents examples of popular IaC tools such as Terraform, Ansible, Pulumi, and AWS CloudFormation in practice, and compares IaC to traditional infrastructure management methods.
-
+In this presentation, we will introduce AWS CloudFormation as a tool for implementing Infrastructure as Code (IaC). We explain what CloudFormation is, how it works, and use it as an example to show how IaC improves DevOps efficiency. We also emphasize CloudFormation’s main advantages while noting its limitations compared to other IaC tools.
 
 
 **Relevance**
 
-IaC is widely recognized as one of the best practices in DevOps. It eliminates manual configuration, reduces risk of errors, and accelerates software delivery. By demonstrating how IaC improves efficiency, this presentation connects directly to the course’s focus on DevOps methods and modern automation practices.
+AWS CloudFormation is directly relevant to DevOps because it provides automation and consistency in managing infrastructure, which helps solve many common IaC challenges.
