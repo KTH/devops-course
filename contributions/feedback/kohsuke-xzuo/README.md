@@ -20,3 +20,5 @@
 ## Description
 
 We would like to review the demo #2791 and give feedback on it.
+
+Link to feedback: [feedback](https://github.com/KTH/devops-course/pull/2791#issuecomment-3300307751)
