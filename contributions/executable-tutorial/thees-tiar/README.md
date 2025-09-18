@@ -11,7 +11,7 @@ Create your own CI Pipeline from Scratch
 
 ## Deadline
 
-- Sep 24, 17h Stockholm time
+- Task 2
 
 ## Category
 
