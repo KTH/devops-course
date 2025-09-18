@@ -16,17 +16,21 @@ Week 5
 Demo
 
 ## Description
-A demo showcasing how to provision and destroy a staging environment using Infrastructure as Code. The environment will run a simple containerized application, defined through either Terraform or Docker Compose.
+Our demo will focus on on-demand staging as a DevOps workflow. We will demonstrate the full lifecycle of an ephemeral staging environment:
 
-In the demo, we will do the following:
+- Provision: Spin up a staging environment using IaC.
+- Deploy: Run a simple containerized application and access it in the browser.
+- Update live: Make a small change (e.g., update the app’s message or add an easter egg) and re-deploy, showing how environments can be iterated quickly.
+- Tear down: Destroy the staging environment with a single command, leaving no leftovers.
 
-- Showcase an IaC configuration (Terraform or Docker Compose).
-- Deploy a simple containerized application (“Hello World” app).
-- Demonstrate accessing the application in the browser.
-- Update the configuration live (for example, change app text or infra config) and re-deploy.
-- Tear down the entire staging environment with a single command.
-- Conclude with why on-demand staging matters in DevOps.
+The demo narrative ties directly to DevOps concerns:
+
+- Cost savings – environments exist only when needed.
+- Agility – fast iteration without long setup times.
+- Compliance – consistency and reproducibility reduce drift and errors.
+
 
 **Relevance**
 
 Staging environments are critical for testing new features before production, but permanent staging systems are costly and often underutilized. Using Infrastructure as Code, developers can spin up staging environments on demand, use them for testing, and tear them down when finished. This saves costs, increases agility, and ensures consistency across environments, all key DevOps goals.
+
