@@ -2,7 +2,7 @@
 
 ## Title
 
-_The title of your proposal_
+Managing team secrets using Infisical and GitHub
 
 ## Names and KTH ID
 
