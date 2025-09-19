@@ -31,7 +31,7 @@ Managing environment secrets is crucial, especially for developers working in te
 
 With this tutorial, we want to highlight the before (unmanaged/unsafe) vs after (managed/safe) condition.
 
-Infisical is chosen in the tutorial as an open-source alternative to (HashiCorp Vault)[https://www.hashicorp.com/en/products/vault] to manage secrets that teams can self-host. However, in this tutorial, we will use their cloud solution which has a Free plan that can be used for the scenario.
+Infisical is chosen in the tutorial as an open-source alternative to [HashiCorp Vault](https://www.hashicorp.com/en/products/vault) to manage secrets that teams can self-host. However, in this tutorial, we will use their cloud solution which has a Free plan that can be used for the scenario.
 
 **Relevance**
 
