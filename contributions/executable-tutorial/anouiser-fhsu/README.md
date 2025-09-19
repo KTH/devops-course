@@ -19,17 +19,20 @@ _The title of your proposal_
 
 ## Description
 
-Managing environment secrets is a crucial. In the tutorial, we want to utilize [Infisical](https://infisical.com/) and GitHub to show the following condition/scenario
+Managing environment secrets is crucial, especially for developers working in teams. In this tutorial, we want to utilize [Infisical](https://infisical.com/) and GitHub to show the following scenario:
 
-1. Start with a condition where secrets are not stored safely on repository on GitHub
-2. How to to setup Infisical's Secret Scanning in the pipeline to scan existing and prevent future vulnerabilities
-3. How to setup secrets securely on Infisical
-4. How to use the secrets on Infisical to be called from GitHub
+1. Start with a condition where secrets are committed in plaintext to a GitHub repository
 
-With this tutorial, we want to highlight the before (unmanaged, unsafe secrets) vs after (managed, safed) secrets.
+2. How to set up Infisical's Secret Scanning to scan existing GitHub repository and prevent future vulnerabilities
 
-Infisical is chosen in the tutorial as an alternative tool that dev team that is open source and can self-host
+3. How to securely set up secrets in Infisical
+
+4. How to consume Infisical secrets in runtime and use it for your application
+
+With this tutorial, we want to highlight the before (unmanaged/unsafe) vs after (managed/safe) condition.
+
+Infisical is chosen in the tutorial as an open-source alternative to HashiCorp's Vault to manage secrets that teams can self-host. However, in this tutorial, we will use their cloud solution which has a Free plan that can be used for the scenario.
 
 **Relevance**
 
-Managing key secrets is crucial for dev team and related to DevSecOps.
+Managing secrets is central to DevSecOps because it reduces the risk of credential leaks and aligns security with delivery workflows
