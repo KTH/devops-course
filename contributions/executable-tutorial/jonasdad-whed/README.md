@@ -19,8 +19,8 @@ Executable Tutorial
 
 ## Description
 
-This executable tutorial (enabled by KillerCode) helps any user understand the power of the Infrastructure as Code (IaC) tool Terraform. Through a series of hands-on exercises, the tutorial aims to guide the user in getting started with Terraform and building their first infrastructure resources in a controlled environment.
+This executable tutorial will guide the user through setting up Snort, an open-source intrusion detection system, and Splunk, a powerful platform used to aggregate Snort logs and alerts. The tutorial will utilize Terraform, to automate the deployment and configuration of both Snort and Splunk in a containerized environment.
 
 **Relevance**
 
-Terraform is one of the most widely used tools in modern DevOps that allows its users to build, modify and version your digital infrastructure in a safe and efficient manner. This enables a consistent workflow to manage the entire infrastructure e.g., computational resources, networks and storage. All of this is done through simple configuration files which ensures that resources can be managed as if it were to be software. Understanding Terraform equips the user with practical skills to automate infrastructure management.
+Terraform is one of the most widely used tools in modern DevOps that allows its users to build, modify and version your digital infrastructure in a safe and efficient manner. Integrating it with an IDS (Snort) and SIEM setup (Splunk) allows for quick deployment of network monitoring, showcasing the practical aspects of IaC. We don't see this as DevSecOps-related, but rather keeping it related to our masters programme.
