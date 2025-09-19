@@ -2,7 +2,7 @@
 
 ## Title
 
-Infrastructure as Code (IaC) Tool: Terraform
+IaC Network Monitoring: Snort + Splunk + Terraform
 
 ## Names and KTH ID
 
