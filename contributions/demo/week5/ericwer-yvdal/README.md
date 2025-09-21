@@ -2,7 +2,7 @@
 
 ## Title
 
-Vagrant: From nothing to Web and DB VM’s with one command
+Vagrant networking: From nothing to Web and DB VM’s with one command
 
 ## Names and KTH ID
 
@@ -19,8 +19,8 @@ Vagrant: From nothing to Web and DB VM’s with one command
 
 ## Description
 
-We will show how Vagrant can quickly set up two virtual machines with a single Vagrantfile and one command. One of the VM’s will run a web server whilst the other one contains a database, with both automatically configured via provisioning scripts. We intend to demonstrate how Vagrant simplifies setup, including installations, networking and config. We will also show that changes can be applied to both machines at the same time.
+We will demo how Vagrant can set up two interconnected virtual machines configured from a single Vagrantfile. One VM will run a web server while the other runs a PostgreSQL database. The key feature of this demo is that the web server communicates directly with the database VM over a private network through use of Vagrant's support for easy port-forwarding. Both VM's are automatically configured via provisioning scripts in the Vagrantfile. Changes to the provisioning scripts, such as updating database content or web page behavior, can be applied to both machines at the same time. We intend to demonstrate how Vagrant simplifies setup, including installations, networking and config. We will also show that changes can be applied to both machines at the same time.
 
 **Relevance**
 
-The simplification that Infrastructure as Code provides through Vagrant shows how Infrastructure as Code makes setting up servers faster, more consistent, reliable and easier to share. By using a single configuration file to provision multiple virtual machines automatically, everything is automated and repeatable instead of requiring manual installation, configuration, and troubleshooting. This also means that each team member can work in identical environments. These aspects line up with core DevOps principles of automation and collaboration.
+The simplification that Vagrant shows how IaC makes setting up even more complex, multi-functional systems quiuk and easy. In dev teams engineers often need a consistent environment, often one that mirrors production, in order to test their code. Vagrant allows for a modular system where we no longer need to rely on time consuming and error prone manual setup. Vagrants networking shows how VM's can be used to manage larger systems rather than serving single functions by interacting with each other.
