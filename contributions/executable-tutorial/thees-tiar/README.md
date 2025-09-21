@@ -23,6 +23,8 @@ This tutorial demonstrates how to create a basic yet functional continuous integ
 
 The progression is incremental, starting with a simple static pipeline and ending with a fully configurable pipeline using a YAML file.
 
+The tutorial will be done within KillerCoda
+
 **Relevance**
 
 This tutorial is relative to the material in Week 2 since we will be making a CI pipeline from scratch. Today, most people use tools like GitHub Actions without really thinking about how they work under the hood. By building a pipeline from scratch, we get to see the basic mechanics behind testing automation and CI.
