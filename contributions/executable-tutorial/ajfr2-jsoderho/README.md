@@ -1,21 +1,34 @@
 # Assignment Proposal
 
 ## Title
-A tutorial in Prometheus, Grafana and cAdvisor
+
+Observability for Containerized Apps with cAdvisor, Prometheus & Grafana
+
 ## Names and KTH ID
 
   - Adam Fridén Rasmussen (ajfr2@kth.se)
   - John Söderholm (jsoderho@kth.se)
 
 ## Deadline
+
 - Task 3
 
 ## Category
+
 - Executable tutorial
 
 ## Description
 
-The tutorial will showcase the setup of a basic monitoring stack using Prometheus for metric collection, Grafana for visualization and cAdvisor to gather container metrics from a local Docker environment. Everything will be run using Killerkoda for easy access. 
+This executable tutorial will cover container observability, where we will set up a monitoring stack including Prometheus for collecting and storing metrics, Grafana visualize and understanding our data, and cAdvisor for gathering detailed resource metrics directly from the running containers, a layer Prometheus alone does not cover.
+
+This stack will monitor a simple Flask application. We will put the app under different kinds of load, like using a /cpu-stress endpoint, and then observe these performance changes using cAdvisor's metrics. KillerKoda will handle setting up services, monitoring, and testing, all in one place.
+
+**General structure**
+1. Explain container observability in DevOps. Define Prometheus, Grafana, and cAdvisor.
+1. Create all necessary config files. Build and start the monitoring stack.
+1. Verify cAdvisor data collection. Set up Grafana to visualize cAdvisor's container performance metrics.
+1. Trigger different load on the Flask app's container. See changes in cAdvisor data highlighted on their Grafana dashboards
 
 **Relevance**
-Observability is crucial for understanding system health, identifying bottlenecks and ensuring performance. This is crucial in a devops environment for both small and large projects. 
+
+Container observability is essential in DevOps for understanding service performance. This tutorial uses cAdvisor to provide low-level data about container resource use, which is important for using resources smartly, identifying problems, and ensuring apps run optimally.
