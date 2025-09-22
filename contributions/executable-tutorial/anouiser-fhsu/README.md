@@ -29,10 +29,10 @@ Managing environment secrets is crucial, especially for developers working in te
 
 4. How to consume Infisical secrets in runtime and use it for your application
 
-With this tutorial, we want to highlight the before (unmanaged/unsafe) vs after (managed/safe) condition. We plan to deliver our tutorial on [KillerCode](https://killercoda.com).
+With this tutorial, we want to highlight the before (unmanaged/unsafe) vs after (managed/safe) condition. We plan to deliver our tutorial on [KillerCoda](https://killercoda.com).
 
 Infisical is chosen in the tutorial as an open-source alternative to [HashiCorp Vault](https://www.hashicorp.com/en/products/vault) to manage secrets that teams can self-host. However, in this tutorial, we will use their cloud solution which has a Free plan that can be used for the scenario.
 
 **Relevance**
 
-Managing secrets is central to DevSecOps because it reduces the risk of credential leaks and aligns security with delivery workflows
+Managing secrets is central to DevSecOps because it reduces the risk of credential leaks and aligns security with delivery workflows.
