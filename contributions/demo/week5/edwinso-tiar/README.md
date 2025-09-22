@@ -14,7 +14,7 @@ Week 5
 Demo
 
 ## Description
-Management deployment environments with Terragrunt. Write the infrastructure as code once, and deploy the same infrastructure to different environments.
+Management deployment environments with Terraform. Write the infrastructure as code once, and deploy the same infrastructure to different environments.
 
 **Relevance**
 
