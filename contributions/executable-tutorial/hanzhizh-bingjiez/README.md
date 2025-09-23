@@ -2,7 +2,7 @@
 
 ## Title
 
-Chaos Engineering with Pumba: Building Fault-Tolerant Containerized Applications
+Observability with eBPF and FlameGraphs: Profiling Containerized Applications
 
 ## Names and KTH ID
 
@@ -19,22 +19,31 @@ Chaos Engineering with Pumba: Building Fault-Tolerant Containerized Applications
 
 ## Description
 
-This executable tutorial demonstrates how to apply **Chaos Engineering** in containerized environments to improve system **fault tolerance** and **resilience**. Using [Pumba](https://github.com/alexei-led/pumba), a chaos testing tool for Docker, learners will inject controlled failures (random restarts, network delays, resource stress) into a containerized web application, and then gradually enhance the system to withstand these disruptions.  
+This executable tutorial demonstrates how to use **eBPF** for observability and performance profiling of containerized applications, combined with **FlameGraph visualization** to identify bottlenecks. Unlike traditional monitoring tools, eBPF allows dynamic tracing at the kernel level with minimal overhead, giving developers deep insights into system and application behavior.  
 
 The tutorial will guide users through the following scenario:
 
-1. **Baseline setup**: Run a single-container Flask web application. Inject chaos (kill/restart, latency) with Pumba and observe how the service becomes unavailable.  
+1. **Baseline setup**: Run a simple containerized Python/Flask application and perform a stress test to generate system load.  
 
-2. **Redundancy with multiple replicas**: Deploy multiple web containers behind an NGINX load balancer. Repeat the chaos experiments and see how the system remains available despite single-container failures.  
+2. **Traditional monitoring**: Use `top` and `strace` to show the limitations of conventional tools for observability.  
 
-3. **Self-healing with restart policies**: Enable Docker restart policies so containers automatically recover after being killed by Pumba. Demonstrate improved resilience.  
+3. **eBPF tracing**:  
+   - Use `bpftrace` and `bcc-tools` to trace syscalls (`execve`, `open`), file I/O, and TCP traffic of the containerized app.  
+   - Use `profile` sampling to capture CPU stack traces during load testing.  
 
-4. **Application-level resilience**: Modify the Flask app to handle timeouts and provide fallback responses when backend services are delayed by chaos injections.  
+4. **FlameGraph visualization**:  
+   - Collect profiling data with `perf` or `bpftrace`.  
+   - Convert stack traces into folded format and generate an interactive `flamegraph.svg` using Brendan Gregg’s FlameGraph toolkit.  
+   - Observe which functions and code paths consume the most CPU time.  
 
-5. **Iterative improvement**: Compare “before vs after” conditions, highlighting how redundancy, self-healing, and graceful degradation improve system reliability.  
+5. **Before vs After comparison**:  
+   - Show how traditional monitoring only reveals high-level metrics.  
+   - Demonstrate how eBPF + FlameGraph provides deep, actionable insights into performance bottlenecks.  
 
-This tutorial will be delivered through [KillerKoda](https://killercoda.com), using Docker Playground to safely run chaos experiments.  
+The tutorial will be delivered on [KillerKoda](https://killercoda.com), using Linux playgrounds that support Docker, bpftrace, and perf tools.  
 
-## Relevance
+**Relevance**
 
-Chaos Engineering is a key practice in **Site Reliability Engineering (SRE)**. By deliberately introducing controlled failures, teams can identify weaknesses early and build systems that remain reliable under stress. This tutorial highlights the transition from a fragile single-container system to a resilient multi-container setup, aligning with real-world practices for designing reliable, fault-tolerant cloud-native applications.  
+Observability and performance profiling are critical aspects of DevOps and Site Reliability Engineering (SRE). This tutorial introduces students to modern, cutting-edge techniques using **eBPF**, which is increasingly adopted in production environments for performance debugging, security, and monitoring.  
+
+By combining eBPF with **FlameGraph visualization**, learners can bridge the gap between raw system-level tracing and intuitive performance insights, aligning with DevOps principles of continuous improvement and operational excellence.
