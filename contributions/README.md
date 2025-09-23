@@ -42,3 +42,17 @@ General Intro about the course.
 13. [Demo: How to easily deploy Docker images to Amazon AWS using GitHub Actions and Docker Hub](https://github.com/KTH/devops-course/tree/2025/contributions/demo/week3/adammeh-rifat) - Demo
 14. [Multi-Cloud Deployments for Fault Tolerant Systems](https://github.com/KTH/devops-course/tree/2025/contributions/presentation/week3/matcov-thees) - Presentation
 15. [CD Using Elixir/Erland Hot Code Swapping and Github self-hosted Runner](https://github.com/KTH/devops-course/tree/2025/contributions/demo/week3/edwinahl-ekanerva) - Demo
+
+### Week 4
+
+1. [MCP: Integrating LLMs into DevOps Workflows](https://github.com/KTH/devops-course/tree/2025/contributions/presentation/week4/aldenbro-vinlag) - Presentation
+2. [AIOps-Driven Alert Management for your project using Keep](https://github.com/KTH/devops-course/tree/2025/contributions/demo/week4/guwallin-vitell) - Demo 
+3. [Prediction-based Anomaly Detection using AIOps](https://github.com/KTH/devops-course/tree/2025/contributions/presentation/week4/herdi-frkg) - Presentation 
+4. [Presentation of Scientific Paper: "A fault injection platform for learning AIOps models"](https://github.com/KTH/devops-course/tree/2025/contributions/scientific-paper/week4/thees-tiar) - Scientific Paper 
+5. [Data Validation with TensorFlow and k-NN](https://github.com/KTH/devops-course/tree/2025/contributions/presentation/week4/whed-jsundma) - Presentation 
+6. [DeepTest: Automated Testing of Deep-Neural-Network-driven Autonomous Cars](https://github.com/KTH/devops-course/pull/2767) - Scientific Paper
+7. [Blue-Green Deployment of AI Models Based on MLflow](https://github.com/KTH/devops-course/tree/2025/contributions/demo/week4/hanzhizh-xzuo) - Demo 
+8. [Poisoning Web-Scale Training Datasets is Practical](https://github.com/KTH/devops-course/tree/2025/contributions/scientific-paper/week4/sawai-anicak) - Scientific Paper 
+9. [The challenges of LLMops and how to solve them using Langsmith](https://github.com/KTH/devops-course/tree/2025/contributions/presentation/week4/gjenner-ahmadak) - Presentation 
+10. [On the Understandability of MLOps System Architectures](https://github.com/KTH/devops-course/tree/2025/contributions/scientific-paper/week4/phoebes-sedv) - Scientific Paper 
+11. [Week 4 Demo (MLOps): Reproducible Machine Learning with DVC](https://github.com/KTH/devops-course/tree/2025/contributions/demo/week4/ismmoh-abibr) - Demo 
