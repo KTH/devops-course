@@ -2,7 +2,7 @@
 
 ## Title
 
-Container Vulnerability Scanning and Remediation with Trivy and GitHub Actions
+Chaos Engineering with Pumba: Building Fault-Tolerant Containerized Applications
 
 ## Names and KTH ID
 
@@ -11,28 +11,30 @@ Container Vulnerability Scanning and Remediation with Trivy and GitHub Actions
 
 ## Deadline
 
-- Task 3
+- Task 3  
 
 ## Category
 
-- Executable tutorial
+- Executable tutorial  
 
 ## Description
 
-Ensuring container security is a critical part of DevSecOps practices. In this tutorial, we want to use [Trivy](https://aquasecurity.github.io/trivy) and GitHub Actions to demonstrate the following scenario:
+This executable tutorial demonstrates how to apply **Chaos Engineering** in containerized environments to improve system **fault tolerance** and **resilience**. Using [Pumba](https://github.com/alexei-led/pumba), a chaos testing tool for Docker, learners will inject controlled failures (random restarts, network delays, resource stress) into a containerized web application, and then gradually enhance the system to withstand these disruptions.  
 
-1. **Build a vulnerable Docker container** with outdated dependencies (e.g., `lodash@4.17.15`), scan it with Trivy, and observe vulnerabilities being reported.
-   
-2. **Remediate the vulnerabilities** by updating dependencies (e.g., upgrading `lodash` and `cross-spawn`) and rebuilding the container. Then, scan again with Trivy to confirm that vulnerabilities are fixed or reduced.
+The tutorial will guide users through the following scenario:
 
-3. **Handle unfixable vulnerabilities** (e.g., `zlib1g` with `CVE-2023-45853`) by using Trivy flags such as `--ignore-unfixed` or `.trivyignore`. This highlights the reality that not all vulnerabilities have patches and shows how to configure scanning policies.
+1. **Baseline setup**: Run a single-container Flask web application. Inject chaos (kill/restart, latency) with Pumba and observe how the service becomes unavailable.  
 
-4. **Integrate vulnerability scanning into CI/CD** using GitHub Actions. We configure a workflow that automatically builds images and runs Trivy scans, failing the pipeline if `HIGH` or `CRITICAL` vulnerabilities are found.
+2. **Redundancy with multiple replicas**: Deploy multiple web containers behind an NGINX load balancer. Repeat the chaos experiments and see how the system remains available despite single-container failures.  
 
-With this tutorial, we want to highlight the **before (vulnerable)** vs **after (remediated)** condition, and demonstrate how vulnerability scanning becomes part of an automated DevSecOps workflow. We plan to deliver our tutorial on [KillerCoda](https://killercoda.com).
+3. **Self-healing with restart policies**: Enable Docker restart policies so containers automatically recover after being killed by Pumba. Demonstrate improved resilience.  
 
-Trivy is chosen in the tutorial as an open-source, lightweight, and widely used vulnerability scanner for containers, file systems, and Infrastructure-as-Code (IaC).
+4. **Application-level resilience**: Modify the Flask app to handle timeouts and provide fallback responses when backend services are delayed by chaos injections.  
 
-**Relevance**
+5. **Iterative improvement**: Compare “before vs after” conditions, highlighting how redundancy, self-healing, and graceful degradation improve system reliability.  
 
-Vulnerability management is central to DevSecOps because it ensures that insecure dependencies are detected early, developers can remediate issues quickly, and CI/CD pipelines enforce security gates. This aligns security scanning with continuous delivery workflows and raises awareness about both remediable and unfixable vulnerabilities in containerized applications.
+This tutorial will be delivered through [KillerKoda](https://killercoda.com), using Docker Playground to safely run chaos experiments.  
+
+## Relevance
+
+Chaos Engineering is a key practice in **Site Reliability Engineering (SRE)**. By deliberately introducing controlled failures, teams can identify weaknesses early and build systems that remain reliable under stress. This tutorial highlights the transition from a fragile single-container system to a resilient multi-container setup, aligning with real-world practices for designing reliable, fault-tolerant cloud-native applications.  
