@@ -26,10 +26,12 @@ The hands-on tutorial will include:
 - Demonstrating the complete scan-fail-fix-pass cycle
 - Creating security reports and vulnerability management workflows
 
-The tutorial will be delivered through KillerKoda platform.
+You can find our tutorial under this link: [https://killercoda.com/devsecops-tutorial/scenario/killerkoda-tutorial](https://killercoda.com/devsecops-tutorial/scenario/killerkoda-tutorial) <br>
+
+We have also implemented this in GitHub, and have a 7 Step Actions configured using GitHub Actions, which you can find here: https://github.com/anica279p/devsecops-pipeline-tutorial/actions/runs/17978006810
 
 **Relevance**
-This tutorial addresses a critical need in modern DevOps practices where security integration (DevSecOps) has become essential for organizational resilience. 
+This tutorial addresses a critical need in modern DevOps practices where security integration (DevSecOps) has become essential for organisational resilience. 
 
 The security approach demonstrated in this tutorial is fundamental to DevOps methodology, where security checks are integrated early in the development lifecycle rather than being an afterthought. This aligns with core DevOps principles of automation, continuous integration, and early feedback loops.
 
