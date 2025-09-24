@@ -2,7 +2,7 @@
 
 ## Title
 
-  - The Seven Sins: Security Smells in Infrastructure as Code Scripts
+  - Control and Data Flow in Security Smell Detection for Infrastructure as Code: Is It Worth the Effort?
 
 ## Names and KTH ID
 
