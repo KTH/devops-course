@@ -19,8 +19,10 @@
 
 ## Description
 
-We intend to present the paper "The Seven Sins: Security Smells in Infrastructure as Code Scripts" published in "2019 IEEE/ACM 41st International Conference on Software Engineering (ICSE)". The paper looks into security flaws in infrastructure as code (IaC) scripts. The process that the paper follows is that they apply qualitative analysis on Iac Scripts before using a static analysis tool to identify any security smells. They then proceed to submit bug reports on the security smells that they find.
+We intend to present the paper "Control and Data Flow in Security Smell Detection for Infrastructure as Code: Is It Worth the Effort?" published in "2023 IEEE/ACM". This paper investigates the detection of security smells—bad practices that may lead to vulnerabilities—in IaC scripts. The authors propose GASEL, a detector based on Program Dependence Graphs (PDGs). Security smells are identified using graph queries over these PDGs. Additionally, the paper conducts an evaluation on a curated oracle of 243 real-world smells and a dataset of 15,000+ Ansible scripts.
+
+Paper link: https://ieeexplore.ieee.org/abstract/document/10174011
 
 **Relevance**
 
-This paper is relevant to DevSecOps as it ensures security through qualitative analysis to identify "security smells", being common patterns for security weaknesses. This is relevant and important to avoid writing code that follows such risky patterns while writing IaC scripts.
+This paper is relevant to DevSecOps as it ensures security by addressing "security smells" in IaC, being common patterns for security flaws. This is relevant and important to avoid writing insecure code that follows such risky patterns while writing IaC scripts.
