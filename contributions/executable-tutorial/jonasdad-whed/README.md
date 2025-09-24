@@ -24,3 +24,6 @@ This executable tutorial will guide the user through setting up Snort, an open-s
 **Relevance**
 
 Terraform is one of the most widely used tools in modern DevOps that allows its users to build, modify and version your digital infrastructure in a safe and efficient manner. Integrating it with an IDS (Snort) and SIEM setup (Splunk) allows for quick deployment of network monitoring, showcasing the practical aspects of IaC. We don't see this as DevSecOps-related, but rather keeping it related to our masters programme.
+
+**Hand-in**
+Tutorial can be found at https://killercoda.com/jonasdaderman/scenario/tutorial
