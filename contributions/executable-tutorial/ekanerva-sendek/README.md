@@ -2,7 +2,7 @@
 
 ## Title
 
-CI/CD Security with Node.js: Detecting and Fixing Vulnerable Packages
+Executable Tutorial: Using Tsunami to discover vulnerable applications
 
 ## Names and KTH ID
 
@@ -19,15 +19,10 @@ CI/CD Security with Node.js: Detecting and Fixing Vulnerable Packages
 
 ## Description
 
-This tutorial will have you working in a small Node.js application that uses `npm` to manage its dependencies. 
-- Analyze the dependency tree using `npm audit`, including transitive dependencies, to identify vulnerabilities.
-- Fix vulnerable packages and implement dependency pinning to prevent future issues.
-- Integrate automated auditing into a CI/CD pipeline, simulating continuous monitoring for new vulnerabilities.
+This tutorial will introduce Google’s Tsunami security scanner through a KillerCoda tutorial, show  how it can be set up and used to scan an endpoint for advanced vulnerabilities.
 
-Throughout the tutorial, you will be working in an interactive Killercoda environment, allowing you to practice these DevOps security techniques hands-on without needing to set up anything locally.
-By the end, you will understand how to maintain secure dependencies, detect vulnerabilities early, and apply DevOps principles to continuously safeguard your projects.
+The flow of the tutorial will be to first set up Tsunami and a vulnerable server. Then Tsunami will be used to scan the vulnerable server for its vulnerabilities, inspecting the output. Subsequently the server will be updated to a non-vulnerable version, to show that Tsunami will no longer detect the vulnerability, as it has been removed. Then finally demonstrate how Tsunami could be integrated into a CI/CD pipeline, so scans are automatically triggered during builds or deployment.
 
 **Relevance**
 
-This tutorial is relevant to DevOps because it teaches how to manage and secure software dependencies within a CI/CD pipeline. 
-By auditing packages, fixing vulnerabilities, and implementing automated monitoring, students learn how to maintain reliable and secure software delivery
+This is relevant for DevOps and DevSecOps as integrating with a CI pipeline would allow for checking the system for possible vulnerabilities before it ever reaches deployment. This means vulnerabilities that could make their way to the deployment systems are caught as early as possible, which is a core component of DevSecOps.
