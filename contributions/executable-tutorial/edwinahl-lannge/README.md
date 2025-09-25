@@ -1,8 +1,7 @@
 # Assignment Proposal
 
 ## Title
-
-Securing a vulnerable dockerfile
+Storing secrets locally using OpenBao
 
 ## Names and KTH ID
 
@@ -16,8 +15,15 @@ Securing a vulnerable dockerfile
 - Executable tutorial
 
 ## Description
-This project creates an interactive Killercoda tutorial where students learn DevSecOps practices by analyzing and fixing a deliberately insecure Dockerfile. The tutorial begins by providing a suspicious Dockerfile that contains common security flaws, they are then tasked with finding the flaws using both tools such as trivy and analyzing on their own, lastly they are tasked with fixing the flaws.
+The tutorial teaches how to setup and store secrets locally in an OpenBao container. The steps taken during the tutorial are: 
+1. Access a database using a password stored as plaintext in a python program
+2. Scan the python file using detect-secrets (pip module)
+3. Setup OpenBao docker container
+4. Store secret in OpenBao
+5. Update the python program to use the secret from OpenBao instead of plaintext
 
 **Relevance**
-Containers are central to modern DevOps pipelines, but insecure Dockerfiles can introduce vulnerabilities such as docker container escapes like CVE-2025-9074. This project teaches how to identify, understand, and fix common container security issues.
+In terms of DevSecOps, security must be managed by the team developing the product. By using OpenBao as a local docker container, a team can manage secrets safely and locally.
+
+
 
