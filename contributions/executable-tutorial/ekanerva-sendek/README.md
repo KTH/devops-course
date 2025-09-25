@@ -23,6 +23,7 @@ This tutorial will have you working in a small Node.js application that uses `np
 - Analyze the dependency tree using `npm audit`, including transitive dependencies, to identify vulnerabilities.
 - Fix vulnerable packages and implement dependency pinning to prevent future issues.
 - Integrate automated auditing into a CI/CD pipeline, simulating continuous monitoring for new vulnerabilities.
+
 Throughout the tutorial, you will be working in an interactive Killercoda environment, allowing you to practice these DevOps security techniques hands-on without needing to set up anything locally.
 By the end, you will understand how to maintain secure dependencies, detect vulnerabilities early, and apply DevOps principles to continuously safeguard your projects.
 
