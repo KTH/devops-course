@@ -20,5 +20,5 @@ The paper’s goals are mainly two: the first one is to provide the first system
 
 - *Link to article*: (https://ieeexplore.ieee.org/document/11029857)
 
-## Relevance
+Relevance
 The paper is relevant to DevOps and DevSecOps as it highlights critical risks in dependency management within CI/CD pipelines.
