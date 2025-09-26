@@ -5,8 +5,9 @@
 ## Names and KTH ID  
 - yvdal@kth.se  
 - sibergl@kth.se
+
 ## Deadline  
-**Week 6**
+**Task 3**
 
 
 ## Category  
