@@ -26,7 +26,7 @@ Participants will learn how to:
 The aim is to demonstrate how these three different approaches can be applied to handle dependency management in Python. This tutorial will be executed in **Google Colab**.
 
 
-# Relevance  
+### Relevance  
 From a DevOps perspective, effective dependency management is essential for reproducible builds, faster CI/CD pipelines, and reliable deployments. Using **requirements.txt**, **UV**, and **Poetry** enables version-controlled and automated environments, ensuring consistency across development, testing, and production.  
 
 This approach mirrors industry DevOps practices and supports scalable, maintainable, and production-ready Python applications. By working through our tutorial, users will gain experience with three different approaches and understand their impact on DevOps practices. With this experience, users can make an informed decision on which tool best fits the pipelines they are working with.
