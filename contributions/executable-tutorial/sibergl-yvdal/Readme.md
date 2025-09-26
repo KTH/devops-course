@@ -1,23 +1,17 @@
 # Title  
 **Reproducible Python Environments in DevOps: Comparing Pip, Poetry and UV**
 
----
 
 ## Names and KTH ID  
 - yvdal@kth.se  
-- sibergl@kth.se  
-
----
-
+- sibergl@kth.se
 ## Deadline  
 **Week 6**
 
----
 
 ## Category  
 **Tutorial**
 
----
 
 ## Description  
 This tutorial introduces three different approaches to Python dependency management — **requirements.txt**, **UV**, and **Poetry** — all within a Google Colab environment.  
@@ -29,7 +23,6 @@ Participants will learn how to:
 
 The aim is to demonstrate how these three different approaches can be applied to handle dependency management in Python. This tutorial will be executed in **Google Colab**.
 
----
 
 ## Relevance  
 From a DevOps perspective, effective dependency management is essential for reproducible builds, faster CI/CD pipelines, and reliable deployments. Using **requirements.txt**, **UV**, and **Poetry** enables version-controlled and automated environments, ensuring consistency across development, testing, and production.  
