@@ -31,3 +31,7 @@ Configuration are the backbone of DevOps operations as they specify parameters o
 **Sources**
 - https://github.com/KTH/devops-course/issues/2#issuecomment-1096288439
     - https://docs.dhall-lang.org/index.html
+
+**Tutorial Link**\
+Tutorial: https://killercoda.com/davald/scenario/dhall-scenario \
+Repo: https://github.com/aldenbro/dhall-tutorial

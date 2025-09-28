@@ -28,3 +28,7 @@ showcase this executable tutorial.
 **Relevance**
 
 pip-audit is a tool that scans your packages for known vulnerabilities and can also propose version changes to upgrade vulnerable packages to newer versions. Security scanning is very relevant to devops, as we have seen in recent weeks, with the multiple attacks and subsequent vulnerabilities on npm. This acts as an early vulnerability detection in the DevSecOps cycle.
+
+**Links to executable tutorial** \
+Killercoda link: https://killercoda.com/volcanocookies/scenario/pip-audit \
+Github repository: https://github.com/VolcanoCookies/devops-executable-tutorial

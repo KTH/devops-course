@@ -30,4 +30,5 @@ In this tutorial, we will demonstrate Chaos Engineering on a Kubernetes cluster.
 In DevOps, ensuring the high availability and resilience of services is crucial. Chaos Engineering provides a structured way to verify that systems behave as expected under failure conditions. By running controlled chaos experiments, teams can uncover vulnerabilities before they affect real users.
 
 
-This tutorial is hosted on killercoda: https://killercoda.com/devops-tutorial-task2/scenario/pod-failure
+Link to killercoda tutorial: https://killercoda.com/devops-tutorial-task2/scenario/pod-failure
+Link to github repo: https://github.com/adammeh/chaos-engineering-tutorial
