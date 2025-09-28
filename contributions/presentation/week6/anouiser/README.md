@@ -7,7 +7,6 @@ Obfuscation as Security by Obscurity
 ## Names and KTH ID
 
   - Amin Nouiser (anouiser@kth.se)
-  - Student name 2 (student321@kth.se)
 
 ## Deadline
 
