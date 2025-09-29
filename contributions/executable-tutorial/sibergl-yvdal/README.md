@@ -8,11 +8,11 @@
 - Simon Berglund (sibergl@kth.se)
 
 ## Deadline  
-**Task 3**
+- **Task 3**
 
 
 ## Category  
-**Tutorial**
+- **Tutorial**
 
 
 ## Description  
