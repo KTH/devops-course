@@ -73,3 +73,16 @@ General Intro about the course.
 12. [Fear No More, we got Loadbalancing at our Core](https://github.com/KTH/devops-course/tree/2025/contributions/demo/week5/viktorrn-sedv) - Demo
 13. [Coolify as Declarative Infrastructure as Code: Simplifying DevOps for Small Teams](https://github.com/KTH/devops-course/tree/2025/contributions/presentation/week5/abibr-ismmoh) - Presentation
 14. [Policy-as-Code for IaC: Enforcing Security, Compliance and Cost Control with Open Agent Policy (OPA)](https://github.com/KTH/devops-course/pull/2724) - Demo
+
+### Week 6 
+
+1. [Cargo - Rust's Powerful Dependency & Package Manager](https://github.com/KTH/devops-course/tree/2025/contributions/demo/week6/jonasdad-saskin) - Demo
+2. [Presentation of the scientific paper "Understanding and Detecting Peer Dependency Resolving Loop in npm Ecosystem".](https://github.com/KTH/devops-course/tree/2025/contributions/scientific-paper/week6/acoli-cocco) - Scientific Paper
+3. [Prevent malicious attacks from LLMs](https://github.com/KTH/devops-course/tree/2025/contributions/demo/week6/fhsu-bingjiez) - Demo
+4. [Standardizing and Securing your Secrets Management](https://github.com/KTH/devops-course/tree/2025/contributions/presentation/week6/mathm-kevinwe) - Presentation
+5. [Control and Data Flow in Security Smell Detection for Infrastructure as Code: Is It Worth the Effort?](https://github.com/KTH/devops-course/tree/2025/contributions/scientific-paper/week6/adammeh-birgerk) - Scientific Paper
+6. [How Kusari provides Supply Chain Security](https://github.com/KTH/devops-course/tree/2025/contributions/presentation/week6/leo3-solanes) - Presentation
+7. [Automated Threat Detection and Response in Azure DevSecOps using Microsoft Sentinel](https://github.com/KTH/devops-course/tree/2025/contributions/demo/week6/sawai-valganon) - Demo
+8. [Shifting Security Left in DevOps: Container Vulnerability Scanning with Trivy](https://github.com/KTH/devops-course/tree/2025/contributions/presentation/week6/hanzhizh-xzuo) - Presentation
+
+   
