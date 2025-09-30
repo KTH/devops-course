@@ -22,7 +22,9 @@ Keeping track of third party and bloated dependencies using Dependabot
 
 ## Description
 
-In this presentation we will explain why having too many unchecked third party dependencies in a project poses a security risk, especially for automated DevOps pipelines, and bring up some well-documented incidents as examples. We will then explain how Dependabot works and why incorporating it into your workflow or pipeline can help mitigate the risk.
+In this presentation we will explain why having too many unchecked third party dependencies in a project poses a security risk (supply chain attack), especially for automated DevOps pipelines, and briefly go over the [SolarWinds Orion attack](https://www.encryptionconsulting.com/solarwinds-should-security-live-in-infosec-or-devops/) and MOVEIt supply chain attack as examples.
+
+We will then present Dependabot, an automated tool from GItHub that can continuously scan dependencies for known vulnerabilities and/or new available updates, and automatically create alerts and pull requests in your repository to notify that an update is needed. We will explain how it can be configured, and why incorporating it into your workflow or pipeline can help mitigate the risk of supply chain attacks.
 
 **Relevance**
 
