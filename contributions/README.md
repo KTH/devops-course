@@ -84,5 +84,6 @@ General Intro about the course.
 6. [How Kusari provides Supply Chain Security](https://github.com/KTH/devops-course/tree/2025/contributions/presentation/week6/leo3-solanes) - Presentation
 7. [Automated Threat Detection and Response in Azure DevSecOps using Microsoft Sentinel](https://github.com/KTH/devops-course/tree/2025/contributions/demo/week6/sawai-valganon) - Demo
 8. [Shifting Security Left in DevOps: Container Vulnerability Scanning with Trivy](https://github.com/KTH/devops-course/tree/2025/contributions/presentation/week6/hanzhizh-xzuo) - Presentation
+9. [Keeping track of third party and bloated dependencies using Dependabot](https://github.com/KTH/devops-course/pull/2874)
 
    
