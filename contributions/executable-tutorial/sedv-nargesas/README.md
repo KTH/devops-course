@@ -7,7 +7,7 @@ Blue-Green Deployment with Automated Smoke Tests
 ## Names and KTH ID
 
   - Sofia Edvardsson (sedv@kth.se)
-  - Student name 2 (student321@kth.se)
+  - Narges Asadnajafi (nargesas@kth.se)
 
 ## Deadline
 
