@@ -7,7 +7,7 @@ The title of your proposal
 ## Names and KTH ID
 
   - Somaiya Abdulrahman (somaiya@kth.se)
-  - Student Name (student@kth.se)
+  - Kevin Wenström (kevinwe@kth.se)
  
 
 ## Deadline
