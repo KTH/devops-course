@@ -2,7 +2,7 @@
 
 ## Title
 
-The title of your proposal
+Crash report mining for bug fixing in practice: a paper
 
 ## Names and KTH ID
 
