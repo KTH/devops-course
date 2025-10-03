@@ -47,3 +47,5 @@ The tutorial will be delivered on [KillerKoda](https://killercoda.com), using Li
 Observability and performance profiling are critical aspects of DevOps and Site Reliability Engineering (SRE). This tutorial introduces students to modern, cutting-edge techniques using **eBPF**, which is increasingly adopted in production environments for performance debugging, security, and monitoring.  
 
 By combining eBPF with **FlameGraph visualization**, learners can bridge the gap between raw system-level tracing and intuitive performance insights, aligning with DevOps principles of continuous improvement and operational excellence.
+
+Tutorial Link: https://killercoda.com/dazhi/scenario/my-ebpf-tutorial
