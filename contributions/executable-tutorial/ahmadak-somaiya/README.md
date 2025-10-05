@@ -51,4 +51,4 @@ CI/CD is a key part of modern DevOps. It helps teams get quick feedback, lower t
 
 Link to executable tutorial:  https://gitlab.com/devops5350336/DD2482_demo/-/tree/executable_tutorial?ref_type=heads 
 
-To access the “Binder Launch” button, the user must open the tutorial.md file. 
+To access the “Binder Launch” button, the user must open the tutorial.md file.
