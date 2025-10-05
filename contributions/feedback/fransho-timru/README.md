@@ -19,4 +19,4 @@ Feedback on Presentation - The challenges of LLMops and how to solve them using 
 
 ## Description
 
-Feedack given to #2784.
+Feedback comment can be found here: [link to feedback](https://github.com/KTH/devops-course/pull/2784#issuecomment-3298740635).

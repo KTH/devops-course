@@ -40,3 +40,6 @@ In this tutorial we want you to learn how to use MLFlow to ensure reproducibilit
 In MLOps, being able to reproduce experiments (with the same conditions) and look back on logs is critical for both collaboration and model reliability. Machine learning workflows often involve running many experiments with different hyperparameters, data preprocessing steps, or model architectures. Without proper tracking, results can easily get lost, making it difficult to determine which configuration performed best or to reproduce a prior experiment. MLflow addresses these challenges by providing a unified platform to log parameters, metrics, artifacts, and even code versions for each experiment. This allows teams to re-run experiments, compare results, and systematically track the evolution of models over time.
 
 **Source**: https://mlflow.org/
+
+**Submission link**: https://colab.research.google.com/drive/1D3MaKxnX-6ndn4XQE0J2AKT34jvy_DyW#scrollTo=C-s38Xq8uVia
+
