@@ -56,3 +56,34 @@ General Intro about the course.
 9. [The challenges of LLMops and how to solve them using Langsmith](https://github.com/KTH/devops-course/tree/2025/contributions/presentation/week4/gjenner-ahmadak) - Presentation 
 10. [On the Understandability of MLOps System Architectures](https://github.com/KTH/devops-course/tree/2025/contributions/scientific-paper/week4/phoebes-sedv) - Scientific Paper 
 11. [Week 4 Demo (MLOps): Reproducible Machine Learning with DVC](https://github.com/KTH/devops-course/tree/2025/contributions/demo/week4/ismmoh-abibr) - Demo 
+
+### Week 5
+
+1. [Common Defects in Infrastructure as Code: The "Gang of Eight"](https://github.com/KTH/devops-course/tree/2025/contributions/presentation/week5/fhsu-bingjiez) - Presentation
+2. [Spin It Up, Shut It Down On-Demand Staging with IaC](https://github.com/KTH/devops-course/tree/2025/contributions/demo/week5/acoli-dsami) - Demo
+3. [Presentation of the scientific paper "Toward a catalog of software quality metrics for infrastructure code."](https://github.com/KTH/devops-course/tree/2025/contributions/scientific-paper/week5/fransho-timru) - Scientific Paper
+4. [Terraform and Terraform Docs Demo](https://github.com/KTH/devops-course/tree/2025/contributions/demo/week5/gjenner-phoebes) - Demo
+5. [Automated Minecraft Server Deployment and Monitoring with Terraform](https://github.com/KTH/devops-course/tree/2025/contributions/demo/week5/sendek-lannge) - Demo
+6. [Disaster Recovery using Terraform and the Pilot Light Strategy in a Multi-Cloud Environment](https://github.com/KTH/devops-course/tree/2025/contributions/demo/week5/thees-matcov) - Demo
+7. [Deploy your infrastructure declaratively using Nix and NixOS](https://github.com/KTH/devops-course/tree/2025/contributions/presentation/week5/guwallin-vitell) - Presentation
+8. [ClickOps and how it can hurt IaC through configuration drift](https://github.com/KTH/devops-course/tree/2025/contributions/presentation/week5/edwinahl-ekanerva) - Presentation
+9. [Compliant Ephemeral Environments with IaC](https://github.com/KTH/devops-course/tree/2025/contributions/demo/week5/kohsuke-puta) - Demo
+10. [Pulumi: Modern Infrastructure as Code for DevOps](https://github.com/KTH/devops-course/tree/2025/contributions/presentation/week5/rezahos-ajfr2) - Presentation
+11. [AWS CloudFormation: Infrastructure as Code for DevOps Efficiency](https://github.com/KTH/devops-course/tree/2025/contributions/presentation/week5/nargesas-somaiya) - Presentation
+12. [Fear No More, we got Loadbalancing at our Core](https://github.com/KTH/devops-course/tree/2025/contributions/demo/week5/viktorrn-sedv) - Demo
+13. [Coolify as Declarative Infrastructure as Code: Simplifying DevOps for Small Teams](https://github.com/KTH/devops-course/tree/2025/contributions/presentation/week5/abibr-ismmoh) - Presentation
+14. [Policy-as-Code for IaC: Enforcing Security, Compliance and Cost Control with Open Agent Policy (OPA)](https://github.com/KTH/devops-course/pull/2724) - Demo
+
+### Week 6 
+
+1. [Cargo - Rust's Powerful Dependency & Package Manager](https://github.com/KTH/devops-course/tree/2025/contributions/demo/week6/jonasdad-saskin) - Demo
+2. [Presentation of the scientific paper "Understanding and Detecting Peer Dependency Resolving Loop in npm Ecosystem".](https://github.com/KTH/devops-course/tree/2025/contributions/scientific-paper/week6/acoli-cocco) - Scientific Paper
+3. [Prevent malicious attacks from LLMs](https://github.com/KTH/devops-course/tree/2025/contributions/demo/week6/fhsu-bingjiez) - Demo
+4. [Standardizing and Securing your Secrets Management](https://github.com/KTH/devops-course/tree/2025/contributions/presentation/week6/mathm-kevinwe) - Presentation
+5. [Control and Data Flow in Security Smell Detection for Infrastructure as Code: Is It Worth the Effort?](https://github.com/KTH/devops-course/tree/2025/contributions/scientific-paper/week6/adammeh-birgerk) - Scientific Paper
+6. [How Kusari provides Supply Chain Security](https://github.com/KTH/devops-course/tree/2025/contributions/presentation/week6/leo3-solanes) - Presentation
+7. [Automated Threat Detection and Response in Azure DevSecOps using Microsoft Sentinel](https://github.com/KTH/devops-course/tree/2025/contributions/demo/week6/sawai-valganon) - Demo
+8. [Shifting Security Left in DevOps: Container Vulnerability Scanning with Trivy](https://github.com/KTH/devops-course/tree/2025/contributions/presentation/week6/hanzhizh-xzuo) - Presentation
+9. [Keeping track of third party and bloated dependencies using Dependabot](https://github.com/KTH/devops-course/pull/2874)
+
+   

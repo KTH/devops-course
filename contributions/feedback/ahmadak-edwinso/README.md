@@ -19,4 +19,4 @@ Feedback on Scientific paper - Poisoning Web-Scale Training Datasets is Practica
 
 ## Description
 
-We would like to review the scientific paper [#2747](https://github.com/KTH/devops-course/pull/2747) and give feedback on it.
+We have reviewed and gave feedback to [#2747](https://github.com/KTH/devops-course/pull/2747).
