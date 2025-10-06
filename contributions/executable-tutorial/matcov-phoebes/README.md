@@ -32,3 +32,7 @@ The tutorial will be delivered through KillerCoda platform in 4 steps: introduct
 **Relevance**
 
 This tutorial addresses a critical aspect of modern DevOps: infrastructure security integration throughout the development lifecycle. With 95% of cloud security breaches being preventable through proper configuration management, implementing IaC security scanning has become essential for DevOps teams. The approach demonstrates core DevOps principles of automation, continuous integration, and shift-left practices by catching security issues early in the infrastructure provisioning process rather than after deployment.
+
+**Deliverables**
+* Tutorial: https://killercoda.com/alexmatcov/scenario/tutorial
+* Repo: https://github.com/alexmatcov/infrastructure-security-tutorial
