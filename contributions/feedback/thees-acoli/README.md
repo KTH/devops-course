@@ -11,7 +11,7 @@ Feedback: [Scientific Papers Task Proposal: Chaos Engineering](https://github.co
 
 ## Deadline
 
-- Week 7
+- task 3
 
 ## Category
 
