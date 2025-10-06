@@ -19,5 +19,4 @@ Feedback for Executable Tutorial
 
 ## Description
 
-We have given feedback to PROPOSAL. The feedback is HERE. 
-
+We have given feedback to #2881. The feedback is [HERE](https://github.com/KTH/devops-course/pull/2881#issuecomment-3371758152). 
