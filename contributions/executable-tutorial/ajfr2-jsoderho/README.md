@@ -32,3 +32,6 @@ This stack will monitor a simple Flask application. We will put the app under di
 **Relevance**
 
 Container observability is essential in DevOps for understanding service performance. This tutorial uses cAdvisor to provide low-level data about container resource use, which is important for using resources smartly, identifying problems, and ensuring apps run optimally.
+
+**Link to tutorial**
+You can find our finished tutorial [here](https://killercoda.com/john-default/scenario/tutorial)
