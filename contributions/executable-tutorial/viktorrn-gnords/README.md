@@ -33,3 +33,7 @@ This tutorial is relevant because it will introduce the concept of Imperative vs
 
 The tutorial will compare strengths and weaknesses of imperative Docker CLI compared to declarative Docker Compose and then argue for why you and when you might need to further enhance the setup Infrastructure as Code using Terraform. This tutorial is designed to give the user a practical introduction to these topics and to demonstrate how they differ in practice.
 
+**Hand-in**
+
+The tutorial can be found at [From Imperative to Declarative: Stabilize a Docker Test Server with Terraform
+](https://killercoda.com/gnords/scenario/scenario).

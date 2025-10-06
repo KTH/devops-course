@@ -23,3 +23,6 @@ In this tutorial, we will train a simple machine learning model on the Iris data
 
 **Relevance**
 This is relevant to MLOps because it demonstrates one important principle: making the ML model available as a reliable, reproducible service. Like how DevOps ensures that software applications are deployed to production, MLOps does the same for machine learning by deploying models, data and/or predictions.
+
+- Link to tutorial on [KillerCoda](https://killercoda.com/hexakon/scenario/example-scenario)
+- Link to code on [GitHub](https://github.com/lindanycander/devops-tutorial)
