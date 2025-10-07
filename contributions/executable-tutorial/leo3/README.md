@@ -24,7 +24,7 @@ The tutorial will be hosted on a platform like mybinder.org, providing a browser
 
 This tutorial provides hands-on experience with building an automated security response system that integrates web services and containerization. 
 
-## Relevance
+** Relevance **
 This proposal is relevant to DevOps and DevSecOps by demonstrating an automated and "as-code" approach to security operations: 
 
 * **Automation of Complex Workflows:** It automates a complete workflow from trigger to response, which showcases automation.
