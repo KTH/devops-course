@@ -90,7 +90,7 @@ General Intro about the course.
 
 1. [Week 7 Scientific Paper: Monitoring Tools for DevOps and Microservices](https://github.com/KTH/devops-course/tree/2025/contributions/scientific-paper/week7/abibr-zhongmin) - Scientific Paper
 2. [Scientific Paper Presentation: Chaos Engineering](https://github.com/KTH/devops-course/tree/2025/contributions/scientific-paper/week7/edwinso-matcov) - Scientific Paper
-3. [Crash report mining for bug fixing in practice: a paper](https://github.com/KTH/devops-course/tree/2025/contributions/scientific-paper/week7/kevinwe-somaiya)
+3. [Crash report mining for bug fixing in practice: a paper](https://github.com/KTH/devops-course/tree/2025/contributions/scientific-paper/week7/kevinwe-somaiya) - Scientific Paper
 4. [Detecting Secrets Early: A Hands-On SonarQube Demo](https://github.com/KTH/devops-course/tree/2025/contributions/demo/week7/nargesas-vlaskamp) - Demo
 5. ["A Roadmap for Integrating Sustainability into Software Engineering Education" with a focus on DevOps](https://github.com/KTH/devops-course/tree/2025/contributions/scientific-paper/week7/fhsu-puta) - Scientific Paper
 6. [Scientific paper: DevOps Research-Based Teaching Using Qualitative Research and Inter-Coder Agreement](https://github.com/KTH/devops-course/tree/2025/contributions/scientific-paper/week7/guwallin-ismmoh) - Scientific Paper
