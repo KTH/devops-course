@@ -4,8 +4,8 @@
 Event-Driven Security: A Containerized SOAR Tutorial with Flask, Ansible, and Docker
 
 ## Names and KTH ID
-Leo Hansson Åkerberg (leo3@kth.se)
-TBD (Talked to Larissa about this. Have not found a partner. If you are interested, let me know via my mail address above!)
+- Leo Hansson Åkerberg (leo3@kth.se)
+
 
 ## Deadline
 Task 3
