@@ -39,4 +39,4 @@ Managing secrets is central to DevSecOps because it reduces the risk of credenti
 
 **Link to tutorial**
 
-The tutorial can be access here: [https://killercoda.com/noizy-sthlm/scenario/scenario](https://killercoda.com/noizy-sthlm/scenario/scenario)
+The tutorial can be accessed here: [https://killercoda.com/noizy-sthlm/scenario/scenario](https://killercoda.com/noizy-sthlm/scenario/scenario)
