@@ -34,3 +34,5 @@ Steps of the tutorial:
 
 This tutorial is relevant to this course, since it is a crucial part of the DevOps lifecycle, and more specifically to the DevSecOps practices. It is a mix of the topics studied on Weeks 2, 3 and 6. By incorporating Chainguard into CI/CD workflows, teams ensure that only verified, vulnerability-free images reach deployment, reducing risk and improving reliablility.
 
+The link to the Killercoda tutorial is: https://killercoda.com/killercoda-testing/scenario/devops_tutorial
+The link to the Github repository is: https://github.com/mivalgan/killercoda-testing
