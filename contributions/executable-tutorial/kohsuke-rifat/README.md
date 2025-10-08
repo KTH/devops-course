@@ -31,3 +31,9 @@ The tutorial is delivered on the KillerKoda platform.
 **Relevance**
 
 In DevOps, the focus is typically on ensuring software functions properly, while license issues for enterprise software are often overlooked by engineers. Integrating dependency license checks into DevOps can eliminate the risk of lawsuits for companies.
+
+**Links to executable tutorial**
+
+Link to killercoda tutorial: https://killercoda.com/kohsuke/scenario/LicenseFinder
+
+Link to github repo: https://github.com/THEosusi/tutorial-LicenseFinder

@@ -28,3 +28,8 @@ We’ll use a minimal set of plugins: a [Port Scanner](https://github.com/google
 **Relevance**
 
 This is relevant for DevOps and DevSecOps as integrating with a CI pipeline would allow for checking the system for possible vulnerabilities before it ever reaches deployment. This means vulnerabilities that could make their way to the deployment systems are caught as early as possible, which is a core component of DevSecOps.
+
+**Tutorial link**
+
+- Tutorial: https://killercoda.com/samuelsen/scenario/tsunami
+- Repo: https://github.com/CooperUSA/DevOps-Tutorial
