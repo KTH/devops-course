@@ -21,5 +21,5 @@ Feedback: [Scientific Papers Task Proposal: Chaos Engineering](https://github.co
 
 Feedback for [Scientific Papers Task Proposal: Chaos Engineering](https://github.com/KTH/devops-course/pull/2834)
 
-The submission will be added later
-
+The feedback can be found here:
+https://github.com/KTH/devops-course/pull/2834#issuecomment-3380656141
