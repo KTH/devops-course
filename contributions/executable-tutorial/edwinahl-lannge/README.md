@@ -25,5 +25,6 @@ The tutorial teaches how to setup and store secrets locally in an OpenBao contai
 **Relevance**
 In terms of DevSecOps, security must be managed by the team developing the product. By using OpenBao as a local docker container, a team can manage secrets safely and locally.
 
-
-
+**Tutorial link**
+- Tutorial: https://killercoda.com/ahllan/scenario/scenario1
+- Repo: https://github.com/EdwinAhl/DD2482-Executable-tutorial
