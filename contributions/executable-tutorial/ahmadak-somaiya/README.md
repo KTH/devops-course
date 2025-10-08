@@ -47,4 +47,8 @@ Following our tutorial, users will:
 
 **Relevance**
 
-CI/CD is a key part of modern DevOps. It helps teams get quick feedback, lower the risk of failed releases, and deliver updates faster. GitLab's built-in CI/CD is popular across many industries because it makes development workflows easier to manage. In this tutorial, participants will learn how to set up and run GitLab pipelines and think about how automation affects both speed and reliability. Users will also see how CI/CD practices can be adapted to different teams and projects. 
+CI/CD is a key part of modern DevOps. It helps teams get quick feedback, lower the risk of failed releases, and deliver updates faster. GitLab's built-in CI/CD is popular across many industries because it makes development workflows easier to manage. In this tutorial, participants will learn how to set up and run GitLab pipelines and think about how automation affects both speed and reliability. Users will also see how CI/CD practices can be adapted to different teams and projects.
+
+Link to executable tutorial: https://gitlab.com/devops5350336/DD2482_demo/-/tree/executable_tutorial?ref_type=heads
+
+To access the “Binder Launch” button, the user must open the tutorial.md file.
