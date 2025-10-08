@@ -30,4 +30,8 @@ This proposal is relevant to DevOps and DevSecOps by demonstrating an automated 
 * **Automation of Complex Workflows:** It automates a complete workflow from trigger to response, which showcases automation.
 * **Event-Driven Architecture:** The use of a Flask webhook to trigger the process shows event-driven practices that are used in DevOps environments.
 * **Immutable Infrastructure Principles:** By managing the state of a running container through code (Ansible), the tutorial includes configuration management and infrastructure as code.
-* **Practical DevSecOps:** This is an example of embedding automated security controls directly into operational workflows. 
+* **Practical DevSecOps:** This is an example of embedding automated security controls directly into operational workflows.
+
+Tutorial Links:
+The tutorial is found on Github: https://github.com/leovalentin2/devops-soar
+The executable version of it is hosted on mybinder: https://mybinder.org/v2/gh/leovalentin2/devops-soar/main (this link is also reachable via the README.md file in the Github link above)
