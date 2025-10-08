@@ -11,7 +11,7 @@ Policy-as-Code for IaC: Enforcing Security, Compliance and Cost Control with Ope
 
 ## Deadline
 
-- Week 6
+- Week 5
 
 ## Category
 
