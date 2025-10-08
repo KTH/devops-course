@@ -36,3 +36,7 @@ This tutorial will be made in [Killercoda](https://killercoda.com/).
 **Relevance**
 
 CD is an important part of DevOps. Blue-Green deployment is relevant to DevOps as it is a software release strategy. Furthermore, together with smoke testing and rollback possibilities it can enable safer releases. 
+
+**Submission**
+- Killercoda tutorial: https://killercoda.com/fianmian/scenario/blue-green-tutorial
+- GitHub repo: https://github.com/fianmian/tutorial
