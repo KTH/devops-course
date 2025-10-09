@@ -58,7 +58,8 @@ To pass the course, the student has to complete and pass between 3 and 5 tasks:
   * Deadline 1 for async tasks: Sep 10, 17h Stockholm time
   * Deadline 2 for async tasks: Sep 24, 17h Stockholm time
   * Deadline 3 for async tasks: Oct 8, 17h Stockholm time
-  * Deadline for feedback on async tasks: 2 business days after the "go" from the authors
+  * Deadline for feedback on tasks: 2 business days after the "go" from the authors
+  * Hand-in your async tasks via a new PR that updates your proposal document with a link to the artifact/contribution/feedback
   * Deadline for repeated tasks (all): **Nov 5 2025, 17h Stockholm time**.
   * The deadlines are strict and cannot be extended. Not meeting a deadline means failing the task / the repetition.
 * Final grading scheme
