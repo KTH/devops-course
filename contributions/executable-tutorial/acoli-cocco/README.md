@@ -19,6 +19,8 @@ _Zero-Trust Data Pipelines: A Practical DevOps Security Tutorial_
 
 ## Description
 
+The tutorial can be found at https://colab.research.google.com/drive/1Qak_zpwuk8imhXdM1hchimNOjuk5eGtC?usp=sharing 
+
 This interactive tutorial will provide students with some training and explanation on securing pipelines against threats. It will guide people in transforming a vulnerable deployment workflow into a secure, automated pipeline by implementing security controls that run automatically during build and deployment processes.
 
 Specifically, it will have students add good practices inside their code:
