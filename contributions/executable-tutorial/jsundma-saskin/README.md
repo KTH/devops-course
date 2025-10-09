@@ -22,3 +22,5 @@ We believe this is relevant to devops and "infrastructure as code".
 By automating the certificate infrastructure you make it scalable, reproducible and reliable.
 This moves the web aplication infrastructure away from manual configurations and is a great example of IaC. 
 We will attempt to create the tutorial on KillerCoda.
+
+https://killercoda.com/jsundman/scenario/caddy-tutorial
