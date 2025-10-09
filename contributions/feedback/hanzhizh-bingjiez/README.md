@@ -19,4 +19,4 @@ Feedback on executable tutorial:"Zero-Trust Data Pipelines: A Practical DevOps S
 
 ## Description
 
-Link to the feedback [Zero-Trust Data Pipelines: A Practical DevOps Security Tutorial comment](https://github.com/KTH/devops-course/pull/2882#issuecomment-3380911246)
+Link to feedback [Zero-Trust Data Pipelines: A Practical DevOps Security Tutorial comment](https://github.com/KTH/devops-course/pull/2882#issuecomment-3380911246)
