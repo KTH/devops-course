@@ -31,3 +31,9 @@ The tutorial will use practical examples with repositories containing simulated 
 **Relevance**  
 
 Secret sprawl is one of the most common security risks in DevSecOps. Tools like Gitleaks helps to prevent credentials from ever reaching version control. This knowledge is highly relevant for DevOps engineers, since mismanaged secrets can lead to major security breaches and compliance issues, even on private repositories.
+
+**Deliverables**
+
+Tutorial: https://killercoda.com/stagge/scenario/gitleaks-tutorial
+
+Repository: https://github.com/Stagge/gitleaks-tutorial
