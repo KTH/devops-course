@@ -36,3 +36,19 @@ The goal is to help Go developers and the broader DevOps community adopt the new
 **Relevance**
 
 This proposal is relevant to DevOps because package management and dependency resolution are essential for **build reproducibility, CI/CD pipelines, and continuous delivery**. By providing a reference repo on how Go's module system handles subdirectories and import paths, and fixing the documentation site to support this new feature, we improve developer workflow, reduce integration errors, and support sustainable dependency management in DevOps practices.
+
+**Submission**
+We proposed this task because we found an [issue](https://www.github.com/golang/go/issues/75258) reported on Go's repo that the documentation system is not resolving packages properly, if the package is served with [Go's 1.25 new sub-directory feature for resolving a module path](https://tip.golang.org/doc/go1.25#go-command).
+
+We have designed a [repo](https://www.github.com/edv1n/go-get-subdirectory-test) to experiment with this new Go feature. It utilizes GitHub Page to serve the Go's import tag, so that Go can import our experiment packages properly. For details, please refer to the [README](https://www.github.com/edv1n/go-get-subdirectory-test/blob/main/README.md) in the repo.
+
+We have created a [PR, # 113](https://www.github.com/golang/pkgsite/pull/113) on their mirror repo on GitHub [golang/pkgsite](https://www.github.com/golang/pkgsite). Here is what we have done with our contribution:
+- The PR was first marked as WIP. 
+- After adding more tests, making additional comments, and fixing bugs according to our new tests, we marked the PR as ready for review. 
+- The PR has now been imported into Go's internal review system for additional reviews. 
+- The code follows the original coding convention of the code base. 
+- We followed the instructions given by the repo bot. 
+- We followed [Go's Contribution Guide](https://go.dev/doc/contribute) to submit our contribution (e.g., writing the PR with the right format). 
+- We followed the [repo's contribution guide](https://github.com/golang/pkgsite/blob/master/CONTRIBUTING.md) to perform tests, which increases the chance of our changes being accepted earlier.
+
+This contribution is relevant to the project's roadmap as the feature has already been released. However, the documentation system hasn't caught up with this new feature; as a result, developers cannot read the documentation of packages using this new feature.
