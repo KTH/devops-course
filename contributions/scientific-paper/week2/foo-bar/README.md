@@ -11,11 +11,11 @@ Foobar
 
 ## Deadline
 
-- Week 6
+- Week 2
 
 ## Category
 
-- Presentation
+- Scientific paper
 
 ## Description
 
