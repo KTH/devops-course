@@ -15,8 +15,14 @@ Foobar
 
 ## Category
 
-- Feedback
+- Open source
 
 ## Description
 
 This is a description.
+
+**Relevance**
+This is the relevance.
+
+**Submission**
+This is the submission.
