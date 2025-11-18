@@ -11,11 +11,11 @@ Foobar
 
 ## Deadline
 
-- Task 1
+- Week 6
 
 ## Category
 
-- Open source
+- Presentation
 
 ## Description
 
@@ -23,6 +23,3 @@ This is a description.
 
 **Relevance**
 This is the relevance.
-
-**Submission**
-This is the submission.
