@@ -11,18 +11,12 @@ Foobar
 
 ## Deadline
 
-- Task 2
+- Task 1
 
 ## Category
 
-- Executable tutorial
+- Feedback
 
 ## Description
 
 This is a description.
-
-**Relevance**
-This is the relevance.
-
-**Tutorial link**
-- <https://www.youtube.com/watch?v=dQw4w9WgXcQ>
