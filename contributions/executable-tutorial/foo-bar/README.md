@@ -11,11 +11,11 @@ Foobar
 
 ## Deadline
 
-- Week 3
+- Task 2
 
 ## Category
 
-- Demo
+- Executable tutorial
 
 ## Description
 
@@ -23,3 +23,6 @@ This is a description.
 
 **Relevance**
 This is the relevance.
+
+**Tutorial link**
+- <https://www.youtube.com/watch?v=dQw4w9WgXcQ>
