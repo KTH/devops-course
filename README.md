@@ -23,40 +23,40 @@ The schedule is at <https://www.kth.se/social/course/DD2482/calendar/>
 
 ### Week 2 (DATE TODO): [Testing automation](https://github.com/KTH/devops-course/issues/9), [Continuous Integration](https://github.com/KTH/devops-course/issues/3), [Feature flags](https://github.com/KTH/devops-course/issues/21)
 * Preparatory material [Testing at scale](https://increment.com/testing/testing-at-scale/), [Harvesting Production GraphQL Queries to Detect Schema Faults](https://arxiv.org/pdf/2112.08267), [The Rituals of Iterations and Tests](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=9238653)
-* Student presentations, demonstrations
+* Seminar: scientific paper, demonstrations
 
 ### Week 3 (DATE TODO): [Continuous Deployment / Delivery](https://github.com/KTH/devops-course/issues/12)
 * Preparatory material [An Introduction to Continuous Integration, Delivery, and Deployment](https://www.digitalocean.com/community/tutorials/an-introduction-to-continuous-integration-delivery-and-deployment), [The Top 10 Adages in Continuous Deployment](https://zlmonroe.com/CSE566/Readings/5.The_Top_10_Adages_In_Continuous_Deployment.pdf)
-* Student presentations, demonstrations
+* Seminar: scientific paper, demonstrations
 
 ### Week 4 (DATE TODO): [MLOps/AIOps/LLMOps](https://github.com/KTH/devops-course/issues/1016)
 * Preparatory material: [Short intro to MLOps](https://www.databricks.com/glossary/mlops), [Building Machine Learning Models Like Open Source Software](https://cacm.acm.org/magazines/2023/2/268952-building-machine-learning-models-like-open-source-software/fulltext)
-* Student presentations, demonstrations
+* Seminar: scientific paper, demonstrations
 
 
 ### Week 5 (DATE TODO): [Infrastructure as Code](https://github.com/KTH/devops-course/issues/2)
 * Preparatory material: [Best practices for container compliance](https://increment.com/containers/container-compliance/), [Building on-demand staging environments](https://increment.com/containers/on-demand-staging-environments-kubernetes/), [Gang of eight: a defect taxonomy for infrastructure as code scripts](http://www.chrisparnin.me/pdf/GangOfEight.pdf)
-* Student presentations, demonstrations
+* Seminar: scientific paper, demonstrations
 
 
 ### Week 6 (DATE TODO): [Dependency Management](https://github.com/KTH/devops-course/issues/24) & [DevSecOps](https://github.com/KTH/devops-course/issues/18)
 * Preparatory material: [A 'Worst Nightmare' Cyberattack: The Untold Story Of The SolarWinds Hack](https://www.npr.org/2021/04/16/985439655/a-worst-nightmare-cyberattack-the-untold-story-of-the-solarwinds-hack), [The supply chain of software](https://increment.com/apis/apis-supply-chain-software/), [Successes, challenges, and wombat behind npm](https://increment.com/development/interview-with-isaac-z-schlueter-ceo-of-npm/), [A comprehensive study of bloated dependencies in the Maven ecosystem ](https://arxiv.org/pdf/2001.07808)
-* Student presentations, demonstrations
+* Seminar: scientific paper, demonstrations
 
 
 ### Week 7 (DATE TODO): Other topics
 * incl. [Monitoring and Observability](https://github.com/KTH/devops-course/issues/8), [cultural aspects](https://github.com/KTH/devops-course/issues/7) and [legal aspects](https://github.com/KTH/devops-course/issues/1557), [Software bots](https://github.com/KTH/devops-course/issues/310), , [Misc DevOps topics](https://github.com/KTH/devops-course/issues/13)
 * Preparatory material [Chaos Engineering](https://ieeexplore.ieee.org/iel7/52/5204063/07436642.pdf) [A Chaos Engineering System for Live Analysis and Falsification of Exception-handling in the JVM](http://arxiv.org/pdf/1805.05246) 
-* Student presentations, demonstrations
+* Seminar: scientific paper, demonstrations
 
 
 ## Rules
 
 
 To pass the course, the student has to complete and pass between 3 and 5 tasks:
-* The tasks are in category: "[presentation (mandatory)](https://github.com/KTH/devops-course/blob/2025/grading-criteria.md#presentations)", "[demo (mandatory)](https://github.com/KTH/devops-course/blob/2025/grading-criteria.md#demos)", "[scientific paper](https://github.com/KTH/devops-course/blob/2025/grading-criteria.md#scientific-papers)", "[executable tutorial](https://github.com/KTH/devops-course/blob/2025/grading-criteria.md#executable-tutorials)", "[contribution to open-source](https://github.com/KTH/devops-course/blob/2025/grading-criteria.md#open-source-contributions)", "[feedback](https://github.com/KTH/devops-course/blob/2025/grading-criteria.md#feedback)" (presentation and demos are mandatory, at most one in the same category, it is not necessary to cover everything).
+* The tasks are in category: "[demo (mandatory)](https://github.com/KTH/devops-course/blob/2026/grading-criteria.md#demos)", "[scientific paper](https://github.com/KTH/devops-course/blob/2026/grading-criteria.md#scientific-papers)", "[executable tutorial](https://github.com/KTH/devops-course/blob/2026/grading-criteria.md#executable-tutorials)", "[contribution to open-source](https://github.com/KTH/devops-course/blob/2026/grading-criteria.md#open-source-contributions)", "[feedback](https://github.com/KTH/devops-course/blob/2026/grading-criteria.md#feedback)",  "[project](https://github.com/KTH/devops-course/blob/2026/grading-criteria.md#project)" (project and demo are mandatory, at most one in the same category, it is not necessary to cover everything).
 * The [grading criteria page](grading-criteria.md) is the unique reference which explains how to pass each task category.
-* The student proposes a category and a topic, which is discussed and accepted by the TA. The proposal is made as a [structured pull-request](https://github.com/KTH/devops-course/blob/2025/.github/pull_request_template.md) on this repository. The 3-5 graded contributions must have little overlap.
+* The student proposes a category and a topic, which is discussed and accepted by the TA. The proposal is made as a [structured pull-request](https://github.com/KTH/devops-course/blob/2026/.github/pull_request_template.md) on this repository. The 3-5 graded contributions must have little overlap.
 * The same student cannot choose the same topic for two different tasks. The 3-5 tasks should cover different aspects of DevOps.
 * Deadlines:
   * Deadline for presentations, demos, paper: the day and time they are given in person
@@ -69,9 +69,9 @@ To pass the course, the student has to complete and pass between 3 and 5 tasks:
   * The deadlines are strict and cannot be extended. Not meeting a deadline means failing the task / the repetition.
 * Final grading scheme
   * E: 3 completed tasks (excluding feedback)
-  * C: 4 completed tasks 
-  * B: 5 completed tasks 
-  * A: 5 completed tasks + active participation in all but one lectures
+  * C: 3 completed tasks + feedback
+  * B: 4 completed tasks
+  * A: 5 completed tasks + active participation in all but one seminars
 * Active participation: attendance to all but one lectures, a traceable record of questions asked during lectures (through GitHub issues) and the answers you received to them.
 * Group work is mandatory (max 2 persons) but you cannot be with the same person for more than 2 individual tasks. You are not allowed to work alone. When you send a pull request for registration, please follow the name convention of using email addresses of two members to create the folder: email-email.
 * A failed task requires to pass it again at the end of the course (repeat), based on the feedback from the failure. A task can only be repeated once.
@@ -123,7 +123,7 @@ To pass the course, the student has to complete and pass between 3 and 5 tasks:
   * [KTH DevOps Course 2022](https://github.com/KTH/devops-course/blob/2022/)
   * [KTH DevOps Course 2023](https://github.com/KTH/devops-course/blob/2023/)
   * [KTH DevOps Course 2024](https://github.com/KTH/devops-course/blob/2024/)
-  * [KTH DevOps Course 2024](https://github.com/KTH/devops-course/blob/2025/)
+  * [KTH DevOps Course 2024](https://github.com/KTH/devops-course/blob/2026/)
 
 
 
