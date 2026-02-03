@@ -1,0 +1,23 @@
+demo:
+  - changed-files:
+    - any-glob-to-any-file: 'contributions/demo/**'
+
+contribution_to_opensource:
+  - changed-files:
+    - any-glob-to-any-file: 'contributions/open-source/**'
+
+feedback:
+  - changed-files:
+    - any-glob-to-any-file: 'contributions/feedback/**'
+
+presentation:
+  - changed-files:
+    - any-glob-to-any-file: 'contributions/presentation/**'
+
+scientific-paper:
+  - changed-files:
+    - any-glob-to-any-file: 'contributions/scientific-paper/**'
+
+tutorial:
+  - changed-files:
+    - any-glob-to-any-file: 'contributions/executable-tutorial/**'
