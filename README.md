@@ -99,7 +99,7 @@ To pass the course, the student has to complete and pass between 3 and 5 tasks:
 ## Team
 
 * [Dr Larissa Schmid](https://www.kth.se/profile/lgschmid?l=sv) (Teacher)
-* [Carmine Cesarano](TODO) (TA)
+* [Dr Carmine Cesarano](TODO) (TA)
 * [Frank Reyes](https://www.kth.se/profile/frankrg) (TA)
 * [Eric Cornelissen](https://www.kth.se/profile/ericco) (TA)
 * [Aman Sharma](https://www.kth.se/profile/amansha) (TA)
