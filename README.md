@@ -100,10 +100,9 @@ To pass the course, the student has to complete and pass between 3 and 5 tasks:
 
 * [Dr Larissa Schmid](https://www.kth.se/profile/lgschmid?l=sv) (Teacher)
 * [Carmine Cesarano](TODO) (TA)
-* [Javier Ron](https://www.kth.se/profile/javierro?l=en) (TA)
-* [Sofia Bobadilla](https://www.kth.se/profile/sofbob) (TA)
 * [Frank Reyes](https://www.kth.se/profile/frankrg) (TA)
 * [Eric Cornelissen](https://www.kth.se/profile/ericco) (TA)
+* [Aman Sharma](https://www.kth.se/profile/amansha) (TA)
 * [Prof. Martin Monperrus](http://www.monperrus.net/martin/) (Examiner)
 
 
