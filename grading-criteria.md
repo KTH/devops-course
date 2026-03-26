@@ -1,15 +1,16 @@
 # Grading Criteria of the KTH Devops Course
 
+The following grading criteria help you understand the expectations.
+
 - We are all aware that assessment may be subjective in nature. In case of disagreement, the informed judgment of the professor is the final decision.
 - Project and demo are mandatory tasks to pass the course.
 - In case of a task failure, the students receive feedback and instructions for repetition through Canvas 
 
 ## Project 
 
-In this project, you will design and implement a software system that demonstrates core DevOps practices in an integrated workflow. You are expected to justify your technical choices, demonstrate how the different components interact, and reflect on the strengths and limitations of your solution.
+In this project, you will set up infrastructure that demonstrates core DevOps practices in an integrated workflow. You are expected to justify your technical choices, demonstrate how the different components interact, and reflect on the strengths and limitations of your solution.
 
-
-The goal is not to build a large system, but to implement a coherent, working DevOps pipeline that you understand and can explain. You can choose freely which domain the project should be in and which tools you would like to use for implementing it.
+The goal is not to build a large system, but to implement a coherent, working DevOps pipeline that you understand and can explain. You can choose freely which project to implement DevOps in. We recommend you to use a non-trivial project you already know, from a previous course or a side-project.
 
 To pass, the project must demonstrate:
 * Automated build and testing (CI pipeline)
@@ -19,19 +20,18 @@ To pass, the project must demonstrate:
 * At least one quality or security automation (e.g., static analysis, dependency bots, secret scanning)
 * Documented use (or critical discussion) of AI-assisted tools (e.g., AI code review)
 
-The different parts need to be coherently integrated and function together as a system.
+The different parts need to be coherently integrated and function together as a unified repository.
 
 Deliverables:
 1. Project repository: A fully functional implementation including all configuration, code, and documentation needed to run the system.
 2. Short report (2-3 pages) that should:
-    1. Explain the system architecture wrt to the features that must be demonstrated.
+    1. Explain the architecture and processes wrt to the features that must be demonstrated.
     2. Justify key design decisions (structure, tools)
     3. Describe how the components interact
     4. Reflect on limitations and trade-offs
 3. Optional presentation: Selected projects may be invited to present their system and demonstrate key aspects of the workflow.
 
 ## Demos
-
 
 The concept: Students prepare a demonstration involving DevOps technology, to be performed during the lecture. For example, a demo typically involves multiple virtual machines, likely deployed in the cloud. A demonstration is scripted, prepared and lasts 6:30-7:30 minutes.
 
@@ -51,7 +51,6 @@ To pass, you must have at least 7 "yes".
 
 ## Scientific Papers
 
-
 The concept: The students prepare a 7 minute presentation on one scientific paper related to DevOps. Papers must be published in the main proceedings of [software engineering](https://scholar.google.com/citations?view_op=top_venues&hl=en&vq=eng_softwaresystems) or [computer security](https://scholar.google.com/citations?view_op=top_venues&hl=en&vq=eng_computersecuritycryptography) venues. 
 
 | Category | Criterion | Description | Requirement |
@@ -69,7 +68,6 @@ The concept: The students prepare a 7 minute presentation on one scientific pape
 To pass, you must have at least 7 "yes".
 
 ## Executable Tutorial 
-
 
 The concept: you create an executable tutorial about a specific technology related to Devops. You deliver your tutorial on an online platform supporting execution, such as [KillerKoda](https://killercoda.com/), [mybinder.org](https://mybinder.org/), [collab](https://colab.research.google.com/) or equivalent.
 
@@ -109,7 +107,6 @@ Criteria for the selection of the open-source project: 1) The project is related
 To pass, you must have at least 7 "yes".
 
 ## Feedback
-
 
 
 The concept: you provide constructive and timely feedback about any task except "feedback".
