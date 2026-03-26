@@ -47,6 +47,7 @@ The concept: Students prepare a demonstration involving DevOps technology, to be
 | Communication | Speech | Speech is clear, understandable, and well-paced. | Yes/No |
 | Communication | Timing | Demo duration is between 6:30–7:30 minutes (hard limit). | Mandatory |
 
+To pass, you must have at least 7 "yes".
 
 ## Scientific Papers
 
@@ -64,6 +65,8 @@ The concept: The students prepare a 7 minute presentation on one scientific pape
 | Communication | Narrative and Slides | The presentation follows a clear structure from problem → approach → results → implications, with slides supporting understanding by using appropriate visualization, clarifying structure, and limited amount of text. | Yes/No |
 | Communication | Speech | Speech is clear, understandable, and well-paced. | Yes/No |
 | Communication | Timing | Presentation duration is between 6:30–7:30 minutes (hard limit). | Mandatory | 
+
+To pass, you must have at least 7 "yes".
 
 ## Executable Tutorial 
 
@@ -84,6 +87,7 @@ The concept: you create an executable tutorial about a specific technology relat
 | Communication | Language | The language used is clear, correct, and appropriate. | Yes/No |
 | Communication | ILO | The tutorial states the intended learning outcomes in the beginning. | Mandatory |
 
+To pass, you must have at least 9 "yes".
 
 ## Open-Source Contribution 
 
@@ -102,6 +106,7 @@ Criteria for the selection of the open-source project: 1) The project is related
 | Communication & Collaboration | Engagement with maintainers | The student engages in conversation with the project maintainers, responding to feedback in a timely manner and making necessary changes. | Yes/No |
 | Communication & Collaboration | Process | The student follows the project’s contribution workflow (e.g., issues, Prs, reviews) appropriately. | Yes/No | 
 
+To pass, you must have at least 7 "yes".
 
 ## Feedback
 
@@ -124,7 +129,7 @@ The feedback is given before the actual delivery of the task (before the present
 | Process Requirements | Timeliness | The feedback is provided 2 business days after the "go" from the authors. | Yes/No |
 
 
-
+To pass, you must have at least 7 "yes".
 
 
 
