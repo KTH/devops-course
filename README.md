@@ -60,12 +60,11 @@ To pass the course, the student has to complete and pass between 3 and 5 tasks:
 * The same student cannot choose the same topic for two different tasks. The 3-5 tasks should cover different aspects of DevOps.
 * Deadlines:
   * Deadline for presentations, demos, paper: the day and time they are given in person
-  * Deadline 1 for async tasks: Sep 10, 17h Stockholm time
-  * Deadline 2 for async tasks: Sep 24, 17h Stockholm time
-  * Deadline 3 for async tasks: Oct 8, 17h Stockholm time
+  * Deadline for tutorial and opensource: Sep 24, 23h59 Stockholm time
+  * Deadline for project: Oct 10, 23h59 Stockholm time
+  * Deadline for repeated tasks (all): Oct 27 2026, 17h Stockholm time.
   * Deadline for feedback on tasks: 2 business days after the "go" from the authors
   * Hand-in your async tasks via a new PR that updates your proposal document with a link to the artifact/contribution/feedback
-  * Deadline for repeated tasks (all): **Nov 5 2026, 17h Stockholm time**.
   * The deadlines are strict and cannot be extended. Not meeting a deadline means failing the task / the repetition.
 * Final grading scheme
   * E: 3 completed tasks (excluding feedback)
