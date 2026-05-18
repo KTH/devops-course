@@ -59,7 +59,7 @@ To pass the course, the student has to complete and pass between 3 and 5 tasks:
 * The student proposes a category and a topic, which is discussed and accepted by the TA. The proposal is made as a [structured pull-request](https://github.com/KTH/devops-course/blob/2026/.github/pull_request_template.md) on this repository. The 3-5 graded contributions must have little overlap.
 * The same student cannot choose the same topic for two different tasks. The 3-5 tasks should cover different aspects of DevOps.
 * Deadlines:
-  * Deadline for presentations, demos, paper: the day and time they are given in person
+  * Deadline for demos and paper presentations: the day and time they are given in person
   * Deadline for tutorial and opensource: Sep 24, 23h59 Stockholm time
   * Deadline for project: Oct 10, 23h59 Stockholm time
   * Deadline for repeated tasks (all): Oct 27 2026, 17h Stockholm time.
@@ -87,13 +87,13 @@ To pass the course, the student has to complete and pass between 3 and 5 tasks:
 
 **Lectures** The lectures are held on campus (no hybrid / no video link). The lecture locations are given on KTH Social <https://www.kth.se/social/course/DD2482/calendar/>. The first lecture is mandatory, the other ones are strongly encouraged.
 
-**Lab sessions**
+**Seminar sessions**
 
-* Lab slots are not mandatory. They are given in person (preferably) or videoconf.
-* During the planned lab time slot, please use this [Queue](https://queue.csc.kth.se/Queue/DD2482) for booking online meetings
-* Specify your zoom meeting link when you register the queue
+* Seminar slots are used to present and discuss the "demo" and "scientific paper" tasks. They are given in person. 
+* Seminar slots are not mandatory, but you have to be present to present the tasks you proposed. 
+* Active participation (and therefore attendance) in all but one seminars is required if you are aiming for an A. 
 
-**Examinations**: Some tasks require physical presence (presentation, demo, scientific paper), others do not (open-source, feedback).
+**Examinations**: Some tasks require physical presence (demo, scientific paper), others do not (project, open-source, feedback).
 
 ## Team
 
@@ -121,7 +121,7 @@ To pass the course, the student has to complete and pass between 3 and 5 tasks:
   * [KTH DevOps Course 2022](https://github.com/KTH/devops-course/blob/2022/)
   * [KTH DevOps Course 2023](https://github.com/KTH/devops-course/blob/2023/)
   * [KTH DevOps Course 2024](https://github.com/KTH/devops-course/blob/2024/)
-  * [KTH DevOps Course 2024](https://github.com/KTH/devops-course/blob/2026/)
+  * [KTH DevOps Course 2025](https://github.com/KTH/devops-course/blob/2025/)
 
 
 
