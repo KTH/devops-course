@@ -136,8 +136,9 @@ def get_participation_markdown(participation):
     current_time = datetime.now(LECTURE_TIMEZONE).strftime("%Y-%m-%d %H:%M:%S")
 
     content = f"Here we track active participation in lectures.\n\n"
-    content += ("To do this, you record a question as a comment you ask during the lectures. Please note the "
-                "answer as well once it's answered by the teachers or the audience.\n\n")
+    content += ("To do this, you record as a comment the question you make to presentations or demos during "
+                "the seminar.\n\n")
+    content += "Also, provide the title of the presentation/demo.\n\n"
     content += f"### Lecture Participation Stats (Updated on {current_time})\n\n"
     content += "| Index | Student Name | Number of Lectures Attended | Lecture(s) attended |\n"
     content += "|-------|--------------|-------------------|----------------|\n"
@@ -147,7 +148,7 @@ def get_participation_markdown(participation):
 
     index = 1
     for author, lectures in sorted_participation:
-        lecture_numbers = [f"L{LECTURE_DATES_TO_NUMBER[lecture]}" for lecture in sorted(lectures)]
+        lecture_numbers = [f"S{LECTURE_DATES_TO_NUMBER[lecture]}" for lecture in sorted(lectures)]
         lectures_list = " ".join(map(str, lecture_numbers))
         total_lectures = len(lectures)
         content += f"| {index} | {author} | {total_lectures} | {lectures_list} |\n"
@@ -170,7 +171,7 @@ def get_participation_text(participation):
 
     index = 1
     for author, lectures in sorted_participation:
-        lecture_numbers = [f"L{LECTURE_DATES_TO_NUMBER[lecture]}" for lecture in sorted(lectures)]
+        lecture_numbers = [f"S{LECTURE_DATES_TO_NUMBER[lecture]}" for lecture in sorted(lectures)]
         lectures_list = " ".join(map(str, lecture_numbers))
         total_lectures = len(lectures)
         table.add_row([index, author, total_lectures, lectures_list])

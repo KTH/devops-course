@@ -20,35 +20,35 @@ The schedule is at <https://www.kth.se/social/course/DD2482/calendar/>
 * Preparatory reading: [DevOps principles](https://www.atlassian.com/devops/what-is-devops) and [demo](https://youtu.be/qcm0rG8EKXI)
 * Course introduction by Larissa Schmid (Teaching philosophy, interactive classroom, Expectations, Team, Agenda, Grading, Communication, Infrastructure, Master's theses and Research)
 * Goals: watch the repo, register one first task as a pull request on this repo.
-* Seminar on 28/8, 03/09: Open schedule - discuss your goals for the course, your planned tasks, and any other questions you may have. 
+* Seminar on 28/8 (09h-12h), 03/09 (09h-12h): Open schedule - discuss your goals for the course, your planned tasks, and any other questions you may have. 
 
 ### Week 2 (2/9 13h-15h): [Testing automation](https://github.com/KTH/devops-course/issues/9), [Continuous Integration](https://github.com/KTH/devops-course/issues/3), [Feature flags](https://github.com/KTH/devops-course/issues/21)
 * Preparatory material [Testing at scale](https://increment.com/testing/testing-at-scale/), [Harvesting Production GraphQL Queries to Detect Schema Faults](https://arxiv.org/pdf/2112.08267), [The Rituals of Iterations and Tests](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=9238653)
-* Seminar on 10/09: scientific paper, demonstrations
+* Seminar on 10/09 (15h-18h): scientific paper, demonstrations
 
 ### Week 3 (9/9 13h-15h): [Continuous Deployment / Delivery](https://github.com/KTH/devops-course/issues/12)
 * Preparatory material [An Introduction to Continuous Integration, Delivery, and Deployment](https://www.digitalocean.com/community/tutorials/an-introduction-to-continuous-integration-delivery-and-deployment), [The Top 10 Adages in Continuous Deployment](https://zlmonroe.com/CSE566/Readings/5.The_Top_10_Adages_In_Continuous_Deployment.pdf)
-* Seminar on 18/09: scientific paper, demonstrations
+* Seminar on 18/09 (15h-18h): scientific paper, demonstrations
 
 ### Week 4 (16/9 10h-12h): [MLOps/AIOps/LLMOps](https://github.com/KTH/devops-course/issues/1016)
 * Preparatory material: [Short intro to MLOps](https://www.databricks.com/glossary/mlops), [Building Machine Learning Models Like Open Source Software](https://cacm.acm.org/magazines/2023/2/268952-building-machine-learning-models-like-open-source-software/fulltext)
-* Seminar on 25/09: scientific paper, demonstrations
+* Seminar on 25/09 (15h-18h): scientific paper, demonstrations
 
 
 ### Week 5 (23/9 13h-15h): [Infrastructure as Code](https://github.com/KTH/devops-course/issues/2)
 * Preparatory material: [Best practices for container compliance](https://increment.com/containers/container-compliance/), [Building on-demand staging environments](https://increment.com/containers/on-demand-staging-environments-kubernetes/), [Gang of eight: a defect taxonomy for infrastructure as code scripts](http://www.chrisparnin.me/pdf/GangOfEight.pdf)
-* Seminar on 30/09: scientific paper, demonstrations
+* Seminar on 30/09 (09h-12h): scientific paper, demonstrations
 
 
 ### Week 6 (29/9 13h-15h): [Dependency Management](https://github.com/KTH/devops-course/issues/24) & [DevSecOps](https://github.com/KTH/devops-course/issues/18)
 * Preparatory material: [A 'Worst Nightmare' Cyberattack: The Untold Story Of The SolarWinds Hack](https://www.npr.org/2021/04/16/985439655/a-worst-nightmare-cyberattack-the-untold-story-of-the-solarwinds-hack), [The supply chain of software](https://increment.com/apis/apis-supply-chain-software/), [Successes, challenges, and wombat behind npm](https://increment.com/development/interview-with-isaac-z-schlueter-ceo-of-npm/), [A comprehensive study of bloated dependencies in the Maven ecosystem ](https://arxiv.org/pdf/2001.07808)
-* Seminar on 08/10: scientific paper, demonstrations
+* Seminar on 08/10 (09h-12h): scientific paper, demonstrations
 
 
 ### Week 7 (7/10 13h-15h): Other topics
 * incl. [Monitoring and Observability](https://github.com/KTH/devops-course/issues/8), [cultural aspects](https://github.com/KTH/devops-course/issues/7) and [legal aspects](https://github.com/KTH/devops-course/issues/1557), [Software bots](https://github.com/KTH/devops-course/issues/310), , [Misc DevOps topics](https://github.com/KTH/devops-course/issues/13)
 * Preparatory material [Chaos Engineering](https://ieeexplore.ieee.org/iel7/52/5204063/07436642.pdf) [A Chaos Engineering System for Live Analysis and Falsification of Exception-handling in the JVM](http://arxiv.org/pdf/1805.05246) 
-* Seminar on 12/10: scientific paper, demonstrations
+* Seminar on 12/10 (13h-16h), 14/10 (13h-16h): scientific paper, demonstrations
 
 
 ## Rules
