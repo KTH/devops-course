@@ -42,13 +42,13 @@ The schedule is at <https://www.kth.se/social/course/DD2482/calendar/>
 
 ### Week 6 (29/9 13h-15h): [Dependency Management](https://github.com/KTH/devops-course/issues/24) & [DevSecOps](https://github.com/KTH/devops-course/issues/18)
 * Preparatory material: [A 'Worst Nightmare' Cyberattack: The Untold Story Of The SolarWinds Hack](https://www.npr.org/2021/04/16/985439655/a-worst-nightmare-cyberattack-the-untold-story-of-the-solarwinds-hack), [The supply chain of software](https://increment.com/apis/apis-supply-chain-software/), [Successes, challenges, and wombat behind npm](https://increment.com/development/interview-with-isaac-z-schlueter-ceo-of-npm/), [A comprehensive study of bloated dependencies in the Maven ecosystem ](https://arxiv.org/pdf/2001.07808)
-* Seminar on 08/09: scientific paper, demonstrations
+* Seminar on 08/10: scientific paper, demonstrations
 
 
 ### Week 7 (7/10 13h-15h): Other topics
 * incl. [Monitoring and Observability](https://github.com/KTH/devops-course/issues/8), [cultural aspects](https://github.com/KTH/devops-course/issues/7) and [legal aspects](https://github.com/KTH/devops-course/issues/1557), [Software bots](https://github.com/KTH/devops-course/issues/310), , [Misc DevOps topics](https://github.com/KTH/devops-course/issues/13)
 * Preparatory material [Chaos Engineering](https://ieeexplore.ieee.org/iel7/52/5204063/07436642.pdf) [A Chaos Engineering System for Live Analysis and Falsification of Exception-handling in the JVM](http://arxiv.org/pdf/1805.05246) 
-* Seminar on 12/09: scientific paper, demonstrations
+* Seminar on 12/10: scientific paper, demonstrations
 
 
 ## Rules
