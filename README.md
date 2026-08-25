@@ -72,7 +72,7 @@ To pass the course, the student has to complete and pass between 3 and 5 tasks:
   * C: 3 completed tasks + feedback
   * B: 5 completed tasks
   * A: 5 completed tasks + active participation in all but one seminars
-* Active participation: attendance to all but one seminars, a traceable record of questions asked during seminars (through GitHub issues) and the answers you received to them.
+* Active participation: attendance to all but one seminars between 10/09 and 14/10, a traceable record of questions asked during seminars (through GitHub issues) and the answers you received to them.
 * Group work is mandatory (max 2 persons) but you cannot be with the same person for more than 2 individual tasks. You are not allowed to work alone. When you send a pull request for registration, please follow the name convention of using email addresses of two members to create the folder: email-email.
 * A failed task requires to pass it again at the end of the course (repeat), based on the feedback from the failure. A task can only be repeated once.
 * If the whole course is failed, no grades are kept if the student registers again to the course the year after. 
@@ -92,7 +92,7 @@ To pass the course, the student has to complete and pass between 3 and 5 tasks:
 
 * Seminar slots are used to present and discuss the "demo" and "scientific paper" tasks. They are given in person and correspond to the weekly topics as outlined in the schedule. 
 * Seminar slots are not mandatory, but you have to be present to present the tasks you proposed. 
-* Active participation (and therefore attendance) in all but one seminars covering the topics of weeks 2 to 7 is required if you are aiming for an A. 
+* Active participation (and therefore attendance) in all but one seminars between 10/09 and 14/10, covering the topics of weeks 2 to 7, is required if you are aiming for an A. 
 
 **Examinations**: Some tasks require physical presence (demo, scientific paper), others do not (project, open-source, feedback).
 
