@@ -33,7 +33,9 @@ Deliverables:
 
 ## Demos
 
+
 The concept: Students prepare a demonstration involving DevOps technology, to be performed during the lecture. For example, a demo typically involves multiple virtual machines, likely deployed in the cloud. A demonstration is scripted, prepared and lasts 6:30-7:30 minutes.
+
 
 | Category | Criterion | Description | Requirement |
 |----------|----------|-------------|-------------|
@@ -47,11 +49,14 @@ The concept: Students prepare a demonstration involving DevOps technology, to be
 | Communication | Speech | Speech is clear, understandable, and well-paced. | Yes/No |
 | Communication | Timing | Demo duration is between 6:30–7:30 minutes (hard limit). | Mandatory |
 
+
 To pass, you must have at least 7 "yes".
 
 ## Scientific Papers
 
+
 The concept: The students prepare a 7 minute presentation on one scientific paper related to DevOps. Papers must be published in the main proceedings of [software engineering](https://scholar.google.com/citations?view_op=top_venues&hl=en&vq=eng_softwaresystems) or [computer security](https://scholar.google.com/citations?view_op=top_venues&hl=en&vq=eng_computersecuritycryptography) venues. 
+
 
 | Category | Criterion | Description | Requirement |
 |----------|----------|-------------|-------------|
@@ -65,11 +70,14 @@ The concept: The students prepare a 7 minute presentation on one scientific pape
 | Communication | Speech | Speech is clear, understandable, and well-paced. | Yes/No |
 | Communication | Timing | Presentation duration is between 6:30–7:30 minutes (hard limit). | Mandatory | 
 
+
 To pass, you must have at least 7 "yes".
 
 ## Executable Tutorial 
 
+
 The concept: you create an executable tutorial about a specific technology related to Devops. You deliver your tutorial on an online platform supporting execution, such as [KillerKoda](https://killercoda.com/), [mybinder.org](https://mybinder.org/), [collab](https://colab.research.google.com/) or equivalent.
+
 
 | Category | Criterion | Description | Requirement |
 |----------|----------|-------------|-------------|
@@ -85,12 +93,15 @@ The concept: you create an executable tutorial about a specific technology relat
 | Communication | Language | The language used is clear, correct, and appropriate. | Yes/No |
 | Communication | ILO | The tutorial states the intended learning outcomes in the beginning. | Mandatory |
 
+
 To pass, you must have at least 9 "yes".
 
 ## Open-Source Contribution 
 
+
 The concept: you contribute to one open-source project related to DevOps. You get at least one merged pull-request.
 Criteria for the selection of the open-source project: 1) The project is related to DevOps 2) The project has more than 100 Commits 3) The project has an active community on GitHub.
+
 
 | Category | Criterion | Description | Requirement |
 |----------|----------|-------------|-------------|
@@ -104,6 +115,7 @@ Criteria for the selection of the open-source project: 1) The project is related
 | Communication & Collaboration | Engagement with maintainers | The student engages in conversation with the project maintainers, responding to feedback in a timely manner and making necessary changes. | Yes/No |
 | Communication & Collaboration | Process | The student follows the project’s contribution workflow (e.g., issues, Prs, reviews) appropriately. | Yes/No | 
 
+
 To pass, you must have at least 7 "yes".
 
 ## Feedback
@@ -112,6 +124,7 @@ To pass, you must have at least 7 "yes".
 The concept: you provide constructive and timely feedback about any task except "feedback".
 The feedback is provided in a written manner as a well-structured comment on the PR of the task.
 The feedback is given before the actual delivery of the task (before the presentation, before the deadline).
+
 
 | Category | Criterion | Description | Requirement |
 |----------|----------|-------------|-------------|
