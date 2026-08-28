@@ -89,7 +89,7 @@ To pass, you must have at least 9 "yes".
 
 ## Open-Source Contribution 
 
-The concept: you contribute to one open-source project related to DevOps. Yout get at least one merged pull-request.
+The concept: you contribute to one open-source project related to DevOps. You get at least one merged pull-request.
 Criteria for the selection of the open-source project: 1) The project is related to DevOps 2) The project has more than 100 Commits 3) The project has an active community on GitHub.
 
 | Category | Criterion | Description | Requirement |
