@@ -32,10 +32,13 @@ jobs:
           allow-unsafe-pr-checkout: true
 
       - name: 'Get tools'
+        # TEMPORARY: pointed at the fork/branch with the fixes
+        # (KTH/github-canvas-integration-devops#7) to verify them before
+        # someone with access merges to main. Revert once that PR merges.
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          repository: KTH/github-canvas-integration-devops
-          ref: main
+          repository: algomaster99/github-canvas-integration-devops
+          ref: fix/replace-presentation-with-project
           path: canvas-code
 
      # Setup Python
