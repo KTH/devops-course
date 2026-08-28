@@ -10,9 +10,9 @@ feedback:
   - changed-files:
     - any-glob-to-any-file: 'contributions/feedback/**'
 
-presentation:
+project:
   - changed-files:
-    - any-glob-to-any-file: 'contributions/presentation/**'
+    - any-glob-to-any-file: 'contributions/project/**'
 
 scientific-paper:
   - changed-files:
