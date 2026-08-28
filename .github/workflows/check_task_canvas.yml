@@ -1,0 +1,60 @@
+name: Check task canvas eligibility
+
+# Runs with base-repo secrets (needs Canvas access), so it must stay on
+# pull_request_target rather than pull_request. It only reads the PR's
+# checked-out README to diff it — it never executes anything from the
+# fork's commit — so the checkout opt-in below is safe.
+on:
+  pull_request_target:
+    types:
+      - opened
+      - reopened # good to check canvas again to see if eligibility changed
+      - edited # we need to check the new description against the README
+      - synchronize
+    branches:
+      - 2026
+    paths:
+      - contributions/**
+
+jobs:
+  check-canvas:
+    name: Check proposal is compatible with previous student task registrations
+
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          allow-unsafe-pr-checkout: true
+
+      - name: 'Get tools'
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: KTH/github-canvas-integration-devops
+          ref: main
+          path: canvas-code
+
+     # Setup Python
+      - name: Setup Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f ./canvas-code/requirements.txt ]; then pip install -r ./canvas-code/requirements.txt; fi
+      # Runs a single command using the runners shell
+      - name: Update grading in canvas
+        env:
+          CANVAS_TOKEN: ${{ secrets.CANVAS_TOKEN }}
+          CANVAS_COURSE_ID: ${{ secrets.CANVAS_COURSE_ID }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_REPO_FULLNAME: ${{ secrets.GH_REPO_FULLNAME }}
+        run: |
+          export PYTHONPATH="$PWD/canvas-code/utils"
+          python ./canvas-code/update_task.py --mode check --pr ${{github.event.number}}
