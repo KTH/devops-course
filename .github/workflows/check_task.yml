@@ -43,9 +43,9 @@ jobs:
             echo "Error: More than one file affected ($FILES_COUNT)"
             exit 1
           fi
-          if [[ "$FILES" =~ ^contributions\/(executable-tutorial|feedback|open-source)\/[^\/]+\/README\.md$ ]]; then
+          if [[ "$FILES" =~ ^contributions\/(executable-tutorial|feedback|open-source|project)\/[^\/]+\/README\.md$ ]]; then
             echo "Info: Matches async task"
-          elif [[ "$FILES" =~ ^contributions\/(demo|presentation|scientific-paper)\/week[2-7]\/[^\/]+\/README\.md$ ]]; then
+          elif [[ "$FILES" =~ ^contributions\/(demo|scientific-paper)\/week[2-7]\/[^\/]+\/README\.md$ ]]; then
             echo "Info: Matches sync task"
           else
             echo "Error: File in wrong directory ($FILES)"
