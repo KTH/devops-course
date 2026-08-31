@@ -8,28 +8,27 @@ The following grading criteria help you understand the expectations.
 
 ## Project 
 
+
 In this project, you will set up infrastructure that demonstrates core DevOps practices in an integrated workflow. You are expected to justify your technical choices, demonstrate how the different components interact, and reflect on the strengths and limitations of your solution.
 
 The goal is not to build a large system, but to implement a coherent, working DevOps pipeline that you understand and can explain. You can choose freely which project to implement DevOps in. We recommend you to use a non-trivial project you already know, from a previous course or a side-project.
 
-To pass, the project must demonstrate:
-* Automated build and testing (CI pipeline)
-* Automated deployment or delivery (CD pipeline)
-* Infrastructure configuration (Infrastructure as Code)
-* Use of a modern development platform (e.g., GitHub/GitLab)
-* At least one quality or security automation (e.g., static analysis, dependency bots, secret scanning)
-* Documented use (or critical discussion) of AI-assisted tools (e.g., AI code review)
-
 The different parts need to be coherently integrated and function together as a unified repository.
 
-Deliverables:
-1. Project repository: A fully functional implementation including all configuration, code, and documentation needed to run the system.
-2. Short report (2-3 pages) that should:
-    1. Explain the architecture and processes wrt to the features that must be demonstrated.
-    2. Justify key design decisions (structure, tools)
-    3. Describe how the components interact
-    4. Reflect on limitations and trade-offs
-3. Optional presentation: Selected projects may be invited to present their system and demonstrate key aspects of the workflow.
+
+| Category | Criterion | Description | Requirement |
+|----------|----------|-------------|-------------|
+| | Automated build and testing | Students should use a CI pipeline | Mandatory |
+| | Automated deployment or delivery | Students should use a CD pipeline | Mandatory |
+| | Infrastructure configuration | Students should implement Infrastructure as Code techniques | Mandatory |
+| | Development platform | Students should use a modern development platform (e.g., GitHub/GitLab)| Mandatory |
+| | Quality or security automation | Students should use at least one quality or security automation (e.g., static analysis, dependency bots, secret scanning) | Mandatory |
+| | Documented use of AI-assisted tools | Students should document clearly the usage of AI-assisted tools (e.g., AI code review) | Mandatory |
+| | Project repository |  Students provide a fully functional implementation including all configuration, code, and documentation needed to run the system. | Mandatory |
+| | Short report (2-3 pages) | Students provide a report: explain the architecture and processes wrt to the features that must be demonstrated; justify key design decisions (structure, tools); describe how the components interact; reflect on limitations and trade-offs | Mandatory |
+
+
+Optional presentation: Selected projects may be invited to present their system and demonstrate key aspects of the workflow.
 
 ## Demos
 
