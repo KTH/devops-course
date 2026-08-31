@@ -125,6 +125,7 @@ The feedback is given before the actual delivery of the task (before the present
 This means that you meet up with the owner of the task, they present the task to you, and you provide the feedback. 
 The feedback is provided in a written manner as a well-structured comment on the PR of the task.
 
+
 | Category | Criterion | Description | Requirement |
 |----------|----------|-------------|-------------|
 | Conceptual Understanding | Understanding | The feedback demonstrates a correct understanding of the work, its goals, and its main components. | Yes/No |
