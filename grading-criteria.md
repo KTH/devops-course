@@ -122,9 +122,9 @@ To pass, you must meet all mandatory requirements and have at least 6 'yes'.
 
 
 The concept: you provide constructive and timely feedback about any task except "feedback".
-The feedback is provided in a written manner as a well-structured comment on the PR of the task.
 The feedback is given before the actual delivery of the task (before the presentation, before the deadline).
-
+This means that you meet up with the owner of the task, they present the task to you, and you provide the feedback. 
+The feedback is provided in a written manner as a well-structured comment on the PR of the task.
 
 | Category | Criterion | Description | Requirement |
 |----------|----------|-------------|-------------|
