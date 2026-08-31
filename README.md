@@ -64,7 +64,7 @@ To pass the course, the student has to complete and pass between 3 and 5 tasks:
   * "[project (mandatory)](https://github.com/KTH/devops-course/blob/2026/grading-criteria.md#project)" (async)
 * Pproject and demo are mandatory, at most one in the same category, it is not necessary to cover everything.
 * The [grading criteria page](grading-criteria.md) is the unique reference which explains how to pass each task category.
-* The student proposes a category and a topic, which is discussed and accepted by the TA. The proposal is made as a [structured pull-request](https://github.com/KTH/devops-course/blob/2026/.github/pull_request_template.md) on this repository. The 3-5 graded contributions must have little overlap.
+* The student proposes a category and a topic, which is discussed and accepted by the TA. The proposal is made as a [structured pull-request](https://github.com/KTH/devops-course/blob/2026/.github/pull_request_template.md) on this repository. Pull request must be created 3 business days before the actual delivery​. The 3-5 graded contributions must have little overlap. 
 * The same student cannot choose the same topic for two different tasks. The 3-5 tasks should cover different aspects of DevOps.
 * Deadlines:
   * Deadline for demos and paper presentations: the day and time they are given in person
