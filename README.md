@@ -67,11 +67,10 @@ To pass the course, the student has to complete and pass between 3 and 5 tasks:
 * The student proposes a category and a topic, which is discussed and accepted by the TA. The proposal is made as a [structured pull-request](https://github.com/KTH/devops-course/blob/2026/.github/pull_request_template.md) on this repository. Pull request must be created 3 business days before the actual delivery​. The 3-5 graded contributions must have little overlap. 
 * The same student cannot choose the same topic for two different tasks. The 3-5 tasks should cover different aspects of DevOps.
 * Deadlines:
-  * Deadline for demos and paper presentations: the day and time they are given in person
-  * Deadline for tutorial and opensource: Sep 24, 23h59 Stockholm time
-  * Deadline for project: Oct 10, 23h59 Stockholm time
-  * Deadline for repeated tasks (all): Oct 27 2026, 17h Stockholm time.
+  * Deadline for sync tasks (demos and paper presentations): the day and time they are given in person
+  * Deadline for async tasks (project, tutorial and opensource): Oct 11, 23h59 Stockholm time
   * Deadline for feedback on tasks: 2 business days after the "go" from the authors
+  * Deadline for repeated tasks (all): Oct 27 2026, 17h Stockholm time.
   * Hand-in your async tasks via a new PR that updates your proposal document with a link to the artifact/contribution/feedback
   * The deadlines are strict and cannot be extended. Not meeting a deadline means failing the task / the repetition.
 * Final grading scheme
