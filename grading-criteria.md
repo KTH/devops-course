@@ -8,11 +8,13 @@ The following grading criteria help you understand the expectations.
 
 ## Project 
 
+
 In this project, you will set up infrastructure that demonstrates core DevOps practices in an integrated workflow. You are expected to justify your technical choices, demonstrate how the different components interact, and reflect on the strengths and limitations of your solution.
 
 The goal is not to build a large system, but to implement a coherent, working DevOps pipeline that you understand and can explain. You can choose freely which project to implement DevOps in. We recommend you to use a non-trivial project you already know, from a previous course or a side-project.
 
 The different parts need to be coherently integrated and function together as a unified repository.
+
 
 | Category | Criterion | Description | Requirement |
 |----------|----------|-------------|-------------|
@@ -25,10 +27,11 @@ The different parts need to be coherently integrated and function together as a 
 | | Project repository |  Students provide a fully functional implementation including all configuration, code, and documentation needed to run the system. | Mandatory |
 | | Short report (2-3 pages) | Students provide a report: explain the architecture and processes wrt to the features that must be demonstrated; justify key design decisions (structure, tools); describe how the components interact; reflect on limitations and trade-offs | Mandatory |
 
+
 Optional presentation: Selected projects may be invited to present their system and demonstrate key aspects of the workflow.
 
-
 ## Demos
+
 
 The concept: Students prepare a demonstration involving DevOps technology, to be performed during the lecture. For example, a demo typically involves multiple virtual machines, likely deployed in the cloud. A demonstration is scripted, prepared and lasts 6:30-7:30 minutes.
 
