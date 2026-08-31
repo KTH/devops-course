@@ -19,7 +19,7 @@ Local-first Infrastructure as Code: emulating AWS with MiniStack, orchestrated b
 
 ## Description
 
-We want to demonstrate an Infrastructure as Code workflow that runs locally, with no cloud account involved. The solution is based on a [.NET Aspire](https://learn.microsoft.com/dotnet/aspire/) AppHost that starts [MiniStack](https://ministack.org), a free local emulator of AWS. We will deploy an AWS CDK stack to it with a single command, and then change the stack live, redeploy it, and show a small service that reads and writes the new resources through the AWS SDK.
+We want to demonstrate an Infrastructure as Code workflow that runs locally, with no cloud account involved. The solution is based on a [.NET Aspire](https://learn.microsoft.com/dotnet/aspire/) AppHost that starts [MiniStack](https://ministack.org), a free local emulator of AWS. We will deploy an AWS CDK stack to it, and then change the stack live, redeploy it, and show a small service that reads and writes the new resources through the AWS SDK.
 
 **Relevance**
 
