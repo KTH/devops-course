@@ -56,12 +56,12 @@ The schedule is at <https://www.kth.se/social/course/DD2482/calendar/>
 
 To pass the course, the student has to complete and pass between 3 and 5 tasks:
 * The tasks are in category:
-  * "[demo (mandatory)](https://github.com/KTH/devops-course/blob/2026/grading-criteria.md#demos)" (synch)
-  * "[scientific paper](https://github.com/KTH/devops-course/blob/2026/grading-criteria.md#scientific-papers)" (synch)
-  * "[executable tutorial](https://github.com/KTH/devops-course/blob/2026/grading-criteria.md#executable-tutorials)" (asynch)
-  * "[contribution to open-source](https://github.com/KTH/devops-course/blob/2026/grading-criteria.md#open-source-contributions)" (asynch)
-  * "[feedback](https://github.com/KTH/devops-course/blob/2026/grading-criteria.md#feedback)" (asynch)
-  * "[project (mandatory)](https://github.com/KTH/devops-course/blob/2026/grading-criteria.md#project)" (asynch)
+  * "[demo (mandatory)](https://github.com/KTH/devops-course/blob/2026/grading-criteria.md#demos)" (sync)
+  * "[scientific paper](https://github.com/KTH/devops-course/blob/2026/grading-criteria.md#scientific-papers)" (sync)
+  * "[executable tutorial](https://github.com/KTH/devops-course/blob/2026/grading-criteria.md#executable-tutorials)" (async)
+  * "[contribution to open-source](https://github.com/KTH/devops-course/blob/2026/grading-criteria.md#open-source-contributions)" (async)
+  * "[feedback](https://github.com/KTH/devops-course/blob/2026/grading-criteria.md#feedback)" (async)
+  * "[project (mandatory)](https://github.com/KTH/devops-course/blob/2026/grading-criteria.md#project)" (async)
 * Pproject and demo are mandatory, at most one in the same category, it is not necessary to cover everything.
 * The [grading criteria page](grading-criteria.md) is the unique reference which explains how to pass each task category.
 * The student proposes a category and a topic, which is discussed and accepted by the TA. The proposal is made as a [structured pull-request](https://github.com/KTH/devops-course/blob/2026/.github/pull_request_template.md) on this repository. The 3-5 graded contributions must have little overlap.
