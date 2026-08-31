@@ -50,7 +50,7 @@ The concept: Students prepare a demonstration involving DevOps technology, to be
 | Communication | Timing | Demo duration is between 6:30–7:30 minutes (hard limit). | Mandatory |
 
 
-To pass, you must have at least 7 "yes".
+To pass, you must meet all mandatory requirements and have at least 6 'yes'.
 
 ## Scientific Papers
 
@@ -71,7 +71,7 @@ The concept: The students prepare a 7 minute presentation on one scientific pape
 | Communication | Timing | Presentation duration is between 6:30–7:30 minutes (hard limit). | Mandatory | 
 
 
-To pass, you must have at least 7 "yes".
+To pass, you must meet all mandatory requirements and have at least 6 'yes'.
 
 ## Executable Tutorial 
 
@@ -94,7 +94,7 @@ The concept: you create an executable tutorial about a specific technology relat
 | Communication | ILO | The tutorial states the intended learning outcomes in the beginning. | Mandatory |
 
 
-To pass, you must have at least 9 "yes".
+To pass, you must meet all mandatory requirements and have at least 6 'yes'.
 
 ## Open-Source Contribution 
 
@@ -116,7 +116,7 @@ Criteria for the selection of the open-source project: 1) The project is related
 | Communication & Collaboration | Process | The student follows the project’s contribution workflow (e.g., issues, Prs, reviews) appropriately. | Yes/No | 
 
 
-To pass, you must have at least 7 "yes".
+To pass, you must meet all mandatory requirements and have at least 6 'yes'.
 
 ## Feedback
 
@@ -139,9 +139,4 @@ The feedback is given before the actual delivery of the task (before the present
 | Process Requirements | Timeliness | The feedback is provided 2 business days after the "go" from the authors. | Yes/No |
 
 
-To pass, you must have at least 7 "yes".
-
-
-
-
-
+To pass, you must meet all mandatory requirements and have at least 5 'yes'.
