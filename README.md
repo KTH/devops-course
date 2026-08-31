@@ -55,7 +55,14 @@ The schedule is at <https://www.kth.se/social/course/DD2482/calendar/>
 
 
 To pass the course, the student has to complete and pass between 3 and 5 tasks:
-* The tasks are in category: "[demo (mandatory)](https://github.com/KTH/devops-course/blob/2026/grading-criteria.md#demos)", "[scientific paper](https://github.com/KTH/devops-course/blob/2026/grading-criteria.md#scientific-papers)", "[executable tutorial](https://github.com/KTH/devops-course/blob/2026/grading-criteria.md#executable-tutorials)", "[contribution to open-source](https://github.com/KTH/devops-course/blob/2026/grading-criteria.md#open-source-contributions)", "[feedback](https://github.com/KTH/devops-course/blob/2026/grading-criteria.md#feedback)",  "[project](https://github.com/KTH/devops-course/blob/2026/grading-criteria.md#project)" (project and demo are mandatory, at most one in the same category, it is not necessary to cover everything).
+* The tasks are in category:
+  * "[demo (mandatory)](https://github.com/KTH/devops-course/blob/2026/grading-criteria.md#demos)" (sync)
+  * "[scientific paper](https://github.com/KTH/devops-course/blob/2026/grading-criteria.md#scientific-papers)" (sync)
+  * "[executable tutorial](https://github.com/KTH/devops-course/blob/2026/grading-criteria.md#executable-tutorials)" (async)
+  * "[contribution to open-source](https://github.com/KTH/devops-course/blob/2026/grading-criteria.md#open-source-contributions)" (async)
+  * "[feedback](https://github.com/KTH/devops-course/blob/2026/grading-criteria.md#feedback)" (async)
+  * "[project (mandatory)](https://github.com/KTH/devops-course/blob/2026/grading-criteria.md#project)" (async)
+* Pproject and demo are mandatory, at most one in the same category, it is not necessary to cover everything.
 * The [grading criteria page](grading-criteria.md) is the unique reference which explains how to pass each task category.
 * The student proposes a category and a topic, which is discussed and accepted by the TA. The proposal is made as a [structured pull-request](https://github.com/KTH/devops-course/blob/2026/.github/pull_request_template.md) on this repository. The 3-5 graded contributions must have little overlap.
 * The same student cannot choose the same topic for two different tasks. The 3-5 tasks should cover different aspects of DevOps.
