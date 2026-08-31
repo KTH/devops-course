@@ -77,8 +77,8 @@ To pass the course, the student has to complete and pass between 3 and 5 tasks:
 * Final grading scheme
   * E: 3 completed tasks (excluding feedback)
   * C: 3 completed tasks + feedback
-  * B: 5 completed tasks
-  * A: 5 completed tasks + active participation in all but one seminars
+  * B: 4 completed tasks + feedback
+  * A: 4 completed tasks + feedback + active participation in all but one seminars
 * Active participation: attendance to all but one seminars between 10/09 and 14/10, a traceable record of questions asked during seminars (through GitHub issues) and the answers you received to them.
 * Group work is mandatory (max 2 persons) but you cannot be with the same person for more than 2 individual tasks. You are not allowed to work alone. When you send a pull request for registration, please follow the name convention of using email addresses of two members to create the folder: email-email.
 * A failed task requires to pass it again at the end of the course (repeat), based on the feedback from the failure. A task can only be repeated once.
