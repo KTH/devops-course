@@ -6,8 +6,8 @@ Automated DevOps Workflow for a Frontend Application
 
 ## Names and KTH ID
 
- - Rami Khedair (khedair@kth.se)  
  - Ziyad Derghazi (derghazi@kth.se)
+ - Rami Khedair (khedair@kth.se)  
 
 ## Deadline
 
