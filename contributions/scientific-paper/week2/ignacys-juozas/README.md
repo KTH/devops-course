@@ -27,7 +27,8 @@ The paper studies over 70 thousand CI build failures from seven open-source proj
 
 During our presentation, we aim to explain the problem of unrelated CI failures, describe the proposed prediction approach, discuss the main empirical results, and evaluate how such a system could improve the developer feedback loop in CI environments.
 
-## Relevance
+**Relevance**
+
 
 This paper is highly relevant to DevOps and Week 2 because it focuses directly on Continuous Integration and automated build pipelines. Fast and reliable feedback from CI is a central DevOps practice. Unrelated build failures can slow down development by causing developers to investigate problems that were not introduced by their own changes.
 
