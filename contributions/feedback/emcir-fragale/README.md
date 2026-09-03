@@ -11,7 +11,7 @@ Feedback to Demo - Improving Test Quality with Mutation Testing in a CI Workflow
 
 ## Deadline
 
-- Week 2
+- Task 3
 
 ## Category
 
