@@ -38,7 +38,7 @@ The work will be split across **two separate repositories**:
 
 The tutorial will show the complete workflow from a new commit to an automatically generated changelog and version tag.
 
-## Relevance
+**Relevance**
 
 Release management is an important part of DevOps, but manually maintaining changelogs and release versions can introduce errors and inconsistent processes.
 
