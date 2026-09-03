@@ -22,9 +22,9 @@ Demo
 
 Our demo investigates why conventional code coverage is not always sufficient for evaluating the quality of a test suite. We will construct a small application with tests that achieve high or complete statement coverage while still failing to detect meaningful faults.
 
-We will introduce mutation testing in a CI workflow, where small artificial faults are introduced into the program and the existing test suite is evaluated based on whether it detects them. Surviving mutations will expose weaknesses that are not visible from code coverage alone.
+We will introduce mutation testing in a CI workflow using `mutmut` in Python, where small artificial faults are introduced into the program and the existing test suite is evaluated based on whether it detects them. Surviving mutations will expose weaknesses that are not visible from code coverage alone. 
 
-We will then improve the test suite using techniques such as boundary-value testing and property-based testing, and rerun the mutation tests to demonstrate how the test suite can improve without necessarily increasing code coverage.
+We will then improve the test suite using techniques such as boundary-value testing and parameterized testing, and rerun the mutation tests to demonstrate how the test suite can improve without necessarily increasing code coverage.
 
 The CI pipeline will use the results as automated validation mechanisms and enforce a quality gate based on the code coverage, test results, and mutation score. During the live demo, we will change the tests and CI workflow to showcase how these changes affect the validation results.
 
