@@ -1,4 +1,4 @@
-# Demo Proposal
+# Assignment Proposal
  
 ## Title
 CI Pipeline with Integration Testing Against a Real Database
