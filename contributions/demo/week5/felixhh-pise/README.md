@@ -6,7 +6,7 @@ _Testing Infrastructure is Provisioned Correctly in Terraform_
 
 ## Names and KTH IDs
 
-- Felix Castillo Huber (felixhh@kth.se)<br>
+- Felix Castillo Huber (felixhh@kth.se)
 - Pierre Segerström (pise@kth.se) 
 
 ## Deadline
