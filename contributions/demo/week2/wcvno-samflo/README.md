@@ -21,6 +21,7 @@ Setup automated linting and code checks with SonarCloud
 
 We want to set up a GitHub Actions CI which runs linting on each PR to check for correct formatting.
 The CI will also use SonarCloud to scan the code for code quality issues as well as security risks.
+These can be issues such as unused variables or functions with high complexity.
 
 In the demo we will first show a functioning application. We will then demonstrate what happens if we push code that is poorly formatted or has other issues that SonarCloud will find.
 
