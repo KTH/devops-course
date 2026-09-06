@@ -3,7 +3,7 @@
 ## Title
 Automated Testing, APK Builds & Firebase Feature Flags for Mobile Application
  
-## Names and KTH IDs
+## Names and KTH ID
 - Pavlos Spanoudakis (pavloss@kth.se)
 - Bogdan-Laurentiu Stefanescu (blst@kth.se)
 
