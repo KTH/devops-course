@@ -6,8 +6,8 @@ Automated Dependency Management and Package Updates with Renovate
 
 ## Names and KTH ID
 
-* Rami Khedair (khedair@kth.se)
-* Dawa Arkhang (arkhang@kth.se)
+* Rami Khedair ([khedair@kth.se](mailto:khedair@kth.se))
+* Dawa Arkhang ([arkhang@kth.se](mailto:arkhang@kth.se))
 
 ## Deadline
 
@@ -19,21 +19,38 @@ Demo
 
 ## Description
 
-Software projects rely on external packages that require continuous updates. Managing these manually leads to security vulnerabilities, outdated packages, and unnecessary effort.
+Software projects rely on external packages that require continuous updates. Managing these manually can lead to security vulnerabilities, outdated dependencies, and unnecessary effort.
 
-This demo showcases how Renovate automates dependency management by monitoring repositories, detecting outdated packages, and creating Pull Requests for updates.
+This demo showcases how **Renovate** automates dependency management across different languages and project structures. We will demonstrate Renovate using **Java, Node.js, and Python** projects.
 
-The demo covers scanning dependencies, CI validation, categorizing updates by impact (patch, minor, major), policy-based automerging, lock-file maintenance, and update grouping.
+The demo will cover:
+
+* **Java:** a backend project using external dependencies.
+* **Node.js:** a monorepo containing both a backend and frontend.
+* **Python:** two separate projects, where one is a library and the other uses the library as a dependency. We will release a new version of the library and demonstrate Renovate detecting the new version and automatically proposing an update to the dependent project's `requirements.txt`.
+
+We will also demonstrate CI validation, update grouping, lock-file maintenance, and different policies for patch, minor, and major updates.
 
 **Relevance**
 
-Dependency maintenance is a key DevOps practice. Renovate replaces manual checking with continuous automated detection, shifting maintenance into standard Git/CI workflows. Automated testing provides immediate feedback before changes are integrated, maintaining stability while reducing technical debt.
+Dependency maintenance is a key DevOps practice. Renovate replaces manual dependency checking with continuous automated detection and integrates updates directly into the Git/CI workflow.
+
+Using three different ecosystems and a cross-project dependency demonstrates how Renovate can automate dependency management beyond a single repository or programming language.
 
 **Demo Plan (can be changed)**
 
-1. **Problem:** Show manual update overhead using a repository with outdated dependencies.
-2. **Setup:** Show Renovate configuration rules (schedules, grouping, automerge rules).
-3. **Detection:** Show Renovate identifying dependencies and generating PRs with changelogs.
-4. **CI Validation:** Run automated build and test pipelines on the generated PR.
-5. **Update Policy:** Highlight automerging for safe patch/minor updates versus manual review for major breaking changes.
-6. **Live Experiment (Extra):** Modify a dependency version live to demonstrate Renovate detecting it, opening a PR, and triggering CI.
+1. **Problem:** Show outdated dependencies and the effort required to maintain them manually.
+
+2. **Setup:** Show the Renovate configuration, including schedules, grouping, automerge rules, and update policies.
+
+3. **Java:** Demonstrate Renovate detecting outdated Maven dependencies and creating Merge Requests.
+
+4. **Node.js:** Demonstrate dependency updates in a monorepo containing a backend and frontend.
+
+5. **Python Cross-Project:** Release a new version of a Python library and show Renovate detecting the new version and updating `requirements.txt` in the dependent project.
+
+6. **CI Validation:** Show CI pipelines automatically building and testing Renovate-generated Merge Requests.
+
+7. **Update Policy:** Demonstrate automerging safe patch/minor updates while keeping major updates for manual review.
+
+8. **Live Experiment (Extra):** Trigger a dependency update during the demo and show the complete Renovate → Merge Request → CI workflow.
