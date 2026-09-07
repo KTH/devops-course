@@ -21,13 +21,12 @@ Demo
 
 Software projects rely on external packages that require continuous updates. Managing these manually can lead to security vulnerabilities, outdated dependencies, and unnecessary effort.
 
-This demo showcases how **Renovate** automates dependency management across different languages and project structures. We will demonstrate Renovate using **Java, Node.js, and Python** projects.
+This demo showcases how **Renovate** automates dependency management across different languages and project structures. We will demonstrate Renovate using **Java and Node.js** projects.
 
 The demo will cover:
 
 * **Java:** a backend project using external dependencies.
 * **Node.js:** a monorepo containing both a backend and frontend.
-* **Python:** two separate projects, where one is a library and the other uses the library as a dependency. We will release a new version of the library and demonstrate Renovate detecting the new version and automatically proposing an update to the dependent project's `requirements.txt`.
 
 We will also demonstrate CI validation, update grouping, lock-file maintenance, and different policies for patch, minor, and major updates.
 
@@ -47,10 +46,8 @@ Using three different ecosystems and a cross-project dependency demonstrates how
 
 4. **Node.js:** Demonstrate dependency updates in a monorepo containing a backend and frontend.
 
-5. **Python Cross-Project:** Release a new version of a Python library and show Renovate detecting the new version and updating `requirements.txt` in the dependent project.
+5. **CI Validation:** Show CI pipelines automatically building and testing Renovate-generated Merge Requests.
 
-6. **CI Validation:** Show CI pipelines automatically building and testing Renovate-generated Merge Requests.
+6. **Update Policy:** Demonstrate automerging safe patch/minor updates while keeping major updates for manual review.
 
-7. **Update Policy:** Demonstrate automerging safe patch/minor updates while keeping major updates for manual review.
-
-8. **Live Experiment (Extra):** Trigger a dependency update during the demo and show the complete Renovate → Merge Request → CI workflow.
+7. **Live Experiment (Extra):** Trigger a dependency update during the demo and show the complete Renovate → Merge Request → CI workflow.
