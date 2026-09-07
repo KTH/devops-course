@@ -23,7 +23,7 @@ The core workflow is:
 
 We will also discuss limitations such as incomplete automated remediation, regressions caused by fixes, and the fact that passing security checks does not guarantee complete security.
 
-Relevance
+**Relevance**
 
 The demo demonstrates DevSecOps by integrating security into the CI workflow. Automation provides fast feedback, reduces manual work, and ensures that vulnerable changes are blocked before reaching the main branch.
 
