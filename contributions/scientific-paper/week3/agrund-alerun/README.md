@@ -1,14 +1,9 @@
-**The pull request must both contain a README.md and have description following the template below. This README.md must be the only file affected by the PR, and its contents must match the PR description exactly. The pull request must be created 3 business days before the actual delivery.**
-
-**The README.md file must be located in the directory**:
-
-`contributions/<category>/[<week>/]<kth-id-1>-<kth-id-2>/README.md`
 
 # Assignment Proposal
 
 ## Title
 
-_The title of your proposal_
+An Empirical Study on Kubernetes Operator Bugs
 
 ## Names and KTH ID
 
@@ -25,8 +20,10 @@ Scientific paper
 
 ## Description
 
-_Description of your proposal_
+We will present _"An Empirical Study on Kubernetes Operator Bugs"_ by Xu, Gao, and Wei (ISSTA '24, ACM SIGSOFT International Symposium on Software Testing and Analysis, https://dl.acm.org/doi/abs/10.1145/3650212.3680396), a study of operator bugs collected from open-source Kubernetes operators. Our presentation will cover the operator control loop and the paper's four root-cause categories (access control misconfiguration, incorrect CRD, incorrect state observation and analysis, incorrect reconciliation). Then we will give some specific examples taken directly from the paper's worked examples. We will frame this component explicitly through the CD lens: an operator's reconcile loop is itself a form of continuous deployment, since it observes a declared desired state and drives the live cluster towards it without human intervention. Thus, the bug patterns the paper identifies are effectively CD-pipeline failure modes rather than generic application bugs.
+
+We're contrasting the empirical study with two papers it doesn't cite itself: "Breaking the Bulkhead" (2025), which looks at Kubernetes operator misconfigurations as a security issue rather than a reliability one, and a 2025 paper on resilience in cloud-edge Kubernetes deployments that uses fault injection instead of mining historical bug reports. This gives us two points of comparison: how deep versus broad the bug coverage is, and testing prospectively versus analysing bugs after the fact.
 
 **Relevance**
 
-_Motivate the relevance of your proposal with respect to DevOps_
+The paper's subject, the reconciliation loop of Kubernetes operators, is a declarative continuous deployment mechanism that automatically drives a cluster's actual state towards a desired state, making it a direct fit for week 3's CD theme. The reconciliation bugs (synchronization failures, reconciliation loops, incorrect ordering of resource operations) are directly relevant to anyone using Kubernetes-based CD pipelines. Its findings on silent failures and detection gaps in existing testing tools point to open problems in verifying automated deployment correctness.
