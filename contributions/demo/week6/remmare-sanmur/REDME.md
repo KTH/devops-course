@@ -1,7 +1,7 @@
 # Assignment Proposal
  
 ## Title
-Automated DevSecOps Pipeline
+Automated DevSecOps CI Pipeline for Vulnerability Detection and Remediation.
  
 ## Names and KTH ID
 - Anna Remmare — (remmare@kth.se)
