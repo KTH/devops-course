@@ -1,13 +1,13 @@
 # Assignment Proposal
  
 ## Title
-Secure CI Pipeline for Automated Vulnerability Detection and Remediation
+Automated DevSecOps Pipeline
  
 ## Names and KTH ID
 - Anna Remmare — (remmare@kth.se)
 - Sangeetha Murugesan — (sanmur@kth.se)
 ## Deadline
-Week 2
+Week 6
  
 ## Category
 Demo
