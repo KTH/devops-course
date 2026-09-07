@@ -8,28 +8,27 @@ The following grading criteria help you understand the expectations.
 
 ## Project 
 
+
 In this project, you will set up infrastructure that demonstrates core DevOps practices in an integrated workflow. You are expected to justify your technical choices, demonstrate how the different components interact, and reflect on the strengths and limitations of your solution.
 
 The goal is not to build a large system, but to implement a coherent, working DevOps pipeline that you understand and can explain. You can choose freely which project to implement DevOps in. We recommend you to use a non-trivial project you already know, from a previous course or a side-project.
 
-To pass, the project must demonstrate:
-* Automated build and testing (CI pipeline)
-* Automated deployment or delivery (CD pipeline)
-* Infrastructure configuration (Infrastructure as Code)
-* Use of a modern development platform (e.g., GitHub/GitLab)
-* At least one quality or security automation (e.g., static analysis, dependency bots, secret scanning)
-* Documented use (or critical discussion) of AI-assisted tools (e.g., AI code review)
-
 The different parts need to be coherently integrated and function together as a unified repository.
 
-Deliverables:
-1. Project repository: A fully functional implementation including all configuration, code, and documentation needed to run the system.
-2. Short report (2-3 pages) that should:
-    1. Explain the architecture and processes wrt to the features that must be demonstrated.
-    2. Justify key design decisions (structure, tools)
-    3. Describe how the components interact
-    4. Reflect on limitations and trade-offs
-3. Optional presentation: Selected projects may be invited to present their system and demonstrate key aspects of the workflow.
+
+| Category | Criterion | Description | Requirement |
+|----------|----------|-------------|-------------|
+| | Automated build and testing | Students should use a CI pipeline | Mandatory |
+| | Automated deployment or delivery | Students should use a CD pipeline | Mandatory |
+| | Infrastructure configuration | Students should implement Infrastructure as Code techniques | Mandatory |
+| | Development platform | Students should use a modern development platform (e.g., GitHub/GitLab)| Mandatory |
+| | Quality or security automation | Students should use at least one quality or security automation (e.g., static analysis, dependency bots, secret scanning) | Mandatory |
+| | Documented use of AI-assisted tools | Students should document clearly the usage of AI-assisted tools (e.g., AI code review) | Mandatory |
+| | Project repository |  Students provide a fully functional implementation including all configuration, code, and documentation needed to run the system. | Mandatory |
+| | Short report (2-3 pages) | Students provide a report: explain the architecture and processes wrt to the features that must be demonstrated; justify key design decisions (structure, tools); describe how the components interact; reflect on limitations and trade-offs | Mandatory |
+
+
+Optional presentation: Selected projects may be invited to present their system and demonstrate key aspects of the workflow.
 
 ## Demos
 
@@ -50,7 +49,7 @@ The concept: Students prepare a demonstration involving DevOps technology, to be
 | Communication | Timing | Demo duration is between 6:30–7:30 minutes (hard limit). | Mandatory |
 
 
-To pass, you must have at least 7 "yes".
+To pass, you must meet all mandatory requirements and have at least 6 'yes'.
 
 ## Scientific Papers
 
@@ -71,7 +70,7 @@ The concept: The students prepare a 7 minute presentation on one scientific pape
 | Communication | Timing | Presentation duration is between 6:30–7:30 minutes (hard limit). | Mandatory | 
 
 
-To pass, you must have at least 7 "yes".
+To pass, you must meet all mandatory requirements and have at least 6 'yes'.
 
 ## Executable Tutorial 
 
@@ -94,7 +93,7 @@ The concept: you create an executable tutorial about a specific technology relat
 | Communication | ILO | The tutorial states the intended learning outcomes in the beginning. | Mandatory |
 
 
-To pass, you must have at least 9 "yes".
+To pass, you must meet all mandatory requirements and have at least 6 'yes'.
 
 ## Open-Source Contribution 
 
@@ -116,14 +115,15 @@ Criteria for the selection of the open-source project: 1) The project is related
 | Communication & Collaboration | Process | The student follows the project’s contribution workflow (e.g., issues, Prs, reviews) appropriately. | Yes/No | 
 
 
-To pass, you must have at least 7 "yes".
+To pass, you must meet all mandatory requirements and have at least 6 'yes'.
 
 ## Feedback
 
 
 The concept: you provide constructive and timely feedback about any task except "feedback".
-The feedback is provided in a written manner as a well-structured comment on the PR of the task.
 The feedback is given before the actual delivery of the task (before the presentation, before the deadline).
+This means that you meet up with the owner of the task, they present the task to you, and you provide the feedback. 
+The feedback is provided in a written manner as a well-structured comment on the PR of the task.
 
 
 | Category | Criterion | Description | Requirement |
@@ -139,9 +139,4 @@ The feedback is given before the actual delivery of the task (before the present
 | Process Requirements | Timeliness | The feedback is provided 2 business days after the "go" from the authors. | Yes/No |
 
 
-To pass, you must have at least 7 "yes".
-
-
-
-
-
+To pass, you must meet all mandatory requirements and have at least 5 'yes'.

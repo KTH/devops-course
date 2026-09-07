@@ -55,23 +55,29 @@ The schedule is at <https://www.kth.se/social/course/DD2482/calendar/>
 
 
 To pass the course, the student has to complete and pass between 3 and 5 tasks:
-* The tasks are in category: "[demo (mandatory)](https://github.com/KTH/devops-course/blob/2026/grading-criteria.md#demos)", "[scientific paper](https://github.com/KTH/devops-course/blob/2026/grading-criteria.md#scientific-papers)", "[executable tutorial](https://github.com/KTH/devops-course/blob/2026/grading-criteria.md#executable-tutorials)", "[contribution to open-source](https://github.com/KTH/devops-course/blob/2026/grading-criteria.md#open-source-contributions)", "[feedback](https://github.com/KTH/devops-course/blob/2026/grading-criteria.md#feedback)",  "[project](https://github.com/KTH/devops-course/blob/2026/grading-criteria.md#project)" (project and demo are mandatory, at most one in the same category, it is not necessary to cover everything).
+* The tasks are in category:
+  * "[demo (mandatory)](https://github.com/KTH/devops-course/blob/2026/grading-criteria.md#demos)" (sync)
+  * "[scientific paper](https://github.com/KTH/devops-course/blob/2026/grading-criteria.md#scientific-papers)" (sync)
+  * "[executable tutorial](https://github.com/KTH/devops-course/blob/2026/grading-criteria.md#executable-tutorials)" (async)
+  * "[contribution to open-source](https://github.com/KTH/devops-course/blob/2026/grading-criteria.md#open-source-contributions)" (async)
+  * "[feedback](https://github.com/KTH/devops-course/blob/2026/grading-criteria.md#feedback)" (async)
+  * "[project (mandatory)](https://github.com/KTH/devops-course/blob/2026/grading-criteria.md#project)" (async)
+* Pproject and demo are mandatory, at most one in the same category, it is not necessary to cover everything.
 * The [grading criteria page](grading-criteria.md) is the unique reference which explains how to pass each task category.
-* The student proposes a category and a topic, which is discussed and accepted by the TA. The proposal is made as a [structured pull-request](https://github.com/KTH/devops-course/blob/2026/.github/pull_request_template.md) on this repository. The 3-5 graded contributions must have little overlap.
+* The student proposes a category and a topic, which is discussed and accepted by the TA. The proposal is made as a [structured pull-request](https://github.com/KTH/devops-course/blob/2026/.github/pull_request_template.md) on this repository. Pull request must be created 3 business days before the actual delivery​. The 3-5 graded contributions must have little overlap. 
 * The same student cannot choose the same topic for two different tasks. The 3-5 tasks should cover different aspects of DevOps.
 * Deadlines:
-  * Deadline for demos and paper presentations: the day and time they are given in person
-  * Deadline for tutorial and opensource: Sep 24, 23h59 Stockholm time
-  * Deadline for project: Oct 10, 23h59 Stockholm time
-  * Deadline for repeated tasks (all): Oct 27 2026, 17h Stockholm time.
+  * Deadline for sync tasks (demos and paper presentations): the day and time they are given in person
+  * Deadline for async tasks (project, tutorial and opensource): Oct 11, 23h59 Stockholm time
   * Deadline for feedback on tasks: 2 business days after the "go" from the authors
+  * Deadline for repeated tasks (all): Oct 27 2026, 17h Stockholm time.
   * Hand-in your async tasks via a new PR that updates your proposal document with a link to the artifact/contribution/feedback
   * The deadlines are strict and cannot be extended. Not meeting a deadline means failing the task / the repetition.
 * Final grading scheme
   * E: 3 completed tasks (excluding feedback)
   * C: 3 completed tasks + feedback
-  * B: 5 completed tasks
-  * A: 5 completed tasks + active participation in all but one seminars
+  * B: 4 completed tasks + feedback
+  * A: 4 completed tasks + feedback + active participation in all but one seminars
 * Active participation: attendance to all but one seminars between 10/09 and 14/10, a traceable record of questions asked during seminars (through GitHub issues) and the answers you received to them.
 * Group work is mandatory (max 2 persons) but you cannot be with the same person for more than 2 individual tasks. You are not allowed to work alone. When you send a pull request for registration, please follow the name convention of using email addresses of two members to create the folder: email-email.
 * A failed task requires to pass it again at the end of the course (repeat), based on the feedback from the failure. A task can only be repeated once.
