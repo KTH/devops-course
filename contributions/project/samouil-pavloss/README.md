@@ -8,7 +8,7 @@ Self-hosted PaaS Cluster with Dokploy
 ## Names and KTH ID
 
   - Samouil Mosios (samouil@kth.se)
-  - Pavlos Spanoudakis (pavloss@@kth.se)
+  - Pavlos Spanoudakis (pavloss@kth.se)
 
 ## Deadline
 
