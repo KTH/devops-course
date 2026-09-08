@@ -1,5 +1,5 @@
 
-# Project Proposal
+# Assignment Proposal
 
 ## Title
 
