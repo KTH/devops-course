@@ -20,4 +20,4 @@ Feedback to Demo - Improving Test Quality with Mutation Testing in a CI Workflow
 ## Description
 
 We have contacted the responsible group Love Lindgren (lolindgr@kth.se) and Alexander Runebou (alerun@kth.se) for the demo "Improving Test Quality with Mutation Testing in a CI Workflow" and have gotten the approval from them to provide feedback. https://github.com/KTH/devops-course/pull/2962
-Our comment is here: https://github.com/KTH/devops-course/pull/2962#issuecomment-5573213704
+Our feedback is here: https://github.com/KTH/devops-course/pull/2962#issuecomment-5573213704
