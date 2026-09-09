@@ -19,7 +19,7 @@ We will introduce a controlled vulnerability and We demonstrate automatic detect
 
 The core workflow is:
 
-Detect → Remediate → Validate → Security Gate → Merge/Block
+**Detect → Remediate → Validate → Security Gate → Merge/Block**
 
 Critically, the two vulnerabilities are chosen to contrast a case where automation completes the fix end-to-end against a case where it structurally cannot. We will showcase one of the limitations and demonstrate this live either no automated fix is offered for that alert, or a suggested fix is generated but fails CI and correctly blocking the merge until a human completes the remaining step.This directly showcases incomplete automated remediation.
 
