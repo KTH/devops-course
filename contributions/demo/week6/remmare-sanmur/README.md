@@ -13,15 +13,15 @@ Week 6
 Demo
  
 ## Description
-Our demo investigates how automated security testing and remediation can prevent vulnerable code from being merged into a shared codebase. We will use GitHub Actions together with CodeQL and Dependabot to detect vulnerabilities and automatically create fixes.
+Our demo investigates how automated security testing and remediation can prevent vulnerable code from being merged into a shared codebase, using a small room-booking application (React frontend, Express API, a separate audit microservice, Supabase/Postgres) as the system under test. We use GitHub Actions together with CodeQL and Dependabot to detect vulnerabilities and automatically create fixes, without requiring a developer to manually triage every alert.
 
-We will introduce a controlled vulnerability, demonstrate its automatic detection and remediation, and show how tests, security checks, and a security gate validate the fix before allowing the pull request to merge.
+We will introduce a controlled vulnerability and We demonstrate automatic detection and remediation for both, showing how tests, security checks, and a security gate validate a fix before a pull request is allowed to merge.
 
 The core workflow is:
 
-**Detect → Remediate → Validate → Security Gate → Merge/Block**
+Detect → Remediate → Validate → Security Gate → Merge/Block
 
-We will also discuss limitations such as incomplete automated remediation, regressions caused by fixes, and the fact that passing security checks does not guarantee complete security.
+Critically, the two vulnerabilities are chosen to contrast a case where automation completes the fix end-to-end against a case where it structurally cannot. We will showcase one of the limitations and demonstrate this live either no automated fix is offered for that alert, or a suggested fix is generated but fails CI and correctly blocking the merge until a human completes the remaining step.This directly showcases incomplete automated remediation.
 
 **Relevance**
 
