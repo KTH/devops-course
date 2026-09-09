@@ -18,7 +18,6 @@ Our demo investigates how automated security testing and remediation can prevent
 We will introduce a controlled vulnerability and We demonstrate automatic detection and remediation for both, showing how tests, security checks, and a security gate validate a fix before a pull request is allowed to merge.
 
 The core workflow is:
-
 Detect → Remediate → Validate → Security Gate → Merge/Block
 
 Critically, the two vulnerabilities are chosen to contrast a case where automation completes the fix end-to-end against a case where it structurally cannot. We will showcase one of the limitations and demonstrate this live either no automated fix is offered for that alert, or a suggested fix is generated but fails CI and correctly blocking the merge until a human completes the remaining step.This directly showcases incomplete automated remediation.
