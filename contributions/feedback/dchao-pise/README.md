@@ -21,4 +21,4 @@ Feedback: [Executable tutorial: LLMOps prompt regression testing](https://github
 
 Me (pise@kth.se) and De Chi Hao (dchao@kth.se) have gotten approval from the authors (over e-mail, also confirmed in the original PR's comments) that we will give feedback on their finished result.
 
-Once they have completed their work, we will arrange with them how we can provide feedback, and lastly submit the finalized feedback as a comment on thier PR.
+Once they have completed their work, we will arrange with them how we can provide feedback, and lastly submit the finalized feedback as a comment on their PR.
