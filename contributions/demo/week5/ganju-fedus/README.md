@@ -12,7 +12,7 @@ Solving configuration drifts using ArgoCD's automated self-healing feature
 
 ## Deadline
 
-Week 4
+Week 5
 
 ## Category
 
@@ -23,7 +23,7 @@ Demo
 We're going to present a simple scalable microservice deployed on a live Kubernetes cluster.
 In a ConfigMap we'll have a feature flag for our app and showcase how drifts happen by manually making changes to some resources in the live cluster.
 Then, we'll show how to use the auto-sync and self-healing features and how ArgoCD solves the drift by syncing from our git repository.
-In the end, in the case of using a HPA, ArgoCD will fight against it when the above features are enabled. We'll explain how and when you might want to ignore some drifts.
+In the end, in the case of using a Horizontal Pod Autoscaler (HPA), ArgoCD will fight against it when the above features are enabled. We'll explain how and when you might want to ignore some drifts.
 
 **Relevance**
 
