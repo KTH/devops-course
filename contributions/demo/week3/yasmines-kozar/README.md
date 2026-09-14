@@ -6,8 +6,8 @@ Continuous Delivery of Signed Android APKs with GitHub Actions
 
 ## Names and KTH ID
 
-- <Yasmine Schüllerqvist> (yasmines@kth.se)
-- <Matyas Kozar> (kozar@kth.se)
+- Yasmine Schüllerqvist (yasmines@kth.se)
+- Matyas Kozar (kozar@kth.se)
 
 ## Deadline
 
