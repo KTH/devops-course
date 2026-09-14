@@ -7,7 +7,7 @@ Blue-Green Deployment with Automated CI/CD for a Node.js Demo App
 ## Names and KTH ID
 
   - Miami Alvelistin (miami@kth.se)
-  - Ludwig Laukka (ludw@kth.se)
+  - Albin Wallenius Woxnerud (alww@kth.se)
 
 ## Deadline
 
