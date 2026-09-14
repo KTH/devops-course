@@ -23,4 +23,4 @@ We plan to focus on the tree-search-based multi-agent planning mechanism that le
 
 **Relevance**
 
-On-call response is one of the feedback loops that DevOps depends on to keep incidents from becoming outages, but manual triage does not scale with the growth of microservice systems. OncallX shows what happens when that loop is automated with LLM agents instead of humans or static classifiers. This is LLMOps in action: using LLM agents to automate a DevOps practice that used to require humans.
+On-call response is one of the feedback loops that DevOps depends on to keep incidents from becoming outages, but manual triage does not scale with the growth of microservice systems. OncallX shows what happens when that loop is automated with LLM agents instead of humans or static classifiers. This is AIOps in its current LLM-driven form: using LLM agents to automate a DevOps practice that used to require humans.
