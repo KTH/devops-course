@@ -11,7 +11,7 @@ Blue-Green Deployment with Automated CI/CD for a Node.js Demo App
 
 ## Deadline
 
-Week 2
+Week 3
 
 ## Category
 
