@@ -6,7 +6,7 @@ Demo Proposal - Using Terraform to Detect and Recover from Infrastructure Drift
 
 ## Names and KTH ID
 
-  - Jonathan Värild (jonvar@kth.se)
+  - Jonathan Värild (varild@kth.se)
   - Jennifer Ha (jennha@kth.se)
 
 ## Deadline
