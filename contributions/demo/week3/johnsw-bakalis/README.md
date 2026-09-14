@@ -6,7 +6,7 @@ Demo proposal - Dependency-Aware Blue/Green Continuous Deployment with GitHub Ac
 
 ## Names and KTH ID
 
-  - John Swärd (jsward@kth.se)
+  - John Swärd (johnsw@kth.se)
   - Dimitris Bakalis (bakalis@kth.se)
 
 ## Deadline
@@ -30,14 +30,7 @@ currently serving one, smoke-tested directly, and only switched into live
 traffic via nginx once it passes. If a service's deployment fails, its
 previous slot keeps serving traffic untouched, and every service depending on
 it is automatically blocked and skipped rather than deployed on top of a
-broken dependency. We plan to demo this live with three scenarios: a full
-success cascade across all three services, a failure in `auth` that blocks
-`orders` while `auth` keeps serving its old version, and a partial success
-where `orders` fails while `users` and `auth` still deploy successfully. We
-also plan to discuss drawbacks and benefits of this approach during our
-presentation.
-
-Stack: **GitHub Actions** for CI/CD orchestration, a **self-hosted
+broken dependency. This is built with **GitHub Actions** for CI/CD orchestration, a **self-hosted
 runner** so the pipeline can deploy to our own machine, **Maven** and
 **Docker** to build each service, and **nginx** as the single component that
 holds stable ports and performs the zero-downtime traffic switch between
