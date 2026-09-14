@@ -32,6 +32,6 @@ During the demo, deployed in [Killercoda](https://killercoda.com/) we will show 
 
 This will allow us to compare successful and unsuccessful deployments and show how blue-green deployment can reduce downtime and deployment risk.
 
-## Relevance
+**Relevance**
 
 Continuous Deployment is an important DevOps practice for releasing changes quickly and safely. This demo illustrates how automated validation, failure handling, traffic switching, and rollback can reduce production downtime and prevent faulty releases from reaching users.
