@@ -26,7 +26,12 @@ The authors present an analysis of 14 companies, where the ultimate goal is to p
 During our presentation, we will:
 - **_Explain_** &nbsp;_(concisely, a few sentences)_<br>the problem of applying traditional linear Software Development Lifecycle to iterative ML workflows,<br><br>
 - **_Describe_** &nbsp;_(quick overview, 1 slide)_<br>the proposed 5-dimensional MLOps framework, 5-stage maturity model, and taxonomy,<br><br>
-- **_Discuss_**<br>the main empirical results from this 14-company multi-case study showing gaps between actual and desired maturity, and<br><br>
+- **_Present_** &nbsp;_(technical analysis)_<br>
+  - Visualize the final maturity stage "Kaizen" (as a diagram of the 5 dimensions: data, model, deployment, operations & infrastructure, organization).
+  - Explain how this becomes an end-to-end, continously improving MLOps system design.
+- **_Discuss_**
+  - the main empirical results from this 14-company multi-case study showing gaps between actual and desired maturity, and
+  - the limitations of the study, as well as the assumptions that the results rely on.<br><br>
 - **_Summarize_**<br>how this structured roadmap can help organizations systematically advance their MLOps adoption and DevOps collaboration.
 
 <br>
