@@ -11,7 +11,7 @@ Feedback: [ demo: Live CD Rollback on a To-Do List App, Comparing Manual vs. Aut
 
 ## Deadline
 
-- Task 1
+- task 1
 
 ## Category
 
