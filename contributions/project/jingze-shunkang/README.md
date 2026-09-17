@@ -32,6 +32,6 @@ The project will include:
 
 All configuration, code, and documentation required to reproduce the system will be kept in the project repository, together with the required final report.
 
-## Relevance
+**Relevance**
 
 The project demonstrates how CI, CD, Infrastructure as Code, containerization, and security automation can be integrated into a coherent DevOps workflow for a real-world application. The pipeline connects code changes, automated validation, infrastructure provisioning, and deployment into a reproducible delivery process.
