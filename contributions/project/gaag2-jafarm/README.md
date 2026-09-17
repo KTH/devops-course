@@ -11,7 +11,7 @@ Crypto & Stock Alerts Telegram Bot — A DevOps Pipeline for a Notification Serv
 
 ## Deadline
 
-26 September 2026
+26 September
 
 ## Category
 
@@ -19,19 +19,20 @@ Project
 
 ## Description
 
-We plan to build and operate a Telegram bot that lets users subscribe to price alerts for cryptocurrencies and stocks. The bot will be implemented in Python using python-telegram-bot, with APScheduler for periodic price polling against the CoinGecko API (crypto) and the Alpha Vantage or Yahoo Finance API (stocks). User subscriptions and alert state will be persisted in SQLite (or PostgreSQL), and the bot will be containerized with Docker. This makes the bot a suitable, self-contained application for integrating and evaluating a complete DevOps workflow.
+We will build and operate a small Telegram notification service for cryptocurrency and stock price alerts. Users can subscribe to a symbol and define a target price or percentage-change threshold. The application periodically retrieves market prices from external APIs and sends a Telegram notification when an alert condition is reached. Alert subscriptions and state are stored persistently. The application will be written in Python and containerized with Docker.
 
-The project will include:
+The main focus of the project is the DevOps workflow around the application, rather than the complexity of the bot itself. The project will include:
 
-CI: GitHub Actions will run linting, unit tests, and a Docker image build on every push and pull request.
-CD: merges to the main branch will build a Docker image, push it to GitHub Container Registry, and automatically deploy it to the runtime host.
-Infrastructure as Code: Terraform will provision the deployment environment (VM, networking, secrets wiring), and Docker Compose will configure the bot and its runtime dependencies on the provisioned host.
-Development platform: GitHub will be used for source control, pull requests, GitHub Actions, and container images.
-Quality and security automation: Dependabot for dependency updates, CodeQL for static analysis, and Trivy for container image vulnerability scanning.
-AI-assisted tools: the use of AI tools during workflow development, CI/CD configuration, debugging, and code review will be documented; all design decisions and implementation are our own work.
+- CI: on every pull request or push, GitHub Actions will run linting and automated tests and build the Docker image.
+- CD: after a successful merge to the main branch, the Docker image will be published to GitHub Container Registry and automatically deployed to the runtime environment.
+- Infrastructure as Code: Terraform will provision the deployment host and networking, and Docker Compose will define the application and its runtime configuration on that host, so the service can be recreated reproducibly.
+- Development platform: GitHub will be used with issues, pull requests, branch protection, and required CI checks.
+- Quality and security automation: static analysis and dependency/container security checks will be integrated into CI.
+- Secrets management: the Telegram bot token and market-data API credentials will be provided through GitHub Actions secrets/environment variables and will not be stored in the repository.
+- AI-assisted tools: any use of AI-assisted development tools will be documented, including what they were used for and how the generated output was reviewed.
 
-All configuration, code, and documentation required to reproduce the system will be kept in the project repository, together with the required final report.
+The repository will contain the application code, tests, Docker configuration, CI/CD workflows, infrastructure/deployment configuration, and documentation required to reproduce the complete system, together with a short report describing the architecture, CI/CD workflow, infrastructure setup, security and quality automation, tooling choices, and limitations of the system.
 
 **Relevance**
 
-This project demonstrates how CI, CD, Infrastructure as Code, containerization, and security automation can be integrated into a coherent DevOps workflow for a real-world application. Because the bot depends on external APIs, secrets, and a long-running scheduled process, the pipeline connects code changes, automated validation, infrastructure provisioning, and deployment into a reproducible delivery process.
+This project demonstrates a complete DevOps workflow for a long-running service. Each code change is automatically tested, analyzed, and packaged through CI, while accepted changes are automatically published and deployed through CD. The deployment environment is provisioned and defined as code, making it reproducible rather than manually configured. The application also introduces practical DevOps concerns such as external service dependencies, persistent state, secrets management, scheduled background work, containerization, automated security checks, and deployment reliability. This keeps the application itself relatively small while allowing us to focus on designing, implementing, testing, and explaining an end-to-end DevOps pipeline.
