@@ -34,7 +34,7 @@ The core of this proposal is not the bot itself but the DevOps pipeline wrapped 
 - **Project repository**: a fully functional repository with all code, configuration (CI/CD workflows, Dockerfile, IaC scripts) and documentation needed to build, test and run the bot end to end.
 - **Short report (2-3 pages)**: architecture diagram and explanation, justification of tooling/design choices, description of how CI, CD, IaC and quality/security automation interact, and a reflection on limitations and trade-offs.
 
-### Planned tech stack
+**Planned tech stack**
 
 | Concern | Choice |
 |---|---|
