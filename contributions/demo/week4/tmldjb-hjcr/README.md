@@ -21,11 +21,11 @@ Demo
 
 A CD pipeline decides whether a new version can go live by asking whether it is healthy: does it answer, is it fast, is the response the right shape. That works for ordinary software, because ordinary software fails loudly. A model does not. It keeps answering in milliseconds, with a 200 and the right shape, and it is wrong.
 
-We have a small sentiment service with two versions running side by side. The candidate differs from production by one line of deployment config, which stops the text being lower-cased before the model sees it. The model was trained on lower-cased text, so reviews written in capitals arrive as words it has never seen, and it starts guessing.
+Our example is a small web service that reads a customer review and says whether it is positive or negative. Two versions of it run side by side: the one currently in production, and a candidate waiting to be promoted. The candidate differs by one line of deployment config, which stops the review being lower-cased before the model sees it. The model was trained on lower-cased text, so a review written in capitals arrives as words it has never seen, and it starts guessing.
 
 What we will show, in this order:
 
-- The app in the browser. The same review in lower case and then in capitals gets two different answers. Everyone in the room sees the failure before any tooling does.
+- The app in the browser. The same review in lower case and then in capitals gets two different answers. Everyone sees the failure.
 - The pipeline on that same commit: build, five unit tests, shadow deploy and health check, all green. Everything a normal CD pipeline knows how to ask says this is ready to ship.
 - A behavioural gate that replays a labelled set of reviews through both versions, sees accuracy fall from 0.96 to 0.75, and blocks the promotion before any real user reaches the candidate.
 - We find the line, fix it live, push, and watch the pipeline promote.
