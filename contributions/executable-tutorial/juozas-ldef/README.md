@@ -15,7 +15,7 @@ IaC with Ansible: Deploy, Test, and Repair a Basic Web Service
 
 ## Category
 
-- Tutorial
+- Executable tutorial
 
 ## Description
 
