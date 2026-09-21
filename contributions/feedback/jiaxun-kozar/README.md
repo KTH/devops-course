@@ -2,7 +2,7 @@
 
 ## Title
 
-Feedback: [What helped, and what did not? An Evaluation of the Strategies to Improve Continuous Integration](https://github.com/KTH/devops-course/pull/2952) 
+Feedback: [LLM-Powered Multi-Agent Collaboration for Intelligent Industrial On-Call Automation (ASE 2025)](https://github.com/KTH/devops-course/pull/3014) 
 
 ## Names and KTH ID
 
@@ -19,4 +19,4 @@ Feedback: [What helped, and what did not? An Evaluation of the Strategies to Imp
 
 ## Description
 
-We have contacted the responsible group (Edwin Nordås Jogensjö (edwinnj@kth.se) and Gabriel Räätäri Nyström (grn@kth.se)) for the paper 'What helped, and what did not? An Evaluation of the Strategies to Improve Continuous Integration' and have gotten the approval from them to provide feedback.
+We have contacted the responsible group: Miao Liu (miaoli@kth.se) and Jingze Guo (jingze@kth.se) for the paper 'LLM-Powered Multi-Agent Collaboration for Intelligent Industrial On-Call Automation (ASE 2025)' and have gotten the approval from them to provide feedback.
