@@ -23,14 +23,16 @@ A CD pipeline decides whether a new version can go live by asking whether it is 
 
 Our example is a small web service that reads a customer review and says whether it is positive or negative. Two versions of it run side by side: the one currently in production, and a candidate waiting to be promoted. The candidate differs by one line of deployment config, which stops the review being lower-cased before the model sees it. The model was trained on lower-cased text, so a review written in capitals arrives as words it has never seen, and it starts guessing.
 
+We use [NGINX's mirror module](https://nginx.org/en/docs/http/ngx_http_mirror_module.html) to run the candidate as a shadow: it gets a copy of every request, but its answers are thrown away. The gate follows [CheckList](https://aclanthology.org/2020.acl-main.442/) (Ribeiro et al., ACL 2020), a well-known approach to testing how NLP models behave, and the pipeline runs on GitHub Actions.
+
 What we will show, in this order:
 
 - The app in the browser. The same review in lower case and then in capitals gets two different answers. Everyone sees the failure.
-- The pipeline on that same commit: build, five unit tests, shadow deploy and health check, all green. Everything a normal CD pipeline knows how to ask says this is ready to ship.
-- A behavioural gate that replays a labelled set of reviews through both versions, sees accuracy fall from 0.96 to 0.75, and blocks the promotion before any real user reaches the candidate.
+- The pipeline on that same commit: build, five unit tests, shadow deploy behind NGINX and health check, all green. Everything a normal CD pipeline knows how to ask says this is ready to ship.
+- The CheckList gate. It runs both versions on reviews with known answers, where accuracy falls from 0.96 to 0.75, and checks that writing a review in capitals does not change the answer, which it does on about half of real traffic. It blocks the promotion before any real user reaches the candidate.
 - We find the line, fix it live, push, and watch the pipeline promote.
 
-We finish with where this runs out: the labelled set goes stale, the threshold is a judgement call rather than something you can derive, shadowing doubles the compute, and requests with side effects cannot be mirrored at all.
+We finish with where this runs out: the labelled set goes stale, checks like the capitals one only catch what someone thought to test, the threshold is a judgement call rather than something you can derive, shadowing doubles the compute, and requests with side effects cannot be mirrored at all.
 
 **Relevance**
 
