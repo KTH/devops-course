@@ -11,7 +11,7 @@ IaC with Ansible: Deploy, Test, and Repair a Basic Web Service
 
 ## Deadline
 
-- Week 5
+- Task 5
 
 ## Category
 
