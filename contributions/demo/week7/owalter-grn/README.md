@@ -6,8 +6,8 @@ Chaos engineering and observability in Kubernetes
 
 ## Names and KTH ID
 
-- <Oscar Walter> (owalter@kth.se)
-- <Gabriel Räätäri Nyström> (grn@kth.se)
+- Oscar Walter owalter@kth.se
+- Gabriel Räätäri Nyström (grn@kth.se)
 
 ## Deadline
 
