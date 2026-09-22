@@ -11,8 +11,7 @@ Safe Releases with Progressive Delivery on Kubernetes: Health Checks, Rollback, 
 
 ## Deadline
 
-- ## Deadline
-* task 3
+- task 3
 
 ## Category
 
