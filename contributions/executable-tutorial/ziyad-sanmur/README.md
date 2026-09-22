@@ -11,7 +11,8 @@ Safe Releases with Progressive Delivery on Kubernetes: Health Checks, Rollback, 
 
 ## Deadline
 
-- 11 October 2026
+- ## Deadline
+* task 3
 
 ## Category
 
