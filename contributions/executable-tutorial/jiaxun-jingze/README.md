@@ -19,6 +19,8 @@ Prompt regression testing for LLM applications (LLMOps)
 
 ## Description
 
+**Tutorial:** [Google Colab](https://drive.google.com/file/d/1-0P0LdPLC0fstHJVhJ_B3xGATXP8OIYL/view?usp=sharing)
+
 We want to write a Google Colab notebook that shows how to keep an LLM application stable when its prompt or its model changes. The reader writes a promptfoo configuration with test cases and assertions, runs it against a small instruction-tuned model that is loaded locally in the notebook. The reader then breaks the prompt on purpose, watches the assertions fail, and finally wires the evaluation into a pipeline, so that a failed evaluation blocks the change.
 
 **Relevance**
