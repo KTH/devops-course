@@ -2,7 +2,8 @@
 
 ## Title
 
-Feedback on demo: LLMOps evaluation and quality gate pipeline
+Feedback on scientifique paper: State Reconciliation Defects in Infrastructure as Code
+
 
 ## Names and KTH ID
 
@@ -19,5 +20,4 @@ Feedback on demo: LLMOps evaluation and quality gate pipeline
 
 ## Description
 
-We have contacted the group (Elena Pan and Samouil Mosios) for the demo 'LLMOps evaluation and quality gate pipeline
-' and have gotten the approval from them to provide feedback. https://github.com/KTH/devops-course/pull/3046
+We have contacted the group (Halan Ouensanga and Sangeetha Murugesan) for the paper 'State Reconciliation Defects in Infrastructure as Code' and have gotten the approval from them to provide feedback. https://github.com/KTH/devops-course/pull/2988
