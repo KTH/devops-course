@@ -11,7 +11,7 @@ Security and vulnerability scanning using Trivy
 
 ## Deadline
 
-- October 11
+- Task 3
 
 ## Category
 
