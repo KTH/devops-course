@@ -19,7 +19,7 @@ Feedback to Demo - Automated Dependency Management and Package Updates with Reno
 
 ## Description
 
-We have contacted Dawa Arkhang (Arkhang@kth.se) and Rami Khedair (khedair@kth.se) regarding providing feedback for the demo 'Automated Dependency Management and Package Updates with Renovate' and have gotten their approval.
+We have contacted Dawa Arkhang (arkhang@kth.se) and Rami Khedair (khedair@kth.se) regarding providing feedback for the demo 'Automated Dependency Management and Package Updates with Renovate' and have gotten their approval.
 
 They presented the feedback to us on 21-09-2026 and we submitted our feedback as a comment less than 48 hours later.
 
