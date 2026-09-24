@@ -11,7 +11,7 @@ Infrastructure as Code with Terraform and Docker tutorial in killercoda
 
 ## Deadline
 
-- Oct 11th
+- Task 3
 
 ## Category
 
