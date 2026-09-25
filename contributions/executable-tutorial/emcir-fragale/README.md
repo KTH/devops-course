@@ -38,4 +38,4 @@ By the end of the tutorial the user should be able to:
 
 Model serving is an important stage of an MLOps workflow. An existing model must be packaged with its code and dependencies, exposed through a stable interface, tested, and monitored. BentoML supports these activities, connecting model serving with DevOps practices such as reproducible packaging, service verification, and observability.
 
-Semantic FAQ search provides a concrete example through which these practices can be explored, while distinguishing the tutorial environment from the requirements of a production deployment.
+Semantic FAQ search provides just an example through which these practices can be explored.
