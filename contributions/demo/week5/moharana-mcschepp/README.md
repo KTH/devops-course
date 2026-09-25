@@ -7,7 +7,7 @@ Policy as Code: Blast-Radius Protection for Terraform Changes
 ## Names and KTH ID
 
 * Moritz Schepp mcschepp@kth.se
-* Padmalaya Moharana moharana@kth.se
+  * Padmalaya Moharana moharana@kth.se
 
 ## Deadline
 
