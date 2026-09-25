@@ -2,7 +2,7 @@
 
 ## Title
 
-AI assisted incident investigation with HolmesGPT and improved observability
+Finding the slow line in production with continuous profiling using Grafana Pyroscope
 
 ## Names and KTH ID
 
@@ -19,14 +19,24 @@ Demo
 
 ## Description
 
-We present a workflow where AI investigates a service failure on a local Kubernetes cluster and a gated step remediates it. The system is two small FastAPI services, api and its upstream pricing, under constant Locust load, monitored with Prometheus, Loki and Grafana. Code and manifests live in one GitHub repository.
+In this demo we show continuous profiling as the fourth observability signal, next to metrics, logs and traces. Using Grafana Pyroscope on a Kubernetes cluster, we show how a team can go from "the service is slow" to "this function is the problem" directly in production, without guessing or reproducing the issue elsewhere. The demo follows these steps:
 
-We introduce the fault as a commit that changes pricing configuration, making it slow; api starts timing out. A Grafana alert rule fires when the error rate stays above a threshold and triggers HolmesGPT, which investigates using metrics, logs and recent GitHub changes through MCP. With only default request metrics and plain logs, its diagnosis is plausible but unverified.
+1. We introduce the problem. When a service gets slow, developers have to check dashboards, read logs and guess which part of the code is responsible. Often they then try to reproduce the issue locally or in another environment, where it behaves differently.
 
-Live, we add observability: a per-upstream latency metric and a structured log field in api, plus a Grafana panel for them. We re-trigger the alert and Holmes now pinpoints pricing and the commit with evidence. A separate remediation step, allowed to run one predefined action, rolls back the pricing deployment. We verify in Grafana that the error rate returns to normal.
+2. We introduce the architecture. Two small FastAPI services, api and its upstream pricing, run on a local K3s Kubernetes cluster with a small in-cluster traffic generator. Prometheus collects metrics, Tempo collects traces, and Grafana shows both. Grafana Pyroscope is installed in the cluster, but the services do not send profiles to it yet. Code and manifests live in one GitHub repository.
+
+3. We show how Grafana looks initially: request rate, latency, CPU and traces. This tells us whether a service is healthy, but not what its code is doing.
+
+4. Live, we uncomment the few Pyroscope lines in the pricing service and redeploy it.
+
+5. We show Grafana again. Next to metrics and traces we now have a flame graph of pricing, showing where it spends its time while healthy.
+
+6. We push a normal-looking commit that introduces a performance problem: pricing now parses a large rules file on every request. Latency and CPU go up, and the trace shows a long pricing span, but not why.
+
+7. We open the flame graph and compare it with the profile from before the commit. It points directly to the slow function, without guessing and without reproducing the issue anywhere else.
 
 **Relevance**
 
-From a DevOps perspective, monitoring helps us detect failures, but investigation and recovery still take time. This demo connects monitoring, AI-assisted diagnosis, and automated remediation in one workflow.
+Monitoring usually tells a DevOps team that something is slow, but not which part of the code causes it. Continuous profiling closes that gap by bringing production performance data back to developers at the function level, shortening the feedback loop from operations to development.
 
-We'll show how AI agents can support service recovery, while highlighting the need to check their findings, limit their permissions, and verify that a fix actually resolves the issue.
+We will also discuss the trade-offs: profiling overhead, sampling limits, and when traces are enough versus when profiles are needed.
