@@ -25,7 +25,7 @@ We will create an executable tutorial in killercoda where tutorial users will fo
 
 This setup will contain two containers with nginx and a simple backend.
 
-The tutorial will then simulate what happens when someone breaks the container by hand. The user will then learn how to use Terraform in order to identify and automatically fix the problem.
+The tutorial will then simulate what happens when someone breaks the container by hand. To simulate a real incident (e.g an engineer accidentally removes the wrong container during cleanup), the user will manually delete the backend container, causing nginx to fail since it depends on the backend to handle requests. The user will then use terraform plan and apply to detect this drift and automatically restore the setup. The user will then learn how to use Terraform in order to identify and automatically fix the problem.
 
 **Relevance**
 
