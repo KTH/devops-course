@@ -21,3 +21,5 @@ Feedback on scientifique paper: State Reconciliation Defects in Infrastructure a
 ## Description
 
 We have contacted the group (Halan Ouensanga and Sangeetha Murugesan) for the paper 'State Reconciliation Defects in Infrastructure as Code' and have gotten the approval from them to provide feedback. https://github.com/KTH/devops-course/pull/2988
+
+Link to our feedback: https://github.com/KTH/devops-course/pull/2988#issuecomment-5885212717
