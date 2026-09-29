@@ -1,4 +1,5 @@
-## Week 1 
+## Week 1
+
 General intro about the course.
 
 ## Week 2
@@ -16,3 +17,15 @@ General intro about the course.
 11. [Automated Regression Testing with CI Quality Gates](https://github.com/KTH/devops-course/pull/2964) (demo)
 12. [Automatic network failure resilience testing](https://github.com/KTH/devops-course/pull/2992) (demo)
 13. [Piranha: Reducing Feature Flag Debt at Uber](https://github.com/KTH/devops-course/pull/2991) (paper)
+
+## Week 3
+
+1. [Moving Faster and Reducing Risk: Using LLMs in Release Deployment](https://github.com/KTH/devops-course/pull/2984) (paper)
+2. [Live CD Rollback on a To-Do List App, Comparing Manual vs. Automated Rollback](https://github.com/KTH/devops-course/pull/2965) (demo)
+3. [SLO-Gated Canary Rollback in Kubernetes using ArgoCD](https://github.com/KTH/devops-course/pull/2993) (demo)
+4. [GitOps-Driven Ephemeral Preview Environments on Kubernetes with DNSControl](https://github.com/KTH/devops-course/pull/3004) (demo)
+5. [Efficient Continuous Delivery: Resource Usage and Optimization in GitHub Actions Workflows](https://github.com/KTH/devops-course/pull/3010) (paper)
+6. [Safe Continuous Deployment with Blue-Green Deployment](https://github.com/KTH/devops-course/pull/2978) (demo)
+7. [Dependency-Aware Blue/Green Continuous Deployment with GitHub Actions](https://github.com/KTH/devops-course/pull/3023) (demo)
+8. [Continuous Delivery of Signed Android APKs with GitHub Actions](https://github.com/KTH/devops-course/pull/3017) (demo)
+9. [Preventing Version Skew Between Independently Deployed Services](https://github.com/KTH/devops-course/pull/3029) (demo)
