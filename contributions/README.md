@@ -29,3 +29,15 @@ General intro about the course.
 7. [Dependency-Aware Blue/Green Continuous Deployment with GitHub Actions](https://github.com/KTH/devops-course/pull/3023) (demo)
 8. [Continuous Delivery of Signed Android APKs with GitHub Actions](https://github.com/KTH/devops-course/pull/3017) (demo)
 9. [Preventing Version Skew Between Independently Deployed Services](https://github.com/KTH/devops-course/pull/3029) (demo)
+
+## Week 4
+
+1. [LLM-Powered Multi-Agent Collaboration for Intelligent Industrial On-Call Automation](https://github.com/KTH/devops-course/pull/3014) (paper)
+2. [An empirical guide to MLOps adoption: Framework, maturity model and taxonomy](https://github.com/KTH/devops-course/pull/3012) (paper)
+3. [Automating investigating and resolving database errors using HolmesGPT](https://github.com/KTH/devops-course/pull/3034) (demo)
+4. [Learning-to-Rank vs Ranking-to-Learn: Strategies for Regression Testing in Continuous Integration](https://github.com/KTH/devops-course/pull/3045) (paper)
+5. [LLMOps evaluation and quality gate pipeline](https://github.com/KTH/devops-course/pull/3046) (demo)
+6. [Prompt injection protection of a customer support AI bot using Promptfoo](https://github.com/KTH/devops-course/pull/3018) (demo)
+7. [XPERT: Empowering Incident Management with Query Recommendations via Large Language Models](https://github.com/KTH/devops-course/pull/3049) (paper)
+8. [Green health check, wrong model](https://github.com/KTH/devops-course/pull/3044) (demo)
+9. [MLOps evaluation and quality gate pipeline with self-labeling simulation and data-poisoning detection](https://github.com/KTH/devops-course/pull/3053) (demo)
