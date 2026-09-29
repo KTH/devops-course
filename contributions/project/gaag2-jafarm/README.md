@@ -11,11 +11,11 @@ Crypto & Stock Alerts Telegram Bot — A DevOps Pipeline for a Notification Serv
 
 ## Deadline
 
-26 September
+- Task 1
 
 ## Category
 
-Project
+- Project
 
 ## Description
 
@@ -23,13 +23,13 @@ We will build and operate a small Telegram notification service for cryptocurren
 
 The main focus of the project is the DevOps workflow around the application, rather than the complexity of the bot itself. The project will include:
 
-- CI: on every pull request or push, GitHub Actions will run linting and automated tests and build the Docker image.
-- CD: after a successful merge to the main branch, the Docker image will be published to GitHub Container Registry and automatically deployed to the runtime environment.
-- Infrastructure as Code: Terraform will provision the deployment host and networking, and Docker Compose will define the application and its runtime configuration on that host, so the service can be recreated reproducibly.
-- Development platform: GitHub will be used with issues, pull requests, branch protection, and required CI checks.
-- Quality and security automation: static analysis and dependency/container security checks will be integrated into CI.
-- Secrets management: the Telegram bot token and market-data API credentials will be provided through GitHub Actions secrets/environment variables and will not be stored in the repository.
-- AI-assisted tools: any use of AI-assisted development tools will be documented, including what they were used for and how the generated output was reviewed.
+- **Build and testing (CI):** on every pull request or push, GitHub Actions will run linting, unit tests, and an integration test against the Telegram Bot API, and build the Docker image.
+- **Automated deployment (CD):** after a successful merge to the main branch, the Docker image will be published to GitHub Container Registry and automatically deployed to the runtime environment.
+- **Infrastructure as Code:** Terraform will provision the deployment host and networking, and Docker Compose will define the application and its runtime configuration on that host, so the service can be recreated reproducibly.
+- **Development platform:** GitHub will be used with pull requests, branch protection, and required CI checks.
+- **Quality and security automation:** static analysis and dependency/container security checks will be integrated into the CI/CD pipeline.
+- **Secrets management:** the Telegram bot token and market-data API credentials will be provided through GitHub Actions secrets/environment variables and will not be stored in the repository.
+- **AI-assisted tools:** any use of AI-assisted development tools will be documented, including what they were used for and how the generated output was reviewed.
 
 The repository will contain the application code, tests, Docker configuration, CI/CD workflows, infrastructure/deployment configuration, and documentation required to reproduce the complete system, together with a short report describing the architecture, CI/CD workflow, infrastructure setup, security and quality automation, tooling choices, and limitations of the system.
 
