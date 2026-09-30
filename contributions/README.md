@@ -41,3 +41,17 @@ General intro about the course.
 7. [XPERT: Empowering Incident Management with Query Recommendations via Large Language Models](https://github.com/KTH/devops-course/pull/3049) (paper)
 8. [Green health check, wrong model](https://github.com/KTH/devops-course/pull/3044) (demo)
 9. [MLOps evaluation and quality gate pipeline with self-labeling simulation and data-poisoning detection](https://github.com/KTH/devops-course/pull/3053) (demo)
+
+## Week 5
+
+1. [Local-first Infrastructure as Code: emulating AWS with MiniStack, orchestrated by .NET Aspire](https://github.com/KTH/devops-course/pull/2959) (demo)
+2. [Testing Infrastructure is Provisioned Correctly in Terraform](https://github.com/KTH/devops-course/pull/2973) (demo)
+3. [State Reconciliation Defects in Infrastructure as Code](https://github.com/KTH/devops-course/pull/2988) (paper)
+4. [An Empirical Study on Kubernetes Operator Bugs](https://github.com/KTH/devops-course/pull/2989) (paper)
+5. [Solving configuration drifts using ArgoCD's automated self-healing feature](https://github.com/KTH/devops-course/pull/3008) (demo)
+6. [Using Terraform to Detect and Recover from Infrastructure Drift](https://github.com/KTH/devops-course/pull/3020) (demo)
+7. [Deployability-Centric Infrastructure-as-Code Generation: Fail, Learn, Refine, and Succeed through LLM-Empowered DevOps Simulation](https://github.com/KTH/devops-course/pull/3030) (paper)
+8. [Catching non-idempotent infrastructure code with Terraform, Ansible and CI](https://github.com/KTH/devops-course/pull/3064) (demo)
+9. [The Seven Sins: Security Smells in Infrastructure as Code Scripts](https://github.com/KTH/devops-course/pull/3068) (paper)
+10. [Cost-Aware Infrastructure Changes with Infracost](https://github.com/KTH/devops-course/pull/3077) (demo)
+11. [Policy as Code: Blast-Radius Protection for Terraform Changes](https://github.com/KTH/devops-course/pull/3072) (demo)
