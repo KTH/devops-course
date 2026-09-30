@@ -2,7 +2,7 @@
 
 ## Title
 
-DevOps for a webapp using TypeScript Fron-end and Python Backend
+DevOps for a webapp using TypeScript Frontend and Python Backend
 
 ## Names and KTH ID
 
