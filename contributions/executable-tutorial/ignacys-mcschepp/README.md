@@ -11,7 +11,7 @@ Progressive Delivery with Argo Rollouts: Canary Deployment and Rollback
 
 ## Deadline
 
-11 October 2026
+Task 1
 
 ## Category
 
