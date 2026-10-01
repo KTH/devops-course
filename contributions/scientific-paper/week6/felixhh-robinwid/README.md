@@ -19,7 +19,7 @@ Sigstore: Software Signing for Everybody
 
 ## Description
 
-There’s a tendency in recent years for hackers to attack the weakest links of the software supply chain. Even if these targets themselves don’t offer a lot, them being compromised can lead the attackers to high value targets. The methods for protecting one’s company against this kind of supply chain attack have not yet been widely adopted. The paper we’ve chosen to present, “Sigstore: Software Signing for Everybody”, presents a new way of protecting the supply chain. Sigstore is a new method to sign and authenticate packages and is quickly becoming an important and widely used part of software supply chain security.
+There’s a tendency in recent years for hackers to attack the weakest links of the software supply chain. Even if these targets themselves don’t offer a lot, them being compromised can lead the attackers to high value targets. The methods for protecting one’s company against this kind of supply chain attack have not yet been widely adopted. The paper we’ve chosen to present, “[Sigstore: Software Signing for Everybody](https://dl.acm.org/doi/epdf/10.1145/3548606.3560596)”, presents a new way of protecting the supply chain. Sigstore is a new method to sign and authenticate packages and is quickly becoming an important and widely used part of software supply chain security.
 
 We will present this paper using the following outline.
 - Describing the **problem** that Sigstore tries to solve
