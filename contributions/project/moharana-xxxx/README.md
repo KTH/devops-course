@@ -6,7 +6,7 @@
 
 ## Names and KTH ID
 
-**Moharana** (moharana@kth.se)
+**Padamalaya Moharana** (moharana@kth.se)
 
 ## Deadline
 
