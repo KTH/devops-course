@@ -18,7 +18,7 @@ DevOps Pipeline for a Portfolio Website Builder
 
 ## Description
 
-We will use a portfolio website builder that we built earlier and improve the DevOps workflow around it. Users log in with Google, edit their portfolio in an admin panel, and get a public site at their own subdomain. It is split into three repositories: a NestJS backend with MongoDB Atlas, a React admin panel, and a React public frontend. All three will have GitHub Actions CI (lint and build) and automated deployment (backend to Render, frontend and admin to Vercel). 
+We will use a portfolio website builder that we built earlier (has no devops workflow -[https://github.com/Val0007/web-site-backend]( https://github.com/Val0007/web-site-backend)) and improve the DevOps workflow around it. Users log in with Google, edit their portfolio in an admin panel, and get a public site at their own subdomain. It is split into three repositories: a NestJS backend with MongoDB Atlas, a React admin panel, and a React public frontend. All three will have GitHub Actions CI (lint and build) and automated deployment (backend to Render, frontend and admin to Vercel). 
 
 - **Dev platform:** GitHub
 - **CI:** GitHub Actions runs lint, build and tests on every pull request. We will write unit tests for the backend services. The backend Docker image is also built in CI to verify it builds.
@@ -31,4 +31,5 @@ We will use a portfolio website builder that we built earlier and improve the De
 **Relevance**
 
 The project takes an existing multi-repository application and builds a complete DevOps pipeline around it. Changes are linted, built and tested in CI, deployed automatically in CD as a Docker image, and released with feature flags. The infrastructure is defined as code with Terraform, and code and dependencies are scanned automatically. These cover the necessary topics to adopt a devops workflow while building software.
+
 
