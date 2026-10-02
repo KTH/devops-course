@@ -11,7 +11,7 @@ Contract Testing: Pact and the Pact Broker
 
 ## Deadline
 
-- Task 2
+- Task 1
 
 ## Category
 
