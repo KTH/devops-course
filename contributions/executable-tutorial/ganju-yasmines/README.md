@@ -37,6 +37,8 @@ reflection on when contract testing is worth it and its limits.
 breaking API changes, write and verify a Pact contract, read the compatibility matrix, and
 use `can-i-deploy` to decide a safe deployment order.
 
-**Relevance to DevOps.** Contract testing lets teams deploy services independently: API
+**Relevance**
+Contract testing lets teams deploy services independently: API
 compatibility is checked in seconds in CI instead of in slow end-to-end environments, and
 `can-i-deploy` acts as an automated deployment gate.
+
