@@ -20,3 +20,5 @@ Feedback: [LLM-Powered Multi-Agent Collaboration for Intelligent Industrial On-C
 ## Description
 
 We have contacted the responsible group: Miao Liu (miaoli@kth.se) and Jingze Guo (jingze@kth.se) for the paper 'LLM-Powered Multi-Agent Collaboration for Intelligent Industrial On-Call Automation (ASE 2025)' and have gotten the approval from them to provide feedback.
+
+Link to feedback comment: https://github.com/KTH/devops-course/pull/3014#issuecomment-5762200648
