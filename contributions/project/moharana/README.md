@@ -2,7 +2,7 @@
 
 ## Title
 
-Project: Automation Pipeline for API Lifecycle using GitHub Actions
+**Project: Automation Pipeline for API Lifecycle using GitHub Actions**
 
 ## Names and KTH ID
 
