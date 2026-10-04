@@ -27,6 +27,6 @@ We will build a dev → test → prod delivery pipeline for a True/Fake quiz gam
 - **Development platform:** GitHub, with protected `dev`, `test` and `main` branches, required status checks and GitHub Environments.
 - **Quality and security automation:** Trivy image scanning, gitleaks and dependency review block merges on high-severity findings; Dependabot keeps dependencies up to date; Checkov scans the Terraform code.
 
-## Relevance
+Relevance
 
 The project takes an ordinary web application and adds the practices the course covers: automated build, test and security checks on every change, infrastructure as code with isolated environments, and an immutable, commit-tagged image built for every environment branch. We also focus on failed deploys: rollback only works if the database schema stays compatible with the previous release, so migration safety is part of the pipeline. We will justify the key trade-offs in the report, such as running all environments on one host, building images separately per branch instead of promoting a single image, and using a self-hosted runner.
