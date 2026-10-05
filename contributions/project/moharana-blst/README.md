@@ -6,7 +6,7 @@ Project: Automation Pipeline for API Lifecycle using GitHub Actions
 ## Names and KTH ID
 
 - Padmalaya Moharana (moharana@kth.se)
-
+- Bogdan-Laurentiu Stefanescu (blst@kth.se)
 
 ## Deadline
 11 October 2026
