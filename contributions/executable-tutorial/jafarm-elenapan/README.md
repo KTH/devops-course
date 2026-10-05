@@ -19,6 +19,8 @@ Diagnosing HTTP Service Errors with Prometheus and PromQL
 
 ## Description
 
+**Tutorial:** [Killercoda](https://killercoda.com/sund02/course/killercoda) — **Source:** [GitHub](https://github.com/sund02/promql-http-error-diagnosis)
+
 This tutorial teaches how to investigate an operational failure in a running HTTP service using application metrics and PromQL. We observe healthy traffic, introduce a controlled failure, diagnose the affected endpoint, and verify recovery using Prometheus.
 
 By the end of the tutorial, we will be able to: explain how an instrumented application exposes metrics and how Prometheus collects them; distinguish cumulative counters from request rates; write PromQL queries for request rate and error ratio grouped by endpoint; use metric labels to locate a failing endpoint and confirm recovery; and explain the limitations of metrics-based diagnosis.
@@ -45,8 +47,3 @@ The tutorial will be validated end-to-end from a fresh Killercoda environment (s
 **Relevance**
 
 This tutorial addresses monitoring and observability by showing how runtime measurements support incident investigation and recovery. It connects application instrumentation, automated metrics collection, and operational diagnosis in a single reproducible workflow, and is scoped narrowly around interpreting runtime metrics for service health rather than overlapping with other DevOps aspects such as testing/CI or deployment pipelines.
-
-## Submission
-
-- Killercoda scenario: https://killercoda.com/sund02/course/killercoda
-- Source repository: https://github.com/sund02/promql-http-error-diagnosis
