@@ -45,3 +45,8 @@ The tutorial will be validated end-to-end from a fresh Killercoda environment (s
 **Relevance**
 
 This tutorial addresses monitoring and observability by showing how runtime measurements support incident investigation and recovery. It connects application instrumentation, automated metrics collection, and operational diagnosis in a single reproducible workflow, and is scoped narrowly around interpreting runtime metrics for service health rather than overlapping with other DevOps aspects such as testing/CI or deployment pipelines.
+
+## Submission
+
+- Killercoda scenario: https://killercoda.com/sund02/course/killercoda
+- Source repository: https://github.com/sund02/promql-http-error-diagnosis
