@@ -2,7 +2,7 @@
 
 ## Title
 
-Feedback on Scientific Paper - ARGUS: A Framework for Staged Static Taint Analysis of GitHub Workflows and Actions
+Feedback on Scientific Paper: When AIOps Become "AI Oops": Subverting LLM-driven IT Operations via Telemetry Manipulation
 
 ## Names and KTH ID
 
