@@ -27,7 +27,7 @@ We will build a DevOps pipeline around a fork of [pytest-fastapi-crud-example](h
 - **CD:** when the checks pass on `main`, a workflow builds the image and runs `terraform apply` on a self-hosted runner, so the app keeps running after the workflow ends.
 - **IaC security scanning:** Checkov scans the Terraform files and the Dockerfile on every pull request and fails the check on insecure settings, such as a container running as root.
 - **Drift detection:** a scheduled workflow runs `terraform plan` and fails if the running container no longer matches the Terraform code, for example after someone changes it by hand.
-- **Development platform:** GitHub, with pull requests and branch protection on `main`.
+- **Development platform:** GitHub, with pull requests for every change to `main`.
 - **Dependency security:** Dependabot keeps the dependencies up to date.
 - **AI-assisted tools:** we will document how we used AI assistants and what we had to correct.
 - **Report:** a 2-3 page report on the architecture, our tool choices and the limitations.
