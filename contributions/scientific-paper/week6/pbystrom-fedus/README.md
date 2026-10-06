@@ -2,7 +2,7 @@
 
 ## Title
 
-AutoGuard: A Self-Healing Proactive Security Layer for DevSecOps Pipelines Using Reinforcement Learning
+Propagation-Based Vulnerability Impact Assessment for Software Supply Chains: Vulnerability Propagation Analysis
 
 ## Names and KTH ID
 
@@ -19,11 +19,12 @@ AutoGuard: A Self-Healing Proactive Security Layer for DevSecOps Pipelines Using
 
 ## Description
 
-This is a proposal for the paper by Praveen Anugula et al. called AutoGuard: A Self-Healing Proactive Security Layer for DevSecOps Pipelines Using Reinforcement Learning (https://arxiv.org/abs/2512.04368)
+This proposal is based on "Propagation-Based Vulnerability Impact Assessment for Software Supply Chains" by Bonan Ruan, Zhiwei Lin, Jiahao Liu, Chuqi Zhang, Kaihang Ji, and Zhenkai Liang (https://arxiv.org/abs/2506.01342).
 
-This paper talks about AutoGuard, a framework intended for detecting and responding to DevSecOps pipeline threats.
-We found AutoGuard to be interesting because unlike static vulnerability scans, AutoGuard observes the pipeline's activity and learns how to detect and respond to potential anomalies.
+For the presentation, we will focus on Section III-D, "Vulnerability Propagation Analysis", rather than covering the entire paper. This section explains how to check whether a vulnerability in one software dependency actually affects the projects that depend on it. The analysis follows the dependency chain and checks whether a downstream project uses a vulnerable version, includes code from the dependency, and can reach the vulnerable function.
 
-**Relevance**
+We picked this focus because dependency alerts are common in modern software development, but not every reported vulnerability necessarily affects an application in practice. The paper’s approach gives us a simple way to explain how teams can investigate alerts and prioritise which dependencies to update. We can illustrate the main idea with a small dependency graph and some checks, without going into the paper’s more complex algorithm or scoring formulas.
 
-This paper is relevant for the topics of week 6 since it describes a DevSecOps framework. The authors evaluate AutoGuard in simulated CI/CD environments and they report an improved threat detection accuracy and mean time to recovery when compared with traditional methods.
+## Relevance
+
+This paper is relevant to the Week 6 topics because it addresses DevSecOps with software dependency management security concepts. Dev teams can use dependency and vulnerability analysis during CI to understang whether a reported issue reachers their own software and decide what to fix first.
