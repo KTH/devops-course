@@ -11,7 +11,7 @@ Feedback on Scientific Paper: When AIOps Become "AI Oops": Subverting LLM-driven
 
 ## Deadline
 
-- Week 6
+- Task 3
 
 ## Category
 
