@@ -25,6 +25,6 @@ For the presentation, we will focus on Section III-D, "Vulnerability Propagation
 
 We picked this focus because dependency alerts are common in modern software development, but not every reported vulnerability necessarily affects an application in practice. The paper’s approach gives us a simple way to explain how teams can investigate alerts and prioritise which dependencies to update. We can illustrate the main idea with a small dependency graph and some checks, without going into the paper’s more complex algorithm or scoring formulas.
 
-## Relevance
+**Relevance**
 
 This paper is relevant to the Week 6 topics because it addresses DevSecOps with software dependency management security concepts. Dev teams can use dependency and vulnerability analysis during CI to understang whether a reported issue reachers their own software and decide what to fix first.
