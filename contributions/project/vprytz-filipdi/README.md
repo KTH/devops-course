@@ -34,3 +34,8 @@ The model will be packaged in a Docker image with a simple API endpoint that acc
 **Relevance**
 
 MLOps is when we apply DevOps practices to machine learning. We treat the data and configuration as source code and the model as the build artifact, as outlined in Raffel's article. So every change would be versioned and tested in CI on some parameters and compared to the previous release. It would then be deployed automatically (CD). Hence, this project would cover most of the MLOps lifecycle (data preparation, training, review, CI, CD).
+
+**Submission**
+
+- Repository: [vilhelmprytz/devops-project](https://github.com/vilhelmprytz/devops-project)
+- Report: [report.pdf](https://github.com/vilhelmprytz/devops-project/blob/main/report.pdf)
