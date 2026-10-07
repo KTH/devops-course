@@ -10,7 +10,7 @@ Feedback on Demo: Pinning your deps: Reproducible builds vs Reproducible artifac
  - Dawa Arkhang (arkhang@kth.se)
 
 ## Deadline
-- Task 6
+- task 6
 
 ## Category
 - Feedback
