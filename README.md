@@ -62,9 +62,10 @@ To pass the course, the student has to complete and pass between 3 and 5 tasks:
   * "[contribution to open-source](https://github.com/KTH/devops-course/blob/2026/grading-criteria.md#open-source-contributions)" (async)
   * "[feedback](https://github.com/KTH/devops-course/blob/2026/grading-criteria.md#feedback)" (async)
   * "[project (mandatory)](https://github.com/KTH/devops-course/blob/2026/grading-criteria.md#project)" (async)
-* Pproject and demo are mandatory, at most one in the same category, it is not necessary to cover everything.
+* Project and demo are mandatory, at most one in the same category, it is not necessary to cover everything.
 * The [grading criteria page](grading-criteria.md) is the unique reference which explains how to pass each task category.
-* The student proposes a category and a topic, which is discussed and accepted by the TA. The proposal is made as a [structured pull-request](https://github.com/KTH/devops-course/blob/2026/.github/pull_request_template.md) on this repository. Pull request must be created 3 business days before the actual delivery​. The 3-5 graded contributions must have little overlap. 
+* The student proposes a category and a topic, which is discussed and accepted by the TA. The proposal is made as a [structured pull-request](https://github.com/KTH/devops-course/blob/2026/.github/pull_request_template.md) on this repository. Pull request must be created 3 business days before the actual delivery​. The 3-5 graded contributions must have little overlap.
+* The mandatory project is submitted by modifying the PR opened for the project proposal and adding a link to the deployed project, as well as a link to a public repository containing the source code, configuration, and written report.
 * The same student cannot choose the same topic for two different tasks. The 3-5 tasks should cover different aspects of DevOps.
 * Deadlines:
   * Deadline for sync tasks (demos and paper presentations): the day and time they are given in person
@@ -78,6 +79,7 @@ To pass the course, the student has to complete and pass between 3 and 5 tasks:
   * C: 3 completed tasks + feedback
   * B: 4 completed tasks + feedback
   * A: 4 completed tasks + feedback + active participation in all but one seminars
+* 3-4 "completed tasks" include the mandatory project + 2-3 other tasks (excluding feedback)
 * Active participation: attendance to all but one seminars between 10/09 and 14/10, a traceable record of questions asked during seminars (through GitHub issues) and the answers you received to them.
 * Group work is mandatory (max 2 persons) but you cannot be with the same person for more than 2 individual tasks. You are not allowed to work alone. When you send a pull request for registration, please follow the name convention of using email addresses of two members to create the folder: email-email.
 * A failed task requires to pass it again at the end of the course (repeat), based on the feedback from the failure. A task can only be repeated once.
