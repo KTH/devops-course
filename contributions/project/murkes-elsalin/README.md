@@ -27,3 +27,5 @@ branch protection; quality/security automation via Dependabot and GitHub's built
 **Relevance:** This project directly applies the core DevOps concepts taught in the course, continuous integration, 
 continuous delivery, infrastructure as code, and automated quality/security checks to a real, working application. 
 The repository currently has no DevOps practices in place and is under active development, making it a good candidate for this project.
+
+Link to the project repo: [project](https://github.com/ELSAlinneus/KTGbibliotek)
