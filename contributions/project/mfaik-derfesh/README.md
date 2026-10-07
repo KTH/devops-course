@@ -29,6 +29,8 @@ WeebCult is an anime quiz website which me and my partner has worked with in a p
 
 - Security/quality: implemented via Checkov and Trivy, which get activated via Github Actions, allowing us to prevent policy issues, security vulnerabilities and package missconfigurations. 
 
+Link to repo, documents regarding the project are found in documents folder and other info is in the README.md: https://github.com/MiTO-X2/WeebCult
+
 **Relevance**
 
 When it comes to DevOps, the main principle is to automate and effectivize as much as possible. For us, it was necessary. Previously, when we worked on this project, we had to plan meticulously who worked on what part of the code, updates had to be bigger and the risk for merge conflicts was much higher. Plus we had to contact Mostafa for deployment. We also had to privately check everything by hand to make sure that everything worked with the website. Thanks to the added DevOps uppgrades, we have practically a monorepo, which automates all testing and deployment, allowing everybody to work whenver they want and only having to focus on improving the server, instead of needlessly requiring to check that everything works and waste time on communication.
