@@ -29,7 +29,7 @@ We will build a DevOps pipeline around a fork of [pytest-fastapi-crud-example](h
 - **Drift detection:** a scheduled workflow runs `terraform plan` and fails if the running container no longer matches the Terraform code, for example after someone changes it by hand.
 - **Development platform:** GitHub, with pull requests for every change to `main`.
 - **Dependency security:** Dependabot keeps the dependencies up to date.
-- **AI-assisted tools:** we will document how we used AI assistants and what we had to correct.
+- **AI-assisted tools:** we will document how we used AI assistants.
 - **Report:** a 2-3 page report on the architecture, our tool choices and the limitations.
 
 **Relevance**
