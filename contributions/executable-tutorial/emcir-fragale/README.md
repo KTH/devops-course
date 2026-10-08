@@ -40,6 +40,8 @@ Model serving is an important stage of an MLOps workflow. An existing model must
 
 Semantic FAQ search provides just an example through which these practices can be explored.
 
+Related Proposal: https://github.com/KTH/devops-course/pull/3073
+
 TUTORIAL
 
 [Open the executable tutorial in Google Colab](https://colab.research.google.com/drive/16aXjL8c-ynd1dqQU_0qiRvr_bSYwbPvJ?usp=sharing)
