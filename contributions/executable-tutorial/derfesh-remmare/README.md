@@ -33,7 +33,7 @@ The tutorial uses one repository, [IaC-Testing](https://github.com/derfeshMarius
 
 The tutorial follows a change from the initial push to the security checks and shows both a failed and a passing result.
 
-## Relevance
+Relevance
 
 Setting up cloud resources by clicking around in a console can be easy to get wrong, and it is also difficult for the rest of the team to see exactly what has changed. Security checks can have the same problem if they are done manually. Problems may be found late or not at all.
 
