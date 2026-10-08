@@ -33,7 +33,7 @@ The validation will take into account:
 
 If a conflict is detected, the pipeline will fail and add an explanatory comment to the pull request identifying the student, the week, the conflicting task categories, and the relevant pull requests.
 
-I would like to submit a PR ading this verification in https://github.com/algomaster99/github-canvas-integration-devops/blob/fix/replace-presentation-with-project/update_task.py
+I would like to submit a PR adding this verification in https://github.com/algomaster99/github-canvas-integration-devops/blob/fix/replace-presentation-with-project/update_task.py
 
 **Relevance**
 
