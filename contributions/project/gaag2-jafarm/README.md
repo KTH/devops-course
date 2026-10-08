@@ -37,7 +37,7 @@ The repository will contain the application code, tests, Docker configuration, C
 
 This project demonstrates a complete DevOps workflow for a long-running service. Each code change is automatically tested, analyzed, and packaged through CI, while accepted changes are automatically published and deployed through CD. The deployment environment is provisioned and defined as code, making it reproducible rather than manually configured. The application also introduces practical DevOps concerns such as external service dependencies, persistent state, secrets management, scheduled background work, containerization, automated security checks, and deployment reliability. This keeps the application itself relatively small while allowing us to focus on designing, implementing, testing, and explaining an end-to-end DevOps pipeline.
 
-## Final Submission
+**Final Submission**
 
 - Project repository: https://github.com/DD2482-project/crypto-stock-alerts-bot
 - Live deployment: The bot is deployed and running at https://t.me/Kth_crypto_bot
