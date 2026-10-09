@@ -19,9 +19,9 @@ Feedback on Executable Tutorial - Contract Testing: Pact and the Pact Broker
 
 ## Description
 
-We have contacted the responsible group, namely Alexandru Gânju (ganju@kth.se) and Yasmine Schüllerqvist (yasmines@kth.se), and will review and give feedback to https://github.com/KTH/devops-course/pull/3110.
+We contacted the responsible group, namely Alexandru Gânju (ganju@kth.se) and Yasmine Schüllerqvist (yasmines@kth.se), and reviewed their Executable Tutorial: https://github.com/KTH/devops-course/pull/3110.
 
-We will leave the feedback as a comment in their original Proposal PR.
+We provided our written feedback as a comment on their original Proposal PR: https://github.com/KTH/devops-course/pull/3110#issuecomment-6068023764
 
 **Relevance**
 
