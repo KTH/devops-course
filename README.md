@@ -15,7 +15,7 @@ The schedule is at <https://www.kth.se/social/course/DD2482/calendar/>
 *Change course rounds/groups in [My settings](https://www.kth.se/social/course/DD2482/subscription/) or change the time period above so that it conforms to the course round.*
 
 ## Program
-g
+
 ### Week 1 (26/8 13h-15h): Introduction (mandatory)
 * Preparatory reading: [DevOps principles](https://www.atlassian.com/devops/what-is-devops) and [demo](https://youtu.be/qcm0rG8EKXI)
 * Course introduction by Larissa Schmid (Teaching philosophy, interactive classroom, Expectations, Team, Agenda, Grading, Communication, Infrastructure, Master's theses and Research)
