@@ -19,10 +19,9 @@ Zero-Downtime Changes with Terraform Lifecycle Management
 
 ## Description
 
-### Executable Tutorial submission
-
 Proposal: PR [#3122](https://github.com/KTH/devops-course/pull/3122)
 
+Executable Tutorial submission:\
 The tutorial is deployed on Killercoda:\
 https://killercoda.com/bakalis/scenario/terraform-zero-downtime
 
