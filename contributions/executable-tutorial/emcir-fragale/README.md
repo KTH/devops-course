@@ -39,3 +39,15 @@ By the end of the tutorial the user should be able to:
 Model serving is an important stage of an MLOps workflow. An existing model must be packaged with its code and dependencies, exposed through a stable interface, tested, and monitored. BentoML supports these activities, connecting model serving with DevOps practices such as reproducible packaging, service verification, and observability.
 
 Semantic FAQ search provides just an example through which these practices can be explored.
+
+Related Proposal: https://github.com/KTH/devops-course/pull/3073
+
+TUTORIAL
+
+[Open the executable tutorial in Google Colab](https://colab.research.google.com/drive/16aXjL8c-ynd1dqQU_0qiRvr_bSYwbPvJ?usp=sharing)
+
+The notebook is shared with Viewer permissions to preserve the submitted version and prevent accidental changes to the original.
+
+Some steps invite participants to modify example inputs and explore the service’s behaviour. To edit cells and save your experiments, you should save a copy of the file. No local installation or download is required.
+
+Run the code cells in order, starting with the dependency installation.
