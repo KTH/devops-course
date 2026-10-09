@@ -29,3 +29,6 @@ continuous delivery, infrastructure as code, and automated quality/security chec
 The repository currently has no DevOps practices in place and is under active development, making it a good candidate for this project.
 
 Link to the project repo: [project](https://github.com/ELSAlinneus/KTGbibliotek)
+Link to [Report](https://github.com/ELSAlinneus/KTGbibliotek/blob/main/Project-Report.md)
+
+Proposal PR: [#3036](https://github.com/KTH/devops-course/pull/3036)
