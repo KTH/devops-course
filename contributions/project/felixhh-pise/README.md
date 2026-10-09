@@ -1,5 +1,17 @@
 # Assignment Proposal
 
+<br>
+
+Final hand-in: [MazeFlix-devops-project](https://github.com/seahoers/MazeFlix-devops-project)
+
+_**Note for TAs:**_
+
+- When you as a TA will review the repository, you can send us an e-mail so that we can give you the needed credentials.
+- All information needed for setting up and running the DevOps pipeline can be found in the repo's **README**. 
+- The Project Report can be found on the root of the repository: "[Project Report.pdf](https://github.com/seahoers/MazeFlix-devops-project/blob/main/Project%20Report.pdf)"
+
+<br>
+
 ## Title
 
 Developing a DevOps Pipeline for a TypeScript Web Application
