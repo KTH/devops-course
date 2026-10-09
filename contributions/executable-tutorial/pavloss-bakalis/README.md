@@ -19,6 +19,12 @@ Zero-Downtime Changes with Terraform Lifecycle Management
 
 ## Description
 
+Proposal: PR [#3122](https://github.com/KTH/devops-course/pull/3122)
+
+Executable Tutorial submission:\
+The tutorial is deployed on Killercoda:\
+https://killercoda.com/bakalis/scenario/terraform-zero-downtime
+
 This executable tutorial demonstrates how to replace infrastructure without causing downtime, using Terraform lifecycle rules. It runs on Killercoda in the browser and requires no cloud credentials.
 
 By default, when Terraform must replace a resource, it destroys the old one and then creates the new one. For a service behind a load balancer, the gap between the two actions is an outage, even though `terraform apply` reports success. The tutorial first **measures** this outage and then removes it step by step.
