@@ -75,7 +75,7 @@ Azure Resource Group
 Azure API Management Service
 ```
 
-## Final Project submission: 
+## Final Project submission
 
 ### GitHub Repository
 
