@@ -11,7 +11,7 @@ Feedback to Executable Tutorial - Kubernetes Policy-as-Code tutorial with Kyvern
 
 ## Deadline
 
-- Task 2
+- Task 3
 
 ## Category
 
