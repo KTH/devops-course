@@ -16,6 +16,13 @@ Project
 
 ## Description
 
+**Project links**
+
+- Repository: https://github.com/Kozarsson/Country-Guesser/tree/DD2482
+- Report: https://github.com/Kozarsson/Country-Guesser/blob/DD2482/project-report/project-report.md
+- Deployed project (release, signed APK): https://github.com/Kozarsson/Country-Guesser/releases
+- Pipeline run: https://github.com/Kozarsson/Country-Guesser/actions/runs/37812246258
+
 Using an existing project developed in a previous course, we developed a complete DevOps pipeline based on the practices learned in this course. The pipeline includes:
 
 - **CI:** GitHub Actions runs Gradle builds, automated unit tests, lint checks, and Docker image builds on every push and pull request to the `DD2482` branch.
@@ -32,7 +39,3 @@ Using an existing project developed in a previous course, we developed a complet
 
 **Relevance:**
 This project is relevant to DevOps because it demonstrates how CI/CD, infrastructure as code, containerisation, and automated quality checks can be integrated into a development workflow, enabling developers to automatically test, validate, and release changes in a consistent and repeatable manner.
-
-
-
-
