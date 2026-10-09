@@ -20,3 +20,5 @@ Feedback on Tutorial - Deploying a Pre-trained Semantic Search Model as an API w
 
 We have contacted the group - Ettore Mugisha Cirillo (emcir@kth.se) and Riccardo Fragale (fragale@kth.se) - and with already granted permission will conduct review and provide feedback to https://github.com/KTH/devops-course/pull/3151
 
+The feedback can be found at: https://github.com/KTH/devops-course/pull/3073#issuecomment-6041669645
+
