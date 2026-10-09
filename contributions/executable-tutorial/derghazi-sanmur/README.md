@@ -30,3 +30,6 @@ The tutorial ends with a reflection on what readiness checks can and cannot catc
 **Relevance**
 
 This tutorial belongs to the Continuous Delivery topic. A release should not depend on someone watching it and hoping nothing goes wrong. With rolling updates and readiness probes, the platform itself decides whether a new version may receive traffic, and an automated rollback limits the damage of a bad release before a person has to react. The tutorial also shows the limits of this approach: a readiness probe is only as good as what it checks, and rollout speed can be traded against capacity. It focuses on how a release reaches users and how a bad one is stopped, which is a different part of DevOps from our earlier tasks.
+
+- Link to the tutorial: [Tutorial](https://killercoda.com/kth-safe-releases/scenario/safe-releases)
+
