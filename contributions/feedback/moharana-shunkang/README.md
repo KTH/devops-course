@@ -23,4 +23,4 @@ We have contacted the responsible group (Ignacy Stępniewski (ignacys@kth.se) an
 
 Link to the authors' PR: https://github.com/KTH/devops-course/pull/3105
 
-We will leave the feedback as a comment in their original Proposal PR.
+We have provided the feedback as a comment in their original Proposal PR.
