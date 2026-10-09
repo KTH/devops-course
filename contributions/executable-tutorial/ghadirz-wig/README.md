@@ -32,3 +32,5 @@ Each step includes an explanation of what it does and why it is needed, and the 
 **Relevance**
 
 Caching, matrix builds, and reusable workflows are standard techniques for keeping CI pipelines fast and maintainable as a project grows, and they directly address the continuous-integration themes covered in this course. Learning to compose CI logic into reusable, callable workflows also reflects a core DevOps principle: treating pipeline configuration itself as maintainable, DRY code rather than copy-pasted YAML.
+
+Link to our tutorial: [Advanced GitHub Actions tutorial](https://github.com/hosseinghzadeh/advanced-github-actions-tutorial)
