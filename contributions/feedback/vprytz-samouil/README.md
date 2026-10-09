@@ -20,3 +20,5 @@ Feedback on: [Executable tutorial proposal: Zero-Downtime Changes with Terraform
 ## Description
 
 We have contacted the authors (Pavlos Spanoudakis (pavloss@kth.se), Dimitrios Bakalis (bakalis@kth.se)) for the executable tutorial "Zero-Downtime Changes with Terraform Lifecycle Management" and have gotten the approval from them to provide feedback (once they are finished with the assignment). We will leave feedback as a comment in the original proposal PR and update this .md file when it is done.
+
+**Submission**: feedback has been left as comment on the PR, see [this link](https://github.com/KTH/devops-course/pull/3122#issuecomment-6077775567).
