@@ -1,4 +1,16 @@
-# Assignment Proposal
+# Project Submission
+
+## Repository
+https://github.com/Kozarsson/Country-Guesser/tree/DD2482
+
+## Report
+https://github.com/Kozarsson/Country-Guesser/blob/DD2482/project-report/project-report.md
+
+## Pipeline
+https://github.com/Kozarsson/Country-Guesser/actions/runs/37812246258/job/113431797092
+
+## Release
+https://github.com/Kozarsson/Country-Guesser/releases
 
 ## Title
 DevOps Pipeline for Native Android Mobile Application
