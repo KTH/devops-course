@@ -15,10 +15,102 @@ Project: Automation Pipeline for API Lifecycle using GitHub Actions
 Project
 
 ## Description
-This project implements an API-first REST service called OpenWeather API using the OpenAPI Specification. The repository will contain the API definition, source code, automated tests, infrastructure-as-code templates, and GitHub Actions workflows.
 
-Using GitHub and GitHub Actions, the project will establish a complete CI/CD pipeline that automatically validates the OpenAPI specification, performs linting, executes tests, runs security checks, and builds the application. Upon successful validation, the API specification will be automatically deployed to Azure API Management (APIM).
+### Project Overview
 
-To ensure quality and reliability, the project will use Spectral for OpenAPI linting, Jest for automated testing, CodeQL for security analysis, Dependabot for dependency management, and Terraform for infrastructure provisioning. The use of AI-assisted tools such as GitHub Copilot and ChatGPT will also be documented as part of the development process..
+The **Automation Pipeline for API Lifecycle DevOps Project** demonstrates an end-to-end DevOps workflow for designing, validating, testing, deploying, and managing a REST API using an API-first approach. The project uses an OpenAPI specification as the source of truth and integrates Continuous Integration (CI), Continuous Deployment (CD), Infrastructure as Code (IaC), quality automation, and cloud deployment practices within a single GitHub repository.
 
-**Relevance:** REST APIs are a foundation of modern software systems, making API quality, automation, and reliability essential. This project demonstrates industry-standard DevOps practices by combining API-first development, CI/CD, automated testing, security scanning, Infrastructure as Code, and cloud deployment in a single workflow. It provides practical experience with tools and techniques widely used in modern cloud-native and API-driven software development.
+The API provides weather information for a requested city and is implemented using Node.js and Express. The API contract is defined using OpenAPI 3.0 and is automatically validated, tested, and deployed through GitHub Actions workflows to Azure API Management.
+
+### Continuous Integration (CI)
+
+The CI pipeline is implemented using **GitHub Actions** and is automatically triggered on every push and pull request.
+
+#### CI Workflow
+
+```text
+Developer Commit
+       ↓
+GitHub Push
+       ↓
+GitHub Actions
+       ↓
+OpenAPI Validation
+       ↓
+Spectral Linting
+       ↓
+Unit Testing
+       ↓
+Build Verification
+```
+
+### Continuous Deployment (CD) to Azure API Management
+
+The CD pipeline automatically deploys the OpenAPI specification to **Azure API Management (APIM)** after successful validation.
+
+#### CD Workflow
+
+```text
+GitHub Push
+      ↓
+GitHub Actions
+      ↓
+Azure Authentication
+      ↓
+Import OpenAPI Specification
+      ↓
+Azure API Management
+```
+
+### Infrastructure as Code (IaC)
+
+Infrastructure provisioning is automated using **Terraform**.
+
+#### Infrastructure Components
+
+Terraform resource provisions:
+
+```text
+Azure Resource Group
+Azure API Management Service
+```
+
+## Final Project submission: 
+
+### GitHub Repository
+
+**Repository:**
+
+```text
+https://github.com/Padmalaya26/api-lifecycle-devops
+```
+### GitHub Actions Pipeline
+
+#### Workflow Location
+
+```text
+.github/workflows/
+│
+├── ci.yml
+├── codeql.yml
+└── deploy-apim.yml
+```
+#### GitHub Actions Pipeline Run
+The Actions tab provides visibility into all CI/CD piepline executions, validation results, test reports, security scans, and deployment status. Links are below.
+
+- **CodeQl Security Scan run Report:**
+    ```Text
+    https://github.com/Padmalaya26/api-lifecycle-devops/actions/runs/37990068923
+    ```
+- **CI Pipeline Run Report:**
+    ```Text
+    https://github.com/Padmalaya26/api-lifecycle-devops/actions/runs/37990068792
+    ```
+- **CD Pipeline Run Report:**
+    ```Text
+    https://github.com/Padmalaya26/api-lifecycle-devops/actions/runs/37990068662
+    ```
+
+### Conclusion
+
+This project demonstrates the integration of **API-first development**, **Continuous Integration**, **Continuous Deployment**, **Infrastructure as Code**, **automated testing**, **security scanning**, and **cloud deployment** within a single DevOps workflow. The solution provides a practical implementation of modern DevOps practices using GitHub, GitHub Actions, Terraform, and Azure API Management.
