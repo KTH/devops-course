@@ -19,7 +19,12 @@ CI/CD and Infrastructure as Code for Conduit
 
 ## Description
 
-We will implement a DevOps pipeline around [Conduit](https://github.com/TonyMckes/conduit-realworld-example-app), an open-source application using React, Express, and PostgreSQL. The pipeline will include:
+* Repository: [https://github.com/Owalter1891/conduit-devops](https://github.com/Owalter1891/conduit-devops)
+* Report: [https://github.com/Owalter1891/conduit-devops/blob/main/report.md](https://github.com/Owalter1891/conduit-devops/blob/main/report.md)
+* Deployed project: [https://16.171.189.18.sslip.io/](https://16.171.189.18.sslip.io/)
+* Successful pipeline run: [https://github.com/Owalter1891/conduit-devops/actions/runs/37955527067](https://github.com/Owalter1891/conduit-devops/actions/runs/37955527067)
+
+We implemented a DevOps pipeline around [Conduit](https://github.com/TonyMckes/conduit-realworld-example-app), an open-source application using React, Express, and PostgreSQL. The pipeline includes:
 
 - **CI**: GitHub Actions for builds, linting, unit tests, and integration tests with a temporary PostgreSQL database on pull requests and pushes to main.
 - **CD**: GitHub Actions for publishing commit-tagged Docker images to GitHub Container Registry after checks pass on main, then running the published image with PostgreSQL on a temporary GitHub-hosted runner for automated smoke tests.
