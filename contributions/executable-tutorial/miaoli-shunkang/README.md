@@ -19,6 +19,8 @@ RAG Quality Gates: Automated Evaluation Pipelines with RAGAS
 
 ## Description
 
+**Tutorial:** [Google Colab](https://drive.google.com/file/d/1rQjHAkCMHItaTnZKYTP0LmyOxE6L0dBj/view?usp=sharing)
+
 We will build a Google Colab notebook that shows how to automatically test whether a RAG (Retrieval-Augmented Generation) application's answer quality holds up before a change is merged. The reader sets up a small RAG system with LangChain and FAISS, then runs RAGAS on a provided test set of questions with reference answers (and adds a couple of their own) to score retrieval and generation quality (faithfulness, answer relevancy, context precision, context recall). The reader then deliberately weakens the retrieval step, watches the scores drop, and finally wires the evaluation into a CI step that blocks the change if the scores fall below a threshold.
 
 **Relevance**
