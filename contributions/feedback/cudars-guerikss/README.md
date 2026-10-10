@@ -20,3 +20,5 @@ Feedback: [Deployability-Centric Infrastructure-as-Code Generation: Fail, Learn,
 ## Description
 
 We have contacted the responsible group (Nalin Kundu (nvkundu@kth.se) and Kristers Krigers (krigers@kth.se)) for the paper 'Deployability-Centric Infrastructure-as-Code Generation: Fail, Learn, Refine, and Succeed through LLM-Empowered DevOps Simulation' and have gotten the approval from them to provide feedback.
+
+**Submission**: here is the link to our feedback we have given to the team - https://github.com/KTH/devops-course/pull/3030#issuecomment-5898058382
