@@ -36,3 +36,9 @@ How each criterion is covered:
 **Relevance**
 
 Most deployment pipelines push changes into an environment and need credentials for it. GitOps reverses this: the environment pulls its desired state from Git, so Git becomes the single source of truth and every deployment and rollback is a commit. This project shows that model end to end, connected to CI, Infrastructure as Code and automated security checks, in a setup small enough that we can explain every part of it.
+
+**Submission**
+
+- Repository: https://github.com/tomasmbrito/house-split
+- Report: https://github.com/tomasmbrito/house-split/blob/main/docs/report.pdf
+- Proposal: #3154
