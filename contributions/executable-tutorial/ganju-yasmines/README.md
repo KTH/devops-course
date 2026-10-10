@@ -19,6 +19,10 @@ Contract Testing: Pact and the Pact Broker
 
 ## Description
 
+Tutorial link: https://killercoda.com/gabjea/scenario/contract-testing-pact
+
+Source repo: https://github.com/Gabjea/killercoda-executable-tutorial/
+
 We will create an executable Killercoda tutorial on contract testing between microservices
 with Pact. Everything runs in Docker (two Python services, the Pact Broker and its database),
 with a Git hook standing in for CI, so no accounts are needed.
