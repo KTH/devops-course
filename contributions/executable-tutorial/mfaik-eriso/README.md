@@ -35,7 +35,7 @@ The learner runs a small web service, "Demo Shop," on a disposable Ubuntu VM wit
 
 The tutorial is grounded in the course material, including The Top 10 Adages in Continuous Deployment (Parnin et al.), the DigitalOcean introduction to CI/CD, and the Wikipedia articles on continuous delivery, continuous deployment, blue-green deployment, and deployment environments.
 
-### Relevance
+#### Relevance
 
 Continuous Delivery and Continuous Deployment are core DevOps practices: they automate the path from commit to production, shorten feedback loops, and turn releases from risky events into routine operations. This tutorial lets the learner experience exactly that tension hands-on: deploying more often while keeping failures away from users.
 
@@ -47,7 +47,7 @@ The tutorial touches several fundamental DevOps themes:
 - Resilience: a broken release is aborted automatically, and rollback restores the previous version in about a second — because the old artifact is never destroyed.
 - Culture and judgment: the final step reflects on when full automation is appropriate and when human approval is the right choice — recognizing that DevOps is not "automate everything," but "automate where it is safe."
 
-### Links
+#### Links
 
 - Scenario: https://killercoda.com/1mitox2/scenario/ship-it
 - Repository: https://github.com/MiTO-X2/Continuous-Deployment-Bluegreen
