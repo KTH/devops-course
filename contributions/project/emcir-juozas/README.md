@@ -35,3 +35,15 @@ The planned workflow and deliverables are:
 **Relevance**
 
 This project addresses a practical delivery problem: how to change a connected monitoring application confidently when its hardware is not always available. Infrastructure as code creates the test environment, a real broker and simulator exercise the application, quality and security checks gate changes, and CD publishes the validated frontend. These components form one workflow rather than separate demonstrations of tools.
+
+REPOSITORY LINK: <https://github.com/EccirilloM/kth_project_devops>
+
+The repository includes setup instructions and the report.
+
+APPLICATION LINK: <https://eccirillom.github.io/kth_project_devops/>
+
+We have deployed a live demo for academic assessment. To let the examiners try the application without installing anything, we are sharing access to the guest account below. This account provides read-only access to synthetic telemetry and cannot send commands. The demo will remain available during assessment and will be retired afterward.
+
+Username: guest
+
+Password: NvGgv7nZO8OWl0XFo8Bgtm3g
