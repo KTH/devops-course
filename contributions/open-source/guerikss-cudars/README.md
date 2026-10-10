@@ -40,3 +40,24 @@ If the maintainers prefer a narrower or different scope, we will naturally adjus
 
 This contribution brings continuous verification to a CI pipeline that currently
 builds an artifact without checking it. It turns a recurring manual task: hunting down broken links on the project's primary public face, into an automated quality gate that runs on every pull request, catching regressions before they ship. It strengthens the project's existing CI/CD and requires no external accounts or secrets, so it runs the same way on contributor forks and upstream.
+
+**Submission**
+
+- Pull request: https://github.com/monero-project/monero-site/pull/2724
+- Tracking issue: https://github.com/monero-project/monero-site/issues/2723
+
+**What we built.** monero-site (getmonero.org) is a Jekyll site built into 15 languages by a `jekyll-multiple-languages-plugin` pipeline and deployed via GitHub Actions and Netlify. Its CI built and published the site but never *validated* it, so broken internal links reached production and were fixed reactively, one PR at a time. We added a `link-check` CI job that builds the site and runs [lychee](https://github.com/lycheeverse/lychee) over the generated `_site/`, failing the build on broken internal links, with the configuration in `lychee.toml`. The job passes the target project's own CI on the pull request.
+
+**System reasoning.** The check runs as a separate job alongside the existing build workflows: it does a full `jekyll build` and then validates the output.
+
+**Design decisions.**
+- *Internal, root-relative links only, offline.* External links are not gated because a third-party site being down should never fail our CI. lychee's `--offline` resolves root-relative links against `_site` with no network calls necessary.
+- *Baseline, not a mass fix.* Links already broken on `master` are listed in `lychee.toml` (and catalogued in issue #2723), so the gate lands without a simultaneous content cleanup and blocks only newly introduced broken links.
+- *`failIfEmpty`.* Guards against the check silently passing while validating nothing.
+- *Tool choice.* We first tried html-proofer, which silently reported zero links on the CI runner (a false "pass"); then htmltest, which worked but has had no release in roughly four years; and settled on lychee which is an actively maintained tool, really fastand can be run via the official `lycheeverse/lychee-action`.
+
+**Relevance.** This turns a recurring manual chore, i.e. hunting broken links on the project's primary public face, into an automated quality gate on every pull request with no new accounts or secrets, strengthening the project's existing CI/CD.
+
+**Reflection.** The hardest part was that the failure modes only appeared on the CI runner, not locally: html-proofer's HTML5 parser returned zero links there, which a self-check (fail if too few links are examined) helped to flag for. To extend this we would gate in-page anchors and images once their large pre-existing backlogs are cleaned up, cover the translated mirrors, and check absolute self-links (currently treated as external). We would also follow up with PRs fixing the baselined links in #2723.
+
+**Process and status.** We followed the project's C4 contribution workflow: opened issue #2723 describing the problem, then a pull request referencing it from a fork. Per the monero-site maintainer policy, pull requests are not merged for at least 168 hours, so a merge is expected after the course deadline; we will respond to any maintainer feedback.
