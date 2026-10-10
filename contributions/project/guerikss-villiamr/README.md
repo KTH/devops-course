@@ -19,6 +19,9 @@ DevOps pipeline for a todo web application with GitOps deployment
 
 ## Description
 
+**Repository:** https://github.com/f-r00t/duly-noted
+**Report:** https://github.com/f-r00t/duly-noted/blob/main/REPORT.md
+
 We will build a small todo web application and set up a complete DevOps pipeline around it. The application
 lets users create, complete and delete todo items, which are persisted in a PostgreSQL database running as a
 sidecar container next to the application.
