@@ -55,3 +55,22 @@ General intro about the course.
 9. [The Seven Sins: Security Smells in Infrastructure as Code Scripts](https://github.com/KTH/devops-course/pull/3068) (paper)
 10. [Cost-Aware Infrastructure Changes with Infracost](https://github.com/KTH/devops-course/pull/3077) (demo)
 11. [Policy as Code: Blast-Radius Protection for Terraform Changes](https://github.com/KTH/devops-course/pull/3072) (demo)
+
+## Week 6
+
+1. [Automating dependency management and versioning using NuGet packages](https://github.com/KTH/devops-course/pull/2951) (demo)
+2. [Automated Dependency Management and Package Updates with Renovate](https://github.com/KTH/devops-course/pull/2985) (demo)
+3. [ARGUS: A Framework for Staged Static Taint Analysis of GitHub Workflows and Actions](https://github.com/KTH/devops-course/pull/2969) (paper)
+4. [Pinning your deps: Reproducible builds vs Reproducible artifacts](https://github.com/KTH/devops-course/pull/2998) (demo)
+5. [Automated DevSecOps CI Pipeline for Vulnerability Detection and Remediation.](https://github.com/KTH/devops-course/pull/2990) (demo)
+6. [Enforced software authenticity for K8s using Sigstore and Kyverno](https://github.com/KTH/devops-course/pull/2960) (demo)
+7. [We Have a Package for You! A Comprehensive Analysis of Package Hallucinations by Code Generating LLMs](https://github.com/KTH/devops-course/pull/3071) (paper)
+8. [When AIOps Become "AI Oops": Subverting LLM-driven IT Operations via Telemetry Manipulation](https://github.com/KTH/devops-course/pull/3128) (paper)
+9. [Automated DevSecOps CI Pipeline with Trivy](https://github.com/KTH/devops-course/pull/3090) (demo)
+10. [Sigstore: Software Signing for Everybody](https://github.com/KTH/devops-course/pull/3098) (paper)
+11. [An Empirical Study on Reproducible Packaging in Open-Source Ecosystems](https://github.com/KTH/devops-course/pull/3100) (paper)
+12. [Automated Supply Chain Security and Vulnerability Quality Gate with Syft and Grype](https://github.com/KTH/devops-course/pull/3105) (demo)
+13. [SpiderScan: Practical Detection of Malicious NPM Packages Based on Graph-Based Behavior Modeling and Matching](https://github.com/KTH/devops-course/pull/3103) (paper)
+14. [LastPyMile: Identifying the Discrepancy between Sources and Packages](https://github.com/KTH/devops-course/pull/3125) (paper)
+15. [Propagation-Based Vulnerability Impact Assessment for Software Supply Chains: Vulnerability Propagation Analysis](https://github.com/KTH/devops-course/pull/3117) (paper)
+16. [From Package Hallucination to Supply-Chain Attack: An In-the-Wild Security Analysis](https://github.com/KTH/devops-course/pull/3095) (paper)
