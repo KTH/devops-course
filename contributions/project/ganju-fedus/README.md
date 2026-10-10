@@ -19,6 +19,10 @@ PR-Driven Terraform Pipeline with Atlantis and Floci
 
 ## Description
 
+Source code: https://github.com/Gabjea/devops-project
+
+Report: https://github.com/Gabjea/devops-project/blob/main/report.pdf
+
 We will implement an automated DevOps pipeline for a small serverless API (AWS Lambda, API Gateway and DynamoDB), running locally on [Floci](https://github.com/floci-io/floci), an open-source AWS emulator, so no cloud subscription is needed. The pipeline will include:
 
 - **CI**: GitHub Actions for linting, unit tests, and integration tests in an ephemeral Floci environment on every pull request.
