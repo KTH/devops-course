@@ -21,6 +21,4 @@ Feedback on Executable Tutorial: Progressive Delivery with Argo Rollouts: Canary
 
 We have contacted the authors, Ignacy Stepniewski and Moritz Constantin Schepp, and received their approval to provide feedback on their executable tutorial "Progressive Delivery with Argo Rollouts: Canary Deployment and Rollback" ([#3104](https://github.com/KTH/devops-course/pull/3104)).
 
-We will post our feedback as a comment on their PR once their tutorial is completed.
-
 Link to feedback: [Comment on #3104](https://github.com/KTH/devops-course/pull/3104#issuecomment-6111288846)
