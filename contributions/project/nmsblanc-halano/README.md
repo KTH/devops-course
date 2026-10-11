@@ -19,6 +19,11 @@ End-to-End DevOps Pipeline for a messaging web application
 
 ## Description
 
+*Submission:*
+- Project repository: https://github.com/k4ctuss/message_app
+- Final report: https://github.com/k4ctuss/message_app/blob/main/REPORT.pdf 
+
+*Proposal:*
 We want to build a complete DevOps pipeline around an existing small web app (React + Express + PostgreSQL, group messaging). The pipeline will include:
 
 - Build and test (CI): GitHub Actions runs lint, unit tests and static analysis on every pull request.
