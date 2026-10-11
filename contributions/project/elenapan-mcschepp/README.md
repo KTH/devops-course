@@ -1,5 +1,4 @@
 # Assignment Proposal
-Link to the project https://github.com/FlowRyda/OptiFarm 
 
 ## Title
 
@@ -11,8 +10,7 @@ Bringing OptiFarm to the Cloud: A DevOps pipeline for a farm-management applicat
   - Moritz Constantin Schepp (mcschepp@kth.se)
 
 ## Deadline
-
-- Task 3
+Oct 11th
 
 ## Category
 
@@ -20,6 +18,11 @@ Project
 
 
 ## Description
+Project submission. The project is complete. Proposal:[ #2997.](https://github.com/KTH/devops-course/pull/3150)
+
+* Soruce repo: https://github.com/FlowRyda/OptiFarm  
+* Report: https://github.com/FlowRyda/OptiFarm/blob/main/Report.md 
+* AI Usage: https://github.com/FlowRyda/OptiFarm/blob/main/AI_USAGE.md 
 
 We made OptiFarm, a farm-management application implemented as a student project from another course, into the cloud.
 We implemented a DevOps pipeline that allows for continuous integration and continuous deployment. The pipeline implemented with GitHub Actions workflows.
