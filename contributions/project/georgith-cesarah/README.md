@@ -22,6 +22,7 @@ DevOps pipeline for a course review web app
 *Submission* (proposal: https://github.com/KTH/devops-course/pull/3149):
 - Repository: https://github.com/tctev/course-reviews
 - Report: https://github.com/tctev/course-reviews/blob/main/report.pdf
+- Deployments (CD runs, the app is not public): https://github.com/tctev/course-reviews/actions/workflows/cd.yml
 
 *Proposal:*
 We'll make a small web app with Flask and SQLite where students can leave anonymous reviews of KTH courses. We're keeping the app simple so most of the work goes into the pipeline.
