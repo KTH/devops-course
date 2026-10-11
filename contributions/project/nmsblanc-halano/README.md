@@ -23,6 +23,8 @@ End-to-End DevOps Pipeline for a messaging web application
 - Project repository: https://github.com/k4ctuss/message_app
 - Final report: https://github.com/k4ctuss/message_app/blob/main/REPORT.pdf 
 
+The application is deployed on AWS; we will shut down the instances if the cost becomes too high. Feel free to send us a message to request a restart before the evaluation.
+
 *Proposal:*
 We want to build a complete DevOps pipeline around an existing small web app (React + Express + PostgreSQL, group messaging). The pipeline will include:
 
