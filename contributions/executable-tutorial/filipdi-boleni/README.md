@@ -19,6 +19,10 @@ Executable tutorial
 
 ## Description
 
+**Tutorial:** [Container Security with Checkov](https://killercoda.com/djonte/scenario/container-security-checkov)
+
+**Source:** [GitHub repository](https://github.com/djonte/devops-extut)
+
 We propose an interactive tutorial demonstrating how to detect, understand, and fix container security misconfigurations using Checkov and Docker.
 
 Participants will start with an insecure Dockerfile where the application runs as root, uses the `latest` image tag instead of a pinned version, and lacks a health check. They will use Checkov to identify these misconfigurations and investigate their practical consequences:
