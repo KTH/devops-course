@@ -36,3 +36,11 @@ If you have any thoughts or feedback on our plan, we would be happy to hear it!
 **Relevance**
 
 We believe the above project plan is satisfactory from a relevance perspective. We use many different types of automation to enable CI/CD, following DevOps principles. We use infrastructure as Code principles with Terraform and we also take advantage of a quality automation with Ruff. The tools we have chosen are well known and mature, being used in the real world for production pieplines.
+
+## Project Submission
+
+You may find our finished project [here](https://github.com/AlexWigren/DevOpsProject)
+
+You may find our report, also contained in the project repo [here](https://github.com/AlexWigren/DevOpsProject/blob/main/Report.pdf)
+
+You may find our original pull request [here](https://github.com/KTH/devops-course/pull/3113)
