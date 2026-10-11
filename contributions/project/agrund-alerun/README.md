@@ -18,6 +18,8 @@ Project
 
 Project repository: https://github.com/a-runebou/dd2482_project
 
+Original project proposal: https://github.com/KTH/devops-course/pull/2996
+
 We built Schedular, a crab.fit-style group scheduling app, from scratch: a React
 and TypeScript frontend, a Python FastAPI backend, a PostgreSQL database, KTH schedule
 import, group creation, availability voting, calendar export, and email reminders. The
