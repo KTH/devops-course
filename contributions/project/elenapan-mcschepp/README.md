@@ -1,4 +1,4 @@
-# Assignment: Project Submission 
+# Assignment Proposal
 Link to the project https://github.com/FlowRyda/OptiFarm 
 
 ## Title
