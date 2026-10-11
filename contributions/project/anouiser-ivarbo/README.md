@@ -44,3 +44,4 @@ This project is relevant to DecOps as it aims to set up a CI/CD pipeline for an 
 
 GitHub : The project is found in [https://github.com/iboqvist/tomo-web](https://github.com/iboqvist/tomo-web).
 App Demo : A link to the deployed application can be requested by contacting either of us.
+Report : Found in the GitHub Repo
