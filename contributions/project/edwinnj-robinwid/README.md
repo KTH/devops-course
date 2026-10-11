@@ -21,8 +21,6 @@ Implementing a CI/CD pipeline and IaC for an open source web app
 
 ## Description
 
-### Submission of project
-
 We have a private repository available [here](https://github.com/edwinjogen/cv-devops-project). The repo is currently shared with algomaster99, carminecesarano and ericcornelissen. If there is a problem or anyone else needs to have access just contact us and we will fix it.
 
 The link to the deployed rendering of a CV is [here](https://cv-devops-project.vercel.app/). The report can be found [here](https://github.com/edwinjogen/cv-devops-project/blob/main/report.pdf)
