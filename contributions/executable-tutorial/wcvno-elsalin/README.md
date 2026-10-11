@@ -18,6 +18,9 @@ Security and vulnerability scanning using Trivy
 - Executable tutorial
 
 ## Description
+
+**Tutorial:** [Killercoda](https://killercoda.com/vulnerability-scanning123/scenario/vulnerability-scanning)
+
 Our executable tutorial will demonstrate how to detect security issues or dependency vulnerabilities in your code.
 The tutorial will run on Killercoda and will guide the user through how to use Trivy to detect issues.
 It starts off with some Python code which has exposed secrets and vulnerable dependencies. The user will then be told how to run a command on this code to find these issues.
