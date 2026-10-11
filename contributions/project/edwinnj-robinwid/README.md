@@ -21,6 +21,12 @@ Implementing a CI/CD pipeline and IaC for an open source web app
 
 ## Description
 
+### Submission of project
+
+We have a private repository available [here](https://github.com/edwinjogen/cv-devops-project). The repo is currently shared with algomaster99, carminecesarano and ericcornelissen. If there is a problem or anyone else needs to have access just contact us and we will fix it.
+
+The link to the deployed rendering of a CV is [here](https://cv-devops-project.vercel.app/).
+
 The project will consist of implementing a full CI/CD pipeline with IaC on [this](https://github.com/bartoszjarocki/cv) open source project that render CVs using TypeScript. The project doesn’t contain any DevOps tools to begin with so the full stack of CI, CD, IaC and dependency management will be handled by our project.
 
 - CI: The CI will run tests, linting, formatting among other things on the code whenever a commit is pushed or merged to main
