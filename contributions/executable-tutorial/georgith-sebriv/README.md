@@ -35,4 +35,5 @@ This tutorial directly addresses **Week 5: Infrastructure as Code (IaC)**, speci
 
 **Final submission**
 
-Tutorial: [Killercoda Scenario](https://killercoda.com/s-riviere/scenario/gitops-argocd)
+* Tutorial: [Killercoda Scenario](https://killercoda.com/s-riviere/scenario/gitops-argocd)
+* Repository: [Github Repository](https://github.com/s-riviere/kth-devops-tutorial)
