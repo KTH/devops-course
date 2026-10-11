@@ -41,3 +41,6 @@ As for our CD pipeline, we'll set up:
 **Relevance**
 
 This project is relevant to DecOps as it aims to set up a CI/CD pipeline for an plain WebApp CodeBase. It aims to follow the best-practices of DevOps.
+
+GitHub : The project is found in [https://github.com/iboqvist/tomo-web](https://github.com/iboqvist/tomo-web).
+App Demo : A link to the deployed application can be requested by contacting either of us.
