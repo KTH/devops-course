@@ -15,23 +15,23 @@ Project: group scheduling app with IaC multi-deployment
 Project
 
 ## Description
-We are building Schedular, a crab.fit-style group scheduling app, from scratch: a React
-and TypeScript frontend, a Python backend (likely FastAPI), a database (TBD), KTH schedule
-import, group creation, availability voting, calendar export and email reminders. The
-codebase itself is largely AI-generated from an architecture plan we write up-front
-(including API contracts).
 
-CI on GitHub Actions runs the test suite, linting and static checks, and at least one
-dependency/vulnerability scanner on every push. Infrastructure is defined as code: a
-docker-compose setup for a dev deployment to our KTH VM, and Kubernetes manifests for a
-production deployment on Google Cloud or comparable, both provisioned and updated via GitHub Actions
-pipelines. CD automatically pushes to the KTH VM on relevant branches and to the GCP
-cluster on merges to main. GitHub is used as the development platform throughout (repo,
-issues, Actions). Time permitting, we might extend this with a monitoring dashboard with
-heartbeat/circuit-breaker checks between containers, and look into an MLOps component,
-scoped after the relevant lectures.
+Project repository: https://github.com/a-runebou/dd2482_project
+
+We built Schedular, a crab.fit-style group scheduling app, from scratch: a React
+and TypeScript frontend, a Python FastAPI backend, a PostgreSQL database, KTH schedule
+import, group creation, availability voting, calendar export, and email reminders. The
+codebase was developed with AI assistance based on an architecture plan and API contracts
+defined up-front. 
+
+CI on GitHub Actions runs automated tests, linting, static checks, and security scanning. 
+Infrastructure is defined as code: Docker Compose for development deployment to a Raspberry Pi 
+and Kubernetes manifests for production deployment on Azure. CD automatically deploys to the
+development environment on pushes to `develop` while production releases are managed through a 
+controlled GitHub Actions workflow. Both environments use containerized services, health checks, 
+and rollback mechanisms. 
 
 **Relevance:** The project integrates the core DevOps practices required by the course in
-one coherent system: automated CI (tests, lint, dependency/vulnerability scanning),
+one coherent system: automated CI (tests, linting, dependency/vulnerability scanning),
 automated CD to both a dev and a production environment, infrastructure as code for both
-deployment targets.
+deployment targets, and monitoring and recovery mechanisms.
