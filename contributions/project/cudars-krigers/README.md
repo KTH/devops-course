@@ -30,4 +30,8 @@ We take a small three-tier app (frontend, REST API, PostgreSQL) and build the wh
 
 **Relevance**
 
-The project puts CI, CD, infrastructure as code, a modern development platform and quality/security automation into one repository. We chose hands-on options to learn them: our own Helm chart, an in-cluster database over Cloud SQL, and Kubernetes over the Docker Swarm one of us already knows. GKE Autopilot reduces node-management work, and the report explains the limitations and what we would do differently in production. Links: Hosted project: https://alus.chudars.lv/ Link to proposal:https://github.com/KTH/devops-course/pull/3027 Link to repo:https://github.com/eedvardss/manbesi-beer-map
+The project puts CI, CD, infrastructure as code, a modern development platform and quality/security automation into one repository. We chose hands-on options to learn them: our own Helm chart, an in-cluster database over Cloud SQL, and Kubernetes over the Docker Swarm one of us already knows. GKE Autopilot reduces node-management work, and the report explains the limitations and what we would do differently in production. 
+Links: Hosted project: https://alus.chudars.lv/ 
+Link to proposal:https://github.com/KTH/devops-course/pull/3027 
+Link to repo:https://github.com/eedvardss/manbesi-beer-map 
+Project report and AI usage:https://github.com/eedvardss/manbesi-beer-map/blob/main/docs/REPORT.md
