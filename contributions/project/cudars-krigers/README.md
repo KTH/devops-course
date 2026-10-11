@@ -18,3 +18,6 @@ We take a small three-tier app (frontend, REST API, PostgreSQL) and build the wh
 6. The repository includes Docker startup, infrastructure configuration, deployment workflows and setup documentation. Local startup has been verified; a complete deployment from a fresh GCP project still needs end-to-end verification.
 Relevance
 The project puts CI, CD, infrastructure as code, a modern development platform and quality/security automation into one repository. We chose hands-on options to learn them: our own Helm chart, an in-cluster database over Cloud SQL, and Kubernetes over the Docker Swarm one of us already knows. GKE Autopilot reduces node-management work, and the report explains the limitations and what we would do differently in production.
+Links:
+Hosted project: https://alus.chudars.lv/
+Link to proposal:https://github.com/KTH/devops-course/pull/3027
