@@ -21,8 +21,8 @@ End-to-End DevOps Pipeline for Docmost
 
 **Submission:**
 - **Project repository:** https://github.com/JingzeGuo/docmost
-- **Deployed application:** https://docmost.click
-- **Final report:** https://docs.google.com/document/d/1bM0PvT3HvlQLIKrUHv9LMAOCP4dhmIWax1DQ_0lFY9E/edit?usp=sharing
+- **Deployed application:** https://docmost.click, you can log in with email `shunkang77@gmail.com` and password `Lab20228907!`
+- **Final report:** https://github.com/JingzeGuo/docmost/blob/main/Project%20Report.pdf
 - **Original proposal:** https://github.com/KTH/devops-course/pull/3037
 
 We implemented an end-to-end DevOps pipeline for Docmost, an open-source collaborative wiki and documentation platform.
