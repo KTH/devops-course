@@ -7,7 +7,7 @@ SLO Error-Budget Alerting with Prometheus and Alertmanager
 ## Names and KTH ID
 
 - Hasan Kalzi (kalzi@kth.se)
-- Robert Jenson (robjen@kth.se)
+- Robert Jensen (robjen@kth.se)
 
 ## Deadline
 
