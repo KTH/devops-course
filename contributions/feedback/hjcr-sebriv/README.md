@@ -23,4 +23,4 @@ We have contacted the authors, Ignacy Stepniewski and Moritz Constantin Schepp, 
 
 We will post our feedback as a comment on their PR once their tutorial is completed.
 
-Link to feedback: (will be added after posting the comment on PR #3104)
+Link to feedback: [Comment on #3104](https://github.com/KTH/devops-course/pull/3104#issuecomment-6111288846)
