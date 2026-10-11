@@ -24,7 +24,7 @@ Migrating legacy integration tests in Moby
 [Moby](https://github.com/moby/moby) is an open-source container engine project used by Docker. Its legacy `integration-cli` test suite is deprecated, and [issue #50159](https://github.com/moby/moby/issues/50159) tracks the migration to the newer test suites.
 We implemented the five container-commit test migrations in our [accepted proposal #3056](https://github.com/KTH/devops-course/pull/3056) and submitted [Moby PR #53912](https://github.com/moby/moby/pull/53912), related to [migration issue #50159](https://github.com/moby/moby/issues/50159).
 
-The upstream PR contains five commits and changes three files. As checked on 10 October 2026, it is open, has no merge conflicts and has not been merged. DCO and labeler checks passed. The other upstream workflows report `action_required`; their tests have not run, and no maintainer review is recorded. We submit the contribution before the course deadline and will continue following upstream CI, review and merge.
+As checked on 11 October 2026, the upstream PR contains five commits and changes three files. It is open, has no merge conflicts and has not been merged. DCO checks passed. Upstream CI has run: many jobs passed, some are still running, and three checks failed. The milestone check needs maintainer follow-up; a Windows BuildKit job timed out after 40 minutes; a snapshotter/containerd integration job failed, with its cause still unverified. We submit the contribution before the course deadline and will continue following upstream CI, review and merge.
 
 | Legacy test | API integration test | Contributor |
 | --- | --- | --- |
@@ -36,7 +36,7 @@ The upstream PR contains five commits and changes three files. As checked on 10 
 
 The replacements are in `integration/image/commit_test.go`. The five legacy functions are removed from `integration-cli/docker_api_test.go` and `integration-cli/docker_cli_commit_test.go`.
 
-Hasan's migrations are recorded in commits [bbb1f4a](https://github.com/moby/moby/commit/bbb1f4afb21c4dac1b69208a628c1476cf53d1b5) and [2d7b238](https://github.com/moby/moby/commit/2d7b2383e303499b3c5b71d61217039fbc7f5175). Both contributors reviewed the changes before opening the upstream PR.
+Hasan's migrations are recorded in commits [eee9167](https://github.com/moby/moby/commit/eee9167446fb043b7462bacf10e5d54adf406348) and [bb15bc5](https://github.com/moby/moby/commit/bb15bc551559bbfca4299c791b303d8c9ce29d83). Both contributors reviewed the changes before opening the upstream PR.
 
 **Architecture and implementation decisions**
 
@@ -86,7 +86,9 @@ A practical challenge was running Linux build scripts from a Windows checkout wi
 
 The important implementation challenge was preserving behaviour while changing the test mechanism. Typed assertions improve failure diagnostics, but removing CLI execution also changes which layer is tested. Waiting for container completion, inspecting both image and source-container labels, and retaining platform conditions help preserve the intended API coverage.
 
-Remaining work is to respond to maintainer feedback, run upstream CI and obtain merge. Further validation should cover Windows and repeated runs to detect timing-dependent failures. We do not claim maintainer approval or a completed upstream merge at this stage.
+On 11 October, a maintainer requested clarification of the contributors' identities and real-name DCO sign-offs for Oscar's commits. We explained our shared-branch workflow. Oscar corrected his three commits while preserving both contributors' authorship; the code was unchanged. We [reported the correction and requested another review](https://github.com/moby/moby/pull/53912#issuecomment-6108344759).
+
+Remaining work is to follow up on upstream CI failures, address any further maintainer feedback and obtain merge. Further local validation should cover Windows and repeated runs to detect timing-dependent failures. Maintainer approval and upstream merge are still pending.
 
 Both contributors reviewed the code, and Hasan executed the local validation above.
 
@@ -98,3 +100,4 @@ Hasan used AI: `TestCommitChange` and `TestCommitChangeLabels`, to get helped wi
 **Relevance**
 
 Moby is an open-source container engine used in Docker-based DevOps workflows. This contribution addresses the project's documented migration away from deprecated testing infrastructure. It preserves regression coverage for container commits while placing API behaviour in the appropriate integration suite. Its maintenance value is the replacement of legacy tests with supported test helpers and direct API assertions; it does not add a new runtime feature or claim a measured performance improvement.
+
