@@ -20,3 +20,5 @@ Feedback on Demo - SLO Error-Budget Alerting with Prometheus and Alertmanager
 ## Description
 
 We have contacted the responsible group, namely Hasan Kalzi (kalzi@kth.se) and Robert Jenson (robjen@kth.se), and will review and give feedback to https://github.com/KTH/devops-course/pull/3096.
+
+Feedback: https://github.com/KTH/devops-course/pull/3096#issuecomment-6098051296
