@@ -44,3 +44,7 @@ The repository will deliver source code, tests, Dockerfiles, GitHub Actions work
 Relevance
 
 This project applies real-world DevOps practices to an existing web application. It demonstrates automated integration testing against file-system state, persistent storage management via IaC, multi-stage Docker security, automated security gates, and automated host deployment.
+
+link to live demo: http://16.16.209.177/
+github: https://github.com/superderker/klaus-clone
+report is in the repo
