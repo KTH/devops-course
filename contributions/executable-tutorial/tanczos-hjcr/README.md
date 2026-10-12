@@ -19,6 +19,10 @@ Feature Flags with OpenFeature and flagd
 
 ## Description
 
+**Submission for #3141:**
+- Tutorial: https://killercoda.com/eryngia/scenario/feature-flags
+- Repository: https://github.com/eryngia/dd2482-tutorial
+
 We propose an executable tutorial about feature flags using OpenFeature and flagd. It will run on Killercoda in a standard Ubuntu environment.
 
 The learner will start with a small Python web app that contains a new feature that has been deployed but is not yet visible. The app reads flags through the OpenFeature SDK and flagd runs as the flag provider using a configuration file. Using the terminal and browser, the learner will complete these steps:
