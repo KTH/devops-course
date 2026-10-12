@@ -19,6 +19,10 @@ Executable tutorial
 
 ## Description
 
+**Tutorial:** https://killercoda.com/igni28/scenario/argo-rollouts-canary
+
+**Repository:** https://github.com/igni28/argo-rollouts-tutorial
+
 We propose an executable tutorial about progressive delivery using Argo Rollouts on Kubernetes.
 
 The tutorial will be done in a browser-based Kubernetes environment using **Killercoda**. The learner will create an initial stable version of an app and then use Argo Rollouts to introduce a new version using canary deployment.
