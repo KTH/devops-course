@@ -34,3 +34,9 @@ The use of AI-assisted development tools will be documented, including how they 
 The project demonstrates several core DevOps practices in an integrated workflow, including continuous integration, continuous delivery, infrastructure as code, security automation, dependency management, and automated release management.
 
 The different components will be integrated into a single workflow, allowing changes to be automatically tested, validated, released, and deployed. This provides a practical example of how DevOps practices can be applied to a modern frontend application.
+
+**Project repository:** [Valorant DevOps](https://gitlab.com/ramikhd/valorant-devops)
+
+**Final report:** [Read the final report](https://gitlab.com/ramikhd/valorant-devops/-/blob/main/PROJECT_REPORT.pdf)
+
+**Original proposal:** [PR #2975](https://github.com/KTH/devops-course/pull/2975)
