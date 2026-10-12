@@ -19,6 +19,10 @@ Building a DevOps Pipeline Around an Existing Web Application
 
 ## Description
 
+Submission: 
+Repository - https://github.com/tobiasbjurstrom/teefinder-devops
+Report - https://github.com/tobiasbjurstrom/teefinder-devops/blob/main/DD2482_Project_Teefinder.pdf
+
 We take an existing web application built on Firebase and implement a complete DevOps Pipeline around it. The application will communicate with a database that contains user account information. The pipeline will then be tested against previous PRs.
 
  The CI/CD pipeline is built with Github Actions. The pipeline will consist of tests that define functionality and deploying a finished functional service. A/B testing with Firebase remote config will also be implemented.
