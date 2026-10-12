@@ -32,3 +32,8 @@ During this ~15–20 minute scenario, learners will:
 **Relevance**
 
 This tutorial directly addresses **Week 5: Infrastructure as Code (IaC)**, specifically GitOps & Continuous Reconciliation Loops. Unlike traditional, push-based IaC tools (like Terraform or Ansible) where drift repair requires manual CLI invocation, this tutorial demonstrates an automated, continuous reconciliation engine running inside Kubernetes.
+
+**Final submission**
+
+* Tutorial: [Killercoda Scenario](https://killercoda.com/s-riviere/scenario/gitops-argocd)
+* Repository: [Github Repository](https://github.com/s-riviere/kth-devops-tutorial)
