@@ -26,3 +26,9 @@ The project will be set up as a GitHub repository, and we will use GitHub Action
 **Relevance:**
 This is relevant to DevOps as we are utilizing main practices of CI, CD and IaC.
 We are testing the code, automating deployments and setting up relevant infrastructure, which is central to DevOps.
+
+Link to [project](https://github.com/williamnordwall/devops-project)
+
+The report is in the root of the project repo and is called REPORT.md
+
+Link to [proposal](https://github.com/KTH/devops-course/pull/3047)
