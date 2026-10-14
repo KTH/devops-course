@@ -74,3 +74,13 @@ General intro about the course.
 14. [LastPyMile: Identifying the Discrepancy between Sources and Packages](https://github.com/KTH/devops-course/pull/3125) (paper)
 15. [Propagation-Based Vulnerability Impact Assessment for Software Supply Chains: Vulnerability Propagation Analysis](https://github.com/KTH/devops-course/pull/3117) (paper)
 16. [From Package Hallucination to Supply-Chain Attack: An In-the-Wild Security Analysis](https://github.com/KTH/devops-course/pull/3095) (paper)
+
+## Week 7
+
+1. [Chaos engineering: circuit breaker for a severed dependency link](https://github.com/KTH/devops-course/pull/2995) (demo)
+2. [Chaos engineering and observability in Kubernetes](https://github.com/KTH/devops-course/pull/3055) (demo)
+3. [Finding the slow line in production with continuous profiling using Grafana Pyroscope](https://github.com/KTH/devops-course/pull/3026) (demo)
+4. [A Large-Scale Evaluation for Log Parsing Techniques: How Far Are We?](https://github.com/KTH/devops-course/pull/3065) (paper)
+5. [Keeping Failures Visible with OpenTelemetry Tail Sampling](https://github.com/KTH/devops-course/pull/3083) (demo)
+6. [SLO Error-Budget Alerting with Prometheus and Alertmanager](https://github.com/KTH/devops-course/pull/3096) (demo)
+7. [Automating Dependency Updates in Practice: An Exploratory Study on GitHub Dependabot](https://github.com/KTH/devops-course/pull/3241) (paper)
