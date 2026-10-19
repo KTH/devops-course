@@ -19,7 +19,7 @@ Project
 
 ## Description
 
-**Project submission.** The project is complete. Proposal: [#2997](https://github.com/KTH/devops-course/pull/2997).
+**Project resubmission.** Following the review feedback, we extended the report with a new section, [7. Use of AI tools](https://github.com/sammosios/dd2482-project/blob/main/REPORT.md#7-use-of-ai-tools), describing how we used AI tools in the project and how we split the work between us and the tool. Initial submission: [#3180](https://github.com/KTH/devops-course/pull/3180). Proposal: [#2997](https://github.com/KTH/devops-course/pull/2997).
 
 - Source repo: https://github.com/sammosios/dd2482-project
 - Report: https://github.com/sammosios/dd2482-project/blob/main/REPORT.md
