@@ -1,0 +1,45 @@
+name: Cross-task check
+
+on:
+  pull_request_target:
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - edited # base branch changed
+    branches:
+      - "2026"
+    paths:
+    - contributions/**
+
+permissions:
+  contents: read
+  pull-requests: write
+
+concurrency:
+  group: cross-task-check-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  cross-task-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout base branch (tools only)
+        uses: actions/checkout@v4
+        with:
+          sparse-checkout: tools
+          persist-credentials: false
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install "PyGithub==2.5.0"
+
+      - name: Check cross-task week conflicts
+        run: python tools/cross_task_check.py
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          BASE_REF: ${{ github.event.pull_request.base.ref }}
