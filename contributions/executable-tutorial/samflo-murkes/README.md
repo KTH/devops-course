@@ -19,7 +19,7 @@ Infrastructure as Code with Terraform and Docker tutorial in killercoda
 
 ## Description
 
-**Tutorial:** [Killecoda](https://killercoda.com/fmurkes/scenario/iac-terraform-docker)
+**Link to tutorial:** [Killercoda](https://killercoda.com/fmurkes/scenario/iac-terraform-docker)
 
 We will create an executable tutorial in killercoda where tutorial users will follow along to learn how to set up a simple application with two containers connected with Docker. By using Terraform, the user will create a file that instead of running docker manually will describe what the setup should be like, which Terraform will execute.
 

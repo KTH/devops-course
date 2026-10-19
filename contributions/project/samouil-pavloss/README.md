@@ -1,4 +1,3 @@
-
 # Assignment Proposal
 
 ## Title
@@ -20,14 +19,18 @@ Project
 
 ## Description
 
-We will bootstrap a small cluster of VMs (using Multipass) and set up [Dokploy](https://dokploy.com/) in cluster mode as a self-hosted PaaS. One node acts as the Dokploy leader/control-plane, and we will configure automatic registration of worker nodes so that new VMs can join the cluster and scale it horizontally without manual setup.
+**Project submission.** The project is complete. Proposal: [#2997](https://github.com/KTH/devops-course/pull/2997).
 
-Our Infrastructure as Code will mostly take the form of scripts driving the Dokploy CLI (VM provisioning, cluster bootstrap, worker registration, and service deployment), and we will use ephemeral testing environments to validate that the provisioning scripts are reproducible from a clean state.
+- Source repo: https://github.com/sammosios/dd2482-project
+- Report: https://github.com/sammosios/dd2482-project/blob/main/REPORT.md
+- Walkthrough guide: https://github.com/sammosios/dd2482-project/blob/main/WALKTHROUGH.md
 
-[Dokploy's continuous deployment features](https://dokploy.com/features/application-deployment-platform) are quite rich, with built-in support for Git webhook integrations, Docker Compose or an image registry. We will decide which options fit our needs best as we move forward with the implementation and depending on the service type.
+We built a self-hosted PaaS: a 3-node Docker Swarm cluster on Google Cloud (1 manager, 2 workers), managed by [Dokploy](https://dokploy.com/). The whole cluster is created from the repository with `./up.sh` and torn down with `./down.sh`, using staged Terraform (VMs, network, DNS, registry, OpenBao, CI runners, apps) and no manual steps. On top of the cluster we run:
 
-On top of the cluster we will stand up a set of core services: self-hosted CI runners, example web applications, databases, a secrets vault for credential management, and static analysis via Trivy for scanning images and dependencies for vulnerabilities. Time permitting, we would also like to add object storage, message queues, and observability (metrics/logs/tracing) as nice-to-have extensions.
+- self-hosted GitHub Actions runners inside the cluster
+- an example app (Roster, Go + htmx) with 2 replicas, PostgreSQL and Redis, deployed through a CD pipeline: tests, Trivy secret scan, image build, Trivy vulnerability gate, push to the in-cluster registry, then a Dokploy deploy
+- OpenBao as the secrets vault, which Dokploy queries at deploy time so apps never hold vault credentials
 
-**Relevance**
+The cluster is currently running on GCP and burning through credits, so please let us know once it has been reviewed so we can take it down. To see the systems in action instead of only reading the report, follow the walkthrough guide.
 
-This project is directly relevant to infrastructure as code, cloud-native tooling, and CI/CD. It demonstrates how a self-hosted PaaS can be provisioned and scaled from scratch through scripted automation rather than a managed cloud provider, and it touches on horizontal scaling, secrets management, vulnerability scanning, and CI infrastructure — core building blocks of a real DevOps platform. It also highlights the tradeoffs of a CLI-scripting-based approach to IaC compared to fully declarative tools.
+Our services (Dokploy, OpenBao, Roster) are public on the internet and require authentication. Credentials are not in the documents or the repo, so please contact us privately if you want to browse the tools.

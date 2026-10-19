@@ -19,6 +19,8 @@ Automated model drift detection using Evidently
 
 ## Description
 
+[Completed Tutorial](https://colab.research.google.com/drive/1KeaVUjCRBiHrkUOryuXTEaUnVQA3qJnM?usp=sharing)
+
 For our tutorial, we will create an executable Google Colab notebook that shows how Evidently can detect data drift in an ML system and automatically trigger a workflow to retrain the model.
 
 The tutorial starts with a classification model trained on a reference dataset. We will then simulate new production data where the distribution has changed (distribution drift). Evidently will compare the reference and current data and report if a significant drift has occurred. If so, the workflow will automatically train a new candidate model, evaluate it, and apply a quality gate. The candidate is only accepted if it satisfies set performance requirements. 

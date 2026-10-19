@@ -19,6 +19,8 @@ Automated CI/CD Pipeline with Preview Environments
 
 ## Description
 
+[Completed Project](https://github.com/JonathanVarild/DD2482-Automated-Software-Testing-and-DevOps)
+
 We have taken one of my [previous projects](https://github.com/JonathanVarild/IV1201-group7-recruitment-application) from another course and will build a complete DevOps workflow surrounding this project, including automated testing, deployment, infrastructure, and security. We have planned an extensive CI/CD pipeline as explained below which mostly will be implemented using GitHub Actions to deploy the application on a Virtual Private Server (VPS) with preview and production environments. Relevant checks are automatically made to ensure that everything works and that all changes to the codebase live up to the desired quality of the project.
 
 On every commit, we run a quick Continuous Integration (CI) workflow that installs dependencies, performs code linting, checks formatting, builds the project, checks for security issues, etc. When the developer is done implementing something, a pull request must be made to the main branch. Once a new pull request is made, we verify that all CI workflows still pass, perform more in-depth testing and security scanning, build the application into a Docker image, upload the Docker image to GitHub Container Registry, and deploy it to a temporary preview environment available on the deployment server. Once a pull request is closed, the preview environment shall be destroyed.

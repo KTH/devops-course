@@ -29,3 +29,8 @@ We will build TinyLink, a small full-stack URL shortening service a Node.js/Expr
 **Relevance**
 
 This project demonstrates a complete, working DevOps pipeline built around a single Docker image: the same artifact is linted, tested, scanned, and deployed, so what CI validates is exactly what runs live. Continuous integration and continuous deployment run as two GitHub Actions workflows, Terraform provisions the application infrastructure as code, and SonarCloud and Renovate together provide the project's quality and security automation. Every design decision, along with the project's limitations, is explained and justified in the final report.
+
+Final Submission
+
+Project repository: https://github.com/sangeetha-murugesan-sda9/DevOps-PipeLine-TinyLink-CaseStudy
+Deployed URL at the time of Submission : https://tinylink-ru43.onrender.com

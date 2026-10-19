@@ -2,7 +2,7 @@
 
 ## Title
 
-End-to-end DevOps pipeline on GKE with Terraform, Helm and AI-assisted remediation
+End-to-end DevOps pipeline on GKE with Terraform and Helm
 
 ## Names and KTH ID
 
@@ -19,25 +19,19 @@ End-to-end DevOps pipeline on GKE with Terraform, Helm and AI-assisted remediati
 
 ## Description
 
-We take a small three-tier app (frontend, REST API, PostgreSQL) and build the whole
-DevOps pipeline around it, deployed on a GKE cluster. Everything lives in one GitHub
-repository.
+We take a small three-tier app (frontend, REST API, PostgreSQL) and build the whole DevOps pipeline around it, with configuration for deployment on a GKE cluster. Everything lives in one GitHub repository.
 
-1. On every pull request GitHub Actions runs lint, type checks and unit tests, E2E tests with playwright, SonarQube with a quality gate, dependency and secret scanning, helm lint, and terraform validate + tflint + Trivy config scan with the terraform plan posted on the PR.
-2. Terraform will create the GKE Standard cluster, VPC, Artifact Registry,
-Workload Identity Federation for GitHub Actions, a budget alert and GCS remote state,
-split into modules. It also installs the third-party charts (kube-prometheus-stack,
-Loki, Tempo, HolmesGPT) through the Helm provider.
-3. We will write the application Helm chart ourselves: Deployments, Services, Ingress, HPA, a StatefulSet with persistent volumes for PostgreSQL, a pre-upgrade migration Job, RBAC and NetworkPolicies.
-4. On release a CD will be triggered, images are tagged with the commit SHA and pushed to Artifact Registry with a versioned OCI chart, then deployed with helm upgrade --install --atomic. Auth to GCP is keyless via Workload Identity Federation.
-5. The app is instrumented with OpenTelemetry and monitored in Grafana. An alert triggers HolmesGPT, which investigates with Prometheus and Loki data and proposes a helm rollback that runs only after human approval.
-6. As a result we will deliver a repo runnable from a fresh GCP project.
+1. On pull requests GitHub Actions runs lint, type checks and unit tests, E2E tests with Playwright, dependency checks, container scanning, Helm lint, and Terraform validate + TFLint + Trivy configuration scanning. Terraform plans can be posted on the PR when cloud access is configured.
+2. Terraform defines the GKE Autopilot cluster, VPC, Workload Identity Federation for GitHub Actions, a budget alert and database backup storage. GCS provides remote state. Separate Helm configuration installs kube-prometheus-stack, Loki and Alloy.
+3. We write the application Helm chart ourselves: Deployments, Services, Ingress, HPA, a StatefulSet with persistent storage for PostgreSQL, a migration Job, RBAC and NetworkPolicies.
+4. After successful CI on main, CD builds images tagged with the commit SHA and pushes them to GitHub Container Registry alongside a versioned OCI chart. Deployment uses helm upgrade --install with rollback on failure. Authentication to GCP is keyless through Workload Identity Federation.
+5. The app lets visitors suggest beer prices and authorised admins approve, reject or reverse changes. PostgreSQL stores suggestions, published changes and audit history. Clerk Development handles administrator authentication and MFA. Grafana dashboards and Prometheus alert rules cover workload health, while Loki collects logs.
+6. The repository includes Docker startup, infrastructure configuration, deployment workflows and setup documentation. Local startup has been verified; a complete deployment from a fresh GCP project still needs end-to-end verification.
 
 **Relevance**
 
-The project puts CI, CD, infrastructure as code, a modern development platform and
-quality/security automation into one repository, and closes the loop from delivery to
-operation with observability-driven remediation. We chose the more hands-on options on
-purpose to learn them - GKE Standard over Autopilot, our own Helm chart, an in-cluster
-database over Cloud SQL, and Kubernetes over the Docker Swarm one of us already knows -
-and the report explains what we would do differently in production.
+The project puts CI, CD, infrastructure as code, a modern development platform and quality/security automation into one repository. We chose hands-on options to learn them: our own Helm chart, an in-cluster database over Cloud SQL, and Kubernetes over the Docker Swarm one of us already knows. GKE Autopilot reduces node-management work, and the report explains the limitations and what we would do differently in production. 
+Links: Hosted project: https://alus.chudars.lv/ 
+Link to proposal:https://github.com/KTH/devops-course/pull/3027 
+Link to repo:https://github.com/eedvardss/manbesi-beer-map 
+Project report and AI usage:https://github.com/eedvardss/manbesi-beer-map/blob/main/docs/REPORT.md

@@ -53,3 +53,20 @@ The integration of Hadolint and Trivy demonstrates how the tooling used in the C
 The use of **signed Git tags** provides authenticity for released versions, while protecting published releases from modification helps preserve their integrity and reproducibility.
 
 The tutorial therefore combines **CI/CD automation, containerisation, release automation, version authenticity, and DevSecOps practices** into one reproducible workflow.
+
+Submission : 
+
+**The tutorial with killercoa:** 
+Here is the executable tutorial, we simulate what the gitlab runner will do
+
+[killercoda](https://killercoda.com/jekabs-cudars/scenario/gitcliff-tutorial)
+
+**Step by step report:** 
+
+Here we explain how to set up the gitlab repos to use git cliff also at the end of the tutorial there is a link to execute the pipelines
+
+[Step by step report](https://gitcliff-executive-demo-7029a0.gitlab.io)
+
+**Original proposal:** [PR #2971](https://github.com/KTH/devops-course/pull/2971)
+
+In case of any problems accessing the repo just send us an email 
