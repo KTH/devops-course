@@ -26,40 +26,43 @@ The API provides weather information for a requested city and is implemented usi
 
 The CI pipeline is implemented using **GitHub Actions** and is automatically triggered on every push and pull request.
 
-**CI Workflow**
-
-```text
-Developer Commit
-       ↓
-GitHub Push
-       ↓
-GitHub Actions
-       ↓
-OpenAPI Validation
-       ↓
-Spectral Linting
-       ↓
-Unit Testing
-       ↓
-Build Verification
-```
-
 **Continuous Deployment (CD) to Azure API Management**
 
-The CD pipeline automatically deploys the OpenAPI specification to **Azure API Management (APIM)** after successful validation.
+The CD pipeline automatically deploys the application package to App Service, imports the OpenAPI definition into **Azure API Management (APIM)**, and updates the APIM backend URL.
 
-**CD Workflow**
-
+**CI/CD Workflow**
 ```text
-GitHub Push
-      ↓
-GitHub Actions
-      ↓
-Azure Authentication
-      ↓
-Import OpenAPI Specification
-      ↓
-Azure API Management
+Developer
+    │
+    ▼
+GitHub Repository
+    │
+    ├── OpenAPI Specification
+    ├── Node.js API
+    ├── Terraform
+    └── GitHub Actions
+            │
+            ▼
+      CI Pipeline
+      ├─ OpenAPI Validation
+      ├─ Spectral Linting
+      ├─ Unit Tests
+      ├─ Build Verification
+      └─ CodeQL Security Scan
+            │
+            ▼
+      CD Pipeline
+      ├─ Deploy Node.js Application
+      └─ Deploy OpenAPI Definition
+            │
+            ▼
+      Azure App Service
+            │
+            ▼
+      Azure API Management
+            │
+            ▼
+          Consumers
 ```
 
 **Infrastructure as Code (IaC)**
@@ -68,18 +71,28 @@ Infrastructure provisioning is automated using **Terraform**.
 
 **Infrastructure Components**
 
-Terraform resource provisions:
+Terraform configuration is in [`terraform/`](terraform/). It defines:
 
-```text
-Azure Resource Group
-Azure API Management Service
-```
+- An Azure resource group.
+- An Azure API Management service.
+- A Linux App Service plan.
+- A Linux Web App configured for Node.js 20.
+
+The resource group name and Azure region are variables; outputs include the resource group name, APIM name and gateway URL, and Web App URL. Terraform is **not** run by the GitHub Actions workflows: provision or update the resources separately, and ensure they exist before deployment. The infrastructure definitions do not configure a remote Terraform state backend.
+
 
 **Final Project submission**
 
 **GitHub Repository**
 
 **Repository:** https://github.com/Padmalaya26/api-lifecycle-devops
+
+**Project report**
+
+The report explains the architecture, demonstrated processes, design decisions, component interactions, and project limitations:
+
+- [Download the report (PDF)](https://github.com/Padmalaya26/api-lifecycle-devops/blob/main/docs/report.pdf)
+
 
 **GitHub Actions Pipeline**
 
@@ -92,16 +105,18 @@ Azure API Management Service
 ├── codeql.yml
 └── deploy-apim.yml
 ```
-**GitHub Actions Pipeline Run**
-The Actions tab provides visibility into all CI/CD piepline executions, validation results, test reports, security scans, and deployment status. Links are below.
 
-- **CodeQl Security Scan run Report:**
-    https://github.com/Padmalaya26/api-lifecycle-devops/actions/runs/37990068923
+**GitHub workflow runs Example**
+
+These links point to recorded GitHub workflow runs:
+
+- [CodeQL security scan](https://github.com/Padmalaya26/api-lifecycle-devops/actions/runs/40029173843/job/120672832499)
+- [CI pipeline](https://github.com/Padmalaya26/api-lifecycle-devops/actions/runs/40029107904/job/120672618644)
+- [CD pipeline](https://github.com/Padmalaya26/api-lifecycle-devops/actions/runs/40029313371/job/120673306173)
     
-- **CI Pipeline Run Report:** https://github.com/Padmalaya26/api-lifecycle-devops/actions/runs/37990068792
-    
-- **CD Pipeline Run Report:** https://github.com/Padmalaya26/api-lifecycle-devops/actions/runs/37990068662
-    
+**Previous Pull Request links**
+- [Task proposal pull request](https://github.com/KTH/devops-course/pull/3127)
+- [Previous project submission pull request](https://github.com/KTH/devops-course/pull/3199)
 
 **Conclusion**
 
