@@ -37,3 +37,5 @@ Metrics also help you:
 Prometheus and Grafana are standard tools in the industry. Prometheus collects and stores metrics. Grafana displays them and raises alerts. Together they are a common base for monitoring containerized applications.
 
 The tutorial will be relevant to DevOps because it will cover the full monitoring loop in one short exercise. You instrument an application, collect its metrics, visualize them and get alerted on abnormal behavior.
+
+Link to the tutorial: https://killercoda.com/kactuss/scenario/monitoring-tutorial

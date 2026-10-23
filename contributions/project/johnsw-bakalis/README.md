@@ -19,6 +19,12 @@ Multi-environment CI/CD DevOps Infrastructure for Full-stack Typescript Webapp
 
 ## Description
 
+You may find our finished project here: https://github.com/johnsward/quiz-game
+
+You may find our report, also contained in the project repo here: https://github.com/johnsward/quiz-game/blob/main/Devops%20Project%20Report.pdf
+
+You may find our original pull request here: https://github.com/KTH/devops-course/pull/3126
+
 We will build a dev → test → prod delivery pipeline for a True/Fake quiz game (web app) with a persistent leaderboard (React + Vite frontend, Express backend, PostgreSQL). Frontend and backend are written in TypeScript and each ships as its own Docker image.
 
 - **Build and test (CI):** GitHub Actions runs path-filtered linting, type checking, unit tests and backend integration tests on every pull request, plus a check that new database migrations stay compatible with the previous release.

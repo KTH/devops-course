@@ -33,3 +33,18 @@ We will use a portfolio website builder that we built earlier (has no devops wor
 The project takes an existing multi-repository application and builds a complete DevOps pipeline around it. Changes are linted, built and tested in CI, deployed automatically in CD as a Docker image, and released with feature flags. The infrastructure is defined as code with Terraform, and code and dependencies are scanned automatically. These cover the necessary topics to adopt a devops workflow while building software.
 
 
+Final Submission
+
+- Project repositories (All 3 repos have CI/CD , CodeQL and dependabot updates) :
+  - Backend, infrastructure (Terraform) and CI/CD: https://github.com/Val0007/web-site-backend
+  - Admin panel: https://github.com/Val0007/web-site-admin
+  - Public frontend: https://github.com/Val0007/website-frontend
+
+- Project report: https://github.com/Val0007/web-site-backend/blob/main/devops_report_final.pdf
+
+- Deployed project:
+  - Admin panel:  https://admin.zipfolio.xyz
+  - Public sites: https://test.zipfolio.xyz
+  - Backend API: https://zipfolio-backend-kth.onrender.com
+
+

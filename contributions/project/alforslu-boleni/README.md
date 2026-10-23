@@ -19,6 +19,12 @@ Reproducible CI/CD for a C++ Matrix Calculator
 
 ## Description
 
+[LINK TO SUBMISSION](https://github.com/djonte/devops-project). The repo is private which has been OK'd through email. It is currently shared with ericcornelissen, carminecesarano and algomaster99, since these were the TAs we found the GitHub usernames of. If anyone else from the teaching staff needs access, let us know. 
+
+The deployed project can be found under the [releases section](https://github.com/djonte/devops-project/releases) in the same private repo.
+
+------
+
 We will implement a DevOps workflow around an existing C++ matrix library developed for a previous course. This library support matrix arithmetic, row column operations, and stream input/output. It already has a GoogleTest suite. We will reuse this implementation in a web interface that interfaces directly with the library.
 
 The frontend will be developed with AI assistance using HTML, CSS and JS. The webserver will be packaged in a minimal python docker container that runs flask and calculations. Our cache, Redis, will be running in another container, and is meant to minimize calculation time for heavier operations (+ reduce I/O overhead of launching a Matrix binary process and reading results).

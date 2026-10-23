@@ -19,18 +19,24 @@ End-to-End DevOps Pipeline for Docmost
 
 ## Description
 
-We plan to build a complete DevOps pipeline around [Docmost](https://github.com/docmost/docmost), an open-source collaborative wiki and documentation platform. Docmost is an existing full-stack application using React, NestJS/TypeScript, PostgreSQL, and Redis. It already supports containerized deployment and provides existing build, lint, unit test, and E2E test commands. This makes Docmost a suitable application for integrating and evaluating a complete DevOps workflow.
+**Submission:**
+- **Project repository:** https://github.com/JingzeGuo/docmost
+- **Deployed application:** https://docmost.click, you can log in with email `shunkang77@gmail.com` and password `Lab20228907!`
+- **Final report:** https://github.com/JingzeGuo/docmost/blob/main/Project%20Report.pdf
+- **Original proposal:** https://github.com/KTH/devops-course/pull/3037
 
-The project will include:
+We implemented an end-to-end DevOps pipeline for Docmost, an open-source collaborative wiki and documentation platform.
 
-* **CI:** GitHub Actions will run linting, tests, builds, and security checks on pull requests.
-* **CD:** merges to the main branch will build a Docker image, tag it with the commit SHA, push it to GitHub Container Registry, and automatically deploy it.
-* **Infrastructure as Code:** Terraform will provision a VM-based deployment environment, including infrastructure such as networking, firewall rules, and a public IP. Docker Compose will run Docmost, PostgreSQL, Redis, and a reverse proxy on the provisioned host.
-* **Development platform:** GitHub will be used for source control, pull requests, GitHub Actions, and container images.
-* **Quality and security automation:** Trivy will be used for vulnerability scanning, together with relevant GitHub security features.
-* **AI-assisted tools:** the use of AI tools during workflow development, Terraform configuration, debugging, and code review will be documented.
+The completed project includes:
 
-All configuration, code, and documentation required to reproduce the system will be kept in the project repository, together with the required final report.
+- **CI:** GitHub Actions runs automated frontend and backend tests, application and Docker image builds, and Trivy security scans on pull requests.
+- **CD:** Changes merged into `main` trigger Docker image publishing to GHCR and automated deployment to AWS EC2 using GitHub Actions, OIDC authentication, and AWS Systems Manager.
+- **IaC:** Terraform manages the AWS infrastructure, including EC2, networking, persistent storage, and load balancing. Docker Compose manages the application and its PostgreSQL and Redis services.
+- **Development platform:** GitHub provides source control, pull request workflows, CI/CD automation, and container image hosting.
+- **Security:** Trivy scans container images, while AWS IAM roles and Systems Manager Parameter Store are used for deployment permissions and secret management.
+- **AI-assisted tools:** The use of AI-assisted tools during development is documented in the final report.
+
+The project repository contains the source code, infrastructure configuration, deployment scripts, and setup instructions. The final report describes the architecture, implementation, design decisions, and limitations.
 
 **Relevance**
 

@@ -19,6 +19,8 @@ Chaos Engineering: Testing How Your Service Behaves When a Dependency Fails
 
 ## Description
 
+**Tutorial:** https://killercoda.com/villiamriegler/scenario/chaos-engineering
+
 We will create an executable tutorial on chaos engineering with [Chaos Mesh](https://chaos-mesh.org/), running on
 Killercoda's Kubernetes playground.
 

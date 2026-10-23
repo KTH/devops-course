@@ -23,3 +23,5 @@ We (William Nordwall and Elsa Linnéusson) have gotten approval from the authors
 We will leave the feedback as a comment in their original Proposal PR.
 
 Link to their PR: [#3066](https://github.com/KTH/devops-course/pull/3066)
+
+Link to our [comment](https://github.com/KTH/devops-course/pull/3066#issuecomment-5990754099)

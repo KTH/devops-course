@@ -18,6 +18,9 @@ DevOps Pipeline for Spring Boot CRUD Application
 
 ## Description
 
+**Submission for #3093:**
+- Repository: https://github.com/eryngia/dd2482-project
+
 We will implement a complete, automated DevOps pipeline for a sample [Spring Boot CRUD REST API application](https://github.com/davidarchanjo/spring-boot-crud-rest). The pipeline will include:
 - **CI**: GitHub Actions runs Maven builds, automated unit tests, and code quality checks on every push and pull request.
 - **CD**: GitHub Actions handles the automated building of Docker images and deployment to local VMs.

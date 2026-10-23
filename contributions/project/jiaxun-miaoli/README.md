@@ -31,3 +31,9 @@ We want to build a complete DevOps pipeline for a small web application of our o
 **Relevance**
 
 The value of DevOps comes from the parts working together, not from any single tool. This project puts build, test, infrastructure and deployment into one repository and one pipeline, and demonstrates how a real-world application is delivered.
+
+Link to the project repo: [DD2482-project-miaoli-jiaxun](https://gits-15.sys.kth.se/jiaxun/DD2482-project-miaoli-jiaxun)
+Link to the [report](https://docs.google.com/document/d/1y8e7RaELYEb9ZPcHN43CnvBJuQwr98EUpJpzR-eS3a4/view)
+Link to the [running application](https://stcoursesearchdd2482.z1.web.core.windows.net/)
+
+Proposal PR: [#2968](https://github.com/KTH/devops-course/pull/2968)
