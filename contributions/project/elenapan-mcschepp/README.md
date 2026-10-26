@@ -21,7 +21,7 @@ Project
 Project submission. The project is complete. Proposal:[ #2997.](https://github.com/KTH/devops-course/pull/3150)
 
 * Soruce repo: https://github.com/FlowRyda/OptiFarm  
-* Report: https://github.com/FlowRyda/OptiFarm/blob/main/Report.md 
+* Report: [https://github.com/FlowRyda/OptiFarm/blob/main/Report.md ](https://github.com/FlowRyda/OptiFarm/blob/main/OptiFarm_DevOps_Report.pdf)
 * AI Usage: https://github.com/FlowRyda/OptiFarm/blob/main/AI_USAGE.md 
 
 We made OptiFarm, a farm-management application implemented as a student project from another course, into the cloud.
