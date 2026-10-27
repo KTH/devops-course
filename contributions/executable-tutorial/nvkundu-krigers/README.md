@@ -24,3 +24,7 @@ We will build an executable tutorial that shows how to use Garak ([a tool that s
 **Relevance**
 
 LLM applications can have security problems that normal unit tests do not catch. Prompt injection can make a chatbot follow untrusted instructions instead of the rules it was given, which can lead to unsafe or unintended behaviour. Garak makes these problems testable with repeatable security probes and reports. This lets teams treat LLM security checks like other DevSecOps quality gates and run them automatically before changes are merged.
+
+
+**Hand in link for PR #3032:**
+https://colab.research.google.com/drive/1Z6pQDchjRfd_n2M1u-iUVaQ7nwNlNbgF?usp=sharing

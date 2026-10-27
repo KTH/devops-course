@@ -2,7 +2,7 @@
 
 ## Title
 
-Reproducible CI/CD for a task-tracking API
+Final submission: Reproducible CI/CD for a task-tracking API
 
 ## Names and KTH ID
 
@@ -19,24 +19,24 @@ Reproducible CI/CD for a task-tracking API
 
 ## Description
 
-We will build a small task-tracking API using Python, FastAPI and SQLite. It will support creating, listing and completing tasks, with persistent storage and input validation. Our main focus will be an integrated DevOps workflow rather than extensive application features.
+Final submission of the completed project from the accepted proposal [#3088](https://github.com/KTH/devops-course/pull/3088).
 
-The project will include:
+- [Implementation repository](https://github.com/Hasan-Kalzi/task-tracking-project-devops)
+- [Project report (PDF)](https://github.com/Hasan-Kalzi/task-tracking-project-devops/blob/main/docs/report.pdf)
+- [Release v0.1.1 and deployment assets](https://github.com/Hasan-Kalzi/task-tracking-project-devops/releases/tag/v0.1.1)
+- [Successful CI run](https://github.com/Hasan-Kalzi/task-tracking-project-devops/actions/runs/38172535137)
+- [Successful delivery run](https://github.com/Hasan-Kalzi/task-tracking-project-devops/actions/runs/38172535183)
+- [Deployment and access instructions](https://github.com/Hasan-Kalzi/task-tracking-project-devops/blob/main/docs/runbook.md)
+- [AI assistance record](https://github.com/Hasan-Kalzi/task-tracking-project-devops/blob/main/docs/ai-use.md)
 
-- Continuous integration: GitHub Actions will run pytest tests, Ruff static analysis, a Docker image build and a container smoke test. Tests will cover task operations, invalid input and persistence across application restarts.
+The FastAPI/SQLite application supports creating, listing and completing tasks with input validation and persistent storage. GitHub Actions runs 25 tests, Ruff checks, Ansible and Compose validation, a Docker build and container persistence checks. Version tags trigger delivery of the tested Linux/amd64 image archive, deployment bundle, release manifest and SHA256 checksums. Ansible provisions an Ubuntu 24.04 x86_64 VM and applies the delivered image without rebuilding.
 
-- Continuous delivery: A version-tag-triggered workflow will publish a GitHub Release only after the required checks pass. Each release will contain the tested Docker image as an archive, deployment configuration and instructions.
+We confirmed provisioning and deployment, unchanged repeats, task persistence after container recreation, an upgrade from v0.1.0 to v0.1.1 and manual rollback to v0.1.0. The original saved task remained unchanged across the upgrade and rollback.
 
-- Infrastructure as Code: Ansible will configure a supported Linux host, including the container runtime and application directories. Docker Compose will define the service, persistent storage, port binding and health check. We will verify deployment on a clean Linux virtual machine.
+The application runs on a local Ubuntu VM. Its loopback HTTP endpoint is accessed through an SSH tunnel as described in the runbook. Continuous delivery is automated; applying a release to the VM is a separate Ansible operation.
 
-- Collaboration: We will use GitHub issues and pull requests to organise and review our work.
-
-- AI assistance: We will document how AI-assisted tools were used and how their output was reviewed and verified.
-
-The implementation repository will contain all application code, tests, workflows, infrastructure configuration and instructions needed to run the system. We will demonstrate that failing checks prevent delivery and document rollback to a previous release, distinguishing application rollback from database recovery.
-
-We will provide a 2–3 page report explaining the architecture, processes, component interactions, design decisions, limitations and trade-offs.
+Codex generated the implementation baseline and report draft. The students integrated contributions and ran the checks. AI assistance, corrections, responsibilities and verification limits are documented in the report and AI assistance record.
 
 **Relevance**
 
-The project demonstrates how source-code changes become tested, packaged and reproducibly deployable software. It combines CI, continuous delivery, Infrastructure as Code and automated quality checks into one coherent workflow.
+The project integrates CI, versioned software delivery, Infrastructure as Code and automated quality checks in one repository. It demonstrates how tested source becomes a deployable artefact and how application versions can be changed while retaining persistent data. The report explains the architecture, design decisions, component interactions, limitations and trade-offs.

@@ -27,6 +27,10 @@ We will build an integrated DevOps pipeline for **Snip**, a URL-shortening servi
 - **Security:** Gitleaks will scan for exposed secrets, Trivy will scan dependencies, container images, and infrastructure configuration, and Dependabot will propose dependency updates.
 - **Development platform:** GitHub will support version control, pull requests, code reviews, and required automated checks.
 
+You can find all the code for the project [here](https://github.com/TheArtemis/DD2482-project).
+
+Please contact us during grading so that we can start the deployed application and provide the ip address. 
+
 **Relevance**
 
 The project demonstrates core DevOps practices through a unified workflow connecting development, testing, security, infrastructure management, and deployment. GitHub Actions provides continuous integration and artifact delivery, Terraform makes infrastructure reproducible, and Argo CD keeps the deployed application aligned with the desired state in Git. By integrating these practices around a small but complete application, we can demonstrate and explain how an application change moves from source code to a running service.

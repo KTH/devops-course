@@ -19,6 +19,14 @@ DevOps and LLMOps Pipeline for a Web-Based Quiz Application
 
 ## Description
 
+**Project Repository:** https://github.com/igni28/devops-quizapp-project
+
+**Deployed Application:** https://igni28.github.io/devops-quizapp-project/
+
+**The Report:** https://github.com/igni28/devops-quizapp-project/blob/main/REPORT.pdf
+
+
+
 This project will extend an existing open-source web-based trivia application:
 
 https://github.com/Jimike110/quizApp

@@ -19,6 +19,14 @@ Implementation of a DevOps pipeline for a small, open-source Flask application
 
 ## Description
 
+You may find our finished project here: https://github.com/AlexWigren/DevOpsProject
+
+You may find the deployed web app here :https://devops-app-2ldrlwtrxq-lz.a.run.app/
+
+You may find our report, also contained in the project repo here: https://github.com/AlexWigren/DevOpsProject/blob/main/Report.pdf
+
+You may find our original pull request here: https://github.com/KTH/devops-course/pull/3113
+
 Our proposed project consists of implementing a simple but robust CI/CD pipeline for a small open-source project, utilizing IaC to deploy it in the cloud. Specifically, the application we have chosen is a simple CRUD implementation utilizing Flask and SQLAlchemy, generously provided by its author Samim Sarkar, which may be found [here](https://github.com/iamsamimsarkar/flask-crud-sqlite?utm_source=chatgpt.com).
 
 We have used the grading criteria to outline the following plan which we believe satisfies all the requirements for the project:

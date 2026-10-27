@@ -39,3 +39,7 @@ We’ll plan on using AI both for creating the app and for code reviews and will
 **Relevance**
 
 We hope to create an actual tool that individuals new to Stockholm can use. Given that it's an actual tool, we need to utilize best practices for the project that we’ll learn throughout the DevOps course. Through integrating CI, CD, IaC, platform tooling, and security automation into one pipeline, we will both ensure we have a quality app and learn more about the DevOps process. 
+
+Link to our project: [neighborhood-housing-tool](https://github.com/hosseinghzadeh/neighborhood-housing-tool)
+
+Link to our report: [docs/REPORT.md](https://github.com/hosseinghzadeh/neighborhood-housing-tool/blob/main/docs/REPORT.md)
