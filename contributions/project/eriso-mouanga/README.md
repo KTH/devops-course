@@ -52,4 +52,4 @@ report is in the repo
 ---
 
 ## Resubmission details
-Previous submission links: [submission \#3247](https://github.com/KTH/devops-course/pull/3247), [proposal \#3109]([link](https://github.com/KTH/devops-course/pull/3109))
+Previous submission links: [submission \#3247](https://github.com/KTH/devops-course/pull/3247), [proposal \#3109](https://github.com/KTH/devops-course/pull/3109)
