@@ -52,4 +52,9 @@ report is in the repo
 ---
 
 ## Resubmission details
+This project has been changed to: make CD dependent on CI, make Trivy failures lead to the whole deployment failing, and increase accuracy of the report.
 Previous submission links: [submission \#3247](https://github.com/KTH/devops-course/pull/3247), [proposal \#3109](https://github.com/KTH/devops-course/pull/3109)
+
+link to live demo: http://16.16.209.177/
+github: https://github.com/superderker/klaus-clone
+[report](https://github.com/superderker/klaus-clone/blob/main/report.pdf) is in the repo
