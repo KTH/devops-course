@@ -48,3 +48,8 @@ This project applies real-world DevOps practices to an existing web application.
 link to live demo: http://16.16.209.177/
 github: https://github.com/superderker/klaus-clone
 report is in the repo
+
+---
+
+## Resubmission details
+Previous submission links: [submission \#3247](https://github.com/KTH/devops-course/pull/3247), [proposal \#3109]([link](https://github.com/KTH/devops-course/pull/3109))
