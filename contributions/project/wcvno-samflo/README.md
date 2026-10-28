@@ -15,6 +15,12 @@ Setting up DevOps for a flappy bird web app
 Project
 
 ## Description
+Project resubmission. The project report has been updated following the feedback from the TA regarding trade-offs and limitations.
+- Source repo:  [project](https://github.com/williamnordwall/devops-project)
+- Initial proposal:  [#3047](https://github.com/KTH/devops-course/pull/3047)
+- Initial submission: [#3206](https://github.com/KTH/devops-course/pull/3206)
+
+
 We will implement DevOps in a flappy bird game which runs as a web application. As part of this, we will set up a CI pipeline, a CD pipeline and infrastructure as code.
 The project will be set up as a GitHub repository, and we will use GitHub Actions for CI/CD.
 - The CI pipeline will run linting and tests on the code. This will run on every pull request and push to main.
