@@ -40,3 +40,7 @@ The different components will be integrated into a single workflow, allowing cha
 **Final report:** [Read the final report](https://gitlab.com/ramikhd/valorant-devops/-/blob/main/PROJECT_REPORT.pdf)
 
 **Original proposal:** [PR #2975](https://github.com/KTH/devops-course/pull/2975)
+
+**Previous submission:** [PR #3192](https://github.com/KTH/devops-course/pull/3192)
+
+- Resubmission: The final report has been updated to address the feedback on AI usage.
