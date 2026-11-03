@@ -2,7 +2,7 @@
 
 ## Title
 
-Final submission: Reproducible CI/CD for a task-tracking API
+Resubmission: Reproducible CI/CD for a task-tracking API
 
 ## Names and KTH ID
 
@@ -19,24 +19,28 @@ Final submission: Reproducible CI/CD for a task-tracking API
 
 ## Description
 
-Final submission of the completed project from the accepted proposal [#3088](https://github.com/KTH/devops-course/pull/3088).
+Revised project submission for the 27 October 2026 resubmission deadline, addressing the grading feedback on the report and missing failure-blocking evidence.
 
+- [Accepted task proposal #3088](https://github.com/KTH/devops-course/pull/3088)
+- [Previous submission #3248](https://github.com/KTH/devops-course/pull/3248)
+- [Revised project report PDF](https://github.com/Hasan-Kalzi/task-tracking-project-devops/blob/main/docs/report.pdf)
 - [Implementation repository](https://github.com/Hasan-Kalzi/task-tracking-project-devops)
-- [Project report (PDF)](https://github.com/Hasan-Kalzi/task-tracking-project-devops/blob/main/docs/report.pdf)
-- [Release v0.1.1 and deployment assets](https://github.com/Hasan-Kalzi/task-tracking-project-devops/releases/tag/v0.1.1)
-- [Successful CI run](https://github.com/Hasan-Kalzi/task-tracking-project-devops/actions/runs/38172535137)
-- [Successful delivery run](https://github.com/Hasan-Kalzi/task-tracking-project-devops/actions/runs/38172535183)
+- [Rollback verification record](https://github.com/Hasan-Kalzi/task-tracking-project-devops/blob/96c1a50e28834ec3163a87b23ec572d9440c811a/docs/verification/rollback-20261011.md)
+- [Evidence commit 96c1a50](https://github.com/Hasan-Kalzi/task-tracking-project-devops/commit/96c1a50e28834ec3163a87b23ec572d9440c811a)
+- [Failed-delivery verification record](https://github.com/Hasan-Kalzi/task-tracking-project-devops/blob/96c1a50e28834ec3163a87b23ec572d9440c811a/docs/verification/failure-blocking-20261017.md)
+- [Controlled failed delivery run](https://github.com/Hasan-Kalzi/task-tracking-project-devops/actions/runs/39058760546)
+- [Successful release v0.1.1](https://github.com/Hasan-Kalzi/task-tracking-project-devops/releases/tag/v0.1.1)
 - [Deployment and access instructions](https://github.com/Hasan-Kalzi/task-tracking-project-devops/blob/main/docs/runbook.md)
 - [AI assistance record](https://github.com/Hasan-Kalzi/task-tracking-project-devops/blob/main/docs/ai-use.md)
 
-The FastAPI/SQLite application supports creating, listing and completing tasks with input validation and persistent storage. GitHub Actions runs 25 tests, Ruff checks, Ansible and Compose validation, a Docker build and container persistence checks. Version tags trigger delivery of the tested Linux/amd64 image archive, deployment bundle, release manifest and SHA256 checksums. Ansible provisions an Ubuntu 24.04 x86_64 VM and applies the delivered image without rebuilding.
+Changes responding to the feedback:
 
-We confirmed provisioning and deployment, unchanged repeats, task persistence after container recreation, an upgrade from v0.1.0 to v0.1.1 and manual rollback to v0.1.0. The original saved task remained unchanged across the upgrade and rollback.
+1. The three-page report removes the contradictory rollback statements and links to the dated verification record and evidence commit. The 11 October checks exercised v0.1.0 to v0.1.1 and back to v0.1.0 using the corrected deployment playbook; the original saved task remained unchanged.
+2. The 17 October controlled experiment demonstrates that failing checks prevent delivery. Pytest recorded 25 passes and one intentional failure; packaging and publication were skipped, and no v0.1.2 release was created by that run. The deliberately failing test remains on an unmerged experiment branch.
+3. The revised report explains the integrated architecture, design decisions, component interactions, limitations, trade-offs and AI assistance within the required page limit.
 
-The application runs on a local Ubuntu VM. Its loopback HTTP endpoint is accessed through an SSH tunnel as described in the runbook. Continuous delivery is automated; applying a release to the VM is a separate Ansible operation.
-
-Codex generated the implementation baseline and report draft. The students integrated contributions and ran the checks. AI assistance, corrections, responsibilities and verification limits are documented in the report and AI assistance record.
+The FastAPI/SQLite implementation integrates GitHub Actions CI and tag-triggered delivery, Docker Compose persistence checks and Ansible infrastructure provisioning and archive deployment. Continuous delivery is automated; applying a release to the local Ubuntu VM is a separate Ansible operation, with HTTP access through SSH forwarding.
 
 **Relevance**
 
-The project integrates CI, versioned software delivery, Infrastructure as Code and automated quality checks in one repository. It demonstrates how tested source becomes a deployable artefact and how application versions can be changed while retaining persistent data. The report explains the architecture, design decisions, component interactions, limitations and trade-offs.
+The project demonstrates how tested source becomes a versioned deployable artefact. It combines CI, continuous delivery, Infrastructure as Code and quality automation, and records application version changes with persistent data. The revised report and linked evidence address the unmet criteria identified in the original grading.
